@@ -1,0 +1,25 @@
+{
+    "name": "@miljodirektoratet/react",
+    "version": "0.0.1",
+    "description": "React-komponenter for Miljødirektoratet",
+    "author": "Miljødirektoratet",
+    "main": "./src/index.css",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc -p tsconfig.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/miljodir/styles"
+    },
+    "dependencies": {
+        "classnames": "^2.3.1"
+    },
+    "devDependencies": {
+        "typescript": "^4.7.3"
+    },
+    "files": ["dist", "src"]
+}

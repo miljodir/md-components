@@ -1,0 +1,16 @@
+{
+    "name": "@miljodirektoratet/css",
+    "version": "0.0.1",
+    "description": "CSS for Miljødirektoratet",
+    "author": "Miljødirektoratet",
+    "main": "./src/index.css",
+    "license": "MIT",
+    "publishConfig": {
+      "access": "public"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/miljodir/styles"
+    }
+  }
+  
