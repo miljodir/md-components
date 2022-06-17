@@ -1,4 +1,4 @@
-## @miljodirektoratet/md-react
+## @miljodirektoratet/md-css
 
 To start using the stylesheets:
 
