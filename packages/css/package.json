@@ -12,6 +12,5 @@
       "type": "git",
       "url": "git+https://github.com/miljodir/md-components"
     },
-    "files": ["src"]
+    "files": ["src", "README.md"]
   }
-  
