@@ -1,3 +1,3 @@
-import MdButton from './MdButton';
+import MdButton from './button/MdButton';
 
 export { MdButton };

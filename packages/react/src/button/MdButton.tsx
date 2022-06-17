@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: 'primary' | 'secondary' | 'danger';
+  theme?: 'primary' | 'secondary' | "danger";
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
