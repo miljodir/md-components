@@ -1,5 +1,3 @@
-import MdButton from "./MdButton";
+import MdButton from './MdButton';
 
-export {
-    MdButton
-};
+export { MdButton };

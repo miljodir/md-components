@@ -1,92 +1,93 @@
 .md-button {
-    align-items: center;
-    background-color: #005e5d;
-    border: 2px solid #005e5d;
-    border-radius: 0.3rem;
-    color: #ffffff;
-    display: flex;
-    font-weight: 300;
-    font-family: "Sofia Pro";
-    height: 44px;
-    outline: 2px solid #005e5d;
-    padding: 0 1.5rem;
+  align-items: center;
+  background-color: #005e5d;
+  border: 2px solid #005e5d;
+  border-radius: 0.3rem;
+  color: #ffffff;
+  display: flex;
+  font-weight: 300;
+  font-family: 'Sofia Pro';
+  height: 44px;
+  outline: 2px solid #005e5d;
+  padding: 0 1.5rem;
 }
 
 .md-button__leftIcon {
-    height: 0.75rem;
-    width: 0.75rem;
-    position: relative;
-    right: 4px;
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  right: 4px;
 }
 
 .md-button__rightIcon {
-    height: 0.75rem;
-    width: 0.75rem;
-    position: relative;
-    left: 4px;
+  height: 0.75rem;
+  width: 0.75rem;
+  position: relative;
+  left: 4px;
 }
 
 .md-button:focus {
-    background-color: #337e7d;
-    border-color: #337e7d;
-    outline: 2px solid #337e7d;
-    outline-offset: 2px;
+  background-color: #337e7d;
+  border-color: #337e7d;
+  outline: 2px solid #337e7d;
+  outline-offset: 2px;
 }
 
 .md-button:hover {
-    cursor: pointer;
-    background-color: #005251;
-    border-color: #005251;
-    outline: 2px solid #005251;
+  cursor: pointer;
+  background-color: #005251;
+  border-color: #005251;
+  outline: 2px solid #005251;
 }
 
-.md-button[disabled], .md-button:disabled {
-    background-color: #d2d2d2;
-    border: 2px solid #d2d2d2;
-    color: #f3f0e4;
-    cursor: not-allowed;
-    outline: 2px solid #d2d2d2;
+.md-button[disabled],
+.md-button:disabled {
+  background-color: #d2d2d2;
+  border: 2px solid #d2d2d2;
+  color: #f3f0e4;
+  cursor: not-allowed;
+  outline: 2px solid #d2d2d2;
 }
 
 .md-button--secondary {
-    background-color: #ffffff;
-    border: 2px solid #005e5d;
-    color: #005e5d;
+  background-color: #ffffff;
+  border: 2px solid #005e5d;
+  color: #005e5d;
 }
 
 .md-button--secondary:hover:enabled {
-    background-color: #ccdfde;
+  background-color: #ccdfde;
 }
 
 .md-button--secondary:focus:enabled {
-    outline: 2px solid #337e7d;
-    border-color: #337e7d;
+  outline: 2px solid #337e7d;
+  border-color: #337e7d;
 }
 
 .md-button--secondary:disabled {
-    border: 2px solid #808080;
-    color: #808080;
+  border: 2px solid #808080;
+  color: #808080;
 }
 
 .md-button--danger {
-    border: 2px solid #ca0000;
-    background-color: #ca0000;
-    outline: 2px solid #ca0000;
+  border: 2px solid #ca0000;
+  background-color: #ca0000;
+  outline: 2px solid #ca0000;
 }
 
 .md-button--danger:focus:enabled {
-    background-color: #b7090d;
-    border-color: #b7090d;
-    outline: 2px solid #b7090d;
+  background-color: #b7090d;
+  border-color: #b7090d;
+  outline: 2px solid #b7090d;
 }
 
 .md-button--danger:hover:enabled {
-    background-color: #b7090d;
-    border-color: #b7090d;
-    outline: 2px solid #b7090d;
+  background-color: #b7090d;
+  border-color: #b7090d;
+  outline: 2px solid #b7090d;
 }
 
 .md-button--danger:disabled {
-    border: 2px solid #808080;
-    color: #808080;
+  border: 2px solid #808080;
+  color: #808080;
 }
