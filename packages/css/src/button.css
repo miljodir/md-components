@@ -1,8 +1,10 @@
 .md-button {
+    align-items: center;
     background-color: #005e5d;
     border: 2px solid #005e5d;
     border-radius: 0.3rem;
     color: #ffffff;
+    display: flex;
     font-weight: 300;
     font-family: "Sofia Pro";
     height: 44px;
@@ -10,8 +12,18 @@
     padding: 0 1.5rem;
 }
 
-.content {
-    display: flex;
+.md-button__leftIcon {
+    height: 0.75rem;
+    width: 0.75rem;
+    position: relative;
+    right: 4px;
+}
+
+.md-button__rightIcon {
+    height: 0.75rem;
+    width: 0.75rem;
+    position: relative;
+    left: 4px;
 }
 
 .md-button:focus {
