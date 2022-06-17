@@ -10,7 +10,8 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/miljodir/styles"
-    }
+      "url": "git+https://github.com/miljodir/md-components"
+    },
+    "files": ["src"]
   }
   
