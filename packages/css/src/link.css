@@ -1,7 +1,12 @@
 .md-link {
-  border-bottom: 1px solid #005e5d;
-  color: #005e5d;
+  border-bottom: 1px solid var(--darkPrimaryColor);
+  color: var(--darkPrimaryColor);
+  cursor: pointer;
   font-family: 'Sofia Pro';
   font-size: 1rem;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+.md-link:focus {
+  outline: 2px solid var(--outlineColor);
 }

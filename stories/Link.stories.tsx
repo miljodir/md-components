@@ -7,10 +7,14 @@ export default {
   component: MdLink,
 };
 
-function clickHandler(el) {
-  console.log('Link was clicked', el);
+function clickHandler(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log('Link was clicked', event);
 }
 
 export const Primary = () => (
-  <MdLink onClick={clickHandler}>Dette er en lenke</MdLink>
+  <MdLink onClick={clickHandler} href="#">
+    Dette er en lenke
+  </MdLink>
 );

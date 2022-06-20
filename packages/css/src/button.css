@@ -1,14 +1,14 @@
 .md-button {
   align-items: center;
-  background-color: #005e5d;
-  border: 2px solid #005e5d;
+  background-color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
   border-radius: 0.3rem;
   color: #ffffff;
   display: flex;
   font-weight: 300;
   font-family: 'Sofia Pro';
   height: 44px;
-  outline: 2px solid #005e5d;
+  outline: 2px solid var(--primaryColor);
   padding: 0 1.5rem;
 }
 
@@ -27,9 +27,9 @@
 }
 
 .md-button:focus {
-  background-color: #337e7d;
-  border-color: #337e7d;
-  outline: 2px solid #337e7d;
+  background-color: var(--primaryColor);
+  border-color: var(--primaryColor);
+  outline: 2px solid var(--primaryColor);
   outline-offset: 2px;
 }
 
@@ -51,8 +51,8 @@
 
 .md-button--secondary {
   background-color: #ffffff;
-  border: 2px solid #005e5d;
-  color: #005e5d;
+  border: 2px solid var(--darkPrimaryColor);
+  color: var(--darkPrimaryColor);
 }
 
 .md-button--secondary:hover:enabled {
@@ -60,8 +60,8 @@
 }
 
 .md-button--secondary:focus:enabled {
-  outline: 2px solid #337e7d;
-  border-color: #337e7d;
+  outline: 2px solid var(--primaryColor);
+  border-color: var(--primaryColor);
 }
 
 .md-button--secondary:disabled {
