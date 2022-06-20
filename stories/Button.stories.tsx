@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MdButton from '../packages/react/src/button/MdButton';
-import ChevronIcon from '../packages/react/src/icons/Chevron';
+import ChevronIcon from '../packages/react/src/icons/ChevronIcon';
 
 export default {
   title: 'Components/Button',
