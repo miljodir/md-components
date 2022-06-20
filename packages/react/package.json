@@ -17,7 +17,8 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "typescript": "^4.7.3"

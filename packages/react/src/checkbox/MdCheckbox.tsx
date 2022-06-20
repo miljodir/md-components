@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid_v4 from 'uuid/dist/esm-browser/v4.js';
 
 interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -6,16 +7,17 @@ interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {
+  const uuid = uuid_v4();
   return (
     <div className="md-checkbox">
       <input
-        id="test"
+        id={uuid}
         className="md-checkbox__input"
         type="checkbox"
         value={value}
         {...otherProps}
       />
-      <label className="md-checkbox__label" htmlFor="test">
+      <label className="md-checkbox__label" htmlFor={uuid}>
         <span className="md-checkbox__labelText">{label}</span>
       </label>
     </div>
