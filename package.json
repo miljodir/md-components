@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages --source-branch main"
   },
   "keywords": [],
   "author": "Miljødirektoratet",
@@ -26,6 +27,7 @@
     "@storybook/builder-webpack4": "^6.5.9",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/react": "^6.5.9",
+    "@storybook/storybook-deployer": "^2.8.11",
     "@storybook/testing-library": "0.0.13",
     "babel-loader": "^8.2.5",
     "react": "^18.2.0",
