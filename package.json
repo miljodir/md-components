@@ -7,7 +7,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages --source-branch main",
-    "deploy-storybook-ci": "storybook-to-ghpages --source-branch main -- --ci"
+    "deploy-storybook-ci": "storybook-to-ghpages --ci --source-branch main"
   },
   "keywords": [],
   "author": "Miljødirektoratet",
