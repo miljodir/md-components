@@ -12,17 +12,19 @@
 }
 
 .md-button__leftIcon {
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 13.5px;
+  width: 13.5px;
   position: relative;
-  right: 4px;
+  right: 8px;
+  top: 1px;
 }
 
 .md-button__rightIcon {
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 13.5px;
+  width: 13.5px;
   position: relative;
-  left: 4px;
+  left: 8px;
+  top: 1px;
 }
 
 .md-button:focus {
