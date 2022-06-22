@@ -2,7 +2,6 @@
   align-items: center;
   background-color: var(--primaryColor);
   border: 2px solid var(--primaryColor);
-  border-radius: 0.3rem;
   color: #ffffff;
   display: flex;
   font-weight: 300;
