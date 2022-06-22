@@ -20,6 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci --source-branch main --host-token-env-variable=GITHUB_TOKEN
+        run: npm run deploy-storybook -- --ci --source-branch main
         env:
-          GITHUB_TOKEN: miljodir:@${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
