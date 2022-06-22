@@ -36,5 +36,9 @@
   },
   "dependencies": {
     "classnames": "^2.3.1"
+  },
+  "storybook-deployer": {
+    "gitUsername": "miljodir",
+    "commitMessage": "Deploy Storybook to GitHub Pages"
   }
 }
