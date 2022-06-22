@@ -1,0 +1,22 @@
+name: deploy-storybook-workflow
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/**'
+      - 'stories/**'
+      - package.json
+      - package-lock.json
+jobs:
+  deploy-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm ci
+      - name: Deploy storybook to GitHub Pages
+        run: npm run deploy-storybook-ci

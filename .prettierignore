@@ -4,3 +4,4 @@ node_modules
 dist
 package
 package-lock.json
+*.yml

@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages --source-branch main"
+    "deploy-storybook": "storybook-to-ghpages --source-branch main",
+    "deploy-storybook-ci": "storybook-to-ghpages --source-branch main -- --ci"
   },
   "keywords": [],
   "author": "Miljødirektoratet",
