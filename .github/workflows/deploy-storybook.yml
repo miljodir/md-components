@@ -21,4 +21,4 @@ jobs:
       - name: Deploy storybook to GitHub Pages
         run: npm run deploy-storybook -- --ci --source-branch main --host-token-env-variable=GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: miljodir:@${{ secrets.GITHUB_TOKEN }}
