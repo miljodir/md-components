@@ -10,7 +10,7 @@ Then import the CSS, for example from JavaScript:
 
 ```
 import { MdButton } from '@miljodirektoratet/md-react';
-import '@miljodirektoratet/md-css/src/index.css';
+import '@miljodirektoratet/md-css';
 
 const MyComponent = () => {
     return (
