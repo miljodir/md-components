@@ -1,0 +1,12 @@
+.md-data-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.md-data-grid__columnHeaders {
+  display: flex;
+}
+
+.md-data-grid__rows {
+  display: flex;
+}
