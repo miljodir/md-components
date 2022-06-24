@@ -1,6 +1,8 @@
 import React from 'react';
 
 import MdDataGrid from '../packages/react/src/data-grid/MdDataGrid';
+import MdColumnHeaders from '../packages/react/src/data-grid/MdColumnHeaders';
+import MdColumnHeader from '../packages/react/src/data-grid/MdColumnHeader';
 import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
@@ -9,16 +11,11 @@ export default {
 };
 
 export const Primary = () => {
+  const [allChecked, setAllChecked] = React.useState(false);
+  const toggleAllChecked = () => setAllChecked(!allChecked);
+
   return (
     <MdDataGrid
-      columnHeaders={[
-        'Kolonne 1 Masse Masse Masse Masse Content',
-        'Kolonne 2',
-        'Kolonne 3',
-        'Kolonne 4',
-        'Kolonne 5',
-        'Kolonne 6',
-      ]}
       rows={[
         {
           selected: false,
@@ -54,6 +51,21 @@ export const Primary = () => {
           ],
         },
       ]}
-    />
+    >
+      <MdColumnHeaders
+        checkboxProps={{
+          value: 'allChecked',
+          checked: allChecked,
+          onChange: toggleAllChecked,
+        }}
+      >
+        <MdColumnHeader>Kolonne 1 Med Masse Masse Masse Content</MdColumnHeader>
+        <MdColumnHeader>Kolonne 2</MdColumnHeader>
+        <MdColumnHeader>Kolonne 3</MdColumnHeader>
+        <MdColumnHeader>Kolonne 4</MdColumnHeader>
+        <MdColumnHeader>Kolonne 5</MdColumnHeader>
+        <MdColumnHeader>Kolonne 6</MdColumnHeader>
+      </MdColumnHeaders>
+    </MdDataGrid>
   );
 };

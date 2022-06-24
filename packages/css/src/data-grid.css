@@ -10,7 +10,7 @@
   padding: 1rem 0.75rem 1rem 0.75rem;
 }
 
-.md-data-grid__columnHeaders__wrapper {
+.md-data-grid__columnHeaders__flexWrapper {
   display: flex;
   gap: 4.5rem;
 }
