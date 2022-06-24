@@ -2,7 +2,6 @@ import React from 'react';
 
 import MdDataGrid from '../packages/react/src/data-grid/MdDataGrid';
 import MdLink from '../packages/react/src/link/MdLink';
-import ConfirmIcon from '../packages/react/src/icons/ConfirmIcon';
 
 export default {
   title: 'Components/DataGrid',
@@ -17,6 +16,8 @@ export const Primary = () => {
         'Kolonne 2',
         'Kolonne 3',
         'Kolonne 4',
+        'Kolonne 5',
+        'Kolonne 6',
       ]}
       rows={[
         {
@@ -25,7 +26,9 @@ export const Primary = () => {
             <MdLink>Linkverdi</MdLink>,
             '01.01.2028',
             'Datoverdi Masse Masse Masse Masse Content',
-            <ConfirmIcon />,
+            'Content',
+            'Datoverdi Masse Masse Masse Masse Content',
+            'Datoverdi Masse Masse Masse Masse Content',
           ],
         },
         {
@@ -34,7 +37,9 @@ export const Primary = () => {
             <MdLink>Linkverdi</MdLink>,
             '01.01.2028',
             'Datoverdi',
-            <ConfirmIcon />,
+            'Content',
+            'Datoverdi Masse Masse Masse Masse Content',
+            'Datoverdi Masse Masse Masse Masse Content',
           ],
         },
         {
@@ -43,7 +48,9 @@ export const Primary = () => {
             <MdLink>Linkverdi</MdLink>,
             '01.01.2028',
             'Datoverdi',
-            <ConfirmIcon />,
+            'Content',
+            'Datoverdi Masse Masse Masse Masse Content',
+            'Datoverdi Masse Masse Masse Masse Content',
           ],
         },
       ]}

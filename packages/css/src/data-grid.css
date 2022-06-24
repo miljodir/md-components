@@ -4,6 +4,7 @@
 }
 
 .md-data-grid__columnHeaders {
+  align-self: flex-start;
   display: flex;
   gap: 1rem;
   padding: 1rem 0.75rem 1rem 0.75rem;
@@ -15,10 +16,11 @@
 }
 
 .md-data-grid__columnHeaders__item {
-  max-width: 150px;
+  width: 150px;
 }
 
 .md-data-grid__rows {
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
 }
@@ -30,8 +32,13 @@
   padding: 1rem 0.75rem 1rem 0.75rem;
 }
 
+.md-data-grid__row__wrapper {
+  display: flex;
+  gap: 4.5rem;
+}
+
 .md-data-grid__row__value {
-  max-width: 150px;
+  width: 150px;
 }
 
 .md-data-grid__row:nth-child(odd) {

@@ -41,9 +41,11 @@ const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
               onChange={toggleAllChecked}
               label={null}
             />
-            {row.values.map((rowValue) => (
-              <div className="md-data-grid__row__value">{rowValue}</div>
-            ))}
+            <div className="md-data-grid__row__wrapper">
+              {row.values.map((rowValue) => (
+                <div className="md-data-grid__row__value">{rowValue}</div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
