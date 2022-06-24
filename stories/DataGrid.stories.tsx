@@ -3,6 +3,9 @@ import React from 'react';
 import MdDataGrid from '../packages/react/src/data-grid/MdDataGrid';
 import MdColumnHeaders from '../packages/react/src/data-grid/MdColumnHeaders';
 import MdColumnHeader from '../packages/react/src/data-grid/MdColumnHeader';
+import MdDataGridRows from '../packages/react/src/data-grid/MdDataGridRows';
+import MdDataGridRow from '../packages/react/src/data-grid/MdDataGridRow';
+import MdDataGridRowValue from '../packages/react/src/data-grid/MdDataGridRowValue';
 import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
@@ -10,48 +13,58 @@ export default {
   component: MdDataGrid,
 };
 
+function onLinkClick(e) {
+  e.preventDefault();
+}
+
+const rowData = [
+  {
+    selected: false,
+    values: [
+      <MdLink href="#" onClick={onLinkClick}>
+        Linkverdi
+      </MdLink>,
+      '01.01.2028',
+      'Datoverdi Masse Masse Masse Masse Content',
+      'Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+    ],
+  },
+  {
+    selected: false,
+    values: [
+      <MdLink href="#" onClick={onLinkClick}>
+        Linkverdi
+      </MdLink>,
+      '01.01.2028',
+      'Datoverdi',
+      'Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+    ],
+  },
+  {
+    selected: false,
+    values: [
+      <MdLink href="#" onClick={onLinkClick}>
+        Linkverdi
+      </MdLink>,
+      '01.01.2028',
+      'Datoverdi',
+      'Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+      'Datoverdi Masse Masse Masse Masse Content',
+    ],
+  },
+];
+
 export const Primary = () => {
   const [allChecked, setAllChecked] = React.useState(false);
   const toggleAllChecked = () => setAllChecked(!allChecked);
 
   return (
-    <MdDataGrid
-      rows={[
-        {
-          selected: false,
-          values: [
-            <MdLink>Linkverdi</MdLink>,
-            '01.01.2028',
-            'Datoverdi Masse Masse Masse Masse Content',
-            'Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-          ],
-        },
-        {
-          selected: false,
-          values: [
-            <MdLink>Linkverdi</MdLink>,
-            '01.01.2028',
-            'Datoverdi',
-            'Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-          ],
-        },
-        {
-          selected: false,
-          values: [
-            <MdLink>Linkverdi</MdLink>,
-            '01.01.2028',
-            'Datoverdi',
-            'Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-            'Datoverdi Masse Masse Masse Masse Content',
-          ],
-        },
-      ]}
-    >
+    <MdDataGrid>
       <MdColumnHeaders
         checkboxProps={{
           value: 'allChecked',
@@ -66,6 +79,21 @@ export const Primary = () => {
         <MdColumnHeader>Kolonne 5</MdColumnHeader>
         <MdColumnHeader>Kolonne 6</MdColumnHeader>
       </MdColumnHeaders>
+      <MdDataGridRows>
+        {rowData.map(({ values, selected }) => (
+          <MdDataGridRow
+            checkboxProps={{
+              value: 'allChecked',
+              checked: selected,
+              onChange: toggleAllChecked,
+            }}
+          >
+            {values.map((value) => (
+              <MdDataGridRowValue>{value}</MdDataGridRowValue>
+            ))}
+          </MdDataGridRow>
+        ))}
+      </MdDataGridRows>
     </MdDataGrid>
   );
 };
