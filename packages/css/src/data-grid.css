@@ -1,6 +1,7 @@
 .md-data-grid {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .md-data-grid__columnHeaders {
@@ -10,5 +11,24 @@
 
 .md-data-grid__rows {
   display: flex;
+  flex-direction: column;
+}
+
+.md-data-grid__row {
+  border-bottom: 1px solid #a1b7b5;
+  display: flex;
   gap: 1rem;
+  padding: 1rem 0.75rem 1rem 0.75rem;
+}
+
+.md-data-grid__row:nth-child(odd) {
+  background-color: #f3f8f8;
+}
+
+.md-data-grid__row:nth-child(even) {
+  background-color: rgba(243, 248, 248, 0.3);
+}
+
+.md-data-grid__row:first-child {
+  border-top: 1px solid #a1b7b5;
 }

@@ -23,6 +23,24 @@ export const Primary = () => {
             <ConfirmIcon />,
           ],
         },
+        {
+          selected: false,
+          values: [
+            <MdLink>Linkverdi</MdLink>,
+            '01.01.2028',
+            'Datoverdi',
+            <ConfirmIcon />,
+          ],
+        },
+        {
+          selected: false,
+          values: [
+            <MdLink>Linkverdi</MdLink>,
+            '01.01.2028',
+            'Datoverdi',
+            <ConfirmIcon />,
+          ],
+        },
       ]}
     />
   );

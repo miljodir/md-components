@@ -32,7 +32,7 @@ const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
       </div>
       <div className="md-data-grid__rows">
         {rows.map((row) => (
-          <>
+          <div className="md-data-grid__row">
             <MdCheckbox
               value="allChecked"
               checked={allChecked}
@@ -40,9 +40,9 @@ const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
               label={null}
             />
             {row.values.map((rowValue) => (
-              <div className="md-data-grid__rows__item">{rowValue}</div>
+              <div>{rowValue}</div>
             ))}
-          </>
+          </div>
         ))}
       </div>
     </div>
