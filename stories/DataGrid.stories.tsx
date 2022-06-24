@@ -12,14 +12,19 @@ export default {
 export const Primary = () => {
   return (
     <MdDataGrid
-      columnHeaders={['Kolonne 1', 'Kolonne 2', 'Kolonne 3', 'Kolonne 4']}
+      columnHeaders={[
+        'Kolonne 1 Masse Masse Masse Masse Content',
+        'Kolonne 2',
+        'Kolonne 3',
+        'Kolonne 4',
+      ]}
       rows={[
         {
           selected: false,
           values: [
             <MdLink>Linkverdi</MdLink>,
             '01.01.2028',
-            'Datoverdi',
+            'Datoverdi Masse Masse Masse Masse Content',
             <ConfirmIcon />,
           ],
         },
