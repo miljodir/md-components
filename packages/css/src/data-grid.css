@@ -5,8 +5,10 @@
 
 .md-data-grid__columnHeaders {
   display: flex;
+  gap: 1rem;
 }
 
 .md-data-grid__rows {
   display: flex;
+  gap: 1rem;
 }

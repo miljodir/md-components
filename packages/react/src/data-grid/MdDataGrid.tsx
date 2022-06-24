@@ -1,9 +1,14 @@
 import React from 'react';
 import MdCheckbox from '../checkbox/MdCheckbox';
 
+interface MdDataGridRowProps {
+  selected: boolean;
+  values: React.ReactNode[];
+}
+
 interface MdDataGridProps {
   columnHeaders: React.ReactNode[];
-  rows: React.ReactNode[];
+  rows: MdDataGridRowProps[];
 }
 
 const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
@@ -17,6 +22,7 @@ const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
           value="allChecked"
           checked={allChecked}
           onChange={toggleAllChecked}
+          label={null}
         />
         {columnHeaders.map((columnHeader) => (
           <div className="md-data-grid__columnHeaders__item">
@@ -26,7 +32,17 @@ const MdDataGrid = ({ columnHeaders, rows }: MdDataGridProps) => {
       </div>
       <div className="md-data-grid__rows">
         {rows.map((row) => (
-          <div className="md-data-grid__rows__item">{row}</div>
+          <>
+            <MdCheckbox
+              value="allChecked"
+              checked={allChecked}
+              onChange={toggleAllChecked}
+              label={null}
+            />
+            {row.values.map((rowValue) => (
+              <div className="md-data-grid__rows__item">{rowValue}</div>
+            ))}
+          </>
         ))}
       </div>
     </div>

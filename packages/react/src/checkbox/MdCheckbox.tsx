@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  label?: string | null;
   value: any;
 }
 
@@ -17,11 +17,9 @@ const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {
         value={value}
         {...otherProps}
       />
-      {label && (
-        <label className="md-checkbox__label" htmlFor={uuid}>
-          <span className="md-checkbox__labelText">{label}</span>
-        </label>
-      )}
+      <label className="md-checkbox__label" htmlFor={uuid}>
+        <span className="md-checkbox__labelText">{label}</span>
+      </label>
     </div>
   );
 };
