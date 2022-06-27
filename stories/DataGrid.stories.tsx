@@ -8,6 +8,7 @@ import MdDataGridRow from '../packages/react/src/data-grid/MdDataGridRow';
 import MdDataGridRowValue from '../packages/react/src/data-grid/MdDataGridRowValue';
 import MdDataGridRightAlignedContent from '../packages/react/src/data-grid/MdDataGridRightAlignedContent';
 import MdLink from '../packages/react/src/link/MdLink';
+import MdButton from '../packages/react/src/button/MdButton';
 
 export default {
   title: 'Components/DataGrid',
@@ -56,6 +57,9 @@ const rowData = [
 
 export const Primary = () => {
   const [allChecked, setAllChecked] = React.useState(false);
+  const [rowsExpanded, setRowsExpanded] = React.useState(false);
+
+  const toggleRowsExpanded = () => setRowsExpanded(!rowsExpanded);
   const toggleAllChecked = () => setAllChecked(!allChecked);
 
   return (
@@ -80,6 +84,8 @@ export const Primary = () => {
               checked: selected,
               onChange: toggleAllChecked,
             }}
+            isExpanded={rowsExpanded}
+            expandedContentRenderer={() => <span>Expanded content</span>}
           >
             {values.map((value) => (
               <MdDataGridRowValue>{value}</MdDataGridRowValue>
@@ -87,6 +93,9 @@ export const Primary = () => {
             <MdDataGridRightAlignedContent>
               <span>Content2</span>
               <span>Content1</span>
+              <MdButton style={{ height: '16px' }} onClick={toggleRowsExpanded}>
+                {rowsExpanded ? 'Lukk' : 'Åpne'}
+              </MdButton>
             </MdDataGridRightAlignedContent>
           </MdDataGridRow>
         ))}
