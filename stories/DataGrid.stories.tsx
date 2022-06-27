@@ -6,6 +6,7 @@ import MdColumnHeader from '../packages/react/src/data-grid/MdColumnHeader';
 import MdDataGridRows from '../packages/react/src/data-grid/MdDataGridRows';
 import MdDataGridRow from '../packages/react/src/data-grid/MdDataGridRow';
 import MdDataGridRowValue from '../packages/react/src/data-grid/MdDataGridRowValue';
+import MdDataGridRightAlignedContent from '../packages/react/src/data-grid/MdDataGridRightAlignedContent';
 import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
@@ -83,6 +84,10 @@ export const Primary = () => {
             {values.map((value) => (
               <MdDataGridRowValue>{value}</MdDataGridRowValue>
             ))}
+            <MdDataGridRightAlignedContent>
+              <span>Content2</span>
+              <span>Content1</span>
+            </MdDataGridRightAlignedContent>
           </MdDataGridRow>
         ))}
       </MdDataGridRows>

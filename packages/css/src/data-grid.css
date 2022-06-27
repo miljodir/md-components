@@ -1,18 +1,29 @@
 .md-data-grid {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.md-data-grid__right {
+  position: absolute;
+  right: 12px;
+}
+
+.md-data-grid__right__content {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .md-data-grid__columnHeaders {
   align-self: flex-start;
   display: flex;
+  font-weight: 600;
   gap: 1rem;
   padding: 1rem 0.75rem 1rem 0.75rem;
 }
 
 .md-data-grid__columnHeaders__flexWrapper {
   display: flex;
-  gap: 4.5rem;
 }
 
 .md-data-grid__columnHeaders__item {
@@ -23,6 +34,7 @@
   align-self: flex-start;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .md-data-grid__row {
@@ -34,10 +46,10 @@
 
 .md-data-grid__row__flexWrapper {
   display: flex;
-  gap: 4.5rem;
 }
 
 .md-data-grid__row__value {
+  min-width: 150px;
   width: 150px;
 }
 
