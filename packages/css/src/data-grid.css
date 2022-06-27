@@ -18,7 +18,7 @@
   align-self: flex-start;
   display: flex;
   font-weight: 600;
-  gap: 1rem;
+  gap: 3rem;
   padding: 1rem 0.75rem 1rem 0.75rem;
 }
 
@@ -40,7 +40,7 @@
 .md-data-grid__row {
   border-bottom: 1px solid #a1b7b5;
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   padding: 1rem 0.75rem 1rem 0.75rem;
 }
 
