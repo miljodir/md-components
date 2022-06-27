@@ -39,18 +39,7 @@
 
 .md-data-grid__row {
   border-bottom: 1px solid #a1b7b5;
-  display: flex;
-  gap: 3rem;
   padding: 1rem 0.75rem 1rem 0.75rem;
-}
-
-.md-data-grid__row__flexWrapper {
-  display: flex;
-}
-
-.md-data-grid__row__value {
-  min-width: 150px;
-  width: 150px;
 }
 
 .md-data-grid__row:nth-child(odd) {
@@ -63,4 +52,18 @@
 
 .md-data-grid__row:first-child {
   border-top: 1px solid #a1b7b5;
+}
+
+.md-data-grid__row__flexWrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.md-data-grid__row__values {
+  display: flex;
+}
+
+.md-data-grid__row__value {
+  min-width: 150px;
+  width: 150px;
 }

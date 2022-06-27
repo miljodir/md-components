@@ -9,8 +9,10 @@ interface MdDataGridRowProps {
 const MdDataGridRow = ({ checkboxProps, children }: MdDataGridRowProps) => {
   return (
     <div className="md-data-grid__row">
-      <MdCheckbox label={null} {...checkboxProps} />
-      <div className="md-data-grid__row__flexWrapper">{children}</div>
+      <div className="md-data-grid__row__flexWrapper">
+        <MdCheckbox label={null} {...checkboxProps} />
+        <div className="md-data-grid__row__values">{children}</div>
+      </div>
     </div>
   );
 };
