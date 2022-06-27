@@ -67,7 +67,7 @@ export const Primary = () => {
           onChange: toggleAllChecked,
         }}
       >
-        <MdColumnHeader>Kolonne 1 Med Masse Masse Masse Content</MdColumnHeader>
+        <MdColumnHeader></MdColumnHeader>
         <MdColumnHeader>Kolonne 2</MdColumnHeader>
         <MdColumnHeader>Kolonne 3</MdColumnHeader>
         <MdColumnHeader>Kolonne 4</MdColumnHeader>
