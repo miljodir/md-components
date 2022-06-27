@@ -5,3 +5,4 @@ dist
 package
 *.tgz
 packages/**/package-lock.json
+storybook-static

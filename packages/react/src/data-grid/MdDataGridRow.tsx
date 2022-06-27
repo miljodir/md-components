@@ -1,6 +1,5 @@
 import React from 'react';
 import MdCheckbox, { MdCheckboxProps } from '../checkbox/MdCheckbox';
-import { Collapse } from 'react-collapse';
 
 interface MdDataGridRowProps {
   checkboxProps: MdCheckboxProps;
@@ -21,9 +20,11 @@ const MdDataGridRow = ({
         <MdCheckbox label={null} {...checkboxProps} />
         <div className="md-data-grid__row__values">{children}</div>
       </div>
-      <Collapse isOpened={isExpanded}>
-        {expandedContentRenderer && expandedContentRenderer()}
-      </Collapse>
+      {isExpanded && (
+        <div className="md-data-grid__row__expandedContent">
+          {expandedContentRenderer && expandedContentRenderer()}
+        </div>
+      )}
     </div>
   );
 };

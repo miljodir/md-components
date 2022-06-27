@@ -67,3 +67,7 @@
   min-width: 150px;
   width: 150px;
 }
+
+.md-data-grid__row__expandedContent {
+  margin-top: 1.5rem;
+}
