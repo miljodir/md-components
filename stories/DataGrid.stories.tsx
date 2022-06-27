@@ -27,8 +27,6 @@ const rowData = [
       '01.01.2028',
       'Datoverdi Masse Masse Masse Masse Content',
       'Content',
-      'Datoverdi Masse Masse Masse Masse Content',
-      'Datoverdi Masse Masse Masse Masse Content',
     ],
   },
   {
@@ -40,8 +38,6 @@ const rowData = [
       '01.01.2028',
       'Datoverdi',
       'Content',
-      'Datoverdi Masse Masse Masse Masse Content',
-      'Datoverdi Masse Masse Masse Masse Content',
     ],
   },
   {
@@ -53,8 +49,6 @@ const rowData = [
       '01.01.2028',
       'Datoverdi',
       'Content',
-      'Datoverdi Masse Masse Masse Masse Content',
-      'Datoverdi Masse Masse Masse Masse Content',
     ],
   },
 ];
@@ -76,8 +70,6 @@ export const Primary = () => {
         <MdColumnHeader>Kolonne 2</MdColumnHeader>
         <MdColumnHeader>Kolonne 3</MdColumnHeader>
         <MdColumnHeader>Kolonne 4</MdColumnHeader>
-        <MdColumnHeader>Kolonne 5</MdColumnHeader>
-        <MdColumnHeader>Kolonne 6</MdColumnHeader>
       </MdColumnHeaders>
       <MdDataGridRows>
         {rowData.map(({ values, selected }) => (
