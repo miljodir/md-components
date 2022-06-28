@@ -1,104 +1,111 @@
 import React from 'react';
 
+import rowData from './mocks/dataGridRows';
+
 import MdDataGrid from '../packages/react/src/data-grid/MdDataGrid';
-import MdColumnHeaders from '../packages/react/src/data-grid/MdColumnHeaders';
-import MdColumnHeader from '../packages/react/src/data-grid/MdColumnHeader';
+import MdDataGridColumnHeaders from '../packages/react/src/data-grid/MdDataGridColumnHeaders';
+import MdDataGridColumnHeader from '../packages/react/src/data-grid/MdDataGridColumnHeader';
 import MdDataGridRows from '../packages/react/src/data-grid/MdDataGridRows';
 import MdDataGridRow from '../packages/react/src/data-grid/MdDataGridRow';
 import MdDataGridRowValue from '../packages/react/src/data-grid/MdDataGridRowValue';
 import MdDataGridRightAlignedContent from '../packages/react/src/data-grid/MdDataGridRightAlignedContent';
-import MdLink from '../packages/react/src/link/MdLink';
 import MdButton from '../packages/react/src/button/MdButton';
+import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
   title: 'Components/DataGrid',
   component: MdDataGrid,
 };
 
-function onLinkClick(e) {
-  e.preventDefault();
-}
-
-const rowData = [
-  {
-    selected: false,
-    values: [
-      <MdLink href="#" onClick={onLinkClick}>
-        Linkverdi
-      </MdLink>,
-      '01.01.2028',
-      'Datoverdi Masse Masse Masse Masse Content',
-      'Content',
-    ],
-  },
-  {
-    selected: false,
-    values: [
-      <MdLink href="#" onClick={onLinkClick}>
-        Linkverdi
-      </MdLink>,
-      '01.01.2028',
-      'Datoverdi',
-      'Content',
-    ],
-  },
-  {
-    selected: false,
-    values: [
-      <MdLink href="#" onClick={onLinkClick}>
-        Linkverdi
-      </MdLink>,
-      '01.01.2028',
-      'Datoverdi',
-      'Content',
-    ],
-  },
-];
+const onLinkClick = (e) => e.preventDefault();
 
 export const Primary = () => {
-  const [allChecked, setAllChecked] = React.useState(false);
-  const [rowsExpanded, setRowsExpanded] = React.useState(false);
+  const [rowState, updateRows] = React.useState(rowData);
 
-  const toggleRowsExpanded = () => setRowsExpanded(!rowsExpanded);
-  const toggleAllChecked = () => setAllChecked(!allChecked);
+  const toggleRowExpanded = (index) => {
+    const newListOfRows = [...rowState.rows];
+    newListOfRows[index].expanded = !newListOfRows[index].expanded;
+    updateRows({ ...rowState, rows: newListOfRows });
+  };
+
+  const toggleRowSelected = (index) => {
+    const newListOfRows = [...rowState.rows];
+    newListOfRows[index].selected = !newListOfRows[index].selected;
+    const allCheckboxesAreSelected = !newListOfRows.some(
+      (row) => !row.selected
+    );
+    updateRows({
+      rows: newListOfRows,
+      allSelected: allCheckboxesAreSelected,
+    });
+  };
+
+  const toggleAllChecked = () => {
+    const newSelectedValue = !rowState.allSelected;
+    const newListOfRows = rowState.rows.map((row) => ({
+      ...row,
+      selected: newSelectedValue,
+    }));
+    updateRows({ allSelected: newSelectedValue, rows: newListOfRows });
+  };
+
+  const renderRightAlignedContent = (expanded: boolean, rowIndex: number) => {
+    return (
+      <MdDataGridRightAlignedContent>
+        <MdLink href="#" onClick={onLinkClick}>
+          Link 1
+        </MdLink>
+        <MdLink href="#" onClick={onLinkClick}>
+          Link 2
+        </MdLink>
+        <MdButton
+          style={{ height: '16px' }}
+          onClick={() => toggleRowExpanded(rowIndex)}
+        >
+          {expanded ? 'Lukk' : 'Åpne'}
+        </MdButton>
+      </MdDataGridRightAlignedContent>
+    );
+  };
+
+  const renderRowValues = (values: React.ReactNode[]) =>
+    values.map((value) => (
+      <MdDataGridRowValue key={value as string}>{value}</MdDataGridRowValue>
+    ));
 
   return (
     <MdDataGrid>
-      <MdColumnHeaders
+      <MdDataGridColumnHeaders
         checkboxProps={{
           value: 'allChecked',
-          checked: allChecked,
+          checked: rowState.allSelected,
           onChange: toggleAllChecked,
         }}
       >
-        <MdColumnHeader></MdColumnHeader>
-        <MdColumnHeader>Kolonne 2</MdColumnHeader>
-        <MdColumnHeader>Kolonne 3</MdColumnHeader>
-        <MdColumnHeader>Kolonne 4</MdColumnHeader>
-      </MdColumnHeaders>
+        <MdDataGridColumnHeader></MdDataGridColumnHeader>
+        <MdDataGridColumnHeader>Kolonne 2</MdDataGridColumnHeader>
+        <MdDataGridColumnHeader>Kolonne 3</MdDataGridColumnHeader>
+        <MdDataGridColumnHeader>Kolonne 4</MdDataGridColumnHeader>
+      </MdDataGridColumnHeaders>
       <MdDataGridRows>
-        {rowData.map(({ values, selected }) => (
-          <MdDataGridRow
-            checkboxProps={{
-              value: 'allChecked',
-              checked: selected,
-              onChange: toggleAllChecked,
-            }}
-            isExpanded={rowsExpanded}
-            expandedContentRenderer={() => <span>Expanded content</span>}
-          >
-            {values.map((value) => (
-              <MdDataGridRowValue>{value}</MdDataGridRowValue>
-            ))}
-            <MdDataGridRightAlignedContent>
-              <span>Content2</span>
-              <span>Content1</span>
-              <MdButton style={{ height: '16px' }} onClick={toggleRowsExpanded}>
-                {rowsExpanded ? 'Lukk' : 'Åpne'}
-              </MdButton>
-            </MdDataGridRightAlignedContent>
-          </MdDataGridRow>
-        ))}
+        {rowState.rows.map((row, rowIndex) => {
+          const { selected, expanded, values } = row;
+          return (
+            <MdDataGridRow
+              checkboxProps={{
+                value: 'checked',
+                checked: selected,
+                onChange: () => toggleRowSelected(rowIndex),
+              }}
+              isExpanded={expanded}
+              expandedContentRenderer={() => <span>Expanded content</span>}
+              key={`row-${rowIndex}`}
+            >
+              {renderRowValues(values)}
+              {renderRightAlignedContent(expanded, rowIndex)}
+            </MdDataGridRow>
+          );
+        })}
       </MdDataGridRows>
     </MdDataGrid>
   );

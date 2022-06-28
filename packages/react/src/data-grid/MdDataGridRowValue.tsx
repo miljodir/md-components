@@ -1,11 +1,18 @@
 import React from 'react';
 
-interface MdDataGridRowProps {
+interface MdDataGridRowProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode | React.ReactNode[];
 }
 
-const MdDataGridRowValue = ({ children }: MdDataGridRowProps) => {
-  return <div className="md-data-grid__row__value">{children}</div>;
+const MdDataGridRowValue = ({
+  children,
+  ...otherProps
+}: MdDataGridRowProps) => {
+  return (
+    <div className="md-data-grid__row__value" {...otherProps}>
+      {children}
+    </div>
+  );
 };
 
 export default MdDataGridRowValue;

@@ -1,12 +1,15 @@
 import React from 'react';
 import MdCheckbox, { MdCheckboxProps } from '../checkbox/MdCheckbox';
 
-interface MdColumnHeadersProps {
+interface MdDataGridColumnHeadersProps {
   children: React.ReactNode[];
   checkboxProps: MdCheckboxProps;
 }
 
-const MdColumnHeaders = ({ children, checkboxProps }: MdColumnHeadersProps) => {
+const MdDataGridColumnHeaders = ({
+  children,
+  checkboxProps,
+}: MdDataGridColumnHeadersProps) => {
   return (
     <div className="md-data-grid__columnHeaders">
       <MdCheckbox label={null} {...checkboxProps} />
@@ -15,4 +18,4 @@ const MdColumnHeaders = ({ children, checkboxProps }: MdColumnHeadersProps) => {
   );
 };
 
-export default MdColumnHeaders;
+export default MdDataGridColumnHeaders;
