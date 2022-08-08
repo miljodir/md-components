@@ -5,8 +5,7 @@
 }
 
 .md-data-grid__right {
-  position: absolute;
-  right: 12px;
+  margin-left: auto;
 }
 
 .md-data-grid__right__content {
@@ -61,6 +60,7 @@
 
 .md-data-grid__row__values {
   display: flex;
+  width: 100%;
 }
 
 .md-data-grid__row__value {
