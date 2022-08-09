@@ -1,5 +1,6 @@
 import MdButton from './button/MdButton';
 import MdCheckbox from './checkbox/MdCheckbox';
+import MdSelect from './select/MdSelect';
 import MdLink from './link/MdLink';
 import MdShortcut from './shortcut/MdShortcut';
 import ChevronIcon from './icons/ChevronIcon';
@@ -16,6 +17,7 @@ import MdDataColumnRightAlignedContent from './data-grid/MdDataGridRightAlignedC
 export {
   MdButton,
   MdCheckbox,
+  MdSelect,
   MdLink,
   MdShortcut,
   ChevronIcon,
