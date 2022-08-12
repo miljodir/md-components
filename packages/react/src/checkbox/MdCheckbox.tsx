@@ -5,9 +5,20 @@ export interface MdCheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
   value: any;
+  checkedByDefault?: boolean;
 }
 
-const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {
+const MdCheckbox = ({
+  label,
+  value,
+  checkedByDefault,
+  ...otherProps
+}: MdCheckboxProps) => {
+  const defaultChecked =
+    checkedByDefault !== undefined
+      ? checkedByDefault
+      : otherProps.checked || false;
+  const [checked, setChecked] = React.useState(defaultChecked);
   const uuid = uuidv4();
   return (
     <div className="md-checkbox">
@@ -17,6 +28,13 @@ const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {
         type="checkbox"
         value={value}
         {...otherProps}
+        checked={checked}
+        onChange={(event) => {
+          setChecked(!checked);
+          if (otherProps.onChange) {
+            otherProps.onChange(event);
+          }
+        }}
       />
       <label className="md-checkbox__label" htmlFor={uuid}>
         <span className="md-checkbox__labelText">{label}</span>
