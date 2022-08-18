@@ -1,7 +1,9 @@
 import React from 'react';
-import MdCheckbox, { MdCheckboxProps } from './MdChecklistCheckbox';
+import MdChecklistCheckbox, {
+  MdChecklistCheckboxProps,
+} from './MdChecklistCheckbox';
 
-interface MdChecklistProps extends MdCheckboxProps {
+interface MdChecklistProps extends MdChecklistCheckboxProps {
   children: React.ReactNode[] | React.ReactElement[];
   defaultChecked?: boolean;
 }
@@ -15,7 +17,7 @@ const MdChecklist = ({
   const [isChecked, setIsChecked] = React.useState(defaultValue);
   return (
     <div className="md-checklist">
-      <MdCheckbox
+      <MdChecklistCheckbox
         {...checkboxProps}
         checked={isChecked}
         onChange={() => setIsChecked(!isChecked)}
