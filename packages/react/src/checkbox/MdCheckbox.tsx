@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 export interface MdCheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  value: any;
 }
 
 const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {

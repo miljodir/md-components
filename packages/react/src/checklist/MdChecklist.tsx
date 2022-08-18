@@ -1,32 +1,24 @@
 import React from 'react';
-import MdChecklistCheckbox, {
-  MdChecklistCheckboxProps,
-} from './MdChecklistCheckbox';
+import MdCheckbox from './../checkbox/MdCheckbox';
 
-interface MdChecklistProps extends MdChecklistCheckboxProps {
+interface MdChecklistProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
   children: React.ReactNode[] | React.ReactElement[];
-  defaultChecked?: boolean;
 }
 
 const MdChecklist = ({
   children,
-  defaultChecked,
+  label,
   ...checkboxProps
 }: MdChecklistProps) => {
-  const defaultValue = defaultChecked !== undefined ? defaultChecked : false;
-  const [isChecked, setIsChecked] = React.useState(defaultValue);
+  const isChecked = checkboxProps.checked;
   return (
     <div className="md-checklist">
-      <MdChecklistCheckbox
-        {...checkboxProps}
-        checked={isChecked}
-        onChange={() => setIsChecked(!isChecked)}
-      />
+      <MdCheckbox label={label} {...checkboxProps} />
       {isChecked && (
         <div className="md-checklist__nested">
           {children.map((child, i) =>
             React.cloneElement(child, {
-              checkedByDefault: isChecked,
               key: `checkbox${i}`,
             })
           )}
