@@ -1,5 +1,7 @@
 import MdButton from './button/MdButton';
 import MdCheckbox from './checkbox/MdCheckbox';
+import MdChecklist from './checklist/MdChecklist';
+import MdChecklistCheckbox from './checklist/MdChecklistCheckbox';
 import MdSelect from './select/MdSelect';
 import MdLink from './link/MdLink';
 import MdShortcut from './shortcut/MdShortcut';
@@ -29,4 +31,6 @@ export {
   MdDataColumnRow,
   MdDataColumnRowValue,
   MdDataColumnRightAlignedContent,
+  MdChecklist,
+  MdChecklistCheckbox,
 };

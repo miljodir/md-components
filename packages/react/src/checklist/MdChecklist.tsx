@@ -1,5 +1,5 @@
 import React from 'react';
-import MdCheckbox, { MdCheckboxProps } from '../checkbox/MdCheckbox';
+import MdCheckbox, { MdCheckboxProps } from './MdChecklistCheckbox';
 
 interface MdChecklistProps extends MdCheckboxProps {
   children: React.ReactNode[] | React.ReactElement[];
