@@ -1,19 +1,19 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface MdCheckboxProps
+export interface MdChecklistCheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
   value: any;
   checkedByDefault?: boolean;
 }
 
-const MdCheckbox = ({
+const MdChecklistCheckbox = ({
   label,
   value,
   checkedByDefault,
   ...otherProps
-}: MdCheckboxProps) => {
+}: MdChecklistCheckboxProps) => {
   const defaultChecked =
     checkedByDefault !== undefined
       ? checkedByDefault
@@ -43,4 +43,4 @@ const MdCheckbox = ({
   );
 };
 
-export default MdCheckbox;
+export default MdChecklistCheckbox;
