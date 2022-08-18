@@ -10,21 +10,22 @@ export default {
 
 export const Primary = () => {
   const [isChecked, setIsChecked] = React.useState(false);
+  const [secondIsChecked, setSecondIsChecked] = React.useState(false);
   return (
     <MdChecklist
       label="Example Checkbox"
       value="test"
       onChange={() => setIsChecked(!isChecked)}
-      defaultChecked
+      checked={isChecked}
     >
       <MdCheckbox value="nested1" label="Nested checkbox 1" />
-      <MdCheckbox value="nested2" label="Nested checkbox 2" />
+      <MdCheckbox value="nested2" label="Nested checkbox 2" checked />
       <MdCheckbox value="nested3" label="Nested checkbox 3" />
       <MdChecklist
         label="Another level"
         value="test"
-        onChange={() => setIsChecked(!isChecked)}
-        defaultChecked
+        onChange={() => setSecondIsChecked(!secondIsChecked)}
+        checked={secondIsChecked}
       >
         <MdCheckbox value="nested2" label="Nested checkbox 4" />
         <MdCheckbox value="nested3" label="Nested checkbox 5" />
