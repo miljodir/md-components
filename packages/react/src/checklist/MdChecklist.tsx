@@ -6,7 +6,7 @@ interface MdChecklistProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children: React.ReactNode[] | React.ReactElement[];
 }
 
-const MdChecklist = ({
+const MdChecklist: React.FunctionComponent<MdChecklistProps> = ({
   children,
   label,
   ...checkboxProps

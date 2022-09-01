@@ -13,7 +13,7 @@ export interface MdSelectProps
   name: string;
 }
 
-const MdSelect = ({
+const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   label,
   value,
   options,

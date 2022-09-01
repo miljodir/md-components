@@ -1,20 +1,20 @@
 import React from 'react';
 import classnames from 'classnames';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'primary' | 'secondary' | 'danger';
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   label?: string;
 }
 
-const MdButton = ({
+const MdButton: React.FunctionComponent<MdButtonProps> = ({
   theme,
   leftIcon,
   rightIcon,
   children,
   ...otherProps
-}: ButtonProps) => {
+}: MdButtonProps) => {
   const classNames = classnames('md-button', {
     'md-button--secondary': theme === 'secondary',
     'md-button--danger': theme === 'danger',

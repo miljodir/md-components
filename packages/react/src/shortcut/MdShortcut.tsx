@@ -6,7 +6,11 @@ interface MdShortcutProps
   to: string;
 }
 
-const MdShortcut = ({ to, children, ...otherProps }: MdShortcutProps) => {
+const MdShortcut: React.FunctionComponent<MdShortcutProps> = ({
+  to,
+  children,
+  ...otherProps
+}: MdShortcutProps) => {
   return (
     <a className="md-shortcut" {...otherProps} href={to}>
       <div className="content">{children}</div>

@@ -6,16 +6,16 @@ interface MdDataGridColumnHeadersProps {
   checkboxProps: MdCheckboxProps;
 }
 
-const MdDataGridColumnHeaders = ({
-  children,
-  checkboxProps,
-}: MdDataGridColumnHeadersProps) => {
-  return (
-    <div className="md-data-grid__columnHeaders">
-      <MdCheckbox label={null} {...checkboxProps} />
-      <div className="md-data-grid__columnHeaders__flexWrapper">{children}</div>
-    </div>
-  );
-};
+const MdDataGridColumnHeaders: React.FunctionComponent<MdDataGridColumnHeadersProps> =
+  ({ children, checkboxProps }: MdDataGridColumnHeadersProps) => {
+    return (
+      <div className="md-data-grid__columnHeaders">
+        <MdCheckbox label={null} {...checkboxProps} />
+        <div className="md-data-grid__columnHeaders__flexWrapper">
+          {children}
+        </div>
+      </div>
+    );
+  };
 
 export default MdDataGridColumnHeaders;

@@ -6,7 +6,11 @@ export interface MdCheckboxProps
   label?: string | null;
 }
 
-const MdCheckbox = ({ label, value, ...otherProps }: MdCheckboxProps) => {
+const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
+  label,
+  value,
+  ...otherProps
+}: MdCheckboxProps) => {
   const uuid = uuidv4();
   return (
     <div className="md-checkbox">

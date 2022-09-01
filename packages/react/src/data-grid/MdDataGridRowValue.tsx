@@ -4,7 +4,7 @@ interface MdDataGridRowProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode | React.ReactNode[];
 }
 
-const MdDataGridRowValue = ({
+const MdDataGridRowValue: React.FunctionComponent<MdDataGridRowProps> = ({
   children,
   ...otherProps
 }: MdDataGridRowProps) => {

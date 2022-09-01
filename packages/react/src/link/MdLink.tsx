@@ -4,7 +4,10 @@ interface MdLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
 
-const MdLink = ({ children, ...otherProps }: MdLinkProps) => (
+const MdLink: React.FunctionComponent<MdLinkProps> = ({
+  children,
+  ...otherProps
+}: MdLinkProps) => (
   <a className="md-link" {...otherProps}>
     {children}
   </a>

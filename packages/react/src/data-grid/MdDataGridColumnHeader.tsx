@@ -5,15 +5,13 @@ interface MdDataGridColumnHeaderProps
   children?: React.ReactNode;
 }
 
-const MdDataGridColumnHeader = ({
-  children,
-  ...otherProps
-}: MdDataGridColumnHeaderProps) => {
-  return (
-    <div className="md-data-grid__columnHeaders__item" {...otherProps}>
-      {children}
-    </div>
-  );
-};
+const MdDataGridColumnHeader: React.FunctionComponent<MdDataGridColumnHeaderProps> =
+  ({ children, ...otherProps }: MdDataGridColumnHeaderProps) => {
+    return (
+      <div className="md-data-grid__columnHeaders__item" {...otherProps}>
+        {children}
+      </div>
+    );
+  };
 
 export default MdDataGridColumnHeader;

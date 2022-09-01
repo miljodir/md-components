@@ -4,7 +4,9 @@ interface ConfirmIconProps {
   color?: string;
 }
 
-const ConfirmIcon = ({ color }: ConfirmIconProps) => {
+const ConfirmIcon: React.FunctionComponent<ConfirmIconProps> = ({
+  color,
+}: ConfirmIconProps) => {
   return (
     <svg
       version="1.1"

@@ -8,7 +8,7 @@ interface MdDataGridRowProps {
   expandedContentRenderer?: () => React.ReactNode;
 }
 
-const MdDataGridRow = ({
+const MdDataGridRow: React.FunctionComponent<MdDataGridRowProps> = ({
   checkboxProps,
   children,
   isExpanded,
