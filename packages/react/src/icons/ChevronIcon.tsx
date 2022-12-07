@@ -18,7 +18,7 @@ const ChevronIcon: React.FunctionComponent<ChevronIconProps> = ({
         <g>
           <polygon
             points="9,31.2 8.3,30.5 22.7,15.9 8.3,1.4 9,0.7 24.1,15.9"
-            fill={color || '#347E7D'}
+            fill='currentColor'
           />
         </g>
       </g>

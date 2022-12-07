@@ -1,0 +1,173 @@
+.md-multiselect {
+  font-family: 'Open sans';
+  width: 634px;
+  max-width: 100%;
+}
+
+.md-multiselect--medium {
+  width: 440px;
+}
+
+.md-multiselect--small {
+  width: 260px;
+}
+
+.md-multiselect__label {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+}
+
+.md-multiselect__label > * + * {
+  margin-left: 1em;
+}
+
+.md-multiselect__button {
+  font-family: 'Open sans';
+  font-size: 1em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1em;
+  border: 1px solid var(--greyColor60);
+  color: var(--greyColor);
+  text-align: left;
+  cursor: pointer;
+}
+
+.md-multiselect--disabled .md-multiselect__button {
+  background-color: var(--greyColor20);
+  color: var(--greyColor60);
+  cursor: default;
+}
+
+.md-multiselect__button:focus,
+.md-multiselect__button:focus-within {
+  outline: none;
+}
+
+.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
+.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
+  padding: calc(1em - 1px);
+  border: 2px solid var(--primaryColor);
+}
+
+.md-multiselect--error:not(.md-multiselect--disabled) .md-multiselect__button {
+  border-color: var(--errorColor);
+}
+
+.md-multiselect__button-text {
+  display: flex;
+  flex-grow: 1;
+  padding-right: 1em;
+}
+
+.md-multiselect__button-icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  rotate: 90deg;
+  color: var(--greyColor);
+}
+
+.md-multiselect__button-hasmultiple {
+  margin-right: 1em;
+  font-size: .8em;
+}
+
+.md-multiselect__help-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.15s ease-out;
+}
+
+.md-multiselect__help-text--open {
+  padding-top: .5em;
+  max-height: 2000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.md-multiselect__dropdown-wrapper {
+  margin: .7em 0 .3em 0;
+}
+
+.md-multiselect__dropdown {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .5s ease-in-out;
+}
+
+.md-multiselect__dropdown-item {
+  display: flex;
+  align-items: center;
+  font-family: 'Open sans';
+  border: 0;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  padding: .9em;
+  transition: background-color .15s ease-in-out;
+  cursor: pointer;
+}
+
+.md-multiselect__dropdown-item:hover,
+.md-multiselect__dropdown-item:focus {
+  outline: none;
+  background-color: var(--primaryColor20);
+  transition: background-color .15s ease-in-out;
+}
+
+.md-multiselect__dropdown-item-text {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 1em;
+}
+
+.md-multiselect__dropdown-item-checkbox {
+  background-color: #ffffff;
+  border: 1px solid var(--greyColor60);
+  content: '';
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.md-multiselect__dropdown-item--selected .md-multiselect__dropdown-item-checkbox {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZTk2NWRkN2EtN2NlNS00MTc0LThjMjEtY2UwNjIzYmFmNTJhIiBkYXRhLW5hbWU9ImNoZWNrbWFyay1ncmVlbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTMgMTAuMDIiPjx0aXRsZT5jaGVja21hcmstZ3JlZW48L3RpdGxlPjxwYXRoIGQ9Ik0xMS4xNCwwLDQuODMsNi4zMWwtMy0zTDAsNS4xOSw0LjgzLDEwLDEzLDEuODZaIiBmaWxsPSIjMDA2MTVjIiAvPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position-y: 2px;
+  background-position-x: 1px;
+  background-size: 18px;
+}
+
+.md-multiselect__error {
+  color: var(--errorColor);
+  font-size: .88em;
+}
+
+/* Open state */
+.md-multiselect--open .md-multiselect__button {
+  border-top: 2px solid var(--primaryColor);
+  border-right: 2px solid var(--primaryColor);
+  border-left: 2px solid var(--primaryColor);
+}
+
+.md-multiselect__button--open {
+  padding: calc(1em - 1px);
+}
+
+.md-multiselect--open .md-multiselect__dropdown {
+  max-height: 350px;
+  overflow-y: auto;
+  opacity: 1;
+  transition: max-height .5s ease-in-out;
+  border: 2px solid var(--primaryColor);
+  border-top: 0;
+}
+.md-multiselect--open.md-multiselect--error .md-multiselect__dropdown {
+  border-color: var(--errorColor);
+}

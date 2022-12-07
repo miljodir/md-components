@@ -3,10 +3,14 @@ on:
   push:
     branches:
       - main
+      - update-storybook-DESIGN-8
     paths:
       - '.github/workflows/**'
       - 'packages/**'
       - 'stories/**'
+      - 'assets/**'
+      - 'themes/**'
+      - README.md
       - package.json
       - package-lock.json
 jobs:
@@ -20,6 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci --source-branch main
+        run: npm run deploy-storybook -- --ci --source-branch update-storybook-DESIGN-8
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}

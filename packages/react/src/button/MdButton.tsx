@@ -5,7 +5,8 @@ interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'primary' | 'secondary' | 'danger';
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  label?: string;
+  children?: string | React.ReactNode;
+  small?: boolean
 }
 
 const MdButton: React.FunctionComponent<MdButtonProps> = ({
@@ -13,9 +14,11 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   leftIcon,
   rightIcon,
   children,
+  small,
   ...otherProps
 }: MdButtonProps) => {
   const classNames = classnames('md-button', {
+    'md-button--small': !!small,
     'md-button--secondary': theme === 'secondary',
     'md-button--danger': theme === 'danger',
   });
