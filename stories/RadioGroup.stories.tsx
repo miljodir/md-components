@@ -1,6 +1,6 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
-import MdRadioGroup from '../packages/react/src/radiogroup/MdRadioGroup';
+import MdRadioGroup from '../packages/react/src/formElements/MdRadioGroup';
 
 export default {
   title: 'Form/RadioGroup',

@@ -2,14 +2,15 @@
 @import './button.css';
 @import './shortcut.css';
 @import './link.css';
-@import './checkbox.css';
 @import './data-grid.css';
 @import './checklist.css';
-@import './radiogroup.css';
 @import './help.css';
 @import './toggle.css';
+@import './chips.css';
 @import './formElements/input.css';
+@import './formElements/checkbox.css';
 @import './formElements/textarea.css';
 @import './formElements/select.css';
+@import './formElements/radiogroup.css';
 @import './formElements/multiselect.css';
 @import './utils.css';

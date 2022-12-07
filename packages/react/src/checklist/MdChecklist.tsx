@@ -1,5 +1,5 @@
 import React from 'react';
-import MdCheckbox from './../checkbox/MdCheckbox';
+import MdCheckbox from '../formElements/MdCheckbox';
 
 interface MdChecklistProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;

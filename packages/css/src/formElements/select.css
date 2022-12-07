@@ -119,8 +119,8 @@
 .md-select__dropdown-item-clear {
   display: flex;
   flex-shrink: 0;
-  height: 20px;
-  width: 20px;
+  height: 12px;
+  width: 12px;
   color: var(--primaryColor);
 }
 

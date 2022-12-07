@@ -20,7 +20,7 @@ export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
   helpText?: string;
   outerWrapperClass?: string;
   suffix?: string;
-  prefixIcon?: React.ReactNode
+  prefixIcon?: React.ReactNode;
 };
 
 const MdInput: React.FunctionComponent<MdInputProps> = ({

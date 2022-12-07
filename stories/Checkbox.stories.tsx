@@ -1,7 +1,7 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 
-import MdCheckbox from '../packages/react/src/checkbox/MdCheckbox';
+import MdCheckbox from '../packages/react/src/formElements/MdCheckbox';
 
 export default {
   title: 'Form/Checkbox',

@@ -91,7 +91,7 @@
 }
 
 .md-multiselect__dropdown-wrapper {
-  margin: .7em 0 .3em 0;
+  margin: .7em 0 .7em 0;
 }
 
 .md-multiselect__dropdown {
@@ -147,6 +147,15 @@
 .md-multiselect__error {
   color: var(--errorColor);
   font-size: .88em;
+}
+
+.md-multiselect__chips {
+  display: flex;
+  margin-top: .7em;
+}
+
+.md-multiselect__chips > * + * {
+  margin-left: .5em;
 }
 
 /* Open state */

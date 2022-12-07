@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
+import MdInputChip from '../chips/MdInputChip';
 import ChevronIcon from '../icons/ChevronIcon';
 
 interface MdMultiSelectOptionProps {
@@ -25,6 +26,7 @@ interface MdMultiSelectProps
     helpText?: string;
     error?: boolean;
     errorText?: string;
+    hideChips?: boolean;
 };
 
 const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
@@ -38,6 +40,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   helpText,
   error,
   errorText,
+  hideChips = false,
   onChange,
   ...otherProps
 }: MdMultiSelectProps) => {
@@ -145,6 +148,22 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
 
       {error && errorText && errorText !== '' &&
         <div className="md-multiselect__error">{errorText}</div>
+      }
+
+      {!open && !hideChips && selectedOptionsFull.length > 0 &&
+        <div className="md-multiselect__chips">
+          {selectedOptionsFull.map(chip => {
+            return (
+              <MdInputChip
+                key={`multiselect_chip_${chip.value}`}
+                label={chip.text}
+                id={chip.value}
+                disabled={disabled}
+                onClick={() => handleOptionClick(chip)}
+              />
+            );
+          })}
+        </div>
       }
     </div>
   );

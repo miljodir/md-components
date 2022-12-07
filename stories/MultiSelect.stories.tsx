@@ -98,6 +98,26 @@ export default {
       },
       control: { type: 'text' }
     },
+    hideChips: {
+      type: { name: 'boolean' },
+      description: "Toggle whether chips with selected options are displayed or not.",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    onChange: {
+      type: { name: 'function' },
+      description: "The onChange handler for change events. Returns the clicked option, to do handle as you please.",
+      table: {
+        type: {
+          summary: "function",
+        },
+      },
+    }
   }
 }
 
@@ -112,7 +132,7 @@ const Template = args => {
   const handleChange = (option: OptionType) => {
     let newSelected = args.selected;
     if (args.selected && args.selected.includes(option.value)) {
-      newSelected = args.selected.filter(item => {
+      newSelected = args.selected.filter((item: any) => {
         return item !== option.value
       })
     } else {
@@ -140,6 +160,7 @@ Multiselect.args = {
   ],
   selected: ['option1'],
   disabled: false,
+  hideChips: false,
   size: 'large',
   helpText: '',
   error: false,
