@@ -3,7 +3,8 @@
   "version": "0.0.9",
   "description": "React-komponenter for Miljødirektoratet",
   "author": "Miljødirektoratet",
-  "main": "./src/index.tsx",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json"

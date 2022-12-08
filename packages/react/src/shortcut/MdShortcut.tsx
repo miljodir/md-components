@@ -4,6 +4,7 @@ import ChevronIcon from '../icons/ChevronIcon';
 interface MdShortcutProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to: string;
+  children?: any;
 }
 
 const MdShortcut: React.FunctionComponent<MdShortcutProps> = ({

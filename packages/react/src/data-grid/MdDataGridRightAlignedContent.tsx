@@ -1,7 +1,9 @@
 import React, { HTMLAttributes } from 'react';
 
 interface MdDataGridRightAlignedContentProps
-  extends HTMLAttributes<HTMLDivElement> {}
+  extends HTMLAttributes<HTMLDivElement> {
+    children?: any;
+  }
 
 const MdDataGridRightAlignedContent: React.FunctionComponent<MdDataGridRightAlignedContentProps> =
   ({ children }: MdDataGridRightAlignedContentProps) => {
