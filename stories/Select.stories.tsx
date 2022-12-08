@@ -75,6 +75,15 @@ export default {
       },
       control: { type: 'text' }
     },
+    onChange: {
+      type: { name: 'function' },
+      description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
+      table: {
+        type: {
+          summary: "function",
+        },
+      },
+    }
   }
 };
 

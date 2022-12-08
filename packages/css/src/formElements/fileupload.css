@@ -1,0 +1,48 @@
+.md-fileupload {
+  background-color: #fff;
+}
+
+.md-fileupload__droparea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  border: 1px dashed var(--greyColor80);
+  margin-bottom: 4em;
+}
+
+.md-fileupload__droparea-icon {
+  width: 32px;
+  height: 32px;
+  color: #000;
+  margin-bottom: 1.5em;
+}
+
+.md-fileupload__droparea-content {
+  font-family: 'Open sans';
+  font-size: 16px;
+}
+
+.md-fileupload__droparea-content button {
+  background: none;
+  border: 0;
+  font-size: 16px;
+  color: var(--primaryColor);
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.md-fileupload__input {
+  display: none;
+}
+
+.md-fileupload__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.md-fileupload__actions > * + * {
+  margin-left: 1em;
+}

@@ -5,6 +5,7 @@ import MdSelect from './formElements/MdSelect';
 import MdMultiSelect from './formElements/MdMultiSelect';
 import MdRadioGroup from './formElements/MdRadioGroup';
 import MdTextArea from './formElements/MdTextArea';
+import MdFileUpload from './formElements/MdFileUpload';
 import MdLink from './link/MdLink';
 import MdHelpButton from './help/MdHelpButton';
 import MdHelpText from './help/MdHelpText';
@@ -39,6 +40,7 @@ export {
   MdMultiSelect,
   MdRadioGroup,
   MdTextArea,
+  MdFileUpload,
   MdLink,
   MdHelpButton,
   MdHelpText,

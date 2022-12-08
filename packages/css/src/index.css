@@ -13,4 +13,5 @@
 @import './formElements/select.css';
 @import './formElements/radiogroup.css';
 @import './formElements/multiselect.css';
+@import './formElements/fileupload.css';
 @import './utils.css';

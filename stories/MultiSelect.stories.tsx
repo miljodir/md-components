@@ -111,7 +111,7 @@ export default {
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events. Returns the clicked option, to do handle as you please.",
+      description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
       table: {
         type: {
           summary: "function",
