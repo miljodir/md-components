@@ -1,0 +1,64 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3974048, 2020-11-10T09:29:53-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: SofiaPro-Light by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/light/
+ *
+ * Webfont: SofiaPro-Lightitalic by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/light-italic/
+ *
+ * Webfont: SofiaPro-Regular by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/regular/
+ *
+ * Webfont: SofiaPro-Regularitalic by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/regular-italic/
+ *
+ * Webfont: SofiaPro-Medium by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/medium/
+ *
+ * Webfont: SofiaPro-Bold by Mostardesign
+ * URL: https://www.myfonts.com/fonts/mostardesign/sofia-pro/bold/
+ *
+ *
+ * Webfonts copyright: Copyright © Olivier Gourvat - Mostardesign Type Foundry, 2020. All rights reserved.
+ *
+ * © 2020 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3ca3a0");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+@font-face {
+  font-family: 'SofiaPro-Regularitalic';
+  src: url('./webfonts/SofiaPro-Regularitalic/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Regularitalic/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'SofiaPro-Light';
+  src: url('./webfonts/SofiaPro-Light/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Light/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'SofiaPro-Lightitalic';
+  src: url('./webfonts/SofiaPro-Lightitalic/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Lightitalic/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'SofiaPro-Medium';
+  src: url('./webfonts/SofiaPro-Medium/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Medium/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'SofiaPro-Regular';
+  src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'SofiaPro-Bold';
+  src: url('./webfonts/SofiaPro-Bold/font.woff2') format('woff2'), url('./webfonts/SofiaPro-Bold/font.woff') format('woff');
+}
+

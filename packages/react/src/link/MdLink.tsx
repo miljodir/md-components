@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface MdLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  children?: string | React.ReactNode;
   href: string;
 }
 

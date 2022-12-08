@@ -1,5 +1,5 @@
 import React from 'react';
-import MdCheckbox, { MdCheckboxProps } from '../checkbox/MdCheckbox';
+import MdCheckbox, { MdCheckboxProps } from '../formElements/MdCheckbox';
 
 interface MdDataGridColumnHeadersProps {
   children: React.ReactNode[];

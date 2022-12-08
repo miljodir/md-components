@@ -1,0 +1,57 @@
+/* HELP BUTTON */
+.md-helpbutton {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  color: var(--primaryColor);
+}
+
+.md-helpbutton--expanded:not(.md-helpbutton--noarrow):after {
+    content:'';
+    position: absolute;
+    left: .3em;
+    /* right: 0; */
+    bottom: -.65em;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-bottom: 6px solid var(--primaryColor);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+.md-helpbutton:focus {
+  outline: none;
+}
+
+.md-helpbutton:focus .md-helpbutton__icon {
+  outline: 2px solid var(--primaryColor);
+  outline-offset: 2px;
+}
+
+.md-helpbutton__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.md-helpbutton--expanded .md-helpbutton__icon,
+.md-helpbutton:hover .md-helpbutton__icon {
+  color: #fff;
+  fill: var(--primaryColor);
+}
+
+/* HELP TEXT */
+.md-helptext {
+  font-family: "Open sans";
+  font-size: .88em;
+  background-color: var(--primaryColor);
+  color: #fff;
+  padding: 1.7em;
+  border-radius: .57em;
+  max-width: 100%;
+}
