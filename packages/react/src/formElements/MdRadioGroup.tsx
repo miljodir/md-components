@@ -22,7 +22,7 @@ export interface MdRadioGroupProps extends React.InputHTMLAttributes<HTMLInputEl
   className?: string;
   error?: string;
   helpText?: string;
-}
+};
 
 const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   options,
@@ -67,17 +67,18 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
   return (
     <div className={classNames} {...otherProps}>
-      {label && label !== '' &&
-        <div className="md-radiogroup__label">
+      <div className="md-radiogroup__label">
+        {label && label !== '' &&
           <div>{label}</div>
-          {helpText && helpText !== '' &&
-            <MdHelpButton
-              onClick={() => setHelpOpen(!helpOpen)}
-              expanded={helpOpen}
-            />
-          }
-        </div>
-      }
+        }
+
+        {helpText && helpText !== '' &&
+          <MdHelpButton
+            onClick={() => setHelpOpen(!helpOpen)}
+            expanded={helpOpen}
+          />
+        }
+      </div>
 
       {helpText && helpText !== '' &&
         <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>

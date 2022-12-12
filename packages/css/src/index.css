@@ -10,6 +10,7 @@
 @import './filelist.css';
 @import './formElements/input.css';
 @import './formElements/checkbox.css';
+@import './formElements/checkboxgroup.css';
 @import './formElements/textarea.css';
 @import './formElements/select.css';
 @import './formElements/radiogroup.css';

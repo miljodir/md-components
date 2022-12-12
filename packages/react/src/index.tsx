@@ -1,5 +1,6 @@
 import MdButton from './button/MdButton';
 import MdCheckbox from './formElements/MdCheckbox';
+import MdCheckboxGroup from './formElements/MdCheckboxGroup';
 import MdInput from './formElements/MdInput';
 import MdSelect from './formElements/MdSelect';
 import MdMultiSelect from './formElements/MdMultiSelect';
@@ -39,6 +40,7 @@ import MdDataColumnRightAlignedContent from './data-grid/MdDataGridRightAlignedC
 export {
   MdButton,
   MdCheckbox,
+  MdCheckboxGroup,
   MdInput,
   MdSelect,
   MdMultiSelect,
