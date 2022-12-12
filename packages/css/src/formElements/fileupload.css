@@ -9,6 +9,17 @@
   padding: 2em;
   border: 1px dashed var(--greyColor80);
   margin-bottom: 4em;
+  background-color: #fff;
+  transition: background .2s linear;
+}
+
+.md-fileupload__droparea.md-fileupload__droparea--active {
+  background-color: var(--greyColor20);
+  transition: background .2s linear;
+}
+
+.md-fileupload__droparea.md-fileupload__droparea--active * {
+  pointer-events: none;
 }
 
 .md-fileupload__droparea-icon {
@@ -36,6 +47,13 @@
 
 .md-fileupload__input {
   display: none;
+}
+
+.md-fileupload__files-wrapper {
+  width: 100%;
+  margin: 1.5em 0 0 0;
+  padding: 1.5em 0 0 0;
+  border-top: 1px solid #000;
 }
 
 .md-fileupload__actions {

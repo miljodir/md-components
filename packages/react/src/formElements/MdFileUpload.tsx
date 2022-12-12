@@ -1,13 +1,27 @@
-import React, { useRef, ChangeEvent, DragEvent } from 'react';
+import React, { useRef, ChangeEvent, DragEvent, ClickEvent } from 'react';
 import classnames from 'classnames';
 import { useFileUpload } from '../hooks/useFileUpload';
+import MdFileList from '../fileList/MdFileList';
 import MdButton from '../button/MdButton';
 
 import UploadIcon from '../icons/UploadIcon';
 
-interface MdFileUploadProps {};
+interface MdFileUploadProps {
+  onUpload?(e: ClickEvent): File[] | [];
+  onCancel?(e: ClickEvent): void;
+  useFormData?: boolean;
+  uploadButtonText?: string;
+  cancelButtonText?: string;
+  hideFileListIcons?: boolean;
+};
 
 const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
+  onUpload,
+  onCancel,
+  useFormData = false,
+  uploadButtonText = 'Last opp',
+  cancelButtonText = 'Avbryt',
+  hideFileListIcons = false
 }: MdFileUploadProps) => {
   const {
     files,
@@ -22,27 +36,56 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     removeFile,
   } = useFileUpload();
 
-  console.log(files);
-
   const inputRef = useRef();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: ClickEvent) => {
     e.preventDefault();
-    console.log(files);
+    if (onUpload) {
+      if (useFormData) {
+        const formData = createFormData();
+        onUpload(formData);
+      } else {
+        onUpload(files);
+      }
+    }
   };
 
-  const outerClassnames = classnames('md-fileupload');
+  const handleCancel = (e: ClickEvent) => {
+    e.preventDefault();
+    clearAllFiles();
+    if (onCancel) {
+      onCancel(e);
+    }
+  }
 
-  const dropAreaClassnames = classnames('md-fileupload__droparea')
+  const outerClassnames = classnames('md-fileupload');
+  const dropAreaClassnames = classnames('md-fileupload__droparea');
+
+  const onDragEnterEvent = (e: DragEvent<HTMLDivElement>) => {
+    handleDragDropEvent(e);
+    e.target?.classList?.add('md-fileupload__droparea--active');
+  }
+
+  const onDragLeaveEvent = (e: DragEvent<HTMLDivElement>) => {
+    handleDragDropEvent(e);
+    e.target?.classList?.remove('md-fileupload__droparea--active');
+  }
+
+  const onRemoveFile = ((file: File) => {
+    removeFile(file.name);
+  })
 
   return (
     <div className={outerClassnames}>
       <div
         className={dropAreaClassnames}
-        onDragEnter={handleDragDropEvent}
+        onDragEnter={onDragEnterEvent}
+        onDragLeave={onDragLeaveEvent}
+        onDragEnd={onDragLeaveEvent}
         onDragOver={handleDragDropEvent}
         onDrop={(e: DragEvent<HTMLDivElement>) => {
           handleDragDropEvent(e);
+          onDragLeaveEvent(e);
           setFiles(e, 'a');
         }}
       >
@@ -64,11 +107,32 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
             inputRef.current.value = null;
           }}
         />
+
+        {files && files.length > 0 &&
+          <div className="md-fileupload__files-wrapper">
+            <MdFileList
+              files={files}
+              allowDownload={false}
+              allowDelete={true}
+              hideIcons={hideFileListIcons}
+              onRemoveFile={(file: File) => onRemoveFile(file)}
+            />
+          </div>
+        }
       </div>
 
       <div className="md-fileupload__actions">
-        <MdButton theme="secondary">Avbryt</MdButton>
-        <MdButton>Last opp</MdButton>
+        <MdButton
+          theme="secondary"
+          onClick={handleCancel}
+        >
+          {cancelButtonText}
+        </MdButton>
+        <MdButton
+          onClick={handleSubmit}
+        >
+          {uploadButtonText}
+        </MdButton>
       </div>
     </div>
   );

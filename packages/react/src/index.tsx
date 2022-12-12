@@ -13,6 +13,7 @@ import MdToggle from './toggle/MdToggle';
 import MdClickOutsideWrapper from './utils/MdClickOutsideWrapper';
 import MdInputChip from './chips/MdInputChip';
 import MdFilterChip from './chips/MdFilterChip';
+import MdFileList from './fileList/MdFileList';
 
 // Icons
 import ChevronIcon from './icons/ChevronIcon';
@@ -21,6 +22,9 @@ import HelpIcon from './icons/HelpIcon';
 import WarningIcon from './icons/WarningIcon';
 import XIcon from './icons/XIcon';
 import CheckIcon from './icons/CheckIcon';
+import UploadIcon from './icons/UploadIcon';
+import DocIcon from './icons/DocIcon';
+import DeleteIcon from './icons/DeleteIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
 import MdChecklist from './checklist/MdChecklist';
@@ -48,6 +52,7 @@ export {
   MdClickOutsideWrapper,
   MdInputChip,
   MdFilterChip,
+  MdFileList,
 
   ChevronIcon,
   ConfirmIcon,
@@ -55,6 +60,9 @@ export {
   WarningIcon,
   XIcon,
   CheckIcon,
+  UploadIcon,
+  DocIcon,
+  DeleteIcon,
 
   MdShortcut,
   MdDataGrid,
