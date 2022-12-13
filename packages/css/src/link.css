@@ -2,7 +2,6 @@
   color: var(--primaryColor);
   cursor: pointer;
   font-family: 'Open sans';
-  font-size: 1rem;
   text-decoration: underline;
 }
 

@@ -52,8 +52,8 @@ const Template = (args: LinkArgs) => (
   </MdLink>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Link = Template.bind({});
+Link.args = {
   text: 'This is a link',
   href: '#'
 }

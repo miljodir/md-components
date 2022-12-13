@@ -25,9 +25,10 @@ export default {
       control: { type: 'text' }
     },
     options: {
-      type: { name: 'array', required: true },
+      type: { name: 'array' },
       description: "Array with data objects for select options",
       table: {
+        defaultValue: { summary: '[]' },
         type: {
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },

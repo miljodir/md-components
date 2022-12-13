@@ -15,11 +15,10 @@ interface MdMultiSelectOptionProps {
 
 interface MdMultiSelectProps
   extends React.InputHTMLAttributes<HTMLSelectElement> {
-    label: string | null;
-    options: MdMultiSelectOptionProps[];
-    onChange(e: React.ChangeEvent<HTMLInputElement>): string;
-    selected: [number | string];
-    name: string;
+    label?: string | null;
+    options?: MdMultiSelectOptionProps[];
+    onChange?(e: React.ChangeEvent<HTMLInputElement>): string;
+    selected?: any[];
     placeholder?: string;
     disabled?: boolean;
     size?: string;
@@ -31,9 +30,8 @@ interface MdMultiSelectProps
 
 const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   label,
-  options,
-  selected,
-  name,
+  options = [],
+  selected = [],
   placeholder = 'Vennligst velg',
   disabled = false,
   size,
@@ -88,13 +86,18 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   }
 
   const handleOptionClick = (option: MdMultiSelectOptionProps) => {
-    onChange(option);
+    if (onChange) {
+      onChange(option);
+    }
   };
 
   return (
     <div className={classNames}>
       <div className="md-multiselect__label">
-        <div>{label}</div>
+        {label && label !== '' &&
+          <div>{label}</div>
+        }
+
         {helpText && helpText !== '' &&
           <div className="md-multiselect__help-button">
             <MdHelpButton

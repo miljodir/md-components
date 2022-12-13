@@ -15,6 +15,7 @@ import MdClickOutsideWrapper from './utils/MdClickOutsideWrapper';
 import MdInputChip from './chips/MdInputChip';
 import MdFilterChip from './chips/MdFilterChip';
 import MdFileList from './fileList/MdFileList';
+import MdAccordionItem from './accordion/MdAccordionItem';
 
 // Icons
 import ChevronIcon from './icons/ChevronIcon';
@@ -55,6 +56,7 @@ export {
   MdInputChip,
   MdFilterChip,
   MdFileList,
+  MdAccordionItem,
 
   ChevronIcon,
   ConfirmIcon,
