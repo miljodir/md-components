@@ -8,6 +8,7 @@ export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElem
   value?: string | null;
   id?: string | number;
   disabled?: boolean;
+  className?: string;
 }
 
 const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
@@ -16,11 +17,14 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
   value,
   id,
   disabled,
+  className = '',
   ...otherProps
 }: MdCheckboxProps) => {
   const classNames = classnames('md-checkbox', {
-    'md-checkbox--disabled': !!disabled
-  });
+      'md-checkbox--disabled': !!disabled
+    },
+    className
+  );
   const checkboxId = id || uuidv4();
   return (
     <div className={classNames}>

@@ -110,6 +110,17 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    closeOnSelect: {
+      type: { name: 'boolean' },
+      description: "Toggle whether the multi select should close when an option is toggled.",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
     onChange: {
       type: { name: 'function' },
       description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
@@ -130,14 +141,16 @@ type OptionType = {
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleChange = (option: OptionType) => {
+  const handleChange = (e: React.ChengeEvent) => {
     let newSelected = args.selected;
-    if (args.selected && args.selected.includes(option.value)) {
+    if (args.selected && args.selected.includes(e?.target?.value)) {
       newSelected = args.selected.filter((item: any) => {
-        return item !== option.value
+        return item !== e?.target?.value
       })
     } else {
-      newSelected.push(option.value);
+      if (e?.target?.value) {
+        newSelected.push(e.target.value);
+      }
     }
     updateArgs({ ...args, selected: newSelected });
   }
@@ -162,6 +175,7 @@ Multiselect.args = {
   selected: ['option1'],
   disabled: false,
   hideChips: false,
+  closeOnSelect: true,
   size: 'large',
   helpText: '',
   error: false,

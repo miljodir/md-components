@@ -1,6 +1,9 @@
 import React, { useState, ClickEvent } from 'react';
 import classnames from 'classnames';
 
+import PlusIcon from '../icons/PlusIcon';
+import MinusIcon from '../icons/MinusIcon';
+
 interface MdAccordionItemProps {
   label?: string;
   headerContent?: React.ReactNode;
@@ -23,7 +26,8 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   const [isExpanded, setExpanded] = useState(expanded);
 
   const accordionClassNames = classnames('md-accordion-item', {
-    'md-accordion-item--expanded': !!expanded
+    'md-accordion-item--expanded': !!expanded,
+    'md-accordion-item__secondary': theme && theme === 'secondary'
   });
 
   const headerClassNames = classnames('md-accordion-item__header', {
@@ -35,10 +39,23 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   });
 
   return (
-    <div className={accordionClassNames}>
-      <div className={headerClassNames}>
-      </div>
+    <div
+      className={accordionClassNames}
+    >
+      {/* Header */}
+      <button
+        className={headerClassNames}
+      >
+        <div className="md-accordion-item__header-left">
+          <div className="md-accordion-item__header-icon"></div>
+          {label && label !== '' &&
+            <div className="md-accordion-item__header-label">{label}</div>
+          }
+        </div>
+        <div className="md-accordion-item__header-right"></div>
+      </button>
 
+      {/* Content */}
       <div className={contentClassNames}>
       </div>
     </div>

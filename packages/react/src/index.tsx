@@ -27,6 +27,8 @@ import CheckIcon from './icons/CheckIcon';
 import UploadIcon from './icons/UploadIcon';
 import DocIcon from './icons/DocIcon';
 import DeleteIcon from './icons/DeleteIcon';
+import PlusIcon from './icons/PlusIcon';
+import MinusIcon from './icons/MinusIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
 import MdChecklist from './checklist/MdChecklist';
@@ -67,6 +69,8 @@ export {
   UploadIcon,
   DocIcon,
   DeleteIcon,
+  PlusIcon,
+  MinusIcon,
 
   MdShortcut,
   MdDataGrid,

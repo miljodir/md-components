@@ -13,7 +13,19 @@ export default {
       },
     },
   },
-  argTypes: {}
+  argTypes: {
+    label: {
+      type: { name: 'string' },
+      description: "The label for the accordion item.",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
+  }
 } as ComponentMeta<typeof MdAccordionItem>;
 
 const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
@@ -25,3 +37,6 @@ const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
 };
 
 export const AccordionItem = Template.bind({});
+AccordionItem.args = {
+  label: 'Label for accordion'
+}
