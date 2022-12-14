@@ -44,6 +44,17 @@ export default {
         },
       }
     },
+    id: {
+      type: { name: 'string' },
+      description: "Unique id for the multi select box.",
+      table: {
+        defaultValue: { summary: 'uuid' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
     disabled: {
       type: { name: 'boolean' },
       description: "Is the multi select disabled?",
@@ -99,7 +110,7 @@ export default {
       },
       control: { type: 'text' }
     },
-    hideChips: {
+    showChips: {
       type: { name: 'boolean' },
       description: "Toggle whether chips with selected options are displayed or not.",
       table: {
@@ -133,15 +144,10 @@ export default {
   }
 }
 
-type OptionType = {
-  text: string;
-  value: string | number;
-};
-
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleChange = (e: React.ChengeEvent) => {
+  const handleChange = (e: React.ChangeEvent) => {
     let newSelected = args.selected;
     if (args.selected && args.selected.includes(e?.target?.value)) {
       newSelected = args.selected.filter((item: any) => {
@@ -152,7 +158,7 @@ const Template = args => {
         newSelected.push(e.target.value);
       }
     }
-    updateArgs({ ...args, selected: newSelected });
+   updateArgs({ ...args, selected: newSelected });
   }
 
   return (
@@ -174,7 +180,7 @@ Multiselect.args = {
   ],
   selected: ['option1'],
   disabled: false,
-  hideChips: false,
+  showChips: false,
   closeOnSelect: true,
   size: 'large',
   helpText: '',

@@ -25,6 +25,29 @@ export default {
       },
       control: { type: 'text' }
     },
+    theme: {
+      type: { name: 'string' },
+      description: "Color theme for accordion.",
+      options: ['primary', 'secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'inline-radio' },
+    },
+    disabled: {
+      type: { name: 'boolean' },
+      description: "Enable/disabled accordion.",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
   }
 } as ComponentMeta<typeof MdAccordionItem>;
 
@@ -38,5 +61,7 @@ const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
 
 export const AccordionItem = Template.bind({});
 AccordionItem.args = {
-  label: 'Label for accordion'
+  label: 'Label for accordion',
+  theme: 'primary',
+  disabled: false
 }

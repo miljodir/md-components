@@ -113,7 +113,8 @@ export default {
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleCheck = (value: string | number) => {
+  const handleCheck = (e: React.ChangeEvent) => {
+    const value = e.target?.value;
     let newSelected = args.selectedOptions;
     const found = newSelected.find((item: string | number) => item.toString() === value.toString());
     if (found) {
@@ -127,7 +128,7 @@ const Template = args => {
   return (
     <MdCheckboxGroup
       {...args}
-      onChange={(value: string) => handleCheck(value)}
+      onChange={handleCheck}
     />
   );
 };

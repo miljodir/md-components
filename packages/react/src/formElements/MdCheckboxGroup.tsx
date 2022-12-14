@@ -9,13 +9,13 @@ import MdCheckbox from './MdCheckbox';
 
 export interface MdCheckboxGroupOptionProps {
   value: string | number,
-  text: string
+  text: string | number
 };
 
 export interface MdCheckboxGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  options: MdCheckboxGroupOptionProps[];
+  options?: MdCheckboxGroupOptionProps[];
   selectedOptions?: any[];
-  onChange(e: ChangeEvent<HTMLInputElement>): string;
+  onChange(e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -26,7 +26,7 @@ export interface MdCheckboxGroupProps extends React.InputHTMLAttributes<HTMLInpu
 };
 
 const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
-  options,
+  options = [],
   selectedOptions,
   onChange,
   label,
@@ -64,7 +64,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 	}
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e?.target?.value)
+    onChange(e);
   }
 
   return (

@@ -10,8 +10,8 @@ import MdInputChip from '../chips/MdInputChip';
 import ChevronIcon from '../icons/ChevronIcon';
 
 interface MdMultiSelectOptionProps {
-  text: string;
-  value: string;
+  text: string | number;
+  value: string | number;
 };
 
 interface MdMultiSelectProps
@@ -26,8 +26,9 @@ interface MdMultiSelectProps
     helpText?: string;
     error?: boolean;
     errorText?: string;
-    hideChips?: boolean;
+    showChips?: boolean;
     closeOnSelect?: boolean;
+    id?: any
 };
 
 const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
@@ -40,12 +41,13 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   helpText,
   error,
   errorText,
-  hideChips = false,
+  showChips = false,
   closeOnSelect = false,
   onChange,
+  id,
   ...otherProps
 }: MdMultiSelectProps) => {
-  const uuid = React.useMemo(() => uuidv4(), []);
+  const uuid = React.useMemo(() => id || uuidv4(), []);
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
@@ -73,7 +75,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     return selected.includes(option.value)
   };
 
-  let displayValue = placeholder;
+  let displayValue: string | number = placeholder;
   const selectedOptionsFull: any[] = [];
   if (!open && selected && selected.length > 0) {
     const findFirstOption = options.find(option => option.value === selected[0]);
@@ -156,16 +158,16 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           <div className="md-multiselect__dropdown">
             {options.map(option => (
               <div
-                key={`checkbox_key_${option.value}`}
+                key={`checkbox_key_${uuid}_${option.value}`}
                 className={optionClass(option)}
               >
                 <MdCheckbox
                   label={option.text}
                   checked={optionIsChecked(option)}
                   value={option.value}
-                  id={`checkbox_${option.value}`}
+                  id={`checkbox_${uuid}_${option.value}`}
                   disabled={!!disabled}
-                  onChange={(e: React.ChengeEvent) => handleOptionClick(e)}
+                  onChange={(e: React.ChangeEvent) => handleOptionClick(e)}
                 />
               </div>
             ))}
@@ -177,14 +179,14 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         <div className="md-multiselect__error">{errorText}</div>
       }
 
-      {!open && !hideChips && selectedOptionsFull.length > 0 &&
+      {!open && showChips && selectedOptionsFull.length > 0 &&
         <div className="md-multiselect__chips">
           {selectedOptionsFull.map(chip => {
             return (
               <MdInputChip
-                key={`multiselect_chip_${chip.value}`}
+                key={`multiselect_chip_${uuid}_${chip.value}`}
                 label={chip.text}
-                id={chip.value}
+                id={`checkbox_chip_${uuid}_${chip.value}`}
                 disabled={disabled}
                 onClick={() => handleChipClick(chip)}
               />
