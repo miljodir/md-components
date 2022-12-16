@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import MdAccordionItem from '../packages/react/src/accordion/MdAccordionItem';
+import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 
-import CheckIcon from '../packages/react/src/icons/CheckIcon';
+import CheckIcon from '../../packages/react/src/icons/CheckIcon';
 
 export default {
-  title: 'Components/AccordionItem',
+  title: 'Components/Accordion',
   component: MdAccordionItem,
   parameters: {
     docs: {

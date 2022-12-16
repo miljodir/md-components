@@ -99,6 +99,7 @@
 
 .md-multiselect__dropdown {
   position: absolute;
+  z-index: 99;
   width: calc(100% - 4px);
   max-height: 0;
   overflow: hidden;

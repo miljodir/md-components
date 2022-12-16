@@ -4,4 +4,5 @@ import '../assets/fonts.css'
 
 addons.setConfig({
   theme: mdirTheme,
+  panelPosition: 'bottom',
 });

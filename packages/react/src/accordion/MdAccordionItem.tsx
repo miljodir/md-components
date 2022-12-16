@@ -2,7 +2,6 @@ import React, { useState, ClickEvent } from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
-import PlusIcon from '../icons/PlusIcon';
 import MinusIcon from '../icons/MinusIcon';
 
 interface MdAccordionItemProps {
@@ -29,13 +28,17 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   onToggle
 }: MdAccordionItemProps) => {
   const accordionId = React.useMemo(() => id || uuidv4(), []);
-  const [isExpanded, setExpanded] = useState(expanded && !disabled);
+  const [isExpanded, setExpanded] = useState(null);
+
+  React.useEffect(() => {
+    setExpanded(expanded && !disabled);
+  }, [expanded, disabled]);
 
   const accordionClassNames = classnames('md-accordion-item', {
     'md-accordion-item--expanded': !!isExpanded && !disabled,
     'md-accordion-item--secondary': theme && theme === 'secondary',
     'md-accordion-item--disabled': !!disabled
-  });
+  }, className);
 
   const headerClassNames = classnames('md-accordion-item__header', {
     'md-accordion-item__header--expanded': !!isExpanded && !disabled
@@ -88,7 +91,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 
           <button
             className="md-accordion-item__close-button"
-            onClick={() => setExpanded(!isExpanded)}
+            onClick={(e: React.ClickEvent) => toggle(e)}
             tabIndex={isExpanded ? '0' : '-1'}
           >
             <MinusIcon className="md-accordion-item__close-button__icon" />

@@ -170,12 +170,10 @@ const Template = args => {
   }
 
   return (
-    <div>
-      <MdMultiSelect
-        {...args}
-        onChange={handleChange}
-      />
-    </div>
+    <MdMultiSelect
+      {...args}
+      onChange={handleChange}
+    />
   );
 };
 

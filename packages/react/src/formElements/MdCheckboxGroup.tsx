@@ -96,6 +96,8 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
             checked={optionIsSelected(option)}
             value={option.value}
             onChange={handleChange}
+            data-value={option.value}
+            data-text={option.text}
           />
         ))}
       </div>
