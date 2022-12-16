@@ -7,11 +7,11 @@ import XIcon from '../icons/XIcon';
 export interface MdInputChipProps
   extends React.InputHTMLAttributes<HTMLSelectElement> {
     label: string | null;
-    id: string | number;
+    id?: string | number;
     active?: boolean;
     disabled?: boolean;
     prefixIcon?: React.ReactNode;
-    onClick;
+    onClick?(e: ClickEvent<HTMLInputElement>): void;
     className?: string;
     hideCloseIcon?: boolean;
 }

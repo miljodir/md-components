@@ -7,7 +7,7 @@ import MinusIcon from '../icons/MinusIcon';
 
 interface MdAccordionItemProps {
   label?: string;
-  headerContent?: React.ReactNode;
+  headerContent?: React.ReactNode | string;
   id?: string | number;
   expanded?: boolean;
   theme?: string;
@@ -21,11 +21,12 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   label = '',
   headerContent,
   id,
-  expanded = true,
+  expanded = false,
   theme,
   disabled = false,
   className = '',
-  children
+  children,
+  onToggle
 }: MdAccordionItemProps) => {
   const accordionId = React.useMemo(() => id || uuidv4(), []);
   const [isExpanded, setExpanded] = useState(expanded && !disabled);
@@ -37,15 +38,21 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   });
 
   const headerClassNames = classnames('md-accordion-item__header', {
-    'md-accordion-item__header--expanded': !!isExpanded
+    'md-accordion-item__header--expanded': !!isExpanded && !disabled
   });
 
   const contentClassNames = classnames('md-accordion-item__content', {
-    'md-accordion-item__content--expanded': !!isExpanded
+    'md-accordion-item__content--expanded': !!isExpanded && !disabled
   });
 
-  const toggle = () => {
-
+  const toggle = (e: React.ClickEvent) => {
+    // handle expand/collapse externally
+    if (onToggle) {
+      onToggle(e);
+    } else {
+      // Handle expand/collapse internally
+      setExpanded(!isExpanded)
+    }
   }
 
   return (
@@ -57,7 +64,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         id={accordionId}
         className={headerClassNames}
         disabled={!!disabled}
-        onClick={() => setExpanded(!isExpanded)}
+        onClick={(e: React.ClickEvent) => toggle(e)}
       >
         <div className="md-accordion-item__header-left">
           <div className="md-accordion-item__header-icon"></div>
@@ -65,13 +72,28 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
             <div className="md-accordion-item__header-label">{label}</div>
           }
         </div>
-        <div className="md-accordion-item__header-right"></div>
+        {headerContent &&
+          <div className="md-accordion-item__header-right">
+            {headerContent}
+          </div>
+        }
       </button>
 
       {/* Content */}
       {!disabled &&
         <div className={contentClassNames}>
-          CONTENTOENTOENTO
+          <div className="md-accordion-item__content-inner">
+            {children}
+          </div>
+
+          <button
+            className="md-accordion-item__close-button"
+            onClick={() => setExpanded(!isExpanded)}
+            tabIndex={isExpanded ? '0' : '-1'}
+          >
+            <MinusIcon className="md-accordion-item__close-button__icon" />
+            <div>Lukk</div>
+          </button>
         </div>
       }
     </div>

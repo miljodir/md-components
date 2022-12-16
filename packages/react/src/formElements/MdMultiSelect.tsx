@@ -19,7 +19,7 @@ interface MdMultiSelectProps
     label?: string | null;
     options?: MdMultiSelectOptionProps[];
     onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
-    selected?: any[];
+    selected?: MdMultiSelectOptionProps[];
     placeholder?: string;
     disabled?: boolean;
     size?: string;
@@ -65,20 +65,25 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     'md-multiselect__button--open': !!open
   });
 
+  const dropDownClassNames = classnames('md-multiselect__dropdown', {
+    'md-multiselect__dropdown--open': !!open
+  })
+
   const optionClass = (option: MdMultiSelectOptionProps) => {
     return classnames('md-multiselect__dropdown-item', {
-      'md-multiselect__dropdown-item--selected': selected.includes(option.value)
+      'md-multiselect__dropdown-item--selected': optionIsChecked(option)
     });
   };
 
   const optionIsChecked = (option: MdMultiSelectOptionProps) => {
-    return selected.includes(option.value)
+    const isChecked = selected && selected.length && selected.find(item => item.value === option.value);
+    return isChecked && isChecked !== undefined;
   };
 
   let displayValue: string | number = placeholder;
   const selectedOptionsFull: any[] = [];
   if (!open && selected && selected.length > 0) {
-    const findFirstOption = options.find(option => option.value === selected[0]);
+    const findFirstOption = options.find(option => option.value === selected[0].value);
     if (findFirstOption) {
       displayValue = findFirstOption.text;
     }
@@ -87,7 +92,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     }
 
     selected.forEach(item => {
-      const opt = options.find(option => option.value === item);
+      const opt = options.find(option => option.value === item.value);
       if (opt) {
         selectedOptionsFull.push(opt);
       }
@@ -104,11 +109,16 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   const handleChipClick = (option: MdMultiSelectOptionProps) => {
-    const event = {
+    const dataset: React.DOMStringMap = {
+      value: option.value,
+      text: option.text
+    };
+    const event: React.ChangeEvent = {
       target: {
-        value: option.value
+        value: option.value,
+        dataset: dataset
       }
-    } as React.ChangeEvent<HTMLInputElement>;
+    };
 
     handleOptionClick(event);
   }
@@ -155,7 +165,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         </button>
 
         {options && options.length > 0 &&
-          <div className="md-multiselect__dropdown">
+          <div className={dropDownClassNames}>
             {options.map(option => (
               <div
                 key={`checkbox_key_${uuid}_${option.value}`}
@@ -163,10 +173,13 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
               >
                 <MdCheckbox
                   label={option.text}
+                  tabIndex={open ? '0' : '-1'}
                   checked={optionIsChecked(option)}
                   value={option.value}
                   id={`checkbox_${uuid}_${option.value}`}
                   disabled={!!disabled}
+                  data-value={option.value}
+                  data-text={option.text}
                   onChange={(e: React.ChangeEvent) => handleOptionClick(e)}
                 />
               </div>

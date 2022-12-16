@@ -30,7 +30,7 @@ export default {
       description: "Array with data for radio checkboxes in group",
       table: {
         type: {
-          summary: "[{ value: number, text: 'string' }, { value: number, text: 'string' }, ...]",
+          summary: "[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]",
         },
       },
     },
@@ -99,7 +99,7 @@ export default {
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events. Returns the `value` from clicked checkbox.",
+      description: "The onChange handler for change events. Returns the `ChangeEvent` from clicked checkbox.",
       table: {
         type: {
           summary: "function",

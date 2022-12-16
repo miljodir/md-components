@@ -3,6 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import MdAccordionItem from '../packages/react/src/accordion/MdAccordionItem';
 
+import CheckIcon from '../packages/react/src/icons/CheckIcon';
+
 export default {
   title: 'Components/AccordionItem',
   component: MdAccordionItem,
@@ -48,20 +50,42 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    headerContent: {
+      type: { name: 'ReactNode' },
+      description: "Content to display on the right side in the header. Can be HTML.",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "DomElement | ReactNode | string",
+        },
+      },
+      control: { type: 'boolean' }
+    }
   }
 } as ComponentMeta<typeof MdAccordionItem>;
 
 const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
+  const headerContent = (
+    <div style={{ display: 'flex', gap: '1em' }}>
+      <div>Example content</div>
+      <div style={{ width: '15px', height: '15px', color: '#005e5d' }}><CheckIcon /></div>
+    </div>
+  );
+
   return (
     <MdAccordionItem
       {...args}
-    />
+      headerContent={args.headerContent ? headerContent : null}
+    >
+      Accordion item content. This can be whatever you want.
+    </MdAccordionItem>
   );
 };
 
 export const AccordionItem = Template.bind({});
 AccordionItem.args = {
-  label: 'Label for accordion',
+  label: 'Click to toggle accordion item',
   theme: 'primary',
-  disabled: false
+  disabled: false,
+  headerContent: false
 }

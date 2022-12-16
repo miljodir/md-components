@@ -7,11 +7,11 @@ import CheckIcon from '../icons/CheckIcon';
 export interface MdFilterChipProps
   extends React.InputHTMLAttributes<HTMLSelectElement> {
     label: string | null;
-    id: string | number;
+    id?: string | number;
     active?: boolean;
     disabled?: boolean;
     prefixIcon?: React.ReactNode;
-    onClick(e: ClickEvent<HTMLInputElement>): string;
+    onClick?(e: ClickEvent<HTMLInputElement>): void;
     className?: string;
 }
 

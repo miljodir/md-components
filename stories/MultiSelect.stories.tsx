@@ -30,17 +30,17 @@ export default {
       table: {
         defaultValue: { summary: '[]' },
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]",
         },
       },
     },
     selected: {
       type: { name: 'array' },
-      description: "The currently selected values. This corresponds to `value` from selected `options`",
+      description: "The currently selected values. An array with `options`",
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "[number | string, number | string, ...]",
+          summary: "[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]",
         },
       }
     },
@@ -134,7 +134,7 @@ export default {
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
+      description: "The onChange handler for change events. Returns the `ChangeEvent` from clicked option.",
       table: {
         type: {
           summary: "function",
@@ -142,43 +142,48 @@ export default {
       },
     }
   }
-}
+};
+
+const options = [
+  { value: 'option1', text: 'Option 1' },
+  { value: 'option2', text: 'Option with quite a long text' },
+  { value: 'option3', text: 'Option 3' },
+  { value: 'option4', text: 'Option 4' },
+];
 
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleChange = (e: React.ChangeEvent) => {
-    let newSelected = args.selected;
-    if (args.selected && args.selected.includes(e?.target?.value)) {
+    let newSelected = args.selected && args.selected.length ? args.selected : [];
+    const found = args.selected && args.selected.find((item: any) => item.value === e?.target?.value);
+    if (found) {
       newSelected = args.selected.filter((item: any) => {
-        return item !== e?.target?.value
+        return item.value !== e?.target?.value
       })
     } else {
       if (e?.target?.value) {
-        newSelected.push(e.target.value);
+        newSelected.push({ value: e.target.value, text: e.target?.dataset?.text });
       }
     }
    updateArgs({ ...args, selected: newSelected });
   }
 
   return (
-    <MdMultiSelect
-      {...args}
-      onChange={handleChange}
-    />
+    <div>
+      <MdMultiSelect
+        {...args}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 
 export const Multiselect = Template.bind({});
 Multiselect.args = {
   label: 'Label',
-  options: [
-    { value: 'option1', text: 'Option 1' },
-    { value: 'option2', text: 'Option 2' },
-    { value: 'option3', text: 'Option 3' },
-    { value: 'option4', text: 'Option 4' },
-  ],
-  selected: ['option1'],
+  options: options,
+  selected: [options[0]],
   disabled: false,
   showChips: false,
   closeOnSelect: true,
