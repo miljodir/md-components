@@ -1,20 +1,23 @@
-import React, { useEffect, useRef, ClickEvent } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface MdClickOutsideWrapperProps {
   onClickOutside(): any;
-  children: React.ReactNode
+  children: React.ReactNode;
+  className?: any;
 };
 
 const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps> = ({
   onClickOutside,
   children,
+  className = '',
   ...otherProps
 }: MdClickOutsideWrapperProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      // @ts-expect-error
+      if (ref.current && !ref.current?.contains(event.target)) {
         onClickOutside && onClickOutside();
       }
     };
@@ -25,7 +28,7 @@ const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps>
   }, [ onClickOutside ]);
 
   return (
-    <div ref={ref} {...otherProps}>
+    <div ref={ref} className={className} {...otherProps}>
       {children}
     </div>
   );

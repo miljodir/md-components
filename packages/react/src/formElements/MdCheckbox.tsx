@@ -2,13 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  checked: boolean;
-  label?: string | null;
-  value?: string | null;
+export interface MdCheckboxProps {
+  checked: boolean | undefined;
+  label?: any;
+  value?: any;
   id?: string | number;
   disabled?: boolean;
   className?: string;
+  onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
+  [otherProps: string]: unknown;
 }
 
 const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({

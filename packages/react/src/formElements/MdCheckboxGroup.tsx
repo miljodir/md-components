@@ -12,7 +12,7 @@ export interface MdCheckboxGroupOptionProps {
   text?: string | number
 };
 
-export interface MdCheckboxGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface MdCheckboxGroupProps {
   options?: MdCheckboxGroupOptionProps[];
   selectedOptions?: MdCheckboxGroupOptionProps[];
   onChange(e: ChangeEvent<HTMLInputElement>): void;
@@ -55,7 +55,6 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   )
 
   const optionIsSelected = (option: MdCheckboxGroupOptionProps) => {
-    console.log(selectedOptions);
     if (selectedOptions) {
       const find = selectedOptions.find(item => item.value.toString() === option.value.toString())
       return find !== undefined;

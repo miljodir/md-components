@@ -1,17 +1,16 @@
-import React, { ClickEvent } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import classnames from 'classnames';
 
 import XIcon from '../icons/XIcon';
 
-export interface MdInputChipProps
-  extends React.InputHTMLAttributes<HTMLSelectElement> {
+export interface MdInputChipProps {
     label: string | null;
     id?: string | number;
     active?: boolean;
     disabled?: boolean;
     prefixIcon?: React.ReactNode;
-    onClick?(e: ClickEvent<HTMLInputElement>): void;
+    onClick?(e: React.MouseEvent<HTMLInputElement>): void;
     className?: string;
     hideCloseIcon?: boolean;
 }
@@ -33,6 +32,7 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   });
 
   return (
+    // @ts-ignore
     <button
       className={buttonClassNames}
       id={chipId}

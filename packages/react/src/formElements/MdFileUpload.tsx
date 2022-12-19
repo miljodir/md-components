@@ -1,4 +1,4 @@
-import React, { useRef, ChangeEvent, DragEvent, ClickEvent } from 'react';
+import React, { useRef, ChangeEvent, DragEvent, MouseEvent } from 'react';
 import classnames from 'classnames';
 import { useFileUpload } from '../hooks/useFileUpload';
 import MdFileList from '../fileList/MdFileList';
@@ -7,8 +7,8 @@ import MdButton from '../button/MdButton';
 import UploadIcon from '../icons/UploadIcon';
 
 interface MdFileUploadProps {
-  onUpload?(e: ClickEvent): void;
-  onCancel?(e: ClickEvent): void;
+  onUpload?(files: File[] | FormData): void;
+  onCancel?(e: MouseEvent): void;
   useFormData?: boolean;
   uploadButtonText?: string;
   cancelButtonText?: string;
@@ -36,9 +36,9 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     removeFile,
   } = useFileUpload();
 
-  const inputRef = useRef();
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (e: ClickEvent) => {
+  const handleSubmit = async (e: MouseEvent) => {
     e.preventDefault();
     if (onUpload) {
       if (useFormData) {
@@ -50,7 +50,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     }
   };
 
-  const handleCancel = (e: ClickEvent) => {
+  const handleCancel = (e: MouseEvent) => {
     e.preventDefault();
     clearAllFiles();
     if (onCancel) {
@@ -63,11 +63,13 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
 
   const onDragEnterEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
+    // @ts-ignore
     e.target?.classList?.add('md-fileupload__droparea--active');
   }
 
   const onDragLeaveEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
+    // @ts-ignore
     e.target?.classList?.remove('md-fileupload__droparea--active');
   }
 
@@ -94,7 +96,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp en fil eller <button onClick={() => inputRef.current.click()}>velg fra denne maskinen</button>
+          Dropp en fil eller <button onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
         </div>
 
         <input
@@ -104,7 +106,9 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           className="md-fileupload__input"
           onChange={(e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>) => {
             setFiles(e, 'a');
-            inputRef.current.value = null;
+            if (inputRef && inputRef.current) {
+              inputRef.current.value = '';
+            }
           }}
         />
 
@@ -112,7 +116,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           <div className="md-fileupload__files-wrapper">
             <MdFileList
               files={files}
-              allowDownload={false}
+              hideDownload={true}
               allowDelete={true}
               hideIcons={hideFileListIcons}
               onRemoveFile={(file: File) => onRemoveFile(file)}

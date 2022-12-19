@@ -31,7 +31,6 @@ import PlusIcon from './icons/PlusIcon';
 import MinusIcon from './icons/MinusIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
-import MdChecklist from './checklist/MdChecklist';
 import MdDataGrid from './data-grid/MdDataGrid';
 import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
 import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
@@ -80,5 +79,4 @@ export {
   MdDataColumnRow,
   MdDataColumnRowValue,
   MdDataColumnRightAlignedContent,
-  MdChecklist,
 };
