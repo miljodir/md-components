@@ -36,10 +36,10 @@ export default {
     },
     selectedOptions: {
       type: { name: 'array', required: true },
-      description: "Array with selected options. Corresponds with `value`s from options.",
+      description: "Array with selected options. Corresponds with element from options-array.",
       table: {
         type: {
-          summary: "[ number | string, number | string, ... ]",
+          summary: "[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]",
         },
       },
     },
@@ -110,17 +110,22 @@ export default {
   },
 };
 
+type SelectedOptionType = {
+  value: string | number,
+  text?: string | number
+};
+
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleCheck = (e: React.ChangeEvent) => {
-    const value = e.target?.value;
+    const dataset: SelectedOptionType = e.target?.dataset;
     let newSelected = args.selectedOptions;
-    const found = newSelected.find((item: string | number) => item.toString() === value.toString());
+    const found = newSelected.find((item: SelectedOptionType) => item.value.toString() === dataset.value.toString());
     if (found) {
-      newSelected = newSelected.filter((item: string | number) => item.toString() !== value.toString());
+      newSelected = newSelected.filter((item: SelectedOptionType) => item.value.toString() !== dataset.value.toString());
     } else {
-      newSelected.push(value);
+      newSelected.push({...dataset});
     }
     updateArgs({ ...args, selectedOptions: newSelected });
   }
@@ -149,7 +154,10 @@ CheckboxGroup.args = {
       text: 'Option 3'
     }
   ],
-  selectedOptions: [1],
+  selectedOptions: [{
+    value: 2,
+    text: 'Option 2'
+  }],
   label: "Example checkbox group",
   id: "checkbox-group_id",
   disabled: false,
