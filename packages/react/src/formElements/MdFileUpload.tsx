@@ -36,7 +36,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     removeFile,
   } = useFileUpload();
 
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: MouseEvent) => {
     e.preventDefault();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 
@@ -62,7 +62,7 @@ export default {
       control: { type: 'boolean' }
     }
   }
-} as ComponentMeta<typeof MdAccordionItem>;
+};
 
 const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
   const headerContent = (

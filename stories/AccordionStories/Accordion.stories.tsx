@@ -15,10 +15,10 @@ export default {
   },
 };
 
-const Template = () => {
+const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
   const [expanded, setExpanded] = useState(null);
 
-  const handleExpand = (e: React.ClickEvent, item: any) => {
+  const handleExpand = (e: React.MouseEvent, item: any) => {
     setExpanded(item === expanded ? null : item);
   }
 
@@ -27,7 +27,7 @@ const Template = () => {
       <MdAccordionItem
         label="Første element"
         expanded={expanded === '1'}
-        onToggle={(e: React.ClickEvent) => handleExpand(e, '1')}
+        onToggle={(e: React.MouseEvent) => handleExpand(e, '1')}
       >
           Dette er første element i accordion
       </MdAccordionItem>
@@ -35,7 +35,7 @@ const Template = () => {
       <MdAccordionItem
         label="Andre element"
         expanded={expanded === '2'}
-        onToggle={(e: React.ClickEvent) => handleExpand(e, '2')}
+        onToggle={(e: React.MouseEvent) => handleExpand(e, '2')}
       >
           Dette er andre element i accordion
       </MdAccordionItem>

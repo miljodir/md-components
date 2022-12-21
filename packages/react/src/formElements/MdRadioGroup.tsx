@@ -14,7 +14,7 @@ export interface MdRadioGroupOption {
 export interface MdRadioGroupProps {
   options: MdRadioGroupOption[];
   selectedOption?: string | number;
-  onChange(e: string): void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -62,7 +62,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 	}
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e?.target?.value)
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   return (

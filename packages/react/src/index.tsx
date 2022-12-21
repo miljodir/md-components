@@ -16,6 +16,7 @@ import MdInputChip from './chips/MdInputChip';
 import MdFilterChip from './chips/MdFilterChip';
 import MdFileList from './fileList/MdFileList';
 import MdAccordionItem from './accordion/MdAccordionItem';
+import MdModal from './modal/MdModal';
 
 // Icons
 import ChevronIcon from './icons/ChevronIcon';
@@ -58,6 +59,7 @@ export {
   MdFilterChip,
   MdFileList,
   MdAccordionItem,
+  MdModal,
 
   ChevronIcon,
   ConfirmIcon,

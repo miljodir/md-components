@@ -10,7 +10,7 @@ export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   id?: string;
   size: 'normal' | 'small';
-  label: string;
+  label?: string;
   placeholder?: string;
   disabled?: boolean;
   readOnly?: boolean;
