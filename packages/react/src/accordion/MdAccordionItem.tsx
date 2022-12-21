@@ -1,4 +1,4 @@
-import React, { useState, ClickEvent } from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,7 +13,7 @@ interface MdAccordionItemProps {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
-  onToggle?(e: React.ClickEvent<HTMLInputElement>): void;
+  onToggle?(e: React.MouseEvent): void;
 };
 
 const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
@@ -28,7 +28,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   onToggle
 }: MdAccordionItemProps) => {
   const accordionId = React.useMemo(() => id || uuidv4(), []);
-  const [isExpanded, setExpanded] = useState(null);
+  const [isExpanded, setExpanded] = useState(false);
 
   React.useEffect(() => {
     setExpanded(expanded && !disabled);
@@ -48,7 +48,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     'md-accordion-item__content--expanded': !!isExpanded && !disabled
   });
 
-  const toggle = (e: React.ClickEvent) => {
+  const toggle = (e: React.MouseEvent) => {
     // handle expand/collapse externally
     if (onToggle) {
       onToggle(e);
@@ -67,7 +67,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         id={accordionId}
         className={headerClassNames}
         disabled={!!disabled}
-        onClick={(e: React.ClickEvent) => toggle(e)}
+        onClick={(e: React.MouseEvent) => toggle(e)}
       >
         <div className="md-accordion-item__header-left">
           <div className="md-accordion-item__header-icon"></div>
@@ -91,8 +91,8 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 
           <button
             className="md-accordion-item__close-button"
-            onClick={(e: React.ClickEvent) => toggle(e)}
-            tabIndex={isExpanded ? '0' : '-1'}
+            onClick={(e: React.MouseEvent) => toggle(e)}
+            tabIndex={isExpanded ? 0 : -1}
           >
             <MinusIcon className="md-accordion-item__close-button__icon" />
             <div>Lukk</div>

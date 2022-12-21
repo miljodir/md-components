@@ -110,16 +110,17 @@ export default {
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleChange = (optionId) => {
-    updateArgs({ ...args, selectedOption: optionId });
+  const handleChange = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    updateArgs({ ...args, selectedOption: target.value });
   }
 
   return (
     <MdRadioGroup
       {...args}
       selectedOption={args.selectedOption}
-      onChange={(optionId: number | string) => {
-        handleChange(optionId)
+      onChange={(e: React.ChangeEvent) => {
+        handleChange(e)
       }}
     />
   );

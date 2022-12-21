@@ -1,31 +1,36 @@
-import React, { useEffect, useRef, ClickEvent } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface MdClickOutsideWrapperProps {
-  onClickOutside(): any;
-  children: React.ReactNode
+  onClickOutside(e: React.MouseEvent): void;
+  children: React.ReactNode;
+  className?: any;
 };
 
 const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps> = ({
   onClickOutside,
   children,
+  className = '',
   ...otherProps
 }: MdClickOutsideWrapperProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        onClickOutside && onClickOutside();
+    const handleClickOutside = (event: React.MouseEvent) => {
+      // @ts-ignore
+      if (ref.current && !ref.current?.contains(event.target)) {
+        onClickOutside && onClickOutside(event);
       }
     };
+    // @ts-ignore
     document.addEventListener('click', handleClickOutside, true);
     return () => {
+      // @ts-ignore
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [ onClickOutside ]);
 
   return (
-    <div ref={ref} {...otherProps}>
+    <div ref={ref} className={className} {...otherProps}>
       {children}
     </div>
   );

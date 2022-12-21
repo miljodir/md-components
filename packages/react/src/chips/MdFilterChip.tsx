@@ -1,17 +1,16 @@
-import React, { ClickEvent } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import classnames from 'classnames';
 
 import CheckIcon from '../icons/CheckIcon';
 
-export interface MdFilterChipProps
-  extends React.InputHTMLAttributes<HTMLSelectElement> {
+export interface MdFilterChipProps {
     label: string | null;
     id?: string | number;
     active?: boolean;
     disabled?: boolean;
     prefixIcon?: React.ReactNode;
-    onClick?(e: ClickEvent<HTMLInputElement>): void;
+    onClick?(e: React.MouseEventHandler<HTMLButtonElement>): void;
     className?: string;
 }
 
@@ -36,6 +35,7 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
       className={buttonClassNames}
       id={chipId}
       disabled={disabled}
+      // @ts-expect-error
       onClick={onClick}
       {...otherProps}
     >

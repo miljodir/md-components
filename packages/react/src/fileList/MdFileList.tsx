@@ -1,4 +1,4 @@
-import React, { ClickEvent } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 import DocIcon from '../icons/DocIcon';
@@ -18,8 +18,8 @@ interface MdFileListProps {
   hideDownload?: boolean;
   allowDelete?: boolean;
   hideIcons?: boolean;
-  onRemoveFile?(file: File | FileType): File | FileType;
-  onDownloadFile?(file: File | FileType): File | FileType;
+  onRemoveFile?(file: File | FileType): void;
+  onDownloadFile?(file: File | FileType): void;
 };
 
 const formatBytes = (bytes: number, decimals = 2): string => {

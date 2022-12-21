@@ -156,13 +156,17 @@ const Template = args => {
 
   const handleChange = (e: React.ChangeEvent) => {
     let newSelected = args.selected && args.selected.length ? args.selected : [];
+    // @ts-ignore
     const found = args.selected && args.selected.find((item: any) => item.value === e?.target?.value);
     if (found) {
       newSelected = args.selected.filter((item: any) => {
+        // @ts-ignore
         return item.value !== e?.target?.value
       })
     } else {
+      // @ts-ignore
       if (e?.target?.value) {
+        // @ts-ignore
         newSelected.push({ value: e.target.value, text: e.target?.dataset?.text });
       }
     }

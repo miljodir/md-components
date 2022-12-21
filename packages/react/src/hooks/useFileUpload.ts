@@ -122,6 +122,7 @@ export const useFileUpload = (): useFileUploadHook => {
       return { ...formData, [file.name]: file };
     });
 
+    /* @ts-ignore */
     return updatedFormData;
   }, [files]);
 

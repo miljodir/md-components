@@ -16,6 +16,7 @@ import MdInputChip from './chips/MdInputChip';
 import MdFilterChip from './chips/MdFilterChip';
 import MdFileList from './fileList/MdFileList';
 import MdAccordionItem from './accordion/MdAccordionItem';
+import MdModal from './modal/MdModal';
 
 // Icons
 import ChevronIcon from './icons/ChevronIcon';
@@ -31,7 +32,6 @@ import PlusIcon from './icons/PlusIcon';
 import MinusIcon from './icons/MinusIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
-import MdChecklist from './checklist/MdChecklist';
 import MdDataGrid from './data-grid/MdDataGrid';
 import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
 import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
@@ -59,6 +59,7 @@ export {
   MdFilterChip,
   MdFileList,
   MdAccordionItem,
+  MdModal,
 
   ChevronIcon,
   ConfirmIcon,
@@ -80,5 +81,4 @@ export {
   MdDataColumnRow,
   MdDataColumnRowValue,
   MdDataColumnRightAlignedContent,
-  MdChecklist,
 };

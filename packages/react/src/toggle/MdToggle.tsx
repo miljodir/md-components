@@ -4,7 +4,7 @@ import classnames from 'classnames';
 export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElement> {
   checked: boolean;
   id: string;
-  onChange(e: ChangeEvent<HTMLInputElement>): string;
+  onChange(e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
   disabled?: boolean;
   wrapperClass?: string;
@@ -36,7 +36,7 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   return (
     <div className={outerWrapperClassNames}>
       <input
-        tabIndex="0"
+        tabIndex={0}
         className="md-toggle__checkbox"
         id={id}
         type="checkbox"

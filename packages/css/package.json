@@ -1,6 +1,6 @@
 {
   "name": "@miljodirektoratet/md-css",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "CSS for Miljødirektoratet",
   "author": "Miljødirektoratet",
   "main": "./src/index.css",

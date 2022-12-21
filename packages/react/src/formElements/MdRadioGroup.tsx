@@ -11,10 +11,10 @@ export interface MdRadioGroupOption {
   text: string
 };
 
-export interface MdRadioGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface MdRadioGroupProps {
   options: MdRadioGroupOption[];
   selectedOption?: string | number;
-  onChange(e: ChangeEvent<HTMLInputElement>): string;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -62,7 +62,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 	}
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e?.target?.value)
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   return (

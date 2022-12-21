@@ -3,10 +3,10 @@ import classnames from 'classnames';
 
 import HelpIcon from '../icons/HelpIcon';
 
-export interface MdHelpButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface MdHelpButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   expanded: boolean;
-  hideArrow: boolean;
+  hideArrow?: boolean;
   className?: string;
 };
 

@@ -119,7 +119,8 @@ const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleCheck = (e: React.ChangeEvent) => {
-    const dataset: SelectedOptionType = e.target?.dataset;
+    // @ts-ignore
+    const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
     const found = newSelected.find((item: SelectedOptionType) => item.value.toString() === dataset.value.toString());
     if (found) {

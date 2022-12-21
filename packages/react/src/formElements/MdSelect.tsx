@@ -13,11 +13,10 @@ interface MdSelectOptionProps {
   value: string;
 };
 
-export interface MdSelectProps
-  extends React.InputHTMLAttributes<HTMLSelectElement> {
+export interface MdSelectProps {
     label: string | null;
     options: MdSelectOptionProps[];
-    onChange(e: ChangeEvent<HTMLInputElement>): string;
+    onChange(e: MdSelectOptionProps): void;
     name: string;
     value: string | number;
     placeholder?: string;
@@ -104,7 +103,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
       >
         <button
           className={buttonClasseNames}
-          tabIndex="0"
+          tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
         >
           <div className="md-select__button-text">{displayValue}</div>
@@ -118,7 +117,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
             {options.map(option => (
               <button
                 key={`md-select-option-${uuid}-${option.value}`}
-                tabIndex={`${open ? '0': '-1'}`}
+                tabIndex={open ? 0: -1}
                 className={optionClass(option)}
                 onClick={() => open && handleOptionClick(option)}
               >

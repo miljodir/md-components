@@ -14,11 +14,10 @@ interface MdMultiSelectOptionProps {
   value: string | number;
 };
 
-interface MdMultiSelectProps
-  extends React.InputHTMLAttributes<HTMLSelectElement> {
+interface MdMultiSelectProps {
     label?: string | null;
     options?: MdMultiSelectOptionProps[];
-    onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
+    onChange?(e: React.ChangeEvent): void;
     selected?: MdMultiSelectOptionProps[];
     placeholder?: string;
     disabled?: boolean;
@@ -109,12 +108,13 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   const handleChipClick = (option: MdMultiSelectOptionProps) => {
-    const dataset: React.DOMStringMap = {
+    const dataset = {
       value: option.value,
       text: option.text
     };
     const event: React.ChangeEvent = {
       target: {
+        // @ts-expect-error
         value: option.value,
         dataset: dataset
       }
@@ -152,7 +152,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       >
         <button
           className={buttonClasseNames}
-          tabIndex="0"
+          tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
         >
           <div className="md-multiselect__button-text">{displayValue}</div>
@@ -173,8 +173,8 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
               >
                 <MdCheckbox
                   label={option.text}
-                  tabIndex={open ? '0' : '-1'}
-                  checked={optionIsChecked(option)}
+                  tabIndex={open ? 0 : -1}
+                  checked={!!optionIsChecked(option)}
                   value={option.value}
                   id={`checkbox_${uuid}_${option.value}`}
                   disabled={!!disabled}
