@@ -1,0 +1,119 @@
+/* HORIZONTAL TILES */
+.md-tile {
+  padding: 1.5em;
+  border: 1px solid var(--mdGreyColor60);
+  background-color: var(--mdPrimaryColor10);
+  color: var(--mdGreyColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-family: 'Open sans';
+  width: 440px;
+  max-width: 100%;
+  transition: all .15s ease-in-out;
+}
+
+.md-tile:hover {
+  border: 1px solid var(--mdPrimaryColor);
+  background-color: var(--mdPrimaryColor20);
+  transition: all .15s ease-in-out;
+}
+
+.md-tile:focus {
+  outline: 2px solid var(--mdPrimaryColor);
+  outline-offset: -2px;
+  background-color: var(--mdPrimaryColor20);
+}
+
+.md-tile__content {
+  display: flex;
+  align-items: center;
+}
+
+.md-tile__content-icon {
+  margin-right: 1em;
+  color: var(--mdPrimaryColor80);
+}
+
+.md-tile__content-heading {
+  font-size: 20px;
+}
+
+.md-tile__content-description {
+  margin-top: 1em;
+}
+
+.md-tile__arrow {
+  color: var(--mdGreyColor);
+}
+
+/* VERTICAL TILES */
+.md-tile-vertical {
+  display: flex;
+  width: 190px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mdGreyColor60);
+  background-color: var(--mdPrimaryColor10);
+  color: var(--mdGreyColor);
+  text-decoration: none;
+  font-family: 'Open sans';
+  transition: all .15s ease-in-out;
+}
+
+.md-tile-vertical--small {
+  width: 178px;
+}
+
+.md-tile-vertical--large {
+  width: 238px;
+}
+
+.md-tile-vertical:hover {
+  border: 1px solid var(--mdPrimaryColor);
+  background-color: var(--mdPrimaryColor20);
+  transition: all .15s ease-in-out;
+}
+
+.md-tile-vertical:focus {
+  outline: 2px solid var(--mdPrimaryColor);
+  outline-offset: -2px;
+  background-color: var(--mdPrimaryColor20);
+}
+
+.md-tile-vertical__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.md-tile-vertical--small .md-tile-vertical__content {
+  padding: 1em;
+}
+
+.md-tile-vertical--large .md-tile-vertical__content {
+  padding: 2em 1.5em;
+}
+
+.md-tile-vertical__content-text {
+  text-align: center;
+  word-break: break-all;
+}
+
+.md-tile-vertical__content-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  color: var(--mdPrimaryColor80);
+}
+
+.md-tile-vertical__content-heading {
+  font-size: 20px;
+}
+
+.md-tile-vertical__content-description {
+  margin-top: 1em;
+}
