@@ -17,6 +17,8 @@ import MdFilterChip from './chips/MdFilterChip';
 import MdFileList from './fileList/MdFileList';
 import MdAccordionItem from './accordion/MdAccordionItem';
 import MdModal from './modal/MdModal';
+import MdTile from './tiles/MdTile';
+import MdTileVertical from './tiles/MdTileVertical';
 
 // Icons
 import MdChevronIcon from './icons/MdChevronIcon';
@@ -31,6 +33,7 @@ import MdDeleteIcon from './icons/MdDeleteIcon';
 import MdPlusIcon from './icons/MdPlusIcon';
 import MdMinusIcon from './icons/MdMinusIcon';
 import MdUserIcon from './icons/MdUserIcon';
+import MdGraphIcon from './icons/MdGraphIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
 import MdDataGrid from './data-grid/MdDataGrid';
@@ -61,6 +64,8 @@ export {
   MdFileList,
   MdAccordionItem,
   MdModal,
+  MdTile,
+  MdTileVertical,
 
   MdChevronIcon,
   MdConfirmIcon,
@@ -74,6 +79,7 @@ export {
   MdPlusIcon,
   MdMinusIcon,
   MdUserIcon,
+  MdGraphIcon,
 
   MdShortcut,
   MdDataGrid,
