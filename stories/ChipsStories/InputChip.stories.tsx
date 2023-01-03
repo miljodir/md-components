@@ -1,8 +1,8 @@
-import React, { ClickEvent } from 'react';
+import React from 'react';
 import { useArgs } from '@storybook/client-api';
 
 import MdInputChip from '../../packages/react/src/chips/MdInputChip';
-import UserIcon from '../../packages/react/src/icons/UserIcon';
+import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
 
 export default {
   title: 'Chips/InputChip',
@@ -75,6 +75,16 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    solid: {
+      description: 'Set this to `true` to keep background color on all states',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
     onClick: {
       type: { name: 'function', required: true },
       description: 'Callback for click handling.',
@@ -91,14 +101,14 @@ export default {
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleClick = (e: ClickEvent<HTMLInputElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     updateArgs({ ...args, active: !args.active });
   }
 
   return (
     <MdInputChip
       {...args}
-      prefixIcon={args.prefixIcon ? <UserIcon /> : null}
+      prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
       onClick={(e) => { handleClick(e); }}
     />
   );
@@ -111,5 +121,6 @@ InputChip.args = {
   disabled: false,
   active: false,
   hideCloseIcon: false,
-  prefixIcon: false
+  prefixIcon: false,
+  solid: false
 };

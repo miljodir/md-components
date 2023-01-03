@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import DocIcon from '../icons/DocIcon';
-import DeleteIcon from '../icons/DeleteIcon';
-import DownloadIcon from '../icons/DownloadIcon';
+import MdDocIcon from '../icons/MdDocIcon';
+import MdDeleteIcon from '../icons/MdDeleteIcon';
+import MdDownloadIcon from '../icons/MdDownloadIcon';
 
 interface FileType {
   name: string;
@@ -56,7 +56,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
           <div className="md-filelist__file-label">
             {!hideIcons &&
               <div className="md-filelist__file-icon">
-                <DocIcon />
+                <MdDocIcon />
               </div>
             }
             <div>
@@ -73,7 +73,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                 className="md-filelist__file-actions-button md-filelist__file-download"
                 onClick={() => {onDownloadFile(file)}}
               >
-                <DownloadIcon className="md-filelist__file-download-icon" />
+                <MdDownloadIcon className="md-filelist__file-download-icon" />
               </button>
             }
 
@@ -82,7 +82,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                 className="md-filelist__file-actions-button md-filelist__file-delete"
                 onClick={() => {onRemoveFile(file)}}
               >
-                <DeleteIcon className="md-filelist__file-delete-icon" />
+                <MdDeleteIcon className="md-filelist__file-delete-icon" />
               </button>
             }
           </div>

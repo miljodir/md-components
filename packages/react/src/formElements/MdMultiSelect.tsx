@@ -7,7 +7,7 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdInputChip from '../chips/MdInputChip';
-import ChevronIcon from '../icons/ChevronIcon';
+import MdChevronIcon from '../icons/MdChevronIcon';
 
 interface MdMultiSelectOptionProps {
   text: string | number;
@@ -160,7 +160,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
             <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
           }
           <div className="md-multiselect__button-icon">
-            <ChevronIcon />
+            <MdChevronIcon />
           </div>
         </button>
 

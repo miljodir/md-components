@@ -1,8 +1,8 @@
-import React, { ClickEvent } from 'react';
+import React from 'react';
 import { useArgs } from '@storybook/client-api';
 
 import MdFilterChip from '../../packages/react/src/chips/MdFilterChip';
-import UserIcon from '../../packages/react/src/icons/UserIcon';
+import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
 
 export default {
   title: 'Chips/FilterChip',
@@ -81,17 +81,15 @@ export default {
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleClick = (e: ClickEvent<HTMLInputElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     updateArgs({ ...args, active: !args.active });
   }
 
   return (
     <MdFilterChip
       {...args}
-      prefixIcon={args.prefixIcon ? <UserIcon /> : null}
-      onClick={(e) => {
-        handleClick(e);
-      }}
+      prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
+      onClick={(e) => { handleClick(e); }}
     />
   );
 };

@@ -2,22 +2,65 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import MdButton from '../packages/react/src/button/MdButton';
-import ChevronIcon from '../packages/react/src/icons/ChevronIcon';
+import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
 
 export default {
   title: 'Components/Button',
   component: MdButton,
   argTypes: {
+    label: {
+      description: "Button label text",
+      table: {
+        type: {
+          summary: 'text',
+        },
+      },
+      control: { type: 'text' }
+    },
     theme: {
+      description: "Selected theme for button",
+      table: {
+        type: {
+          summary: 'text',
+        },
+      },
       options: ['primary', 'secondary', 'danger'],
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
     disabled: {
+      description: "Is button disabled?",
+      table: {
+        type: {
+          summary: "boolean",
+        },
+      },
       control: { type: 'boolean' }
     },
     small: {
+      description: "Make button smaller",
+      table: {
+        type: {
+          summary: "boolean",
+        },
+      },
       control: { type: 'boolean' }
+    },
+    rightIcon: {
+      description: "Icon after label",
+      table: {
+        type: {
+          summary: "DomElement | image | ReactNode",
+        },
+      },
+    },
+    leftIcon: {
+      description: "Icon before label",
+      table: {
+        type: {
+          summary: "DomElement | image | ReactNode",
+        },
+      },
     }
   },
 };
@@ -30,7 +73,7 @@ interface ButtonArgs {
 }
 
 const Template = (args: ButtonArgs) => <MdButton onClick={action(args.label)} disabled={args.disabled} theme={args.theme} small={args.small}>{args.label}</MdButton>;
-const TemplateWithIcon = (args: ButtonArgs) => <MdButton onClick={action(args.label)} disabled={args.disabled} theme={args.theme} small={args.small} rightIcon={<ChevronIcon />}>{args.label}</MdButton>;
+const TemplateWithIcon = (args: ButtonArgs) => <MdButton onClick={action(args.label)} disabled={args.disabled} theme={args.theme} small={args.small} rightIcon={<MdChevronIcon />}>{args.label}</MdButton>;
 
 export const Primary = Template.bind({})
 Primary.args = {

@@ -4,7 +4,7 @@ import { useFileUpload } from '../hooks/useFileUpload';
 import MdFileList from '../fileList/MdFileList';
 import MdButton from '../button/MdButton';
 
-import UploadIcon from '../icons/UploadIcon';
+import MdUploadIcon from '../icons/MdUploadIcon';
 
 interface MdFileUploadProps {
   onUpload?(files: File[] | FormData): void;
@@ -92,7 +92,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         }}
       >
         <div className="md-fileupload__droparea-icon">
-          <UploadIcon />
+          <MdUploadIcon />
         </div>
 
         <div className="md-fileupload__droparea-content">

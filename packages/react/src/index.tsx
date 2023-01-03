@@ -19,17 +19,18 @@ import MdAccordionItem from './accordion/MdAccordionItem';
 import MdModal from './modal/MdModal';
 
 // Icons
-import ChevronIcon from './icons/ChevronIcon';
-import ConfirmIcon from './icons/ConfirmIcon';
-import HelpIcon from './icons/HelpIcon';
-import WarningIcon from './icons/WarningIcon';
-import XIcon from './icons/XIcon';
-import CheckIcon from './icons/CheckIcon';
-import UploadIcon from './icons/UploadIcon';
-import DocIcon from './icons/DocIcon';
-import DeleteIcon from './icons/DeleteIcon';
-import PlusIcon from './icons/PlusIcon';
-import MinusIcon from './icons/MinusIcon';
+import MdChevronIcon from './icons/MdChevronIcon';
+import MdConfirmIcon from './icons/MdConfirmIcon';
+import MdHelpIcon from './icons/MdHelpIcon';
+import MdWarningIcon from './icons/MdWarningIcon';
+import MdXIcon from './icons/MdXIcon';
+import MdCheckIcon from './icons/MdCheckIcon';
+import MdUploadIcon from './icons/MdUploadIcon';
+import MdDocIcon from './icons/MdDocIcon';
+import MdDeleteIcon from './icons/MdDeleteIcon';
+import MdPlusIcon from './icons/MdPlusIcon';
+import MdMinusIcon from './icons/MdMinusIcon';
+import MdUserIcon from './icons/MdUserIcon';
 
 import MdShortcut from './shortcut/MdShortcut';
 import MdDataGrid from './data-grid/MdDataGrid';
@@ -61,17 +62,18 @@ export {
   MdAccordionItem,
   MdModal,
 
-  ChevronIcon,
-  ConfirmIcon,
-  HelpIcon,
-  WarningIcon,
-  XIcon,
-  CheckIcon,
-  UploadIcon,
-  DocIcon,
-  DeleteIcon,
-  PlusIcon,
-  MinusIcon,
+  MdChevronIcon,
+  MdConfirmIcon,
+  MdHelpIcon,
+  MdWarningIcon,
+  MdXIcon,
+  MdCheckIcon,
+  MdUploadIcon,
+  MdDocIcon,
+  MdDeleteIcon,
+  MdPlusIcon,
+  MdMinusIcon,
+  MdUserIcon,
 
   MdShortcut,
   MdDataGrid,

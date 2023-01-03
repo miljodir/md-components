@@ -2,7 +2,7 @@ import React from 'react'
 import { useArgs } from '@storybook/client-api';
 import MdInput from '../packages/react/src/formElements/MdInput';
 
-import UserIcon from '../packages/react/src/icons/UserIcon';
+import MdUserIcon from '../packages/react/src/icons/MdUserIcon';
 
 export default {
   title: 'Form/Input',
@@ -224,5 +224,5 @@ InputWithPrefix.args = {
   placeholder: 'Placeholder...',
   id: '',
   suffix: '',
-  prefixIcon: <UserIcon/>
+  prefixIcon: <MdUserIcon/>
 };

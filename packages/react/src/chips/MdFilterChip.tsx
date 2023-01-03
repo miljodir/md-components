@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import classnames from 'classnames';
 
-import CheckIcon from '../icons/CheckIcon';
+import MdCheckIcon from '../icons/MdCheckIcon';
 
 export interface MdFilterChipProps {
     label: string | null;
@@ -10,7 +10,7 @@ export interface MdFilterChipProps {
     active?: boolean;
     disabled?: boolean;
     prefixIcon?: React.ReactNode;
-    onClick?(e: React.MouseEventHandler<HTMLButtonElement>): void;
+    onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
     className?: string;
 }
 
@@ -21,7 +21,6 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
   disabled = false,
   prefixIcon = null,
   className = '',
-  onClick,
   ...otherProps
 }: MdFilterChipProps) => {
   const chipId = id && id !== '' ? id : uuidv4();
@@ -35,8 +34,6 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
       className={buttonClassNames}
       id={chipId}
       disabled={disabled}
-      // @ts-expect-error
-      onClick={onClick}
       {...otherProps}
     >
       {prefixIcon && !active &&
@@ -46,7 +43,7 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
       }
       {active &&
         <div className="md-chip__left-icon">
-          <CheckIcon />
+          <MdCheckIcon />
         </div>
       }
       <div className="md-chip__label">{label}</div>

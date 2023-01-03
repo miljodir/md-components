@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import HelpIcon from '../icons/HelpIcon';
+import MdHelpIcon from '../icons/MdHelpIcon';
 
 export interface MdHelpButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -28,7 +28,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
       className={buttonClasses}
       onClick={onClick}
     >
-      <HelpIcon className="md-helpbutton__icon" />
+      <MdHelpIcon className="md-helpbutton__icon" />
     </button>
   );
 }

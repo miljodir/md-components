@@ -1,5 +1,5 @@
 import React from 'react';
-import ChevronIcon from '../icons/ChevronIcon';
+import MdChevronIcon from '../icons/MdChevronIcon';
 
 interface MdShortcutProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -16,7 +16,7 @@ const MdShortcut: React.FunctionComponent<MdShortcutProps> = ({
     <a className="md-shortcut" {...otherProps} href={to}>
       <div className="content">{children}</div>
       <div className="icon">
-        <ChevronIcon color="#222" />
+        <MdChevronIcon color="#222" />
       </div>
     </a>
   );

@@ -3,7 +3,7 @@ import { ComponentStory } from '@storybook/react';
 
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 
-import CheckIcon from '../../packages/react/src/icons/CheckIcon';
+import MdCheckIcon from '../../packages/react/src/icons/MdCheckIcon';
 
 export default {
   title: 'Components/Accordion',
@@ -68,7 +68,7 @@ const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
   const headerContent = (
     <div style={{ display: 'flex', gap: '1em' }}>
       <div>Example content</div>
-      <div style={{ width: '15px', height: '15px', color: '#005e5d' }}><CheckIcon /></div>
+      <div style={{ width: '15px', height: '15px', color: '#005e5d' }}><MdCheckIcon /></div>
     </div>
   );
 

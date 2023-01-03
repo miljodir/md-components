@@ -18,4 +18,4 @@ const MyComponent = () => {
 }
 ```
 
-_For stylesheets, see @miljodirektoratet/md-css_
+_For stylesheets, see [@miljodirektoratet/md-css](https://www.npmjs.com/package/@miljodirektoratet/md-css)_

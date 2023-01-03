@@ -10,9 +10,9 @@
   width: 100%;
   background-color: #fff;
   border-radius: 0;
-  border: 1px solid var(--greyColor60);
+  border: 1px solid var(--mdGreyColor60);
   margin: 1px;
-  color: var(--greyColor);
+  color: var(--mdGreyColor);
   font-size: 16px;
   box-sizing: border-box;
 }
@@ -20,7 +20,7 @@
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
   margin: 0;
-  border: 2px solid var(--primaryColor80);
+  border: 2px solid var(--mdPrimaryColor80);
   outline: none;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .md-textarea.md-textarea--disabled {
-  background-color: var(--greyColor20);
+  background-color: var(--mdGreyColor20);
 }
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
@@ -39,7 +39,7 @@
 }
 
 .md-textarea.md-textarea--error {
-  border-color: var(--errorColor);
+  border-color: var(--mdErrorColor);
 }
 
 .md-textarea__wrapper {
@@ -62,7 +62,7 @@
 }
 
 .md-textarea__error {
-  color: var(--errorColor);
+  color: var(--mdErrorColor);
   font-size: .88em;
 }
 
@@ -80,18 +80,18 @@
 
 /* Placeholder "hacks" */
 .md-textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: var(--greyColor40);
+  color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
 .md-textarea::-moz-placeholder { /* Firefox 19+ */
-  color: var(--greyColor40);
+  color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
 .md-textarea:-ms-input-placeholder { /* IE 10+ */
-  color: var(--greyColor40);
+  color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
 .md-textarea:-moz-placeholder { /* Firefox 18- */
-  color: var(--greyColor40);
+  color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }

@@ -1,0 +1,14 @@
+.md-link {
+  color: var(--mdPrimaryColor);
+  cursor: pointer;
+  font-family: 'Open sans';
+  text-decoration: underline;
+}
+
+.md-link:hover {
+  color: var(--mdPrimaryColor120)
+}
+
+.md-link:focus {
+  outline: 2px solid var(--mdPrimaryColor80);
+}

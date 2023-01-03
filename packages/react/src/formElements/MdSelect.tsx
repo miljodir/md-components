@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper'
-import ChevronIcon from '../icons/ChevronIcon';
-import XIcon from '../icons/XIcon';
+import MdChevronIcon from '../icons/MdChevronIcon';
+import MdXIcon from '../icons/MdXIcon';
 
 interface MdSelectOptionProps {
   text: string;
@@ -108,7 +108,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
         >
           <div className="md-select__button-text">{displayValue}</div>
           <div className="md-select__button-icon">
-            <ChevronIcon />
+            <MdChevronIcon />
           </div>
         </button>
 
@@ -124,7 +124,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
                 <div className="md-select__dropdown-item-text">{option.text}</div>
                 {isSelectedOption(option) &&
                   <div className="md-select__dropdown-item-clear" title="Klikk for å fjerne valg">
-                    <XIcon />
+                    <MdXIcon />
                   </div>
                 }
               </button>

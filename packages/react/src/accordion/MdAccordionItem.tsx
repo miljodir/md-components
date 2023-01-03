@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
-import MinusIcon from '../icons/MinusIcon';
+import MdMinusIcon from '../icons/MdMinusIcon';
 
 interface MdAccordionItemProps {
   label?: string;
@@ -94,7 +94,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
             onClick={(e: React.MouseEvent) => toggle(e)}
             tabIndex={isExpanded ? 0 : -1}
           >
-            <MinusIcon className="md-accordion-item__close-button__icon" />
+            <MdMinusIcon className="md-accordion-item__close-button__icon" />
             <div>Lukk</div>
           </button>
         </div>

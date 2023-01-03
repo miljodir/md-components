@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
-import XIcon from '../icons/XIcon';
+import MdXIcon from '../icons/MdXIcon';
 
 interface MdModalProps {
   children: any;
@@ -57,7 +57,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 className="md-modal__close-button"
                 onClick={(e) => { closeModal(e) }}
               >
-                <XIcon className="md-modal__close-button-icon" />
+                <MdXIcon className="md-modal__close-button-icon" />
               </button>
             </div>
             <div className="md-modal__content-inner">

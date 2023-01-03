@@ -31,16 +31,16 @@
   justify-content: space-between;
   background-color: #fff;
   padding: 1em;
-  border: 1px solid var(--greyColor60);
-  color: var(--greyColor);
+  border: 1px solid var(--mdGreyColor60);
+  color: var(--mdGreyColor);
   margin: .8em 0 0 0;
   text-align: left;
   cursor: pointer;
 }
 
 .md-select--disabled .md-select__button {
-  background-color: var(--greyColor20);
-  color: var(--greyColor60);
+  background-color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
 }
 
 .md-select__button:focus,
@@ -51,7 +51,7 @@
 .md-select__button:not(.md-select__button--open):focus,
 .md-select__button:not(.md-select__button--open):focus-within {
   padding: calc(1em - 1px);
-  border: 2px solid var(--primaryColor);
+  border: 2px solid var(--mdPrimaryColor);
 }
 
 .md-select__button-text {
@@ -66,7 +66,7 @@
   width: 15px;
   height: 15px;
   rotate: 90deg;
-  color: var(--greyColor);
+  color: var(--mdGreyColor);
 }
 
 .md-select__help-text {
@@ -103,12 +103,12 @@
 .md-select__dropdown-item:hover,
 .md-select__dropdown-item:focus {
   outline: none;
-  background-color: var(--primaryColor20);
+  background-color: var(--mdPrimaryColor20);
   transition: background-color .15s ease-in-out;
 }
 
 .md-select__dropdown-item--selected {
-  background-color: var(--primaryColor10);
+  background-color: var(--mdPrimaryColor10);
 }
 
 .md-select__dropdown-item-text {
@@ -121,14 +121,14 @@
   flex-shrink: 0;
   height: 12px;
   width: 12px;
-  color: var(--primaryColor);
+  color: var(--mdPrimaryColor);
 }
 
 /* Open state */
 .md-select--open .md-select__button {
-  border-top: 2px solid var(--primaryColor);
-  border-right: 2px solid var(--primaryColor);
-  border-left: 2px solid var(--primaryColor);
+  border-top: 2px solid var(--mdPrimaryColor);
+  border-right: 2px solid var(--mdPrimaryColor);
+  border-left: 2px solid var(--mdPrimaryColor);
 }
 
 .md-select__button--open {
@@ -139,6 +139,6 @@
   max-height: 2000px;
   opacity: 1;
   transition: max-height .5s ease-in-out;
-  border: 2px solid var(--primaryColor);
+  border: 2px solid var(--mdPrimaryColor);
   border-top: 0;
 }

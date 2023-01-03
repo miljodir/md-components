@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import WarningIcon from '../icons/WarningIcon';
+import MdWarningIcon from '../icons/MdWarningIcon';
 
 export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
@@ -105,7 +105,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
           }
           {error && !hideErrorIcon &&
             <div className="md-input__error-icon">
-              <WarningIcon />
+              <MdWarningIcon />
             </div>
           }
         </div>

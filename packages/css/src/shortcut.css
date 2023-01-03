@@ -18,7 +18,7 @@
 }
 
 .md-shortcut:active {
-  border-bottom: 3px solid var(--primaryColor);
+  border-bottom: 3px solid var(--mdPrimaryColor);
 }
 
 .icon {

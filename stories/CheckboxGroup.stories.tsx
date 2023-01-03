@@ -4,12 +4,12 @@ import { useArgs } from '@storybook/client-api';
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
 
 export default {
-  title: 'Form/Checkbox',
+  title: 'Form/Checkbox/CheckboxGroup',
   component: MdCheckboxGroup,
   parameters: {
     docs: {
       description: {
-        component: 'A checkbox component',
+        component: 'A component for grouped checkboxes',
       },
     },
   },

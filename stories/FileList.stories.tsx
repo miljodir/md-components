@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 
 import MdFileList from '../packages/react/src/fileList/MdFileList';
 
@@ -68,7 +68,7 @@ export default {
       action: 'Download'
     },
   }
-} as ComponentMeta<typeof MdFileList>;
+};
 
 const Template: ComponentStory<typeof MdFileList> = (args) => {
   return (

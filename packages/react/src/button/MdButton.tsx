@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: 'primary' | 'secondary' | 'danger';
+  theme?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: string | React.ReactNode;

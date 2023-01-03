@@ -31,15 +31,15 @@
   justify-content: space-between;
   background-color: #fff;
   padding: 1em;
-  border: 1px solid var(--greyColor60);
-  color: var(--greyColor);
+  border: 1px solid var(--mdGreyColor60);
+  color: var(--mdGreyColor);
   text-align: left;
   cursor: pointer;
 }
 
 .md-multiselect--disabled .md-multiselect__button {
-  background-color: var(--greyColor20);
-  color: var(--greyColor60);
+  background-color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
   cursor: default;
 }
 
@@ -51,11 +51,11 @@
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1em - 1px);
-  border: 2px solid var(--primaryColor);
+  border: 2px solid var(--mdPrimaryColor);
 }
 
 .md-multiselect--error:not(.md-multiselect--disabled) .md-multiselect__button {
-  border-color: var(--errorColor);
+  border-color: var(--mdErrorColor);
 }
 
 .md-multiselect__button-text {
@@ -72,7 +72,7 @@
   width: 15px;
   height: 15px;
   rotate: 90deg;
-  color: var(--greyColor);
+  color: var(--mdGreyColor);
 }
 
 .md-multiselect__button-hasmultiple {
@@ -139,7 +139,7 @@
 .md-multiselect__dropdown-item:focus,
 .md-multiselect__dropdown-item:focus-within {
   outline: none;
-  background-color: var(--primaryColor20);
+  background-color: var(--mdPrimaryColor20);
   transition: background-color .15s ease-in-out;
 }
 
@@ -163,7 +163,7 @@
 
 .md-multiselect__dropdown-item-checkbox {
   background-color: #ffffff;
-  border: 1px solid var(--greyColor60);
+  border: 1px solid var(--mdGreyColor60);
   content: '';
   cursor: pointer;
   height: 20px;
@@ -179,7 +179,7 @@
 }
 
 .md-multiselect__error {
-  color: var(--errorColor);
+  color: var(--mdErrorColor);
   font-size: .88em;
 }
 
@@ -192,9 +192,9 @@
 
 /* Open state */
 .md-multiselect--open .md-multiselect__button {
-  border-top: 2px solid var(--primaryColor);
-  border-right: 2px solid var(--primaryColor);
-  border-left: 2px solid var(--primaryColor);
+  border-top: 2px solid var(--mdPrimaryColor);
+  border-right: 2px solid var(--mdPrimaryColor);
+  border-left: 2px solid var(--mdPrimaryColor);
 }
 
 .md-multiselect__button--open {
@@ -205,9 +205,9 @@
   max-height: 350px;
   overflow-y: auto;
   opacity: 1;
-  border: 2px solid var(--primaryColor);
+  border: 2px solid var(--mdPrimaryColor);
   border-top: 0;
 }
 .md-multiselect--open.md-multiselect--error .md-multiselect__dropdown {
-  border-color: var(--errorColor);
+  border-color: var(--mdErrorColor);
 }
