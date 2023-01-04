@@ -11,18 +11,14 @@ const MdXIcon: React.FunctionComponent<MdXIconProps> = ({
 }: MdXIconProps) => {
   return (
     <svg
-      version="1.1"
+      viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 25 25"
       className={className}
       {...otherProps}
     >
-      <path
-        fill="currentColor"
-        d="M24.7678 1.9198L23.6318 0.799805L12.7838 11.6478L1.9358 0.799805L0.799805 1.9198L11.6478 12.7838L0.799805 23.6478L1.9358 24.7678L12.7838 13.9198L23.6318 24.7678L24.7678 23.6478L13.9198 12.7838L24.7678 1.9198Z"
-      />
+      <path d="M28.7678 5.9198L27.6318 4.7998L16.7838 15.6478L5.9358 4.7998L4.7998 5.9198L15.6478 16.7838L4.7998 27.6478L5.9358 28.7678L16.7838 17.9198L27.6318 28.7678L28.7678 27.6478L17.9198 16.7838L28.7678 5.9198Z" fill="currentColor"/>
     </svg>
+
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MdUploadIcon from '../../packages/react/src/icons/MdUploadIcon';
+import MdUploadIcon64 from '../../packages/react/src/icons/MdUploadIcon64';
 
 export default {
   title: 'Icons/UploadIcon',
@@ -36,14 +37,29 @@ export default {
 
 const Template = (args: any) => {
   return (
-    <div style={{ width: '100px', height: '100px', color: args.color }}>
+    <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdUploadIcon className={args.className} />
+    </div>
+  );
+}
+
+const Template64 = (args: any) => {
+  return (
+    <div style={{ width: '64px', height: '64px', color: args.color }}>
+      <MdUploadIcon64 className={args.className} />
     </div>
   );
 }
 
 export const UploadIcon = Template.bind({})
 UploadIcon.args = {
+  className: '',
+  color: '#005e5d'
+};
+
+
+export const UploadIcon64 = Template64.bind({})
+UploadIcon64.args = {
   className: '',
   color: '#005e5d'
 };

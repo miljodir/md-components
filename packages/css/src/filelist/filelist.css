@@ -21,13 +21,12 @@
 
 .md-filelist__file-label {
   display: flex;
-  gap: 1.5em;
+  gap: 1em;
   font-size: 16px;
 }
 
 .md-filelist__file-icon {
-  height: 24px;
-  width: 19px;
+  width: 32px;
 }
 
 .md-filelist__file-size {
@@ -62,8 +61,7 @@
 }
 
 .md-filelist__file-delete-icon {
-  height: 18px;
-  width: 15px;
+  width: 20px;
 }
 
 .md-filelist__file-download-icon {

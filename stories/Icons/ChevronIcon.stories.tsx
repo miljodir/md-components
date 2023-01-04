@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MdChevronIcon from '../../packages/react/src/icons/MdChevronIcon';
+import MdChevronIcon64 from '../../packages/react/src/icons/MdChevronIcon64';
 
 export default {
   title: 'Icons/ChevronIcon',
@@ -36,14 +37,28 @@ export default {
 
 const Template = (args: any) => {
   return (
-    <div style={{ width: '100px', height: '100px', color: args.color, rotate: '90deg' }}>
+    <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdChevronIcon className={args.className} />
+    </div>
+  );
+}
+
+const Template64 = (args: any) => {
+  return (
+    <div style={{ width: '64px', height: '64px', color: args.color }}>
+      <MdChevronIcon64 className={args.className} />
     </div>
   );
 }
 
 export const ChevronIcon = Template.bind({})
 ChevronIcon.args = {
+  className: '',
+  color: '#005e5d'
+};
+
+export const ChevronIcon64 = Template64.bind({})
+ChevronIcon64.args = {
   className: '',
   color: '#005e5d'
 };

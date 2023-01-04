@@ -1,15 +1,15 @@
 import React from 'react';
 
-import MdHelpIcon from '../../packages/react/src/icons/MdHelpIcon';
-import MdHelpIcon64 from '../../packages/react/src/icons/MdHelpIcon64';
+import MdGraphIcon from '../../packages/react/src/icons/MdGraphIcon';
+import MdGraphIcon64 from '../../packages/react/src/icons/MdGraphIcon64';
 
 export default {
-  title: 'Icons/HelpIcon',
-  component: MdHelpIcon,
+  title: 'Icons/GraphIcon',
+  component: MdGraphIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Download icon. Color is inherited from parent.',
+        component: 'Graph icon. Color is inherited from parent.',
       },
     },
   },
@@ -38,7 +38,7 @@ export default {
 const Template = (args: any) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
-      <MdHelpIcon className={args.className} />
+      <MdGraphIcon className={args.className} />
     </div>
   );
 }
@@ -46,20 +46,20 @@ const Template = (args: any) => {
 const Template64 = (args: any) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
-      <MdHelpIcon64 className={args.className} />
+      <MdGraphIcon64 className={args.className} />
     </div>
   );
 }
 
-export const HelpIcon = Template.bind({})
-HelpIcon.args = {
+export const GraphIcon = Template.bind({})
+GraphIcon.args = {
   className: '',
   color: '#005e5d'
 };
 
 
-export const HelpIcon64 = Template64.bind({})
-HelpIcon64.args = {
+export const GraphIcon64 = Template64.bind({})
+GraphIcon64.args = {
   className: '',
   color: '#005e5d'
 };

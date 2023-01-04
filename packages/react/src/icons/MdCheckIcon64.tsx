@@ -5,22 +5,23 @@ export interface MdCheckIconProps {
   [otherProps: string]: unknown;
 };
 
-const MdCheckIcon: React.FunctionComponent<MdCheckIconProps> = ({
+const MdCheckIcon64: React.FunctionComponent<MdCheckIconProps> = ({
   className = '',
   ...otherProps
 }: MdCheckIconProps) => {
   return (
     <svg
-      viewBox="0 0 32 32"
+      viewBox="0 0 64 64"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       className={className}
       {...otherProps}
     >
-      <path d="M27.3748 4.79883L12.5268 23.1028L6.07883 14.3828L4.79883 15.3428L12.4788 25.7268L28.6228 5.80683L27.3748 4.79883Z" fill="currentColor"/>
+      <path d="M23.325 52.586L8 31.896L9.655 30.67L23.397 49.236L54.407 11L56 12.3L23.325 52.586Z" fill="currentColor"/>
     </svg>
+
   );
 };
 
-export default MdCheckIcon;
+export default MdCheckIcon64;

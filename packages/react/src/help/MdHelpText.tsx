@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface MdHelpTextProps {
   children: React.ReactNode[] | React.ReactNode | string;
+  [otherProps: string]: unknown;
 };
 
 const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({

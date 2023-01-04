@@ -5,29 +5,23 @@ interface MdChevronIconProps {
   [otherProps: string]: unknown;
 }
 
-const MdChevronIcon: React.FunctionComponent<MdChevronIconProps> = ({
+const MdChevronIcon64: React.FunctionComponent<MdChevronIconProps> = ({
   className,
   ...otherProps
 }: MdChevronIconProps) => {
   return (
     <svg
+      viewBox="0 0 64 64"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 32 32"
       className={className}
       {...otherProps}
     >
-      <g>
-        <g>
-          <polygon
-            points="9,31.2 8.3,30.5 22.7,15.9 8.3,1.4 9,0.7 24.1,15.9"
-            fill='currentColor'
-          />
-        </g>
-      </g>
+      <path d="M20.382 56L19 54.618L41.608 32L19 9.382L20.382 8L44.382 32L20.382 56Z" fill="currentColor"/>
     </svg>
+
   );
 };
 
-export default MdChevronIcon;
+export default MdChevronIcon64;

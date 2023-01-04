@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import MdHelpIcon from '../icons/MdHelpIcon';
+import MdHelpIcon from '../icons/MdHelpIcon64';
 
 export interface MdHelpButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;

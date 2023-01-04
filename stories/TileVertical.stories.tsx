@@ -73,7 +73,7 @@ const Template = (args: any) => {
   return (
     <MdTileVertical
       heading="Målinger"
-      description="Beskrivelse"
+      description="Oversikt over dine målestasjoner"
       href={args.href}
       size={args.size}
       preventDefault={args.preventDefault}

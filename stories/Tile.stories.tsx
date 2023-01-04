@@ -61,7 +61,7 @@ const Template = (args: any) => {
   return (
     <MdTile
       heading="Målinger"
-      description="Beskrivelse"
+      description="Oversikt over dine målestasjoner"
       href={args.href}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={64} height={64} />}

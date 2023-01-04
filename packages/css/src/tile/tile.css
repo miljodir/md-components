@@ -87,20 +87,20 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
+  padding: 2em;
 }
 
 .md-tile-vertical--small .md-tile-vertical__content {
-  padding: 1em;
+  padding: 1.5em;
 }
 
 .md-tile-vertical--large .md-tile-vertical__content {
-  padding: 2em 1.5em;
+  padding: 3em;
 }
 
 .md-tile-vertical__content-text {
   text-align: center;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .md-tile-vertical__content-icon {
