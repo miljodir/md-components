@@ -1,0 +1,52 @@
+.md-tabs-container {
+  font-family: 'Open sans';
+}
+
+.md-tabs-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  padding-inline-start: 0px;
+}
+
+.md-tabs-container ul li {
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.md-tabs-container ul li .md-tabs-button {
+  font-size: 1em;
+  font-weight: 400;
+  padding: 13px 24px 13px 24px;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--mdGreyColor80);
+  transition: border .1s linear, background .1s linear, margin .1s linear;
+  margin-bottom: 3px;
+}
+
+.md-tabs-container ul li .md-tabs-button.md-tabs-button--disabled {
+  background-color: var(--mdGreyColor20);
+  color: var(--mdGreyColor80);
+  cursor: not-allowed;
+}
+
+.md-tabs-container ul li .md-tabs-button.md-tabs-button--selected {
+  font-weight: 600;
+  border-bottom: 4px solid var(--mdPrimaryColor80);
+  margin-bottom: 0px;
+}
+
+.md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):hover {
+  background-color: var(--mdPrimaryColor20);
+  cursor: pointer;
+}
+
+.md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):focus {
+  outline: 2px solid var(--mdPrimaryColor);
+  background-color: var(--mdPrimaryColor20);
+  cursor: pointer;
+}

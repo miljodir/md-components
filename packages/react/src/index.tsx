@@ -19,6 +19,9 @@ import MdAccordionItem from './accordion/MdAccordionItem';
 import MdModal from './modal/MdModal';
 import MdTile from './tiles/MdTile';
 import MdTileVertical from './tiles/MdTileVertical';
+import MdTabs from './tabs/MdTabs';
+import MdTab from './tabs/MdTab';
+import MdTabTitle from './tabs/MdTabTitle';
 
 // Icons
 import MdCalendarDayIcon from './icons/MdCalendarDayIcon';
@@ -134,6 +137,9 @@ export {
   MdModal,
   MdTile,
   MdTileVertical,
+  MdTabs,
+  MdTab,
+  MdTabTitle,
 
   MdCalendarDayIcon, MdCalendarDay64Icon,
   MdCalendarIcon, MdCalendarIcon64,
