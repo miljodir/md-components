@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdChevronIcon64: React.FunctionComponent<MdIconProps> = ({
+const MdCheckCircleIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -22,4 +22,4 @@ const MdChevronIcon64: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdChevronIcon64;
+export default MdCheckCircleIcon64;

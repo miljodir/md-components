@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdCommentIcon: React.FunctionComponent<MdIconProps> = ({
+const MdCommentIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -23,4 +23,4 @@ const MdCommentIcon: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdCommentIcon;
+export default MdCommentIcon64;

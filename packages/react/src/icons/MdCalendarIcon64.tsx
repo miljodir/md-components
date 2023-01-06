@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdCalendarIcon: React.FunctionComponent<MdIconProps> = ({
+const MdCalendarIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -29,4 +29,4 @@ const MdCalendarIcon: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdCalendarIcon;
+export default MdCalendarIcon64;

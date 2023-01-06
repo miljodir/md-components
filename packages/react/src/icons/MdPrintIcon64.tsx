@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdPrintIcon: React.FunctionComponent<MdIconProps> = ({
+const MdPrintIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -21,4 +21,4 @@ const MdPrintIcon: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdPrintIcon;
+export default MdPrintIcon64;

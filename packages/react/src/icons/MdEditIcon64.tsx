@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdEditIcon: React.FunctionComponent<MdIconProps> = ({
+const MdEditIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -20,4 +20,4 @@ const MdEditIcon: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdEditIcon;
+export default MdEditIcon64;

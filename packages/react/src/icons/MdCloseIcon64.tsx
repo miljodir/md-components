@@ -1,7 +1,7 @@
 import React from 'react';
 import MdIconProps from './icon.model';
 
-const MdConfirmIcon64: React.FunctionComponent<MdIconProps> = ({
+const MdCloseIcon64: React.FunctionComponent<MdIconProps> = ({
   className,
   ...otherProps
 }: MdIconProps) => {
@@ -22,4 +22,4 @@ const MdConfirmIcon64: React.FunctionComponent<MdIconProps> = ({
   );
 };
 
-export default MdConfirmIcon64;
+export default MdCloseIcon64;
