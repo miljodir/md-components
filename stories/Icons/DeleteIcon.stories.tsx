@@ -4,12 +4,12 @@ import MdDeleteIcon from '../../packages/react/src/icons/MdDeleteIcon';
 import MdDeleteIcon64 from '../../packages/react/src/icons/MdDeleteIcon64';
 
 export default {
-  title: 'Icons/DeleteIcon',
+  title: 'Icons/Delete',
   component: MdDeleteIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Delete icon. Color is inherited from parent.',
+        component: "Delete icon. Color is inherited from parent.<p>`import { MdDeleteIcon } from '@md-components/md-react'`</p><p>`import { MdDeleteIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

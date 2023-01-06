@@ -4,12 +4,12 @@ import MdMinusIcon from '../../packages/react/src/icons/MdMinusIcon';
 import MdMinusIcon64 from '../../packages/react/src/icons/MdMinusIcon64';
 
 export default {
-  title: 'Icons/MinusIcon',
+  title: 'Icons/Minus',
   component: MdMinusIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Minus/remove/collapse icon. Color is inherited from parent.',
+        component: "Minus icon. Color is inherited from parent.<p>`import { MdMinusIcon } from '@md-components/md-react'`</p><p>`import { MdMinusIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

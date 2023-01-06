@@ -4,12 +4,12 @@ import MdHelpIcon from '../../packages/react/src/icons/MdHelpIcon';
 import MdHelpIcon64 from '../../packages/react/src/icons/MdHelpIcon64';
 
 export default {
-  title: 'Icons/HelpIcon',
+  title: 'Icons/Help',
   component: MdHelpIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Download icon. Color is inherited from parent.',
+        component: "Help icon. Color is inherited from parent.<p>`import { MdHelpIcon } from '@md-components/md-react'`</p><p>`import { MdHelpIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

@@ -4,12 +4,12 @@ import MdDocIcon from '../../packages/react/src/icons/MdDocIcon';
 import MdDocIcon64 from '../../packages/react/src/icons/MdDocIcon64';
 
 export default {
-  title: 'Icons/DocIcon',
+  title: 'Icons/Doc',
   component: MdDocIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Document icon. Color is inherited from parent.',
+        component: "Document icon. Color is inherited from parent.<p>`import { MdDocIcon } from '@md-components/md-react'`</p><p>`import { MdDocIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

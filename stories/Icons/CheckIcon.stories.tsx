@@ -4,12 +4,12 @@ import MdCheckIcon from '../../packages/react/src/icons/MdCheckIcon';
 import MdCheckIcon64 from '../../packages/react/src/icons/MdCheckIcon64';
 
 export default {
-  title: 'Icons/CheckIcon',
+  title: 'Icons/Check',
   component: MdCheckIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Check mark icon. Color is inherited from parent.',
+        component: "Check mark icon. Color is inherited from parent.<p>`import { MdCheckIcon } from '@md-components/md-react'`</p><p>`import { MdCheckIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

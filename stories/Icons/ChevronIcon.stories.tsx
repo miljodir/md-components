@@ -4,12 +4,12 @@ import MdChevronIcon from '../../packages/react/src/icons/MdChevronIcon';
 import MdChevronIcon64 from '../../packages/react/src/icons/MdChevronIcon64';
 
 export default {
-  title: 'Icons/ChevronIcon',
+  title: 'Icons/Chevron',
   component: MdChevronIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Chevron icon. Color is inherited from parent.',
+        component: "Chevron icon. Color is inherited from parent.<p>`import { MdChevronIcon } from '@md-components/md-react'`</p><p>`import { MdChevronIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

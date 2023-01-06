@@ -4,12 +4,12 @@ import MdConfirmIcon from '../../packages/react/src/icons/MdConfirmIcon';
 import MdConfirmIcon64 from '../../packages/react/src/icons/MdConfirmIcon64';
 
 export default {
-  title: 'Icons/ConfirmIcon',
+  title: 'Icons/Confirm',
   component: MdConfirmIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Confirm icon. Color is inherited from parent.',
+        component: "Confirm icon. Color is inherited from parent.<p>`import { MdConfirmIcon } from '@md-components/md-react'`</p><p>`import { MdConfirmIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

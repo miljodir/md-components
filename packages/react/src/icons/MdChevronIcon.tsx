@@ -18,15 +18,9 @@ const MdChevronIcon: React.FunctionComponent<MdChevronIconProps> = ({
       className={className}
       {...otherProps}
     >
-      <g>
-        <g>
-          <polygon
-            points="9,31.2 8.3,30.5 22.7,15.9 8.3,1.4 9,0.7 24.1,15.9"
-            fill='currentColor'
-          />
-        </g>
-      </g>
+      <path d="M9.59961 4.3362L20.9276 15.6642L9.59961 26.9922L10.7356 28.1282L23.1996 15.6642L10.7356 3.2002L9.59961 4.3362Z" fill="currentColor"/>
     </svg>
+
   );
 };
 

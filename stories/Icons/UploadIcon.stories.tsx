@@ -4,12 +4,12 @@ import MdUploadIcon from '../../packages/react/src/icons/MdUploadIcon';
 import MdUploadIcon64 from '../../packages/react/src/icons/MdUploadIcon64';
 
 export default {
-  title: 'Icons/UploadIcon',
+  title: 'Icons/Upload',
   component: MdUploadIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Upload icon. Color is inherited from parent.',
+        component: "Upload icon. Color is inherited from parent.<p>`import { MdUploadIcon } from '@md-components/md-react'`</p><p>`import { MdUploadIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

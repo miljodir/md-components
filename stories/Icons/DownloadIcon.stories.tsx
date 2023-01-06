@@ -4,12 +4,12 @@ import MdDownloadIcon from '../../packages/react/src/icons/MdDownloadIcon';
 import MdDownloadIcon64 from '../../packages/react/src/icons/MdDownloadIcon64';
 
 export default {
-  title: 'Icons/DownloadIcon',
+  title: 'Icons/Download',
   component: MdDownloadIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Download icon. Color is inherited from parent.',
+        component: "Download icon. Color is inherited from parent.<p>`import { MdDownloadIcon } from '@md-components/md-react'`</p><p>`import { MdDownloadIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

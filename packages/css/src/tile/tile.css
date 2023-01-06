@@ -14,16 +14,24 @@
   transition: all .15s ease-in-out;
 }
 
-.md-tile:hover {
+.md-tile:not(.md-tile--disabled):hover {
   border: 1px solid var(--mdPrimaryColor);
   background-color: var(--mdPrimaryColor20);
   transition: all .15s ease-in-out;
 }
 
-.md-tile:focus {
+.md-tile:not(.md-tile--disabled):focus {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
   background-color: var(--mdPrimaryColor20);
+}
+
+.md-tile--disabled {
+  background-color: var(--mdGreyColor20);
+  border: 1px solid var(--mdGreyColor60);
+  color: var(--mdGreyColor60);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .md-tile__content {
@@ -36,6 +44,10 @@
   color: var(--mdPrimaryColor80);
 }
 
+.md-tile--disabled .md-tile__content-icon {
+  color: var(--mdGreyColor60);
+}
+
 .md-tile__content-heading {
   font-size: 20px;
 }
@@ -46,6 +58,10 @@
 
 .md-tile__arrow {
   color: var(--mdGreyColor);
+}
+
+.md-tile--disabled .md-tile__arrow {
+  color: var(--mdGreyColor60);
 }
 
 /* VERTICAL TILES */
@@ -69,6 +85,14 @@
 
 .md-tile-vertical--large {
   width: 238px;
+}
+
+.md-tile-vertical--disabled {
+  background-color: var(--mdGreyColor20);
+  border: 1px solid var(--mdGreyColor60);
+  color: var(--mdGreyColor60);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .md-tile-vertical:hover {
@@ -108,6 +132,10 @@
   justify-content: center;
   margin-bottom: 1em;
   color: var(--mdPrimaryColor80);
+}
+
+.md-tile-vertical--disabled .md-tile-vertical__content-icon {
+  color: var(--mdGreyColor60);
 }
 
 .md-tile-vertical__content-heading {

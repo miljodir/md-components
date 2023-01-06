@@ -4,7 +4,7 @@ import MdPlusIcon from '../../packages/react/src/icons/MdPlusIcon';
 import MdPlusIcon64 from '../../packages/react/src/icons/MdPlusIcon64';
 
 export default {
-  title: 'Icons/PlusIcon',
+  title: 'Icons/Plus',
   component: MdPlusIcon,
   parameters: {
     docs: {

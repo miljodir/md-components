@@ -4,12 +4,12 @@ import MdWarningIcon from '../../packages/react/src/icons/MdWarningIcon';
 import MdWarningIcon64 from '../../packages/react/src/icons/MdWarningIcon64';
 
 export default {
-  title: 'Icons/WarningIcon',
+  title: 'Icons/Warning',
   component: MdWarningIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Warning icon. Color is inherited from parent.',
+        component: "Warning icon. Color is inherited from parent.<p>`import { MdWarningIcon } from '@md-components/md-react'`</p><p>`import { MdWarningIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

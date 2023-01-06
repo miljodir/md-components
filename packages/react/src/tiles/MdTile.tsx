@@ -1,10 +1,12 @@
 import React from 'react';
+import classnames from 'classnames';
 import MdChevronIcon from '../icons/MdChevronIcon';
 
 interface MdTileProps {
   heading?: string;
   description?: string;
   href?: string;
+  disabled?: boolean;
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(e: React.MouseEvent): void;
@@ -14,12 +16,17 @@ const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
   href = "#",
+  disabled = false,
   icon = null,
   preventDefault = false,
   onClick
 }: MdTileProps) => {
+  const classNames = classnames('md-tile', {
+    'md-tile--disabled': !!disabled
+  });
+
   const handleClick = (e: React.MouseEvent) => {
-    if (preventDefault) {
+    if (preventDefault || disabled) {
       e.preventDefault();
     }
     if (onClick) {
@@ -30,9 +37,10 @@ const MdTile: React.FC<MdTileProps> = ({
 
   return (
     <a
-      className="md-tile"
-      href={href}
+      className={classNames}
+      href={disabled ? '' : href}
       onClick={handleClick}
+      tabIndex={disabled ? -1 : 0}
     >
       <div className="md-tile__content">
         {icon && icon !== '' &&

@@ -4,12 +4,12 @@ import MdGraphIcon from '../../packages/react/src/icons/MdGraphIcon';
 import MdGraphIcon64 from '../../packages/react/src/icons/MdGraphIcon64';
 
 export default {
-  title: 'Icons/GraphIcon',
+  title: 'Icons/Graph',
   component: MdGraphIcon,
   parameters: {
     docs: {
       description: {
-        component: 'Graph icon. Color is inherited from parent.',
+        component: "Graph icon. Color is inherited from parent.<p>`import { MdGraphIcon } from '@md-components/md-react'`</p><p>`import { MdGraphIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

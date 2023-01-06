@@ -5,6 +5,7 @@ interface MdTileVerticalProps {
   heading?: string;
   description?: string;
   size?: string;
+  disabled?: boolean;
   href?: string;
   icon?: React.ReactNode;
   preventDefault?: boolean;
@@ -15,18 +16,20 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
   description,
   size,
+  disabled = false,
   href = "#",
   icon = null,
   preventDefault = false,
   onClick
 }: MdTileVerticalProps) => {
   const classNames = classnames('md-tile-vertical', {
+    'md-tile-vertical--disabled': !!disabled,
     'md-tile-vertical--small': size === 'small',
     'md-tile-vertical--large': size === 'large'
   });
 
   const handleClick = (e: React.MouseEvent) => {
-    if (preventDefault) {
+    if (preventDefault || disabled) {
       e.preventDefault();
     }
     if (onClick) {
@@ -38,8 +41,9 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   return (
     <a
       className={classNames}
-      href={href}
+      href={disabled ? '' : href}
       onClick={handleClick}
+      tabIndex={disabled ? -1 : 0}
     >
       <div className="md-tile-vertical__content">
         {icon && icon !== '' &&

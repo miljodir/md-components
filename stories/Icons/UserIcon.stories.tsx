@@ -4,12 +4,12 @@ import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
 import MdUserIcon64 from '../../packages/react/src/icons/MdUserIcon64';
 
 export default {
-  title: 'Icons/UserIcon',
+  title: 'Icons/User',
   component: MdUserIcon,
   parameters: {
     docs: {
       description: {
-        component: 'User/avatar icon. Color is inherited from parent.',
+        component: "User/avatar icon. Color is inherited from parent.<p>`import { MdUserIcon } from '@md-components/md-react'`</p><p>`import { MdUserIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },

@@ -24,6 +24,16 @@ export default {
       },
       control: { type: 'text' }
     },
+    disabled: {
+      description: 'Is link disabled?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -63,6 +73,7 @@ const Template = (args: any) => {
       heading="Målinger"
       description="Oversikt over dine målestasjoner"
       href={args.href}
+      disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={64} height={64} />}
     />
@@ -72,6 +83,7 @@ const Template = (args: any) => {
 export const Tile = Template.bind({});
 Tile.args = {
   href: '#',
+  disabled: false,
   preventDefault: true,
-  icon: true
+  icon: true,
 }

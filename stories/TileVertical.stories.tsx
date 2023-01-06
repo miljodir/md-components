@@ -36,6 +36,16 @@ export default {
         },
       }
     },
+    disabled: {
+      description: 'Is link disabled?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -76,6 +86,7 @@ const Template = (args: any) => {
       description="Oversikt over dine målestasjoner"
       href={args.href}
       size={args.size}
+      disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={128} height={128} />}
     />
@@ -86,6 +97,7 @@ export const TileVertical = Template.bind({});
 TileVertical.args = {
   href: '#',
   size: 'medium',
+  disabled: false,
   preventDefault: true,
   icon: true
 }
