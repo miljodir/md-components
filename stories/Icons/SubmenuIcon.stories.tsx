@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Submenu icon. Color is inherited from parent.<p>`import { MdSubmenuIcon } from '@md-components/md-react'`</p><p>`import { MdSubmenuIcon64 } from '@md-components/md-react'`</p>",
+        component: "Submenu icon. Color is inherited from parent.<br/><br/>`import { MdSubmenuIcon } from '@md-components/md-react'`<br/>`import { MdSubmenuIcon64 } from '@md-components/md-react'`",
       },
     },
   },

@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Calendar day icon. Color is inherited from parent.<p>`import { MdCalendarDayIcon } from '@md-components/md-react'`</p><p>`import { MdCalendarDayIcon64 } from '@md-components/md-react'`</p>",
+        component: "Calendar day icon. Color is inherited from parent.<br/><br/>`import { MdCalendarDayIcon } from '@md-components/md-react'`<br/>`import { MdCalendarDayIcon64 } from '@md-components/md-react'`",
       },
     },
   },

@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Minus icon. Color is inherited from parent.<p>`import { MdMinusIcon } from '@md-components/md-react'`</p><p>`import { MdMinusIcon64 } from '@md-components/md-react'`</p>",
+        component: "Minus icon. Color is inherited from parent.<br/><br/>`import { MdMinusIcon } from '@md-components/md-react'`<br/>`import { MdMinusIcon64 } from '@md-components/md-react'`",
       },
     },
   },

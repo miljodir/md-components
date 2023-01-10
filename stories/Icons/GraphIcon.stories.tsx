@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Graph icon. Color is inherited from parent.<p>`import { MdGraphIcon } from '@md-components/md-react'`</p><p>`import { MdGraphIcon64 } from '@md-components/md-react'`</p>",
+        component: "Graph icon. Color is inherited from parent.<br/><br/>`import { MdGraphIcon } from '@md-components/md-react'`<br/>`import { MdGraphIcon64 } from '@md-components/md-react'`",
       },
     },
   },

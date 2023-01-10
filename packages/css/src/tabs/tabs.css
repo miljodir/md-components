@@ -18,6 +18,7 @@
 }
 
 .md-tabs-container ul li .md-tabs-button {
+  font-family: 'Open sans';
   font-size: 1em;
   font-weight: 400;
   padding: 13px 24px 13px 24px;

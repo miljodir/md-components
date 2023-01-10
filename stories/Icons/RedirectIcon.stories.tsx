@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Redirect icon. Color is inherited from parent.<p>`import { MdRedirectIcon } from '@md-components/md-react'`</p><p>`import { MdRedirectIcon64 } from '@md-components/md-react'`</p>",
+        component: "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@md-components/md-react'`<br/>`import { MdRedirectIcon64 } from '@md-components/md-react'`",
       },
     },
   },

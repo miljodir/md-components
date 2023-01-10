@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Settings icon. Color is inherited from parent.<p>`import { MdSettingsIcon } from '@md-components/md-react'`</p><p>`import { MdSettingsIcon64 } from '@md-components/md-react'`</p>",
+        component: "Settings icon. Color is inherited from parent.<br/><br/>`import { MdSettingsIcon } from '@md-components/md-react'`<br/>`import { MdSettingsIcon64 } from '@md-components/md-react'`",
       },
     },
   },

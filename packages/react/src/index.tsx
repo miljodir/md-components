@@ -91,11 +91,13 @@ import MdRedirectIcon from './icons/MdRedirectIcon';
 import MdRedirectIcon64 from './icons/MdRedirectIcon64';
 import MdSettingsIcon from './icons/MdSettingsIcon';
 import MdSettingsIcon64 from './icons/MdSettingsIcon64';
+import MdSignIcon from './icons/MdSignIcon';
 import MdSortingIconActive from './icons/MdSortingActiveIcon';
 import MdSortingIcon from './icons/MdSortingIcon';
 import MdSortingIcon64 from './icons/MdSortingIcon64';
 import MdSubmenuIcon from './icons/MdSubmenuIcon';
 import MdSubmenuIcon64 from './icons/MdSubmenuIcon64';
+import MdTableIcon from './icons/MdTableIcon';
 import MdTimeIcon from './icons/MdTimeIcon';
 import MdTimeIcon64 from './icons/MdTimeIcon64';
 import MdUploadIcon from './icons/MdUploadIcon';
@@ -183,9 +185,11 @@ export {
   MdPrintIcon, MdPrintIcon64,
   MdRedirectIcon, MdRedirectIcon64,
   MdSettingsIcon, MdSettingsIcon64,
+  MdSignIcon,
   MdSortingIconActive,
   MdSortingIcon, MdSortingIcon64,
   MdSubmenuIcon, MdSubmenuIcon64,
+  MdTableIcon,
   MdTimeIcon, MdTimeIcon64,
   MdUploadIcon, MdUploadIcon64,
   MdUserIcon, MdUserIcon64,

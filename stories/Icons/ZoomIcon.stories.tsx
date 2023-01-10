@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Zoom icons. Color is inherited from parent.<p>`import { MdZoomIcon, MdZoomIcon64, MdZoomIconPlus, MdZoomIconPlus64, MdZoomIconMinus, MdZoomIconMinus64 } from '@md-components/md-react'`</p>",
+        component: "Zoom icons. Color is inherited from parent.<br/><br/>`import { MdZoomIcon, MdZoomIcon64, MdZoomIconPlus, MdZoomIconPlus64, MdZoomIconMinus, MdZoomIconMinus64 } from '@md-components/md-react'`",
       },
     },
   },

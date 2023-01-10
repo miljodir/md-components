@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Time/clock icon. Color is inherited from parent.<p>`import { MdTimeIcon } from '@md-components/md-react'`</p><p>`import { MdTimeIcon64 } from '@md-components/md-react'`</p>",
+        component: "Time/clock icon. Color is inherited from parent.<br/><br/>`import { MdTimeIcon } from '@md-components/md-react'`<br/>`import { MdTimeIcon64 } from '@md-components/md-react'`",
       },
     },
   },

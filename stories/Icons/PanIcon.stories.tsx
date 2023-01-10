@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Pan icon. Color is inherited from parent.<p>`import { MdPanIcon } from '@md-components/md-react'`</p><p>`import { MdPanIcon64 } from '@md-components/md-react'`</p>",
+        component: "Pan icon. Color is inherited from parent.<br/><br/>`import { MdPanIcon } from '@md-components/md-react'`<br/>`import { MdPanIcon64 } from '@md-components/md-react'`",
       },
     },
   },

@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Comment icon. Color is inherited from parent.<p>`import { MdCommentIcon } from '@md-components/md-react'`</p><p>`import { MdCommentIcon64 } from '@md-components/md-react'`</p><p>`import { MdCommentFillIcon } from '@md-components/md-react'`</p><p>`import { MdCommentFillIcon64 } from '@md-components/md-react'`</p>",
+        component: "Comment icon. Color is inherited from parent.<br/><br/>`import { MdCommentIcon } from '@md-components/md-react'`<br/>`import { MdCommentIcon64 } from '@md-components/md-react'`<br/>`import { MdCommentFillIcon } from '@md-components/md-react'`<br/>`import { MdCommentFillIcon64 } from '@md-components/md-react'`",
       },
     },
   },
