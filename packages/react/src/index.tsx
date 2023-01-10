@@ -22,6 +22,10 @@ import MdTileVertical from './tiles/MdTileVertical';
 import MdTabs from './tabs/MdTabs';
 import MdTab from './tabs/MdTab';
 import MdTabTitle from './tabs/MdTabTitle';
+import MdLoadingSpinner from './loadingSpinner/MdLoadingSpinner';
+import MdInfoTag from './infoTag/MdInfoTag';
+import MdInfoBox from './messages/MdInfoBox';
+import MdAlertMessage from './messages/MdAlertMessage';
 
 // Icons
 import MdCalendarDayIcon from './icons/MdCalendarDayIcon';
@@ -68,10 +72,13 @@ import MdImageIcon from './icons/MdImageIcon';
 import MdImageIcon64 from './icons/MdImageIcon64';
 import MdInfoIcon from './icons/MdInfoIcon';
 import MdInfoIcon64 from './icons/MdInfoIcon64';
+import MdLoadingSpinnerIcon from './icons/MdLoadingSpinnerIcon';
 import MdMinusIcon from './icons/MdMinusIcon';
 import MdMinusIcon64 from './icons/MdMinusIcon64';
 import MdPanIcon from './icons/MdPanIcon';
 import MdPanIcon64 from './icons/MdPanIcon64';
+import MdPersonIcon from './icons/MdPersonIcon';
+import MdPersonIcon64 from './icons/MdPersonIcon64';
 import MdPinAltIcon from './icons/MdPinAltIcon';
 import MdPinAltIcon64 from './icons/MdPinAltIcon64';
 import MdPinIcon from './icons/MdPinIcon';
@@ -106,7 +113,6 @@ import MdZoomIconMinus64 from './icons/MdZoomIconMinus64';
 import MdZoomIconPlus from './icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from './icons/MdZoomIconPlus64';
 
-import MdShortcut from './shortcut/MdShortcut';
 import MdDataGrid from './data-grid/MdDataGrid';
 import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
 import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
@@ -140,6 +146,10 @@ export {
   MdTabs,
   MdTab,
   MdTabTitle,
+  MdLoadingSpinner,
+  MdInfoTag,
+  MdInfoBox,
+  MdAlertMessage,
 
   MdCalendarDayIcon, MdCalendarDay64Icon,
   MdCalendarIcon, MdCalendarIcon64,
@@ -163,8 +173,10 @@ export {
   MdHomeIcon, MdHomeIcon64,
   MdImageIcon, MdImageIcon64,
   MdInfoIcon, MdInfoIcon64,
+  MdLoadingSpinnerIcon,
   MdMinusIcon, MdMinusIcon64,
   MdPanIcon, MdPanIcon64,
+  MdPersonIcon, MdPersonIcon64,
   MdPinAltIcon, MdPinAltIcon64,
   MdPinIcon, MdPinIcon64,
   MdPlusIcon, MdPlusIcon64,
@@ -183,7 +195,6 @@ export {
   MdZoomIconMinus, MdZoomIconMinus64,
   MdZoomIconPlus, MdZoomIconPlus64,
 
-  MdShortcut,
   MdDataGrid,
   MdDataColumnHeader,
   MdDataColumnHeaders,

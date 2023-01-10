@@ -1,0 +1,53 @@
+/* INFO BOX */
+.md-info-box {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-family: 'Open sans';
+  font-size: 1em;
+  padding: 1em;
+  background-color: var(--mdSecondaryColor20);
+  border: 1px dashed var(--mdPrimaryColor);
+  max-width: 634px;
+}
+
+/* ALERT MESSAGE */
+.md-alert-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Open sans';
+  font-size: 1em;
+  max-width: 634px;
+  background-color: var(--mdPrimaryColor10);
+}
+
+.md-alert-message--confirm {
+  background-color: var(--mdPrimaryColor20);
+}
+.md-alert-message--warning {
+  background-color: var(--mdWarningBackgoundColor);
+}
+.md-alert-message--error {
+  background-color: var(--mdErrorColor);
+  color: #fff;
+}
+
+.md-alert-message__content {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+}
+
+.md-alert-message__button {
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.md-alert-message--error .md-alert-message__button {
+  color: #fff;
+}

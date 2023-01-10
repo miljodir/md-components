@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A link styled as a vertical tile, with optional icon (of your choice) before text.',
+        component: "A link styled as a vertical tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTileVertical } from '@md-components/md-react'`",
       },
     },
   },

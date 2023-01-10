@@ -1,6 +1,5 @@
 @import './colors.css';
 @import './button/button.css';
-@import './shortcut.css';
 @import './link/link.css';
 @import './data-grid.css';
 @import './help/help.css';
@@ -11,6 +10,9 @@
 @import './modal/modal.css';
 @import './tile/tile.css';
 @import './tabs/tabs.css';
+@import './loadingSpinner/loadingSpinner.css';
+@import './infoTag/infoTag.css';
+@import './messages/alertMessage.css';
 @import './formElements/input/input.css';
 @import './formElements/checkbox/checkbox.css';
 @import './formElements/checkboxgroup/checkboxgroup.css';

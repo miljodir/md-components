@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Text area used in forms.',
+        component: "Text area used in forms.<br/><br/>`import { MdTextArea } from '@md-components/md-react'`",
       },
     },
   },

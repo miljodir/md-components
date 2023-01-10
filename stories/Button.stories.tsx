@@ -7,6 +7,13 @@ import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
 export default {
   title: 'Components/Button',
   component: MdButton,
+  parameters: {
+    docs: {
+      description: {
+        component: "A button component.<br/><br/>`import { MdButton } from '@md-components/md-react'`",
+      },
+    },
+  },
   argTypes: {
     label: {
       description: "Button label text",

@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Example of how to use MdHelpButton and MdHelpText to toggle help text.'
+        component: "Example of how to use MdHelpButton and MdHelpText to toggle help text.<br/><br/>`import { MdHelpButton } from '@md-components/md-react'`",
       }
     }
   },

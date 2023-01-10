@@ -5,6 +5,13 @@ import MdLink from '../packages/react/src/link/MdLink';
 export default {
   title: 'Components/Link',
   component: MdLink,
+  parameters: {
+    docs: {
+      description: {
+        component: "Inline link component.<br/><br/>`import { MdLink } from '@md-components/md-react'`",
+      },
+    },
+  },
   argTypes: {
     href: {
       description: "The link destination",
@@ -36,7 +43,7 @@ export default {
   }
 };
 
-function clickHandler(event: React.ChangeEvent<HTMLInputElement>) {
+function clickHandler(event: React.MouseEvent<HTMLInputElement>) {
   event.preventDefault();
   event.stopPropagation();
 }

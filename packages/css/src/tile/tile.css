@@ -40,6 +40,8 @@
 }
 
 .md-tile__content-icon {
+  height: 64px;
+  width: 64px;
   margin-right: 1em;
   color: var(--mdPrimaryColor80);
 }
@@ -132,6 +134,8 @@
   justify-content: center;
   margin-bottom: 1em;
   color: var(--mdPrimaryColor80);
+  width: 128px;
+  height: 128px;
 }
 
 .md-tile-vertical--disabled .md-tile-vertical__content-icon {

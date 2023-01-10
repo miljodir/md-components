@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Input field used in forms.',
+        component: "Input field used in forms.<br/><br/>`import { MdInput } from '@md-components/md-react'`",
       },
     },
   },

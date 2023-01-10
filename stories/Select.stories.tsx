@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A form component for single select.',
+        component: "A form component for single select.<br/><br/>`import { MdSelect } from '@md-components/md-react'`",
       },
     },
   },

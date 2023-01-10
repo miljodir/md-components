@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A chip component. Requires an onClick handler. In this example clicks toggle active state.',
+        component: "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@md-components/md-react'`"
       },
     },
   },

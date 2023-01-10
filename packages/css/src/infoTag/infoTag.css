@@ -1,0 +1,41 @@
+.md-info-tag {
+  display: inline-flex;
+  justify-content: flex-start;
+  z-index: 2;
+  background-color: var(--mdPrimaryColor20);
+  color: var(--mdGreyColor);
+  align-items: center;
+  padding: 4px 12px 4px 12px;
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  font-size: .88em;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.md-info-tag--secondary {
+  background-color: var(--mdSecondaryColor40);
+}
+.md-info-tag--warning {
+  background-color: var(--mdWarningBackgoundColor);
+}
+.md-info-tag--danger {
+  background-color: var(--mdErrorColor);
+  color: #fff;
+}
+
+.md-info-tag__label {
+  display: flex;
+  align-self: flex-start;
+  margin-right: 12px;
+}
+
+.md-info-tag__icon {
+  height: 20px;
+  width: 20px;
+}

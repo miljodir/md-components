@@ -1,15 +1,15 @@
 import React from 'react';
 
-import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
-import MdUserIcon64 from '../../packages/react/src/icons/MdUserIcon64';
+import MdPersonIcon from '../../packages/react/src/icons/MdPersonIcon'
+import MdPersonIcon64 from '../../packages/react/src/icons/MdPersonIcon64';
 
 export default {
-  title: 'Icons/User',
-  component: MdUserIcon,
+  title: 'Icons/Person',
+  component: MdPersonIcon,
   parameters: {
     docs: {
       description: {
-        component: "User icon. Color is inherited from parent.<p>`import { MdUserIcon } from '@md-components/md-react'`</p><p>`import { MdUserIcon64 } from '@md-components/md-react'`</p>",
+        component: "Person icon. Color is inherited from parent.<p>`import { MdPersonIcon } from '@md-components/md-react'`</p><p>`import { MdPersonIcon64 } from '@md-components/md-react'`</p>",
       },
     },
   },
@@ -38,7 +38,7 @@ export default {
 const Template = (args: any) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
-      <MdUserIcon className={args.className} />
+      <MdPersonIcon className={args.className} />
     </div>
   );
 }
@@ -46,20 +46,19 @@ const Template = (args: any) => {
 const Template64 = (args: any) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
-      <MdUserIcon64 className={args.className} />
+      <MdPersonIcon64 className={args.className} />
     </div>
   );
 }
 
-export const UserIcon = Template.bind({})
-UserIcon.args = {
+export const PersonIcon = Template.bind({})
+PersonIcon.args = {
   className: '',
   color: '#005e5d'
 };
 
-
-export const UserIcon64 = Template64.bind({})
-UserIcon64.args = {
+export const PersonIcon64 = Template64.bind({})
+PersonIcon64.args = {
   className: '',
   color: '#005e5d'
 };

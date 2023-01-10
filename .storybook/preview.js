@@ -16,6 +16,11 @@ export const parameters = {
     grid: {
       disable: true,
     }
+  },
+  options: {
+    storySort: {
+      order: ['Components', 'Messages', 'Chips', 'Form', 'Icons'],
+    }
   }
 };
 

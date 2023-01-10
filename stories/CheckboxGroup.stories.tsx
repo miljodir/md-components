@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A component for grouped checkboxes',
+        component: "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@md-components/md-react'`",
       },
     },
   },

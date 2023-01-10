@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'An overlay modal component.',
+        component: "An overlay modal component.<br/><br/>`import { MdModal } from '@md-components/md-react'`",
       },
     },
   },
