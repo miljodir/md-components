@@ -22,3 +22,7 @@
 @import './formElements/multiselect.css';
 @import './formElements/fileupload/fileupload.css';
 @import './utils.css';
+
+button {
+  font-family: inherit;
+}
