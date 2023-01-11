@@ -37,6 +37,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   const accordionClassNames = classnames('md-accordion-item', {
     'md-accordion-item--expanded': !!isExpanded && !disabled,
     'md-accordion-item--secondary': theme && theme === 'secondary',
+    'md-accordion-item--add': theme && theme === 'add',
     'md-accordion-item--disabled': !!disabled
   }, className);
 

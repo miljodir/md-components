@@ -1,6 +1,7 @@
 .md-accordion-item {
   padding: 1em;
   background-color: var(--mdPrimaryColor20);
+  border: 1px solid var(--mdPrimaryColor20);
   color: var(--mdGreyColor);
   font-family: 'Open sans';
   margin-bottom: 1em;
@@ -13,6 +14,17 @@
 
 .md-accordion-item.md-accordion-item--secondary {
   background-color: var(--mdSecondaryColor60);
+  border: 1px solid var(--mdSecondaryColor60);
+}
+
+.md-accordion-item.md-accordion-item--add {
+  background-color: transparent;
+  border: 1px dashed var(--mdGreyColor80);
+  transition: all .2s linear;
+}
+.md-accordion-item--expanded.md-accordion-item--add {
+  background-color: var(--mdPrimaryColor20);
+  border: 1px solid var(--mdPrimaryColor20);
 }
 
 /* Header */

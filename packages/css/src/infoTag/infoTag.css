@@ -8,10 +8,6 @@
   padding: 4px 12px 4px 12px;
   border-radius: 4px;
   font-family: 'Open Sans';
-  font-size: .88em;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -33,6 +29,8 @@
   display: flex;
   align-self: flex-start;
   margin-right: 12px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .md-info-tag__icon {
