@@ -6,7 +6,7 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 
 export interface MdTextAreaProps {
-  value: string;
+  value?: string | undefined;
   rows?: number;
   label?: string;
   id?: string;

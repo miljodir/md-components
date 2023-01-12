@@ -14,11 +14,11 @@ interface MdSelectOptionProps {
 };
 
 export interface MdSelectProps {
-    label: string | null;
-    options: MdSelectOptionProps[];
+    label?: string | null;
+    options?: MdSelectOptionProps[];
     onChange(e: MdSelectOptionProps): void;
-    name: string;
-    value: string | number;
+    name?: string;
+    value?: string | number;
     placeholder?: string;
     disabled?: boolean;
     size?: string;
@@ -49,7 +49,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
     'md-select--small': size === 'small'
   });
 
-  const selectedOption = value && value !== '' ? options.find(o => o.value === value) : '';
+  const selectedOption = value && value !== '' ? options && options.find(o => o.value === value) : '';
 
   let displayValue = placeholder;
   if (selectedOption && selectedOption.value) {

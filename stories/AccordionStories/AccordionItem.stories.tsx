@@ -51,6 +51,28 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    hideCloseButton: {
+      type: { name: 'boolean' },
+      description: "Hide close button inside accordion content",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    rounded: {
+      type: { name: 'boolean' },
+      description: "Add rounded corners to accordion item",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
     headerContent: {
       type: { name: 'ReactNode' },
       description: "Content to display on the right side in the header. Can be HTML.",
@@ -91,5 +113,7 @@ AccordionItem.args = {
   label: 'Click to toggle accordion item',
   theme: 'primary',
   disabled: false,
-  headerContent: false
+  headerContent: false,
+  hideCloseButton: false,
+  rounded: false
 }

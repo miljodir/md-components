@@ -1,20 +1,24 @@
 .md-accordion-item {
-  padding: 1em;
-  background-color: var(--mdPrimaryColor20);
-  border: 1px solid var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor10);
+  border: 1px solid var(--mdGreyColor60);
   color: var(--mdGreyColor);
   font-family: 'Open sans';
   margin-bottom: 1em;
+  transition: all .2s linear;
 }
 
 .md-accordion-item:focus-within {
-  outline: 2px solid var(--mdPrimaryColor80);
-  outline-offset: -2px;
+  /* outline: 2px solid var(--mdPrimaryColor80);
+  outline-offset: -2px; */
+  outline: none;
+}
+
+.md-accordion-item.md-accordion-item--rounded {
+  border-radius: 4px;
 }
 
 .md-accordion-item.md-accordion-item--secondary {
   background-color: var(--mdSecondaryColor60);
-  border: 1px solid var(--mdSecondaryColor60);
 }
 
 .md-accordion-item.md-accordion-item--add {
@@ -27,6 +31,21 @@
   border: 1px solid var(--mdPrimaryColor20);
 }
 
+.md-accordion-item:not(.md-accordion-item--expanded):hover {
+  transition: all .2s linear;
+  background-color: var(--mdPrimaryColor20);
+}
+
+.md-accordion-item.md-accordion-item--secondary:not(.md-accordion-item--expanded):hover {
+  transition: all .2s linear;
+  background-color: var(--mdSecondaryColor);
+}
+
+.md-accordion-item.md-accordion-item--add:not(.md-accordion-item--expanded):hover {
+  transition: all .2s linear;
+  background-color: transparent;
+}
+
 /* Header */
 .md-accordion-item__header {
   display: flex;
@@ -36,9 +55,10 @@
   border: 0;
   width: 100%;
   margin: 0;
-  padding: 1em;
+  padding: 1.5em 1.8em;
   cursor: pointer;
   text-align: left;
+  line-height: 24px;
 }
 
 .md-accordion-item__header:focus {
@@ -87,20 +107,23 @@
 }
 
 .md-accordion-item__header-label {
-  font-size: 1.25em;
+  font-size: 20px;
   margin-left: 1em;
+}
+.md-accordion-item__header:hover .md-accordion-item__header-label {
+  text-decoration: underline;
 }
 
 /* CONTENT */
 .md-accordion-item__content {
-  padding: 0 1em;
+  padding: 0 1.8em;
   max-height: 0;
   overflow: hidden;
   transition: all .15s linear;
 }
 .md-accordion-item__content--expanded {
   max-height: 5000px;
-  padding: 1em;
+  padding: 1em 1.8em 1.5em 1.8em;
   transition: all .15s linear;
 }
 
@@ -113,6 +136,10 @@
   margin: 2em 0 0 -.2em;
   cursor: pointer;
   font-size: 16px;
+}
+
+.md-accordion-item__close-button:hover {
+  text-decoration: underline;
 }
 
 .md-accordion-item__close-button:focus {

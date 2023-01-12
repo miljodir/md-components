@@ -15,7 +15,7 @@ export interface MdCheckboxGroupOptionProps {
 export interface MdCheckboxGroupProps {
   options?: MdCheckboxGroupOptionProps[];
   selectedOptions?: MdCheckboxGroupOptionProps[];
-  onChange(e: ChangeEvent<HTMLInputElement>): void;
+  onChange?(e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -64,7 +64,9 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 	}
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e);
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   return (

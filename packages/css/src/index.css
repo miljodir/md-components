@@ -16,10 +16,10 @@
 @import './formElements/input/input.css';
 @import './formElements/checkbox/checkbox.css';
 @import './formElements/checkboxgroup/checkboxgroup.css';
-@import './formElements/textarea.css';
-@import './formElements/select.css';
+@import './formElements/textarea/textarea.css';
+@import './formElements/select/select.css';
 @import './formElements/radiogroup.css';
-@import './formElements/multiselect.css';
+@import './formElements/multiselect/multiselect.css';
 @import './formElements/fileupload/fileupload.css';
 @import './utils.css';
 

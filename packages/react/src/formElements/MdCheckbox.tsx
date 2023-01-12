@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface MdCheckboxProps {
-  checked: boolean | undefined;
+  checked?: boolean | undefined;
   label?: any;
   value?: any;
   id?: string | number;

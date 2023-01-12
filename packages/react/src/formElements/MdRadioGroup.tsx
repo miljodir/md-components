@@ -12,7 +12,7 @@ export interface MdRadioGroupOption {
 };
 
 export interface MdRadioGroupProps {
-  options: MdRadioGroupOption[];
+  options?: MdRadioGroupOption[];
   selectedOption?: string | number;
   onChange(e: React.ChangeEvent<HTMLInputElement>): void;
   label?: string;
@@ -89,7 +89,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       }
 
       <div className={optionsClassNames}>
-        {options.map(option => (
+        {options && options.map(option => (
           <label
             htmlFor={`radio_${radioId}_${option.id}`}
             key={`radio_${radioId}_${option.id}`}

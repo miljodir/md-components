@@ -7,9 +7,9 @@ import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
 export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
+  value?: string | undefined;
   id?: string;
-  size: 'normal' | 'small';
+  size?: 'normal' | 'small';
   label?: string;
   placeholder?: string;
   disabled?: boolean;

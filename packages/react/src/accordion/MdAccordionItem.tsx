@@ -13,6 +13,8 @@ interface MdAccordionItemProps {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
+  hideCloseButton?: boolean;
+  rounded?: boolean;
   onToggle?(e: React.MouseEvent): void;
 };
 
@@ -25,6 +27,8 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   disabled = false,
   className = '',
   children,
+  hideCloseButton = false,
+  rounded = false,
   onToggle
 }: MdAccordionItemProps) => {
   const accordionId = React.useMemo(() => id || uuidv4(), []);
@@ -38,7 +42,8 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     'md-accordion-item--expanded': !!isExpanded && !disabled,
     'md-accordion-item--secondary': theme && theme === 'secondary',
     'md-accordion-item--add': theme && theme === 'add',
-    'md-accordion-item--disabled': !!disabled
+    'md-accordion-item--disabled': !!disabled,
+    'md-accordion-item--rounded': !!rounded
   }, className);
 
   const headerClassNames = classnames('md-accordion-item__header', {
@@ -90,14 +95,16 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
             {children}
           </div>
 
-          <button
-            className="md-accordion-item__close-button"
-            onClick={(e: React.MouseEvent) => toggle(e)}
-            tabIndex={isExpanded ? 0 : -1}
-          >
-            <MdMinusIcon className="md-accordion-item__close-button__icon" />
-            <div>Lukk</div>
-          </button>
+          {!hideCloseButton &&
+            <button
+              className="md-accordion-item__close-button"
+              onClick={(e: React.MouseEvent) => toggle(e)}
+              tabIndex={isExpanded ? 0 : -1}
+            >
+              <MdMinusIcon className="md-accordion-item__close-button__icon" />
+              <div>Lukk</div>
+            </button>
+          }
         </div>
       }
     </div>
