@@ -1,3 +1,17 @@
 .md-loading-spinner {
   animation: spinAnimation 1s linear infinite;
 }
+
+.md-loading-spinner__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-loading-spinner__container--left {
+  justify-content: flex-start;
+}
+
+.md-loading-spinner__container--right {
+  justify-content: flex-end;
+}

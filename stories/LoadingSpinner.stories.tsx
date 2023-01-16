@@ -24,18 +24,41 @@ export default {
       },
       control: { type: 'number' }
     },
+    position: {
+      type: { name: 'string' },
+      description: "Loading spinner placement in the container",
+      options: ['left', 'center', 'right'],
+      control: { type: 'inline-radio' },
+      table: {
+        defaultValue: { summary: 'center' },
+        type: {
+          summary: "string",
+        },
+      }
+    },
+    className: {
+      type: { name: 'string' },
+      description: "Additional class names to apply to container.",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
   }
 };
 
 const Template: ComponentStory<typeof MdLoadingSpinner> = (args) => {
   return (
-    <div style={{ display: 'flex' }}>
-      <MdLoadingSpinner size={args.size} />
-    </div>
+    <MdLoadingSpinner {...args} />
   );
 };
 
 export const LoadingSpinner = Template.bind({});
 LoadingSpinner.args = {
-  size: 100
+  size: 100,
+  position: 'center',
+  className: ''
 };
