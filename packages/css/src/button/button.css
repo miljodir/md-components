@@ -9,6 +9,7 @@
   font-size: 1rem;
   outline: 2px solid var(--mdPrimaryColor);
   padding: .65rem 1.5rem;
+  width: fit-content;
 }
 
 .md-button--small {

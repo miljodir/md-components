@@ -16,7 +16,7 @@ export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
   readOnly?: boolean;
   error?: boolean;
   errorText?: string;
-  hideErrorIcon: boolean;
+  hideErrorIcon?: boolean;
   helpText?: string;
   outerWrapperClass?: string;
   suffix?: string;
