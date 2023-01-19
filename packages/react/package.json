@@ -1,6 +1,6 @@
 {
   "name": "@miljodirektoratet/md-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React-komponenter for Miljødirektoratet",
   "author": "Miljødirektoratet",
   "main": "./dist/index.js",
@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "@formkit/auto-animate": "^1.0.0-beta.5"
   },
   "devDependencies": {
     "typescript": "^4.7.3"
