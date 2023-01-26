@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A chip component used for filters. Requires an onClick handler.<br/><br/>`import { MdFilterChip } from '@md-components/md-react'`"
+        component: "A chip component used for filters. Requires an onClick handler.<br/><br/>`import { MdFilterChip } from '@miljodirektoratet/md-react'`"
       },
     },
   },

@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A button component.<br/><br/>`import { MdButton } from '@md-components/md-react'`",
+        component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },

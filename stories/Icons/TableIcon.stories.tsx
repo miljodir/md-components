@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Table icon. Color is inherited from parent.<br/><br/>`import { MdTableIcon } from '@md-components/md-react'`",
+        component: "Table icon. Color is inherited from parent.<br/><br/>`import { MdTableIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -12,7 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for expand/collapse content in an accordion.<br/><br/>`import { MdAccordionItem } from '@md-components/md-react'`",
+        component: "A component for expand/collapse content in an accordion.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, ReactHTML, useState } from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -7,14 +7,13 @@ import MdHelpText from '../help/MdHelpText';
 import MdHelpButton from '../help/MdHelpButton';
 
 export interface MdRadioGroupOption {
-  id: string | number,
-  text: string
+  id: any;
+  text: any;
 };
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
   selectedOption?: string | number;
-  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -22,6 +21,9 @@ export interface MdRadioGroupProps {
   className?: string;
   error?: string;
   helpText?: string;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
 };
 
 const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
@@ -31,10 +33,12 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   disabled,
   direction,
   className,
-  onChange,
   label,
   helpText,
   error,
+  onChange,
+  onFocus,
+  onBlur,
   ...otherProps
 }: MdRadioGroupProps) => {
   const radioId = React.useMemo(() => id || uuidv4(), []);
@@ -53,7 +57,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
     }
   )
 
-  const optionIsSelected = (option: number | string) => {
+  const optionIsSelected = (option: any) => {
     if (selectedOption) {
 		  return option.toString() === selectedOption.toString();
     }
@@ -64,6 +68,18 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(e);
+    }
+  }
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onFocus) {
+      onFocus(e);
+    }
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(e);
     }
   }
 
@@ -91,22 +107,24 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       <div className={optionsClassNames}>
         {options && options.map(option => (
           <label
-            htmlFor={`radio_${radioId}_${option.id}`}
+            htmlFor={`radio_${radioId}_${option.text}`}
             key={`radio_${radioId}_${option.id}`}
             className="md-radiogroup-option"
           >
-            <span className="md-radiogroup-option__check-area" id={`dot_${radioId}_${option.id}`}>
+            <span className="md-radiogroup-option__check-area" id={`dot_${radioId}_${option.text}`}>
               {optionIsSelected(option.id) &&
                 <span className="md-radiogroup-option__selected-dot" ></span>
               }
             </span>
             <input
-              id={`radio_${radioId}_${option.id}`}
+              id={`radio_${radioId}_${option.text}`}
               type="radio"
               value={option.id}
               checked={optionIsSelected(option.id)}
               onChange={handleChange}
               disabled={disabled}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
             <span className="md-radiogroup-option__text">
               {option.text}

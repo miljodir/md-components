@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Cancel icon. Color is inherited from parent.<br/><br/>`import { MdCancelIcon } from '@md-components/md-react'`<br/>`import { MdCancelIcon64 } from '@md-components/md-react'`",
+        component: "Cancel icon. Color is inherited from parent.<br/><br/>`import { MdCancelIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCancelIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

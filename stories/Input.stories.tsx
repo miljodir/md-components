@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Input field used in forms.<br/><br/>`import { MdInput } from '@md-components/md-react'`",
+        component: "Input field used in forms.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -36,6 +36,18 @@ export default {
         },
       },
       control: { type: 'text' }
+    },
+    type: {
+      type: { name: 'string' },
+      description: "Inputs type",
+      options: ['text', 'email', 'number', 'date', 'datetime-local', 'hidden', 'password', 'tel', 'url'],
+      table: {
+        defaultValue: { summary: 'text' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'inline-radio' },
     },
     placeholder: {
       type: { name: 'string' },
@@ -165,6 +177,16 @@ export default {
       },
       control: { type: 'html' }
     },
+    hideNumberArrows: {
+      description: 'If type = "number", hide or show browsers default arrows',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
     onChange: {
       type: { name: 'function' },
       description: "The onChange handler for change events",
@@ -180,7 +202,7 @@ export default {
 const Template = (args) => {
   const [_, updateArgs] = useArgs();
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     updateArgs({ ...args, value: e?.target?.value });
   }
 
@@ -196,23 +218,7 @@ export const Input = Template.bind({});
 Input.args = {
   value: '',
   label: 'Label',
-  size: 'normal',
-  disabled: false,
-  readOnly: false,
-  error: false,
-  errorText: '',
-  hideErrorIcon: false,
-  helpText: '',
-  outerWrapperClass: '',
-  placeholder: 'Placeholder...',
-  id: '',
-  suffix: ''
-};
-
-export const InputWithPrefix = Template.bind({});
-InputWithPrefix.args = {
-  value: '',
-  label: 'Label',
+  type: 'text',
   size: 'normal',
   disabled: false,
   readOnly: false,
@@ -224,5 +230,25 @@ InputWithPrefix.args = {
   placeholder: 'Placeholder...',
   id: '',
   suffix: '',
-  prefixIcon: <MdUserIcon/>
+  hideNumberArrows: false
+};
+
+export const InputWithPrefix = Template.bind({});
+InputWithPrefix.args = {
+  value: '',
+  label: 'Label',
+  type: 'text',
+  size: 'normal',
+  disabled: false,
+  readOnly: false,
+  error: false,
+  errorText: '',
+  hideErrorIcon: false,
+  helpText: '',
+  outerWrapperClass: '',
+  placeholder: 'Placeholder...',
+  id: '',
+  suffix: '',
+  prefixIcon: <MdUserIcon/>,
+  hideNumberArrows: false
 };

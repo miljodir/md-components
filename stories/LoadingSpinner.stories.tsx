@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Loading spinner component.<br/><br/>`import { MdLoadingSpinner } from '@md-components/md-react'`",
+        component: "Loading spinner component.<br/><br/>`import { MdLoadingSpinner } from '@miljodirektoratet/md-react'`",
       },
     },
   },

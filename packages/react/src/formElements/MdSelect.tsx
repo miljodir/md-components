@@ -103,6 +103,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
       >
         <button
           className={buttonClasseNames}
+          type='button'
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
         >
@@ -117,6 +118,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
             {options.map(option => (
               <button
                 key={`md-select-option-${uuid}-${option.value}`}
+                type='button'
                 tabIndex={open ? 0: -1}
                 className={optionClass(option)}
                 onClick={() => open && handleOptionClick(option)}

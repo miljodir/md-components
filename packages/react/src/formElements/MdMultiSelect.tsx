@@ -151,6 +151,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         className="md-multiselect__dropdown-wrapper"
       >
         <button
+          type='button'
           className={buttonClasseNames}
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}

@@ -136,7 +136,8 @@
 }
 
 .md-select--open .md-select__dropdown {
-  max-height: 2000px;
+  max-height: 350px;
+  overflow-y: auto;
   opacity: 1;
   transition: max-height .5s ease-in-out;
   border: 2px solid var(--mdPrimaryColor);

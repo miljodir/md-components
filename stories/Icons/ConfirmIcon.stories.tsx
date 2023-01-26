@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Confirm icon. Color is inherited from parent.<br/><br/>`import { MdConfirmIcon } from '@md-components/md-react'`<br/>`import { MdConfirmIcon64 } from '@md-components/md-react'`",
+        component: "Confirm icon. Color is inherited from parent.<br/><br/>`import { MdConfirmIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdConfirmIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

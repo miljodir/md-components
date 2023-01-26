@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Circle with checkmark icon. Color is inherited from parent.<br/><br/>`import { MdCheckCircleIcon } from '@md-components/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@md-components/md-react'`",
+        component: "Circle with checkmark icon. Color is inherited from parent.<br/><br/>`import { MdCheckCircleIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

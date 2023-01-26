@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@md-components/md-react'`",
+        component: "A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`",
       },
     },
   },

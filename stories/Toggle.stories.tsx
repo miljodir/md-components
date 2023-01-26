@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Toggle switch.<br/><br/>`import { MdToggle } from '@md-components/md-react'`",
+        component: "Toggle switch.<br/><br/>`import { MdToggle } from '@miljodirektoratet/md-react'`",
       },
     },
   },

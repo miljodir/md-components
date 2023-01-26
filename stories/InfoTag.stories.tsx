@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@md-components/md-react'`",
+        component: "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -7,7 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Component for displaying help text, mainly used in conjunction with MdHelpButton.<br/><br/>`import { MdHelpText } from '@md-components/md-react'`",
+        component: "Component for displaying help text, mainly used in conjunction with MdHelpButton.<br/><br/>`import { MdHelpText } from '@miljodirektoratet/md-react'`",
       },
     },
   },

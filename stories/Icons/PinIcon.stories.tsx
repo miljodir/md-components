@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Pin/map pin icon. Color is inherited from parent.<br/><br/>`import { MdPinIcon } from '@md-components/md-react'`<br/>`import { MdPinIcon64 } from '@md-components/md-react'`<br/>`import { MdPinAltIcon } from '@md-components/md-react'`<br/>`import { MdPinAltIcon64 } from '@md-components/md-react'`",
+        component: "Pin/map pin icon. Color is inherited from parent.<br/><br/>`import { MdPinIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPinIcon64 } from '@miljodirektoratet/md-react'`<br/>`import { MdPinAltIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPinAltIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

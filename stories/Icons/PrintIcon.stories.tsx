@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Print/printer icon. Color is inherited from parent.<br/><br/>`import { MdPrintIcon } from '@md-components/md-react'`<br/>`import { MdPrintIcon64 } from '@md-components/md-react'`",
+        component: "Print/printer icon. Color is inherited from parent.<br/><br/>`import { MdPrintIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPrintIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

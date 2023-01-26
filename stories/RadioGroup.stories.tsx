@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A form component for a group of radio buttons. Can also be used outside of a form.<br/><br/>`import { MdRadioGroup } from '@md-components/md-react'`",
+        component: "A form component for a group of radio buttons. Can also be used outside of a form.<br/><br/>`import { MdRadioGroup } from '@miljodirektoratet/md-react'`",
       },
     },
   },

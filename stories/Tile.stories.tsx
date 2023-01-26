@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A link styled as a horizontal tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTile } from '@md-components/md-react'`",
+        component: "A link styled as a horizontal tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTile } from '@miljodirektoratet/md-react'`",
       },
     },
   },

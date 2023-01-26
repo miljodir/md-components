@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A form component for multi-select.<br/><br/>`import { MdMultiSelect } from '@md-components/md-react'`",
+        component: "A form component for multi-select.<br/><br/>`import { MdMultiSelect } from '@miljodirektoratet/md-react'`",
       },
     },
   },

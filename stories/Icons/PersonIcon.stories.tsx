@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Person icon. Color is inherited from parent.<br/><br/>`import { MdPersonIcon } from '@md-components/md-react'`<br/>`import { MdPersonIcon64 } from '@md-components/md-react'`",
+        component: "Person icon. Color is inherited from parent.<br/><br/>`import { MdPersonIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPersonIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

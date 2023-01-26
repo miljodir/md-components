@@ -15,7 +15,6 @@ export interface MdCheckboxGroupOptionProps {
 export interface MdCheckboxGroupProps {
   options?: MdCheckboxGroupOptionProps[];
   selectedOptions?: MdCheckboxGroupOptionProps[];
-  onChange?(e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
   id?: string | number;
   disabled?: boolean;
@@ -23,12 +22,14 @@ export interface MdCheckboxGroupProps {
   className?: string;
   error?: string;
   helpText?: string;
+  onChange?(e: ChangeEvent<HTMLInputElement>): void;
+  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
 };
 
 const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   options = [],
   selectedOptions,
-  onChange,
   label,
   id,
   disabled = false,
@@ -36,6 +37,9 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   className = '',
   error,
   helpText,
+  onChange,
+  onFocus,
+  onBlur,
   ...otherProps
 }: MdCheckboxGroupProps) => {
   const groupId = React.useMemo(() => id || uuidv4(), []);
@@ -66,6 +70,18 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(e);
+    }
+  }
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onFocus) {
+      onFocus(e);
+    }
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(e);
     }
   }
 
@@ -101,6 +117,8 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
             onChange={handleChange}
             data-value={option.value}
             data-text={option.text}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
         ))}
       </div>

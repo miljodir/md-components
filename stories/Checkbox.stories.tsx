@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A checkbox component.<br/><br/>`import { MdCheckbox } from '@md-components/md-react'`",
+        component: "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
       },
     },
   },

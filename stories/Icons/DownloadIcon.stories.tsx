@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Download icon. Color is inherited from parent.<br/><br/>`import { MdDownloadIcon } from '@md-components/md-react'`<br/>`import { MdDownloadIcon64 } from '@md-components/md-react'`",
+        component: "Download icon. Color is inherited from parent.<br/><br/>`import { MdDownloadIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdDownloadIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

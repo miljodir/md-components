@@ -6,11 +6,12 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
-export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MdInputProps {
   value?: string | undefined;
   id?: string;
   size?: 'normal' | 'small';
   label?: string;
+  type?: string;
   placeholder?: string;
   disabled?: boolean;
   readOnly?: boolean;
@@ -21,12 +22,17 @@ export interface MdInputProps extends React.HTMLAttributes<HTMLDivElement> {
   outerWrapperClass?: string;
   suffix?: string;
   prefixIcon?: React.ReactNode;
+  hideNumberArrows?: boolean;
+  onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
 };
 
 const MdInput: React.FunctionComponent<MdInputProps> = ({
   label,
   id,
   value = '',
+  type = 'text',
   size = 'normal',
   placeholder,
   disabled = false,
@@ -38,6 +44,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
   outerWrapperClass = '',
   suffix = undefined,
   prefixIcon = null,
+  hideNumberArrows = false,
   ...otherProps
 }: MdInputProps) => {
   const [helpOpen, setHelpOpen] = useState(false);
@@ -49,7 +56,8 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
     'md-input--readonly': !!readOnly,
     'md-input--error': !!error,
     'md-input--has-suffix': suffix && suffix !== '',
-    'md-input--has-prefix': prefixIcon !== null && prefixIcon !== ''
+    'md-input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+    'md-input--hide-number-arrows': !!hideNumberArrows
   });
 
   const wrapperClassNames = classnames('md-input__wrapper', {
@@ -91,6 +99,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
           id={`md-input_${inputId}`}
           className={classNames}
           value={value}
+          type={type}
           placeholder={placeholder}
           disabled={!!disabled}
           readOnly={!!readOnly}

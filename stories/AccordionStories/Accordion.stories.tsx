@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Example use for handling accordion items.<br/><br/>`import { MdAccordionItem } from '@md-components/md-react'`",
+        component: "Example use for handling accordion items.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
   },

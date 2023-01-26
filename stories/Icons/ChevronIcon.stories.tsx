@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Chevron icon. Color is inherited from parent.<br/><br/>`import { MdChevronIcon } from '@md-components/md-react'`<br/>`import { MdChevronIcon64 } from '@md-components/md-react'`",
+        component: "Chevron icon. Color is inherited from parent.<br/><br/>`import { MdChevronIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdChevronIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

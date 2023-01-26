@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Inline link component.<br/><br/>`import { MdLink } from '@md-components/md-react'`",
+        component: "Inline link component.<br/><br/>`import { MdLink } from '@miljodirektoratet/md-react'`",
       },
     },
   },

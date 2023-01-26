@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Button for help text. Mainly used in conjunction with MdHelpText.<br/><br/>`import { MdHelpButton } from '@md-components/md-react'`",
+        component: "Button for help text. Mainly used in conjunction with MdHelpText.<br/><br/>`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },

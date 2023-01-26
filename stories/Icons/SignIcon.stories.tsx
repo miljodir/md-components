@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Sign/Road sign icon. Color is inherited from parent.<br/><br/>`import { MdSignIcon } from '@md-components/md-react'`",
+        component: "Sign/Road sign icon. Color is inherited from parent.<br/><br/>`import { MdSignIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },

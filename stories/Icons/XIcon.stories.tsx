@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "X/close icon. Color is inherited from parent.<br/><br/>`import { MdXIcon } from '@md-components/md-react'`<br/>`import { MdXIcon64 } from '@md-components/md-react'`",
+        component: "X/close icon. Color is inherited from parent.<br/><br/>`import { MdXIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdXIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Document search icon. Color is inherited from parent.<br/><br/>`import { MdDocSearchIcon } from '@md-components/md-react'`<br/>`import { MdDocSearchIcon64 } from '@md-components/md-react'`",
+        component: "Document search icon. Color is inherited from parent.<br/><br/>`import { MdDocSearchIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdDocSearchIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

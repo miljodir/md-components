@@ -6,7 +6,8 @@ interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: string | React.ReactNode;
-  small?: boolean
+  small?: boolean,
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 const MdButton: React.FunctionComponent<MdButtonProps> = ({
@@ -15,6 +16,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   rightIcon,
   children,
   small,
+  type = 'button',
   ...otherProps
 }: MdButtonProps) => {
   const classNames = classnames('md-button', {
@@ -24,7 +26,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   });
 
   return (
-    <button className={classNames} {...otherProps}>
+    <button className={classNames} type={type} {...otherProps}>
       {leftIcon && <div className="md-button__leftIcon">{leftIcon}</div>}
       {children}
       {rightIcon && <div className="md-button__rightIcon">{rightIcon}</div>}

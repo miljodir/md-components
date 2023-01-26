@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@md-components/md-react'`",
+        component: "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },
     },
   },

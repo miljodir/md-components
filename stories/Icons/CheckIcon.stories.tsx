@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Check mark icon. Color is inherited from parent.<br/><br/>`import { MdCheckIcon } from '@md-components/md-react'`<br/>`import { MdCheckIcon64 } from '@md-components/md-react'`",
+        component: "Check mark icon. Color is inherited from parent.<br/><br/>`import { MdCheckIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

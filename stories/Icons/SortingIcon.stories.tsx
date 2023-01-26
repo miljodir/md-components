@@ -10,7 +10,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Sorting icons. Color is inherited from parent.<br/><br/>`import { MdSortingIcon, MdSortingIcon64, MdSortingActiveIcon } from '@md-components/md-react'`",
+        component: "Sorting icons. Color is inherited from parent.<br/><br/>`import { MdSortingIcon, MdSortingIcon64, MdSortingActiveIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },

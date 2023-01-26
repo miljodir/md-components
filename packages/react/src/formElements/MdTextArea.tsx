@@ -17,6 +17,9 @@ export interface MdTextAreaProps {
   errorText?: string;
   helpText?: string;
   outerWrapperClass?: string;
+  onChange?(e: React.ChangeEvent<HTMLTextAreaElement>): void;
+  onBlur?(e: React.FocusEvent<HTMLTextAreaElement>): void;
+  onFocus?(e: React.FocusEvent<HTMLTextAreaElement>): void;
 };
 
 const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({

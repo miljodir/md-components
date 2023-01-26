@@ -10,6 +10,8 @@ export interface MdCheckboxProps {
   disabled?: boolean;
   className?: string;
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
   [otherProps: string]: unknown;
 }
 

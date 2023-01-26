@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Edit icon. Color is inherited from parent.<br/><br/>`import { MdEditIcon } from '@md-components/md-react'`<br/>`import { MdEditIcon64 } from '@md-components/md-react'`",
+        component: "Edit icon. Color is inherited from parent.<br/><br/>`import { MdEditIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdEditIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

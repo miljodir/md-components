@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@md-components/md-react'`",
+        component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
       },
     },
   },

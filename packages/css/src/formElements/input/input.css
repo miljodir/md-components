@@ -170,3 +170,12 @@
   color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
+
+/* Hacks for hiding arrows if type=number */
+.md-input.md-input--hide-number-arrows[type=number],
+.md-input.md-input--hide-number-arrows::-webkit-outer-spin-button,
+.md-input.md-input--hide-number-arrows::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}

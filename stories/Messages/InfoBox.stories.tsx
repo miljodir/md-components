@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@md-components/md-react'`",
+        component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },

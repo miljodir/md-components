@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Delete icon. Color is inherited from parent.<br/><br/>`import { MdDeleteIcon } from '@md-components/md-react'`<br/>`import { MdDeleteIcon64 } from '@md-components/md-react'`",
+        component: "Delete icon. Color is inherited from parent.<br/><br/>`import { MdDeleteIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdDeleteIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

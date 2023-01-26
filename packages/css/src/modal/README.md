@@ -36,3 +36,10 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     </div>
 </div>
 ```
+
+## Z-index
+This component uses z-index to place itself as the top layer in the viewport. The default z-indexes are:
+- `md-modal`: 900
+- `md-model__overlay`: 800
+
+If these z-indexes collide with other z-indexes in you stylesheet, please override the `z-index` for the two classes mentioned above in your own css.

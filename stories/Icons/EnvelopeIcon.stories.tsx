@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Envelope icon. Color is inherited from parent.<br/><br/>`import { MdEnvelopeIcon } from '@md-components/md-react'`<br/>`import { MdEnvelopeIcon64 } from '@md-components/md-react'`",
+        component: "Envelope icon. Color is inherited from parent.<br/><br/>`import { MdEnvelopeIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdEnvelopeIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
