@@ -1,5 +1,16 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/checkbox/README.md';
 
 import MdCheckbox from '../packages/react/src/formElements/MdCheckbox';
 
@@ -8,9 +19,17 @@ export default {
   component: MdCheckbox,
   parameters: {
     docs: {
-      description: {
-        component: "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description markdown="A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`" />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
     },
   },
   argTypes: {

@@ -1,7 +1,18 @@
 import React from 'react'
 import { useArgs } from '@storybook/client-api';
-import MdInput from '../packages/react/src/formElements/MdInput';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/input/README.md';
 
+import MdInput from '../packages/react/src/formElements/MdInput';
 import MdUserIcon from '../packages/react/src/icons/MdUserIcon';
 
 export default {
@@ -9,6 +20,17 @@ export default {
   component: MdInput,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "Input field used in forms.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
       },

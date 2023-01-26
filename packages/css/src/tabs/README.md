@@ -1,6 +1,6 @@
-# Tabs
+# Structure
 
-To use the `Tabs` css as a standalone, without the accompanying React component, please use the following HTML structure. The styling for this component applies to the tab-buttons, content and what to show is up to you.
+To use the `Tabs` css in `@miljodirektoratet/md-css` as a standalone, without the accompanying React component, please use the following HTML structure. The styling for this component applies to the tab-buttons, content and what to show is up to you.
 
 Class names in brackets [] are optional-/togglable-/decorator- or state dependant classes.
 

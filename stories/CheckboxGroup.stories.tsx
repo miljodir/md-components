@@ -1,5 +1,16 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
 
@@ -8,9 +19,17 @@ export default {
   component: MdCheckboxGroup,
   parameters: {
     docs: {
-      description: {
-        component: "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`",
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description markdown="A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`" />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
     },
   },
   argTypes: {

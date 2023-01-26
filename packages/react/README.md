@@ -18,6 +18,8 @@ const MyComponent = () => {
 }
 ```
 
+**These React components are dependant on the css from `@miljodirektoratet/md-react`. Please install this package also, and include it with you own css.**
+
 **For more documentation, please refer to the [Storybook](https://miljodir.github.io/md-components/)**
 
 _For stylesheets, see [@miljodirektoratet/md-css](https://www.npmjs.com/package/@miljodirektoratet/md-css)_

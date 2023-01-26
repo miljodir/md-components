@@ -1,5 +1,17 @@
 import React from "react";
 import { ComponentStory } from "@storybook/react";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/messages/InfoBox.md';
+
 import MdInfoBox from '../../packages/react/src/messages/MdInfoBox';
 
 export default {
@@ -7,6 +19,17 @@ export default {
   component: MdInfoBox,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },

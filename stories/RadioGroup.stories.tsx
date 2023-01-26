@@ -1,5 +1,17 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/radiogroup/README.md';
+
 import MdRadioGroup from '../packages/react/src/formElements/MdRadioGroup';
 
 export default {
@@ -7,6 +19,17 @@ export default {
   component: MdRadioGroup,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A form component for a group of radio buttons. Can also be used outside of a form.<br/><br/>`import { MdRadioGroup } from '@miljodirektoratet/md-react'`",
       },
@@ -29,12 +52,12 @@ export default {
       description: "Array with data for radio buttons",
       table: {
         type: {
-          summary: "[{ id: number, text: 'string' }, { id: number, text: 'string' }, ...]",
+          summary: "[{ id: any, text: any }, { id: any, text: any }, ...]",
         },
       },
     },
     selectedOption: {
-      type: { name: 'number | string' },
+      type: { name: 'number | string | boolean' },
       description: "The selected options id",
       table: {
         type: {
@@ -143,7 +166,7 @@ RadioGroup.args = {
     }
   ],
   label: 'Select an option',
-  selectedOption: "",
+  selectedOption: "2",
   id: "radio_group",
   disabled: false,
   direction: 'horizontal',

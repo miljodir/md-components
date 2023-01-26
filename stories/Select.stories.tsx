@@ -1,5 +1,17 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/select/README.md';
+
 import MdSelect from '../packages/react/src/formElements/MdSelect';
 
 export default {
@@ -7,6 +19,17 @@ export default {
   component: MdSelect,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A form component for single select.<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
       },
@@ -110,23 +133,7 @@ Select.args = {
     { value: 'option1', text: 'Option 1' },
     { value: 'option2', text: 'Option 2' },
     { value: 'option3', text: 'Option 3' },
-    { value: 'option4', text: 'Option 4' },
-    { value: 'option20', text: 'Option 1' },
-    { value: 'option5', text: 'Option 2' },
-    { value: 'option6', text: 'Option 3' },
-    { value: 'option7', text: 'Option 4' },
-    { value: 'option8', text: 'Option 1' },
-    { value: 'option9', text: 'Option 2' },
-    { value: 'option10', text: 'Option 3' },
-    { value: 'option11', text: 'Option 4' },
-    { value: 'option12', text: 'Option 1' },
-    { value: 'option13', text: 'Option 2' },
-    { value: 'option14', text: 'Option 3' },
-    { value: 'option15', text: 'Option 4' },
-    { value: 'option16', text: 'Option 1' },
-    { value: 'option17', text: 'Option 2' },
-    { value: 'option18', text: 'Option 3' },
-    { value: 'option19', text: 'Option 4' },
+    { value: 'option4', text: 'Option 4' }
   ],
   value: 'option2',
   disabled: false,

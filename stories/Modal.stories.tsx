@@ -1,6 +1,17 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 import { ComponentStory } from '@storybook/react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/modal/README.md';
 
 import MdModal from '../packages/react/src/modal/MdModal';
 import MdButton from '../packages/react/src/button/MdButton';
@@ -10,6 +21,17 @@ export default {
   component: MdModal,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
       },

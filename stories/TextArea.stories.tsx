@@ -1,5 +1,17 @@
 import React, { ChangeEvent } from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/textarea/README.md';
+
 import MdTextArea from '../packages/react/src/formElements/MdTextArea';
 
 export default {
@@ -7,6 +19,17 @@ export default {
   component: MdTextArea,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "Text area used in forms.<br/><br/>`import { MdTextArea } from '@miljodirektoratet/md-react'`",
       },

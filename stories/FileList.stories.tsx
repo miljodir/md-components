@@ -1,5 +1,16 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/filelist/README.md';
 
 import MdFileList from '../packages/react/src/fileList/MdFileList';
 
@@ -8,9 +19,17 @@ export default {
   component: MdFileList,
   parameters: {
     docs: {
-      description: {
-        component: "A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`",
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description markdown="A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`" />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
     },
   },
   argTypes: {

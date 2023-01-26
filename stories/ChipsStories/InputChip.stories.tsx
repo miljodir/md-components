@@ -1,5 +1,16 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/chips/README.md';
 
 import MdInputChip from '../../packages/react/src/chips/MdInputChip';
 import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
@@ -9,6 +20,17 @@ export default {
   component: MdInputChip,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`"
       },

@@ -1,4 +1,16 @@
 import React from 'react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/tile/README.md';
+
 import MdTileVertical from '../packages/react/src/tiles/MdTileVertical';
 import MdGraphIcon from '../packages/react/src/icons/MdGraphIcon';
 
@@ -7,6 +19,17 @@ export default {
   component: MdTileVertical,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A link styled as a vertical tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTileVertical } from '@miljodirektoratet/md-react'`",
       },

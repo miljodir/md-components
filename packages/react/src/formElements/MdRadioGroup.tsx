@@ -13,7 +13,7 @@ export interface MdRadioGroupOption {
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  selectedOption?: string | number;
+  selectedOption?: any;
   label?: string;
   id?: string | number;
   disabled?: boolean;

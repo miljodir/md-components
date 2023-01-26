@@ -1,5 +1,17 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/help/README.md';
+
 import MdHelpButton from '../../packages/react/src/help/MdHelpButton';
 import MdHelpText from '../../packages/react/src/help/MdHelpText';
 
@@ -8,6 +20,17 @@ export default {
   component: MdHelpButton,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "Example of how to use MdHelpButton and MdHelpText to toggle help text.<br/><br/>`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
       }

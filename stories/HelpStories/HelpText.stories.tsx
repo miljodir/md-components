@@ -1,4 +1,16 @@
 import React from 'react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/help/README.md';
+
 import MdHelpText from '../../packages/react/src/help/MdHelpText';
 
 export default {
@@ -6,6 +18,17 @@ export default {
   component: MdHelpText,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "Component for displaying help text, mainly used in conjunction with MdHelpButton.<br/><br/>`import { MdHelpText } from '@miljodirektoratet/md-react'`",
       },

@@ -1,6 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ComponentStory } from "@storybook/react";
 import autoAnimate from "@formkit/auto-animate";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/messages/AlertMessage.md';
+
 import MdAlertMessage from '../../packages/react/src/messages/MdAlertMessage';
 
 export default {
@@ -8,6 +20,17 @@ export default {
   component: MdAlertMessage,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },

@@ -21,6 +21,6 @@ const MyComponent = () => {
 
 **For more documentation, please refer to the [Storybook](https://miljodir.github.io/md-components/)**
 
-**For HTML structure for each component, see the README.md for each css-file, located in /src. This must be followed if stylesheets are used as standalone, without React components.**
+**For HTML structure for each component, see the README.md for each css-file, located in /src, or the `Docs`-section in the [Storybook](https://miljodir.github.io/md-components/) for each component. This must be followed if stylesheets are used as standalone, without React components.**
 
 _For React components, see [@miljodirektoratet/md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react)_

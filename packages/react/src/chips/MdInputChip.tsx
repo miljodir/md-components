@@ -35,7 +35,6 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   });
 
   return (
-    // @ts-ignore
     <button
       className={buttonClassNames}
       id={chipId}

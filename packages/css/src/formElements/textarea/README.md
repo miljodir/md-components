@@ -1,6 +1,6 @@
-# Textarea
+# Structure
 
-To use the `Textarea` css as a standalone, without the accompanying React component, please use the following HTML structure.
+To use the `Textarea` css in `@miljodirektoratet/md-css` as a standalone, without the accompanying React component, please use the following HTML structure.
 
 Class names in brackets [] are optional-/togglable-/decorator- or state dependant classes.
 
@@ -16,7 +16,6 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
         <div className="md-textarea__help-button">
             {button to trigger help text}
         </div>
-    }
     </div>
 
     <div className="md-textarea__help-text [md-textarea__help-text--open]">

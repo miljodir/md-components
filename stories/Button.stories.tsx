@@ -1,18 +1,43 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary as StoryPrimary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 
 import MdButton from '../packages/react/src/button/MdButton';
 import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
+
+// @ts-ignore
+import Readme from '../packages/css/src/button/README.md';
 
 export default {
   title: 'Components/Button',
   component: MdButton,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description markdown="A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`" />
+          <StoryPrimary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
+    },
+    /* docs: {
       description: {
         component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
       },
-    },
+    }, */
   },
   argTypes: {
     label: {

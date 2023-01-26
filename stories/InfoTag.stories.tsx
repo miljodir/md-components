@@ -1,5 +1,17 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/infoTag/README.md';
+
 import MdInfoTag from '../packages/react/src/infoTag/MdInfoTag';
 
 export default {
@@ -7,6 +19,17 @@ export default {
   component: MdInfoTag,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },

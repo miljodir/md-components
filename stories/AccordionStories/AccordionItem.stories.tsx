@@ -1,5 +1,16 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../../packages/css/src/accordionitem/README.md';
 
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 import MdInfoTag from '../../packages/react/src/infoTag/MdInfoTag';
@@ -11,6 +22,17 @@ export default {
   component: MdAccordionItem,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for expand/collapse content in an accordion.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },

@@ -1,4 +1,16 @@
 import React from "react";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/tabs/README.md';
+
 import MdTabs from '../packages/react/src/tabs/MdTabs';
 import MdTab from '../packages/react/src/tabs/MdTab';
 
@@ -7,6 +19,17 @@ export default {
   component: MdTabs,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
       },

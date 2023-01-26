@@ -1,4 +1,15 @@
 import React from 'react';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+// @ts-ignore
+import Readme from '../packages/css/src/formElements/fileupload/README.md';
 
 import MdFileUpload from '../packages/react/src/formElements/MdFileUpload';
 
@@ -7,6 +18,17 @@ export default {
   component: MdFileUpload,
   parameters: {
     docs: {
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+          <Description markdown={Readme} />
+        </>
+      ),
       description: {
         component: "A component for handling file upload with drag and drop. Returns an array of files, to do with as you please.<br/><br/>`import { MdFileUpload } from '@miljodirektoratet/md-react'`",
       },
