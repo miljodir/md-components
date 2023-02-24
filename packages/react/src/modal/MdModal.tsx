@@ -8,6 +8,7 @@ import MdXIcon from '../icons/MdXIcon';
 interface MdModalProps {
   children: any;
   heading?: string;
+  headingIcon?: React.ReactNode | string;
   id?: any;
   open?: boolean;
   error?: boolean;
@@ -18,6 +19,7 @@ interface MdModalProps {
 const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
+  headingIcon,
   id,
   open = false,
   error = false,
@@ -52,7 +54,10 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
             className="md-modal__inner-wrapper"
           >
             <div className="md-modal__header">
-              <div>{heading}</div>
+              <div className='md-modal__header-content'>
+                {headingIcon}
+                {heading}
+              </div>
               <button
                 className="md-modal__close-button"
                 onClick={(e) => { closeModal(e) }}

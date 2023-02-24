@@ -15,6 +15,7 @@ import Readme from '../packages/css/src/modal/README.md';
 
 import MdModal from '../packages/react/src/modal/MdModal';
 import MdButton from '../packages/react/src/button/MdButton';
+import MdWarningIcon from '../packages/react/src/icons/MdWarningIcon';
 
 export default {
   title: 'Components/Modal',
@@ -48,6 +49,17 @@ export default {
         },
       },
       control: { type: 'text' }
+    },
+    headingIcon: {
+      type: { name: 'ReactNode' },
+      description: "Icon to apply to start of heading field.",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "DomElement | image | ReactNode",
+        },
+      },
+      control: { type: 'boolean' }
     },
     open: {
       type: { name: 'boolean' },
@@ -108,6 +120,8 @@ export default {
 const Template: ComponentStory<typeof MdModal> = (args) => {
   const [_, updateArgs] = useArgs();
 
+  const headingIcon = <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }}/>
+
   const toggleModal = () => {
     const open = !args.open;
     updateArgs({ ...args, open: open });
@@ -123,6 +137,7 @@ const Template: ComponentStory<typeof MdModal> = (args) => {
 
       <MdModal
         {...args}
+        headingIcon={args.headingIcon ? headingIcon : null}
         onClose={() => toggleModal()}
       >
         <p>This is html content in the modal.</p>
@@ -136,5 +151,6 @@ export const Modal = Template.bind({});
 Modal.args = {
   open: true,
   heading: 'Modal title',
+  headingIcon: false,
   error: false
 };

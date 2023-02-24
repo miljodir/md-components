@@ -38,6 +38,10 @@
   cursor: pointer;
 }
 
+.md-select__button.md-select__button--error {
+  border-color: var(--mdErrorColor);
+}
+
 .md-select--disabled .md-select__button {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
@@ -52,6 +56,11 @@
 .md-select__button:not(.md-select__button--open):focus-within {
   padding: calc(1em - 1px);
   border: 2px solid var(--mdPrimaryColor);
+}
+
+.md-select--error.md-select__button:not(.md-select__button--open):focus,
+.md-select--error.md-select__button:not(.md-select__button--open):focus-within {
+  border-color: var(--mdErrorColor);
 }
 
 .md-select__button-text {
@@ -142,4 +151,18 @@
   transition: max-height .5s ease-in-out;
   border: 2px solid var(--mdPrimaryColor);
   border-top: 0;
+}
+
+/* open + error */
+.md-select--open.md-select--error .md-select__button {
+  border-color: var(--mdErrorColor);
+}
+.md-select--open.md-select--error .md-select__dropdown {
+  border-color: var(--mdErrorColor);
+}
+
+/* Error text */
+.md-select__error {
+  color: var(--mdErrorColor);
+  font-size: .88em;
 }

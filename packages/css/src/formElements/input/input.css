@@ -41,6 +41,7 @@
   border-left-color: #fff;
   border-right-color: #fff;
   border-top-color: #fff;
+  background-color: transparent;
 }
 
 .md-input.md-input--error {

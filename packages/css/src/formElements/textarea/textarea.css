@@ -36,6 +36,7 @@
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
   border-color: #fff;
+  background-color: transparent;
 }
 
 .md-textarea.md-textarea--error {

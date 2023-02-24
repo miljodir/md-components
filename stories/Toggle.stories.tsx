@@ -78,6 +78,27 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    error: {
+      description: 'Does toggle contain an error?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    errorText: {
+      type: { name: 'string' },
+      description: "The error text to display",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
     onChange: {
       type: { name: 'function' },
       description: "The onChange handler for change events. Returns a ChangeEvent.",
@@ -110,5 +131,7 @@ Toggle.args = {
   id: 'toggle_switch',
   label: 'Label',
   checked: false,
-  disabled: false
+  disabled: false,
+  error: false,
+  errorText: ''
 };

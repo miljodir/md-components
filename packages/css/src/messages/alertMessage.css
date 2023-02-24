@@ -8,6 +8,8 @@
   padding: 1em;
   background-color: var(--mdSecondaryColor20);
   border: 1px dashed var(--mdPrimaryColor);
+}
+.md-info-box:not(.md-info-box--fullWidth) {
   max-width: 634px;
 }
 
@@ -18,8 +20,12 @@
   justify-content: space-between;
   font-family: 'Open sans';
   font-size: 1em;
-  max-width: 634px;
+  width: 100%;
   background-color: var(--mdPrimaryColor10);
+}
+
+.md-alert-message:not(.md-alert-message--fullWidth) {
+  max-width: 634px;
 }
 
 .md-alert-message--confirm {

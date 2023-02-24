@@ -51,6 +51,12 @@
   font-size: 1.43em;
 }
 
+.md-modal__header-content {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
 .md-modal__close-button {
   padding: 2em;
   background: transparent;
@@ -60,8 +66,8 @@
 }
 
 .md-modal__close-button-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 
 .md-modal__content-inner {

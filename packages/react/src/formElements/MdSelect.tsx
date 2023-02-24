@@ -23,6 +23,8 @@ export interface MdSelectProps {
     disabled?: boolean;
     size?: string;
     helpText?: string;
+    error?: boolean;
+    errorText?: string;
 };
 
 const MdSelect: React.FunctionComponent<MdSelectProps> = ({
@@ -34,6 +36,8 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   disabled = false,
   size,
   helpText,
+  error = false,
+  errorText,
   onChange,
   ...otherProps
 }: MdSelectProps) => {
@@ -44,6 +48,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
 
   const classNames = classnames('md-select', {
     'md-select--open': !!open,
+    'md-select--error': !!error,
     'md-select--disabled': !!disabled,
     'md-select--medium': size === 'medium',
     'md-select--small': size === 'small'
@@ -69,7 +74,8 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   }
 
   const buttonClasseNames = classnames('md-select__button', {
-    'md-select__button--open': !!open
+    'md-select__button--open': !!open,
+    'md-select__button--error': !!error
   });
 
   const optionClass = (option: MdSelectOptionProps) => {
@@ -134,6 +140,10 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
           </div>
         }
       </MdClickOutsideWrapper>
+
+      {error && errorText && errorText !== '' &&
+        <div className="md-select__error">{errorText}</div>
+      }
     </div>
   );
 };
