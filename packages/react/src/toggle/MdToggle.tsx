@@ -7,6 +7,8 @@ export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElemen
   onChange(e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
   disabled?: boolean;
+  error?: boolean;
+  errorText?: string | undefined;
   wrapperClass?: string;
 };
 
@@ -15,10 +17,13 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   label,
   id = 'toggle_switch',
   disabled = false,
+  error = false,
+  errorText = undefined,
   wrapperClass = '',
   onChange
 }: MdToggleProps) => {
   const classNames = classnames('md-toggle__label', {
+    'md-toggle__label--error': !!error,
     'md-toggle__label--checked': !!checked,
     'md-toggle__label--disabled': !!disabled
   });
@@ -34,27 +39,33 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   }
 
   return (
-    <div className={outerWrapperClassNames}>
-      <input
-        tabIndex={0}
-        className="md-toggle__checkbox"
-        id={id}
-        type="checkbox"
-        checked={checked}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-        disabled={disabled}
-      />
-      <label
-        className={labelWrapperClassNames}
-        htmlFor={id}
-      >
-        <div className="md-toggle__label-text">{label}</div>
-        <div
-          className={classNames}
+    <div>
+      <div className={outerWrapperClassNames}>
+        <input
+          tabIndex={0}
+          className="md-toggle__checkbox"
+          id={id}
+          type="checkbox"
+          checked={checked}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+          disabled={disabled}
+        />
+        <label
+          className={labelWrapperClassNames}
+          htmlFor={id}
         >
-          <span className="md-toggle__button" />
-        </div>
-      </label>
+          <div className="md-toggle__label-text">{label}</div>
+          <div
+            className={classNames}
+          >
+            <span className="md-toggle__button" />
+          </div>
+        </label>
+      </div>
+
+      {error && errorText && errorText !== '' &&
+        <div className="md-toggle__error">{errorText}</div>
+      }
     </div>
   );
 }

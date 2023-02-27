@@ -56,6 +56,16 @@ export default {
       },
       control: { type: 'boolean' }
     },
+    fullWidth: {
+      description: 'Make info box full width. Non-full width has max-width = 634px',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
   }
 };
 
@@ -66,5 +76,6 @@ const Template: ComponentStory<typeof MdInfoBox> = args => {
 export const InfoBox = Template.bind({});
 InfoBox.args = {
   label: 'This is a short info text.',
-  hideIcon: false
+  hideIcon: false,
+  fullWidth: false
 };

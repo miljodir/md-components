@@ -58,6 +58,16 @@ export default {
       options: ['info', 'confirm', 'warning', 'error'],
       control: { type: 'inline-radio' },
     },
+    fullWidth: {
+      description: 'Make alert message full width. Non-full width has max-width = 634px',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' }
+    },
     hideIcon: {
       description: 'Hide alert icon.',
       table: {
@@ -100,5 +110,6 @@ AlertMessage.args = {
   theme: 'info',
   label: 'This is an alert message.',
   hideIcon: false,
-  closable: true
+  closable: true,
+  fullWidth: false
 };

@@ -7,7 +7,7 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div className="md-info-box">
+<div className="md-info-box [md-info-box--fullWidth]">
     {Icon width="20" height="20"}
     {label}
 </div>
@@ -20,7 +20,7 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div className="md-alert-message [md-alert-message--confirm, md-alert-message--warning, md-alert-message--error]">
+<div className="md-alert-message [md-alert-message--confirm, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]">
     <div className="md-alert-message__content">
         {Icon width="20" height="20"}
         {label}

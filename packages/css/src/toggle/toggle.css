@@ -55,6 +55,9 @@
   position: relative;
   transition: background-color .2s;
 }
+.md-toggle__label--error.md-toggle__label {
+  border-color: var(--mdErrorColor);
+}
 
 .md-toggle__label--checked {
   background-color: var(--mdPrimaryColor20);
@@ -91,6 +94,9 @@
   transform: translateX(-100%);
 }
 
-/* .md-toggle__label:active .md-toggle__button {
-  width: 24px;
-} */
+/* Error text */
+.md-toggle__error {
+  color: var(--mdErrorColor);
+  font-family: 'Open sans';
+  font-size: .88em;
+}

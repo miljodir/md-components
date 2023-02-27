@@ -15,8 +15,6 @@ import Readme from '../../packages/css/src/accordionitem/README.md';
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 import MdInfoTag from '../../packages/react/src/infoTag/MdInfoTag';
 
-import MdCheckIcon from '../../packages/react/src/icons/MdCheckIcon';
-
 export default {
   title: 'Components/Accordion',
   component: MdAccordionItem,
@@ -110,12 +108,6 @@ export default {
 };
 
 const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
-  /* const headerContent = (
-    <div style={{ display: 'flex', gap: '1em' }}>
-      <div>Example content</div>
-      <div style={{ width: '15px', height: '15px', color: '#005e5d' }}><MdCheckIcon /></div>
-    </div>
-  ); */
   const headerContent = (
     <MdInfoTag theme="warning" label="Some info here" icon="warning" keepOpen />
   );

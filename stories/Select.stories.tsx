@@ -98,6 +98,27 @@ export default {
       },
       control: { type: 'text' }
     },
+    error: {
+      description: 'Does selectbox contain error?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    errorText: {
+      type: { name: 'string' },
+      description: "Text to display if error",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
     onChange: {
       type: { name: 'function' },
       description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
@@ -138,5 +159,7 @@ Select.args = {
   value: 'option2',
   disabled: false,
   size: 'large',
-  helpText: ''
+  helpText: '',
+  error: false,
+  errorText: ''
 };

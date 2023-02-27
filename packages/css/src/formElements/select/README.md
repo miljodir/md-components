@@ -48,5 +48,6 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
             </button>
         </div>
     </MdClickOutsideWrapper>
+    <div className="md-select__error">{errorText}</div>
 </div>
 ```

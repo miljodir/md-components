@@ -11,6 +11,7 @@ interface MdAlertMessageProps {
   label?: string;
   hideIcon?: boolean;
   closable?: boolean;
+  fullWidth?: boolean;
   onClose?(e: React.MouseEvent): void;
 };
 
@@ -19,9 +20,11 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   label,
   hideIcon = false,
   closable = false,
+  fullWidth = false,
   onClose
 }: MdAlertMessageProps) => {
   const classNames = classnames('md-alert-message', {
+    'md-alert-message--fullWidth': !!fullWidth,
     'md-alert-message--confirm': theme === 'confirm',
     'md-alert-message--warning': theme === 'warning',
     'md-alert-message--error': theme === 'error',

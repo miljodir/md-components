@@ -7,22 +7,25 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div className="md-toggle__wrapper">
-    <input
-        className="md-toggle__checkbox"
-        type="checkbox"
-        checked={true|false}
-        onChange={}
-    />
-    <label
-        className="md-toggle__label-wrapper [md-toggle__label-wrapper--disabled]"
-    >
-        <div className="md-toggle__label-text">{label}</div>
-        <div
-            className="md-toggle__label [md-toggle__label--checked, md-toggle__label--disabled]"
+<div>
+    <div className="md-toggle__wrapper">
+        <input
+            className="md-toggle__checkbox"
+            type="checkbox"
+            checked={true|false}
+            onChange={}
+        />
+        <label
+            className="md-toggle__label-wrapper [md-toggle__label-wrapper--disabled]"
         >
-            <span className="md-toggle__button" />
-        </div>
-    </label>
+            <div className="md-toggle__label-text">{label}</div>
+            <div
+                className="md-toggle__label [md-toggle__label--checked, md-toggle__label--disabled]"
+            >
+                <span className="md-toggle__button" />
+            </div>
+        </label>
+    </div>
+    <div className="md-toggle__error">{errorText}</div>
 </div>
 ```
