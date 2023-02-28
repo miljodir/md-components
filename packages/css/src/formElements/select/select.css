@@ -45,6 +45,7 @@
 .md-select--disabled .md-select__button {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
+  cursor: not-allowed;
 }
 
 .md-select__button:focus,

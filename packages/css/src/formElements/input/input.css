@@ -38,10 +38,9 @@
 }
 
 .md-input.md-input--readonly:not(.md-input.md-input--disabled) {
-  border-left-color: #fff;
-  border-right-color: #fff;
-  border-top-color: #fff;
   background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--mdGreyColor60);
 }
 
 .md-input.md-input--error {
