@@ -35,7 +35,7 @@
 }
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
-  border-color: #fff;
+  border: 0;
   background-color: transparent;
 }
 
