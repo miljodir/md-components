@@ -96,7 +96,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp en fil eller <button onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
+          Dropp en fil eller <button type="button" onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
         </div>
 
         <input
