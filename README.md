@@ -19,3 +19,6 @@ Alle skal kunne bidra med komponenter til biblioteket, og også foreslå endring
 Dersom du ønsker endringer eller ønsker å bidra med nye komponenter, gjøres dette som en PR i dette repoet. Dersom det er en ny komponent, kreves det en reactkomponent med tilhørende css (i sine respektive mapper i strukturen), samt en story for komponenten. Denne legges i `stories`, se en eksisterende story for detaljer om hvordan bygge denne. Husk også i inkludere komponenten som en eksport i `packages/react/index.tsx`, og registrere css importen i `packages/css/index.css`.
 
 For nye komponenter med tilhørende css, skal det også opprettes en README.md fil i mappen for css-fila, som beskriver HTML-strukturen til komponenten. Dette fordi man skal kunne bruke css-filen til å bygge komponenten selv, uten å inkludere React-komponenten. Se en eksisterende css-fil og README.md i `packages/css/..` for eksempler på oppbygging av README-fil.
+
+Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/file/6BUqOC0xQZz6AggPvI2iSR/MD---Designsystem?node-id=0%3A1&t=6GlPVAsZW9HT0IEs-0). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
+
