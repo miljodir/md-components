@@ -13,6 +13,8 @@ interface MdFileUploadProps {
   uploadButtonText?: string;
   cancelButtonText?: string;
   hideFileListIcons?: boolean;
+  multiple?: boolean;
+  imagesOnly?: boolean;
 };
 
 const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
@@ -21,7 +23,9 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   useFormData = false,
   uploadButtonText = 'Last opp',
   cancelButtonText = 'Avbryt',
-  hideFileListIcons = false
+  hideFileListIcons = false,
+  multiple = true,
+  imagesOnly = false
 }: MdFileUploadProps) => {
   const {
     files,
@@ -63,14 +67,22 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
 
   const onDragEnterEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
-    // @ts-ignore
-    e.target?.classList?.add('md-fileupload__droparea--active');
+
+    if (!multiple && files.length > 0) {
+      // @ts-ignore
+      e.target?.classList?.add('md-fileupload__droparea--not-allowed');
+    } else {
+      // @ts-ignore
+      e.target?.classList?.add('md-fileupload__droparea--active');
+    }
   }
 
   const onDragLeaveEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
     // @ts-ignore
     e.target?.classList?.remove('md-fileupload__droparea--active');
+    // @ts-ignore
+    e.target?.classList?.remove('md-fileupload__droparea--not-allowed');
   }
 
   const onRemoveFile = ((file: File) => {
@@ -88,7 +100,9 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         onDrop={(e: DragEvent<HTMLDivElement>) => {
           handleDragDropEvent(e);
           onDragLeaveEvent(e);
-          setFiles(e, 'a');
+          if (multiple || (!multiple && files.length < 1)) {
+            setFiles(e, 'a', imagesOnly);
+          }
         }}
       >
         <div className="md-fileupload__droparea-icon">
@@ -96,18 +110,22 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp en fil eller <button type="button" onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
+          Dropp {imagesOnly ? 'et bilde' : 'en fil'} her eller <button type="button" onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
+          <div className="md-fileupload__droparea-content--count">Antall {imagesOnly ? 'bilder' : 'filer'}: {files.length} {!multiple ? '/ 1' : ''}</div>
         </div>
 
         <input
           ref={inputRef}
           type="file"
-          multiple
+          multiple={multiple}
           className="md-fileupload__input"
+          accept={imagesOnly ? 'image/*' : '*'}
           onChange={(e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>) => {
-            setFiles(e, 'a');
-            if (inputRef && inputRef.current) {
-              inputRef.current.value = '';
+            if (multiple || (!multiple && files.length < 1)) {
+              setFiles(e, 'a', imagesOnly);
+              if (inputRef && inputRef.current) {
+                inputRef.current.value = '';
+              }
             }
           }}
         />
@@ -134,6 +152,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </MdButton>
         <MdButton
           onClick={handleSubmit}
+          disabled={!files || files.length === 0}
         >
           {uploadButtonText}
         </MdButton>

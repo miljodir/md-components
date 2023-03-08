@@ -79,6 +79,28 @@ export default {
       },
       control: { type: 'text' }
     },
+    multiple: {
+      type: { name: 'boolean' },
+      description: "Allow multiple files",
+      table: {
+        defaultValue: { summary: 'true' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    imagesOnly: {
+      type: { name: 'boolean' },
+      description: "Allow only images to be uploaded",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
     onUpload: {
       type: { name: 'function' },
       description: "The callback for handling files for upload. This function returns an array of files, or a `FormData`-object if `useFormData = true`. Example use in your component: `onUpload={(files) => handleUpload(files)}`",
@@ -110,5 +132,7 @@ FileUpload.args = {
   useFormData: false,
   uploadButtonText: 'Last opp',
   cancelButtonText: 'Avbryt',
-  hideFileListIcons: false
+  hideFileListIcons: false,
+  multiple: true,
+  imagesOnly: false,
 };
