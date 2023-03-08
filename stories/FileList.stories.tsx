@@ -56,7 +56,18 @@ export default {
     },
     allowDelete: {
       type: { name: 'boolean' },
-      description: "Determines if files can be removed from list. If `true`, remove button is displayed on each file.",
+      description: "Determines if files can be removed from list. If `true`, remove button is displayed on each file. Requires an onRemoveFile function",
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: { type: 'boolean' }
+    },
+    allowEdit: {
+      type: { name: 'boolean' },
+      description: "Determines if files can be edited from list. If `true`, edit button is displayed on each file. Requires an onEditFile function",
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -86,6 +97,11 @@ export default {
       description: "The callback function for handling file download. Returns the file-object, to be handled as you see fit. Example use in your component: `onDownloadFile={(file) => handleDownload(file)}`",
       action: 'Download'
     },
+    onEditFile: {
+      type: { name: 'function' },
+      description: "The callback function for handling file edit. Returns the file-object, to be handled as you see fit. Example use in your component: `onEditFile={(file) => handleEdit(file)}`",
+      action: 'Edit'
+    },
   }
 };
 
@@ -106,5 +122,6 @@ FileList.args = {
   ],
   hideDownload: false,
   allowDelete: false,
+  allowEdit: true,
   hideIcons: false
 };

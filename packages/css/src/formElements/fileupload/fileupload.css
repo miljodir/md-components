@@ -18,6 +18,10 @@
   transition: background .2s linear;
 }
 
+.md-fileupload__droparea.md-fileupload__droparea--not-allowed {
+  cursor: not-allowed;
+}
+
 .md-fileupload__droparea.md-fileupload__droparea--active * {
   pointer-events: none;
 }
@@ -32,6 +36,12 @@
 .md-fileupload__droparea-content {
   font-family: 'Open sans';
   font-size: 16px;
+}
+.md-fileupload__droparea-content--count {
+  text-align: center;
+  margin: .5em 0;
+  font-size: .888em;
+  font-style: italic;
 }
 
 .md-fileupload__droparea-content button {

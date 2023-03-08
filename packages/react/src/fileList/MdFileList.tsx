@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import MdDocIcon from '../icons/MdDocIcon';
 import MdDeleteIcon from '../icons/MdDeleteIcon';
 import MdDownloadIcon from '../icons/MdDownloadIcon';
+import MdEditIcon from '../icons/MdEditIcon';
 
 interface FileType {
   name: string;
@@ -17,9 +18,11 @@ interface MdFileListProps {
   files?: File[] | FileType[];
   hideDownload?: boolean;
   allowDelete?: boolean;
+  allowEdit?: boolean;
   hideIcons?: boolean;
   onRemoveFile?(file: File | FileType): void;
   onDownloadFile?(file: File | FileType): void;
+  onEditFile?(file: File | FileType): void;
 };
 
 const formatBytes = (bytes: number, decimals = 2): string => {
@@ -39,9 +42,11 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   files,
   hideDownload = false,
   allowDelete = false,
+  allowEdit = true,
   hideIcons = false,
   onRemoveFile,
-  onDownloadFile
+  onDownloadFile,
+  onEditFile
 }: MdFileListProps) => {
   const outerClass = classnames('md-filelist');
   const fileClass = classnames('md-filelist__file');
@@ -83,6 +88,15 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                 onClick={() => {onRemoveFile(file)}}
               >
                 <MdDeleteIcon className="md-filelist__file-delete-icon" />
+              </button>
+            }
+
+            {allowEdit && onEditFile &&
+              <button
+                className="md-filelist__file-actions-button md-filelist__file-edit"
+                onClick={() => {onEditFile(file)}}
+              >
+                <MdEditIcon className="md-filelist__file-delete-icon" />
               </button>
             }
           </div>

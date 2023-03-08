@@ -12,7 +12,8 @@ type useFileUploadHook = {
   removeFile: (file: number | string) => void;
   setFiles: (
     e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>,
-    mode?: 'a' | 'w'
+    mode?: 'a' | 'w',
+    imagesOnly?: boolean
   ) => void;
 };
 
@@ -64,7 +65,7 @@ export const useFileUpload = (): useFileUploadHook => {
   }, [files]);
 
   /** @function setFiles */
-  const setFiles = useCallback((e: any, mode = 'w'): void => {
+  const setFiles = useCallback((e: any, mode = 'w', imagesOnly = false): void => {
       let filesArr: File[] = [];
 
       if (e.currentTarget?.files) {
@@ -75,10 +76,19 @@ export const useFileUpload = (): useFileUploadHook => {
         console.error('Argument not recognized. Are you sure your passing setFiles an event object?');
       }
 
+      let newFiles: File[] = [];
+      if (imagesOnly) {
+        newFiles = filesArr.filter((file: File) => {
+          return file && file['type'].split('/')[0] === 'image';
+        });
+      } else {
+        newFiles = filesArr
+      }
+
       if (mode === 'w') {
-        setFilesState(filesArr);
+        setFilesState(newFiles);
       } else if (mode === 'a') {
-        setFilesState([...files, ...filesArr]);
+        setFilesState([...files, ...newFiles]);
       }
     },
     [files],
