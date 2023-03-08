@@ -75,6 +75,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
           <div className="md-filelist__file-actions">
             {!hideDownload && onDownloadFile && ('url' in file) &&
               <button
+                type="button"
                 className="md-filelist__file-actions-button md-filelist__file-download"
                 onClick={() => {onDownloadFile(file)}}
               >
@@ -84,6 +85,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
 
             {allowDelete && onRemoveFile &&
               <button
+                type="button"
                 className="md-filelist__file-actions-button md-filelist__file-delete"
                 onClick={() => {onRemoveFile(file)}}
               >
@@ -93,6 +95,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
 
             {allowEdit && onEditFile &&
               <button
+                type="button"
                 className="md-filelist__file-actions-button md-filelist__file-edit"
                 onClick={() => {onEditFile(file)}}
               >
