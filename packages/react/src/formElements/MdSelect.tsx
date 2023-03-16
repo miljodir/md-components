@@ -16,6 +16,7 @@ interface MdSelectOptionProps {
 export interface MdSelectProps {
     label?: string | null;
     options?: MdSelectOptionProps[];
+    id?: string | number | null | undefined;
     onChange(e: MdSelectOptionProps): void;
     name?: string;
     value?: string | number;
@@ -31,6 +32,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   label,
   value,
   options,
+  id = null,
   name,
   placeholder = 'Vennligst velg',
   disabled = false,
@@ -44,7 +46,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
-  const uuid = React.useMemo(() => uuidv4(), []);
+  const uuid = id || uuidv4();
 
   const classNames = classnames('md-select', {
     'md-select--open': !!open,

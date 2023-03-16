@@ -46,7 +46,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   id,
   ...otherProps
 }: MdMultiSelectProps) => {
-  const uuid = React.useMemo(() => id || uuidv4(), []);
+  const uuid = id || uuidv4();
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
