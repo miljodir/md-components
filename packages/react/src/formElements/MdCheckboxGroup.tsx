@@ -42,7 +42,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   onBlur,
   ...otherProps
 }: MdCheckboxGroupProps) => {
-  const groupId = React.useMemo(() => id || uuidv4(), []);
+  const groupId = id || uuidv4();
   const [helpOpen, setHelpOpen] = useState(false);
 
   const classNames = classnames(

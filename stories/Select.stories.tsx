@@ -67,6 +67,17 @@ export default {
       },
       control: { type: 'text' }
     },
+    id: {
+      type: { name: 'string | number' },
+      description: "Id for the select box. If not set, uses a random uuid",
+      table: {
+        defaultValue: { summary: 'uuid()' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
     disabled: {
       table: {
         defaultValue: { summary: 'false' },
@@ -157,6 +168,7 @@ Select.args = {
     { value: 'option4', text: 'Option 4' }
   ],
   value: 'option2',
+  id: '',
   disabled: false,
   size: 'large',
   helpText: '',

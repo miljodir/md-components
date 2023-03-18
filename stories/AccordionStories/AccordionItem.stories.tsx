@@ -48,6 +48,17 @@ export default {
       },
       control: { type: 'text' }
     },
+    id: {
+      type: { name: 'string | number' },
+      description: "The id for the accordion item.",
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: "string",
+        },
+      },
+      control: { type: 'text' }
+    },
     theme: {
       type: { name: 'string' },
       description: "Color theme for accordion.",
@@ -103,6 +114,15 @@ export default {
         },
       },
       control: { type: 'boolean' }
+    },
+    onToggle: {
+      type: { name: 'function' },
+      description: "Handler for controlling expand/collapse. If not present, component handles expand/collapse internally.",
+      table: {
+        type: {
+          summary: "function",
+        },
+      },
     }
   }
 };
@@ -125,6 +145,7 @@ const Template: ComponentStory<typeof MdAccordionItem> = (args) => {
 export const AccordionItem = Template.bind({});
 AccordionItem.args = {
   label: 'Click to toggle accordion item',
+  id: '',
   theme: 'primary',
   disabled: false,
   headerContent: false,

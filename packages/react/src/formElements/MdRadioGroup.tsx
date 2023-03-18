@@ -41,7 +41,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   onBlur,
   ...otherProps
 }: MdRadioGroupProps) => {
-  const radioId = React.useMemo(() => id || uuidv4(), []);
+  const radioId = id || uuidv4();
   const [helpOpen, setHelpOpen] = useState(false);
 
   const classNames = classnames(

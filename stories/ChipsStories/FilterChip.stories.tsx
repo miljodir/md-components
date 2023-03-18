@@ -88,10 +88,9 @@ export default {
       control: { type: 'boolean' }
     },
     onClick: {
-      type: { name: 'array', required: true },
+      type: { name: 'function', required: true },
       description: 'Callback for click handling.',
       table: {
-        defaultValue: { summary: 'function' },
         type: {
           summary: null,
         },
