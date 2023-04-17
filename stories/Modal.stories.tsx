@@ -34,106 +34,116 @@ export default {
         </>
       ),
       description: {
-        component: "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
+        component:
+          "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     heading: {
       type: { name: 'string' },
-      description: "The heading/title for the modal.",
+      description: 'The heading/title for the modal.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     headingIcon: {
       type: { name: 'ReactNode' },
-      description: "Icon to apply to start of heading field.",
+      description: 'Icon to apply to start of heading field.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "DomElement | image | ReactNode",
+          summary: 'DomElement | image | ReactNode',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     open: {
       type: { name: 'boolean' },
-      description: "State for open/closed",
+      description: 'State for open/closed',
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     id: {
       type: { name: 'string' },
-      description: "Unique id for the modal",
+      description: 'Unique id for the modal',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     className: {
       type: { name: 'string' },
-      description: "Additional class names for outer wrapper",
+      description: 'Additional class names for outer wrapper',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     error: {
       type: { name: 'boolean' },
-      description: "Add error decorator to modal wrapper",
+      description: 'Add error decorator to modal wrapper',
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     onClose: {
       type: { name: 'function' },
-      description: "Handler for closing the modal",
+      description: 'Handler for closing the modal',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
-    }
-  }
+    },
+    closeOnOutsideClick: {
+      type: { name: 'boolean' },
+      description: 'Close modal on outside click',
+      table: {
+        defaultValue: { summary: 'true' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+  },
 };
 
 const Template: ComponentStory<typeof MdModal> = (args) => {
   const [_, updateArgs] = useArgs();
 
-  const headingIcon = <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }}/>
+  const headingIcon = (
+    <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }} />
+  );
 
   const toggleModal = () => {
     const open = !args.open;
     updateArgs({ ...args, open: open });
-  }
+  };
 
   return (
     <div>
-      <MdButton
-        onClick={() => toggleModal()}
-      >
-        Toggle modal
-      </MdButton>
+      <MdButton onClick={() => toggleModal()}>Toggle modal</MdButton>
 
       <MdModal
         {...args}
@@ -141,7 +151,9 @@ const Template: ComponentStory<typeof MdModal> = (args) => {
         onClose={() => toggleModal()}
       >
         <p>This is html content in the modal.</p>
-        <p style={{ color: '#000', background: '#ccc' }}>This is even more html content, with style tag.</p>
+        <p style={{ color: '#000', background: '#ccc' }}>
+          This is even more html content, with style tag.
+        </p>
       </MdModal>
     </div>
   );
@@ -152,5 +164,6 @@ Modal.args = {
   open: true,
   heading: 'Modal title',
   headingIcon: false,
-  error: false
+  error: false,
+  closeOnOutsideClick: true,
 };
