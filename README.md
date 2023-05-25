@@ -6,7 +6,7 @@ Hvilke komponenter som er lagd ligger synlig på [Storybook-en](https://miljodir
 
 ## Npm-pakker
 Det finnes to npm-pakker som er fritt tilgjengelige fra [npm](https://www.npmjs.com/org/miljodirektoratet). Disse er:
-- [md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react) for React komponentner. Kildekoden for denne pakken finnes i dette repoet, i mappen `packages/react`.
+- [md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react) for React komponenter. Kildekoden for denne pakken finnes i dette repoet, i mappen `packages/react`.
 - [md-css](https://www.npmjs.com/package/@miljodirektoratet/md-css) for tilhørende CSS. Kildekoden for denne pakken finnes i dette repoet, i mappen `packages/css`.
 
 Dersom React-pakken skal benyttes, _må_ også CSS-pakken brukes.
@@ -17,7 +17,7 @@ Installer pakken(e) fra npm:
 npm install @miljodirektoratet/md-react @miljodirektoratet/md-css
 ```
 
-Dersom du kun ønsker å bruke CSS (hvis du f.eks ikke bruker React i ditt prosjekt), installer du kun `@miljodirektoratet/md-css`.
+Dersom du kun ønsker å bruke CSS (hvis du f.eks ikke bruker React i ditt prosjekt), installerer du kun `@miljodirektoratet/md-css`.
 
 ### Bruk
 For å bruke pakkene i ditt React prosjekt, importer den komponenten du ønsker å ta i bruk, samt tilhørende CSS:
