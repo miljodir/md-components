@@ -1,0 +1,68 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Introduction/Getting started"
+    parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+    backgrounds: { disable: true }
+  }}
+/>
+
+<div className="gs-wrapper">
+
+# Getting started
+
+## Installation
+Intall the necessary packages from npm
+
+```bash
+npm install @miljodirektoratet/md-react @miljodirektoratet/md-css
+```
+
+You can install the CSS-package only, if you do not need the React components.
+
+## Usage
+
+Each Story in this Storybook has instructions on how the component should be implemented and used, but here are some examples.
+
+### React
+To use the components in your React project, import the components you want to use into your project.
+
+Example for using the MdButton component:
+```jsx
+// my-component.jsx|tsx
+
+import { MdButton } from @miljodirektoratet/md-react;
+
+<MdButton
+  onClick={() => {}}
+  theme="primary"
+>
+  Hovedknapp
+</MdButton>
+```
+
+### CSS
+Import css into you project. This can be done in several ways. All classes are prefixed with `md-`, so ensure these classes do not conflict with your own class names.
+
+#### Globally
+Import the CSS into your main.js-file if you use Vite, or other build tools. This will enable all styles for your entire project.
+```javascript
+// main.js|ts
+
+import "@miljodirektoratet/md-css";
+```
+
+#### Per compontent
+Import the CSS directly into you React component, where you want to use a component from the lib. There is no tree-shaking in the CSS packages, so the full CSS will be imported.
+```jsx
+// my-component.jsx|tsx
+
+import { MdButton } from @miljodirektoratet/md-react;
+import "@miljodirektoratet/md-css";
+```
+
+</div>

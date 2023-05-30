@@ -9,3 +9,13 @@
     margin: 15px;
   }
 }
+
+/* Global style overrides */
+h1, h2, h3, h4 {
+  font-family: 'SofiaPro-Bold' !important;
+}
+
+/* Getting started page */
+.gs-wrapper {
+  font-family: 'SofiaPro-Medium' !important;
+}
