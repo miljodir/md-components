@@ -197,10 +197,12 @@ const Template = args => {
   }
 
   return (
-    <MdMultiSelect
-      {...args}
-      onChange={handleChange}
-    />
+    <div style={{minHeight: '300px'}}>
+      <MdMultiSelect
+        {...args}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 
