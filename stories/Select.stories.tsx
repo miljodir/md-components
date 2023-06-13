@@ -151,10 +151,12 @@ const Template = args => {
   }
 
   return (
-    <MdSelect
-      {...args}
-      onChange={handleChange}
-    />
+    <div style={{minHeight: '300px'}}>
+      <MdSelect
+        {...args}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 
@@ -162,12 +164,12 @@ export const Select = Template.bind({});
 Select.args = {
   label: 'Label',
   options: [
-    { value: 'option1', text: 'Option 1' },
-    { value: 'option2', text: 'Option 2' },
-    { value: 'option3', text: 'Option 3' },
-    { value: 'option4', text: 'Option 4' }
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionC', text: 'C option' },
+    { value: 'optionD', text: 'D option' }
   ],
-  value: 'option2',
+  value: 'optionB',
   id: '',
   disabled: false,
   size: 'large',

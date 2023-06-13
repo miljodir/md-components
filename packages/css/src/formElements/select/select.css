@@ -12,6 +12,10 @@
   width: 260px;
 }
 
+.md-select__container {
+  position: relative;
+}
+
 .md-select__label {
   display: flex;
   align-items: flex-end;
@@ -92,10 +96,12 @@
 }
 
 .md-select__dropdown {
+  position: absolute;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height .5s ease-in-out;
+  width: calc(100% - 4px); /* Full width minus border-width */
 }
 
 .md-select__dropdown-item {

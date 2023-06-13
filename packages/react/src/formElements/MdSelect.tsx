@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -66,6 +66,31 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
     displayValue = '';
   }
 
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyDown, false);
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown, false);
+    }
+  });
+
+  const onKeyDown = (e: any) => {
+    if (open) {
+      const reg = /[a-z\Wæøå]+/igm;
+      const key = e.key;
+      if(key && reg.test(key) && key.length === 1) {
+        const option = options?.find(o => (o.text?.startsWith(key.toLowerCase()) || o.text?.startsWith(key.toUpperCase())));
+        if (option) {
+          /* Find corresponding button */
+          const button = document.getElementById(`md-select-option-${uuid}-${option.value}`);
+          if (button) {
+            button.focus();
+          }
+        }
+      }
+    }
+  }
+
   const handleOptionClick = (option: MdSelectOptionProps) => {
     onChange(option);
     setOpen(false);
@@ -108,6 +133,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
 
       <MdClickOutsideWrapper
         onClickOutside={() => setOpen(false)}
+        className='md-select__container'
       >
         <button
           className={buttonClasseNames}
@@ -126,6 +152,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
             {options.map(option => (
               <button
                 key={`md-select-option-${uuid}-${option.value}`}
+                id={`md-select-option-${uuid}-${option.value}`}
                 type='button'
                 tabIndex={open ? 0: -1}
                 className={optionClass(option)}
