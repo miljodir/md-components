@@ -158,6 +158,7 @@
   transition: max-height .5s ease-in-out;
   border: 2px solid var(--mdPrimaryColor);
   border-top: 0;
+  z-index: 2;
 }
 
 /* open + error */
