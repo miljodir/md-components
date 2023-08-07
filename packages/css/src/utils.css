@@ -11,3 +11,12 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes width {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 100%;
+  }
+}

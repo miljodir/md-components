@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ComponentStory } from "@storybook/react";
-import autoAnimate from "@formkit/auto-animate";
 import {
   Title,
   Subtitle,
@@ -84,10 +83,6 @@ export default {
 const Template: ComponentStory<typeof MdAlertMessage> = args => {
   const [show, setShow] = useState(true);
   const parent = useRef(null);
-
-  useEffect(() => {
-    parent.current && autoAnimate(parent.current)
-  }, [parent]);
 
   const onClick = (e: any) => {
     setShow(false);

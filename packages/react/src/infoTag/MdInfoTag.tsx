@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
-import autoAnimate from '@formkit/auto-animate';
+import React, { useState, useRef } from "react";
 import classnames from 'classnames';
 
 import MdInfoIcon from "../icons/MdInfoIcon";
@@ -27,14 +26,14 @@ const MdInfoTag: React.FC<MdInfoTagProps> = ({
   const [hover, setHover] = useState(false);
   const parent = useRef(null)
 
-  useEffect(() => {
-    parent.current && autoAnimate(parent.current)
-  }, [parent])
-
   const classNames = classnames('md-info-tag', {
     'md-info-tag--secondary': theme === 'secondary',
     'md-info-tag--warning': theme === 'warning',
     'md-info-tag--danger': theme === 'danger'
+  });
+
+  const labelClassNames = classnames('md-info-tag__label', {
+    'md-info-tag__label--show': hover || keepOpen
   });
 
   const renderIcon = () => {
@@ -60,9 +59,7 @@ const MdInfoTag: React.FC<MdInfoTagProps> = ({
       onMouseLeave={() => setHover(false)}
       ref={parent}
     >
-      {(hover || keepOpen) &&
-        <div className="md-info-tag__label">{label}</div>
-      }
+      <div className={labelClassNames}>{label}</div>
 
       <div className="md-info-tag__icon">
         {renderIcon()}

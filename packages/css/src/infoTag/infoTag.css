@@ -27,10 +27,18 @@
 
 .md-info-tag__label {
   display: flex;
+  max-width: 0;
+  overflow: hidden;
   align-self: flex-start;
-  margin-right: 12px;
   font-size: 14px;
   line-height: 18px;
+}
+
+.md-info-tag__label--show {
+  max-width: 100%;
+  margin-right: 12px;
+  animation: width 0.3s ease-in 1 forwards;
+  white-space: nowrap;
 }
 
 .md-info-tag__icon {
