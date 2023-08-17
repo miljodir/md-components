@@ -71,6 +71,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       {/* Header */}
       <button
         id={accordionId}
+        type="button"
         className={headerClassNames}
         disabled={!!disabled}
         onClick={(e: React.MouseEvent) => toggle(e)}
@@ -97,6 +98,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 
           {!hideCloseButton &&
             <button
+              type="button"
               className="md-accordion-item__close-button"
               onClick={(e: React.MouseEvent) => toggle(e)}
               tabIndex={isExpanded ? 0 : -1}
