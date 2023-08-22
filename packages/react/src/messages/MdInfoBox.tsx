@@ -2,7 +2,7 @@ import React from "react";
 import classnames from 'classnames';
 import MdInfoIcon from "../icons/MdInfoIcon";
 
-interface MdInfoBoxProps {
+export interface MdInfoBoxProps {
   label: string;
   hideIcon?: boolean;
   fullWidth?: boolean;

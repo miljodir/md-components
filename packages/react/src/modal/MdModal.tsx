@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdXIcon from '../icons/MdXIcon';
 
-interface MdModalProps {
+export interface MdModalProps {
   children: any;
   heading?: string;
   headingIcon?: React.ReactNode | string;

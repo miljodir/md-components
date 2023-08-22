@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import MdTabTitle from './MdTabTitle';
 
-interface MdTabsProps {
+export interface MdTabsProps {
   children: ReactElement[];
 };
 

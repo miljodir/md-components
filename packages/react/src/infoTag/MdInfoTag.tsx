@@ -8,7 +8,7 @@ import MdCancelIcon from "../icons/MdCancelIcon";
 type ThemeTypes = null | undefined | '' | 'primary' | 'secondary' | 'warning' | 'danger';
 type IconTypes = null | undefined | '' | 'none' | 'info' | 'warning' | 'error' | 'custom';
 
-interface MdInfoTagProps {
+export interface MdInfoTagProps {
   theme?: ThemeTypes;
   keepOpen?: boolean;
   label?: string;

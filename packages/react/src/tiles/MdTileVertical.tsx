@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-interface MdTileVerticalProps {
+export interface MdTileVerticalProps {
   heading?: string;
   description?: string;
   size?: string;

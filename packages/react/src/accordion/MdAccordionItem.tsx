@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MdMinusIcon from '../icons/MdMinusIcon';
 
-interface MdAccordionItemProps {
+export interface MdAccordionItemProps {
   label?: string;
   headerContent?: React.ReactNode | string;
   id?: string | number | null | undefined;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-interface MdClickOutsideWrapperProps {
+export interface MdClickOutsideWrapperProps {
   onClickOutside(e: React.MouseEvent): void;
   children: React.ReactNode;
   className?: any;

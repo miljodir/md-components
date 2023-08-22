@@ -14,7 +14,7 @@ interface FileType {
   type?: string
 };
 
-interface MdFileListProps {
+export interface MdFileListProps {
   files?: File[] | FileType[];
   hideDownload?: boolean;
   allowDelete?: boolean;

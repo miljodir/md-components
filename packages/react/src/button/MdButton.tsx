@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;

@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import MdLoadingSpinnerIcon from '../icons/MdLoadingSpinnerIcon';
 
-interface MdLoadingSpinnerProps {
+export interface MdLoadingSpinnerProps {
   size?: number;
   position?: string;
   className?: string;

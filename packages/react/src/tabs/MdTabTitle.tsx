@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-interface MdTabTitleProps {
+export interface MdTabTitleProps {
   title: string
   index: number
   disabled?: boolean

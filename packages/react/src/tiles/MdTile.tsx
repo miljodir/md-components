@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import MdChevronIcon from '../icons/MdChevronIcon';
 
-interface MdTileProps {
+export interface MdTileProps {
   heading?: string;
   description?: string;
   href?: string;
