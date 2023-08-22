@@ -6,7 +6,7 @@ import MdButton from '../button/MdButton';
 
 import MdUploadIcon from '../icons/MdUploadIcon';
 
-interface MdFileUploadProps {
+export interface MdFileUploadProps {
   onUpload?(files: File[] | FormData): void;
   onCancel?(e: MouseEvent): void;
   useFormData?: boolean;

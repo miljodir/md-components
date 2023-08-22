@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface MdTabProps {
+export interface MdTabProps {
   title: string
   disabled?: boolean
   children: React.ReactNode

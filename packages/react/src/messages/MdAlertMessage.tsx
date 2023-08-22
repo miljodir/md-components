@@ -6,7 +6,7 @@ import MdWarningIcon from "../icons/MdWarningIcon";
 import MdCheckIcon from "../icons/MdCheckIcon";
 import MdXIcon from "../icons/MdXIcon";
 
-interface MdAlertMessageProps {
+export interface MdAlertMessageProps {
   theme?: 'info' | 'confirm' | 'warning' | 'error';
   label?: string;
   hideIcon?: boolean;

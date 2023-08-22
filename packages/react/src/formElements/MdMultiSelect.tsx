@@ -14,7 +14,7 @@ interface MdMultiSelectOptionProps {
   value: string | number;
 };
 
-interface MdMultiSelectProps {
+export interface MdMultiSelectProps {
     label?: string | null;
     options?: MdMultiSelectOptionProps[];
     onChange?(e: React.ChangeEvent): void;
