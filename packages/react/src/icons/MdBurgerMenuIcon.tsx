@@ -15,9 +15,9 @@ const MdBurgerMenuIcon: React.FunctionComponent<MdIconProps> = ({
       className={className}
       {...otherProps}
     >
-      <path d="M2 5H18" stroke-width="2" stroke="currentColor" />
-      <path d="M2 10.5H18" stroke-width="2" stroke="currentColor" />
-      <path d="M2 16H18" stroke-width="2" stroke="currentColor" />
+      <path d="M2 5H18" strokeWidth="2" stroke="currentColor" />
+      <path d="M2 10.5H18" strokeWidth="2" stroke="currentColor" />
+      <path d="M2 16H18" strokeWidth="2" stroke="currentColor" />
     </svg>
   );
 };
