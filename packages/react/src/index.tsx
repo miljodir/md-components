@@ -28,6 +28,8 @@ import MdInfoBox, { MdInfoBoxProps } from './messages/MdInfoBox';
 import MdAlertMessage, { MdAlertMessageProps } from './messages/MdAlertMessage';
 
 // Icons
+import MdBurgerMenuIcon from './icons/MdBurgerMenuIcon';
+import MdBurgerMenu64Icon from './icons/MdBurgerMenuIcon64';
 import MdCalendarDayIcon from './icons/MdCalendarDayIcon';
 import MdCalendarDay64Icon from './icons/MdCalendarDayIcon64';
 import MdCalendarIcon from './icons/MdCalendarIcon';
@@ -181,7 +183,7 @@ export {
   MdInfoTagProps,
   MdInfoBoxProps,
   MdAlertMessageProps,
-
+  MdBurgerMenuIcon, MdBurgerMenu64Icon,
   MdCalendarDayIcon, MdCalendarDay64Icon,
   MdCalendarIcon, MdCalendarIcon64,
   MdCancelIcon, MdCancelIcon64,
