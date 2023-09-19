@@ -4,6 +4,8 @@ Består av CSS og React-komponenter for Miljødirektoratet.
 Her ligger det kode som implementerer noen utvalgte designelementer, henholdsvis med CSS for styling, og tilhørende React på JavaScript-siden. Koden er publisert som npm-pakker på [npm](https://www.npmjs.com/org/miljodirektoratet), noe som er nødvendig for å få versjonert og tilgjengeliggjort kode for andre utviklere på en god måte. Koden er open-source og lisensiert under MIT-lisens.
 Hvilke komponenter som er lagd ligger synlig på [Storybook-en](https://miljodir.github.io/md-components).
 
+Merk! Alle endringer skal godkjennes av Miljodirektoratets kommunikasjonsavdeling og kostnader som påløper for å få endringene implementert skal i de fleste tilfeller dekkes av prosjektet/systemet som ønsker endringen.
+
 ## Npm-pakker
 Det finnes to npm-pakker som er fritt tilgjengelige fra [npm](https://www.npmjs.com/org/miljodirektoratet). Disse er:
 - [md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react) for React komponenter. Kildekoden for denne pakken finnes i dette repoet, i mappen `packages/react`.
