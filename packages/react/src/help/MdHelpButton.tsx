@@ -27,6 +27,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
       {...otherProps}
       className={buttonClasses}
       onClick={onClick}
+      type="button"
     >
       <MdHelpIcon className="md-helpbutton__icon" />
     </button>
