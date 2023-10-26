@@ -1,13 +1,14 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 
-export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface MdButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   children?: string | React.ReactNode;
-  small?: boolean,
-  type?: "button" | "submit" | "reset" | undefined;
+  small?: boolean;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 const MdButton: React.FunctionComponent<MdButtonProps> = ({
@@ -19,14 +20,18 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   type = 'button',
   ...otherProps
 }: MdButtonProps) => {
-  const classNames = classnames('md-button', {
-    'md-button--small': !!small,
-    'md-button--secondary': theme === 'secondary',
-    'md-button--danger': theme === 'danger',
-  });
+  const classNames = classnames(
+    'md-button',
+    {
+      'md-button--small': !!small,
+      'md-button--secondary': theme === 'secondary',
+      'md-button--danger': theme === 'danger',
+    },
+    otherProps.className
+  );
 
   return (
-    <button className={classNames} type={type} {...otherProps}>
+    <button type={type} {...otherProps} className={classNames}>
       {leftIcon && <div className="md-button__leftIcon">{leftIcon}</div>}
       {children}
       {rightIcon && <div className="md-button__rightIcon">{rightIcon}</div>}
