@@ -1,6 +1,8 @@
+import classnames from 'classnames';
 import React from 'react';
 
-export interface MdLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface MdLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: string | React.ReactNode;
   href?: string;
   onClick?(e: React.MouseEvent): void;
@@ -9,10 +11,13 @@ export interface MdLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElemen
 const MdLink: React.FunctionComponent<MdLinkProps> = ({
   children,
   ...otherProps
-}: MdLinkProps) => (
-  <a className="md-link" {...otherProps}>
-    {children}
-  </a>
-);
+}: MdLinkProps) => {
+  const classNames = classnames('md-link', otherProps.className);
+  return (
+    <a {...otherProps} className={classNames}>
+      {children}
+    </a>
+  );
+};
 
 export default MdLink;
