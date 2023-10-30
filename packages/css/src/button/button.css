@@ -8,29 +8,31 @@
   font-family: 'Open sans';
   font-size: 1rem;
   outline: 2px solid var(--mdPrimaryColor);
-  padding: .65rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   width: fit-content;
 }
 
 .md-button--small {
-  padding: .4rem .8rem;
-  border-radius: .43rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.43rem;
 }
 
 .md-button__leftIcon {
-  height: 16px;
-  width: 16px;
+  height: 1rem;
+  width: 1rem;
   position: relative;
-  right: 8px;
+  right: 0.5rem;
   top: 0;
+  flex-shrink: 0;
 }
 
 .md-button__rightIcon {
-  height: 16px;
-  width: 16px;
+  height: 1rem;
+  width: 1rem;
   position: relative;
-  left: 8px;
+  left: 0.5rem;
   top: 0;
+  flex-shrink: 0;
 }
 
 .md-button:focus {
