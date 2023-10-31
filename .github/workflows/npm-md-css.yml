@@ -1,26 +1,26 @@
-name: Publish md-react to npm
+name: Publish md-css to npm
 
 on:
   push:
     branches: 
       - main
     paths:
-      - 'packages/react/**'
+      - 'packages/css/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./packages/css
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+        
       - run: npm install
-      - run: npm run build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
