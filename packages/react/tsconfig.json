@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "moduleResolution": "node",
+    "allowJs": true,
     "outDir": "./dist",
     "module": "commonjs",
     "noImplicitAny": false,

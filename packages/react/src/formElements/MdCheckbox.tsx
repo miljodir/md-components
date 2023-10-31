@@ -24,8 +24,10 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
   className = '',
   ...otherProps
 }: MdCheckboxProps) => {
-  const classNames = classnames('md-checkbox', {
-      'md-checkbox--disabled': !!disabled
+  const classNames = classnames(
+    'md-checkbox',
+    {
+      'md-checkbox--disabled': !!disabled,
     },
     className
   );
@@ -33,7 +35,7 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
   return (
     <div className={classNames}>
       <input
-        id={id || checkboxId}
+        id={String(id || checkboxId) || undefined}
         className="md-checkbox__input"
         checked={checked}
         type="checkbox"
@@ -41,8 +43,13 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
         disabled={disabled}
         {...otherProps}
       />
-      <label className="md-checkbox__label" htmlFor={checkboxId}>
-        {label && label !== '' && <span className="md-checkbox__labelText">{label}</span>}
+      <label
+        className="md-checkbox__label"
+        htmlFor={String(checkboxId) || undefined}
+      >
+        {label && label !== '' && (
+          <span className="md-checkbox__labelText">{label}</span>
+        )}
       </label>
     </div>
   );
