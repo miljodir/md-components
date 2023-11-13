@@ -3,17 +3,19 @@ import MdTabTitle from './MdTabTitle';
 
 export interface MdTabsProps {
   children: ReactElement[];
-};
+  initialTab?: number;
+}
 
 const MdTabs: React.FunctionComponent<MdTabsProps> = ({
-  children
+  children,
+  initialTab = 0,
 }: MdTabsProps) => {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(initialTab);
 
   const tabs = children instanceof Array ? children : [children];
 
   return (
-    <div className='md-tabs-container'>
+    <div className="md-tabs-container">
       <ul>
         {tabs.map((item: any, index: any) => (
           <MdTabTitle
