@@ -31,20 +31,21 @@ export default {
         </>
       ),
       description: {
-        component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
+        component:
+          "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     label: {
       type: { name: 'string', required: true },
-      description: "The text to display on hover",
+      description: 'The text to display on hover',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     hideIcon: {
       description: 'Hide default icon.',
@@ -54,19 +55,29 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     fullWidth: {
-      description: 'Make info box full width. Non-full width has max-width = 634px',
+      description:
+        'Make info box full width. Non-full width has max-width = 634px',
       table: {
         defaultValue: { summary: 'false' },
         type: {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
-  }
+    customIcon: {
+      description: 'Custom icon. Overrides theme icon.',
+      table: {
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+      control: null,
+    },
+  },
 };
 
 const Template: ComponentStory<typeof MdInfoBox> = args => {
