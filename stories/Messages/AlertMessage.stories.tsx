@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ComponentStory } from "@storybook/react";
+import React, { useState, useEffect, useRef } from 'react';
+import { ComponentStory } from '@storybook/react';
 import {
   Title,
   Subtitle,
@@ -31,23 +31,24 @@ export default {
         </>
       ),
       description: {
-        component: "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
+        component:
+          "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     label: {
       type: { name: 'string', required: true },
-      description: "The text to display on hover",
+      description: 'The text to display on hover',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     theme: {
-      description: "Theme of alert message",
+      description: 'Theme of alert message',
       table: {
         type: {
           defaultValue: { summary: 'info' },
@@ -58,14 +59,15 @@ export default {
       control: { type: 'inline-radio' },
     },
     fullWidth: {
-      description: 'Make alert message full width. Non-full width has max-width = 634px',
+      description:
+        'Make alert message full width. Non-full width has max-width = 634px',
       table: {
         defaultValue: { summary: 'false' },
         type: {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     hideIcon: {
       description: 'Hide alert icon.',
@@ -75,12 +77,21 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
-  }
+    customIcon: {
+      description: 'Custom icon. Overrides theme icon.',
+      table: {
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+      control: null,
+    },
+  },
 };
 
-const Template: ComponentStory<typeof MdAlertMessage> = args => {
+const Template: ComponentStory<typeof MdAlertMessage> = (args) => {
   const [show, setShow] = useState(true);
   const parent = useRef(null);
 
@@ -89,13 +100,11 @@ const Template: ComponentStory<typeof MdAlertMessage> = args => {
     setTimeout(() => {
       setShow(true);
     }, 700);
-  }
+  };
 
   return (
     <div ref={parent}>
-      {show &&
-        <MdAlertMessage {...args} onClose={onClick} />
-      }
+      {show && <MdAlertMessage {...args} onClose={onClick} />}
     </div>
   );
 };
@@ -106,5 +115,5 @@ AlertMessage.args = {
   label: 'This is an alert message.',
   hideIcon: false,
   closable: true,
-  fullWidth: false
+  fullWidth: false,
 };
