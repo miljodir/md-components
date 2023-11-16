@@ -26,6 +26,8 @@ export interface MdInputProps {
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
   onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
+  minLength?: number;
+  maxLength?: number;
 };
 
 const MdInput: React.FunctionComponent<MdInputProps> = ({
