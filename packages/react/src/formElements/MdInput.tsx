@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import classnames from 'classnames';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
@@ -26,6 +26,8 @@ export interface MdInputProps {
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
   onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
+  minLength?: number;
+  maxLength?: number;
 };
 
 const MdInput: React.FunctionComponent<MdInputProps> = ({
@@ -68,7 +70,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
     <div className={`md-input__outer-wrapper ${outerWrapperClass}`}>
       <div className="md-input__label">
         {label && label !== '' &&
-          <label htmlFor={`md-input_${inputId}`}>
+          <label htmlFor={inputId}>
             {label}
           </label>
         }
@@ -96,7 +98,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
           </div>
         }
         <input
-          id={`md-input_${inputId}`}
+          id={inputId}
           className={classNames}
           value={value}
           type={type}
