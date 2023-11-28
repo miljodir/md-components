@@ -1,14 +1,14 @@
-import React from 'react'
-import { useArgs } from '@storybook/client-api';
 import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
   ArgsTable,
-  Stories,
+  Description,
   PRIMARY_STORY,
+  Primary,
+  Stories,
+  Subtitle,
+  Title,
 } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import React from 'react';
 // @ts-ignore
 import Readme from '../packages/css/src/formElements/input/README.md';
 
@@ -217,6 +217,51 @@ export default {
           summary: "function",
         },
       },
+    },
+    onBlur: {
+      type: { name: "function"},
+      description: "The onBlur handler for blur events on input",
+      table: {
+        type: {
+          summary: "function"
+        }
+      }
+    },
+    onFocus: {
+      type: { name: "function"},
+      description: "The onFocus handler for focus events on input",
+      table: {
+        type: {
+          summary: "function"
+        }
+      }
+    },
+    onKeyDown: {
+      type: { name: "function"},
+      description: "The onKeyDown handler for key down events on input",
+      table: {
+        type: {
+          summary: "function"
+        },
+      },
+    },
+    minLength: {
+      type: { name: 'number'},
+      description: "The minimum length of input value",
+      table: {
+        type: { summary: "number" }
+      },
+    },
+    maxLength: {
+      type: { name: "number" },
+      description: "The maximum length of input value",
+      table: {
+        type: { summary: "number"},
+      },
+    },
+    inputRef: {
+      type: { name: "Ref<HTMLInputElement>" },
+      description: "Ref to the inner input element, use for example to bring focus to the input when there's an error."
     }
   }
 }
