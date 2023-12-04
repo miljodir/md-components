@@ -1,14 +1,14 @@
-import React from 'react';
-import { useArgs } from '@storybook/client-api';
 import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
   ArgsTable,
-  Stories,
+  Description,
   PRIMARY_STORY,
+  Primary,
+  Stories,
+  Subtitle,
+  Title,
 } from '@storybook/addon-docs';
+import { useArgs } from '@storybook/client-api';
+import React from 'react';
 // @ts-ignore
 import Readme from '../packages/css/src/formElements/select/README.md';
 
@@ -138,6 +138,10 @@ export default {
           summary: "function",
         },
       },
+    },
+    selectRef: {
+      type: { name: "Ref<HTMLButtonElement>"},
+      description: "Ref to the button element that toggles the select dropdown, use for example to bring focus to the component when there's an error."
     }
   }
 };

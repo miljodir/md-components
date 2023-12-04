@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper'
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
+import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
 interface MdSelectOptionProps {
   text: string;
@@ -26,6 +26,7 @@ export interface MdSelectProps {
     helpText?: string;
     error?: boolean;
     errorText?: string;
+    selectRef?: React.Ref<HTMLButtonElement>;
 };
 
 const MdSelect: React.FunctionComponent<MdSelectProps> = ({
@@ -41,7 +42,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   error = false,
   errorText,
   onChange,
-  ...otherProps
+  selectRef
 }: MdSelectProps) => {
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
@@ -140,6 +141,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
           type='button'
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
+          ref={selectRef}
         >
           <div className="md-select__button-text">{displayValue}</div>
           <div className="md-select__button-icon">
