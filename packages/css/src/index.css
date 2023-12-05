@@ -18,6 +18,7 @@
 @import './formElements/checkboxgroup/checkboxgroup.css';
 @import './formElements/textarea/textarea.css';
 @import './formElements/select/select.css';
+@import './formElements/autocomplete/autocomplete.css';
 @import './formElements/radiogroup/radiogroup.css';
 @import './formElements/multiselect/multiselect.css';
 @import './formElements/fileupload/fileupload.css';
