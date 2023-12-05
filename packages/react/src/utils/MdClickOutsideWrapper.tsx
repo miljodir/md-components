@@ -4,20 +4,31 @@ export interface MdClickOutsideWrapperProps {
   onClickOutside(e: React.MouseEvent): void;
   children: React.ReactNode;
   className?: any;
-};
+  ref?: React.ForwardedRef<HTMLDivElement>;
+}
 
-const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps> = ({
-  onClickOutside,
-  children,
-  className = '',
-  ...otherProps
-}: MdClickOutsideWrapperProps) => {
-  const ref = useRef(null);
+const MdClickOutsideWrapper = React.forwardRef<
+  HTMLDivElement,
+  MdClickOutsideWrapperProps
+>(({ onClickOutside, children, className = '', ...otherProps }, ref) => {
+  const innerRef = useRef(null);
+
+  /**
+   * Combine ref from parent via props with internal ref
+   */
+  useEffect(() => {
+    if (!ref) return;
+    if (typeof ref === 'function') {
+      ref(innerRef.current);
+    } else {
+      ref.current = innerRef.current;
+    }
+  });
 
   useEffect(() => {
     const handleClickOutside = (event: React.MouseEvent) => {
       // @ts-ignore
-      if (ref.current && !ref.current?.contains(event.target)) {
+      if (innerRef.current && !innerRef.current?.contains(event.target)) {
         onClickOutside && onClickOutside(event);
       }
     };
@@ -27,13 +38,13 @@ const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps>
       // @ts-ignore
       document.removeEventListener('click', handleClickOutside, true);
     };
-  }, [ onClickOutside ]);
+  }, [onClickOutside]);
 
   return (
-    <div ref={ref} className={className} {...otherProps}>
+    <div ref={innerRef} className={className} {...otherProps}>
       {children}
     </div>
   );
-};
+});
 
 export default MdClickOutsideWrapper;
