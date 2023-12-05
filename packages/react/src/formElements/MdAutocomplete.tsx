@@ -54,7 +54,7 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
 
   const uuid = id || uuidv4();
-  const inputId = id && id !== '' ? id : uuidv4();
+  const inputId = uuidv4() as string;
 
   const classNames = classnames('md-autocomplete', {
     'md-autocomplete--open': !!open,
