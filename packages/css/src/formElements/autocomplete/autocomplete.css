@@ -1,0 +1,198 @@
+.md-autocomplete {
+  font-family: 'Open sans';
+  width: 634px;
+  max-width: 100%;
+}
+
+.md-autocomplete--medium {
+  width: 440px;
+}
+
+.md-autocomplete--small {
+  width: 260px;
+}
+
+.md-autocomplete__container {
+  position: relative;
+}
+
+.md-autocomplete__label {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+}
+
+.md-autocomplete__label > * + * {
+  margin-left: 1em;
+}
+
+.md-autocomplete__input {
+  max-width: 100%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0;
+  color: var(--mdGreyColor);
+  box-sizing: border-box;
+  font-family: 'Open sans';
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  border: 1px solid var(--mdGreyColor60);
+  margin: .8em 0 0 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.md-autocomplete__input.md-autocomplete__input--error {
+  border-color: var(--mdErrorColor);
+}
+
+.md-autocomplete--disabled .md-autocomplete__input {
+  background-color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
+  cursor: not-allowed;
+}
+
+.md-autocomplete__input:focus,
+.md-autocomplete__input:focus-within {
+  outline: none;
+}
+
+.md-autocomplete__input-text {
+  display: flex;
+  flex-grow: 1;
+  padding-right: 1em;
+}
+
+.md-autocomplete__input-icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  rotate: 90deg;
+  color: var(--mdGreyColor);
+}
+
+.md-autocomplete__input.md-autocomplete__input--has-prefix {
+  padding-left: 2.5em;
+}
+
+.md-autocomplete__input--small.md-autocomplete__input--has-prefix {
+  padding-left: 1.8em;
+}
+
+.md-autocomplete__input__prefix {
+  position: absolute;
+  top: 1.3em;
+  left: 1em;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  color: var(--mdPrimaryColor);
+}
+
+.md-autocomplete__input__prefix.md-autocomplete__input__prefix--disabled {
+  color: var(--mdGreyColor60);
+}
+
+.md-autocomplete__input-icon {
+  position: absolute;
+  top: 1.3em;
+  right: .9em;
+  display: flex;
+  width: 15px;
+  height: 15px;
+  rotate: 90deg;
+  color: var(--mdGreyColor);
+}
+
+.md-autocomplete__help-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.15s ease-out;
+}
+
+.md-autocomplete__help-text--open {
+  padding-top: .5em;
+  max-height: 2000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.md-autocomplete__dropdown {
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .5s ease-in-out;
+  width: calc(100% - 4px); /* Full width minus border-width */
+}
+
+.md-autocomplete__dropdown-item {
+  display: flex;
+  font-family: 'Open sans';
+  border: 0;
+  background-color: #fff;
+  width: 100%;
+  text-align: left;
+  padding: .9em;
+  transition: background-color .15s ease-in-out;
+  cursor: pointer;
+}
+
+.md-autocomplete__dropdown-item:hover,
+.md-autocomplete__dropdown-item:focus {
+  outline: none;
+  background-color: var(--mdPrimaryColor20);
+  transition: background-color .15s ease-in-out;
+}
+
+.md-autocomplete__dropdown-item--selected {
+  background-color: var(--mdPrimaryColor10);
+}
+
+.md-autocomplete__dropdown-item-text {
+  display: flex;
+  flex-grow: 1;
+}
+
+.md-autocomplete__dropdown-item-clear {
+  display: flex;
+  flex-shrink: 0;
+  height: 12px;
+  width: 12px;
+  color: var(--mdPrimaryColor);
+}
+
+/* Open state */
+.md-autocomplete--open .md-autocomplete__input {
+  border-left: 2px solid var(--mdPrimaryColor);
+  border-right: 2px solid var(--mdPrimaryColor);
+  border-top: 2px solid var(--mdPrimaryColor);
+}
+
+.md-autocomplete--open .md-autocomplete__dropdown {
+  max-height: 350px;
+  overflow-y: auto;
+  opacity: 1;
+  transition: max-height .5s ease-in-out;
+  border-right: 2px solid var(--mdPrimaryColor);
+  border-left: 2px solid var(--mdPrimaryColor);
+  border-bottom: 2px solid var(--mdPrimaryColor);
+  z-index: 2;
+}
+
+/* open + error */
+.md-autocomplete--open.md-autocomplete--error .md-autocomplete__input {
+  border-color: var(--mdErrorColor);
+}
+.md-autocomplete--open.md-autocomplete--error .md-autocomplete__dropdown {
+  border-color: var(--mdErrorColor);
+}
+
+/* Error text */
+.md-autocomplete__error {
+  color: var(--mdErrorColor);
+  font-size: .88em;
+}
