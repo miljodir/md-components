@@ -174,6 +174,8 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
               ? results
               : defaultOptions
               ? defaultOptions
+              : options
+              ? options
               : []
             ).map((option) => (
               <button
