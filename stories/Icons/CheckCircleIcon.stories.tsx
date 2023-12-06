@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Circle with checkmark icon. Color is inherited from parent.<br/><br/>`import { MdCheckCircleIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Circle with checkmark icon. Color is inherited from parent.<br/><br/>`import { MdCheckCircleIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdCheckCircleIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,16 +50,16 @@ const Template64 = (args: any) => {
       <MdCheckCircleIcon64 className={args.className} />
     </div>
   );
-}
-
-export const CheckCircle = Template.bind({})
-CheckCircle.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const CheckCircle64 = Template64.bind({})
+export const CheckCircle = Template.bind({});
+CheckCircle.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const CheckCircle64 = Template64.bind({});
 CheckCircle64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import classnames from 'classnames';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import MdCheckbox from './MdCheckbox';
+import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
-import MdInputChip from '../chips/MdInputChip';
 import MdChevronIcon from '../icons/MdChevronIcon';
+import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
+import MdCheckbox from './MdCheckbox';
 
 interface MdMultiSelectOptionProps {
   text: string | number;
   value: string | number;
-};
+}
 
 export interface MdMultiSelectProps {
-    label?: string | null;
-    options?: MdMultiSelectOptionProps[];
-    onChange?(e: React.ChangeEvent): void;
-    selected?: MdMultiSelectOptionProps[];
-    placeholder?: string;
-    disabled?: boolean;
-    size?: string;
-    helpText?: string;
-    error?: boolean;
-    errorText?: string;
-    showChips?: boolean;
-    closeOnSelect?: boolean;
-    id?: any
-};
+  label?: string | null;
+  options?: MdMultiSelectOptionProps[];
+  onChange?(_e: React.ChangeEvent): void;
+  selected?: MdMultiSelectOptionProps[];
+  placeholder?: string;
+  disabled?: boolean;
+  size?: string;
+  helpText?: string;
+  error?: boolean;
+  errorText?: string;
+  showChips?: boolean;
+  closeOnSelect?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  id?: any;
+}
 
 const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   label,
@@ -44,7 +46,6 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   closeOnSelect = false,
   onChange,
   id,
-  ...otherProps
 }: MdMultiSelectProps) => {
   const uuid = id || uuidv4();
   const [open, setOpen] = useState(false);
@@ -57,32 +58,40 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     'md-multiselect--disabled': !!disabled,
     'md-multiselect--error': !!error,
     'md-multiselect--medium': size === 'medium',
-    'md-multiselect--small': size === 'small'
+    'md-multiselect--small': size === 'small',
   });
 
   const buttonClasseNames = classnames('md-multiselect__button', {
-    'md-multiselect__button--open': !!open
+    'md-multiselect__button--open': !!open,
   });
 
   const dropDownClassNames = classnames('md-multiselect__dropdown', {
-    'md-multiselect__dropdown--open': !!open
-  })
+    'md-multiselect__dropdown--open': !!open,
+  });
 
   const optionClass = (option: MdMultiSelectOptionProps) => {
     return classnames('md-multiselect__dropdown-item', {
-      'md-multiselect__dropdown-item--selected': optionIsChecked(option)
+      'md-multiselect__dropdown-item--selected': optionIsChecked(option),
     });
   };
 
   const optionIsChecked = (option: MdMultiSelectOptionProps) => {
-    const isChecked = selected && selected.length && selected.find(item => item.value === option.value);
+    const isChecked =
+      selected &&
+      selected.length &&
+      selected.find(item => {
+        return item.value === option.value;
+      });
     return isChecked && isChecked !== undefined;
   };
 
   let displayValue: string | number = placeholder;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const selectedOptionsFull: any[] = [];
   if (!open && selected && selected.length > 0) {
-    const findFirstOption = options.find(option => option.value === selected[0].value);
+    const findFirstOption = options.find(option => {
+      return option.value === selected[0].value;
+    });
     if (findFirstOption) {
       displayValue = findFirstOption.text;
     }
@@ -91,7 +100,9 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     }
 
     selected.forEach(item => {
-      const opt = options.find(option => option.value === item.value);
+      const opt = options.find(option => {
+        return option.value === item.value;
+      });
       if (opt) {
         selectedOptionsFull.push(opt);
       }
@@ -110,90 +121,93 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   const handleChipClick = (option: MdMultiSelectOptionProps) => {
     const dataset = {
       value: option.value,
-      text: option.text
+      text: option.text,
     };
     const event: React.ChangeEvent = {
       target: {
         // @ts-expect-error
         value: option.value,
-        dataset: dataset
-      }
+        dataset: dataset,
+      },
     };
 
     handleOptionClick(event);
-  }
+  };
 
   return (
     <div className={classNames}>
       <div className="md-multiselect__label">
-        {label && label !== '' &&
-          <div>{label}</div>
-        }
+        {label && label !== '' && <div>{label}</div>}
 
-        {helpText && helpText !== '' &&
+        {helpText && helpText !== '' && (
           <div className="md-multiselect__help-button">
             <MdHelpButton
-              onClick={() => setHelpOpen(!helpOpen)}
+              onClick={() => {
+                return setHelpOpen(!helpOpen);
+              }}
               expanded={helpOpen}
             />
           </div>
-        }
+        )}
       </div>
 
-      {helpText && helpText !== '' &&
+      {helpText && helpText !== '' && (
         <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText>{helpText}</MdHelpText>
         </div>
-      }
+      )}
 
       <MdClickOutsideWrapper
-        onClickOutside={() => setOpen(false)}
+        onClickOutside={() => {
+          return setOpen(false);
+        }}
         className="md-multiselect__dropdown-wrapper"
       >
         <button
-          type='button'
+          type="button"
           className={buttonClasseNames}
           tabIndex={0}
-          onClick={() => !disabled && setOpen(!open)}
+          onClick={() => {
+            return !disabled && setOpen(!open);
+          }}
         >
           <div className="md-multiselect__button-text">{displayValue}</div>
-          {hasMultipleSelected && !open &&
+          {hasMultipleSelected && !open && (
             <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
-          }
+          )}
           <div className="md-multiselect__button-icon">
             <MdChevronIcon />
           </div>
         </button>
 
-        {options && options.length > 0 &&
+        {options && options.length > 0 && (
           <div className={dropDownClassNames}>
-            {options.map(option => (
-              <div
-                key={`checkbox_key_${uuid}_${option.value}`}
-                className={optionClass(option)}
-              >
-                <MdCheckbox
-                  label={option.text}
-                  tabIndex={open ? 0 : -1}
-                  checked={!!optionIsChecked(option)}
-                  value={option.value}
-                  id={`checkbox_${uuid}_${option.value}`}
-                  disabled={!!disabled}
-                  data-value={option.value}
-                  data-text={option.text}
-                  onChange={(e: React.ChangeEvent) => handleOptionClick(e)}
-                />
-              </div>
-            ))}
+            {options.map(option => {
+              return (
+                <div key={`checkbox_key_${uuid}_${option.value}`} className={optionClass(option)}>
+                  <MdCheckbox
+                    label={option.text}
+                    tabIndex={open ? 0 : -1}
+                    checked={!!optionIsChecked(option)}
+                    value={option.value}
+                    id={`checkbox_${uuid}_${option.value}`}
+                    disabled={!!disabled}
+                    data-value={option.value}
+                    data-text={option.text}
+                    onChange={(e: React.ChangeEvent) => {
+                      return handleOptionClick(e);
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
-        }
+        )}
       </MdClickOutsideWrapper>
 
-      {error && errorText && errorText !== '' &&
-        <div className="md-multiselect__error">{errorText}</div>
-      }
+      {error && errorText && errorText !== '' && <div className="md-multiselect__error">{errorText}</div>}
 
-      {!open && showChips && selectedOptionsFull.length > 0 &&
+      {!open && showChips && selectedOptionsFull.length > 0 && (
         <div className="md-multiselect__chips">
           {selectedOptionsFull.map(chip => {
             return (
@@ -202,12 +216,14 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
                 label={chip.text}
                 id={`checkbox_chip_${uuid}_${chip.value}`}
                 disabled={disabled}
-                onClick={() => handleChipClick(chip)}
+                onClick={() => {
+                  return handleChipClick(chip);
+                }}
               />
             );
           })}
         </div>
-      }
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdPrintIcon from '../../packages/react/src/icons/MdPrintIcon'
+import MdPrintIcon from '../../packages/react/src/icons/MdPrintIcon';
 import MdPrintIcon64 from '../../packages/react/src/icons/MdPrintIcon64';
 
 export default {
@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Print/printer icon. Color is inherited from parent.<br/><br/>`import { MdPrintIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPrintIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Print/printer icon. Color is inherited from parent.<br/><br/>`import { MdPrintIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPrintIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdPrintIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,16 +50,16 @@ const Template64 = (args: any) => {
       <MdPrintIcon64 className={args.className} />
     </div>
   );
-}
-
-export const PrintIcon = Template.bind({})
-PrintIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const PrintIcon64 = Template64.bind({})
+export const PrintIcon = Template.bind({});
+PrintIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const PrintIcon64 = Template64.bind({});
 PrintIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

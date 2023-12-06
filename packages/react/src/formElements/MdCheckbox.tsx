@@ -1,5 +1,6 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import classnames from 'classnames';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface MdCheckboxProps {
@@ -9,9 +10,9 @@ export interface MdCheckboxProps {
   id?: string | number;
   disabled?: boolean;
   className?: string;
-  onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
-  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
-  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
+  onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
   [otherProps: string]: unknown;
 }
 
@@ -29,7 +30,7 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
     {
       'md-checkbox--disabled': !!disabled,
     },
-    className
+    className,
   );
   const checkboxId = id || uuidv4();
   return (
@@ -43,13 +44,8 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
         disabled={disabled}
         {...otherProps}
       />
-      <label
-        className="md-checkbox__label"
-        htmlFor={String(checkboxId) || undefined}
-      >
-        {label && label !== '' && (
-          <span className="md-checkbox__labelText">{label}</span>
-        )}
+      <label className="md-checkbox__label" htmlFor={String(checkboxId) || undefined}>
+        {label && label !== '' && <span className="md-checkbox__labelText">{label}</span>}
       </label>
     </div>
   );

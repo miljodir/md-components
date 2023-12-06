@@ -24,7 +24,7 @@
   border: 0;
   background-color: transparent;
   border-bottom: 1px solid var(--mdGreyColor80);
-  transition: border .1s linear, background .1s linear, margin .1s linear;
+  transition: border 0.1s linear, background 0.1s linear, margin 0.1s linear;
   margin-bottom: 3px;
 }
 

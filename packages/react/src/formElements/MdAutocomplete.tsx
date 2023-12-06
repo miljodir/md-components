@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
-import MdChevronIcon from '../icons/MdChevronIcon';
 
 interface MdAutocompleteOptionProps {
   text: string;
@@ -17,7 +17,7 @@ export interface MdAutocompleteProps {
   options: MdAutocompleteOptionProps[];
   defaultOptions?: MdAutocompleteOptionProps[];
   id?: string;
-  onChange(e: MdAutocompleteOptionProps): void;
+  onChange(_e: MdAutocompleteOptionProps): void;
   name?: string;
   value?: string | number;
   placeholder?: string;
@@ -36,7 +36,6 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   options,
   defaultOptions,
   id,
-  name,
   placeholder = 'Søk',
   disabled = false,
   size,
@@ -66,13 +65,15 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   const inputClassNames = classnames('md-autocomplete__input', {
     'md-autocomplete__input--open': !!open,
     'md-autocomplete__input--error': !!error,
-    'md-autocomplete__input--has-prefix':
-      prefixIcon !== null && prefixIcon !== '',
+    'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
   });
 
   const selectedOption =
     value && value !== ''
-      ? options && options.find((o) => o.value === value)
+      ? options &&
+        options.find(o => {
+          return o.value === value;
+        })
       : '';
 
   let displayValue = placeholder;
@@ -106,7 +107,9 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
         {helpText && helpText !== '' && (
           <div className="md-autocomplete__help-button">
             <MdHelpButton
-              onClick={() => setHelpOpen(!helpOpen)}
+              onClick={() => {
+                return setHelpOpen(!helpOpen);
+              }}
               expanded={helpOpen}
             />
           </div>
@@ -114,17 +117,15 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
       </div>
 
       {helpText && helpText !== '' && (
-        <div
-          className={`md-autocomplete__help-text ${
-            helpOpen ? 'md-autocomplete__help-text--open' : ''
-          }`}
-        >
+        <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
           <MdHelpText>{helpText}</MdHelpText>
         </div>
       )}
 
       <MdClickOutsideWrapper
-        onClickOutside={() => setOpen(false)}
+        onClickOutside={() => {
+          return setOpen(false);
+        }}
         className="md-autocomplete__container"
       >
         {prefixIcon && (
@@ -141,14 +142,12 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
           className={inputClassNames}
           value={open ? autocompleteValue : displayValue}
           tabIndex={0}
-          onChange={(e) => {
+          onChange={e => {
             setAutocompleteValue(e.target.value);
             if (e.target.value && e.target.value !== '') {
-              const results = options?.filter((o) =>
-                o.text
-                  ?.toLowerCase()
-                  .includes(e.target.value.toLowerCase() || '')
-              );
+              const results = options?.filter(o => {
+                return o.text?.toLowerCase().includes(e.target.value.toLowerCase() || '');
+              });
               setResults(results || []);
             } else {
               setResults([]);
@@ -169,44 +168,32 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
 
         {options && options.length > 0 && (
           <div className="md-autocomplete__dropdown">
-            {(autocompleteValue
-              ? results
-              : defaultOptions
-              ? defaultOptions
-              : options
-              ? options
-              : []
-            ).map((option) => (
-              <button
-                key={`md-autocomplete-option-${inputId}-${option.value}`}
-                id={`md-autocomplete-option-${inputId}-${option.value}`}
-                type="button"
-                tabIndex={open ? 0 : -1}
-                className={optionClass(option)}
-                onClick={() => {
-                  open && handleOptionClick(option);
-                }}
-              >
-                <div className="md-autocomplete__dropdown-item-text">
-                  {option.text}
-                </div>
-                {isSelectedOption(option) && (
-                  <div
-                    className="md-autocomplete__dropdown-item-clear"
-                    title="Klikk for å fjerne valg"
-                  >
-                    <MdXIcon />
-                  </div>
-                )}
-              </button>
-            ))}
+            {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
+              return (
+                <button
+                  key={`md-autocomplete-option-${inputId}-${option.value}`}
+                  id={`md-autocomplete-option-${inputId}-${option.value}`}
+                  type="button"
+                  tabIndex={open ? 0 : -1}
+                  className={optionClass(option)}
+                  onClick={() => {
+                    open && handleOptionClick(option);
+                  }}
+                >
+                  <div className="md-autocomplete__dropdown-item-text">{option.text}</div>
+                  {isSelectedOption(option) && (
+                    <div className="md-autocomplete__dropdown-item-clear" title="Klikk for å fjerne valg">
+                      <MdXIcon />
+                    </div>
+                  )}
+                </button>
+              );
+            })}
           </div>
         )}
       </MdClickOutsideWrapper>
 
-      {error && errorText && errorText !== '' && (
-        <div className="md-autocomplete__error">{errorText}</div>
-      )}
+      {error && errorText && errorText !== '' && <div className="md-autocomplete__error">{errorText}</div>}
     </div>
   );
 };

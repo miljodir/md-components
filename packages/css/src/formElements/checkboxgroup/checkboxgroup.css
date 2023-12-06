@@ -20,7 +20,7 @@
 }
 
 .md-checkboxgroup .md-checkboxgroup__help-text--open {
-  padding-top: .5em;
+  padding-top: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -28,7 +28,7 @@
 .md-checkboxgroup .md-checkboxgroup__options {
   display: flex;
   flex-direction: row;
-  margin: .7em 0;
+  margin: 0.7em 0;
   gap: 1em;
 }
 
@@ -38,5 +38,5 @@
 
 .md-checkboxgroup__error {
   color: var(--mdErrorColor);
-  font-size: .88em;
+  font-size: 0.88em;
 }

@@ -23,14 +23,14 @@ export interface MdInputProps {
   suffix?: string;
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
-  onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
-  onBlur?(e: React.FocusEvent<HTMLInputElement>): void;
-  onFocus?(e: React.FocusEvent<HTMLInputElement>): void;
-  onKeyDown?(e: React.KeyboardEvent<HTMLInputElement>): void;
+  onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
+  onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
+  onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;
   minLength?: number;
   maxLength?: number;
   inputRef?: React.Ref<HTMLInputElement>;
-};
+}
 
 const MdInput: React.FunctionComponent<MdInputProps> = ({
   label,
@@ -62,44 +62,44 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
     'md-input--error': !!error,
     'md-input--has-suffix': suffix && suffix !== '',
     'md-input--has-prefix': prefixIcon !== null && prefixIcon !== '',
-    'md-input--hide-number-arrows': !!hideNumberArrows
+    'md-input--hide-number-arrows': !!hideNumberArrows,
   });
 
   const wrapperClassNames = classnames('md-input__wrapper', {
-    'md-input__wrapper--small': size === 'small'
+    'md-input__wrapper--small': size === 'small',
   });
 
   return (
     <div className={`md-input__outer-wrapper ${outerWrapperClass}`}>
       <div className="md-input__label">
-        {label && label !== '' &&
-          <label htmlFor={inputId}>
-            {label}
-          </label>
-        }
-        {helpText && helpText !== '' &&
+        {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
+        {helpText && helpText !== '' && (
           <div className="md-input__help-button">
             <MdHelpButton
-              onClick={() => setHelpOpen(!helpOpen)}
+              onClick={() => {
+                return setHelpOpen(!helpOpen);
+              }}
               expanded={helpOpen}
             />
           </div>
-        }
+        )}
       </div>
 
-      {helpText && helpText !== '' &&
+      {helpText && helpText !== '' && (
         <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText>{helpText}</MdHelpText>
         </div>
-      }
+      )}
       <div className={wrapperClassNames}>
-        {prefixIcon &&
-          <div className={`${classnames('md-input__prefix', {
-            'md-input__prefix--disabled': !!disabled
-          })}`}>
+        {prefixIcon && (
+          <div
+            className={`${classnames('md-input__prefix', {
+              'md-input__prefix--disabled': !!disabled,
+            })}`}
+          >
             {prefixIcon}
           </div>
-        }
+        )}
         <input
           id={inputId}
           className={classNames}
@@ -113,23 +113,17 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
         />
 
         <div className="md-input__suffix">
-          {suffix &&
-            <div className="md-input__suffix-content">
-              {suffix}
-            </div>
-          }
-          {error && !hideErrorIcon &&
+          {suffix && <div className="md-input__suffix-content">{suffix}</div>}
+          {error && !hideErrorIcon && (
             <div className="md-input__error-icon">
               <MdWarningIcon />
             </div>
-          }
+          )}
         </div>
       </div>
-      {error && errorText && errorText !== '' &&
-        <div className="md-input__error">{errorText}</div>
-      }
+      {error && errorText && errorText !== '' && <div className="md-input__error">{errorText}</div>}
     </div>
   );
-}
+};
 
 export default MdInput;

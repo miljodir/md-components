@@ -1,5 +1,5 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 
 export interface MdTileVerticalProps {
   heading?: string;
@@ -9,23 +9,23 @@ export interface MdTileVerticalProps {
   href?: string;
   icon?: React.ReactNode;
   preventDefault?: boolean;
-  onClick?(e: React.MouseEvent): void;
-};
+  onClick?(_e: React.MouseEvent): void;
+}
 
 const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
   description,
   size,
   disabled = false,
-  href = "#",
+  href = '#',
   icon = null,
   preventDefault = false,
-  onClick
+  onClick,
 }: MdTileVerticalProps) => {
   const classNames = classnames('md-tile-vertical', {
     'md-tile-vertical--disabled': !!disabled,
     'md-tile-vertical--small': size === 'small',
-    'md-tile-vertical--large': size === 'large'
+    'md-tile-vertical--large': size === 'large',
   });
 
   const handleClick = (e: React.MouseEvent) => {
@@ -34,30 +34,23 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
     }
     if (onClick) {
       onClick(e);
-
     }
-  }
+  };
 
   return (
-    <a
-      className={classNames}
-      href={disabled ? '' : href}
-      onClick={handleClick}
-      tabIndex={disabled ? -1 : 0}
-    >
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
+    <a className={classNames} href={disabled ? '' : href} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
       <div className="md-tile-vertical__content">
-        {icon && icon !== '' &&
-          <div className="md-tile-vertical__content-icon">{icon}</div>
-        }
+        {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
         <div className="md-tile-vertical__content-text">
           <div className="md-tile-vertical__content-heading">{heading}</div>
-          {description && description !== '' &&
+          {description && description !== '' && (
             <div className="md-tile-vertical__content-description">{description}</div>
-          }
+          )}
         </div>
       </div>
     </a>
   );
-}
+};
 
 export default MdTileVertical;

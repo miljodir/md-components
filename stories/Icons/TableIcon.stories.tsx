@@ -8,30 +8,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Table icon. Color is inherited from parent.<br/><br/>`import { MdTableIcon } from '@miljodirektoratet/md-react'`",
+        component:
+          "Table icon. Color is inherited from parent.<br/><br/>`import { MdTableIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -40,10 +41,10 @@ const Template = (args: any) => {
       <MdTableIcon className={args.className} />
     </div>
   );
-}
+};
 
-export const TableIcon = Template.bind({})
+export const TableIcon = Template.bind({});
 TableIcon.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

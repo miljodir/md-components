@@ -9,7 +9,7 @@
   font-family: 'Open sans';
   font-size: 1rem;
   line-height: 22px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: left;
 }
@@ -59,7 +59,7 @@
   display: flex;
   width: 16px;
   height: 16px;
-  margin-right: .66em;
+  margin-right: 0.66em;
 }
 
 .md-chip__label {
@@ -70,5 +70,5 @@
   display: flex;
   width: 16px;
   height: 16px;
-  margin-left: .8em;
+  margin-left: 0.8em;
 }

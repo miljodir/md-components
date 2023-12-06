@@ -1,5 +1,6 @@
 import React from 'react';
-import MdCheckbox, { MdCheckboxProps } from '../formElements/MdCheckbox';
+import MdCheckbox from '../formElements/MdCheckbox';
+import type { MdCheckboxProps } from '../formElements/MdCheckbox';
 
 interface MdDataGridRowProps {
   checkboxProps: MdCheckboxProps;
@@ -21,9 +22,7 @@ const MdDataGridRow: React.FunctionComponent<MdDataGridRowProps> = ({
         <div className="md-data-grid__row__values">{children}</div>
       </div>
       {isExpanded && (
-        <div className="md-data-grid__row__expandedContent">
-          {expandedContentRenderer && expandedContentRenderer()}
-        </div>
+        <div className="md-data-grid__row__expandedContent">{expandedContentRenderer && expandedContentRenderer()}</div>
       )}
     </div>
   );

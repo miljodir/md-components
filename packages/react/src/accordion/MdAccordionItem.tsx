@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import classnames from 'classnames';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdMinusIcon from '../icons/MdMinusIcon';
@@ -15,7 +15,7 @@ export interface MdAccordionItemProps {
   className?: string;
   hideCloseButton?: boolean;
   rounded?: boolean;
-  onToggle?(e: React.MouseEvent): void;
+  onToggle?(_e: React.MouseEvent): void;
 }
 
 const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
@@ -47,7 +47,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       'md-accordion-item--disabled': !!disabled,
       'md-accordion-item--rounded': !!rounded,
     },
-    className
+    className,
   );
 
   const headerClassNames = classnames('md-accordion-item__header', {
@@ -59,7 +59,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   });
 
   const toggle = (e: React.MouseEvent) => {
-    // handle expand/collapse externally
+    // Handle expand/collapse externally
     if (onToggle) {
       onToggle(e);
     } else {
@@ -76,17 +76,15 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         type="button"
         className={headerClassNames}
         disabled={!!disabled}
-        onClick={(e: React.MouseEvent) => toggle(e)}
+        onClick={(e: React.MouseEvent) => {
+          return toggle(e);
+        }}
       >
         <div className="md-accordion-item__header-left">
-          <div className="md-accordion-item__header-icon"></div>
-          {label && label !== '' && (
-            <div className="md-accordion-item__header-label">{label}</div>
-          )}
+          <div className="md-accordion-item__header-icon" />
+          {label && label !== '' && <div className="md-accordion-item__header-label">{label}</div>}
         </div>
-        {headerContent && (
-          <div className="md-accordion-item__header-right">{headerContent}</div>
-        )}
+        {headerContent && <div className="md-accordion-item__header-right">{headerContent}</div>}
       </button>
 
       {/* Content */}
@@ -98,7 +96,9 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
             <button
               type="button"
               className="md-accordion-item__close-button"
-              onClick={(e: React.MouseEvent) => toggle(e)}
+              onClick={(e: React.MouseEvent) => {
+                return toggle(e);
+              }}
               tabIndex={isExpanded ? 0 : -1}
             >
               <MdMinusIcon className="md-accordion-item__close-button__icon" />

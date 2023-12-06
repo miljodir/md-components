@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-const focusableHtmlElements =
-  'a[href], button, textarea, input, select, [tabindex]';
+const focusableHtmlElements = 'a[href], button, textarea, input, select, [tabindex]';
 
 export interface MdModalProps {
   children: any;
@@ -16,14 +16,14 @@ export interface MdModalProps {
   error?: boolean;
   className?: string;
   closeOnOutsideClick?: boolean;
-  onClose?(e: React.MouseEvent): void;
+  onClose?(_e: React.MouseEvent): void;
 }
 
 const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
   headingIcon,
-  id,
+
   open = false,
   error = false,
   className = '',
@@ -36,7 +36,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
       'md-modal--open': !!open,
       'md-modal--error': !!error,
     },
-    className
+    className,
   );
 
   const closeModal = (e: React.MouseEvent) => {
@@ -59,10 +59,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   useEffect(() => {
     const keyListener = (event: KeyboardEvent) => {
       if (event.key === 'Tab') {
-        const focusableElements =
-          modalRef.current?.querySelectorAll<HTMLElement>(
-            focusableHtmlElements
-          );
+        const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
         if (focusableElements) {
           const firstElement = focusableElements[0];
           const lastElement = focusableElements[focusableElements.length - 1];
@@ -82,15 +79,15 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
 
     document.addEventListener('keydown', keyListener);
 
-    const firstElement = modalRef.current?.querySelector<HTMLElement>(
-      focusableHtmlElements
-    );
+    const firstElement = modalRef.current?.querySelector<HTMLElement>(focusableHtmlElements);
 
     if (firstElement) {
       firstElement.focus();
     }
 
-    return () => document.removeEventListener('keydown', keyListener);
+    return () => {
+      return document.removeEventListener('keydown', keyListener);
+    };
   }, []);
 
   return (
@@ -99,7 +96,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
       <div className={classNames}>
         <div className="md-modal__content">
           <MdClickOutsideWrapper
-            onClickOutside={(e) => {
+            onClickOutside={e => {
               if (closeOnOutsideClick) closeModal(e);
             }}
             className="md-modal__inner-wrapper"
@@ -112,7 +109,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
               </div>
               <button
                 className="md-modal__close-button"
-                onClick={(e) => {
+                onClick={e => {
                   closeModal(e);
                 }}
               >

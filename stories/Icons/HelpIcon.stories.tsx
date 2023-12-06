@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Help icon. Color is inherited from parent.<br/><br/>`import { MdHelpIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHelpIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Help icon. Color is inherited from parent.<br/><br/>`import { MdHelpIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHelpIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdHelpIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,17 +50,16 @@ const Template64 = (args: any) => {
       <MdHelpIcon64 className={args.className} />
     </div>
   );
-}
-
-export const HelpIcon = Template.bind({})
-HelpIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
+export const HelpIcon = Template.bind({});
+HelpIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
 
-export const HelpIcon64 = Template64.bind({})
+export const HelpIcon64 = Template64.bind({});
 HelpIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

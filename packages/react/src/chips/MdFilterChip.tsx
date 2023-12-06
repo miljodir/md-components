@@ -1,6 +1,6 @@
+import classnames from 'classnames';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import classnames from 'classnames';
 
 import MdCheckIcon from '../icons/MdCheckIcon';
 
@@ -10,7 +10,7 @@ export interface MdFilterChipProps {
   active?: boolean;
   disabled?: boolean;
   prefixIcon?: React.ReactNode;
-  onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
+  onClick?(_e: React.MouseEvent<HTMLButtonElement>): void;
   className?: string;
 }
 
@@ -30,15 +30,8 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
   });
 
   return (
-    <button
-      className={buttonClassNames}
-      id={String(chipId) || undefined}
-      disabled={disabled}
-      {...otherProps}
-    >
-      {prefixIcon && !active && (
-        <div className="md-chip__left-icon">{prefixIcon}</div>
-      )}
+    <button className={buttonClassNames} id={String(chipId) || undefined} disabled={disabled} {...otherProps}>
+      {prefixIcon && !active && <div className="md-chip__left-icon">{prefixIcon}</div>}
       {active && (
         <div className="md-chip__left-icon">
           <MdCheckIcon />

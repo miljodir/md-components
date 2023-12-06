@@ -14,22 +14,22 @@ export default {
   },
   argTypes: {
     href: {
-      description: "The link destination",
+      description: 'The link destination',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     text: {
-      description: "The link text",
+      description: 'The link text',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     onClick: {
       description: 'Callback for controlling onClick along side href',
@@ -38,9 +38,9 @@ export default {
         type: {
           summary: null,
         },
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
 function clickHandler(event: React.MouseEvent<HTMLInputElement>) {
@@ -53,14 +53,16 @@ interface LinkArgs {
   href?: string;
 }
 
-const Template = (args: LinkArgs) => (
-  <MdLink onClick={clickHandler} href={args.href}>
-    {args.text}
-  </MdLink>
-);
+const Template = (args: LinkArgs) => {
+  return (
+    <MdLink onClick={clickHandler} href={args.href}>
+      {args.text}
+    </MdLink>
+  );
+};
 
 export const Link = Template.bind({});
 Link.args = {
   text: 'This is a link',
-  href: '#'
-}
+  href: '#',
+};

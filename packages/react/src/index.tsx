@@ -1,36 +1,26 @@
+import MdAccordionItem, { MdAccordionItemProps } from './accordion/MdAccordionItem';
 import MdButton, { MdButtonProps } from './button/MdButton';
+import MdFilterChip, { MdFilterChipProps } from './chips/MdFilterChip';
+import MdInputChip, { MdInputChipProps } from './chips/MdInputChip';
+import MdDataGrid from './data-grid/MdDataGrid';
+import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
+import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
+import MdDataColumnRightAlignedContent from './data-grid/MdDataGridRightAlignedContent';
+import MdDataColumnRow from './data-grid/MdDataGridRow';
+import MdDataColumnRowValue from './data-grid/MdDataGridRowValue';
+import MdDataColumnRows from './data-grid/MdDataGridRows';
+import MdFileList, { MdFileListProps } from './fileList/MdFileList';
+import MdAutocomplete, { MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
-import MdInput, { MdInputProps } from './formElements/MdInput';
-import MdSelect, { MdSelectProps } from './formElements/MdSelect';
-import MdMultiSelect, { MdMultiSelectProps } from './formElements/MdMultiSelect';
-import MdAutocomplete, {
-  MdAutocompleteProps,
-} from './formElements/MdAutocomplete';
-import MdRadioGroup, { MdRadioGroupProps } from './formElements/MdRadioGroup';
-import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
-import MdLink, { MdLinkProps } from './link/MdLink';
+import MdInput, { MdInputProps } from './formElements/MdInput';
+import MdMultiSelect, { MdMultiSelectProps } from './formElements/MdMultiSelect';
+import MdRadioGroup, { MdRadioGroupProps } from './formElements/MdRadioGroup';
+import MdSelect, { MdSelectProps } from './formElements/MdSelect';
+import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { MdHelpTextProps } from './help/MdHelpText';
-import MdToggle, { MdToggleProps } from './toggle/MdToggle';
-import MdClickOutsideWrapper, { MdClickOutsideWrapperProps } from './utils/MdClickOutsideWrapper';
-import MdInputChip, { MdInputChipProps } from './chips/MdInputChip';
-import MdFilterChip, { MdFilterChipProps } from './chips/MdFilterChip';
-import MdFileList, { MdFileListProps } from './fileList/MdFileList';
-import MdAccordionItem, { MdAccordionItemProps } from './accordion/MdAccordionItem';
-import MdModal, { MdModalProps } from './modal/MdModal';
-import MdTile, { MdTileProps } from './tiles/MdTile';
-import MdTileVertical, { MdTileVerticalProps } from './tiles/MdTileVertical';
-import MdTabs, { MdTabsProps } from './tabs/MdTabs';
-import MdTab, { MdTabProps } from './tabs/MdTab';
-import MdTabTitle, { MdTabTitleProps } from './tabs/MdTabTitle';
-import MdLoadingSpinner, { MdLoadingSpinnerProps } from './loadingSpinner/MdLoadingSpinner';
-import MdInfoTag, { MdInfoTagProps } from './infoTag/MdInfoTag';
-import MdInfoBox, { MdInfoBoxProps } from './messages/MdInfoBox';
-import MdAlertMessage, { MdAlertMessageProps } from './messages/MdAlertMessage';
-
-// Icons
 import MdBurgerMenuIcon from './icons/MdBurgerMenuIcon';
 import MdBurgerMenu64Icon from './icons/MdBurgerMenuIcon64';
 import MdCalendarDayIcon from './icons/MdCalendarDayIcon';
@@ -61,7 +51,7 @@ import MdDocSearchIcon from './icons/MdDocSearchIcon';
 import MdDocSearchIcon64 from './icons/MdDocSearchIcon64';
 import MdDownloadIcon from './icons/MdDownloadIcon';
 import MdDownloadIcon64 from './icons/MdDownloadIcon64';
-import MdEditIcon from './icons/MdEditIcon64';
+import MdEditIcon from './icons/MdEditIcon';
 import MdEditIcon64 from './icons/MdEditIcon64';
 import MdEnvelopeIcon from './icons/MdEnvelopeIcon';
 import MdEnvelopeIcon64 from './icons/MdEnvelopeIcon64';
@@ -90,7 +80,7 @@ import MdPinIcon from './icons/MdPinIcon';
 import MdPinIcon64 from './icons/MdPinIcon64';
 import MdPlusIcon from './icons/MdPlusIcon';
 import MdPlusIcon64 from './icons/MdPlusIcon64';
-import MdPrintIcon from './icons/MdPrintIcon64';
+import MdPrintIcon from './icons/MdPrintIcon';
 import MdPrintIcon64 from './icons/MdPrintIcon64';
 import MdRedirectIcon from './icons/MdRedirectIcon';
 import MdRedirectIcon64 from './icons/MdRedirectIcon64';
@@ -119,14 +109,19 @@ import MdZoomIconMinus from './icons/MdZoomIconMinus';
 import MdZoomIconMinus64 from './icons/MdZoomIconMinus64';
 import MdZoomIconPlus from './icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from './icons/MdZoomIconPlus64';
-
-import MdDataGrid from './data-grid/MdDataGrid';
-import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
-import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
-import MdDataColumnRows from './data-grid/MdDataGridRows';
-import MdDataColumnRow from './data-grid/MdDataGridRow';
-import MdDataColumnRowValue from './data-grid/MdDataGridRowValue';
-import MdDataColumnRightAlignedContent from './data-grid/MdDataGridRightAlignedContent';
+import MdInfoTag, { MdInfoTagProps } from './infoTag/MdInfoTag';
+import MdLink, { MdLinkProps } from './link/MdLink';
+import MdLoadingSpinner, { MdLoadingSpinnerProps } from './loadingSpinner/MdLoadingSpinner';
+import MdAlertMessage, { MdAlertMessageProps } from './messages/MdAlertMessage';
+import MdInfoBox, { MdInfoBoxProps } from './messages/MdInfoBox';
+import MdModal, { MdModalProps } from './modal/MdModal';
+import MdTab, { MdTabProps } from './tabs/MdTab';
+import MdTabTitle, { MdTabTitleProps } from './tabs/MdTabTitle';
+import MdTabs, { MdTabsProps } from './tabs/MdTabs';
+import MdTile, { MdTileProps } from './tiles/MdTile';
+import MdTileVertical, { MdTileVerticalProps } from './tiles/MdTileVertical';
+import MdToggle, { MdToggleProps } from './toggle/MdToggle';
+import MdClickOutsideWrapper, { MdClickOutsideWrapperProps } from './utils/MdClickOutsideWrapper';
 
 export {
   MdButton,
@@ -158,7 +153,6 @@ export {
   MdInfoTag,
   MdInfoBox,
   MdAlertMessage,
-
   MdButtonProps,
   MdCheckboxProps,
   MdCheckboxGroupProps,
@@ -188,53 +182,94 @@ export {
   MdInfoTagProps,
   MdInfoBoxProps,
   MdAlertMessageProps,
-  MdBurgerMenuIcon, MdBurgerMenu64Icon,
-  MdCalendarDayIcon, MdCalendarDay64Icon,
-  MdCalendarIcon, MdCalendarIcon64,
-  MdCancelIcon, MdCancelIcon64,
-  MdCheckCircleIcon, MdCheckCircleIcon64,
-  MdCheckIcon, MdCheckIcon64,
-  MdChevronIcon, MdChevronIcon64,
-  MdCloseIcon, MdCloseIcon64,
-  MdCommentFillIcon, MdCommentFillIcon64,
-  MdCommentIcon, MdCommentIcon64,
-  MdConfirmIcon, MdConfirmIcon64,
-  MdDeleteIcon, MdDeleteIcon64,
-  MdDocIcon, MdDocIcon64,
-  MdDocSearchIcon, MdDocSearchIcon64,
-  MdDownloadIcon, MdDownloadIcon64,
-  MdEditIcon, MdEditIcon64,
-  MdEnvelopeIcon, MdEnvelopeIcon64,
-  MdExpandIcon, MdExpandIcon64,
-  MdGraphIcon, MdGraphIcon64,
-  MdHelpIcon, MdHelpIcon64,
-  MdHomeIcon, MdHomeIcon64,
-  MdImageIcon, MdImageIcon64,
-  MdInfoIcon, MdInfoIcon64,
+  MdBurgerMenuIcon,
+  MdBurgerMenu64Icon,
+  MdCalendarDayIcon,
+  MdCalendarDay64Icon,
+  MdCalendarIcon,
+  MdCalendarIcon64,
+  MdCancelIcon,
+  MdCancelIcon64,
+  MdCheckCircleIcon,
+  MdCheckCircleIcon64,
+  MdCheckIcon,
+  MdCheckIcon64,
+  MdChevronIcon,
+  MdChevronIcon64,
+  MdCloseIcon,
+  MdCloseIcon64,
+  MdCommentFillIcon,
+  MdCommentFillIcon64,
+  MdCommentIcon,
+  MdCommentIcon64,
+  MdConfirmIcon,
+  MdConfirmIcon64,
+  MdDeleteIcon,
+  MdDeleteIcon64,
+  MdDocIcon,
+  MdDocIcon64,
+  MdDocSearchIcon,
+  MdDocSearchIcon64,
+  MdDownloadIcon,
+  MdDownloadIcon64,
+  MdEditIcon,
+  MdEditIcon64,
+  MdEnvelopeIcon,
+  MdEnvelopeIcon64,
+  MdExpandIcon,
+  MdExpandIcon64,
+  MdGraphIcon,
+  MdGraphIcon64,
+  MdHelpIcon,
+  MdHelpIcon64,
+  MdHomeIcon,
+  MdHomeIcon64,
+  MdImageIcon,
+  MdImageIcon64,
+  MdInfoIcon,
+  MdInfoIcon64,
   MdLoadingSpinnerIcon,
-  MdMinusIcon, MdMinusIcon64,
-  MdPanIcon, MdPanIcon64,
-  MdPersonIcon, MdPersonIcon64,
-  MdPinAltIcon, MdPinAltIcon64,
-  MdPinIcon, MdPinIcon64,
-  MdPlusIcon, MdPlusIcon64,
-  MdPrintIcon, MdPrintIcon64,
-  MdRedirectIcon, MdRedirectIcon64,
-  MdSettingsIcon, MdSettingsIcon64,
+  MdMinusIcon,
+  MdMinusIcon64,
+  MdPanIcon,
+  MdPanIcon64,
+  MdPersonIcon,
+  MdPersonIcon64,
+  MdPinAltIcon,
+  MdPinAltIcon64,
+  MdPinIcon,
+  MdPinIcon64,
+  MdPlusIcon,
+  MdPlusIcon64,
+  MdPrintIcon,
+  MdPrintIcon64,
+  MdRedirectIcon,
+  MdRedirectIcon64,
+  MdSettingsIcon,
+  MdSettingsIcon64,
   MdSignIcon,
   MdSortingIconActive,
-  MdSortingIcon, MdSortingIcon64,
-  MdSubmenuIcon, MdSubmenuIcon64,
+  MdSortingIcon,
+  MdSortingIcon64,
+  MdSubmenuIcon,
+  MdSubmenuIcon64,
   MdTableIcon,
-  MdTimeIcon, MdTimeIcon64,
-  MdUploadIcon, MdUploadIcon64,
-  MdUserIcon, MdUserIcon64,
-  MdWarningIcon, MdWarningIcon64,
-  MdXIcon, MdXIcon64,
-  MdZoomIcon, MdZoomIcon64,
-  MdZoomIconMinus, MdZoomIconMinus64,
-  MdZoomIconPlus, MdZoomIconPlus64,
-
+  MdTimeIcon,
+  MdTimeIcon64,
+  MdUploadIcon,
+  MdUploadIcon64,
+  MdUserIcon,
+  MdUserIcon64,
+  MdWarningIcon,
+  MdWarningIcon64,
+  MdXIcon,
+  MdXIcon64,
+  MdZoomIcon,
+  MdZoomIcon64,
+  MdZoomIconMinus,
+  MdZoomIconMinus64,
+  MdZoomIconPlus,
+  MdZoomIconPlus64,
   MdDataGrid,
   MdDataColumnHeader,
   MdDataColumnHeaders,
