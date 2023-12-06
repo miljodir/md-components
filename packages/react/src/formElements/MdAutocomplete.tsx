@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
-import MdChevronIcon from '../icons/MdChevronIcon';
 
 interface MdAutocompleteOptionProps {
   text: string;
@@ -27,10 +27,9 @@ export interface MdAutocompleteProps {
   error?: boolean;
   errorText?: string;
   prefixIcon?: React.ReactNode;
-  inputRef?: React.Ref<HTMLInputElement>;
 }
 
-const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
+const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(({
   label,
   value,
   options,
@@ -45,9 +44,8 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   errorText,
   prefixIcon = null,
   onChange,
-  inputRef,
   ...otherProps
-}: MdAutocompleteProps) => {
+}, ref) => {
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [autocompleteValue, setAutocompleteValue] = useState('');
@@ -160,7 +158,7 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
           type="text"
           placeholder={placeholder}
           disabled={!!disabled}
-          ref={inputRef}
+          ref={ref}
           {...otherProps}
         />
         <div className="md-autocomplete__input-icon">
@@ -209,6 +207,6 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
       )}
     </div>
   );
-};
+});
 
 export default MdAutocomplete;
