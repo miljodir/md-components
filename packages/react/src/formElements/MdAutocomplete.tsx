@@ -16,7 +16,7 @@ export interface MdAutocompleteProps {
   label?: string | null;
   options: MdAutocompleteOptionProps[];
   defaultOptions?: MdAutocompleteOptionProps[];
-  id?: string | number | null | undefined;
+  id?: string;
   onChange(e: MdAutocompleteOptionProps): void;
   name?: string;
   value?: string | number;
@@ -35,7 +35,7 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   value,
   options,
   defaultOptions,
-  id = null,
+  id,
   name,
   placeholder = 'Søk',
   disabled = false,
@@ -53,8 +53,7 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   const [autocompleteValue, setAutocompleteValue] = useState('');
   const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
 
-  const uuid = id || uuidv4();
-  const inputId = uuidv4() as string;
+  const inputId = id && id !== '' ? id : uuidv4();
 
   const classNames = classnames('md-autocomplete', {
     'md-autocomplete--open': !!open,
@@ -103,7 +102,7 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
   return (
     <div className={classNames}>
       <div className="md-autocomplete__label">
-        <div>{label}</div>
+        {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
         {helpText && helpText !== '' && (
           <div className="md-autocomplete__help-button">
             <MdHelpButton
@@ -179,8 +178,8 @@ const MdAutocomplete: React.FunctionComponent<MdAutocompleteProps> = ({
               : []
             ).map((option) => (
               <button
-                key={`md-autocomplete-option-${uuid}-${option.value}`}
-                id={`md-autocomplete-option-${uuid}-${option.value}`}
+                key={`md-autocomplete-option-${inputId}-${option.value}`}
+                id={`md-autocomplete-option-${inputId}-${option.value}`}
                 type="button"
                 tabIndex={open ? 0 : -1}
                 className={optionClass(option)}
