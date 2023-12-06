@@ -26,10 +26,9 @@ export interface MdSelectProps {
     helpText?: string;
     error?: boolean;
     errorText?: string;
-    selectRef?: React.Ref<HTMLButtonElement>;
 };
 
-const MdSelect: React.FunctionComponent<MdSelectProps> = ({
+const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(({
   label,
   value,
   options,
@@ -42,8 +41,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
   error = false,
   errorText,
   onChange,
-  selectRef
-}: MdSelectProps) => {
+}, ref) => {
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
@@ -141,7 +139,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
           type='button'
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
-          ref={selectRef}
+          ref={ref}
         >
           <div className="md-select__button-text">{displayValue}</div>
           <div className="md-select__button-icon">
@@ -177,6 +175,6 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
       }
     </div>
   );
-};
+});
 
 export default MdSelect;

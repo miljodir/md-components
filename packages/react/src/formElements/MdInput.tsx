@@ -29,10 +29,9 @@ export interface MdInputProps {
   onKeyDown?(e: React.KeyboardEvent<HTMLInputElement>): void;
   minLength?: number;
   maxLength?: number;
-  inputRef?: React.Ref<HTMLInputElement>;
 };
 
-const MdInput: React.FunctionComponent<MdInputProps> = ({
+const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(({
   label,
   id,
   value = '',
@@ -49,9 +48,8 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
   suffix = undefined,
   prefixIcon = null,
   hideNumberArrows = false,
-  inputRef,
   ...otherProps
-}: MdInputProps) => {
+}, ref) => {
   const [helpOpen, setHelpOpen] = useState(false);
   const inputId = id && id !== '' ? id : uuidv4();
 
@@ -108,7 +106,7 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
           placeholder={placeholder}
           disabled={!!disabled}
           readOnly={!!readOnly}
-          ref={inputRef}
+          ref={ref}
           {...otherProps}
         />
 
@@ -130,6 +128,6 @@ const MdInput: React.FunctionComponent<MdInputProps> = ({
       }
     </div>
   );
-}
+});
 
 export default MdInput;
