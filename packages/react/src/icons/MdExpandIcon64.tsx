@@ -1,10 +1,7 @@
 import React from 'react';
-import MdIconProps from './icon.model';
+import type MdIconProps from './icon.model';
 
-const MdExpandIcon64: React.FunctionComponent<MdIconProps> = ({
-  className,
-  ...otherProps
-}: MdIconProps) => {
+const MdExpandIcon64: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 64 64"
@@ -15,8 +12,14 @@ const MdExpandIcon64: React.FunctionComponent<MdIconProps> = ({
       {...otherProps}
     >
       <g>
-        <polygon points="39.28 9.67 39.28 11.67 50.91 11.67 34 28.59 35.41 30 52.33 13.09 52.33 24.72 54.33 24.72 54.33 9.67 39.28 9.67" fill="currentColor" />
-        <polygon points="28.59 34 11.67 50.91 11.67 39.28 9.67 39.28 9.67 54.33 24.72 54.33 24.72 52.33 13.09 52.33 30 35.41 28.59 34" fill="currentColor" />
+        <polygon
+          points="39.28 9.67 39.28 11.67 50.91 11.67 34 28.59 35.41 30 52.33 13.09 52.33 24.72 54.33 24.72 54.33 9.67 39.28 9.67"
+          fill="currentColor"
+        />
+        <polygon
+          points="28.59 34 11.67 50.91 11.67 39.28 9.67 39.28 9.67 54.33 24.72 54.33 24.72 52.33 13.09 52.33 30 35.41 28.59 34"
+          fill="currentColor"
+        />
       </g>
     </svg>
   );

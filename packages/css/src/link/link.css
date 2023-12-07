@@ -6,7 +6,7 @@
 }
 
 .md-link:hover {
-  color: var(--mdPrimaryColor120)
+  color: var(--mdPrimaryColor120);
 }
 
 .md-link:focus {

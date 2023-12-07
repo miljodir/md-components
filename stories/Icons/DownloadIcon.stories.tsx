@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Download icon. Color is inherited from parent.<br/><br/>`import { MdDownloadIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdDownloadIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Download icon. Color is inherited from parent.<br/><br/>`import { MdDownloadIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdDownloadIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdDownloadIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,17 +50,16 @@ const Template64 = (args: any) => {
       <MdDownloadIcon64 className={args.className} />
     </div>
   );
-}
-
-export const DownloadIcon = Template.bind({})
-DownloadIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
+export const DownloadIcon = Template.bind({});
+DownloadIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
 
-export const DownloadIcon64 = Template64.bind({})
+export const DownloadIcon64 = Template64.bind({});
 DownloadIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

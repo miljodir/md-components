@@ -1,38 +1,31 @@
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import React from 'react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 // @ts-ignore
 import Readme from '../packages/css/src/tabs/README.md';
 
-import MdTabs from '../packages/react/src/tabs/MdTabs';
 import MdTab from '../packages/react/src/tabs/MdTab';
+import MdTabs from '../packages/react/src/tabs/MdTabs';
 
 export default {
   title: 'Components/Tabs',
   component: MdTabs,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
-        component:
-          "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
+        component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -68,25 +61,19 @@ const Template = (args: any) => {
   return (
     <MdTabs initialTab={args.initialTab}>
       <MdTab title="Tab 1">
-        <div style={{ fontSize: '20px', marginBottom: '.5em' }}>
-          This is the first tab
-        </div>
+        <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the first tab</div>
         <div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro
-          maiores reprehenderit quasi itaque eveniet soluta aliquam consectetur
-          perspiciatis assumenda laborum quam expedita, vitae, odio dignissimos
-          obcaecati ipsa incidunt! Pariatur, blanditiis.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro maiores reprehenderit quasi itaque eveniet
+          soluta aliquam consectetur perspiciatis assumenda laborum quam expedita, vitae, odio dignissimos obcaecati
+          ipsa incidunt! Pariatur, blanditiis.
         </div>
       </MdTab>
       <MdTab title="Tab 2" disabled={args.disabled}>
-        <div style={{ fontSize: '20px', marginBottom: '.5em' }}>
-          This is the second tab
-        </div>
+        <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the second tab</div>
         <div>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum
-          unde labore sint, nesciunt quasi non molestias cupiditate. Saepe quasi
-          natus quis magnam quas. Quae, similique facilis? Architecto,
-          temporibus minima! Laudantium.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum unde labore sint, nesciunt quasi non
+          molestias cupiditate. Saepe quasi natus quis magnam quas. Quae, similique facilis? Architecto, temporibus
+          minima! Laudantium.
         </div>
       </MdTab>
     </MdTabs>

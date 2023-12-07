@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Expand icon. Color is inherited from parent.<br/><br/>`import { MdExpandIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdExpandIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Expand icon. Color is inherited from parent.<br/><br/>`import { MdExpandIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdExpandIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdExpandIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,16 +50,16 @@ const Template64 = (args: any) => {
       <MdExpandIcon64 className={args.className} />
     </div>
   );
-}
-
-export const ExpandIcon = Template.bind({})
-ExpandIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const ExpandIcon64 = Template64.bind({})
+export const ExpandIcon = Template.bind({});
+ExpandIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const ExpandIcon64 = Template64.bind({});
 ExpandIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

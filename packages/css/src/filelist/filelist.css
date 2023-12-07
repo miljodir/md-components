@@ -1,22 +1,22 @@
 .md-filelist {
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 0.5em;
 }
 
 .md-filelist__file {
   display: flex;
   justify-content: space-between;
   border: 1px solid var(--mdPrimaryColor);
-  padding: .8em 1.1em;
+  padding: 0.8em 1.1em;
   font-family: 'Open sans';
   background-color: #fff;
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .md-filelist__file:hover {
   background-color: var(--mdPrimaryColor20);
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .md-filelist__file-label {
@@ -31,7 +31,7 @@
 
 .md-filelist__file-size {
   font-size: 14px;
-  margin-top: .3em;
+  margin-top: 0.3em;
 }
 
 /* File actions */
@@ -50,14 +50,14 @@
   background-color: transparent;
   border-radius: 100px;
   border: 0;
-  padding: .2em;
+  padding: 0.2em;
   cursor: pointer;
-  transition: background .1s linear;
+  transition: background 0.1s linear;
 }
 
 .md-filelist__file-actions-button:hover {
   background-color: #fff;
-  transition: background .1s linear;
+  transition: background 0.1s linear;
 }
 
 .md-filelist__file-delete-icon {

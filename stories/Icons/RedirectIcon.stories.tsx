@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon'
+import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon';
 import MdRedirectIcon64 from '../../packages/react/src/icons/MdRedirectIcon64';
 
 export default {
@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdRedirectIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdRedirectIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdRedirectIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,16 +50,16 @@ const Template64 = (args: any) => {
       <MdRedirectIcon64 className={args.className} />
     </div>
   );
-}
-
-export const RedirectIcon = Template.bind({})
-RedirectIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const RedirectIcon64 = Template64.bind({})
+export const RedirectIcon = Template.bind({});
+RedirectIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const RedirectIcon64 = Template64.bind({});
 RedirectIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

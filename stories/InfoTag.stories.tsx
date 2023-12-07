@@ -1,43 +1,38 @@
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 // @ts-ignore
 import Readme from '../packages/css/src/infoTag/README.md';
 
 import MdInfoTag from '../packages/react/src/infoTag/MdInfoTag';
+import type { ComponentStory } from '@storybook/react';
 
 export default {
   title: 'Components/InfoTag',
   component: MdInfoTag,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
-        component: "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
+        component:
+          "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     theme: {
-      description: "Theme of info tag",
+      description: 'Theme of info tag',
       table: {
         type: {
           summary: 'text',
@@ -47,7 +42,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     icon: {
-      description: "Select predefined icon, or set to `custom`.",
+      description: 'Select predefined icon, or set to `custom`.',
       table: {
         defaultValue: { summary: 'info' },
         type: {
@@ -58,13 +53,13 @@ export default {
       control: { type: 'inline-radio' },
     },
     label: {
-      description: "The text to display on hover",
+      description: 'The text to display on hover',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     keepOpen: {
       description: 'Keep info tag open',
@@ -74,21 +69,21 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     customIcon: {
       type: { name: 'ReactNode' },
-      description: "If `icon = custom`, provide custom icon here.",
+      description: 'If `icon = custom`, provide custom icon here.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "DomElement | image | ReactNode",
+          summary: 'DomElement | image | ReactNode',
         },
       },
-      control: { type: 'html' }
+      control: { type: 'html' },
     },
-  }
-}
+  },
+};
 
 const Template: ComponentStory<typeof MdInfoTag> = args => {
   return <MdInfoTag {...args} />;
@@ -100,5 +95,5 @@ InfoTag.args = {
   keepOpen: false,
   label: 'This is some info',
   icon: 'info',
-  customIcon: null
+  customIcon: null,
 };

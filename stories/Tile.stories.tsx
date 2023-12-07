@@ -1,51 +1,45 @@
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import React from 'react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 // @ts-ignore
 import Readme from '../packages/css/src/tile/README.md';
-
-import MdTile from '../packages/react/src/tiles/MdTile';
 import MdGraphIcon from '../packages/react/src/icons/MdGraphIcon';
+import MdTile from '../packages/react/src/tiles/MdTile';
 
 export default {
   title: 'Components/Tiles/Tile',
   component: MdTile,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
-        component: "A link styled as a horizontal tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTile } from '@miljodirektoratet/md-react'`",
+        component:
+          "A link styled as a horizontal tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTile } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     href: {
       type: { name: 'string' },
-      description: "The url for for href",
+      description: 'The url for for href',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     disabled: {
       description: 'Is link disabled?',
@@ -55,7 +49,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
@@ -65,29 +59,29 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     icon: {
       type: { name: 'ReactNode' },
-      description: "Icon to present before text in tile.",
+      description: 'Icon to present before text in tile.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "DomElement | image | ReactNode",
+          summary: 'DomElement | image | ReactNode',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     onClick: {
       type: { name: 'function' },
-      description: "Optional onClick handler for click event. Needed if `preventDefault = true`",
+      description: 'Optional onClick handler for click event. Needed if `preventDefault = true`',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
-    }
-  }
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -101,7 +95,7 @@ const Template = (args: any) => {
       icon={args.icon && <MdGraphIcon width={64} height={64} />}
     />
   );
-}
+};
 
 export const Tile = Template.bind({});
 Tile.args = {
@@ -109,4 +103,4 @@ Tile.args = {
   disabled: false,
   preventDefault: true,
   icon: true,
-}
+};

@@ -40,7 +40,7 @@
   justify-content: space-between;
   padding: 1em;
   border: 1px solid var(--mdGreyColor60);
-  margin: .8em 0 0 0;
+  margin: 0.8em 0 0 0;
   text-align: left;
   cursor: pointer;
 }
@@ -100,7 +100,7 @@
 .md-autocomplete__input-icon {
   position: absolute;
   top: 1.3em;
-  right: .9em;
+  right: 0.9em;
   display: flex;
   width: 15px;
   height: 15px;
@@ -115,7 +115,7 @@
 }
 
 .md-autocomplete__help-text--open {
-  padding-top: .5em;
+  padding-top: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -125,7 +125,7 @@
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height .5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   width: calc(100% - 4px); /* Full width minus border-width */
 }
 
@@ -136,8 +136,8 @@
   background-color: #fff;
   width: 100%;
   text-align: left;
-  padding: .9em;
-  transition: background-color .15s ease-in-out;
+  padding: 0.9em;
+  transition: background-color 0.15s ease-in-out;
   cursor: pointer;
 }
 
@@ -145,7 +145,7 @@
 .md-autocomplete__dropdown-item:focus {
   outline: none;
   background-color: var(--mdPrimaryColor20);
-  transition: background-color .15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
 }
 
 .md-autocomplete__dropdown-item--selected {
@@ -176,7 +176,7 @@
   max-height: 350px;
   overflow-y: auto;
   opacity: 1;
-  transition: max-height .5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   border-right: 2px solid var(--mdPrimaryColor);
   border-left: 2px solid var(--mdPrimaryColor);
   border-bottom: 2px solid var(--mdPrimaryColor);
@@ -194,5 +194,5 @@
 /* Error text */
 .md-autocomplete__error {
   color: var(--mdErrorColor);
-  font-size: .88em;
+  font-size: 0.88em;
 }

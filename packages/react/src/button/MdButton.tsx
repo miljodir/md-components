@@ -1,8 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export interface MdButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -27,7 +26,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
       'md-button--secondary': theme === 'secondary',
       'md-button--danger': theme === 'danger',
     },
-    otherProps.className
+    otherProps.className,
   );
 
   return (

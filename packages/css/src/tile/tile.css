@@ -11,13 +11,13 @@
   font-family: 'Open sans';
   width: 440px;
   max-width: 100%;
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .md-tile:not(.md-tile--disabled):hover {
   border: 1px solid var(--mdPrimaryColor);
   background-color: var(--mdPrimaryColor20);
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .md-tile:not(.md-tile--disabled):focus {
@@ -78,7 +78,7 @@
   color: var(--mdGreyColor);
   text-decoration: none;
   font-family: 'Open sans';
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .md-tile-vertical--small {
@@ -100,7 +100,7 @@
 .md-tile-vertical:hover {
   border: 1px solid var(--mdPrimaryColor);
   background-color: var(--mdPrimaryColor20);
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .md-tile-vertical:focus {
