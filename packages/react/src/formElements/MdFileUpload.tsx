@@ -28,15 +28,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   multiple = true,
   imagesOnly = false,
 }: MdFileUploadProps) => {
-  const {
-    files,
-
-    handleDragDropEvent,
-    clearAllFiles,
-    createFormData,
-    setFiles,
-    removeFile,
-  } = useFileUpload();
+  const { files, handleDragDropEvent, clearAllFiles, createFormData, setFiles, removeFile } = useFileUpload();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -108,7 +100,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp {imagesOnly ? 'et bilde' : 'en fil'} her eller{' '}
+          Dropp {imagesOnly ? 'et bilde' : 'en fil'} her eller
           <button
             type="button"
             onClick={() => {

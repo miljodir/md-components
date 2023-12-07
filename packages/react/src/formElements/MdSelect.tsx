@@ -35,7 +35,6 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       value,
       options,
       id = null,
-
       placeholder = 'Vennligst velg',
       disabled = false,
       size,
