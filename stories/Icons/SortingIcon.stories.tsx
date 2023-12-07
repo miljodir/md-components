@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MdSortingIcon from '../../packages/react/src/icons/MdSortingIcon'
-import MdSortingIcon64 from '../../packages/react/src/icons/MdSortingIcon64';
 import MdSortingActiveIcon from '../../packages/react/src/icons/MdSortingActiveIcon';
+import MdSortingIcon from '../../packages/react/src/icons/MdSortingIcon';
+import MdSortingIcon64 from '../../packages/react/src/icons/MdSortingIcon64';
 
 export default {
   title: 'Icons/Sorting',
@@ -10,30 +10,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Sorting icons. Color is inherited from parent.<br/><br/>`import { MdSortingIcon, MdSortingIcon64, MdSortingActiveIcon } from '@miljodirektoratet/md-react'`",
+        component:
+          "Sorting icons. Color is inherited from parent.<br/><br/>`import { MdSortingIcon, MdSortingIcon64, MdSortingActiveIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -42,7 +43,7 @@ const Template = (args: any) => {
       <MdSortingIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -50,7 +51,7 @@ const Template64 = (args: any) => {
       <MdSortingIcon64 className={args.className} />
     </div>
   );
-}
+};
 
 const TemplateActive = (args: any) => {
   return (
@@ -58,22 +59,22 @@ const TemplateActive = (args: any) => {
       <MdSortingActiveIcon className={args.className} />
     </div>
   );
-}
+};
 
-export const SortingIcon = Template.bind({})
+export const SortingIcon = Template.bind({});
 SortingIcon.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };
 
-export const SortingIcon64 = Template64.bind({})
+export const SortingIcon64 = Template64.bind({});
 SortingIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };
 
-export const SortingActiveIcon = TemplateActive.bind({})
+export const SortingActiveIcon = TemplateActive.bind({});
 SortingActiveIcon.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

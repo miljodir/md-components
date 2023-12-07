@@ -1,8 +1,8 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 
-import MdDocIcon from '../icons/MdDocIcon';
 import MdDeleteIcon from '../icons/MdDeleteIcon';
+import MdDocIcon from '../icons/MdDocIcon';
 import MdDownloadIcon from '../icons/MdDownloadIcon';
 import MdEditIcon from '../icons/MdEditIcon';
 
@@ -11,8 +11,8 @@ interface FileType {
   id?: string | number;
   url?: string;
   size?: number;
-  type?: string
-};
+  type?: string;
+}
 
 export interface MdFileListProps {
   files?: File[] | FileType[];
@@ -20,10 +20,10 @@ export interface MdFileListProps {
   allowDelete?: boolean;
   allowEdit?: boolean;
   hideIcons?: boolean;
-  onRemoveFile?(file: File | FileType): void;
-  onDownloadFile?(file: File | FileType): void;
-  onEditFile?(file: File | FileType): void;
-};
+  onRemoveFile?(_file: File | FileType): void;
+  onDownloadFile?(_file: File | FileType): void;
+  onEditFile?(_file: File | FileType): void;
+}
 
 const formatBytes = (bytes: number, decimals = 2): string => {
   if (typeof bytes !== 'number') return 'n/a';
@@ -46,65 +46,70 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   hideIcons = false,
   onRemoveFile,
   onDownloadFile,
-  onEditFile
+  onEditFile,
 }: MdFileListProps) => {
   const outerClass = classnames('md-filelist');
   const fileClass = classnames('md-filelist__file');
 
   return (
     <div className={outerClass}>
-      {files && files.length > 0 && files.map((file: FileType | File, index: number) => (
-        <div
-          key={`md-filelist-file-${file.name}-${index}`}
-          className={fileClass}
-        >
-          <div className="md-filelist__file-label">
-            {!hideIcons &&
-              <div className="md-filelist__file-icon">
-                <MdDocIcon />
+      {files &&
+        files.length > 0 &&
+        files.map((file: FileType | File, index: number) => {
+          return (
+            <div key={`md-filelist-file-${file.name}-${index}`} className={fileClass}>
+              <div className="md-filelist__file-label">
+                {!hideIcons && (
+                  <div className="md-filelist__file-icon">
+                    <MdDocIcon />
+                  </div>
+                )}
+                <div>
+                  <div>{file.name}</div>
+                  {file.size && <div className="md-filelist__file-size">{formatBytes(file.size)}</div>}
+                </div>
               </div>
-            }
-            <div>
-              <div>{file.name}</div>
-              {file.size &&
-                <div className="md-filelist__file-size">{formatBytes(file.size)}</div>
-              }
+
+              <div className="md-filelist__file-actions">
+                {!hideDownload && onDownloadFile && 'url' in file && (
+                  <button
+                    type="button"
+                    className="md-filelist__file-actions-button md-filelist__file-download"
+                    onClick={() => {
+                      onDownloadFile(file);
+                    }}
+                  >
+                    <MdDownloadIcon className="md-filelist__file-download-icon" />
+                  </button>
+                )}
+
+                {allowDelete && onRemoveFile && (
+                  <button
+                    type="button"
+                    className="md-filelist__file-actions-button md-filelist__file-delete"
+                    onClick={() => {
+                      onRemoveFile(file);
+                    }}
+                  >
+                    <MdDeleteIcon className="md-filelist__file-delete-icon" />
+                  </button>
+                )}
+
+                {allowEdit && onEditFile && (
+                  <button
+                    type="button"
+                    className="md-filelist__file-actions-button md-filelist__file-edit"
+                    onClick={() => {
+                      onEditFile(file);
+                    }}
+                  >
+                    <MdEditIcon className="md-filelist__file-delete-icon" />
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-
-          <div className="md-filelist__file-actions">
-            {!hideDownload && onDownloadFile && ('url' in file) &&
-              <button
-                type="button"
-                className="md-filelist__file-actions-button md-filelist__file-download"
-                onClick={() => {onDownloadFile(file)}}
-              >
-                <MdDownloadIcon className="md-filelist__file-download-icon" />
-              </button>
-            }
-
-            {allowDelete && onRemoveFile &&
-              <button
-                type="button"
-                className="md-filelist__file-actions-button md-filelist__file-delete"
-                onClick={() => {onRemoveFile(file)}}
-              >
-                <MdDeleteIcon className="md-filelist__file-delete-icon" />
-              </button>
-            }
-
-            {allowEdit && onEditFile &&
-              <button
-                type="button"
-                className="md-filelist__file-actions-button md-filelist__file-edit"
-                onClick={() => {onEditFile(file)}}
-              >
-                <MdEditIcon className="md-filelist__file-delete-icon" />
-              </button>
-            }
-          </div>
-        </div>
-      ))}
+          );
+        })}
     </div>
   );
 };

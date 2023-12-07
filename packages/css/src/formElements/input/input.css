@@ -17,7 +17,7 @@
 }
 
 .md-input--small {
-  padding: .5em 2em .5em 1em;
+  padding: 0.5em 2em 0.5em 1em;
 }
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
@@ -65,7 +65,7 @@
 
 .md-input__wrapper {
   position: relative;
-  margin: .7em 0 .3em 0;
+  margin: 0.7em 0 0.3em 0;
 }
 
 .md-input__wrapper.md-input__wrapper--small {
@@ -89,7 +89,7 @@
 
 .md-input__error {
   color: var(--mdErrorColor);
-  font-size: .88em;
+  font-size: 0.88em;
 }
 
 .md-input__help-text {
@@ -99,7 +99,7 @@
 }
 
 .md-input__help-text--open {
-  padding-top: .5em;
+  padding-top: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -119,14 +119,14 @@
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__prefix {
-  top: .65em;
-  left: .5em;
+  top: 0.65em;
+  left: 0.5em;
 }
 
 .md-input__suffix {
   position: absolute;
   top: 1.05em;
-  right: .9em;
+  right: 0.9em;
   display: flex;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .md-input__suffix > * + * {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .md-input__error-icon {
@@ -145,34 +145,38 @@
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix {
-  top: .55em;
-  right: .7em;
+  top: 0.55em;
+  right: 0.7em;
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix > * + * {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 
 /* Placeholder "hacks" */
-.md-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+.md-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
-.md-input::-moz-placeholder { /* Firefox 19+ */
+.md-input::-moz-placeholder {
+  /* Firefox 19+ */
   color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
-.md-input:-ms-input-placeholder { /* IE 10+ */
+.md-input:-ms-input-placeholder {
+  /* IE 10+ */
   color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
-.md-input:-moz-placeholder { /* Firefox 18- */
+.md-input:-moz-placeholder {
+  /* Firefox 18- */
   color: var(--mdGreyColor40);
   font-family: 'Open sans';
 }
 
 /* Hacks for hiding arrows if type=number */
-.md-input.md-input--hide-number-arrows[type=number],
+.md-input.md-input--hide-number-arrows[type='number'],
 .md-input.md-input--hide-number-arrows::-webkit-outer-spin-button,
 .md-input.md-input--hide-number-arrows::-webkit-inner-spin-button {
   appearance: none;

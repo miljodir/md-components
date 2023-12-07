@@ -1,30 +1,30 @@
 :root {
   --mdPrimaryColor: #005e5d;
   --mdPrimaryColor120: #005251;
-  --mdPrimaryColor80: #337E7D;
-  --mdPrimaryColor20: #CCDFDE;
-  --mdPrimaryColor10: #E5EEEE;
+  --mdPrimaryColor80: #337e7d;
+  --mdPrimaryColor20: #ccdfde;
+  --mdPrimaryColor10: #e5eeee;
 
   --mdLightPrimaryColor: #40c1ac;
   --mdDarkPrimaryColor: #005251;
 
-  --mdSecondaryColor: #ECE7D2;
-  --mdSecondaryColor80: #EFEBDB;
-  --mdSecondaryColor60: #F3F0E4;
-  --mdSecondaryColor40: #F7F5ED;
-  --mdSecondaryColor20: #FBFAF6;
+  --mdSecondaryColor: #ece7d2;
+  --mdSecondaryColor80: #efebdb;
+  --mdSecondaryColor60: #f3f0e4;
+  --mdSecondaryColor40: #f7f5ed;
+  --mdSecondaryColor20: #fbfaf6;
 
   --mdTextColor: #222222;
 
-  --mdWarningBackgoundColor: #FCE4CA;
+  --mdWarningBackgoundColor: #fce4ca;
 
   --mdErrorColor: #ca0000;
-  --mdErrorColor120: #B7090D;
+  --mdErrorColor120: #b7090d;
 
   --mdGreyColor: #222222;
-  --mdGreyColor10: #E8E8E8;
-  --mdGreyColor20: #D2D2D2;
-  --mdGreyColor40: #A6A6A6;
+  --mdGreyColor10: #e8e8e8;
+  --mdGreyColor20: #d2d2d2;
+  --mdGreyColor40: #a6a6a6;
   --mdGreyColor60: #808080;
-  --mdGreyColor80: #4E4E4E;
+  --mdGreyColor80: #4e4e4e;
 }

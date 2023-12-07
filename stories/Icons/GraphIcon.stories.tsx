@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Graph icon. Color is inherited from parent.<br/><br/>`import { MdGraphIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdGraphIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Graph icon. Color is inherited from parent.<br/><br/>`import { MdGraphIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdGraphIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdGraphIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,17 +50,16 @@ const Template64 = (args: any) => {
       <MdGraphIcon64 className={args.className} />
     </div>
   );
-}
-
-export const GraphIcon = Template.bind({})
-GraphIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
+export const GraphIcon = Template.bind({});
+GraphIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
 
-export const GraphIcon64 = Template64.bind({})
+export const GraphIcon64 = Template64.bind({});
 GraphIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

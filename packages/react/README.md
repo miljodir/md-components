@@ -1,21 +1,19 @@
-## @miljodirektoratet/md-react
+# @miljodirektoratet/md-react
 
 To start using the React-components:
 
-```
+```bash
 npm install @miljodirektoratet/md-react
 ```
 
 Then import and start rendering components:
 
-```
+```jsx
 import { MdButton } from '@miljodirektoratet/md-react';
 
 const MyComponent = () => {
-    return (
-        <MdButton>Example</MdButton>
-    )
-}
+  return <MdButton>Example</MdButton>;
+};
 ```
 
 **These React components are dependant on the css from `@miljodirektoratet/md-react`. Please install this package also, and include it with you own css.**

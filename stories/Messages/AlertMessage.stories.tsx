@@ -1,35 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ComponentStory } from '@storybook/react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import React, { useState, useRef } from 'react';
 // @ts-ignore
 import Readme from '../../packages/css/src/messages/AlertMessage.md';
 
 import MdAlertMessage from '../../packages/react/src/messages/MdAlertMessage';
+import type { ComponentStory } from '@storybook/react';
 
 export default {
   title: 'Messages/AlertMessage',
   component: MdAlertMessage,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
         component:
           "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
@@ -59,8 +53,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     fullWidth: {
-      description:
-        'Make alert message full width. Non-full width has max-width = 634px',
+      description: 'Make alert message full width. Non-full width has max-width = 634px',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -91,22 +84,18 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdAlertMessage> = (args) => {
+const Template: ComponentStory<typeof MdAlertMessage> = args => {
   const [show, setShow] = useState(true);
   const parent = useRef(null);
 
-  const onClick = (e: any) => {
+  const onClick = () => {
     setShow(false);
     setTimeout(() => {
       setShow(true);
     }, 700);
   };
 
-  return (
-    <div ref={parent}>
-      {show && <MdAlertMessage {...args} onClose={onClick} />}
-    </div>
-  );
+  return <div ref={parent}>{show && <MdAlertMessage {...args} onClose={onClick} />}</div>;
 };
 
 export const AlertMessage = Template.bind({});

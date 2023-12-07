@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdInfoIcon from '../../packages/react/src/icons/MdInfoIcon'
+import MdInfoIcon from '../../packages/react/src/icons/MdInfoIcon';
 import MdInfoIcon64 from '../../packages/react/src/icons/MdInfoIcon64';
 
 export default {
@@ -9,30 +9,31 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Info icon. Color is inherited from parent.<br/><br/>`import { MdInfoIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdInfoIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          "Info icon. Color is inherited from parent.<br/><br/>`import { MdInfoIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdInfoIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
 const Template = (args: any) => {
@@ -41,7 +42,7 @@ const Template = (args: any) => {
       <MdInfoIcon className={args.className} />
     </div>
   );
-}
+};
 
 const Template64 = (args: any) => {
   return (
@@ -49,16 +50,16 @@ const Template64 = (args: any) => {
       <MdInfoIcon64 className={args.className} />
     </div>
   );
-}
-
-export const InfoIcon = Template.bind({})
-InfoIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const InfoIcon64 = Template64.bind({})
+export const InfoIcon = Template.bind({});
+InfoIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const InfoIcon64 = Template64.bind({});
 InfoIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

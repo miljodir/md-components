@@ -1,35 +1,30 @@
-import React, { ChangeEvent } from 'react';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import React from 'react';
 // @ts-ignore
 import Readme from '../packages/css/src/formElements/textarea/README.md';
 
 import MdTextArea from '../packages/react/src/formElements/MdTextArea';
+import type { ChangeEvent } from 'react';
 
 export default {
   title: 'Form/TextArea',
   component: MdTextArea,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
         component: "Text area used in forms.<br/><br/>`import { MdTextArea } from '@miljodirektoratet/md-react'`",
       },
@@ -38,47 +33,47 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string' },
-      description: "The label for the input field.",
+      description: 'The label for the input field.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     value: {
       type: { name: 'string' },
-      description: "Inputs value",
+      description: 'Inputs value',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     rows: {
       type: { name: 'number' },
-      description: "The number of rows in the text area",
+      description: 'The number of rows in the text area',
       table: {
         defaultValue: { summary: '10' },
         type: {
-          summary: "number",
+          summary: 'number',
         },
       },
-      control: { type: 'number' }
+      control: { type: 'number' },
     },
     placeholder: {
       type: { name: 'string' },
-      description: "Inputs placeholder value when not no value is given",
+      description: 'Inputs placeholder value when not no value is given',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     disabled: {
       description: 'Is the input field disabled or not',
@@ -88,7 +83,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     readOnly: {
       description: 'Is the input field readonly or not',
@@ -98,7 +93,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     error: {
       description: 'Has validation for input field failed?',
@@ -108,78 +103,73 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     errorText: {
       type: { name: 'string' },
-      description: "Optional text to display if error. Will only display if error is `true`",
+      description: 'Optional text to display if error. Will only display if error is `true`',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     helpText: {
       type: { name: 'string' },
-      description: "Optional helper text, will also add a help icon which toggles help text box.",
+      description: 'Optional helper text, will also add a help icon which toggles help text box.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     outerWrapperClass: {
       type: { name: 'string' },
-      description: "Class names to apply to the inputs outer most wrapper.",
+      description: 'Class names to apply to the inputs outer most wrapper.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     id: {
       type: { name: 'string' },
-      description: "Assign id to input field",
+      description: 'Assign id to input field',
       table: {
         defaultValue: { summary: 'random uuidv4 string' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events",
+      description: 'The onChange handler for change events',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
-    }
-  }
-}
+    },
+  },
+};
 
-const Template = (args) => {
+const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     updateArgs({ ...args, value: e?.target?.value });
-  }
+  };
 
-  return (
-    <MdTextArea
-      {...args}
-      onChange={handleChange}
-    />
-  );
-}
+  return <MdTextArea {...args} onChange={handleChange} />;
+};
 
 export const TextArea = Template.bind({});
 TextArea.args = {
@@ -193,5 +183,5 @@ TextArea.args = {
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
   id: '',
-  rows: 10
+  rows: 10,
 };

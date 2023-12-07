@@ -1,9 +1,9 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 
+import MdCheckIcon from '../icons/MdCheckIcon';
 import MdInfoIcon from '../icons/MdInfoIcon';
 import MdWarningIcon from '../icons/MdWarningIcon';
-import MdCheckIcon from '../icons/MdCheckIcon';
 import MdXIcon from '../icons/MdXIcon';
 
 export interface MdAlertMessageProps {
@@ -12,7 +12,7 @@ export interface MdAlertMessageProps {
   hideIcon?: boolean;
   closable?: boolean;
   fullWidth?: boolean;
-  onClose?(e: React.MouseEvent): void;
+  onClose?(_e: React.MouseEvent): void;
   customIcon?: React.ReactNode | string;
 }
 
@@ -60,7 +60,9 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
       {!!closable && onClose && (
         <button
           className="md-alert-message__button"
-          onClick={(e) => clickHandler(e)}
+          onClick={e => {
+            return clickHandler(e);
+          }}
         >
           <MdXIcon width="16" height="16" />
         </button>

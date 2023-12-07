@@ -1,10 +1,7 @@
 import React from 'react';
-import MdIconProps from './icon.model';
+import type MdIconProps from './icon.model';
 
-const MdBurgerMenuIcon: React.FunctionComponent<MdIconProps> = ({
-  className,
-  ...otherProps
-}: MdIconProps) => {
+const MdBurgerMenuIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       version="1.1"

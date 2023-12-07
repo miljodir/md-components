@@ -1,14 +1,6 @@
-import React from 'react';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import React from 'react';
 // @ts-ignore
 import Readme from '../packages/css/src/formElements/checkbox/README.md';
 
@@ -19,28 +11,30 @@ export default {
   component: MdCheckbox,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description markdown="A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`" />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description markdown="A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`" />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
     },
   },
   argTypes: {
     label: {
-      description: "The checkbox label",
+      description: 'The checkbox label',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     checked: {
       description: 'Is the checkbox checked or not',
@@ -50,27 +44,27 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     id: {
-      description: "The checkbox id",
+      description: 'The checkbox id',
       table: {
         defaultValue: { summary: 'random uuid4 string' },
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     disabled: {
-      description: "Is checkbox disabled or not",
+      description: 'Is checkbox disabled or not',
       table: {
         defaultValue: { summary: 'false' },
         type: {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     onChange: {
       description: 'Callback for controlling checked state',
@@ -80,17 +74,17 @@ export default {
           summary: null,
         },
       },
-      action: 'change'
-    }
+      action: 'change',
+    },
   },
 };
 
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleCheck = (isChecked) => {
+  const handleCheck = isChecked => {
     updateArgs({ ...args, checked: isChecked });
-  }
+  };
 
   return (
     <MdCheckbox
@@ -103,11 +97,11 @@ const Template = args => {
   );
 };
 
-export const Checkbox = Template.bind({})
+export const Checkbox = Template.bind({});
 Checkbox.args = {
-  label: "Example checkbox",
+  label: 'Example checkbox',
   checked: true,
-  id: "checkbox_id",
-  value: "checkbox_value",
-  disabled: false
+  id: 'checkbox_id',
+  value: 'checkbox_value',
+  disabled: false,
 };

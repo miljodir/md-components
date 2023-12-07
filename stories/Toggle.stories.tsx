@@ -1,14 +1,6 @@
-import React from 'react';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import React from 'react';
 // @ts-ignore
 import Readme from '../packages/css/src/toggle/README.md';
 
@@ -19,17 +11,19 @@ export default {
   component: MdToggle,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
         component: "Toggle switch.<br/><br/>`import { MdToggle } from '@miljodirektoratet/md-react'`",
       },
@@ -44,29 +38,30 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     id: {
       type: { name: 'string', required: true },
-      description: "**Required**. Assign id to toggle field. This is used to identify which toggle is clicked, and which state it has.",
+      description:
+        '**Required**. Assign id to toggle field. This is used to identify which toggle is clicked, and which state it has.',
       table: {
         // defaultValue: { summary: 'random uuidv4 string' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     label: {
       type: { name: 'string' },
-      description: "The label for the toggle",
+      description: 'The label for the toggle',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     disabled: {
       description: 'Is the toggle disabled?',
@@ -76,7 +71,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     error: {
       description: 'Does toggle contain an error?',
@@ -86,45 +81,40 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     errorText: {
       type: { name: 'string' },
-      description: "The error text to display",
+      description: 'The error text to display',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events. Returns a ChangeEvent.",
+      description: 'The onChange handler for change events. Returns a ChangeEvent.',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
-    }
-  }
-}
+    },
+  },
+};
 
-const Template = (args) => {
+const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateArgs({ ...args, checked: e?.target?.checked });
-  }
+  };
 
-  return (
-    <MdToggle
-      {...args}
-      onChange={handleChange}
-    />
-  );
-}
+  return <MdToggle {...args} onChange={handleChange} />;
+};
 
 export const Toggle = Template.bind({});
 Toggle.args = {
@@ -133,5 +123,5 @@ Toggle.args = {
   checked: false,
   disabled: false,
   error: false,
-  errorText: ''
+  errorText: '',
 };

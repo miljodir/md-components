@@ -1,12 +1,4 @@
-import {
-  ArgsTable,
-  Description,
-  PRIMARY_STORY,
-  Primary,
-  Stories,
-  Subtitle,
-  Title,
-} from '@storybook/addon-docs';
+import { ArgsTable, Description, PRIMARY_STORY, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 // @ts-ignore
@@ -19,17 +11,19 @@ export default {
   component: MdAutocomplete,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
         component:
           "A form component for single autocomplete.<br/><br/>`import { MdAutocomplete } from '@miljodirektoratet/md-react'`",
@@ -53,26 +47,22 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          summary:
-            "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
     },
     options: {
       type: { name: 'array', required: true },
-      description:
-        'Array with data objects for searchable autocomplete options',
+      description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          summary:
-            "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
     },
     value: {
       type: { name: 'string | number' },
-      description:
-        'The currently selected value. This corresponds to `value` from selected `option`',
+      description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -83,8 +73,7 @@ export default {
     },
     id: {
       type: { name: 'string | number' },
-      description:
-        'Id for the autocomplete box. If not set, uses a random uuid',
+      description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
         defaultValue: { summary: 'uuid()' },
         type: {
@@ -147,8 +136,7 @@ export default {
     },
     onChange: {
       type: { name: 'function' },
-      description:
-        'The onChange handler for change events. Returns the clicked option, to handle as you please.',
+      description: 'The onChange handler for change events. Returns the clicked option, to handle as you please.',
       table: {
         type: {
           summary: 'function',
@@ -163,10 +151,10 @@ export default {
   },
 };
 
-const Template = (args) => {
+const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleChange = (option) => {
+  const handleChange = option => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };

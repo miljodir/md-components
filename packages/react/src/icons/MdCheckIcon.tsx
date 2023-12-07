@@ -3,7 +3,7 @@ import React from 'react';
 export interface MdCheckIconProps {
   className?: string;
   [otherProps: string]: unknown;
-};
+}
 
 const MdCheckIcon: React.FunctionComponent<MdCheckIconProps> = ({
   className = '',
@@ -18,7 +18,10 @@ const MdCheckIcon: React.FunctionComponent<MdCheckIconProps> = ({
       className={className}
       {...otherProps}
     >
-      <path d="M27.3748 4.79883L12.5268 23.1028L6.07883 14.3828L4.79883 15.3428L12.4788 25.7268L28.6228 5.80683L27.3748 4.79883Z" fill="currentColor"/>
+      <path
+        d="M27.3748 4.79883L12.5268 23.1028L6.07883 14.3828L4.79883 15.3428L12.4788 25.7268L28.6228 5.80683L27.3748 4.79883Z"
+        fill="currentColor"
+      />
     </svg>
   );
 };
