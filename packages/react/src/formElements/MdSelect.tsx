@@ -99,7 +99,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(({
     return value && value !== '' && value == option.value;
   }
 
-  const buttonClasseNames = classnames('md-select__button', {
+  const buttonClassNames = classnames('md-select__button', {
     'md-select__button--open': !!open,
     'md-select__button--error': !!error
   });
@@ -117,6 +117,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(({
         {helpText && helpText !== '' &&
           <div className="md-select__help-button">
             <MdHelpButton
+              aria-expanded={helpOpen}
               onClick={() => setHelpOpen(!helpOpen)}
               expanded={helpOpen}
             />
@@ -126,7 +127,9 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(({
 
       {helpText && helpText !== '' &&
         <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText id={uuid} role="tooltip">
+            {helpText}
+          </MdHelpText>
         </div>
       }
 
@@ -135,8 +138,9 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(({
         className='md-select__container'
       >
         <button
-          className={buttonClasseNames}
+          className={buttonClassNames}
           type='button'
+          aria-describedby={helpText && helpText !== '' ? uuid : undefined}
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
           ref={ref}

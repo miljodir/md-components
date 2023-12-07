@@ -92,6 +92,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
         {helpText && helpText !== '' &&
           <MdHelpButton
+            aria-expanded={helpOpen}
             onClick={() => setHelpOpen(!helpOpen)}
             expanded={helpOpen}
           />
@@ -100,11 +101,16 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
       {helpText && helpText !== '' &&
         <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
-          <MdHelpText>{helpText}</MdHelpText>
+          <MdHelpText id={radioId} role="tooltip">
+            {helpText}
+          </MdHelpText>
         </div>
       }
 
-      <div className={optionsClassNames}>
+      <div
+        aria-describedby={helpText && helpText !== '' ? radioId : undefined}
+        className={optionsClassNames}
+      >
         {options && options.map(option => (
           <label
             htmlFor={`radio_${radioId}_${option.text}`}

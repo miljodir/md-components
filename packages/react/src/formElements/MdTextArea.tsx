@@ -56,6 +56,7 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
         {helpText && helpText !== '' &&
           <div className="md-textarea__help-button">
             <MdHelpButton
+              aria-expanded={helpOpen}
               onClick={() => setHelpOpen(!helpOpen)}
               expanded={helpOpen}
             />
@@ -65,13 +66,16 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
 
       {helpText && helpText !== '' &&
         <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText id={textAreaId} role="tooltip">
+            {helpText}
+          </MdHelpText>
         </div>
       }
       <div className="md-textarea__wrapper">
         <textarea
           id={`md-textarea_${textAreaId}`}
           value={value}
+          aria-describedby={helpText && helpText !== '' ? textAreaId : undefined}
           rows={rows}
           className={classNames}
           placeholder={placeholder}

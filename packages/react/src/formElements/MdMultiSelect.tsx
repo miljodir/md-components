@@ -60,7 +60,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
     'md-multiselect--small': size === 'small'
   });
 
-  const buttonClasseNames = classnames('md-multiselect__button', {
+  const buttonClassNames = classnames('md-multiselect__button', {
     'md-multiselect__button--open': !!open
   });
 
@@ -133,6 +133,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         {helpText && helpText !== '' &&
           <div className="md-multiselect__help-button">
             <MdHelpButton
+              aria-expanded={helpOpen}
               onClick={() => setHelpOpen(!helpOpen)}
               expanded={helpOpen}
             />
@@ -142,7 +143,9 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
 
       {helpText && helpText !== '' &&
         <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText id={uuid} role="tooltip">
+            {helpText}
+          </MdHelpText>
         </div>
       }
 
@@ -152,7 +155,8 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       >
         <button
           type='button'
-          className={buttonClasseNames}
+          aria-describedby={helpText && helpText !== '' ? uuid : undefined}
+          className={buttonClassNames}
           tabIndex={0}
           onClick={() => !disabled && setOpen(!open)}
         >

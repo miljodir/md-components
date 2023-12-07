@@ -93,6 +93,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         }
         {helpText && helpText !== '' &&
           <MdHelpButton
+            aria-expanded={helpOpen}
             onClick={() => setHelpOpen(!helpOpen)}
             expanded={helpOpen}
           />
@@ -101,11 +102,16 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 
       {helpText && helpText !== '' &&
         <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
-          <MdHelpText>{helpText}</MdHelpText>
+          <MdHelpText id={groupId} role="tooltip">
+            {helpText}
+          </MdHelpText>
         </div>
       }
 
-      <div className={optionsClassNames}>
+      <div
+        aria-describedby={helpText && helpText !== '' ? groupId : undefined}
+        className={optionsClassNames}
+      >
         {options.map(option => (
           <MdCheckbox
             key={`key_${groupId}_${option.value}`}
