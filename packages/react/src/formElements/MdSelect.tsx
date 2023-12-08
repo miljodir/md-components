@@ -111,7 +111,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       return value && value !== '' && value == option.value;
     };
 
-    const buttonClasseNames = classnames('md-select__button', {
+    const buttonClassNames = classnames('md-select__button', {
       'md-select__button--open': !!open,
       'md-select__button--error': !!error,
     });
@@ -129,6 +129,10 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           {helpText && helpText !== '' && (
             <div className="md-select__help-button">
               <MdHelpButton
+                ariaLabel={`Hjelpetekst for ${label}`}
+                id={`md-select_help-button_${uuid}`}
+                aria-expanded={helpOpen}
+                aria-controls={`md-select_help-text_${uuid}`}
                 onClick={() => {
                   return setHelpOpen(!helpOpen);
                 }}
@@ -140,7 +144,13 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
         {helpText && helpText !== '' && (
           <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
-            <MdHelpText>{helpText}</MdHelpText>
+            <MdHelpText
+              role="region"
+              id={`md-select_help-text_${uuid}`}
+              aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${uuid}` : undefined}
+            >
+              {helpText}
+            </MdHelpText>
           </div>
         )}
 
@@ -151,7 +161,9 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           className="md-select__container"
         >
           <button
-            className={buttonClasseNames}
+            id={`md-select_${uuid}`}
+            aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
+            className={buttonClassNames}
             type="button"
             tabIndex={0}
             onClick={() => {
