@@ -14,6 +14,7 @@ export interface MdAccordionItemProps {
   children?: React.ReactNode;
   className?: string;
   hideCloseButton?: boolean;
+  closeButtonText?: string;
   rounded?: boolean;
   onToggle?(_e: React.MouseEvent): void;
 }
@@ -28,6 +29,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   className = '',
   children,
   hideCloseButton = false,
+  closeButtonText = 'Lukk',
   rounded = false,
   onToggle,
 }: MdAccordionItemProps) => {
@@ -108,7 +110,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
               tabIndex={isExpanded ? 0 : -1}
             >
               <MdMinusIcon aria-hidden="true" className="md-accordion-item__close-button__icon" />
-              <div>Lukk</div>
+              {closeButtonText}
             </button>
           )}
         </div>
