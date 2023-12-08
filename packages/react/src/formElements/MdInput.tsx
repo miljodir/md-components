@@ -125,7 +125,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
           />
 
           <div className="md-input__suffix">
-            {suffix && <div className="md-input__suffix-content">{suffix}</div>}
+            {suffix}
             {error && !hideErrorIcon && (
               <div className="md-input__error-icon">
                 <MdWarningIcon />
