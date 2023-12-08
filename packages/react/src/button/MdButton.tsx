@@ -31,9 +31,17 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
 
   return (
     <button type={type} {...otherProps} className={classNames}>
-      {leftIcon && <div className="md-button__leftIcon">{leftIcon}</div>}
+      {leftIcon && (
+        <div aria-hidden="true" className="md-button__leftIcon">
+          {leftIcon}
+        </div>
+      )}
       {children}
-      {rightIcon && <div className="md-button__rightIcon">{rightIcon}</div>}
+      {rightIcon && (
+        <div aria-hidden="true" className="md-button__rightIcon">
+          {rightIcon}
+        </div>
+      )}
     </button>
   );
 };

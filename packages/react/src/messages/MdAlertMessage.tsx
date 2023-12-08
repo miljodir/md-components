@@ -33,13 +33,13 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   });
 
   const renderIcon = () => {
-    let icon = (<MdInfoIcon width="20" height="20" />) as React.ReactNode;
+    let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
     } else if (theme === 'confirm') {
-      icon = <MdCheckIcon width="20" height="20" />;
+      icon = <MdCheckIcon aria-label="Bekreft" width="20" height="20" />;
     } else if (theme === 'warning' || theme === 'error') {
-      icon = <MdWarningIcon width="20" height="20" />;
+      icon = <MdWarningIcon aria-label="Advarsel" width="20" height="20" />;
     }
     return icon;
   };
@@ -59,12 +59,13 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 
       {!!closable && onClose && (
         <button
+          aria-label="Lukk"
           className="md-alert-message__button"
           onClick={e => {
             return clickHandler(e);
           }}
         >
-          <MdXIcon width="16" height="16" />
+          <MdXIcon aria-hidden="true" width="16" height="16" />
         </button>
       )}
     </div>
