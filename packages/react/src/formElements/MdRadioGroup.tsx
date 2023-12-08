@@ -115,8 +115,8 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       )}
 
       <div
-        aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioId}` : undefined}
         id={`md-radiogroup_${radioId}`}
+        aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioId}` : undefined}
         className={optionsClassNames}
       >
         {options &&

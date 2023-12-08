@@ -117,7 +117,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       )}
 
       <div
-        id={groupId}
+        id={`md-checkboxgroup_${groupId}`}
         aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${groupId}` : undefined}
         className={optionsClassNames}
       >
