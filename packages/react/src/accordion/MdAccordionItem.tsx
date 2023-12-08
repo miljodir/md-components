@@ -72,8 +72,10 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     <div className={accordionClassNames}>
       {/* Header */}
       <button
-        id={String(accordionId) || undefined}
+        id={`md-accordion-item_button_${accordionId}`}
         type="button"
+        aria-expanded={isExpanded}
+        aria-controls={`md-accordion-item_content_${accordionId}`}
         className={headerClassNames}
         disabled={!!disabled}
         onClick={(e: React.MouseEvent) => {
@@ -89,7 +91,11 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 
       {/* Content */}
       {!disabled && (
-        <div className={contentClassNames}>
+        <div
+          id={`md-accordion-item_content_${accordionId}`}
+          aria-labelledby={`md-accordion-item_button_${accordionId}`}
+          className={contentClassNames}
+        >
           <div className="md-accordion-item__content-inner">{children}</div>
 
           {!hideCloseButton && (
@@ -101,7 +107,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
               }}
               tabIndex={isExpanded ? 0 : -1}
             >
-              <MdMinusIcon className="md-accordion-item__close-button__icon" />
+              <MdMinusIcon aria-hidden="true" className="md-accordion-item__close-button__icon" />
               <div>Lukk</div>
             </button>
           )}

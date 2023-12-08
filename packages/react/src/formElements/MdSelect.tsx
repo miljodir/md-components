@@ -145,7 +145,6 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
         {helpText && helpText !== '' && (
           <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
             <MdHelpText
-              role="region"
               id={`md-select_help-text_${uuid}`}
               aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${uuid}` : undefined}
             >

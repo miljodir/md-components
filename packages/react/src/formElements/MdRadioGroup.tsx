@@ -105,7 +105,6 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
           <MdHelpText
-            role="region"
             id={`md-radiogroup_help-text_${radioId}`}
             aria-labelledby={helpText && helpText !== '' ? `md-radiogroup_help-button_${radioId}` : undefined}
           >

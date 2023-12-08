@@ -107,7 +107,6 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
           <MdHelpText
-            role="region"
             id={`md-checkboxgroup_help-text_${groupId}`}
             aria-labelledby={helpText && helpText !== '' ? `md-checkboxgroup_help-button_${groupId}` : undefined}
           >

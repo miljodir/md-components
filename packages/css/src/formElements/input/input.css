@@ -131,7 +131,7 @@
 }
 
 .md-input__suffix-content {
-  color: var(--mdGreyColor60);
+  color: var(--mdGreyColor80);
 }
 
 .md-input__suffix > * + * {

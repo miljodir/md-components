@@ -94,7 +94,6 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
         {helpText && helpText !== '' && (
           <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
             <MdHelpText
-              role="region"
               id={`md-input_help-text_${inputId}`}
               aria-labelledby={helpText && helpText !== '' ? `md-input_help-button_${inputId}` : undefined}
             >

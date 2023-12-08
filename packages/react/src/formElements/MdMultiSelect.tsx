@@ -158,7 +158,6 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
           <MdHelpText
-            role="region"
             id={`md-multiselect_help-text_${uuid}`}
             aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${uuid}` : undefined}
           >

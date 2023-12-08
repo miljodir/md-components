@@ -68,7 +68,6 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
           <MdHelpText
-            role="region"
             id={`md-textarea_help-text_${textAreaId}`}
             aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
           >
