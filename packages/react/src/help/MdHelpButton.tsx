@@ -30,13 +30,12 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
     <button
       {...otherProps}
       id={id}
-      aria-hidden="true"
       aria-label={ariaLabel || 'Hjelpetekst'}
       className={buttonClasses}
       onClick={onClick}
       type="button"
     >
-      <MdHelpIcon className="md-helpbutton__icon" />
+      <MdHelpIcon aria-hidden="true" className="md-helpbutton__icon" />
     </button>
   );
 };
