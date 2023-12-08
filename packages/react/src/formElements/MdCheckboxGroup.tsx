@@ -92,7 +92,10 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         {label && label !== '' && <div>{label}</div>}
         {helpText && helpText !== '' && (
           <MdHelpButton
+            ariaLabel={`Hjelpetekst for ${label}`}
+            id={`md-checkboxgroup_help-button_${groupId}`}
             aria-expanded={helpOpen}
+            aria-controls={`md-checkboxgroup_help-text_${groupId}`}
             onClick={() => {
               return setHelpOpen(!helpOpen);
             }}
@@ -103,18 +106,26 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 
       {helpText && helpText !== '' && (
         <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
-          <MdHelpText id={groupId} role="tooltip">
+          <MdHelpText
+            role="region"
+            id={`md-checkboxgroup_help-text_${groupId}`}
+            aria-labelledby={helpText && helpText !== '' ? `md-checkboxgroup_help-button_${groupId}` : undefined}
+          >
             {helpText}
           </MdHelpText>
         </div>
       )}
 
-      <div aria-describedby={helpText && helpText !== '' ? groupId : undefined} className={optionsClassNames}>
+      <div
+        id={groupId}
+        aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${groupId}` : undefined}
+        className={optionsClassNames}
+      >
         {options.map(option => {
           return (
             <MdCheckbox
               key={`key_${groupId}_${option.value}`}
-              id={`${groupId}_${option.value}`}
+              id={`md-checkboxgroup_${groupId}_${option.value}`}
               label={option.text}
               disabled={disabled}
               checked={optionIsSelected(option)}
@@ -129,7 +140,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         })}
       </div>
 
-      {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}
+      {error && error !== '' && <div className="md-checkboxgroup__error">{error}</div>}
     </div>
   );
 };

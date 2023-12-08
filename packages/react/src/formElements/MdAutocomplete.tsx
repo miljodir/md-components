@@ -54,7 +54,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [autocompleteValue, setAutocompleteValue] = useState('');
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
 
-    const inputId = id && id !== '' ? id : uuidv4();
+    const uuid = id && id !== '' ? id : uuidv4();
 
     const classNames = classnames('md-autocomplete', {
       'md-autocomplete--open': !!open,
@@ -105,11 +105,14 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     return (
       <div className={classNames}>
         <div className="md-autocomplete__label">
-          {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
+          {label && label !== '' && <label htmlFor={uuid}>{label}</label>}
           {helpText && helpText !== '' && (
             <div className="md-autocomplete__help-button">
               <MdHelpButton
+                ariaLabel={`Hjelpetekst for ${label}`}
+                id={`md-autocomplete_help-button_${uuid}`}
                 aria-expanded={helpOpen}
+                aria-controls={`md-autocomplete_help-text_${uuid}`}
                 onClick={() => {
                   return setHelpOpen(!helpOpen);
                 }}
@@ -121,7 +124,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
 
         {helpText && helpText !== '' && (
           <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
-            <MdHelpText id={inputId} role="tooltip">
+            <MdHelpText
+              role="region"
+              id={`md-autocomplete_help-text_${uuid}`}
+              aria-labelledby={helpText && helpText !== '' ? `md-autocomplete_help-button_${uuid}` : undefined}
+            >
               {helpText}
             </MdHelpText>
           </div>
@@ -143,8 +150,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             </div>
           )}
           <input
-            id={inputId}
-            aria-describedby={helpText && helpText !== '' ? inputId : undefined}
+            id={`md-autocomplete_${uuid}`}
+            aria-describedby={helpText && helpText !== '' ? `md-autocomplete_help-text_${uuid}` : undefined}
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
@@ -177,8 +184,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (
                   <button
-                    key={`md-autocomplete-option-${inputId}-${option.value}`}
-                    id={`md-autocomplete-option-${inputId}-${option.value}`}
+                    key={`md-autocomplete-option-${uuid}-${option.value}`}
+                    id={`md-autocomplete-option-${uuid}-${option.value}`}
                     type="button"
                     tabIndex={open ? 0 : -1}
                     className={optionClass(option)}
