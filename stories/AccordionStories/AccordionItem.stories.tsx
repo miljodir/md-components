@@ -88,6 +88,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    closeButtonText: {
+      type: { name: 'string' },
+      description: 'The text for the close button inside accordion content.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
     rounded: {
       type: { name: 'boolean' },
       description: 'Add rounded corners to accordion item',

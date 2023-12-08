@@ -125,7 +125,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
         {helpText && helpText !== '' && (
           <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
             <MdHelpText
-              role="region"
               id={`md-autocomplete_help-text_${uuid}`}
               aria-labelledby={helpText && helpText !== '' ? `md-autocomplete_help-button_${uuid}` : undefined}
             >

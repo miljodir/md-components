@@ -130,10 +130,6 @@
   display: flex;
 }
 
-.md-input__suffix-content {
-  color: var(--mdGreyColor60);
-}
-
 .md-input__suffix > * + * {
   margin-left: 0.5em;
 }
