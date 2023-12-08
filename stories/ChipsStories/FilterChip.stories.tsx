@@ -1,6 +1,6 @@
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 // @ts-ignore
 import Readme from '../../packages/css/src/chips/README.md';
 
@@ -12,17 +12,19 @@ export default {
   component: MdFilterChip,
   parameters: {
     docs: {
-      page: () => {return (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      )},
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
         component:
           "A chip component used for filters. Requires an onClick handler.<br/><br/>`import { MdFilterChip } from '@miljodirektoratet/md-react'`",
@@ -97,15 +99,15 @@ const Template = args => {
   const [_, updateArgs] = useArgs();
 
   const handleClick = () => {
-    updateArgs({ ...args active: !args.active });
+    updateArgs({ ...args, active: !args.active });
   };
 
   return (
     <MdFilterChip
       {...args}
       prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
-      onClick={e => {
-        handleClick(e);
+      onClick={() => {
+        handleClick();
       }}
     />
   );
