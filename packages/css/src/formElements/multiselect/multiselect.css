@@ -190,6 +190,11 @@
   gap: 0.5em;
 }
 
+/* Focus state */
+.md-multiselect__button:focus {
+  border: 2px solid var(--mdPrimaryColor);
+}
+
 /* Open state */
 .md-multiselect--open .md-multiselect__button {
   border-top: 2px solid var(--mdPrimaryColor);

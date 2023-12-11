@@ -183,6 +183,11 @@
   z-index: 2;
 }
 
+/* Focus state */
+.md-autocomplete__input:focus {
+  border: 2px solid var(--mdPrimaryColor);
+}
+
 /* open + error */
 .md-autocomplete--open.md-autocomplete--error .md-autocomplete__input {
   border-color: var(--mdErrorColor);

@@ -11,8 +11,8 @@ export default function useDropdown(
     const focusableElements = ref.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
 
     if (e.key === 'Escape') {
-      const button = focusableElements?.[0];
-      button?.focus();
+      const element = focusableElements?.[0];
+      element?.focus();
       document.removeEventListener('keydown', onKeyDown, false);
       setOpen(false);
     }
