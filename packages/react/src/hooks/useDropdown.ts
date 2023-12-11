@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 
 const focusableHtmlElements = 'button, [tabindex]';
 
-export default function useDropdown(open: boolean, setOpen: (_open: boolean) => void) {
-  const ref = useRef<HTMLDivElement>(null);
-
+export default function useDropdown(
+  ref: React.RefObject<HTMLDivElement>,
+  open: boolean,
+  setOpen: (_open: boolean) => void,
+) {
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       const button = document.getElementById('language-switcher-toggle');

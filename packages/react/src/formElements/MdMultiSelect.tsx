@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import classnames from 'classnames';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdInputChip from '../chips/MdInputChip';
@@ -51,7 +51,8 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   const uuid = id || uuidv4();
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
-  useDropdown(open, setOpen);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useDropdown(dropdownRef, open, setOpen);
 
   let hasMultipleSelected = false;
 
@@ -169,6 +170,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       )}
 
       <MdClickOutsideWrapper
+        ref={dropdownRef}
         onClickOutside={() => {
           return setOpen(false);
         }}

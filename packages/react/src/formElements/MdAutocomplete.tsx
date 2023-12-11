@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -54,7 +54,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
-    useDropdown(open, setOpen);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    useDropdown(dropdownRef, open, setOpen);
 
     const uuid = id && id !== '' ? id : uuidv4();
 
@@ -136,6 +137,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
         )}
 
         <MdClickOutsideWrapper
+          ref={dropdownRef}
           onClickOutside={() => {
             return setOpen(false);
           }}

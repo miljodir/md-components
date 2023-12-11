@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
@@ -48,7 +48,8 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   ) => {
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
-    useDropdown(open, setOpen);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    useDropdown(dropdownRef, open, setOpen);
 
     const uuid = id || uuidv4();
 
@@ -156,6 +157,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
         )}
 
         <MdClickOutsideWrapper
+          ref={dropdownRef}
           onClickOutside={() => {
             return setOpen(false);
           }}
