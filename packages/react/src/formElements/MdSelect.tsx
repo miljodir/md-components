@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
@@ -76,6 +76,34 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     if (open) {
       displayValue = '';
     }
+
+    useEffect(() => {
+      document.addEventListener('keydown', onKeyDown, false);
+
+      return () => {
+        document.removeEventListener('keydown', onKeyDown, false);
+      };
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const onKeyDown = (e: any) => {
+      if (open) {
+        const reg = /[a-z\Wæøå]+/gim;
+        const key = e.key;
+        if (key && reg.test(key) && key.length === 1) {
+          const option = options?.find(o => {
+            return o.text?.startsWith(key.toLowerCase()) || o.text?.startsWith(key.toUpperCase());
+          });
+          if (option) {
+            /* Find corresponding button */
+            const button = document.getElementById(`md-select-option-${uuid}-${option.value}`);
+            if (button) {
+              button.focus();
+            }
+          }
+        }
+      }
+    };
 
     const handleOptionClick = (option: MdSelectOptionProps) => {
       onChange(option);
