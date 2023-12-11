@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import useDropdown from '../hooks/useDropdown';
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
@@ -47,6 +48,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   ) => {
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
+    useDropdown(open, setOpen);
 
     const uuid = id || uuidv4();
 

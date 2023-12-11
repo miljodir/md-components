@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import useDropdown from '../hooks/useDropdown';
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
@@ -53,6 +54,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
+    useDropdown(open, setOpen);
 
     const uuid = id && id !== '' ? id : uuidv4();
 
