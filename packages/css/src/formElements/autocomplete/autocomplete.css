@@ -184,7 +184,7 @@
 }
 
 /* Focus state */
-.md-autocomplete__input:focus {
+.md-autocomplete:not(.md-autocomplete--open) .md-autocomplete__input:focus {
   border: 2px solid var(--mdPrimaryColor);
 }
 

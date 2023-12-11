@@ -209,6 +209,11 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
                     disabled={!!disabled}
                     data-value={option.value}
                     data-text={option.text}
+                    onKeyDown={(e: React.ChangeEvent & React.KeyboardEvent) => {
+                      if (e.key === 'Enter') {
+                        return handleOptionClick(e);
+                      }
+                    }}
                     onChange={(e: React.ChangeEvent) => {
                       return handleOptionClick(e);
                     }}
