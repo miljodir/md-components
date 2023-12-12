@@ -140,7 +140,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   return (
     <div className={classNames}>
       <div className="md-multiselect__label">
-        {label && label !== '' && <div>{label}</div>}
+        {label && label !== '' && <div id={`md-multiselect_label_${uuid}`}>{label}</div>}
 
         {helpText && helpText !== '' && (
           <div className="md-multiselect__help-button">
@@ -178,6 +178,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       >
         <button
           type="button"
+          aria-labelledby={`md-multiselect_label_${uuid}`}
           id={`md-multiselect_${uuid}`}
           aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${uuid}` : undefined}
           className={buttonClassNames}

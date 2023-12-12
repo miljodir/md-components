@@ -108,7 +108,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     return (
       <div className={classNames}>
         <div className="md-autocomplete__label">
-          {label && label !== '' && <label htmlFor={uuid}>{label}</label>}
+          {label && label !== '' && <label htmlFor={`md-autocomplete_${uuid}`}>{label}</label>}
           {helpText && helpText !== '' && (
             <div className="md-autocomplete__help-button">
               <MdHelpButton
