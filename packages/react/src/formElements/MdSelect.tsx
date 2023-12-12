@@ -85,8 +85,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       };
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onKeyDown = (e: any) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if (open) {
         const reg = /[a-z\Wæøå]+/gim;
         const key = e.key;
