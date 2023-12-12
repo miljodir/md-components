@@ -127,7 +127,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     return (
       <div className={classNames}>
         <div className="md-select__label">
-          <div id={`md-select_label_${uuid}`}>{label}</div>
+          <label id={`md-select_label_${uuid}`}>{label}</label>
           {helpText && helpText !== '' && (
             <div className="md-select__help-button">
               <MdHelpButton
