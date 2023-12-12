@@ -19,7 +19,6 @@ interface MdMultiSelectOptionProps {
 export interface MdMultiSelectProps {
   label?: string | null;
   options?: MdMultiSelectOptionProps[];
-  onChange?(_e: React.ChangeEvent): void;
   selected?: MdMultiSelectOptionProps[];
   placeholder?: string;
   disabled?: boolean;
@@ -31,6 +30,7 @@ export interface MdMultiSelectProps {
   closeOnSelect?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   id?: any;
+  onChange?(_e: React.ChangeEvent): void;
 }
 
 const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
@@ -45,8 +45,9 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   errorText,
   showChips = false,
   closeOnSelect = false,
-  onChange,
   id,
+  onChange,
+  ...otherProps
 }: MdMultiSelectProps) => {
   const uuid = id || uuidv4();
   const [open, setOpen] = useState(false);
@@ -138,7 +139,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} {...otherProps}>
       <div className="md-multiselect__label">
         {label && label !== '' && <label id={`md-multiselect_label_${uuid}`}>{label}</label>}
 

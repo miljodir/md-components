@@ -18,7 +18,6 @@ export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOptionProps[];
   id?: string | number | null | undefined;
-  onChange(_e: MdSelectOptionProps): void;
   name?: string;
   value?: string | number;
   placeholder?: string;
@@ -27,6 +26,7 @@ export interface MdSelectProps {
   helpText?: string;
   error?: boolean;
   errorText?: string;
+  onChange(_e: MdSelectOptionProps): void;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -43,6 +43,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       error = false,
       errorText,
       onChange,
+      ...otherProps
     },
     ref,
   ) => {
@@ -125,7 +126,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     };
 
     return (
-      <div className={classNames}>
+      <div className={classNames} {...otherProps}>
         <div className="md-select__label">
           <label id={`md-select_label_${uuid}`}>{label}</label>
           {helpText && helpText !== '' && (
