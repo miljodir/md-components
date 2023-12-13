@@ -2,7 +2,6 @@ import { action } from '@storybook/addon-actions';
 import {
   Title,
   Subtitle,
-  Description,
   Primary as StoryPrimary,
   ArgsTable,
   Stories,
@@ -14,6 +13,10 @@ import Readme from '../packages/css/src/button/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
 import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
 
+const markdownString =
+  // eslint-disable-next-line quotes
+  "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`";
+
 export default {
   title: 'Components/Button',
   component: MdButton,
@@ -24,7 +27,7 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Description markdown="A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`" />
+            <Markdown>{markdownString}</Markdown>
             <StoryPrimary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
