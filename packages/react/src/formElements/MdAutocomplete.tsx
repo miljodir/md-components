@@ -153,7 +153,13 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             </div>
           )}
           <input
+            role="listbox"
             id={`md-autocomplete_${uuid}`}
+            aria-activedescendant={
+              selectedOption
+                ? `md-autocomplete-option-${uuid}-${(selectedOption as MdAutocompleteOptionProps)?.value}`
+                : undefined
+            }
             aria-describedby={helpText && helpText !== '' ? `md-autocomplete_help-text_${uuid}` : undefined}
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
@@ -192,6 +198,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (
                   <button
+                    role="option"
+                    aria-selected={!!isSelectedOption(option)}
                     key={`md-autocomplete-option-${uuid}-${option.value}`}
                     id={`md-autocomplete-option-${uuid}-${option.value}`}
                     type="button"

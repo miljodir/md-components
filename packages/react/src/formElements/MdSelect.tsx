@@ -128,7 +128,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     return (
       <div className={classNames} {...otherProps}>
         <div className="md-select__label">
-          <label id={`md-select_label_${uuid}`}>{label}</label>
+          {label && label !== '' && <div id={`md-select_label_${uuid}`}>{label}</div>}
           {helpText && helpText !== '' && (
             <div className="md-select__help-button">
               <MdHelpButton
@@ -165,10 +165,14 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
         >
           <button
             aria-labelledby={`md-select_label_${uuid}`}
+            role="listbox"
             id={`md-select_${uuid}`}
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
             className={buttonClassNames}
             type="button"
+            aria-activedescendant={
+              selectedOption ? `md-select-option-${uuid}-${(selectedOption as MdSelectOptionProps)?.value}` : undefined
+            }
             tabIndex={0}
             onClick={() => {
               return !disabled && setOpen(!open);
@@ -186,6 +190,8 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               {options.map(option => {
                 return (
                   <button
+                    role="option"
+                    aria-selected={!!isSelectedOption(option)}
                     key={`md-select-option-${uuid}-${option.value}`}
                     id={`md-select-option-${uuid}-${option.value}`}
                     type="button"

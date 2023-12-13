@@ -141,7 +141,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   return (
     <div className={classNames} {...otherProps}>
       <div className="md-multiselect__label">
-        {label && label !== '' && <label id={`md-multiselect_label_${uuid}`}>{label}</label>}
+        {label && label !== '' && <div id={`md-multiselect_label_${uuid}`}>{label}</div>}
 
         {helpText && helpText !== '' && (
           <div className="md-multiselect__help-button">
@@ -178,6 +178,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         className="md-multiselect__dropdown-wrapper"
       >
         <button
+          role="listbox"
           type="button"
           aria-labelledby={`md-multiselect_label_${uuid}`}
           id={`md-multiselect_${uuid}`}
@@ -203,6 +204,8 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
               return (
                 <div key={`checkbox_key_${uuid}_${option.value}`} className={optionClass(option)}>
                   <MdCheckbox
+                    role="option"
+                    aria-selected={optionIsChecked(option)}
                     label={option.text}
                     tabIndex={open ? 0 : -1}
                     checked={!!optionIsChecked(option)}
