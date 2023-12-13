@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import React, { useState } from 'react';
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react';
@@ -9,6 +8,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Example use for handling accordion items.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -16,10 +16,9 @@ export default {
 };
 
 const Template: StoryFn<typeof MdAccordionItem> = () => {
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleExpand = (e: React.MouseEvent, item: any) => {
+  const handleExpand = (item: string) => {
     setExpanded(item === expanded ? null : item);
   };
 
@@ -28,8 +27,8 @@ const Template: StoryFn<typeof MdAccordionItem> = () => {
       <MdAccordionItem
         label="Første element"
         expanded={expanded === '1'}
-        onToggle={(e: React.MouseEvent) => {
-          return handleExpand(e, '1');
+        onToggle={() => {
+          return handleExpand('1');
         }}
       >
         Dette er første element i accordion
@@ -38,8 +37,8 @@ const Template: StoryFn<typeof MdAccordionItem> = () => {
       <MdAccordionItem
         label="Andre element"
         expanded={expanded === '2'}
-        onToggle={(e: React.MouseEvent) => {
-          return handleExpand(e, '2');
+        onToggle={() => {
+          return handleExpand('2');
         }}
       >
         Dette er andre element i accordion

@@ -86,8 +86,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   let displayValue: string | number = placeholder;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const selectedOptionsFull: any[] = [];
+  const selectedOptionsFull: MdMultiSelectOptionProps[] = [];
   if (!open && selected && selected.length > 0) {
     const findFirstOption = options.find(option => {
       return option.value === selected[0].value;
@@ -224,7 +223,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
             return (
               <MdInputChip
                 key={`multiselect_chip_${uuid}_${chip.value}`}
-                label={chip.text}
+                label={chip.text.toString()}
                 id={`checkbox_chip_${uuid}_${chip.value}`}
                 disabled={disabled}
                 onClick={() => {

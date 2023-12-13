@@ -136,16 +136,15 @@ type SelectedOptionType = {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleCheck = (e: any) => {
+  const handleCheck = (e: React.ChangeEvent<HTMLElement>) => {
     const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
     const found = newSelected.find((item: SelectedOptionType) => {
-      return item.value.toString() === dataset.value.toString();
+      return item.value.toString() === (dataset.value as string);
     });
     if (found) {
       newSelected = newSelected.filter((item: SelectedOptionType) => {
-        return item.value.toString() !== dataset.value.toString();
+        return item.value.toString() !== (dataset.value as string);
       });
     } else {
       newSelected.push({ ...dataset });
