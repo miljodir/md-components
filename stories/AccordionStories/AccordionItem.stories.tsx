@@ -1,11 +1,20 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../../packages/css/src/accordionitem/README.md';
 
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
 import MdInfoTag from '../../packages/react/src/infoTag/MdInfoTag';
-import type { ComponentStory } from '@storybook/react';
+import type { MdAccordionItemProps } from '../../packages/react/src/accordion/MdAccordionItem';
+import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/Accordion',
@@ -21,12 +30,13 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A component for expand/collapse content in an accordion.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -134,7 +144,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdAccordionItem> = args => {
+const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) => {
   const headerContent = <MdInfoTag theme="warning" label="Some info here" icon="warning" keepOpen />;
 
   return (

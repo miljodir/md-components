@@ -1,10 +1,17 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../../packages/css/src/messages/InfoBox.md';
-
 import MdInfoBox from '../../packages/react/src/messages/MdInfoBox';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Messages/InfoBox',
@@ -20,11 +27,12 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -72,7 +80,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdInfoBox> = args => {
+const Template: StoryFn<typeof MdInfoBox> = args => {
   return <MdInfoBox {...args} />;
 };
 

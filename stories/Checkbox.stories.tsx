@@ -1,10 +1,18 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/checkbox/README.md';
-
 import MdCheckbox from '../packages/react/src/formElements/MdCheckbox';
+import type { MdCheckboxProps } from '../packages/react/src/formElements/MdCheckbox';
 
 export default {
   title: 'Form/Checkbox',
@@ -20,7 +28,7 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -79,10 +87,10 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdCheckboxProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleCheck = isChecked => {
+  const handleCheck = (isChecked: boolean) => {
     updateArgs({ ...args, checked: isChecked });
   };
 

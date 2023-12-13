@@ -1,6 +1,7 @@
 import React from 'react';
 import MdLoadingSpinner from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
-import type { ComponentStory } from '@storybook/react';
+import type { MdLoadingSpinnerProps } from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
+import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/LoadingSpinner',
@@ -9,6 +10,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Loading spinner component.<br/><br/>`import { MdLoadingSpinner } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -51,7 +53,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdLoadingSpinner> = args => {
+const Template: StoryFn<typeof MdLoadingSpinner> = (args: MdLoadingSpinnerProps) => {
   return <MdLoadingSpinner {...args} />;
 };
 

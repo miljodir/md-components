@@ -1,2 +1,3 @@
-/stories
+/stories/mocks
+/stories/*.hidden
 /packages/react/dist

@@ -8,7 +8,7 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-interface MdSelectOptionProps {
+export interface MdSelectOptionProps {
   text: string;
   value: string;
 }

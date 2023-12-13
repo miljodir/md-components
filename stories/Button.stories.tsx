@@ -6,15 +6,13 @@ import {
   Primary as StoryPrimary,
   ArgsTable,
   Stories,
+  Markdown,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import React from 'react';
-
 import Readme from '../packages/css/src/button/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
 import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
-
-// @ts-ignore
 
 export default {
   title: 'Components/Button',
@@ -30,16 +28,15 @@ export default {
             <StoryPrimary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
     },
-    /* docs: {
-      description: {
-        component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
-      },
-    }, */
+    description: {
+      // eslint-disable-next-line quotes
+      component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
+    },
   },
   argTypes: {
     label: {

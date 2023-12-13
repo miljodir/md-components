@@ -1,10 +1,19 @@
-import { ArgsTable, Description, PRIMARY_STORY, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
+import {
+  ArgsTable,
+  Description,
+  Primary,
+  Markdown,
+  Stories,
+  Subtitle,
+  Title,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/select/README.md';
-
 import MdSelect from '../packages/react/src/formElements/MdSelect';
+import type { MdSelectOptionProps } from '../packages/react/src/formElements/MdSelect';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Form/Select',
@@ -20,12 +29,13 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A form component for single select.<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -47,6 +57,7 @@ export default {
       description: 'Array with data objects for select options',
       table: {
         type: {
+          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
@@ -137,15 +148,16 @@ export default {
     selectRef: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
-        'Ref to the button element that toggles the select dropdown, use for example to bring focus to the component when there\'s an error.',
+        // eslint-disable-next-line quotes
+        "Ref to the button element that toggles the select dropdown, use for example to bring focus to the component when there's an error.",
     },
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const handleChange = option => {
+  const handleChange = (option: MdSelectOptionProps) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };

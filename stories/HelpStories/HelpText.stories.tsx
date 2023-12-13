@@ -1,9 +1,17 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../../packages/css/src/help/README.md';
-
 import MdHelpText from '../../packages/react/src/help/MdHelpText';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Components/Help',
@@ -19,12 +27,13 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Component for displaying help text, mainly used in conjunction with MdHelpButton.<br/><br/>`import { MdHelpText } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -44,7 +53,7 @@ export default {
   },
 };
 
-const HelpTextTemplate = args => {
+const HelpTextTemplate = (args: Args) => {
   return <MdHelpText>{args.text}</MdHelpText>;
 };
 

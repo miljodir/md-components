@@ -1,10 +1,18 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/tile/README.md';
-
 import MdGraphIcon from '../packages/react/src/icons/MdGraphIcon';
 import MdTileVertical from '../packages/react/src/tiles/MdTileVertical';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Components/Tiles/TileVertical',
@@ -20,12 +28,13 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A link styled as a vertical tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTileVertical } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -97,7 +106,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <MdTileVertical
       heading="Målinger"

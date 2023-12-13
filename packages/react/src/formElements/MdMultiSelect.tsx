@@ -10,7 +10,7 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-interface MdMultiSelectOptionProps {
+export interface MdMultiSelectOptionProps {
   text: string | number;
   value: string | number;
 }

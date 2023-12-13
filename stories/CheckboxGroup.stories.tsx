@@ -1,10 +1,18 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
-
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Form/Checkbox/CheckboxGroup',
@@ -20,7 +28,7 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -130,11 +138,11 @@ type SelectedOptionType = {
   text?: string | number;
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const handleCheck = (e: React.ChangeEvent) => {
-    // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleCheck = (e: any) => {
     const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
     const found = newSelected.find((item: SelectedOptionType) => {

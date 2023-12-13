@@ -1,7 +1,7 @@
 import React from 'react';
-
 import MdPersonIcon from '../../packages/react/src/icons/MdPersonIcon';
 import MdPersonIcon64 from '../../packages/react/src/icons/MdPersonIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Person',
@@ -10,6 +10,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Person icon. Color is inherited from parent.<br/><br/>`import { MdPersonIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPersonIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -36,7 +37,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdPersonIcon className={args.className} />
@@ -44,7 +45,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdPersonIcon64 className={args.className} />

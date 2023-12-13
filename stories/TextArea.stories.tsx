@@ -1,10 +1,18 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/textarea/README.md';
-
 import MdTextArea from '../packages/react/src/formElements/MdTextArea';
+import type { MdTextAreaProps } from '../packages/react/src/formElements/MdTextArea';
 import type { ChangeEvent } from 'react';
 
 export default {
@@ -21,11 +29,12 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "Text area used in forms.<br/><br/>`import { MdTextArea } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -161,10 +170,10 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdTextAreaProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     updateArgs({ ...args, value: e?.target?.value });
   };
 

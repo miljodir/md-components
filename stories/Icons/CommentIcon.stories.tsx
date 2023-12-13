@@ -4,6 +4,7 @@ import MdCommentFillIcon from '../../packages/react/src/icons/MdCommentFillIcon'
 import MdCommentFillIcon64 from '../../packages/react/src/icons/MdCommentFillIcon64';
 import MdCommentIcon from '../../packages/react/src/icons/MdCommentIcon';
 import MdCommentIcon64 from '../../packages/react/src/icons/MdCommentIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Comment',
@@ -12,6 +13,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Comment icon. Color is inherited from parent.<br/><br/>`import { MdCommentIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCommentIcon64 } from '@miljodirektoratet/md-react'`<br/>`import { MdCommentFillIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCommentFillIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -38,7 +40,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdCommentIcon className={args.className} />
@@ -46,7 +48,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdCommentIcon64 className={args.className} />
@@ -54,7 +56,7 @@ const Template64 = (args: any) => {
   );
 };
 
-const TemplateFill = (args: any) => {
+const TemplateFill = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdCommentFillIcon className={args.className} />
@@ -62,7 +64,7 @@ const TemplateFill = (args: any) => {
   );
 };
 
-const TemplateFill64 = (args: any) => {
+const TemplateFill64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdCommentFillIcon64 className={args.className} />

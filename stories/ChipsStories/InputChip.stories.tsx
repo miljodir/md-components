@@ -1,11 +1,19 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  Markdown,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../../packages/css/src/chips/README.md';
-
 import MdInputChip from '../../packages/react/src/chips/MdInputChip';
 import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
+import type { MdInputChipProps } from '../../packages/react/src/chips/MdInputChip';
 
 export default {
   title: 'Chips/InputChip',
@@ -21,12 +29,13 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -115,8 +124,8 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdInputChipProps) => {
+  const [, updateArgs] = useArgs();
 
   const handleClick = () => {
     updateArgs({ ...args, active: !args.active });

@@ -2,6 +2,7 @@ import React from 'react';
 
 import MdEditIcon from '../../packages/react/src/icons/MdEditIcon';
 import MdEditIcon64 from '../../packages/react/src/icons/MdEditIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Edit',
@@ -10,6 +11,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Edit icon. Color is inherited from parent.<br/><br/>`import { MdEditIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdEditIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -36,7 +38,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdEditIcon className={args.className} />
@@ -44,7 +46,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdEditIcon64 className={args.className} />

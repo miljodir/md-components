@@ -1,7 +1,7 @@
+/* eslint-disable quotes */
 import React, { useState } from 'react';
-
 import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/Accordion',
@@ -16,9 +16,10 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdAccordionItem> = () => {
+const Template: StoryFn<typeof MdAccordionItem> = () => {
   const [expanded, setExpanded] = useState(null);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleExpand = (e: React.MouseEvent, item: any) => {
     setExpanded(item === expanded ? null : item);
   };

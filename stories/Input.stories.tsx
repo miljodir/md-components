@@ -1,11 +1,20 @@
-import { ArgsTable, Description, PRIMARY_STORY, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
+import {
+  ArgsTable,
+  Description,
+  Markdown,
+  Primary,
+  Stories,
+  Subtitle,
+  Title,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/input/README.md';
-
 import MdInput from '../packages/react/src/formElements/MdInput';
 import MdUserIcon from '../packages/react/src/icons/MdUserIcon';
+import type { Args } from '@storybook/react';
+import type { ChangeEvent } from 'react';
 
 export default {
   title: 'Form/Input',
@@ -21,11 +30,12 @@ export default {
             <Primary />
             <ArgsTable story={PRIMARY_STORY} />
             <Stories />
-            <Description markdown={Readme} />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "Input field used in forms.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -255,15 +265,16 @@ export default {
     },
     inputRef: {
       type: { name: 'Ref<HTMLInputElement>' },
+      // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
     },
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     updateArgs({ ...args, value: e?.target?.value });
   };
 
