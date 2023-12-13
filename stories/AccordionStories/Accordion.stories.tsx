@@ -5,7 +5,6 @@ import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/Accordion',
-  // component: MdAccordionItem,
   parameters: {
     docs: {
       description: {

@@ -1,5 +1,5 @@
 import {
-  ArgsTable,
+  ArgTypes,
   Description,
   Primary,
   Markdown,
@@ -27,7 +27,7 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
+            <ArgTypes of={PRIMARY_STORY} />
             <Stories />
             <Markdown>{Readme.toString()}</Markdown>
           </>

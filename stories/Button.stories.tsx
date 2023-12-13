@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import {
+  ArgTypes,
   Title,
   Subtitle,
   Primary as StoryPrimary,
-  ArgsTable,
   Stories,
   Markdown,
   PRIMARY_STORY,
@@ -29,7 +29,7 @@ export default {
             <Subtitle />
             <Markdown>{markdownString}</Markdown>
             <StoryPrimary />
-            <ArgsTable story={PRIMARY_STORY} />
+            <ArgTypes of={PRIMARY_STORY} />
             <Stories />
             <Markdown>{Readme.toString()}</Markdown>
           </>
