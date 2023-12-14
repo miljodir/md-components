@@ -1,9 +1,10 @@
 import classnames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import useDropdown from '../hooks/useDropdown';
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
@@ -17,7 +18,6 @@ export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOptionProps[];
   id?: string | number | null | undefined;
-  onChange(_e: MdSelectOptionProps): void;
   name?: string;
   value?: string | number;
   placeholder?: string;
@@ -26,6 +26,7 @@ export interface MdSelectProps {
   helpText?: string;
   error?: boolean;
   errorText?: string;
+  onChange(_e: MdSelectOptionProps): void;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -42,11 +43,14 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       error = false,
       errorText,
       onChange,
+      ...otherProps
     },
     ref,
   ) => {
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    useDropdown(dropdownRef, open, setOpen);
 
     const uuid = id || uuidv4();
 
@@ -122,9 +126,9 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     };
 
     return (
-      <div className={classNames}>
+      <div className={classNames} {...otherProps}>
         <div className="md-select__label">
-          <div>{label}</div>
+          {label && label !== '' && <div id={`md-select_label_${uuid}`}>{label}</div>}
           {helpText && helpText !== '' && (
             <div className="md-select__help-button">
               <MdHelpButton
@@ -153,12 +157,17 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
         )}
 
         <MdClickOutsideWrapper
+          ref={dropdownRef}
           onClickOutside={() => {
             return setOpen(false);
           }}
           className="md-select__container"
         >
           <button
+            role="combobox"
+            aria-expanded={open}
+            aria-controls="md-select_dropdown_${uuid}"
+            aria-labelledby={`md-select_label_${uuid}`}
             id={`md-select_${uuid}`}
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
             className={buttonClassNames}
@@ -170,16 +179,18 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             ref={ref}
           >
             <div className="md-select__button-text">{displayValue}</div>
-            <div className="md-select__button-icon">
+            <div aria-hidden="true" className="md-select__button-icon">
               <MdChevronIcon />
             </div>
           </button>
 
           {options && options.length > 0 && (
-            <div className="md-select__dropdown">
+            <div role="listbox" className="md-select__dropdown" id={'md-select_dropdown_${uuid}'}>
               {options.map(option => {
                 return (
                   <button
+                    role="option"
+                    aria-selected={!!isSelectedOption(option)}
                     key={`md-select-option-${uuid}-${option.value}`}
                     id={`md-select-option-${uuid}-${option.value}`}
                     type="button"
@@ -192,7 +203,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
                     <div className="md-select__dropdown-item-text">{option.text}</div>
                     {isSelectedOption(option) && (
                       <div className="md-select__dropdown-item-clear" title="Klikk for å fjerne valg">
-                        <MdXIcon />
+                        <MdXIcon aria-hidden="true" />
                       </div>
                     )}
                   </button>

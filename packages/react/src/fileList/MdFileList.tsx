@@ -61,7 +61,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
               <div className="md-filelist__file-label">
                 {!hideIcons && (
                   <div className="md-filelist__file-icon">
-                    <MdDocIcon />
+                    <MdDocIcon aria-hidden="true" />
                   </div>
                 )}
                 <div>
@@ -74,36 +74,39 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                 {!hideDownload && onDownloadFile && 'url' in file && (
                   <button
                     type="button"
+                    aria-label="Last ned fil"
                     className="md-filelist__file-actions-button md-filelist__file-download"
                     onClick={() => {
                       onDownloadFile(file);
                     }}
                   >
-                    <MdDownloadIcon className="md-filelist__file-download-icon" />
+                    <MdDownloadIcon aria-hidden="true" className="md-filelist__file-download-icon" />
                   </button>
                 )}
 
                 {allowDelete && onRemoveFile && (
                   <button
                     type="button"
+                    aria-label="Slett fil"
                     className="md-filelist__file-actions-button md-filelist__file-delete"
                     onClick={() => {
                       onRemoveFile(file);
                     }}
                   >
-                    <MdDeleteIcon className="md-filelist__file-delete-icon" />
+                    <MdDeleteIcon aria-hidden="true" className="md-filelist__file-delete-icon" />
                   </button>
                 )}
 
                 {allowEdit && onEditFile && (
                   <button
                     type="button"
+                    aria-label="Rediger fil"
                     className="md-filelist__file-actions-button md-filelist__file-edit"
                     onClick={() => {
                       onEditFile(file);
                     }}
                   >
-                    <MdEditIcon className="md-filelist__file-delete-icon" />
+                    <MdEditIcon aria-hidden="true" className="md-filelist__file-delete-icon" />
                   </button>
                 )}
               </div>

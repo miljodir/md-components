@@ -74,3 +74,7 @@
 .md-fileupload__actions > * + * {
   margin-left: 1em;
 }
+
+.md-fileupload__button {
+  margin-left: 4px !important;
+}
