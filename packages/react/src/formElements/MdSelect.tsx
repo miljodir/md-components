@@ -172,9 +172,6 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
             className={buttonClassNames}
             type="button"
-            aria-activedescendant={
-              selectedOption ? `md-select-option-${uuid}-${(selectedOption as MdSelectOptionProps)?.value}` : undefined
-            }
             tabIndex={0}
             onClick={() => {
               return !disabled && setOpen(!open);

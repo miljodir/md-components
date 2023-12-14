@@ -158,11 +158,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             aria-expanded={open}
             aria-controls="md-autocomplete_dropdown_${uuid}"
             id={`md-autocomplete_${uuid}`}
-            aria-activedescendant={
-              selectedOption
-                ? `md-autocomplete-option-${uuid}-${(selectedOption as MdAutocompleteOptionProps)?.value}`
-                : undefined
-            }
             aria-describedby={helpText && helpText !== '' ? `md-autocomplete_help-text_${uuid}` : undefined}
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
