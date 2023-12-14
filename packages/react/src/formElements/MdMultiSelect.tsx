@@ -200,7 +200,12 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         </button>
 
         {options && options.length > 0 && (
-          <div role="listbox" id={'md-multiselect_dropdown_${uuid}'} className={dropDownClassNames}>
+          <div
+            aria-labelledby={`md-multiselect_label_${uuid}`}
+            role="listbox"
+            id={'md-multiselect_dropdown_${uuid}'}
+            className={dropDownClassNames}
+          >
             {options.map(option => {
               return (
                 <div key={`checkbox_key_${uuid}_${option.value}`} className={optionClass(option)}>

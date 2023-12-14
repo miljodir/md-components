@@ -108,7 +108,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     return (
       <div className={classNames}>
         <div className="md-autocomplete__label">
-          {label && label !== '' && <label htmlFor={`md-autocomplete_${uuid}`}>{label}</label>}
+          {label && label !== '' && (
+            <label id={`md-autocomplete_label_${uuid}`} htmlFor={`md-autocomplete_${uuid}`}>
+              {label}
+            </label>
+          )}
           {helpText && helpText !== '' && (
             <div className="md-autocomplete__help-button">
               <MdHelpButton
@@ -192,7 +196,12 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           </div>
 
           {options && options.length > 0 && (
-            <div role="listbox" id={'md-autocomplete__dropdown_${uuid}'} className="md-autocomplete__dropdown">
+            <div
+              aria-labelledby={`md-autocomplete_label_${uuid}`}
+              role="listbox"
+              id={'md-autocomplete__dropdown_${uuid}'}
+              className="md-autocomplete__dropdown"
+            >
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (
                   <button

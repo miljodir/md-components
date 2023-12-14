@@ -185,7 +185,12 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           </button>
 
           {options && options.length > 0 && (
-            <div role="listbox" className="md-select__dropdown" id={'md-select_dropdown_${uuid}'}>
+            <div
+              aria-labelledby={`md-select_label_${uuid}`}
+              role="listbox"
+              className="md-select__dropdown"
+              id={'md-select_dropdown_${uuid}'}
+            >
               {options.map(option => {
                 return (
                   <button
