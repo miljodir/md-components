@@ -197,8 +197,10 @@
   border-left: 2px solid var(--mdPrimaryColor);
 }
 
-.md-multiselect__button--open {
+.md-multiselect__button:not(.md-multiselect__button--open):focus,
+.md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1em - 1px);
+  border: 2px solid var(--mdPrimaryColor);
 }
 
 .md-multiselect__dropdown--open {
