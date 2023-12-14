@@ -24,7 +24,7 @@ export default function useDropdown(
       if (!focusableElements || !document.activeElement) {
         return;
       }
-      const lastElement = focusableElements[focusableElements.length - 1];
+      const lastElement = focusableElements[Math.max(0, focusableElements.length - 1)];
 
       if (document.activeElement.getAttribute('id') === lastElement.id) {
         document.removeEventListener('keydown', onKeyDown, false);

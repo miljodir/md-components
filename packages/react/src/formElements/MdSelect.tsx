@@ -164,8 +164,10 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           className="md-select__container"
         >
           <button
+            role="combobox"
+            aria-expanded={open}
+            aria-controls="md-select_dropdown_${uuid}"
             aria-labelledby={`md-select_label_${uuid}`}
-            role="listbox"
             id={`md-select_${uuid}`}
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
             className={buttonClassNames}
@@ -186,7 +188,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           </button>
 
           {options && options.length > 0 && (
-            <div className="md-select__dropdown">
+            <div role="listbox" className="md-select__dropdown" id={'md-select_dropdown_${uuid}'}>
               {options.map(option => {
                 return (
                   <button

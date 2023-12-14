@@ -178,7 +178,9 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         className="md-multiselect__dropdown-wrapper"
       >
         <button
-          role="listbox"
+          role="combobox"
+          aria-expanded={open}
+          aria-controls="md-multiselect_dropdown_${uuid}"
           type="button"
           aria-labelledby={`md-multiselect_label_${uuid}`}
           id={`md-multiselect_${uuid}`}
@@ -199,7 +201,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         </button>
 
         {options && options.length > 0 && (
-          <div className={dropDownClassNames}>
+          <div role="listbox" id={'md-multiselect_dropdown_${uuid}'} className={dropDownClassNames}>
             {options.map(option => {
               return (
                 <div key={`checkbox_key_${uuid}_${option.value}`} className={optionClass(option)}>

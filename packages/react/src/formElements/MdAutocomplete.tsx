@@ -153,7 +153,9 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             </div>
           )}
           <input
-            role="listbox"
+            role="combobox"
+            aria-expanded={open}
+            aria-controls="md-autocomplete_dropdown_${uuid}"
             id={`md-autocomplete_${uuid}`}
             aria-activedescendant={
               selectedOption
@@ -194,7 +196,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           </div>
 
           {options && options.length > 0 && (
-            <div className="md-autocomplete__dropdown">
+            <div role="listbox" id={'md-autocomplete__dropdown_${uuid}'} className="md-autocomplete__dropdown">
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (
                   <button
