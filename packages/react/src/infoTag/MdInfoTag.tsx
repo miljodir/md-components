@@ -41,11 +41,11 @@ const MdInfoTag: React.FC<MdInfoTagProps> = ({
       return customIcon;
     } else {
       if (icon === 'info') {
-        return <MdInfoIcon />;
+        return <MdInfoIcon aria-label="Info" />;
       } else if (icon === 'warning') {
-        return <MdWarningIcon />;
+        return <MdWarningIcon aria-label="Advarsel" />;
       } else if (icon === 'error') {
-        return <MdCancelIcon />;
+        return <MdCancelIcon aria-label="Feil" />;
       } else {
         return null;
       }

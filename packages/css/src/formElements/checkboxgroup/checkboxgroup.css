@@ -1,6 +1,7 @@
 .md-checkboxgroup {
   font-family: 'Open sans';
   font-size: 16px;
+  border: none;
 }
 
 .md-checkboxgroup .md-checkboxgroup__label {

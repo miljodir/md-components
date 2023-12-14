@@ -186,7 +186,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           {hasMultipleSelected && !open && (
             <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
           )}
-          <div className="md-multiselect__button-icon">
+          <div aria-hidden="true" className="md-multiselect__button-icon">
             <MdChevronIcon />
           </div>
         </button>

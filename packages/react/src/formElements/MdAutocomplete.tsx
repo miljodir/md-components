@@ -141,6 +141,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
         >
           {prefixIcon && (
             <div
+              aria-hidden="true"
               className={`${classnames('md-autocomplete__input__prefix', {
                 'md-autocomplete__input__prefix--disabled': !!disabled,
               })}`}
@@ -174,7 +175,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             ref={ref}
             {...otherProps}
           />
-          <div className="md-autocomplete__input-icon">
+          <div aria-hidden="true" className="md-autocomplete__input-icon">
             <MdChevronIcon />
           </div>
 

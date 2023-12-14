@@ -87,8 +87,8 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   };
 
   return (
-    <div className={classNames} {...otherProps}>
-      <div className="md-checkboxgroup__label">
+    <fieldset className={classNames} {...otherProps}>
+      <legend className="md-checkboxgroup__label">
         {label && label !== '' && <div>{label}</div>}
         {helpText && helpText !== '' && (
           <MdHelpButton
@@ -102,7 +102,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
             expanded={helpOpen}
           />
         )}
-      </div>
+      </legend>
 
       {helpText && helpText !== '' && (
         <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
@@ -140,7 +140,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       </div>
 
       {error && error !== '' && <div className="md-checkboxgroup__error">{error}</div>}
-    </div>
+    </fieldset>
   );
 };
 

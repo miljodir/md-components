@@ -82,8 +82,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       };
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onKeyDown = (e: any) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if (open) {
         const reg = /[a-z\Wæøå]+/gim;
         const key = e.key;
@@ -171,7 +170,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             ref={ref}
           >
             <div className="md-select__button-text">{displayValue}</div>
-            <div className="md-select__button-icon">
+            <div aria-hidden="true" className="md-select__button-icon">
               <MdChevronIcon />
             </div>
           </button>
@@ -193,7 +192,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
                     <div className="md-select__dropdown-item-text">{option.text}</div>
                     {isSelectedOption(option) && (
                       <div className="md-select__dropdown-item-clear" title="Klikk for å fjerne valg">
-                        <MdXIcon />
+                        <MdXIcon aria-hidden="true" />
                       </div>
                     )}
                   </button>
