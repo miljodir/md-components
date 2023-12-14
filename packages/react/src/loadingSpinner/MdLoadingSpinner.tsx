@@ -23,7 +23,7 @@ const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   );
 
   return (
-    <div className={classNames}>
+    <div aria-label="Laster" className={classNames}>
       <MdLoadingSpinnerIcon className="md-loading-spinner" size={size} />
     </div>
   );

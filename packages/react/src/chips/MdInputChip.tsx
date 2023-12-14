@@ -36,10 +36,14 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
 
   return (
     <button className={buttonClassNames} id={String(chipId) || undefined} disabled={disabled} {...otherProps}>
-      {prefixIcon && <div className="md-chip__left-icon">{prefixIcon}</div>}
+      {prefixIcon && (
+        <div aria-hidden="true" className="md-chip__left-icon">
+          {prefixIcon}
+        </div>
+      )}
       <div className="md-chip__label">{label}</div>
       {!hideCloseIcon && (
-        <div className="md-chip__right-icon">
+        <div aria-hidden="true" className="md-chip__right-icon">
           <MdXIcon />
         </div>
       )}

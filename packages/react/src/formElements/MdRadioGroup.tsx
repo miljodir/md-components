@@ -84,8 +84,8 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   };
 
   return (
-    <div className={classNames} {...otherProps}>
-      <div className="md-radiogroup__label">
+    <fieldset role="radiogroup" className={classNames} {...otherProps}>
+      <legend className="md-radiogroup__label">
         {label && label !== '' && <div>{label}</div>}
 
         {helpText && helpText !== '' && (
@@ -100,7 +100,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
             expanded={helpOpen}
           />
         )}
-      </div>
+      </legend>
 
       {helpText && helpText !== '' && (
         <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
@@ -146,7 +146,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       </div>
 
       {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}
-    </div>
+    </fieldset>
   );
 };
 

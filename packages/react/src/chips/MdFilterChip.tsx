@@ -30,10 +30,20 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
   });
 
   return (
-    <button className={buttonClassNames} id={String(chipId) || undefined} disabled={disabled} {...otherProps}>
-      {prefixIcon && !active && <div className="md-chip__left-icon">{prefixIcon}</div>}
+    <button
+      aria-pressed={active}
+      className={buttonClassNames}
+      id={String(chipId) || undefined}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {prefixIcon && !active && (
+        <div aria-hidden="true" className="md-chip__left-icon">
+          {prefixIcon}
+        </div>
+      )}
       {active && (
-        <div className="md-chip__left-icon">
+        <div aria-hidden="true" className="md-chip__left-icon">
           <MdCheckIcon />
         </div>
       )}

@@ -95,12 +95,12 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           }
         }}
       >
-        <div className="md-fileupload__droparea-icon">
+        <div aria-hidden="true" className="md-fileupload__droparea-icon">
           <MdUploadIcon />
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp {imagesOnly ? 'et bilde' : 'en fil'} her eller
+          {`Dropp ${imagesOnly ? 'et bilde' : 'en fil'} her eller `}
           <button
             className="md-fileupload__button"
             type="button"

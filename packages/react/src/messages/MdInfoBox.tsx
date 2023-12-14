@@ -20,7 +20,7 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   });
 
   const renderIcon = () => {
-    let icon = (<MdInfoIcon width="20" height="20" />) as React.ReactNode;
+    let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
     }

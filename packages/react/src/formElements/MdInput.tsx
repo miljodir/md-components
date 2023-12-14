@@ -104,6 +104,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
         <div className={wrapperClassNames}>
           {prefixIcon && (
             <div
+              aria-hidden="true"
               className={`${classnames('md-input__prefix', {
                 'md-input__prefix--disabled': !!disabled,
               })}`}
@@ -128,7 +129,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             {suffix}
             {error && !hideErrorIcon && (
               <div className="md-input__error-icon">
-                <MdWarningIcon />
+                <MdWarningIcon aria-hidden="true" />
               </div>
             )}
           </div>
