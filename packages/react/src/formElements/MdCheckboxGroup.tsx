@@ -42,7 +42,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   onBlur,
   ...otherProps
 }: MdCheckboxGroupProps) => {
-  const groupId = id || uuidv4();
+  const checkboxGroupId = id || uuidv4();
   const [helpOpen, setHelpOpen] = useState(false);
 
   const classNames = classnames(
@@ -93,9 +93,9 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         {helpText && helpText !== '' && (
           <MdHelpButton
             ariaLabel={`Hjelpetekst for ${label}`}
-            id={`md-checkboxgroup_help-button_${groupId}`}
+            id={`md-checkboxgroup_help-button_${checkboxGroupId}`}
             aria-expanded={helpOpen}
-            aria-controls={`md-checkboxgroup_help-text_${groupId}`}
+            aria-controls={`md-checkboxgroup_help-text_${checkboxGroupId}`}
             onClick={() => {
               return setHelpOpen(!helpOpen);
             }}
@@ -107,8 +107,10 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
           <MdHelpText
-            id={`md-checkboxgroup_help-text_${groupId}`}
-            aria-labelledby={helpText && helpText !== '' ? `md-checkboxgroup_help-button_${groupId}` : undefined}
+            id={`md-checkboxgroup_help-text_${checkboxGroupId}`}
+            aria-labelledby={
+              helpText && helpText !== '' ? `md-checkboxgroup_help-button_${checkboxGroupId}` : undefined
+            }
           >
             {helpText}
           </MdHelpText>
@@ -116,15 +118,15 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       )}
 
       <div
-        id={`md-checkboxgroup_${groupId}`}
-        aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${groupId}` : undefined}
+        id={String(checkboxGroupId) || undefined}
+        aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${checkboxGroupId}` : undefined}
         className={optionsClassNames}
       >
         {options.map(option => {
           return (
             <MdCheckbox
-              key={`key_${groupId}_${option.value}`}
-              id={`md-checkboxgroup_${groupId}_${option.value}`}
+              key={`key_${checkboxGroupId}_${option.value}`}
+              id={`md-checkboxgroup_${checkboxGroupId}_${option.value}`}
               label={option.text}
               disabled={disabled}
               checked={optionIsSelected(option)}

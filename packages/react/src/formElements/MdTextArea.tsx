@@ -48,7 +48,7 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
   return (
     <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
       <div className="md-textarea__label">
-        {label && label !== '' && <label htmlFor={`md-textarea_${textAreaId}`}>{label}</label>}
+        {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
         {helpText && helpText !== '' && (
           <div className="md-textarea__help-button">
             <MdHelpButton
@@ -77,7 +77,7 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
       )}
       <div className="md-textarea__wrapper">
         <textarea
-          id={`md-textarea_${textAreaId}`}
+          id={textAreaId}
           aria-describedby={helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined}
           value={value}
           rows={rows}
