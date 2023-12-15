@@ -1,13 +1,4 @@
-import {
-  ArgTypes,
-  Description,
-  Markdown,
-  Primary,
-  Stories,
-  Subtitle,
-  Title,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/input/README.md';
@@ -28,8 +19,7 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgTypes of={PRIMARY_STORY} />
-            <Stories />
+            <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );

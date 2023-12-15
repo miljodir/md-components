@@ -1,13 +1,4 @@
-import {
-  ArgTypes,
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Stories,
-  Markdown,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
 import MdGraphIcon from '../packages/react/src/icons/MdGraphIcon';
@@ -26,8 +17,7 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgTypes of={PRIMARY_STORY} />
-            <Stories />
+            <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );
