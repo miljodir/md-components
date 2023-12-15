@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
-
 import MdHelpIcon from '../icons/MdHelpIcon64';
+import MdTooltip from '../tooltip/MdTooltip';
 
 export interface MdHelpButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -26,18 +26,13 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
     'md-helpbutton--noarrow': !!hideArrow,
   });
 
-  return (
-    <button
-      {...otherProps}
-      id={id}
-      aria-label={ariaLabel || 'Hjelpetekst'}
-      className={buttonClasses}
-      onClick={onClick}
-      type="button"
-    >
+  const button = (
+    <button {...otherProps} id={id} aria-label={ariaLabel} className={buttonClasses} onClick={onClick} type="button">
       <MdHelpIcon aria-hidden="true" className="md-helpbutton__icon" />
     </button>
   );
+
+  return ariaLabel ? <MdTooltip label={ariaLabel}>{button}</MdTooltip> : button;
 };
 
 export default MdHelpButton;
