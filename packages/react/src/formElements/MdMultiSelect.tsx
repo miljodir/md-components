@@ -211,7 +211,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
                 <div key={`checkbox_key_${multiSelectId}_${option.value}`} className={optionClass(option)}>
                   <MdCheckbox
                     role="option"
-                    aria-selected={optionIsChecked(option)}
+                    aria-selected={!!optionIsChecked(option)}
                     label={option.text}
                     tabIndex={open ? 0 : -1}
                     checked={!!optionIsChecked(option)}
