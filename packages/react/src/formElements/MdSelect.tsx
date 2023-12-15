@@ -187,7 +187,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
           {options && options.length > 0 && (
             <div
-              aria-labelledby={`md-select_label_${selectId}`}
+              aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
               role="listbox"
               className="md-select__dropdown"
               id={`md-select_dropdown_${selectId}`}

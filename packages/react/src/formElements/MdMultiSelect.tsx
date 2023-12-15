@@ -202,7 +202,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
 
         {options && options.length > 0 && (
           <div
-            aria-labelledby={`md-multiselect_label_${multiSelectId}`}
+            aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
             role="listbox"
             id={`md-multiselect_dropdown_${multiSelectId}`}
             className={dropDownClassNames}
