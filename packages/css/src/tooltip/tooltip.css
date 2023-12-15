@@ -2,14 +2,14 @@
   z-index: 2;
   background-color: var(--mdPrimaryColor20);
   color: var(--mdGreyColor);
-  opacity: 0;
+  visibility: hidden;
   font-family: 'Open Sans';
-  margin: 4px;
   position: absolute;
   height: fit-content;
   width: fit-content;
   max-width: 200px;
   text-align: left;
+  margin: 2px;
   font-size: 14px;
   border-radius: 4px;
   padding: 6px 12px 6px 12px;
@@ -17,7 +17,7 @@
 }
 
 .md-tooltip--show {
-  opacity: 1;
+  visibility: visible;
 }
 
 .md-tooltip__child {
