@@ -138,7 +138,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   return (
-    <div className={classNames} {...otherProps}>
+    <div className={classNames}>
       <div className="md-multiselect__label">
         {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
 
@@ -181,7 +181,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           aria-expanded={open}
           aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
           type="button"
-          aria-labelledby={`md-multiselect_label_${multiSelectId}`}
+          aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
           id={multiSelectId}
           aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
           className={buttonClassNames}
@@ -189,6 +189,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           onClick={() => {
             return !disabled && setOpen(!open);
           }}
+          {...otherProps}
         >
           <div className="md-multiselect__button-text">{displayValue}</div>
           {hasMultipleSelected && !open && (

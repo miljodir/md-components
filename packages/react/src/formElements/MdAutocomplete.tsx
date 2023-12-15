@@ -109,7 +109,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       <div className={classNames}>
         <div className="md-autocomplete__label">
           {label && label !== '' && (
-            <label id={`md-autocomplete_label_${autocompleteId}`} htmlFor={`md-autocomplete_${autocompleteId}`}>
+            <label id={`md-autocomplete_label_${autocompleteId}`} htmlFor={autocompleteId}>
               {label}
             </label>
           )}

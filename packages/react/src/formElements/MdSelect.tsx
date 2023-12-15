@@ -126,7 +126,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     };
 
     return (
-      <div className={classNames} {...otherProps}>
+      <div className={classNames}>
         <div className="md-select__label">
           {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
           {helpText && helpText !== '' && (
@@ -167,7 +167,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             role="combobox"
             aria-expanded={open}
             aria-controls={`md-select_dropdown_${selectId}`}
-            aria-labelledby={`md-select_label_${selectId}`}
+            aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
             id={String(selectId) || undefined}
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined}
             className={buttonClassNames}
@@ -177,6 +177,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               return !disabled && setOpen(!open);
             }}
             ref={ref}
+            {...otherProps}
           >
             <div className="md-select__button-text">{displayValue}</div>
             <div aria-hidden="true" className="md-select__button-icon">
