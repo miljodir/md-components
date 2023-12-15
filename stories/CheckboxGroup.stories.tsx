@@ -1,10 +1,13 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
-
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
+import type { Args } from '@storybook/react';
+
+const markdownString =
+  // eslint-disable-next-line quotes
+  "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Form/Checkbox/CheckboxGroup',
@@ -16,11 +19,10 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Description markdown="A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`" />
+            <Markdown>{markdownString}</Markdown>
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -130,19 +132,18 @@ type SelectedOptionType = {
   text?: string | number;
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const handleCheck = (e: React.ChangeEvent) => {
-    // @ts-ignore
+  const handleCheck = (e: React.ChangeEvent<HTMLElement>) => {
     const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
     const found = newSelected.find((item: SelectedOptionType) => {
-      return item.value.toString() === dataset.value.toString();
+      return item.value.toString() === (dataset.value as string);
     });
     if (found) {
       newSelected = newSelected.filter((item: SelectedOptionType) => {
-        return item.value.toString() !== dataset.value.toString();
+        return item.value.toString() !== (dataset.value as string);
       });
     } else {
       newSelected.push({ ...dataset });

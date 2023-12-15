@@ -1,10 +1,13 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Primary, Markdown, Controls } from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/filelist/README.md';
-
 import MdFileList from '../packages/react/src/fileList/MdFileList';
-import type { ComponentStory } from '@storybook/react';
+import type { MdFileListProps } from '../packages/react/src/fileList/MdFileList';
+import type { StoryFn } from '@storybook/react';
+
+const markdownString =
+  // eslint-disable-next-line quotes
+  "A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Components/FileList',
@@ -16,11 +19,10 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Description markdown="A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`" />
+            <Markdown>{markdownString}</Markdown>
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -105,7 +107,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdFileList> = args => {
+const Template: StoryFn<typeof MdFileList> = (args: MdFileListProps) => {
   return <MdFileList {...args} />;
 };
 

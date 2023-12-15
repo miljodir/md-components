@@ -3,6 +3,7 @@ import React from 'react';
 import MdSortingActiveIcon from '../../packages/react/src/icons/MdSortingActiveIcon';
 import MdSortingIcon from '../../packages/react/src/icons/MdSortingIcon';
 import MdSortingIcon64 from '../../packages/react/src/icons/MdSortingIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Sorting',
@@ -11,6 +12,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Sorting icons. Color is inherited from parent.<br/><br/>`import { MdSortingIcon, MdSortingIcon64, MdSortingActiveIcon } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -37,7 +39,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdSortingIcon className={args.className} />
@@ -45,7 +47,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdSortingIcon64 className={args.className} />
@@ -53,7 +55,7 @@ const Template64 = (args: any) => {
   );
 };
 
-const TemplateActive = (args: any) => {
+const TemplateActive = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdSortingActiveIcon className={args.className} />

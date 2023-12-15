@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MdSignIcon from '../../packages/react/src/icons/MdSignIcon';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Sign',
@@ -9,6 +10,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Sign/Road sign icon. Color is inherited from parent.<br/><br/>`import { MdSignIcon } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -35,7 +37,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdSignIcon className={args.className} />

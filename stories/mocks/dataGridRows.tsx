@@ -1,4 +1,5 @@
-import MdLink from '../../packages/react/src/link/MdLink';
+import React from "react";
+import MdLink from "../../packages/react/src/link/MdLink";
 
 function onLinkClick(e) {
   e.preventDefault();

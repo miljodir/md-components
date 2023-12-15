@@ -1,10 +1,9 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/tabs/README.md';
-
 import MdTab from '../packages/react/src/tabs/MdTab';
 import MdTabs from '../packages/react/src/tabs/MdTabs';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Components/Tabs',
@@ -18,13 +17,13 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -57,7 +56,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <MdTabs initialTab={args.initialTab}>
       <MdTab title="Tab 1">

@@ -1,10 +1,10 @@
-import { ArgsTable, Description, PRIMARY_STORY, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 import MdAutocomplete from '../packages/react/src/formElements/MdAutocomplete';
 import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import type { MdAutocompleteOptionProps, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
 
 export default {
   title: 'Form/Autocomplete',
@@ -18,14 +18,14 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A form component for single autocomplete.<br/><br/>`import { MdAutocomplete } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -47,6 +47,7 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
+          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
@@ -56,6 +57,7 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
+          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
@@ -146,15 +148,16 @@ export default {
     inputRef: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
+        // eslint-disable-next-line quotes
         "Ref to the input element that toggles the select dropdown, use for example to bring focus to the component when there's an error.",
     },
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdAutocompleteProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleChange = option => {
+  const handleChange = (option: MdAutocompleteOptionProps) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };

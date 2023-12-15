@@ -1,10 +1,9 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/toggle/README.md';
-
 import MdToggle from '../packages/react/src/toggle/MdToggle';
+import type { MdToggleProps } from '../packages/react/src/toggle/MdToggle';
 
 export default {
   title: 'Components/Toggle',
@@ -18,13 +17,13 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "Toggle switch.<br/><br/>`import { MdToggle } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -106,8 +105,8 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdToggleProps) => {
+  const [, updateArgs] = useArgs();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     updateArgs({ ...args, checked: e?.target?.checked });

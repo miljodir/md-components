@@ -1,10 +1,13 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/checkbox/README.md';
-
 import MdCheckbox from '../packages/react/src/formElements/MdCheckbox';
+import type { MdCheckboxProps } from '../packages/react/src/formElements/MdCheckbox';
+
+const markdownString =
+  // eslint-disable-next-line quotes
+  "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Form/Checkbox',
@@ -16,11 +19,10 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Description markdown="A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`" />
+            <Markdown>{markdownString}</Markdown>
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -79,10 +81,10 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdCheckboxProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleCheck = isChecked => {
+  const handleCheck = (isChecked: boolean) => {
     updateArgs({ ...args, checked: isChecked });
   };
 

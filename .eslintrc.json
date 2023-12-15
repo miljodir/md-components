@@ -9,7 +9,13 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".md"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".md"
+        ]
       }
     }
   },
@@ -20,7 +26,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -30,24 +37,48 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint", "autofix", "react-hooks"],
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint",
+    "autofix",
+    "react-hooks"
+  ],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": [
+      "error"
+    ]
   },
   "overrides": [
     {
-      "files": ["**/*.ts?(x)"],
+      "files": [
+        "**/*.ts?(x)"
+      ],
       "rules": {
-        "prettier/prettier": ["warn"],
+        "prettier/prettier": [
+          "warn"
+        ],
         "react/react-in-jsx-scope": "off",
         "spaced-comment": "error",
-        "quotes": ["error", "single"],
+        "quotes": [
+          "error",
+          "single"
+        ],
         "no-console": "warn",
         "no-redeclare": "warn",
         "react/display-name": "error",
         "react/jsx-key": "warn",
-        "arrow-body-style": ["error", "always"],
-        "react/self-closing-comp": ["error", { "component": true, "html": true }],
+        "arrow-body-style": [
+          "error",
+          "always"
+        ],
+        "react/self-closing-comp": [
+          "error",
+          {
+            "component": true,
+            "html": true
+          }
+        ],
         "autofix/no-unused-vars": [
           "warn",
           {
@@ -65,7 +96,15 @@
         "import/order": [
           "error",
           {
-            "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+            "groups": [
+              "builtin",
+              "external",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type"
+            ],
             "pathGroups": [
               {
                 "pattern": "@/**/**",
@@ -73,7 +112,9 @@
                 "position": "before"
               }
             ],
-            "alphabetize": { "order": "asc" }
+            "alphabetize": {
+              "order": "asc"
+            }
           }
         ]
       }

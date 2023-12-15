@@ -1,9 +1,9 @@
 import React from 'react';
-
 import MdPinAltIcon from '../../packages/react/src/icons/MdPinAltIcon';
 import MdPinAltIcon64 from '../../packages/react/src/icons/MdPinAltIcon64';
 import MdPinIcon from '../../packages/react/src/icons/MdPinIcon';
 import MdPinIcon64 from '../../packages/react/src/icons/MdPinIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Pin',
@@ -12,6 +12,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Pin/map pin icon. Color is inherited from parent.<br/><br/>`import { MdPinIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPinIcon64 } from '@miljodirektoratet/md-react'`<br/>`import { MdPinAltIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPinAltIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -38,7 +39,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdPinIcon className={args.className} />
@@ -46,7 +47,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdPinIcon64 className={args.className} />
@@ -54,7 +55,7 @@ const Template64 = (args: any) => {
   );
 };
 
-const TemplateAlt = (args: any) => {
+const TemplateAlt = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdPinAltIcon className={args.className} />
@@ -62,7 +63,7 @@ const TemplateAlt = (args: any) => {
   );
 };
 
-const TemplateAlt64 = (args: any) => {
+const TemplateAlt64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdPinAltIcon64 className={args.className} />

@@ -1,10 +1,8 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import React, { useState, useRef } from 'react';
-// @ts-ignore
 import Readme from '../../packages/css/src/messages/AlertMessage.md';
-
 import MdAlertMessage from '../../packages/react/src/messages/MdAlertMessage';
-import type { ComponentStory } from '@storybook/react';
+import type { Args, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Messages/AlertMessage',
@@ -18,14 +16,14 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -84,7 +82,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdAlertMessage> = args => {
+const Template: StoryFn<typeof MdAlertMessage> = (args: Args) => {
   const [show, setShow] = useState(true);
   const parent = useRef(null);
 
