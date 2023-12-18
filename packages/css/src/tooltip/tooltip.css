@@ -7,40 +7,31 @@
   height: fit-content;
   width: fit-content;
   max-width: 200px;
+  position: absolute;
+  z-index: 99;
   text-align: left;
   font-weight: 400;
   font-size: 14px;
   border-radius: 4px;
-  padding: 6px 12px 6px 12px;
+  padding: 0.5em 1em 0.5em 1em;
   line-height: 18px;
 }
-
 
 .md-tooltip--show {
   visibility: visible;
 }
 
-.md-tooltip__parent {
-  position: absolute;
-  z-index: 99;
-  visibility: hidden;
+.md-tooltip--bottom {
+  margin-top: 0.5rem;
 }
 
-.md-tooltip__parent--show {
-  visibility: visible;
+.md-tooltip--right {
+  margin-top: -1.8rem;
+  margin-left: 2rem;
 }
 
-.md-tooltip__parent--bottom {
-  margin-top: 8px;
-}
-
-.md-tooltip__parent--right {
-  top: 20px;
-  margin-left: 28px;
-}
-
-.md-tooltip__parent--top {
-  top: -14px;
+.md-tooltip--top {
+  margin-top: -4.2rem;
 }
 
 .md-tooltip__child {

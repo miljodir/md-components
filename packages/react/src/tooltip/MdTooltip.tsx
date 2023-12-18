@@ -12,12 +12,9 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
   const [hover, setHover] = useState(false);
   const classNames = classnames('md-tooltip', {
     'md-tooltip--show': hover,
-  });
-  const parentClassNames = classnames('md-tooltip__parent', {
-    'md-tooltip__parent--show': hover,
-    'md-tooltip__parent--bottom': position === 'bottom',
-    'md-tooltip__parent--right': position === 'right',
-    'md-tooltip__parent--top': position === 'top',
+    'md-tooltip--bottom': position === 'bottom',
+    'md-tooltip--top': position === 'top',
+    'md-tooltip--right': position === 'right',
   });
 
   const keydown = (event: KeyboardEvent) => {
@@ -39,18 +36,18 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
   const debouncedSetHoverTrue = useCallback(debounce(setHoverTrue, 400), []);
 
   return (
-    <div
-      onMouseLeave={() => {
-        setHoverFalse();
-      }}
-    >
-      <div onMouseEnter={debouncedSetHoverTrue} className="md-tooltip__child">
+    <>
+      <div
+        onMouseLeave={() => {
+          setHoverFalse();
+        }}
+        onMouseEnter={debouncedSetHoverTrue}
+        className="md-tooltip__child"
+      >
         {children}
       </div>
-      <div className={parentClassNames}>
-        <div className={classNames}>{label}</div>
-      </div>
-    </div>
+      <div className={classNames}>{label}</div>
+    </>
   );
 };
 
