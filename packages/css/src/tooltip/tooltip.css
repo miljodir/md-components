@@ -4,20 +4,36 @@
   color: var(--mdGreyColor);
   visibility: hidden;
   font-family: 'Open Sans';
-  position: absolute;
   height: fit-content;
   width: fit-content;
   max-width: 200px;
   text-align: left;
-  margin: 2px;
   font-size: 14px;
   border-radius: 4px;
   padding: 6px 12px 6px 12px;
   line-height: 18px;
 }
 
+
 .md-tooltip--show {
   visibility: visible;
+}
+
+.md-tooltip__parent {
+  position: absolute;
+}
+
+.md-tooltip__parent--right {
+  top: 10px;
+  margin-left: 28px;
+}
+
+.md-tooltip__parent--top {
+  top: -24px;
+}
+
+.md-tooltip__parent--show {
+  padding-top: 8px;
 }
 
 .md-tooltip__child {

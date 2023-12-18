@@ -1,17 +1,22 @@
 import classnames from 'classnames';
 import { debounce } from 'lodash';
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
 export interface MdTooltipProps {
   label: string;
+  position?: 'top' | 'bottom' | 'right';
   children?: React.ReactNode;
 }
 
-const MdTooltip: React.FC<MdTooltipProps> = ({ label, children }: MdTooltipProps) => {
+const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', children }: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
-  const child = useRef(null);
   const classNames = classnames('md-tooltip', {
     'md-tooltip--show': hover,
+  });
+  const parentClassNames = classnames('md-tooltip__parent', {
+    'md-tooltip__parent--show': hover,
+    'md-tooltip__parent--right': position === 'right',
+    'md-tooltip__parent--top': position === 'top',
   });
 
   const keydown = (event: KeyboardEvent) => {
@@ -38,10 +43,12 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, children }: MdTooltipProps
         setHoverFalse();
       }}
     >
-      <div className="md-tooltip__child" onMouseEnter={debouncedSetHoverTrue} ref={child}>
+      <div onMouseEnter={debouncedSetHoverTrue} className="md-tooltip__child">
         {children}
       </div>
-      <div className={classNames}>{label}</div>
+      <div className={parentClassNames}>
+        <div className={classNames}>{label}</div>
+      </div>
     </div>
   );
 };

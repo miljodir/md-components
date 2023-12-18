@@ -8,7 +8,9 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <div>
-    <div className="md-tooltip__child">{children}</div>
+  <div className="md-tooltip__child">{children}</div>
+  <div className="md-tooltip__parent [md-tooltip__parent--show]">
     <div className="md-tooltip [md-tooltip--show]">{label}</div>
+  </div>
 </div>
 ```
