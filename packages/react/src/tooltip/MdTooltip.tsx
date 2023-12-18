@@ -15,6 +15,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
   });
   const parentClassNames = classnames('md-tooltip__parent', {
     'md-tooltip__parent--show': hover,
+    'md-tooltip__parent--bottom': position === 'bottom',
     'md-tooltip__parent--right': position === 'right',
     'md-tooltip__parent--top': position === 'top',
   });

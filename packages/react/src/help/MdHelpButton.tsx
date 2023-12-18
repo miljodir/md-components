@@ -32,7 +32,13 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
     </button>
   );
 
-  return ariaLabel ? <MdTooltip label={ariaLabel}>{button}</MdTooltip> : button;
+  return ariaLabel ? (
+    <MdTooltip position="right" label={ariaLabel}>
+      {button}
+    </MdTooltip>
+  ) : (
+    button
+  );
 };
 
 export default MdHelpButton;
