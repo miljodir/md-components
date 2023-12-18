@@ -22,16 +22,16 @@
 }
 
 .md-tooltip--bottom {
-  margin-top: 0.5rem;
+  margin-top: 0.5em;
 }
 
 .md-tooltip--right {
-  margin-top: -1.8rem;
-  margin-left: 2rem;
+  margin-top: -2em;
+  margin-left: 2em;
 }
 
 .md-tooltip--top {
-  margin-top: -4.2rem;
+  margin-top: -4.7em;
 }
 
 .md-tooltip__child {
