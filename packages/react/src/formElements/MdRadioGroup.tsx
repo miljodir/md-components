@@ -42,7 +42,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   onBlur,
   ...otherProps
 }: MdRadioGroupProps) => {
-  const radioId = id || uuidv4();
+  const radioGroupId = id || uuidv4();
   const [helpOpen, setHelpOpen] = useState(false);
 
   const classNames = classnames(
@@ -91,9 +91,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
         {helpText && helpText !== '' && (
           <MdHelpButton
             ariaLabel={`Hjelpetekst for ${label}`}
-            id={`md-radiogroup_help-button_${radioId}`}
+            id={`md-radiogroup_help-button_${radioGroupId}`}
             aria-expanded={helpOpen}
-            aria-controls={`md-radiogroup_help-text_${radioId}`}
+            aria-controls={`md-radiogroup_help-text_${radioGroupId}`}
             onClick={() => {
               return setHelpOpen(!helpOpen);
             }}
@@ -105,8 +105,8 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
           <MdHelpText
-            id={`md-radiogroup_help-text_${radioId}`}
-            aria-labelledby={helpText && helpText !== '' ? `md-radiogroup_help-button_${radioId}` : undefined}
+            id={`md-radiogroup_help-text_${radioGroupId}`}
+            aria-labelledby={helpText && helpText !== '' ? `md-radiogroup_help-button_${radioGroupId}` : undefined}
           >
             {helpText}
           </MdHelpText>
@@ -114,23 +114,23 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       )}
 
       <div
-        id={`md-radiogroup_${radioId}`}
-        aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioId}` : undefined}
+        id={String(radioGroupId) || undefined}
+        aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioGroupId}` : undefined}
         className={optionsClassNames}
       >
         {options &&
           options.map(option => {
             return (
               <label
-                htmlFor={`radio_${radioId}_${option.text}`}
-                key={`radio_${radioId}_${option.id}`}
+                htmlFor={`radio_${radioGroupId}_${option.text}`}
+                key={`radio_${radioGroupId}_${option.id}`}
                 className="md-radiogroup-option"
               >
-                <span className="md-radiogroup-option__check-area" id={`dot_${radioId}_${option.text}`}>
+                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.text}`}>
                   {optionIsSelected(option.id) && <span className="md-radiogroup-option__selected-dot" />}
                 </span>
                 <input
-                  id={`radio_${radioId}_${option.text}`}
+                  id={`radio_${radioGroupId}_${option.text}`}
                   type="radio"
                   value={option.id}
                   checked={optionIsSelected(option.id)}

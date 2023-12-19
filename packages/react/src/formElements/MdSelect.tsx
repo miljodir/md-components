@@ -52,7 +52,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
 
-    const uuid = id || uuidv4();
+    const selectId = id || uuidv4();
 
     const classNames = classnames('md-select', {
       'md-select--open': !!open,
@@ -96,7 +96,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           });
           if (option) {
             /* Find corresponding button */
-            const button = document.getElementById(`md-select-option-${uuid}-${option.value}`);
+            const button = document.getElementById(`md-select-option-${selectId}-${option.value}`);
             if (button) {
               button.focus();
             }
@@ -126,16 +126,16 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     };
 
     return (
-      <div className={classNames} {...otherProps}>
+      <div className={classNames}>
         <div className="md-select__label">
-          {label && label !== '' && <div id={`md-select_label_${uuid}`}>{label}</div>}
+          {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
           {helpText && helpText !== '' && (
             <div className="md-select__help-button">
               <MdHelpButton
                 ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-select_help-button_${uuid}`}
+                id={`md-select_help-button_${selectId}`}
                 aria-expanded={helpOpen}
-                aria-controls={`md-select_help-text_${uuid}`}
+                aria-controls={`md-select_help-text_${selectId}`}
                 onClick={() => {
                   return setHelpOpen(!helpOpen);
                 }}
@@ -148,8 +148,8 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
         {helpText && helpText !== '' && (
           <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
             <MdHelpText
-              id={`md-select_help-text_${uuid}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${uuid}` : undefined}
+              id={`md-select_help-text_${selectId}`}
+              aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectId}` : undefined}
             >
               {helpText}
             </MdHelpText>
@@ -166,10 +166,10 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           <button
             role="combobox"
             aria-expanded={open}
-            aria-controls="md-select_dropdown_${uuid}"
-            aria-labelledby={`md-select_label_${uuid}`}
-            id={`md-select_${uuid}`}
-            aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${uuid}` : undefined}
+            aria-controls={`md-select_dropdown_${selectId}`}
+            aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
+            id={String(selectId) || undefined}
+            aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined}
             className={buttonClassNames}
             type="button"
             tabIndex={0}
@@ -177,6 +177,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               return !disabled && setOpen(!open);
             }}
             ref={ref}
+            {...otherProps}
           >
             <div className="md-select__button-text">{displayValue}</div>
             <div aria-hidden="true" className="md-select__button-icon">
@@ -186,18 +187,18 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
           {options && options.length > 0 && (
             <div
-              aria-labelledby={`md-select_label_${uuid}`}
+              aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
               role="listbox"
               className="md-select__dropdown"
-              id={'md-select_dropdown_${uuid}'}
+              id={`md-select_dropdown_${selectId}`}
             >
               {options.map(option => {
                 return (
                   <button
                     role="option"
                     aria-selected={!!isSelectedOption(option)}
-                    key={`md-select-option-${uuid}-${option.value}`}
-                    id={`md-select-option-${uuid}-${option.value}`}
+                    key={`md-select-option-${selectId}-${option.value}`}
+                    id={`md-select-option-${selectId}-${option.value}`}
                     type="button"
                     tabIndex={open ? 0 : -1}
                     className={optionClass(option)}
