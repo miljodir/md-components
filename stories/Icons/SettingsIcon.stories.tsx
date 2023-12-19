@@ -2,6 +2,7 @@ import React from 'react';
 
 import MdSettingsIcon from '../../packages/react/src/icons/MdSettingsIcon';
 import MdSettingsIcon64 from '../../packages/react/src/icons/MdSettingsIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Settings',
@@ -10,6 +11,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Settings icon. Color is inherited from parent.<br/><br/>`import { MdSettingsIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdSettingsIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -36,7 +38,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdSettingsIcon className={args.className} />
@@ -44,7 +46,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdSettingsIcon64 className={args.className} />

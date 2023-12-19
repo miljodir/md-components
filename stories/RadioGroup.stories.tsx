@@ -1,10 +1,9 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/radiogroup/README.md';
-
 import MdRadioGroup from '../packages/react/src/formElements/MdRadioGroup';
+import type { MdRadioGroupProps } from '../packages/react/src/formElements/MdRadioGroup';
 
 export default {
   title: 'Form/RadioGroup',
@@ -18,14 +17,14 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A form component for a group of radio buttons. Can also be used outside of a form.<br/><br/>`import { MdRadioGroup } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -125,8 +124,8 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdRadioGroupProps) => {
+  const [, updateArgs] = useArgs();
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement;

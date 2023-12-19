@@ -1,10 +1,9 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/infoTag/README.md';
-
 import MdInfoTag from '../packages/react/src/infoTag/MdInfoTag';
-import type { ComponentStory } from '@storybook/react';
+import type { MdInfoTagProps } from '../packages/react/src/infoTag/MdInfoTag';
+import type { StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/InfoTag',
@@ -18,14 +17,14 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -85,7 +84,7 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdInfoTag> = args => {
+const Template: StoryFn<typeof MdInfoTag> = (args: MdInfoTagProps) => {
   return <MdInfoTag {...args} />;
 };
 

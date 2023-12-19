@@ -1,11 +1,11 @@
 import React from 'react';
-
 import MdZoomIcon from '../../packages/react/src/icons/MdZoomIcon';
 import MdZoomIcon64 from '../../packages/react/src/icons/MdZoomIcon64';
 import MdZoomIconMinus from '../../packages/react/src/icons/MdZoomIconMinus';
 import MdZoomIconMinus64 from '../../packages/react/src/icons/MdZoomIconMinus64';
 import MdZoomIconPlus from '../../packages/react/src/icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from '../../packages/react/src/icons/MdZoomIconPlus64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Zoom',
@@ -14,6 +14,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Zoom icons. Color is inherited from parent.<br/><br/>`import { MdZoomIcon, MdZoomIcon64, MdZoomIconPlus, MdZoomIconPlus64, MdZoomIconMinus, MdZoomIconMinus64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -40,7 +41,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdZoomIcon className={args.className} />
@@ -48,7 +49,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdZoomIcon64 className={args.className} />
@@ -56,7 +57,7 @@ const Template64 = (args: any) => {
   );
 };
 
-const TemplatePlus = (args: any) => {
+const TemplatePlus = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdZoomIconPlus className={args.className} />
@@ -64,7 +65,7 @@ const TemplatePlus = (args: any) => {
   );
 };
 
-const TemplatePlus64 = (args: any) => {
+const TemplatePlus64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdZoomIconPlus64 className={args.className} />
@@ -72,7 +73,7 @@ const TemplatePlus64 = (args: any) => {
   );
 };
 
-const TemplateMinus = (args: any) => {
+const TemplateMinus = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdZoomIconMinus className={args.className} />
@@ -80,7 +81,7 @@ const TemplateMinus = (args: any) => {
   );
 };
 
-const TemplateMinus64 = (args: any) => {
+const TemplateMinus64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdZoomIconMinus64 className={args.className} />
@@ -100,13 +101,13 @@ ZoomIcon64.args = {
   color: '#005e5d',
 };
 
-export const ZoomIconPlus = TemplateMinus.bind({});
+export const ZoomIconPlus = TemplatePlus.bind({});
 ZoomIconPlus.args = {
   className: '',
   color: '#005e5d',
 };
 
-export const ZoomIconPlus64 = TemplateMinus64.bind({});
+export const ZoomIconPlus64 = TemplatePlus64.bind({});
 ZoomIconPlus64.args = {
   className: '',
   color: '#005e5d',

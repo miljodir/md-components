@@ -2,8 +2,7 @@ import React from 'react';
 import type { HTMLAttributes } from 'react';
 
 interface MdDataGridRightAlignedContentProps extends HTMLAttributes<HTMLDivElement> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  children?: any;
+  children?: React.ReactNode;
 }
 
 const MdDataGridRightAlignedContent: React.FunctionComponent<MdDataGridRightAlignedContentProps> = ({

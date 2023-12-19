@@ -1,13 +1,11 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/modal/README.md';
-
 import MdButton from '../packages/react/src/button/MdButton';
 import MdWarningIcon from '../packages/react/src/icons/MdWarningIcon';
 import MdModal from '../packages/react/src/modal/MdModal';
-import type { ComponentStory } from '@storybook/react';
+import type { Args, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/Modal',
@@ -21,13 +19,13 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
+        // eslint-disable-next-line quotes
         component: "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -122,8 +120,8 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdModal> = args => {
-  const [_, updateArgs] = useArgs();
+const Template: StoryFn<typeof MdModal> = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
   const headingIcon = <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }} />;
 

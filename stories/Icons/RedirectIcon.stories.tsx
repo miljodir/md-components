@@ -2,6 +2,7 @@ import React from 'react';
 
 import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon';
 import MdRedirectIcon64 from '../../packages/react/src/icons/MdRedirectIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Redirect',
@@ -10,6 +11,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdRedirectIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -36,7 +38,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdRedirectIcon className={args.className} />
@@ -44,7 +46,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdRedirectIcon64 className={args.className} />

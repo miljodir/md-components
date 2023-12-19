@@ -10,14 +10,14 @@ import MdDataColumnRow from './data-grid/MdDataGridRow';
 import MdDataColumnRowValue from './data-grid/MdDataGridRowValue';
 import MdDataColumnRows from './data-grid/MdDataGridRows';
 import MdFileList, { MdFileListProps } from './fileList/MdFileList';
-import MdAutocomplete, { MdAutocompleteProps } from './formElements/MdAutocomplete';
+import MdAutocomplete, { MdAutocompleteOptionProps, MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { MdInputProps } from './formElements/MdInput';
-import MdMultiSelect, { MdMultiSelectProps } from './formElements/MdMultiSelect';
+import MdMultiSelect, { MdMultiSelectOptionProps, MdMultiSelectProps } from './formElements/MdMultiSelect';
 import MdRadioGroup, { MdRadioGroupProps } from './formElements/MdRadioGroup';
-import MdSelect, { MdSelectProps } from './formElements/MdSelect';
+import MdSelect, { MdSelectOptionProps, MdSelectProps } from './formElements/MdSelect';
 import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { MdHelpTextProps } from './help/MdHelpText';
@@ -158,8 +158,11 @@ export {
   MdCheckboxGroupProps,
   MdInputProps,
   MdSelectProps,
+  MdSelectOptionProps,
   MdMultiSelectProps,
+  MdMultiSelectOptionProps,
   MdAutocompleteProps,
+  MdAutocompleteOptionProps,
   MdRadioGroupProps,
   MdTextAreaProps,
   MdFileUploadProps,

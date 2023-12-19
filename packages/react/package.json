@@ -1,6 +1,6 @@
 {
   "name": "@miljodirektoratet/md-react",
-  "version": "1.0.37",
+  "version": "1.0.39",
   "description": "React-komponenter for Miljødirektoratet",
   "author": "Miljødirektoratet",
   "main": "./dist/index.js",

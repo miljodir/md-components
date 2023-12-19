@@ -1,9 +1,8 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
-// @ts-ignore
 import Readme from '../packages/css/src/formElements/fileupload/README.md';
-
 import MdFileUpload from '../packages/react/src/formElements/MdFileUpload';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Form/FileUpload',
@@ -17,14 +16,14 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A component for handling file upload with drag and drop. Returns an array of files, to do with as you please.<br/><br/>`import { MdFileUpload } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -115,7 +114,7 @@ export default {
   },
 };
 
-const Template = args => {
+const Template = (args: Args) => {
   return <MdFileUpload {...args} />;
 };
 

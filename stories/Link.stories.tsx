@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
@@ -8,6 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
+        // eslint-disable-next-line quotes
         component: "Inline link component.<br/><br/>`import { MdLink } from '@miljodirektoratet/md-react'`",
       },
     },

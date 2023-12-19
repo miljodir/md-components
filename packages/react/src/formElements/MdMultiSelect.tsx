@@ -11,7 +11,7 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-interface MdMultiSelectOptionProps {
+export interface MdMultiSelectOptionProps {
   text: string | number;
   value: string | number;
 }
@@ -49,7 +49,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   onChange,
   ...otherProps
 }: MdMultiSelectProps) => {
-  const uuid = id || uuidv4();
+  const multiSelectId = id || uuidv4();
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -90,8 +90,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   let displayValue: string | number = placeholder;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const selectedOptionsFull: any[] = [];
+  const selectedOptionsFull: MdMultiSelectOptionProps[] = [];
   if (!open && selected && selected.length > 0) {
     const findFirstOption = options.find(option => {
       return option.value === selected[0].value;
@@ -139,17 +138,17 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
   };
 
   return (
-    <div className={classNames} {...otherProps}>
+    <div className={classNames}>
       <div className="md-multiselect__label">
-        {label && label !== '' && <div id={`md-multiselect_label_${uuid}`}>{label}</div>}
+        {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
 
         {helpText && helpText !== '' && (
           <div className="md-multiselect__help-button">
             <MdHelpButton
               ariaLabel={`Hjelpetekst for ${label}`}
-              id={`md-multiselect_help-button_${uuid}`}
+              id={`md-multiselect_help-button_${multiSelectId}`}
               aria-expanded={helpOpen}
-              aria-controls={`md-multiselect_help-text_${uuid}`}
+              aria-controls={`md-multiselect_help-text_${multiSelectId}`}
               onClick={() => {
                 return setHelpOpen(!helpOpen);
               }}
@@ -162,8 +161,8 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       {helpText && helpText !== '' && (
         <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
           <MdHelpText
-            id={`md-multiselect_help-text_${uuid}`}
-            aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${uuid}` : undefined}
+            id={`md-multiselect_help-text_${multiSelectId}`}
+            aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${multiSelectId}` : undefined}
           >
             {helpText}
           </MdHelpText>
@@ -180,16 +179,17 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
         <button
           role="combobox"
           aria-expanded={open}
-          aria-controls="md-multiselect_dropdown_${uuid}"
+          aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
           type="button"
-          aria-labelledby={`md-multiselect_label_${uuid}`}
-          id={`md-multiselect_${uuid}`}
-          aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${uuid}` : undefined}
+          aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
+          id={multiSelectId}
+          aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
           className={buttonClassNames}
           tabIndex={0}
           onClick={() => {
             return !disabled && setOpen(!open);
           }}
+          {...otherProps}
         >
           <div className="md-multiselect__button-text">{displayValue}</div>
           {hasMultipleSelected && !open && (
@@ -202,22 +202,22 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
 
         {options && options.length > 0 && (
           <div
-            aria-labelledby={`md-multiselect_label_${uuid}`}
+            aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
             role="listbox"
-            id={'md-multiselect_dropdown_${uuid}'}
+            id={`md-multiselect_dropdown_${multiSelectId}`}
             className={dropDownClassNames}
           >
             {options.map(option => {
               return (
-                <div key={`checkbox_key_${uuid}_${option.value}`} className={optionClass(option)}>
+                <div key={`checkbox_key_${multiSelectId}_${option.value}`} className={optionClass(option)}>
                   <MdCheckbox
                     role="option"
-                    aria-selected={optionIsChecked(option)}
+                    aria-selected={!!optionIsChecked(option)}
                     label={option.text}
                     tabIndex={open ? 0 : -1}
                     checked={!!optionIsChecked(option)}
                     value={option.value}
-                    id={`checkbox_${uuid}_${option.value}`}
+                    id={`checkbox_${multiSelectId}_${option.value}`}
                     disabled={!!disabled}
                     data-value={option.value}
                     data-text={option.text}
@@ -244,9 +244,9 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           {selectedOptionsFull.map(chip => {
             return (
               <MdInputChip
-                key={`multiselect_chip_${uuid}_${chip.value}`}
-                label={chip.text}
-                id={`checkbox_chip_${uuid}_${chip.value}`}
+                key={`multiselect_chip_${multiSelectId}_${chip.value}`}
+                label={chip.text.toString()}
+                id={`checkbox_chip_${multiSelectId}_${chip.value}`}
                 disabled={disabled}
                 onClick={() => {
                   return handleChipClick(chip);

@@ -2,6 +2,7 @@ import React from 'react';
 
 import MdMinusIcon from '../../packages/react/src/icons/MdMinusIcon';
 import MdMinusIcon64 from '../../packages/react/src/icons/MdMinusIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Minus',
@@ -10,6 +11,7 @@ export default {
     docs: {
       description: {
         component:
+          // eslint-disable-next-line quotes
           "Minus icon. Color is inherited from parent.<br/><br/>`import { MdMinusIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdMinusIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -36,7 +38,7 @@ export default {
   },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdMinusIcon className={args.className} />
@@ -44,7 +46,7 @@ const Template = (args: any) => {
   );
 };
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdMinusIcon64 className={args.className} />
