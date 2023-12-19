@@ -7,7 +7,7 @@ import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
 export interface MdInputProps {
-  value?: string | undefined;
+  value?: string | number | undefined;
   id?: string;
   size?: 'normal' | 'small';
   label?: string;
@@ -29,6 +29,9 @@ export interface MdInputProps {
   onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;
   minLength?: number;
   maxLength?: number;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
