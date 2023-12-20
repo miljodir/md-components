@@ -24,6 +24,7 @@ const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
   return (
     <li>
       <button
+        type="button"
         className={classNames}
         onClick={() => {
           return !disabled && setSelectedTab(index);

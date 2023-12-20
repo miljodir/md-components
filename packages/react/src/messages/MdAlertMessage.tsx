@@ -59,6 +59,7 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 
       {!!closable && onClose && (
         <button
+          type="button"
           aria-label="Lukk"
           className="md-alert-message__button"
           onClick={e => {

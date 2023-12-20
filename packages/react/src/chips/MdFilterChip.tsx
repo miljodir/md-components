@@ -31,6 +31,7 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
 
   return (
     <button
+      type="button"
       aria-pressed={active}
       className={buttonClassNames}
       id={String(chipId) || undefined}
