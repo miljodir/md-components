@@ -5,7 +5,6 @@ export interface MdLinkProps {
   children?: string | React.ReactNode;
   href?: string;
   onClick?(_e: React.MouseEvent): void;
-  className?: string;
 }
 
 const MdLink: React.FunctionComponent<MdLinkProps> = ({
