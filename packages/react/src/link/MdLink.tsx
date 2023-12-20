@@ -1,18 +1,27 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export interface MdLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface MdLinkProps {
   children?: string | React.ReactNode;
   href?: string;
   onClick?(_e: React.MouseEvent): void;
 }
 
-const MdLink: React.FunctionComponent<MdLinkProps> = ({ children, ...otherProps }: MdLinkProps) => {
+const MdLink: React.FunctionComponent<MdLinkProps> = ({
+  href,
+  children,
+  onClick,
+  ...otherProps
+}: MdLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   const classNames = classnames('md-link', otherProps.className);
-  return (
-    <a {...otherProps} className={classNames}>
+  return href ? (
+    <a href={href} {...otherProps} className={classNames}>
       {children}
     </a>
+  ) : (
+    <button type="button" onClick={onClick} {...otherProps} className={classNames}>
+      {children}
+    </button>
   );
 };
 
