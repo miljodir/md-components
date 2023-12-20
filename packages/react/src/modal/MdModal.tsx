@@ -37,17 +37,6 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
     },
     className,
   );
-
-  const closeModal = (e: React.MouseEvent) => {
-    if (onClose) {
-      onClose(e);
-    }
-  };
-
-  if (!open) {
-    return null;
-  }
-
   const modalRef = useRef<HTMLDivElement>(null);
 
   /**
@@ -88,6 +77,16 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
       return document.removeEventListener('keydown', keyListener);
     };
   }, []);
+
+  const closeModal = (e: React.MouseEvent) => {
+    if (onClose) {
+      onClose(e);
+    }
+  };
+
+  if (!open) {
+    return null;
+  }
 
   return (
     <>
