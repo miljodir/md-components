@@ -15,7 +15,7 @@ export interface MdTileProps {
 const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
-  href = '#',
+  href,
   disabled = false,
   icon = null,
   preventDefault = false,
@@ -34,9 +34,8 @@ const MdTile: React.FC<MdTileProps> = ({
     }
   };
 
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a className={classNames} href={disabled ? '' : href} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
+  const content = (
+    <>
       <div className="md-tile__content">
         {icon && icon !== '' && <div className="md-tile__content-icon">{icon}</div>}
         <div className="md-tile__content-text">
@@ -44,11 +43,20 @@ const MdTile: React.FC<MdTileProps> = ({
           {description && description !== '' && <div className="md-tile__content-description">{description}</div>}
         </div>
       </div>
-
       <div className="md-tile__arrow">
         <MdChevronIcon height={25} />
       </div>
+    </>
+  );
+
+  return href ? (
+    <a className={classNames} href={href || '#'} tabIndex={disabled ? -1 : 0}>
+      {content}
     </a>
+  ) : (
+    <button disabled={disabled} type="button" className={classNames} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
+      {content}
+    </button>
   );
 };
 
