@@ -74,7 +74,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     <div className={accordionClassNames}>
       {/* Header */}
       <button
-        id={`md-accordion-item_button_${accordionId}`}
+        id={String(accordionId) || undefined}
         type="button"
         aria-expanded={isExpanded}
         aria-controls={`md-accordion-item_content_${accordionId}`}
@@ -95,7 +95,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       {!disabled && (
         <div
           id={`md-accordion-item_content_${accordionId}`}
-          aria-labelledby={`md-accordion-item_button_${accordionId}`}
+          aria-labelledby={String(accordionId) || undefined}
           className={contentClassNames}
         >
           <div className="md-accordion-item__content-inner">{children}</div>

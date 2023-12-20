@@ -23,7 +23,6 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
   headingIcon,
-
   open = false,
   error = false,
   className = '',
@@ -38,17 +37,6 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
     },
     className,
   );
-
-  const closeModal = (e: React.MouseEvent) => {
-    if (onClose) {
-      onClose(e);
-    }
-  };
-
-  if (!open) {
-    return null;
-  }
-
   const modalRef = useRef<HTMLDivElement>(null);
 
   /**
@@ -90,6 +78,16 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
     };
   }, []);
 
+  const closeModal = (e: React.MouseEvent) => {
+    if (onClose) {
+      onClose(e);
+    }
+  };
+
+  if (!open) {
+    return null;
+  }
+
   return (
     <>
       <div className="md-modal__overlay" />
@@ -97,7 +95,9 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
         <div className="md-modal__content">
           <MdClickOutsideWrapper
             onClickOutside={e => {
-              if (closeOnOutsideClick) closeModal(e);
+              if (closeOnOutsideClick) {
+                closeModal(e);
+              }
             }}
             className="md-modal__inner-wrapper"
             ref={modalRef}
@@ -108,6 +108,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 {heading}
               </div>
               <button
+                type="button"
                 className="md-modal__close-button"
                 onClick={e => {
                   closeModal(e);

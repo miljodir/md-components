@@ -74,7 +74,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     return (
       <div className={`md-input__outer-wrapper ${outerWrapperClass}`}>
         <div className="md-input__label">
-          {label && label !== '' && <label htmlFor={`md-input_${inputId}`}>{label}</label>}
+          {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
           {helpText && helpText !== '' && (
             <div className="md-input__help-button">
               <MdHelpButton
@@ -113,7 +113,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             </div>
           )}
           <input
-            id={`md-input_${inputId}`}
+            id={inputId}
             aria-describedby={helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined}
             className={classNames}
             value={value}
