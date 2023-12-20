@@ -9,12 +9,14 @@
   max-width: 200px;
   position: absolute;
   z-index: 99;
-  text-align: left;
   font-weight: 400;
   font-size: 14px;
+  /* display: grid; */
   border-radius: 4px;
   padding: 0.5em 1em 0.5em 1em;
-  line-height: 18px;
+  /* line-height: 18px;
+  justify-items: right;
+  justify-content: right; */
 }
 
 .md-tooltip--show {
@@ -22,16 +24,15 @@
 }
 
 .md-tooltip--bottom {
-  margin-top: 0.5em;
+  transform: translate(-35%, 0.7em);
 }
 
 .md-tooltip--right {
-  margin-top: -2em;
-  margin-left: 2em;
+  transform: translate(2.5em, -2em);
 }
 
 .md-tooltip--top {
-  margin-top: -4.7em;
+  transform: translate(-35%, calc(-100% - 2.7em));
 }
 
 .md-tooltip__child {
