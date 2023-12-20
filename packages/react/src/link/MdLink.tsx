@@ -7,7 +7,9 @@ export interface MdLinkProps {
   onClick?(_e: React.MouseEvent): void;
 }
 
-const MdLink: React.FunctionComponent<MdLinkProps> = ({
+const MdLink: React.FunctionComponent<
+  MdLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({
   href,
   children,
   onClick,
