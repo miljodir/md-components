@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tooltip/README.md';
-import MdDeleteIcon from '../packages/react/src/icons/MdDeleteIcon';
+import MdCloseIcon from '../packages/react/src/icons/MdCloseIcon';
 import MdTooltip from '../packages/react/src/tooltip/MdTooltip';
 import type { MdTooltipProps } from '../packages/react/src/tooltip/MdTooltip';
 import type { StoryFn } from '@storybook/react';
@@ -47,7 +47,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['right', 'top', 'bottom'],
+      options: ['right', 'top', 'bottom', 'left'],
       control: { type: 'inline-radio' },
       if: { arg: 'position', exists: true },
     },
@@ -56,9 +56,16 @@ export default {
 
 const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
   return (
-    <MdTooltip {...args}>
-      <MdDeleteIcon width={20} height={20} />
-    </MdTooltip>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <MdTooltip {...args}>
+        <MdCloseIcon width={20} height={20} />
+      </MdTooltip>
+    </div>
   );
 };
 

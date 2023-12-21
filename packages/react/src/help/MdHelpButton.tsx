@@ -33,7 +33,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   );
 
   return ariaLabel ? (
-    <MdTooltip position="right" label={ariaLabel}>
+    <MdTooltip position="top" label={ariaLabel}>
       {button}
     </MdTooltip>
   ) : (

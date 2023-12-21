@@ -13,7 +13,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     className="md-tooltip [md-tooltip--show,
                           md-tooltip--bottom,
                           md-tooltip--top,
-                          md-tooltip--right]"
+                          md-tooltip--right,
+                          md-tooltip--left]"
   >
     {label}
   </div>

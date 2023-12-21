@@ -4,7 +4,7 @@ import React, { useState, useCallback } from 'react';
 
 export interface MdTooltipProps {
   label: string;
-  position?: 'top' | 'bottom' | 'right';
+  position?: 'top' | 'bottom' | 'right' | 'left';
   children?: React.ReactNode;
 }
 
@@ -15,6 +15,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
     'md-tooltip--bottom': position === 'bottom',
     'md-tooltip--top': position === 'top',
     'md-tooltip--right': position === 'right',
+    'md-tooltip--left': position === 'left',
   });
 
   const keydown = (event: KeyboardEvent) => {
@@ -36,7 +37,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
   const debouncedSetHoverTrue = useCallback(debounce(setHoverTrue, 400), []);
 
   return (
-    <>
+    <div>
       <div
         onMouseLeave={() => {
           setHoverFalse();
@@ -47,7 +48,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
         {children}
       </div>
       <div className={classNames}>{label}</div>
-    </>
+    </div>
   );
 };
 
