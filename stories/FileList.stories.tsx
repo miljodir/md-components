@@ -7,7 +7,7 @@ import type { StoryFn } from '@storybook/react';
 
 const markdownString =
   // eslint-disable-next-line quotes
-  "A component for listing files, whith buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`";
+  "A component for listing files, with buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Components/FileList',

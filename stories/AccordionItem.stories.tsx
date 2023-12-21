@@ -1,14 +1,13 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
-import React from 'react';
-import Readme from '../../packages/css/src/accordionitem/README.md';
 
-import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
-import MdInfoTag from '../../packages/react/src/infoTag/MdInfoTag';
-import type { MdAccordionItemProps } from '../../packages/react/src/accordion/MdAccordionItem';
+import React, { useState } from 'react';
+import Readme from '../packages/css/src/accordionitem/README.md';
+import MdAccordionItem from '../packages/react/src/accordion/MdAccordionItem';
+import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react';
 
 export default {
-  title: 'Components/Accordion',
+  title: 'Components/AccordionItem',
   component: MdAccordionItem,
   parameters: {
     docs: {
@@ -135,11 +134,17 @@ export default {
 };
 
 const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) => {
-  const headerContent = <MdInfoTag theme="warning" label="Some info here" icon="warning" keepOpen />;
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <MdAccordionItem {...args} headerContent={args.headerContent ? headerContent : null}>
-      Accordion item content. This can be whatever you want.
+    <MdAccordionItem
+      {...args}
+      expanded={expanded}
+      onToggle={() => {
+        setExpanded(!expanded);
+      }}
+    >
+      Dette er element i accordion
     </MdAccordionItem>
   );
 };
@@ -152,5 +157,6 @@ AccordionItem.args = {
   disabled: false,
   headerContent: false,
   hideCloseButton: false,
+  closeButtonText: 'Lukk',
   rounded: false,
 };

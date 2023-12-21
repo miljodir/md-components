@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Title, Subtitle, Markdown, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Markdown, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/button/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
@@ -20,7 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Markdown>{markdownString}</Markdown>
-            <Primary />
+            <PrimaryStory />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
