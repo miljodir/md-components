@@ -1,0 +1,43 @@
+.md-tooltip {
+  z-index: 2;
+  background-color: var(--mdPrimaryColor20);
+  color: var(--mdGreyColor);
+  visibility: hidden;
+  font-family: 'Open Sans';
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  z-index: 99;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.md-tooltip--show {
+  visibility: visible;
+}
+
+.md-tooltip--bottom {
+  transform: translate(-35%, 0.8em);
+}
+
+.md-tooltip--right {
+  transform: translate(2.3em, -2em);
+} 
+
+.md-tooltip--left {
+  transform: translate(calc(-100% - 0.8em), -2em);
+}
+
+.md-tooltip--top {
+  transform: translate(-35%, calc(-100% - 2.3em));
+}
+
+.md-tooltip__child {
+  display: flex;
+  width: min-content;
+  height: min-content;
+}
+
+
