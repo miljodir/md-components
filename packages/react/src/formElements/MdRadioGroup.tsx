@@ -122,15 +122,15 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
           options.map(option => {
             return (
               <label
-                htmlFor={`radio_${radioGroupId}_${option.text}`}
+                htmlFor={`radio_${radioGroupId}_${option.id}`}
                 key={`radio_${radioGroupId}_${option.id}`}
                 className="md-radiogroup-option"
               >
-                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.text}`}>
+                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.id}`}>
                   {optionIsSelected(option.id) && <span className="md-radiogroup-option__selected-dot" />}
                 </span>
                 <input
-                  id={`radio_${radioGroupId}_${option.text}`}
+                  id={`radio_${radioGroupId}_${option.id}`}
                   type="radio"
                   value={option.id}
                   checked={optionIsSelected(option.id)}
