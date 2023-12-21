@@ -5,7 +5,8 @@ import React, { useEffect, useRef } from 'react';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-const focusableHtmlElements = 'a[href], button, textarea, input, select, [tabindex]';
+const focusableHtmlElements =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]';
 
 export interface MdModalProps {
   children: any;
