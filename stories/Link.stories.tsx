@@ -43,7 +43,7 @@ export default {
   },
 };
 
-function clickHandler(event: React.MouseEvent<HTMLInputElement>) {
+function clickHandler(event: React.MouseEvent) {
   event.preventDefault();
   event.stopPropagation();
 }
