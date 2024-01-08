@@ -177,5 +177,5 @@
 .md-input.md-input--hide-number-arrows::-webkit-inner-spin-button {
   appearance: none;
   -webkit-appearance: none;
-  margin: 0;
+  margin: 1px;
 }
