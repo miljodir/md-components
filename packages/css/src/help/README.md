@@ -9,17 +9,14 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 ## HelpButton
 
 ```html
-<button
-    class="md-helpbutton [md-helpbutton--expanded, md-helpbutton--noarrow]"
->
-    <svg-icon class="md-helpbutton__icon" /> <!-- svg icon of some sort -->
+<button class="md-helpbutton [md-helpbutton--expanded, md-helpbutton--noarrow]">
+  <svg-icon class="md-helpbutton__icon" />
+  <!-- svg icon of some sort -->
 </button>
 ```
 
 ## HelpText
 
 ```html
-<div class="md-helptext">
-    CONTENT
-</div>
+<div class="md-helptext">CONTENT</div>
 ```

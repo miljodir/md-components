@@ -8,16 +8,16 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <div className="md-checkbox [md-checkbox--disabled]">
-    <input
-        className="md-checkbox__input"
-        checked={true|false}
-        type="checkbox"
-        value={value}
-        disabled={disabled}
-        {...otherProps}
-    />
-    <label className="md-checkbox__label">
-        <span className="md-checkbox__labelText">{label}</span>
-    </label>
+  <input
+    className="md-checkbox__input"
+    checked="{true|false}"
+    type="checkbox"
+    value="{value}"
+    disabled="{disabled}"
+    {...otherProps}
+  />
+  <label className="md-checkbox__label">
+    <span className="md-checkbox__labelText">{label}</span>
+  </label>
 </div>
 ```
