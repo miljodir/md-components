@@ -27,13 +27,13 @@ const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, childr
 
 export default MdStepper;
 
-type StepTitleProps = {
+interface StepTitleProps {
   title: string;
   index: number;
   activeStep: number;
-};
+}
 
-function StepTitle({ title, index, activeStep }: StepTitleProps) {
+const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
   if (index === activeStep) {
     // Step selected
     return (
@@ -67,16 +67,16 @@ function StepTitle({ title, index, activeStep }: StepTitleProps) {
       </div>
     );
   }
-}
+};
 
-type StepContentProps = {
+interface StepContentProps {
   index: number;
   activeStep: number;
   completedContent?: React.ReactNode;
   children: React.ReactNode;
-};
+}
 
-function StepContent({ index, activeStep, completedContent, children }: StepContentProps) {
+const StepContent = ({ index, activeStep, completedContent, children }: StepContentProps) => {
   if (index === activeStep) {
     return (
       <div className="md-stepper__step-content-container">
@@ -103,4 +103,4 @@ function StepContent({ index, activeStep, completedContent, children }: StepCont
       </div>
     );
   }
-}
+};

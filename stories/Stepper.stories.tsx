@@ -2,10 +2,10 @@ import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@stor
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 
-import Readme from '../../packages/css/src/stepper/README.md';
-import MdButton from '../../packages/react/src/button/MdButton';
-import MdStep from '../../packages/react/src/stepper/MdStep';
-import MdStepper from '../../packages/react/src/stepper/MdStepper';
+import Readme from '../packages/css/src/stepper/README.md';
+import MdButton from '../packages/react/src/button/MdButton';
+import MdStep from '../packages/react/src/stepper/MdStep';
+import MdStepper from '../packages/react/src/stepper/MdStepper';
 import type { Args, StoryFn } from '@storybook/react';
 
 export default {
@@ -27,7 +27,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "Stepper component.<br/><br/>`import { MdStepper } from '@miljodirektoratet/md-react'`",
+        component: "Stepper component.<br/><br/>`import { MdStepper, MdStep } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -53,9 +53,101 @@ export default {
       },
       control: { type: 'ReactNode' },
     },
+    MdStep_title: {
+      type: { name: 'string' },
+      description: 'Arg for MdStep. The title of the step.',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'string' },
+    },
+    MdStep_completedContent: {
+      type: { name: 'ReactNode' },
+      description: 'Arg for MdStep. The content to show when the step is completed. This is optional',
+      table: {
+        type: {
+          summary: 'ReactNode',
+        },
+      },
+      control: { type: 'ReactNode' },
+    },
+    MdStep_children: {
+      type: { name: 'ReactNode' },
+      description: 'Arg for MdStep. The content of the step.',
+      table: {
+        type: {
+          summary: 'ReactNode',
+        },
+      },
+      control: { type: 'ReactNode' },
+    },
   },
 };
 
+export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
+  const [, updateArgs] = useArgs();
+
+  const nextStep = () => {
+    updateArgs({ activeStep: args.activeStep + 1 });
+  };
+
+  const prevStep = () => {
+    updateArgs({ activeStep: args.activeStep - 1 });
+  };
+
+  return (
+    <>
+      <MdStepper activeStep={args.activeStep}>
+        <MdStep
+          title="Step 1"
+          completedContent={
+            <>
+              This is a completed step, which can be shown differently if the &quot;completedContent&quot; prop is
+              provided
+            </>
+          }
+        >
+          <div>
+            This is a step
+            <MdButton onClick={nextStep} small>
+              Next
+            </MdButton>
+          </div>
+        </MdStep>
+        <MdStep
+          title="Step 2"
+          completedContent={<>This is what Step 2 looks like when completed, this is completely customizable!</>}
+        >
+          <div>
+            This is the content of a MdStep. It can contain anything you want, text or HTML.
+            <p>Here is a paragraph!</p>
+            <MdButton onClick={nextStep} small>
+              Next
+            </MdButton>
+            <MdButton onClick={prevStep} theme="secondary" small>
+              Previous
+            </MdButton>
+          </div>
+        </MdStep>
+        <MdStep title="Step 3">
+          <div>
+            This is the last step in this example
+            <MdButton onClick={prevStep} theme="secondary" small>
+              Previous
+            </MdButton>
+          </div>
+        </MdStep>
+      </MdStepper>
+    </>
+  );
+};
+Stepper.args = {
+  activeStep: 1,
+};
+
+/* 
 const Template: StoryFn<typeof MdStepper> = (args: Args) => {
   const [, updateArgs] = useArgs();
 
@@ -117,4 +209,4 @@ const Template: StoryFn<typeof MdStepper> = (args: Args) => {
 export const Stepper = Template.bind({});
 Stepper.args = {
   activeStep: 1,
-};
+}; */
