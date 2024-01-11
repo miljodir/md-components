@@ -8,8 +8,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <button className="md-button [md-button--small, md-button--secondary, md-button--danger]">
-    <div className="md-button__leftIcon">{leftIcon}</div>
-    BUTTON TEXT
-    <div className="md-button__rightIcon">{rightIcon}</div>
+  <div className="md-button__leftIcon">{leftIcon}</div>
+  BUTTON TEXT
+  <div className="md-button__rightIcon">{rightIcon}</div>
 </button>
 ```
