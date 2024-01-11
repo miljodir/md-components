@@ -71,7 +71,7 @@
   display: flex;
   flex-grow: 1;
   padding-right: 1em;
-  min-height: 22px;
+  min-height: 1.375em;
 }
 
 .md-select__button-icon {
@@ -149,6 +149,7 @@
 
 .md-select__button--open {
   padding: calc(1em - 1px);
+  padding-bottom: 1em;
 }
 
 .md-select--open .md-select__dropdown {
