@@ -71,6 +71,7 @@
   display: flex;
   flex-grow: 1;
   padding-right: 1em;
+  min-height: 22px;
 }
 
 .md-select__button-icon {

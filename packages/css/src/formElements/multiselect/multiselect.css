@@ -194,6 +194,7 @@
   border-top: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
   border-left: 2px solid var(--mdPrimaryColor);
+  padding: calc(1em - 1px);
 }
 
 .md-multiselect__button:not(.md-multiselect__button--open):focus,
