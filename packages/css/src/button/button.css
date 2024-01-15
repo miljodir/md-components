@@ -16,12 +16,6 @@
   border-radius: 0.43rem;
 }
 
-.md-button--small.md-button:hover {
-  background-color: var(--mdPrimaryColor20) !important;
-  color: black;
-  text-decoration: underline;
-}
-
 .md-button__leftIcon {
   height: 1rem;
   width: 1rem;
@@ -68,9 +62,6 @@
 
 .md-button--small.md-button--secondary {
   padding: calc(0.4rem - 2px) calc(0.8rem - 2px);
-}
-.md-button--small.md-button--secondary:hover {
-  border: 2px solid var(--mdPrimaryColor20);
 }
 
 .md-button--secondary:hover:enabled {
