@@ -83,7 +83,7 @@ export default {
     direction: {
       type: { name: 'string' },
       description: 'The direction for checkboxes in group.',
-      options: ['horizontal', 'vertical'],
+      options: ['horizontal', 'vertical', 'grid'],
       table: {
         defaultValue: { summary: 'horizontal' },
         type: {
@@ -123,15 +123,6 @@ export default {
         },
       },
       action: 'Change',
-    },
-    wrap: {
-      type: { name: 'boolean' },
-      description: 'Wrap options into columns when there is limited space horizontally.',
-      table: {
-        defaultValue: { summary: 'false' },
-        type: { summary: 'boolean' },
-      },
-      control: { type: 'boolean' },
     },
   },
 };
@@ -191,5 +182,4 @@ CheckboxGroup.args = {
   direction: 'horizontal',
   helpText: 'This is a help text!',
   error: '',
-  wrap: true,
 };

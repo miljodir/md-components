@@ -17,8 +17,7 @@ export interface MdCheckboxGroupProps {
   label?: string;
   id?: string | number;
   disabled?: boolean;
-  direction?: string;
-  wrap?: boolean;
+  direction?: 'horizontal' | 'vertical' | 'grid';
   className?: string;
   error?: string;
   helpText?: string;
@@ -34,7 +33,6 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   id,
   disabled = false,
   direction,
-  wrap,
   className = '',
   error,
   helpText,
@@ -56,7 +54,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 
   const optionsClassNames = classnames('md-checkboxgroup__options', {
     'md-checkboxgroup__options--vertical': direction === 'vertical',
-    'md-checkboxgroup__options--columns': wrap,
+    'md-checkboxgroup__options--grid': direction === 'grid',
   });
 
   const optionIsSelected = (option: MdCheckboxGroupOptionProps) => {
