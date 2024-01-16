@@ -93,7 +93,7 @@
 
 .md-multiselect__dropdown-wrapper {
   position: relative;
-  margin: 0.7em 0 0.7em 0;
+  margin: 0.7em 0 0 0;
 }
 
 .md-multiselect__dropdown {
@@ -194,6 +194,8 @@
   border-top: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
   border-left: 2px solid var(--mdPrimaryColor);
+  padding: calc(1em - 1px);
+  padding-bottom: 1em;
 }
 
 .md-multiselect__button:not(.md-multiselect__button--open):focus,

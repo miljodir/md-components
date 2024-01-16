@@ -115,6 +115,8 @@ import MdLoadingSpinner, { MdLoadingSpinnerProps } from './loadingSpinner/MdLoad
 import MdAlertMessage, { MdAlertMessageProps } from './messages/MdAlertMessage';
 import MdInfoBox, { MdInfoBoxProps } from './messages/MdInfoBox';
 import MdModal, { MdModalProps } from './modal/MdModal';
+import MdStep, { MdStepProps } from './stepper/MdStep';
+import MdStepper, { MdStepperProps } from './stepper/MdStepper';
 import MdTab, { MdTabProps } from './tabs/MdTab';
 import MdTabTitle, { MdTabTitleProps } from './tabs/MdTabTitle';
 import MdTabs, { MdTabsProps } from './tabs/MdTabs';
@@ -280,4 +282,8 @@ export {
   MdDataColumnRow,
   MdDataColumnRowValue,
   MdDataColumnRightAlignedContent,
+  MdStepper,
+  MdStep,
+  MdStepProps,
+  MdStepperProps,
 };
