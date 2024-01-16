@@ -30,6 +30,7 @@ const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
           return !disabled && setSelectedTab(index);
         }}
         tabIndex={disabled ? -1 : 0}
+        data-text={title}
       >
         {title}
       </button>
