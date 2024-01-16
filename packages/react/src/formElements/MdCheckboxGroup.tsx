@@ -1,12 +1,11 @@
 import classnames from 'classnames';
+
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
-
 export interface MdCheckboxGroupOptionProps {
   value: string | number;
   text?: string | number;
@@ -19,6 +18,7 @@ export interface MdCheckboxGroupProps {
   id?: string | number;
   disabled?: boolean;
   direction?: string;
+  wrap?: boolean;
   className?: string;
   error?: string;
   helpText?: string;
@@ -34,6 +34,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   id,
   disabled = false,
   direction,
+  wrap,
   className = '',
   error,
   helpText,
@@ -55,6 +56,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 
   const optionsClassNames = classnames('md-checkboxgroup__options', {
     'md-checkboxgroup__options--vertical': direction === 'vertical',
+    'md-checkboxgroup__options--columns': wrap,
   });
 
   const optionIsSelected = (option: MdCheckboxGroupOptionProps) => {
