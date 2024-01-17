@@ -38,6 +38,11 @@
   flex-direction: column;
 }
 
+.md-checkboxgroup .md-checkboxgroup__options--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(max-content, 1fr));
+}
+
 .md-checkboxgroup__error {
   color: var(--mdErrorColor);
   font-size: 0.88em;

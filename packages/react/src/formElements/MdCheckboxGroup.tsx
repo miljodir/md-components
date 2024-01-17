@@ -1,12 +1,11 @@
 import classnames from 'classnames';
+
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
-
 export interface MdCheckboxGroupOptionProps {
   value: string | number;
   text?: string | number;
@@ -18,7 +17,8 @@ export interface MdCheckboxGroupProps {
   label?: string;
   id?: string | number;
   disabled?: boolean;
-  direction?: string;
+  direction?: 'horizontal' | 'vertical' | 'grid';
+  columns?: number;
   className?: string;
   error?: string;
   helpText?: string;
@@ -34,6 +34,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   id,
   disabled = false,
   direction,
+  columns = 2,
   className = '',
   error,
   helpText,
@@ -55,6 +56,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
 
   const optionsClassNames = classnames('md-checkboxgroup__options', {
     'md-checkboxgroup__options--vertical': direction === 'vertical',
+    'md-checkboxgroup__options--grid': direction === 'grid',
   });
 
   const optionIsSelected = (option: MdCheckboxGroupOptionProps) => {
@@ -121,6 +123,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         id={String(checkboxGroupId) || undefined}
         aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${checkboxGroupId}` : undefined}
         className={optionsClassNames}
+        style={{ gridTemplateColumns: `repeat(${columns}, minmax(max-content, 1fr))` }}
       >
         {options.map(option => {
           return (
