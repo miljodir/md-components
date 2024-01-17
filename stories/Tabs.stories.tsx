@@ -1,6 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tabs/README.md';
+import MdCheckIcon from '../packages/react/src/icons/MdCheckIcon';
 import MdTab from '../packages/react/src/tabs/MdTab';
 import MdTabs from '../packages/react/src/tabs/MdTabs';
 import type { Args } from '@storybook/react';
@@ -53,12 +54,39 @@ export default {
       },
       control: { type: 'number' },
     },
+    chips: {
+      type: { name: 'boolean' },
+      description: 'Use chips instead of buttons for the tab titles.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    chipsPrefixIcon: {
+      type: { name: 'ReactNode' },
+      description:
+        'Prefix icon to apply before chip label if active. Will render a 16px x 16px container with icon passed.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
 const Template = (args: Args) => {
   return (
-    <MdTabs initialTab={args.initialTab}>
+    <MdTabs
+      initialTab={args.initialTab}
+      chips={args.chips}
+      chipsPrefixIcon={args.chipsPrefixIcon ? <MdCheckIcon /> : null}
+    >
       <MdTab title="Tab 1">
         <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the first tab</div>
         <div>
@@ -83,4 +111,6 @@ export const Tabs = Template.bind({});
 Tabs.args = {
   disabled: false,
   initialTab: 0,
+  chips: false,
+  chipsPrefixIcon: false,
 };

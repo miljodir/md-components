@@ -1,14 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import MdTabTitle from './MdTabTitle';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 export interface MdTabsProps {
   children: ReactElement[];
   initialTab?: number;
+  chips?: boolean;
+  chipsPrefixIcon?: ReactNode;
 }
 
-const MdTabs: React.FunctionComponent<MdTabsProps> = ({ children, initialTab = 0 }: MdTabsProps) => {
+const MdTabs: React.FunctionComponent<MdTabsProps> = ({
+  children,
+  initialTab = 0,
+  chips = false,
+  chipsPrefixIcon = false,
+}: MdTabsProps) => {
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   const tabs = children instanceof Array ? children : [children];
@@ -25,6 +32,8 @@ const MdTabs: React.FunctionComponent<MdTabsProps> = ({ children, initialTab = 0
               disabled={item.props.disabled}
               selectedTab={selectedTab}
               setSelectedTab={setSelectedTab}
+              chips={chips}
+              chipsPrefixIcon={chipsPrefixIcon}
             />
           );
         })}
