@@ -20,7 +20,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <MdHelpText>{helpText}</MdHelpText>
   </div>
 
-  <div class="md-checkboxgroup__options [md-checkboxgroup__options--vertical]">
+  <div class="md-checkboxgroup__options [md-checkboxgroup__options--vertical] [md-checkboxgroup__options--grid]">
     <!-- Here we use the designsystem react components for checkbox, see structure for these separately -->
     <MdCheckbox />
     <MdCheckbox />
