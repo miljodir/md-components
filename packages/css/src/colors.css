@@ -17,6 +17,7 @@
   --mdTextColor: #222222;
 
   --mdWarningBackgoundColor: #fce4ca;
+  --mdWarningColor: #de8215;
 
   --mdErrorColor: #ca0000;
   --mdErrorColor120: #b7090d;
@@ -27,4 +28,6 @@
   --mdGreyColor40: #a6a6a6;
   --mdGreyColor60: #808080;
   --mdGreyColor80: #4e4e4e;
+
+  --mdGreenColor60: #b3e8c2;
 }
