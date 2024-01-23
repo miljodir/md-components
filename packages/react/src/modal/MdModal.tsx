@@ -119,6 +119,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 onClick={e => {
                   closeModal(e);
                 }}
+                aria-label="Lukk"
               >
                 <MdXIcon className="md-modal__close-button-icon" />
               </button>
