@@ -53,6 +53,17 @@ export default {
       },
       control: { type: 'text' },
     },
+    expanded: {
+      type: { name: 'boolean' },
+      description: 'Determines if the accordion is expanded. If not present, component handles expand/collapse internally.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     theme: {
       type: { name: 'string' },
       description: 'Color theme for accordion.',
