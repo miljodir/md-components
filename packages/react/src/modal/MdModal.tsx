@@ -17,7 +17,7 @@ export interface MdModalProps {
   error?: boolean;
   className?: string;
   closeOnOutsideClick?: boolean;
-  onClose?(_e: React.MouseEvent): void;
+  onClose?(_e?: React.MouseEvent): void;
 }
 
 const MdModal: React.FunctionComponent<MdModalProps> = ({
@@ -64,6 +64,11 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
           }
         }
       }
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        if (onClose) {
+          onClose();
+        }
+      }
     };
 
     document.addEventListener('keydown', keyListener);
@@ -92,7 +97,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   return (
     <>
       <div className="md-modal__overlay" />
-      <div className={classNames}>
+      <div className={classNames} role="dialog" aria-modal={true} aria-label={heading}>
         <div className="md-modal__content">
           <MdClickOutsideWrapper
             onClickOutside={e => {
@@ -114,6 +119,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 onClick={e => {
                   closeModal(e);
                 }}
+                aria-label="Lukk"
               >
                 <MdXIcon className="md-modal__close-button-icon" />
               </button>
