@@ -23,4 +23,4 @@ const MyComponent = () => {
 
 _For React components, see [@miljodirektoratet/md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react)_
 
-**Endring for å teste workflow, enda en gang**
+**Endring for å teste workflow, enda en gang, og en gang til**
