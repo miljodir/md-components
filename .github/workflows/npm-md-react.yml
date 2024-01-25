@@ -1,14 +1,51 @@
-name: Publish md-react to npm
+name: Bump and publish md-react to npm
 
 on:
-  push:
+  pull_request:
     branches: 
       - main
     paths:
       - 'packages/react/**'
+    types:
+      - closed
 
 jobs:
+  bump:
+    name: Bump package version
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/react
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Git config
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      - name: Apply version bump (major)
+        if: contains(github.event.pull_request.labels.*.name, 'major')
+        run: npm version major
+      - name: Apply version bump (minor)
+        if: contains(github.event.pull_request.labels.*.name, 'minor')
+        run: npm version minor
+      - name: Apply version bump (patch)
+        if: contains(github.event.pull_request.labels.*.name, 'patch')
+        run: npm version patch
+      - name: Git push version bump
+        run: git push origin main --force
+      - id: set-version
+        name: Output version change
+        run: npm pkg get version
+
   build:
+    name: Build & Publish
     runs-on: ubuntu-latest
     defaults:
       run:

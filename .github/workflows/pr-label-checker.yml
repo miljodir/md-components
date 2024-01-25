@@ -1,0 +1,20 @@
+name: 'PR Label Checker'
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'packages/react/**'
+      - 'packages/css/**'
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  check_labels:
+    name: 'Check PR Labels'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mheap/github-action-required-labels@v5
+        with:
+          mode: exactly
+          count: 1
+          labels: 'major, minor, patch'
