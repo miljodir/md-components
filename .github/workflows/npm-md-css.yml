@@ -50,6 +50,10 @@ jobs:
       - name: Git commit
         run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
 
+      - name: Git push version bump
+        run: git push origin main --force
+
+        
   build:
     name: Build & Publish
     needs: bump
