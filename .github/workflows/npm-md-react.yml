@@ -46,6 +46,7 @@ jobs:
 
   build:
     name: Build & Publish
+    needs: bump
     runs-on: ubuntu-latest
     defaults:
       run:
