@@ -39,13 +39,16 @@ jobs:
         run: npm version patch
         working-directory: ./packages/react
 
-      - name: Git push version bump
-        run: git push origin main --force
-        
       - id: set-version
         name: Output version change
-        run: npm pkg get version
+        run: echo "PKG_VERSION=$(npm pkg get version)" >> $GITHUB_ENV
         working-directory: ./packages/react
+
+      - name: Git add
+        run: git add .
+
+      - name: Git commit
+        run: git commit -m "Bump md-react version to ${{ env.PKG_VERSION }}"
 
   build:
     name: Build & Publish
