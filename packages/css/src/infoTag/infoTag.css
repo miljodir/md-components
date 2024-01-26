@@ -1,10 +1,11 @@
 .md-info-tag {
-  display: inline-flex;
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
+  max-width: fit-content;
   z-index: 2;
   background-color: var(--mdPrimaryColor20);
   color: var(--mdGreyColor);
-  align-items: center;
   padding: 4px 12px 4px 12px;
   border-radius: 4px;
   font-family: 'Open Sans';
@@ -12,6 +13,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border: none;
+}
+
+.md-info-tag--button:hover {
+  outline: 2px solid var(--mdPrimaryColor);
+  outline-offset: -2px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .md-info-tag--secondary {
@@ -20,24 +29,44 @@
 .md-info-tag--warning {
   background-color: var(--mdWarningBackgoundColor);
 }
+.md-info-tag--warning.md-info-tag--button:hover {
+  outline: 2px solid var(--mdWarningColor);
+  outline-offset: -2px;
+}
+
 .md-info-tag--danger {
   background-color: var(--mdErrorColor);
   color: #fff;
+}
+.md-info-tag--success {
+  background-color: var(--mdGreenColor60);
+}
+
+.md-info-tag--outline {
+  outline: 1px solid var(--mdGreyColor80);
+  outline-offset: -1px;
 }
 
 .md-info-tag__label {
   display: flex;
   max-width: 0;
   overflow: hidden;
-  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
   font-size: 14px;
   line-height: 18px;
+}
+.md-info-tag:hover .md-info-tag__label {
+  max-width: 100%;
+  padding-right: 16px;
+  transition: max-width 0.3s ease-in;
+  white-space: nowrap;
 }
 
 .md-info-tag__label--show {
   max-width: 100%;
-  margin-right: 12px;
-  animation: width 0.3s ease-in 1 forwards;
+  padding-right: 16px;
+  transition: max-width 0.3s ease-in;
   white-space: nowrap;
 }
 
