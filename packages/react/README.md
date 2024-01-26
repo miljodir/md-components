@@ -21,5 +21,3 @@ const MyComponent = () => {
 **For more documentation, please refer to the [Storybook](https://miljodir.github.io/md-components/)**
 
 _For stylesheets, see [@miljodirektoratet/md-css](https://www.npmjs.com/package/@miljodirektoratet/md-css)_
-
-**Endring for å teste workflow**
