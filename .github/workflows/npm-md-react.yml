@@ -11,8 +11,11 @@ on:
 
 jobs:
   bump:
-    name: Bump package version
+    name: Bump, build & publish md-react
     if: github.event.pull_request.merged == true
+    defaults:
+      run:
+        working-directory: ./packages/react
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org/
       - name: Git config
         run: |
           git config --global user.email "${{secrets.GH_EMAIL}}"
@@ -29,20 +33,16 @@ jobs:
       - name: Apply version bump (major)
         if: contains(github.event.pull_request.labels.*.name, 'major')
         run: npm version major
-        working-directory: ./packages/react
       - name: Apply version bump (minor)
         if: contains(github.event.pull_request.labels.*.name, 'minor')
         run: npm version minor
-        working-directory: ./packages/react
       - name: Apply version bump (patch)
         if: contains(github.event.pull_request.labels.*.name, 'patch')
         run: npm version patch
-        working-directory: ./packages/react
 
       - id: set-version
         name: Output version change
         run: echo "PKG_VERSION=$(npm pkg get version)" >> $GITHUB_ENV
-        working-directory: ./packages/react
 
       - name: Git add
         run: git add .
@@ -52,21 +52,7 @@ jobs:
 
       - name: Git push version bump
         run: git push origin main --force
-
-
-  build:
-    name: Build & Publish
-    needs: bump
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/react
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
+        
       - run: npm install
       - run: npm run build
       - run: npm publish --access public
