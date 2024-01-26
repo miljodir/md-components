@@ -65,3 +65,8 @@ Klon dette repoet og gjør følgende:
 npm install
 npm run storybook
 ```
+
+## Labels på pull-requests
+
+Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å bumpe pakke versjonene før de publiseres til npm.
+Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
