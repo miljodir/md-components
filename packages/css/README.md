@@ -23,4 +23,4 @@ const MyComponent = () => {
 
 _For React components, see [@miljodirektoratet/md-react](https://www.npmjs.com/package/@miljodirektoratet/md-react)_
 
-**Ny test for å se om worker får pushet endringer med PAT**
+**Ny test for å se om worker får pushet endringer med PAT, nå bør dette fikses. (alle disse skal squashes senere)**
