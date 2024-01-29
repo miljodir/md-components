@@ -135,6 +135,17 @@ export default {
         },
       },
     },
+    dropdownHeight: {
+      type: { name: 'number' },
+      description: 'Set max height of dropdown in pixels',
+      table: {
+        defaultValue: { summary: '350' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
     selectRef: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
@@ -175,4 +186,5 @@ Select.args = {
   helpText: '',
   error: false,
   errorText: '',
+  dropdownHeight: null,
 };

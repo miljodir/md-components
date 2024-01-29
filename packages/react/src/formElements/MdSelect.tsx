@@ -27,6 +27,7 @@ export interface MdSelectProps {
   error?: boolean;
   errorText?: string;
   onChange(_e: MdSelectOptionProps): void;
+  dropdownHeight?: number;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -43,6 +44,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       error = false,
       errorText,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -192,6 +194,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               role="listbox"
               className="md-select__dropdown"
               id={`md-select_dropdown_${selectId}`}
+              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
               {options.map(option => {
                 return (

@@ -117,6 +117,7 @@
 
 .md-select__dropdown-item {
   display: flex;
+  align-items: center;
   font-family: 'Open sans';
   border: 0;
   background-color: #fff;
