@@ -34,7 +34,7 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string' },
-      description: 'The label for the selct box.',
+      description: 'The label for the select box.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
