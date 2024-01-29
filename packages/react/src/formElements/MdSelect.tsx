@@ -117,6 +117,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const buttonClassNames = classnames('md-select__button', {
       'md-select__button--open': !!open,
       'md-select__button--error': !!error,
+      'md-select__button--small': size === 'small',
     });
 
     const optionClass = (option: MdSelectOptionProps) => {
