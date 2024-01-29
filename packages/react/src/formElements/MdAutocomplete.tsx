@@ -107,27 +107,27 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-autocomplete__label">
-          {label && label !== '' && (
+        {label && label !== '' && (
+          <div className="md-autocomplete__label">
             <label id={`md-autocomplete_label_${autocompleteId}`} htmlFor={autocompleteId}>
               {label}
             </label>
-          )}
-          {helpText && helpText !== '' && (
-            <div className="md-autocomplete__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-autocomplete_help-button_${autocompleteId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
+            {helpText && helpText !== '' && (
+              <div className="md-autocomplete__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-autocomplete_help-button_${autocompleteId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {helpText && helpText !== '' && (
           <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
