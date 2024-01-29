@@ -130,24 +130,25 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-select__label">
-          {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
-          {helpText && helpText !== '' && (
-            <div className="md-select__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-select_help-button_${selectId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-select_help-text_${selectId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
-
+        {label && label !== '' && (
+          <div className="md-select__label">
+            {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
+            {helpText && helpText !== '' && (
+              <div className="md-select__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-select_help-button_${selectId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-select_help-text_${selectId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
         {helpText && helpText !== '' && (
           <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
             <MdHelpText

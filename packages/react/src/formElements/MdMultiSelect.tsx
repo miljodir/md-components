@@ -146,24 +146,25 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-multiselect__label">
-          {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
-
-          {helpText && helpText !== '' && (
-            <div className="md-multiselect__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-multiselect_help-button_${multiSelectId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-multiselect_help-text_${multiSelectId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
+        {label && label !== '' && (
+          <div className="md-multiselect__label">
+            {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
+            {helpText && helpText !== '' && (
+              <div className="md-multiselect__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-multiselect_help-button_${multiSelectId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-multiselect_help-text_${multiSelectId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {helpText && helpText !== '' && (
           <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
