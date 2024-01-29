@@ -31,6 +31,7 @@ export interface MdMultiSelectProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   id?: any;
   onChange?(_e: React.ChangeEvent): void;
+  dropdownHeight?: number;
 }
 
 const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
@@ -49,6 +50,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       closeOnSelect = false,
       id,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -71,6 +73,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
 
     const buttonClassNames = classnames('md-multiselect__button', {
       'md-multiselect__button--open': !!open,
+      'md-multiselect--small': size === 'small',
     });
 
     const dropDownClassNames = classnames('md-multiselect__dropdown', {
@@ -211,6 +214,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               role="listbox"
               id={`md-multiselect_dropdown_${multiSelectId}`}
               className={dropDownClassNames}
+              style={{ maxHeight: dropdownHeight ? `${dropdownHeight}px` : 'auto' }}
             >
               {options.map(option => {
                 return (

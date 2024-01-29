@@ -162,6 +162,17 @@ export default {
         },
       },
     },
+    dropdownHeight: {
+      type: { name: 'number' },
+      description: 'Set max height of dropdown in pixels',
+      table: {
+        defaultValue: { summary: '350px' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
   },
 };
 
@@ -213,4 +224,5 @@ Multiselect.args = {
   helpText: '',
   error: false,
   errorText: '',
+  dropdownHeight: null,
 };
