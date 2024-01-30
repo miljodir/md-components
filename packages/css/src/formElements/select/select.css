@@ -54,6 +54,7 @@
 }
 .md-select__button.md-select__button--open.md-select__button--small {
   padding: calc(0.75em - 1px);
+  padding-bottom: 0.75em;
 }
 
 .md-select--disabled .md-select__button {

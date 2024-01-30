@@ -44,7 +44,7 @@
   text-align: left;
   cursor: pointer;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .md-autocomplete__input.md-autocomplete__input--error {
@@ -88,7 +88,7 @@
   width: 16px;
   display: flex;
   color: var(--mdPrimaryColor);
-  z-index: 1;
+  z-index: 0;
 }
 
 .md-autocomplete--small > .md-autocomplete__input__prefix {
@@ -109,6 +109,7 @@
   height: 16px;
   rotate: 90deg;
   color: var(--mdGreyColor);
+  z-index: 0;
 }
 
 .md-autocomplete--small > .md-autocomplete__input-icon {
