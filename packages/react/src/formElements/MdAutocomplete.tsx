@@ -71,6 +71,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--open': !!open,
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+      'md-autocomplete--small': size === 'small',
     });
 
     const selectedOption =
@@ -147,7 +148,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           onClickOutside={() => {
             return setOpen(false);
           }}
-          className="md-autocomplete__container"
+          className={`md-autocomplete__container ${size === 'small' ? 'md-autocomplete--small' : ''}`}
         >
           {prefixIcon && (
             <div
@@ -194,7 +195,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             {...otherProps}
           />
           <div aria-hidden="true" className="md-autocomplete__input-icon">
-            <MdChevronIcon />
+            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
           </div>
 
           {options && options.length > 0 && (
