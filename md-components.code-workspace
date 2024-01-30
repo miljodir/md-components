@@ -27,7 +27,6 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "never",
       "source.fixAll.eslint": "explicit"
     },
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
