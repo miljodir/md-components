@@ -28,6 +28,7 @@ export interface MdAutocompleteProps {
   error?: boolean;
   errorText?: string;
   prefixIcon?: React.ReactNode;
+  dropdownHeight?: number;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -46,6 +47,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       errorText,
       prefixIcon = null,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -204,6 +206,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               role="listbox"
               id={`md-autocomplete__dropdown_${autocompleteId}`}
               className="md-autocomplete__dropdown"
+              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (
