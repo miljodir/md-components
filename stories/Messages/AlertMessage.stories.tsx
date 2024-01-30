@@ -79,6 +79,35 @@ export default {
       },
       control: null,
     },
+    closable: {
+      description: 'Show close icon.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+      control: { type: 'boolean' },
+    },
+    onClose: {
+      description: 'Callback for reacting to closing message.',
+      table: {
+        defaultValue: { summary: 'function' },
+        type: {
+          summary: null,
+        },
+      },
+      action: 'close',
+    },
+    className: {
+      type: { name: 'string' },
+      description: 'Class names to apply to the component.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
   },
 };
 

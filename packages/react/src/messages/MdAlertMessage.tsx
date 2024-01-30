@@ -14,6 +14,7 @@ export interface MdAlertMessageProps {
   fullWidth?: boolean;
   onClose?(_e: React.MouseEvent): void;
   customIcon?: React.ReactNode | string;
+  className?: string;
 }
 
 const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
@@ -24,13 +25,18 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   fullWidth = false,
   onClose,
   customIcon,
+  className,
 }: MdAlertMessageProps) => {
-  const classNames = classnames('md-alert-message', {
-    'md-alert-message--fullWidth': !!fullWidth,
-    'md-alert-message--confirm': theme === 'confirm',
-    'md-alert-message--warning': theme === 'warning',
-    'md-alert-message--error': theme === 'error',
-  });
+  const classNames = classnames(
+    'md-alert-message',
+    {
+      'md-alert-message--fullWidth': !!fullWidth,
+      'md-alert-message--confirm': theme === 'confirm',
+      'md-alert-message--warning': theme === 'warning',
+      'md-alert-message--error': theme === 'error',
+    },
+    className,
+  );
 
   const renderIcon = () => {
     let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
