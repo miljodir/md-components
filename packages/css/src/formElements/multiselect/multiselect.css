@@ -15,6 +15,7 @@
   display: flex;
   align-items: flex-end;
   font-weight: 600;
+  padding-bottom: 0.25em;
 }
 
 .md-multiselect__label > * + * {
@@ -36,6 +37,10 @@
   cursor: pointer;
 }
 
+.md-multiselect__button.md-multiselect--small {
+  padding: 0.75em;
+}
+
 .md-multiselect--disabled .md-multiselect__button {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
@@ -46,11 +51,18 @@
 .md-multiselect__button:focus-within {
   outline: none;
 }
+.md-multiselect:not(.md-multiselect--disabled)
+  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
+.md-multiselect:not(.md-multiselect--disabled)
+  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
+  padding: calc(0.75em - 1px);
+  border: 2px solid var(--mdPrimaryColor80);
+}
 
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1em - 1px);
-  border: 2px solid var(--mdPrimaryColor);
+  border: 2px solid var(--mdPrimaryColor80);
 }
 
 .md-multiselect--error:not(.md-multiselect--disabled) .md-multiselect__button {
@@ -93,7 +105,6 @@
 
 .md-multiselect__dropdown-wrapper {
   position: relative;
-  margin: 0.7em 0 0 0;
 }
 
 .md-multiselect__dropdown {
@@ -127,11 +138,20 @@
   display: flex;
   flex-shrink: 0;
   flex-grow: 1;
-  padding: 0.9em;
+  padding: 0.75em;
 }
 
 .md-multiselect__dropdown-item .md-checkbox .md-checkbox__label .md-checkbox__labelText {
   padding: 0;
+}
+
+.md-multiselect__dropdown-item .md-checkbox__labelText {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--mdGreyColor);
 }
 
 .md-multiselect__dropdown-item:hover,
@@ -191,24 +211,39 @@
 
 /* Open state */
 .md-multiselect--open .md-multiselect__button {
-  border-top: 2px solid var(--mdPrimaryColor);
-  border-right: 2px solid var(--mdPrimaryColor);
-  border-left: 2px solid var(--mdPrimaryColor);
+  border-top: 2px solid var(--mdPrimaryColor80);
+  border-right: 2px solid var(--mdPrimaryColor80);
+  border-left: 2px solid var(--mdPrimaryColor80);
   padding: calc(1em - 1px);
   padding-bottom: 1em;
+}
+
+.md-multiselect--open .md-multiselect__button.md-multiselect--small {
+  border-top: 2px solid var(--mdPrimaryColor80);
+  border-right: 2px solid var(--mdPrimaryColor80);
+  border-left: 2px solid var(--mdPrimaryColor80);
+  padding: calc(0.75em - 1px);
+  padding-bottom: 0.75em;
 }
 
 .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1em - 1px);
-  border: 2px solid var(--mdPrimaryColor);
+  border: 2px solid var(--mdPrimaryColor80);
+}
+
+.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
+.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
+  padding: calc(0.75em - 1px);
+  border: 2px solid var(--mdPrimaryColor80);
 }
 
 .md-multiselect__dropdown--open {
   max-height: 350px;
   overflow-y: auto;
   opacity: 1;
-  border: 2px solid var(--mdPrimaryColor);
+  border: 2px solid var(--mdPrimaryColor80);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   border-top: 0;
 }
 .md-multiselect--open.md-multiselect--error .md-multiselect__dropdown {

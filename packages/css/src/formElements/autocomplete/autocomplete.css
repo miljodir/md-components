@@ -13,12 +13,14 @@
 
 .md-autocomplete__container {
   position: relative;
+  background-color: white;
 }
 
 .md-autocomplete__label {
   display: flex;
   align-items: flex-end;
   font-weight: 600;
+  padding-bottom: 0.25em;
 }
 
 .md-autocomplete__label > * + * {
@@ -28,7 +30,7 @@
 .md-autocomplete__input {
   max-width: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 0;
   color: var(--mdGreyColor);
   box-sizing: border-box;
@@ -39,13 +41,18 @@
   justify-content: space-between;
   padding: 1em;
   border: 1px solid var(--mdGreyColor60);
-  margin: 0.8em 0 0 0;
   text-align: left;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .md-autocomplete__input.md-autocomplete__input--error {
   border-color: var(--mdErrorColor);
+}
+
+.md-autocomplete--small > .md-autocomplete__input {
+  padding: 0.75em;
 }
 
 .md-autocomplete--disabled .md-autocomplete__input {
@@ -65,15 +72,6 @@
   padding-right: 1em;
 }
 
-.md-autocomplete__input-icon {
-  display: flex;
-  flex-shrink: 0;
-  width: 15px;
-  height: 15px;
-  rotate: 90deg;
-  color: var(--mdGreyColor);
-}
-
 .md-autocomplete__input.md-autocomplete__input--has-prefix {
   padding-left: 2.5em;
 }
@@ -90,6 +88,12 @@
   width: 16px;
   display: flex;
   color: var(--mdPrimaryColor);
+  z-index: 1;
+}
+
+.md-autocomplete--small > .md-autocomplete__input__prefix {
+  top: 1em;
+  left: 1em;
 }
 
 .md-autocomplete__input__prefix.md-autocomplete__input__prefix--disabled {
@@ -101,10 +105,15 @@
   top: 1.3em;
   right: 0.9em;
   display: flex;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   rotate: 90deg;
   color: var(--mdGreyColor);
+}
+
+.md-autocomplete--small > .md-autocomplete__input-icon {
+  top: 1em;
+  right: 1em;
 }
 
 .md-autocomplete__help-text {
@@ -130,6 +139,7 @@
 
 .md-autocomplete__dropdown-item {
   display: flex;
+  align-items: center;
   font-family: 'Open sans';
   border: 0;
   background-color: #fff;
@@ -169,6 +179,10 @@
   border-left: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
   border-top: 2px solid var(--mdPrimaryColor);
+  padding-bottom: calc(1em - 1px);
+}
+.md-autocomplete--open.md-autocomplete--small .md-autocomplete__input {
+  padding-bottom: calc(0.75em - 1px);
 }
 
 .md-autocomplete--open .md-autocomplete__dropdown {
@@ -179,6 +193,7 @@
   border-right: 2px solid var(--mdPrimaryColor);
   border-left: 2px solid var(--mdPrimaryColor);
   border-bottom: 2px solid var(--mdPrimaryColor);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   z-index: 2;
 }
 

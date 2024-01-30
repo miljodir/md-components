@@ -28,6 +28,7 @@ export interface MdAutocompleteProps {
   error?: boolean;
   errorText?: string;
   prefixIcon?: React.ReactNode;
+  dropdownHeight?: number;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -46,6 +47,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       errorText,
       prefixIcon = null,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -71,6 +73,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--open': !!open,
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+      'md-autocomplete--small': size === 'small',
     });
 
     const selectedOption =
@@ -107,27 +110,27 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-autocomplete__label">
-          {label && label !== '' && (
+        {label && label !== '' && (
+          <div className="md-autocomplete__label">
             <label id={`md-autocomplete_label_${autocompleteId}`} htmlFor={autocompleteId}>
               {label}
             </label>
-          )}
-          {helpText && helpText !== '' && (
-            <div className="md-autocomplete__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-autocomplete_help-button_${autocompleteId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
+            {helpText && helpText !== '' && (
+              <div className="md-autocomplete__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-autocomplete_help-button_${autocompleteId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {helpText && helpText !== '' && (
           <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
@@ -147,7 +150,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           onClickOutside={() => {
             return setOpen(false);
           }}
-          className="md-autocomplete__container"
+          className={`md-autocomplete__container ${size === 'small' ? 'md-autocomplete--small' : ''}`}
         >
           {prefixIcon && (
             <div
@@ -194,7 +197,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             {...otherProps}
           />
           <div aria-hidden="true" className="md-autocomplete__input-icon">
-            <MdChevronIcon />
+            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
           </div>
 
           {options && options.length > 0 && (
@@ -203,6 +206,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               role="listbox"
               id={`md-autocomplete__dropdown_${autocompleteId}`}
               className="md-autocomplete__dropdown"
+              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
               {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
                 return (

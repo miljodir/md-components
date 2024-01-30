@@ -31,6 +31,7 @@ export interface MdMultiSelectProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   id?: any;
   onChange?(_e: React.ChangeEvent): void;
+  dropdownHeight?: number;
 }
 
 const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
@@ -49,6 +50,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       closeOnSelect = false,
       id,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -71,6 +73,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
 
     const buttonClassNames = classnames('md-multiselect__button', {
       'md-multiselect__button--open': !!open,
+      'md-multiselect--small': size === 'small',
     });
 
     const dropDownClassNames = classnames('md-multiselect__dropdown', {
@@ -143,24 +146,25 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-multiselect__label">
-          {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
-
-          {helpText && helpText !== '' && (
-            <div className="md-multiselect__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-multiselect_help-button_${multiSelectId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-multiselect_help-text_${multiSelectId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
+        {label && label !== '' && (
+          <div className="md-multiselect__label">
+            {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
+            {helpText && helpText !== '' && (
+              <div className="md-multiselect__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-multiselect_help-button_${multiSelectId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-multiselect_help-text_${multiSelectId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {helpText && helpText !== '' && (
           <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
@@ -201,7 +205,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
             )}
             <div aria-hidden="true" className="md-multiselect__button-icon">
-              <MdChevronIcon />
+              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 
@@ -211,6 +215,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               role="listbox"
               id={`md-multiselect_dropdown_${multiSelectId}`}
               className={dropDownClassNames}
+              style={{ maxHeight: dropdownHeight ? `${dropdownHeight}px` : 'auto' }}
             >
               {options.map(option => {
                 return (
