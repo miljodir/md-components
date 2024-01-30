@@ -205,7 +205,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
             )}
             <div aria-hidden="true" className="md-multiselect__button-icon">
-              <MdChevronIcon />
+              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 

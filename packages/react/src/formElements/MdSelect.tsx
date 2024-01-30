@@ -185,7 +185,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           >
             <div className="md-select__button-text">{displayValue}</div>
             <div aria-hidden="true" className="md-select__button-icon">
-              <MdChevronIcon />
+              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 
