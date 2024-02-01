@@ -99,6 +99,7 @@
 
 .md-multiselect__help-text--open {
   padding-top: 0.5em;
+  padding-bottom: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
