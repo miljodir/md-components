@@ -163,6 +163,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             </div>
           )}
           <input
+            autoComplete="off"
             role="combobox"
             aria-expanded={open}
             aria-controls={`md-autocomplete_dropdown_${autocompleteId}`}

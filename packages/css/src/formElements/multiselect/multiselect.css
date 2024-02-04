@@ -110,7 +110,7 @@
 
 .md-multiselect__dropdown {
   position: absolute;
-  z-index: 99;
+  z-index: -1;
   width: calc(100% - 4px);
   max-height: 0;
   overflow: hidden;
@@ -242,6 +242,7 @@
 .md-multiselect__dropdown--open {
   max-height: 350px;
   overflow-y: auto;
+  z-index: 2;
   opacity: 1;
   border: 2px solid var(--mdPrimaryColor80);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
