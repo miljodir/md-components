@@ -89,5 +89,6 @@
 @media (max-width: 768px) {
   .md-modal__inner-wrapper--small {
     width: 80vw;
+    height: 60vh;
   }
 }

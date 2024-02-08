@@ -13,7 +13,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
       <!--  Start of step -->
       <div class="md-stepper__stepper-list-item">
         <div class="md-stepper__step-title">
-          <div class="md-stepper__step-title-badge-outer-border">
+          <div class="md-stepper__step-title-badge-outer-border [selected]">
             <div class="md-stepper__step-title-badge [completed, selected, disabled]">
               [<MdCheckIcon width="{18}" />, index+1]
               <!-- Icon for checkmark, or the current steps number -->

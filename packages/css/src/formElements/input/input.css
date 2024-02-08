@@ -3,6 +3,10 @@
   font-size: 16px;
 }
 
+.md-input__outer-wrapper--small {
+  max-width: 336px;
+}
+
 .md-input {
   padding: 1em 2em 1em 1em;
   max-width: 100%;
