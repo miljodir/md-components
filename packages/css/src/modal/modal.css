@@ -40,6 +40,14 @@
   box-shadow: 8px 8px 16px var(--mdGreyColor60);
 }
 
+.md-modal__inner-wrapper--small {
+  width: 40vw;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .md-modal--error .md-modal__inner-wrapper {
   border: 2px solid var(--mdErrorColor);
 }
@@ -74,4 +82,12 @@
 
 .md-modal__content-inner {
   padding-right: 2em;
+  flex-grow: 1;
+}
+
+/* Media */
+@media (max-width: 768px) {
+  .md-modal__inner-wrapper--small {
+    width: 80vw;
+  }
 }
