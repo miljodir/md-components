@@ -26,9 +26,9 @@
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus {
-  margin: 0;
-  border: 2px solid var(--mdPrimaryColor80);
-  outline: none;
+  outline: 2px solid var(--mdPrimaryColor80);
+  outline-offset: -2px;
+  border-color: transparent;
 }
 
 .md-input.md-input--disabled:focus,
