@@ -20,7 +20,7 @@
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
   outline: 2px solid var(--mdPrimaryColor80);
-  outline-offset: -1;
+  outline-offset: -2px;
   border-color: transparent;
 }
 
