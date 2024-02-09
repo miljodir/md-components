@@ -205,7 +205,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             <div
               aria-labelledby={label && label !== '' ? `md-autocomplete_label_${autocompleteId}` : undefined}
               role="listbox"
-              id={`md-autocomplete__dropdown_${autocompleteId}`}
+              id={`md-autocomplete_dropdown_${autocompleteId}`}
               className="md-autocomplete__dropdown"
               style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
