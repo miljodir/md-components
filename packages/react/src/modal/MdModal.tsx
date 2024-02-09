@@ -18,7 +18,6 @@ export interface MdModalProps {
   className?: string;
   closeOnOutsideClick?: boolean;
   onClose?(_e?: React.MouseEvent): void;
-  size?: string;
 }
 
 const MdModal: React.FunctionComponent<MdModalProps> = ({
@@ -30,21 +29,14 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   className = '',
   closeOnOutsideClick = true,
   onClose,
-  size,
 }: MdModalProps) => {
-  const classNames = classnames(
-    'md-modal',
-    {
-      'md-modal--open': !!open,
-      'md-modal--error': !!error,
-    },
-    className,
-  );
+  const classNames = classnames('md-modal', {
+    'md-modal--open': !!open,
+    'md-modal--error': !!error,
+  });
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const innerWrapperClassNames = classnames('md-modal__inner-wrapper', {
-    'md-modal__inner-wrapper--small': size === 'small',
-  });
+  const innerWrapperClassNames = classnames('md-modal__inner-wrapper', className);
 
   /**
    * Focus trap for keyboard users. Makes it impossible to tab out of modal,

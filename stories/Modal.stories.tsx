@@ -117,17 +117,6 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    size: {
-      type: { name: 'string' },
-      description: 'Fixed size small modal, when specifying "small" as value',
-      table: {
-        defaultValue: { summary: 'null' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'text' },
-    },
   },
 };
 
