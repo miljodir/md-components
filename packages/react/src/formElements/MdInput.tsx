@@ -74,8 +74,16 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       'md-input__wrapper--small': size === 'small',
     });
 
+    const outerWrapperClasses = classnames(
+      'md-input__outer-wrapper',
+      {
+        'md-input__outer-wrapper--small': size === 'small',
+      },
+      outerWrapperClass,
+    );
+
     return (
-      <div className={`md-input__outer-wrapper ${outerWrapperClass}`}>
+      <div className={outerWrapperClasses}>
         <div className="md-input__label">
           {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
           {helpText && helpText !== '' && (

@@ -4,11 +4,11 @@
 }
 
 .md-select--medium {
-  width: 440px;
+  max-width: 440px;
 }
 
 .md-select--small {
-  width: 260px;
+  max-width: 260px;
 }
 
 .md-select__container {

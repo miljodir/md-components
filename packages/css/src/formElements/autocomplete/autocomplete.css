@@ -4,11 +4,11 @@
 }
 
 .md-autocomplete--medium {
-  width: 440px;
+  max-width: 440px;
 }
 
 .md-autocomplete--small {
-  width: 260px;
+  max-width: 260px;
 }
 
 .md-autocomplete__container {

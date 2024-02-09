@@ -4,11 +4,11 @@
 }
 
 .md-multiselect--medium {
-  width: 440px;
+  max-width: 440px;
 }
 
 .md-multiselect--small {
-  width: 260px;
+  max-width: 260px;
 }
 
 .md-multiselect__label {
