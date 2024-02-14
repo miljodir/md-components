@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MdLink from '../packages/react/src/link/MdLink';
 
 export default {
@@ -8,28 +7,29 @@ export default {
   parameters: {
     docs: {
       description: {
+        // eslint-disable-next-line quotes
         component: "Inline link component.<br/><br/>`import { MdLink } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     href: {
-      description: "The link destination",
+      description: 'The link destination',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     text: {
-      description: "The link text",
+      description: 'The link text',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     onClick: {
       description: 'Callback for controlling onClick along side href',
@@ -38,12 +38,12 @@ export default {
         type: {
           summary: null,
         },
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-function clickHandler(event: React.MouseEvent<HTMLInputElement>) {
+function clickHandler(event: React.MouseEvent) {
   event.preventDefault();
   event.stopPropagation();
 }
@@ -53,14 +53,16 @@ interface LinkArgs {
   href?: string;
 }
 
-const Template = (args: LinkArgs) => (
-  <MdLink onClick={clickHandler} href={args.href}>
-    {args.text}
-  </MdLink>
-);
+const Template = (args: LinkArgs) => {
+  return (
+    <MdLink onClick={clickHandler} href={args.href}>
+      {args.text}
+    </MdLink>
+  );
+};
 
 export const Link = Template.bind({});
 Link.args = {
   text: 'This is a link',
-  href: '#'
-}
+  href: '#',
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import MdSignIcon from '../../packages/react/src/icons/MdSignIcon'
+import MdSignIcon from '../../packages/react/src/icons/MdSignIcon';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Sign',
@@ -8,42 +9,44 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Sign/Road sign icon. Color is inherited from parent.<br/><br/>`import { MdSignIcon } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "Sign/Road sign icon. Color is inherited from parent.<br/><br/>`import { MdSignIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdSignIcon className={args.className} />
     </div>
   );
-}
+};
 
-export const SignIcon = Template.bind({})
+export const SignIcon = Template.bind({});
 SignIcon.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

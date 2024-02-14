@@ -1,37 +1,31 @@
-import React from 'react';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-// @ts-ignore
+import React from 'react';
 import Readme from '../../packages/css/src/help/README.md';
-
 import MdHelpButton from '../../packages/react/src/help/MdHelpButton';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Components/Help',
   component: MdHelpButton,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
       description: {
-        component: "Button for help text. Mainly used in conjunction with MdHelpText.<br/><br/>`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "Button for help text. Mainly used in conjunction with MdHelpText.<br/><br/>`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -40,36 +34,36 @@ export default {
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     hideArrow: {
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     onClick: {
       type: { name: 'function' },
-      description: "The onClick handler for change events",
+      description: 'The onClick handler for change events',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
-    }
-  }
-}
+    },
+  },
+};
 
-const HelpButtonTemplate = args => {
-  const [_, updateArgs] = useArgs();
+const HelpButtonTemplate = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const handleExpanded = (exp) => {
+  const handleExpanded = (exp: boolean) => {
     updateArgs({ ...args, expanded: exp });
   };
 
@@ -77,15 +71,15 @@ const HelpButtonTemplate = args => {
     <MdHelpButton
       expanded={args.expanded}
       hideArrow={args.hideArrow}
-      onClick={() => handleExpanded(!args.expanded)}
+      onClick={() => {
+        return handleExpanded(!args.expanded);
+      }}
     />
   );
-}
+};
 
 export const HelpButton = HelpButtonTemplate.bind({});
 HelpButton.args = {
   expanded: false,
-  hideArrow: false
+  hideArrow: false,
 };
-
-// export const Help2 = Template.bind({});

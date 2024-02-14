@@ -10,12 +10,12 @@
   border: 1px dashed var(--mdGreyColor80);
   margin-bottom: 4em;
   background-color: #fff;
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .md-fileupload__droparea.md-fileupload__droparea--active {
   background-color: var(--mdGreyColor20);
-  transition: background .2s linear;
+  transition: background 0.2s linear;
 }
 
 .md-fileupload__droparea.md-fileupload__droparea--not-allowed {
@@ -39,8 +39,8 @@
 }
 .md-fileupload__droparea-content--count {
   text-align: center;
-  margin: .5em 0;
-  font-size: .888em;
+  margin: 0.5em 0;
+  font-size: 0.888em;
   font-style: italic;
 }
 
@@ -73,4 +73,8 @@
 
 .md-fileupload__actions > * + * {
   margin-left: 1em;
+}
+
+.md-fileupload__button {
+  margin-left: 4px !important;
 }

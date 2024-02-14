@@ -1,27 +1,29 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import MdLoadingSpinnerIcon from '../icons/MdLoadingSpinnerIcon';
 
-interface MdLoadingSpinnerProps {
+export interface MdLoadingSpinnerProps {
   size?: number;
   position?: string;
   className?: string;
-};
+}
 
 const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   size,
   position = '',
-  className = ''
+  className = '',
 }: MdLoadingSpinnerProps) => {
-  const classNames = classnames('md-loading-spinner__container', {
+  const classNames = classnames(
+    'md-loading-spinner__container',
+    {
       'md-loading-spinner__container--left': position === 'left',
-      'md-loading-spinner__container--right': position === 'right'
+      'md-loading-spinner__container--right': position === 'right',
     },
-    className
+    className,
   );
 
   return (
-    <div className={classNames}>
+    <div aria-label="Laster" className={classNames}>
       <MdLoadingSpinnerIcon className="md-loading-spinner" size={size} />
     </div>
   );

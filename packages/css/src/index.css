@@ -8,6 +8,7 @@
 @import './filelist/filelist.css';
 @import './accordionitem/accordionitem.css';
 @import './modal/modal.css';
+@import './stepper/stepper.css';
 @import './tile/tile.css';
 @import './tabs/tabs.css';
 @import './loadingSpinner/loadingSpinner.css';
@@ -18,6 +19,7 @@
 @import './formElements/checkboxgroup/checkboxgroup.css';
 @import './formElements/textarea/textarea.css';
 @import './formElements/select/select.css';
+@import './formElements/autocomplete/autocomplete.css';
 @import './formElements/radiogroup/radiogroup.css';
 @import './formElements/multiselect/multiselect.css';
 @import './formElements/fileupload/fileupload.css';

@@ -4,7 +4,7 @@
   color: var(--mdGreyColor);
   font-family: 'Open sans';
   margin-bottom: 1em;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
 .md-accordion-item:focus-within {
@@ -24,7 +24,7 @@
 .md-accordion-item.md-accordion-item--add {
   background-color: transparent;
   border: 1px dashed var(--mdGreyColor80);
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 .md-accordion-item--expanded.md-accordion-item--add {
   background-color: var(--mdPrimaryColor20);
@@ -32,17 +32,17 @@
 }
 
 .md-accordion-item:not(.md-accordion-item--expanded):hover {
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   background-color: var(--mdPrimaryColor20);
 }
 
 .md-accordion-item.md-accordion-item--secondary:not(.md-accordion-item--expanded):hover {
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   background-color: var(--mdSecondaryColor);
 }
 
 .md-accordion-item.md-accordion-item--add:not(.md-accordion-item--expanded):hover {
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   background-color: transparent;
 }
 
@@ -78,10 +78,10 @@
 }
 .md-accordion-item__header .md-accordion-item__header-icon:before,
 .md-accordion-item__header .md-accordion-item__header-icon:after {
-    content: "";
-    position: absolute;
-    background-color: var(--mdGreyColor);
-    transition: transform 0.15s ease-out;
+  content: '';
+  position: absolute;
+  background-color: var(--mdGreyColor);
+  transition: transform 0.15s ease-out;
 }
 /* Vertical line */
 .md-accordion-item__header .md-accordion-item__header-icon:before {
@@ -92,7 +92,7 @@
   margin-left: -1px;
 }
 /* horizontal line */
-.md-accordion-item__header .md-accordion-item__header-icon:after{
+.md-accordion-item__header .md-accordion-item__header-icon:after {
   top: 50%;
   left: 0;
   width: 100%;
@@ -119,12 +119,12 @@
   padding: 0 1.8em;
   max-height: 0;
   overflow: hidden;
-  transition: all .15s linear;
+  transition: all 0.15s linear;
 }
 .md-accordion-item__content--expanded {
   max-height: 5000px;
   padding: 1em 1.8em 1.5em 1.8em;
-  transition: all .15s linear;
+  transition: all 0.15s linear;
 }
 
 .md-accordion-item__close-button {
@@ -133,7 +133,7 @@
   padding: 0;
   background: none;
   border: 0;
-  margin: 2em 0 0 -.2em;
+  margin: 2em 0 0 -0.2em;
   cursor: pointer;
   font-size: 16px;
 }

@@ -1,0 +1,68 @@
+name: Bump and publish md-css to npm
+
+on:
+  pull_request:
+    branches: 
+      - main
+    paths:
+      - 'packages/css/**'
+    types:
+      - closed
+
+jobs:
+  bump:
+    name: Bump, build & publish md-css
+    if: github.event.pull_request.merged == true
+    defaults:
+      run:
+        working-directory: ./packages/css
+    runs-on: ubuntu-latest        
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Git config
+        run: |
+          git config --global user.email "${{vars.GH_EMAIL}}"
+          git config --global user.name "${{vars.GH_NAME}}"
+          git config pull.rebase false
+
+      - name: Apply version bump (major)
+        if: contains(github.event.pull_request.labels.*.name, 'major')
+        run: npm version major
+        working-directory: ./packages/css
+      - name: Apply version bump (minor)
+        if: contains(github.event.pull_request.labels.*.name, 'minor')
+        run: npm version minor
+        working-directory: ./packages/css
+      - name: Apply version bump (patch)
+        if: contains(github.event.pull_request.labels.*.name, 'patch')
+        run: npm version patch
+        working-directory: ./packages/css
+
+      - id: set-version
+        name: Output version change
+        run: echo "PKG_VERSION=$(npm pkg get version)" >> $GITHUB_ENV
+        working-directory: ./packages/css
+
+      - name: Git add
+        run: git add .
+
+      - name: Git commit
+        run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
+
+      - name: Git pull
+        run: git pull origin main
+
+      - name: Git push version bump
+        run: git push origin main --force
+
+      - run: npm install
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

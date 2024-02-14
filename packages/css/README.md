@@ -1,22 +1,20 @@
-## @miljodirektoratet/md-css
+# @miljodirektoratet/md-css
 
 To start using the stylesheets:
 
-```
+```bash
 npm install @miljodirektoratet/md-css
 ```
 
 Then import the CSS, for example from JavaScript:
 
-```
+```jsx
 import { MdButton } from '@miljodirektoratet/md-react';
 import '@miljodirektoratet/md-css';
 
 const MyComponent = () => {
-    return (
-        <MdButton>Example</MdButton>
-    )
-}
+  return <MdButton>Example</MdButton>;
+};
 ```
 
 **For more documentation, please refer to the [Storybook](https://miljodir.github.io/md-components/)**

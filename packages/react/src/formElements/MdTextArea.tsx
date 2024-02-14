@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import classnames from 'classnames';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import MdHelpButton from '../help/MdHelpButton';
@@ -17,10 +17,10 @@ export interface MdTextAreaProps {
   errorText?: string;
   helpText?: string;
   outerWrapperClass?: string;
-  onChange?(e: React.ChangeEvent<HTMLTextAreaElement>): void;
-  onBlur?(e: React.FocusEvent<HTMLTextAreaElement>): void;
-  onFocus?(e: React.FocusEvent<HTMLTextAreaElement>): void;
-};
+  onChange?(_e: React.ChangeEvent<HTMLTextAreaElement>): void;
+  onBlur?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
+  onFocus?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
+}
 
 const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
   label,
@@ -42,35 +42,43 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
   const classNames = classnames('md-textarea', {
     'md-textarea--disabled': !!disabled,
     'md-textarea--readonly': !!readOnly,
-    'md-textarea--error': !!error
+    'md-textarea--error': !!error,
   });
 
   return (
     <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
       <div className="md-textarea__label">
-        {label && label !== '' &&
-          <label htmlFor={`md-textarea_${textAreaId}`}>
-            {label}
-          </label>
-        }
-        {helpText && helpText !== '' &&
+        {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
+        {helpText && helpText !== '' && (
           <div className="md-textarea__help-button">
             <MdHelpButton
-              onClick={() => setHelpOpen(!helpOpen)}
+              ariaLabel={`Hjelpetekst for ${label}`}
+              id={`md-textarea_help-button_${textAreaId}`}
+              aria-expanded={helpOpen}
+              aria-controls={`md-textarea_help-text_${textAreaId}`}
+              onClick={() => {
+                return setHelpOpen(!helpOpen);
+              }}
               expanded={helpOpen}
             />
           </div>
-        }
+        )}
       </div>
 
-      {helpText && helpText !== '' &&
+      {helpText && helpText !== '' && (
         <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
-          <MdHelpText>{ helpText }</MdHelpText>
+          <MdHelpText
+            id={`md-textarea_help-text_${textAreaId}`}
+            aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
+          >
+            {helpText}
+          </MdHelpText>
         </div>
-      }
+      )}
       <div className="md-textarea__wrapper">
         <textarea
-          id={`md-textarea_${textAreaId}`}
+          id={textAreaId}
+          aria-describedby={helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined}
           value={value}
           rows={rows}
           className={classNames}
@@ -80,9 +88,7 @@ const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
           {...otherProps}
         />
       </div>
-      {error && errorText && errorText !== '' &&
-        <div className="md-textarea__error">{errorText}</div>
-      }
+      {error && errorText && errorText !== '' && <div className="md-textarea__error">{errorText}</div>}
     </div>
   );
 };

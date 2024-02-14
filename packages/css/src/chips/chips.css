@@ -2,20 +2,22 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 1px solid var(--mdPrimaryColor);
+  outline: 1px solid var(--mdPrimaryColor);
+  outline-offset: -1px;
+  border: none;
   border-radius: 10em;
   color: var(--mdPrimaryColor);
   font-weight: 400;
   font-family: 'Open sans';
   font-size: 1rem;
   line-height: 22px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: left;
 }
 
 .md-chip.md-chip--solid:not(.md-chip--disabled) {
-  background-color: var(--mdPrimaryColor);
+  background-color: var(--mdPrimaryColor80);
   color: #fff;
 }
 .md-chip.md-chip--solid:not(.md-chip--disabled):hover {
@@ -38,7 +40,7 @@
 .md-chip--disabled {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
-  border: 1px solid var(--mdGreyColor60);
+  outline: 1px solid var(--mdGreyColor60);
   cursor: default;
 }
 
@@ -47,19 +49,19 @@
 }
 
 .md-chip:not(.md-chip--disabled).md-chip--active {
-  background-color: var(--mdPrimaryColor);
+  background-color: var(--mdPrimaryColor80);
   color: #fff;
 }
 
 .md-chip:not(.md-chip--disabled).md-chip--active:focus {
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .md-chip__left-icon {
   display: flex;
   width: 16px;
   height: 16px;
-  margin-right: .66em;
+  margin-right: 0.66em;
 }
 
 .md-chip__label {
@@ -70,5 +72,5 @@
   display: flex;
   width: 16px;
   height: 16px;
-  margin-left: .8em;
+  margin-left: 0.8em;
 }

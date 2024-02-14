@@ -1,54 +1,46 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ComponentStory } from "@storybook/react";
-import autoAnimate from "@formkit/auto-animate";
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-// @ts-ignore
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import React, { useState, useRef } from 'react';
 import Readme from '../../packages/css/src/messages/AlertMessage.md';
-
 import MdAlertMessage from '../../packages/react/src/messages/MdAlertMessage';
+import type { Args, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Messages/AlertMessage',
   component: MdAlertMessage,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
       description: {
-        component: "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     label: {
       type: { name: 'string', required: true },
-      description: "The text to display on hover",
+      description: 'The text to display on hover',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     theme: {
-      description: "Theme of alert message",
+      description: 'Theme of alert message',
       table: {
         type: {
           defaultValue: { summary: 'info' },
@@ -66,7 +58,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     hideIcon: {
       description: 'Hide alert icon.',
@@ -76,33 +68,61 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
-  }
+    customIcon: {
+      description: 'Custom icon. Overrides theme icon.',
+      table: {
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+      control: null,
+    },
+    closable: {
+      description: 'Show close icon.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+      control: { type: 'boolean' },
+    },
+    onClose: {
+      description: 'Callback for reacting to closing message.',
+      table: {
+        defaultValue: { summary: 'function' },
+        type: {
+          summary: null,
+        },
+      },
+      action: 'close',
+    },
+    className: {
+      type: { name: 'string' },
+      description: 'Class names to apply to the component.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+  },
 };
 
-const Template: ComponentStory<typeof MdAlertMessage> = args => {
+const Template: StoryFn<typeof MdAlertMessage> = (args: Args) => {
   const [show, setShow] = useState(true);
   const parent = useRef(null);
 
-  useEffect(() => {
-    parent.current && autoAnimate(parent.current)
-  }, [parent]);
-
-  const onClick = (e: any) => {
+  const onClick = () => {
     setShow(false);
     setTimeout(() => {
       setShow(true);
     }, 700);
-  }
+  };
 
-  return (
-    <div ref={parent}>
-      {show &&
-        <MdAlertMessage {...args} onClose={onClick} />
-      }
-    </div>
-  );
+  return <div ref={parent}>{show && <MdAlertMessage {...args} onClose={onClick} />}</div>;
 };
 
 export const AlertMessage = Template.bind({});
@@ -111,5 +131,5 @@ AlertMessage.args = {
   label: 'This is an alert message.',
   hideIcon: false,
   closable: true,
-  fullWidth: false
+  fullWidth: false,
 };

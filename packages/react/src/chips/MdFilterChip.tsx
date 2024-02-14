@@ -1,17 +1,17 @@
+import classnames from 'classnames';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import classnames from 'classnames';
 
 import MdCheckIcon from '../icons/MdCheckIcon';
 
 export interface MdFilterChipProps {
-    label: string | null;
-    id?: string | number;
-    active?: boolean;
-    disabled?: boolean;
-    prefixIcon?: React.ReactNode;
-    onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
-    className?: string;
+  label: string | null;
+  id?: string | number;
+  active?: boolean;
+  disabled?: boolean;
+  prefixIcon?: React.ReactNode;
+  onClick?(_e: React.MouseEvent<HTMLButtonElement>): void;
+  className?: string;
 }
 
 const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
@@ -26,26 +26,28 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
   const chipId = id && id !== '' ? id : uuidv4();
   const buttonClassNames = classnames('md-chip', className, {
     'md-chip--active': !!active,
-    'md-chip--disabled': !!disabled
+    'md-chip--disabled': !!disabled,
   });
 
   return (
     <button
+      type="button"
+      aria-pressed={active}
       className={buttonClassNames}
-      id={chipId}
+      id={String(chipId) || undefined}
       disabled={disabled}
       {...otherProps}
     >
-      {prefixIcon && !active &&
-        <div className="md-chip__left-icon">
+      {prefixIcon && !active && (
+        <div aria-hidden="true" className="md-chip__left-icon">
           {prefixIcon}
         </div>
-      }
-      {active &&
-        <div className="md-chip__left-icon">
+      )}
+      {active && (
+        <div aria-hidden="true" className="md-chip__left-icon">
           <MdCheckIcon />
         </div>
-      }
+      )}
       <div className="md-chip__label">{label}</div>
     </button>
   );

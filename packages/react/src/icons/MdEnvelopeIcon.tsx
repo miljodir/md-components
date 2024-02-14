@@ -1,10 +1,7 @@
 import React from 'react';
-import MdIconProps from './icon.model';
+import type MdIconProps from './icon.model';
 
-const MdEnvelopeIcon: React.FunctionComponent<MdIconProps> = ({
-  className,
-  ...otherProps
-}: MdIconProps) => {
+const MdEnvelopeIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 20 20"
@@ -14,12 +11,42 @@ const MdEnvelopeIcon: React.FunctionComponent<MdIconProps> = ({
       className={className}
       {...otherProps}
     >
-    <g>
-      <path d="M16.87,17.18V8.79L10,2.82l-6.89,6v8.35Z" fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' />
-      <path d="M16.87,17l-6.85-6-6.89,6" fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' />
-      <line x1="7.42" y1="13.16" x2="3.13" y2="8.83" fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' />
-      <line x1="12.38" y1="13.16" x2="16.67" y2="8.83" fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' />
-    </g>
+      <g>
+        <path
+          d="M16.87,17.18V8.79L10,2.82l-6.89,6v8.35Z"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M16.87,17l-6.85-6-6.89,6"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <line
+          x1="7.42"
+          y1="13.16"
+          x2="3.13"
+          y2="8.83"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <line
+          x1="12.38"
+          y1="13.16"
+          x2="16.67"
+          y2="8.83"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
     </svg>
   );
 };

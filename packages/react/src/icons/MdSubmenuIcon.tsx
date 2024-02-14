@@ -1,10 +1,7 @@
 import React from 'react';
-import MdIconProps from './icon.model';
+import type MdIconProps from './icon.model';
 
-const MdSubmenuIcon: React.FunctionComponent<MdIconProps> = ({
-  className,
-  ...otherProps
-}: MdIconProps) => {
+const MdSubmenuIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 20 20"
@@ -15,9 +12,9 @@ const MdSubmenuIcon: React.FunctionComponent<MdIconProps> = ({
       {...otherProps}
     >
       <g>
-        <circle cx="10" cy="4.9" r="1.7" fill="none" stroke="currentColor" stroke-miterlimit="10" />
-        <circle cx="10" cy="10" r="1.7" fill="none" stroke="currentColor" stroke-miterlimit="10" />
-        <circle cx="10" cy="15.1" r="1.7" fill="none" stroke="currentColor" stroke-miterlimit="10" />
+        <circle cx="10" cy="4.9" r="1.7" fill="none" stroke="currentColor" strokeMiterlimit="10" />
+        <circle cx="10" cy="10" r="1.7" fill="none" stroke="currentColor" strokeMiterlimit="10" />
+        <circle cx="10" cy="15.1" r="1.7" fill="none" stroke="currentColor" strokeMiterlimit="10" />
       </g>
     </svg>
   );

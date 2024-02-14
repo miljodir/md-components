@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect, DragEvent, ChangeEvent } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import type { DragEvent, ChangeEvent } from 'react';
 
 type useFileUploadHook = {
   files: File[];
@@ -8,12 +9,12 @@ type useFileUploadHook = {
   totalSizeInBytes: number;
   clearAllFiles: () => void;
   createFormData: () => FormData;
-  handleDragDropEvent: (e: DragEvent<HTMLDivElement>) => void;
-  removeFile: (file: number | string) => void;
+  handleDragDropEvent: (_e: DragEvent<HTMLDivElement>) => void;
+  removeFile: (_file: number | string) => void;
   setFiles: (
-    e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>,
-    mode?: 'a' | 'w',
-    imagesOnly?: boolean
+    _e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>,
+    _mode?: 'a' | 'w',
+    _imagesOnly?: boolean,
   ) => void;
 };
 
@@ -37,7 +38,9 @@ const formatBytes = (bytes: number, decimals = 2): string => {
  * @function getTotalSizeInBytes
  */
 const getTotalSizeInBytes = (files: File[]): number => {
-  return files.reduce((acc, file: File) => (acc += file.size), 0);
+  return files.reduce((acc, file: File) => {
+    return (acc += file.size);
+  }, 0);
 };
 
 /**
@@ -59,13 +62,23 @@ export const useFileUpload = (): useFileUploadHook => {
   const [totalSizeInBytes, setTotalSizeInBytes] = useState(0);
 
   useEffect(() => {
-    setFileNames(files.map((file: File) => file.name));
-    setFileTypes(files.map((file: File) => file.type));
+    setFileNames(
+      files.map((file: File) => {
+        return file.name;
+      }),
+    );
+    setFileTypes(
+      files.map((file: File) => {
+        return file.type;
+      }),
+    );
     handleSizes(files);
   }, [files]);
 
   /** @function setFiles */
-  const setFiles = useCallback((e: any, mode = 'w', imagesOnly = false): void => {
+  const setFiles = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (e: any, mode = 'w', imagesOnly = false): void => {
       let filesArr: File[] = [];
 
       if (e.currentTarget?.files) {
@@ -73,6 +86,7 @@ export const useFileUpload = (): useFileUploadHook => {
       } else if (e?.dataTransfer.files) {
         filesArr = Array.from(e.dataTransfer.files);
       } else {
+        // eslint-disable-next-line no-console
         console.error('Argument not recognized. Are you sure your passing setFiles an event object?');
       }
 
@@ -82,7 +96,7 @@ export const useFileUpload = (): useFileUploadHook => {
           return file && file['type'].split('/')[0] === 'image';
         });
       } else {
-        newFiles = filesArr
+        newFiles = filesArr;
       }
 
       if (mode === 'w') {
@@ -106,14 +120,23 @@ export const useFileUpload = (): useFileUploadHook => {
   const removeFile = useCallback(
     (file: number | string): void => {
       if (typeof file !== 'number' && typeof file !== 'string') {
+        // eslint-disable-next-line no-console
         console.error('argument supplied to removeFile must be of type number or string.');
         return;
       }
 
       if (typeof file === 'string') {
-        setFilesState(files.filter((_file: File) => _file.name !== file));
+        setFilesState(
+          files.filter((_file: File) => {
+            return _file.name !== file;
+          }),
+        );
       } else {
-        setFilesState(files.filter((_file: File, i) => i !== file));
+        setFilesState(
+          files.filter((_file: File, i) => {
+            return i !== file;
+          }),
+        );
       }
     },
     [files],
@@ -132,6 +155,7 @@ export const useFileUpload = (): useFileUploadHook => {
       return { ...formData, [file.name]: file };
     });
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     /* @ts-ignore */
     return updatedFormData;
   }, [files]);

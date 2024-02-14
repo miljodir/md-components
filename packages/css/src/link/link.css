@@ -1,12 +1,16 @@
 .md-link {
   color: var(--mdPrimaryColor);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   font-family: 'Open sans';
+  font-weight: 500;
+  font-size: 16px;
   text-decoration: underline;
 }
 
 .md-link:hover {
-  color: var(--mdPrimaryColor120)
+  color: var(--mdPrimaryColor120);
 }
 
 .md-link:focus {

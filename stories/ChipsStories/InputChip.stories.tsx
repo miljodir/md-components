@@ -1,70 +1,64 @@
-import React from 'react';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-// @ts-ignore
+import React from 'react';
 import Readme from '../../packages/css/src/chips/README.md';
-
 import MdInputChip from '../../packages/react/src/chips/MdInputChip';
 import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
+import type { MdInputChipProps } from '../../packages/react/src/chips/MdInputChip';
 
 export default {
   title: 'Chips/InputChip',
   component: MdInputChip,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
       description: {
-        component: "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`"
+        component:
+          // eslint-disable-next-line quotes
+          "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     label: {
-      description: "The chips label",
+      description: 'The chips label',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     id: {
-      description: "The chips unique id.",
+      description: 'The chips unique id.',
       table: {
         defaultValue: { summary: 'random uuid4 string' },
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     disabled: {
-      description: "Toggle disabled state on/off",
+      description: 'Toggle disabled state on/off',
       table: {
         defaultValue: { summary: 'false' },
         type: {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     active: {
       description: 'Apply active state to chip',
@@ -74,7 +68,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     hideCloseIcon: {
       description: 'Set this to `true` to hide the close icon (X) in the chip',
@@ -84,18 +78,18 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     prefixIcon: {
       type: { name: 'ReactNode' },
-      description: "Prefix icon to apply before chip label. Will render a 16px x 16px container with icon passed.",
+      description: 'Prefix icon to apply before chip label. Will render a 16px x 16px container with icon passed.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "DomElement | image | ReactNode",
+          summary: 'DomElement | image | ReactNode',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     solid: {
       description: 'Set this to `true` to keep background color on all states',
@@ -105,7 +99,7 @@ export default {
           summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     onClick: {
       type: { name: 'function', required: true },
@@ -115,23 +109,25 @@ export default {
         type: {
           summary: null,
         },
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdInputChipProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     updateArgs({ ...args, active: !args.active });
-  }
+  };
 
   return (
     <MdInputChip
       {...args}
       prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
-      onClick={(e) => { handleClick(e); }}
+      onClick={() => {
+        handleClick();
+      }}
     />
   );
 };
@@ -144,5 +140,5 @@ InputChip.args = {
   active: false,
   hideCloseIcon: false,
   prefixIcon: false,
-  solid: false
+  solid: false,
 };

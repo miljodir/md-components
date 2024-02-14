@@ -1,21 +1,22 @@
-import React, { useRef, ChangeEvent, DragEvent, MouseEvent } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import classnames from 'classnames';
-import { useFileUpload } from '../hooks/useFileUpload';
-import MdFileList from '../fileList/MdFileList';
+import React, { useRef } from 'react';
 import MdButton from '../button/MdButton';
-
+import MdFileList from '../fileList/MdFileList';
+import { useFileUpload } from '../hooks/useFileUpload';
 import MdUploadIcon from '../icons/MdUploadIcon';
+import type { ChangeEvent, DragEvent, MouseEvent } from 'react';
 
-interface MdFileUploadProps {
-  onUpload?(files: File[] | FormData): void;
-  onCancel?(e: MouseEvent): void;
+export interface MdFileUploadProps {
+  onUpload?(_files: File[] | FormData): void;
+  onCancel?(_e: MouseEvent): void;
   useFormData?: boolean;
   uploadButtonText?: string;
   cancelButtonText?: string;
   hideFileListIcons?: boolean;
   multiple?: boolean;
   imagesOnly?: boolean;
-};
+}
 
 const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   onUpload,
@@ -25,20 +26,9 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   cancelButtonText = 'Avbryt',
   hideFileListIcons = false,
   multiple = true,
-  imagesOnly = false
+  imagesOnly = false,
 }: MdFileUploadProps) => {
-  const {
-    files,
-    fileNames,
-    fileTypes,
-    totalSize,
-    totalSizeInBytes,
-    handleDragDropEvent,
-    clearAllFiles,
-    createFormData,
-    setFiles,
-    removeFile,
-  } = useFileUpload();
+  const { files, handleDragDropEvent, clearAllFiles, createFormData, setFiles, removeFile } = useFileUpload();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -60,7 +50,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     if (onCancel) {
       onCancel(e);
     }
-  }
+  };
 
   const outerClassnames = classnames('md-fileupload');
   const dropAreaClassnames = classnames('md-fileupload__droparea');
@@ -75,7 +65,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
       // @ts-ignore
       e.target?.classList?.add('md-fileupload__droparea--active');
     }
-  }
+  };
 
   const onDragLeaveEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
@@ -83,11 +73,11 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     e.target?.classList?.remove('md-fileupload__droparea--active');
     // @ts-ignore
     e.target?.classList?.remove('md-fileupload__droparea--not-allowed');
-  }
+  };
 
-  const onRemoveFile = ((file: File) => {
+  const onRemoveFile = (file: File) => {
     removeFile(file.name);
-  })
+  };
 
   return (
     <div className={outerClassnames}>
@@ -105,13 +95,24 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           }
         }}
       >
-        <div className="md-fileupload__droparea-icon">
+        <div aria-hidden="true" className="md-fileupload__droparea-icon">
           <MdUploadIcon />
         </div>
 
         <div className="md-fileupload__droparea-content">
-          Dropp {imagesOnly ? 'et bilde' : 'en fil'} her eller <button type="button" onClick={() => inputRef.current?.click()}>velg fra denne maskinen</button>
-          <div className="md-fileupload__droparea-content--count">Antall {imagesOnly ? 'bilder' : 'filer'}: {files.length} {!multiple ? '/ 1' : ''}</div>
+          {`Dropp ${imagesOnly ? 'et bilde' : 'en fil'} her eller `}
+          <button
+            className="md-fileupload__button"
+            type="button"
+            onClick={() => {
+              return inputRef.current?.click();
+            }}
+          >
+            velg fra denne maskinen
+          </button>
+          <div className="md-fileupload__droparea-content--count">
+            Antall {imagesOnly ? 'bilder' : 'filer'}: {files.length} {!multiple ? '/ 1' : ''}
+          </div>
         </div>
 
         <input
@@ -130,35 +131,31 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           }}
         />
 
-        {files && files.length > 0 &&
+        {files && files.length > 0 && (
           <div className="md-fileupload__files-wrapper">
             <MdFileList
               files={files}
               hideDownload={true}
               allowDelete={true}
               hideIcons={hideFileListIcons}
-              onRemoveFile={(file: File) => onRemoveFile(file)}
+              onRemoveFile={(file: File) => {
+                return onRemoveFile(file);
+              }}
             />
           </div>
-        }
+        )}
       </div>
 
       <div className="md-fileupload__actions">
-        <MdButton
-          theme="secondary"
-          onClick={handleCancel}
-        >
+        <MdButton theme="secondary" onClick={handleCancel}>
           {cancelButtonText}
         </MdButton>
-        <MdButton
-          onClick={handleSubmit}
-          disabled={!files || files.length === 0}
-        >
+        <MdButton onClick={handleSubmit} disabled={!files || files.length === 0}>
           {uploadButtonText}
         </MdButton>
       </div>
     </div>
   );
-}
+};
 
 export default MdFileUpload;

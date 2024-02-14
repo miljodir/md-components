@@ -1,41 +1,32 @@
-import React from 'react';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { ComponentStory } from '@storybook/react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-// @ts-ignore
+import React from 'react';
 import Readme from '../packages/css/src/modal/README.md';
-
-import MdModal from '../packages/react/src/modal/MdModal';
 import MdButton from '../packages/react/src/button/MdButton';
 import MdWarningIcon from '../packages/react/src/icons/MdWarningIcon';
+import MdModal from '../packages/react/src/modal/MdModal';
+import type { Args, StoryFn } from '@storybook/react';
 
 export default {
   title: 'Components/Modal',
   component: MdModal,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
       description: {
-        component:
-          "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
+        // eslint-disable-next-line quotes
+        component: "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -129,12 +120,10 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof MdModal> = (args) => {
-  const [_, updateArgs] = useArgs();
+const Template: StoryFn<typeof MdModal> = (args: Args) => {
+  const [, updateArgs] = useArgs();
 
-  const headingIcon = (
-    <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }} />
-  );
+  const headingIcon = <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }} />;
 
   const toggleModal = () => {
     const open = !args.open;
@@ -143,17 +132,23 @@ const Template: ComponentStory<typeof MdModal> = (args) => {
 
   return (
     <div>
-      <MdButton onClick={() => toggleModal()}>Toggle modal</MdButton>
+      <MdButton
+        onClick={() => {
+          return toggleModal();
+        }}
+      >
+        Toggle modal
+      </MdButton>
 
       <MdModal
         {...args}
         headingIcon={args.headingIcon ? headingIcon : null}
-        onClose={() => toggleModal()}
+        onClose={() => {
+          return toggleModal();
+        }}
       >
         <p>This is html content in the modal.</p>
-        <p style={{ color: '#000', background: '#ccc' }}>
-          This is even more html content, with style tag.
-        </p>
+        <p style={{ color: '#000', background: '#ccc' }}>This is even more html content, with style tag.</p>
       </MdModal>
     </div>
   );

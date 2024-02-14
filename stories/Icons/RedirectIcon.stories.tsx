@@ -1,7 +1,8 @@
 import React from 'react';
 
-import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon'
+import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon';
 import MdRedirectIcon64 from '../../packages/react/src/icons/MdRedirectIcon64';
+import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Redirect',
@@ -9,56 +10,58 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdRedirectIcon64 } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "Redirect icon. Color is inherited from parent.<br/><br/>`import { MdRedirectIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdRedirectIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     className: {
-      description: "Classes for svg icon",
+      description: 'Classes for svg icon',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'text'
+      control: 'text',
     },
     color: {
-      description: "Set color of parent (for example purposes)",
+      description: 'Set color of parent (for example purposes)',
       table: {
         type: {
           summary: 'text',
         },
       },
-      control: 'color'
-    }
-  }
+      control: 'color',
+    },
+  },
 };
 
-const Template = (args: any) => {
+const Template = (args: Args) => {
   return (
     <div style={{ width: '32px', height: '32px', color: args.color }}>
       <MdRedirectIcon className={args.className} />
     </div>
   );
-}
+};
 
-const Template64 = (args: any) => {
+const Template64 = (args: Args) => {
   return (
     <div style={{ width: '64px', height: '64px', color: args.color }}>
       <MdRedirectIcon64 className={args.className} />
     </div>
   );
-}
-
-export const RedirectIcon = Template.bind({})
-RedirectIcon.args = {
-  className: '',
-  color: '#005e5d'
 };
 
-export const RedirectIcon64 = Template64.bind({})
+export const RedirectIcon = Template.bind({});
+RedirectIcon.args = {
+  className: '',
+  color: '#005e5d',
+};
+
+export const RedirectIcon64 = Template64.bind({});
 RedirectIcon64.args = {
   className: '',
-  color: '#005e5d'
+  color: '#005e5d',
 };

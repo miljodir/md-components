@@ -1,19 +1,19 @@
+import classnames from 'classnames';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import classnames from 'classnames';
 
 import MdXIcon from '../icons/MdXIcon';
 
 export interface MdInputChipProps {
-    label: string | null;
-    id?: string | number;
-    active?: boolean;
-    disabled?: boolean;
-    prefixIcon?: React.ReactNode;
-    onClick?(e: React.MouseEvent<HTMLButtonElement>): void;
-    className?: string;
-    hideCloseIcon?: boolean;
-    solid?: boolean;
+  label: string | null;
+  id?: string | number;
+  active?: boolean;
+  disabled?: boolean;
+  prefixIcon?: React.ReactNode;
+  onClick?(_e: React.MouseEvent<HTMLButtonElement>): void;
+  className?: string;
+  hideCloseIcon?: boolean;
+  solid?: boolean;
 }
 
 const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
@@ -31,27 +31,28 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   const buttonClassNames = classnames('md-chip', className, {
     'md-chip--active': !!active,
     'md-chip--disabled': !!disabled,
-    'md-chip--solid': !!solid
+    'md-chip--solid': !!solid,
   });
 
   return (
     <button
+      type="button"
       className={buttonClassNames}
-      id={chipId}
+      id={String(chipId) || undefined}
       disabled={disabled}
       {...otherProps}
     >
-      {prefixIcon &&
-        <div className="md-chip__left-icon">
+      {prefixIcon && (
+        <div aria-hidden="true" className="md-chip__left-icon">
           {prefixIcon}
         </div>
-      }
+      )}
       <div className="md-chip__label">{label}</div>
-      {!hideCloseIcon &&
-        <div className="md-chip__right-icon">
+      {!hideCloseIcon && (
+        <div aria-hidden="true" className="md-chip__right-icon">
           <MdXIcon />
         </div>
-      }
+      )}
     </button>
   );
 };

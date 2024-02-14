@@ -18,14 +18,27 @@
 }
 
 .md-tabs-container ul li .md-tabs-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
   font-size: 1em;
   font-weight: 400;
-  padding: 13px 24px 13px 24px;
+  padding: 13px 24px 12px 24px;
   border: 0;
   background-color: transparent;
   border-bottom: 1px solid var(--mdGreyColor80);
-  transition: border .1s linear, background .1s linear, margin .1s linear;
-  margin-bottom: 3px;
+}
+.md-tabs-container ul li .md-tabs-button::after {
+  content: attr(data-text);
+  content: attr(data-text) / '';
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-weight: 600;
 }
 
 .md-tabs-container ul li .md-tabs-button.md-tabs-button--disabled {
@@ -36,10 +49,9 @@
 
 .md-tabs-container ul li .md-tabs-button.md-tabs-button--selected {
   font-weight: 600;
+  padding: 13px 24px 9px 24px;
   border-bottom: 4px solid var(--mdPrimaryColor80);
-  margin-bottom: 0px;
 }
-
 .md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):hover {
   background-color: var(--mdPrimaryColor20);
   cursor: pointer;
@@ -47,6 +59,7 @@
 
 .md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):focus {
   outline: 2px solid var(--mdPrimaryColor);
+  outline-offset: -2px;
   background-color: var(--mdPrimaryColor20);
   cursor: pointer;
 }
