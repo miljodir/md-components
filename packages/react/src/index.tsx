@@ -11,6 +11,7 @@ import MdDataColumnRowValue from './data-grid/MdDataGridRowValue';
 import MdDataColumnRows from './data-grid/MdDataGridRows';
 import MdFileList, { MdFileListProps } from './fileList/MdFileList';
 import MdAutocomplete, { MdAutocompleteOptionProps, MdAutocompleteProps } from './formElements/MdAutocomplete';
+import MdAutocompleteAsync, { MdAutocompleteAsyncOptionProps, MdAutocompleteAsyncProps } from './formElements/MdAutocompleteAsync';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
