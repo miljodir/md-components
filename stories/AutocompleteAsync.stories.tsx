@@ -1,37 +1,33 @@
-import React from 'react';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 
-import MdAutocompleteAsync, { MdAutocompleteAsyncOptionProps } from '../packages/react/src/formElements/MdAutocompleteAsync'
-import MdZoomIcon from "../packages/react/src/icons/MdZoomIcon";
+import MdAutocompleteAsync from '../packages/react/src/formElements/MdAutocompleteAsync';
+import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import type { MdAutocompleteAsyncOptionProps } from '../packages/react/src/formElements/MdAutocompleteAsync';
 
 export default {
   title: 'Form/AutocompleteAsync',
   component: MdAutocompleteAsync,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-          <Description markdown={Readme} />
-        </>
-      ),
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+            <Stories />
+            <Description markdown={Readme} />
+          </>
+        );
+      },
       description: {
-        component: "A form component for autocomplete with load on demand options.<br/><br/>`import { MdAutocompleteAsync } from '@miljodirektoratet/md-react'`",
+        component:
+          "A form component for autocomplete with load on demand options.<br/><br/>`import { MdAutocompleteAsync } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -49,7 +45,7 @@ export default {
     },
     optionsLoader: {
       type: { name: 'function', required: true },
-      description: "Function for asyncronously loading options",
+      description: 'Function for asyncronously loading options',
       table: {
         type: {
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
@@ -58,14 +54,14 @@ export default {
     },
     value: {
       type: { name: 'string' },
-      description: "The currently selected value. This corresponds to `value` from selected `option`",
+      description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     id: {
       type: { name: 'string' },
@@ -73,19 +69,19 @@ export default {
       table: {
         defaultValue: { summary: 'uuid()' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     disabled: {
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     size: {
       description: 'Set size og autocomplete box',
@@ -100,42 +96,42 @@ export default {
     },
     helpText: {
       type: { name: 'string' },
-      description: "Help text for the autocomplete box",
+      description: 'Help text for the autocomplete box',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     error: {
       description: 'Does autocomplete box contain error?',
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     errorText: {
       type: { name: 'string' },
-      description: "Text to display if error",
+      description: 'Text to display if error',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     onChange: {
       type: { name: 'function' },
-      description: "The onChange handler for change events. Returns the clicked option, to handle as you please.",
+      description: 'The onChange handler for change events. Returns the clicked option, to handle as you please.',
       table: {
         type: {
-          summary: "function",
+          summary: 'function',
         },
       },
     },
@@ -155,75 +151,71 @@ export default {
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     required: {
       description: 'Sets the input field to required and adds an asterisk',
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "boolean",
+          summary: 'boolean',
         },
       },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     prefixIcon: {
       description: 'Sets an icon at the beginning of the input field',
       table: {
         defaultValue: { summary: 'false' },
         type: {
-          summary: "React.ReactNode",
+          summary: 'React.ReactNode',
         },
       },
-      control: { type: 'object' }
+      control: { type: 'object' },
     },
     placeholder: {
       description: 'Text that is shown when no value is chosen or the dropdown is open',
       table: {
         type: {
-          summary: "string",
+          summary: 'string',
         },
       },
-      control: { type: 'text' }
-    }
-  }
+      control: { type: 'text' },
+    },
+  },
 };
 
 const Template = args => {
   const [_, updateArgs] = useArgs();
 
-  const handleSelect = (option) => {
-    console.log("handleSelect");
+  const handleSelect = option => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
-  }
+  };
   const handleChange = (option: MdAutocompleteAsyncOptionProps) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };
 
   const optionsLoader = async (input: string): Promise<MdAutocompleteAsyncOptionProps[]> => {
-    console.log("optionsLoader");
     const filteredOptions = [
       { value: 'optionA', text: 'Eple' },
       { value: 'optionB', text: 'Banan' },
       { value: 'optionC', text: 'Appelsin' },
-      { value: 'optionD', text: 'Vannmelon' }
+      { value: 'optionD', text: 'Vannmelon' },
     ].filter(({ text }) => {
-      console.log(input, text)
       return text.toLocaleLowerCase().includes(input.toLocaleLowerCase());
-    })
-
+    });
 
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(filteredOptions);
-      }, 400)
-    })
-  }
+      }, 400);
+    });
+  };
 
   return (
     <div style={{ minHeight: '300px' }}>
