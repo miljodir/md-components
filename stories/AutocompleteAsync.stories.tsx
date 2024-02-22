@@ -27,6 +27,7 @@ export default {
       },
       description: {
         component:
+          // eslint-disable-next-line quotes
           "A form component for autocomplete with load on demand options.<br/><br/>`import { MdAutocompleteAsync } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -48,6 +49,7 @@ export default {
       description: 'Function for asyncronously loading options',
       table: {
         type: {
+          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
