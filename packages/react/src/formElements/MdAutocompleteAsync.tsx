@@ -15,7 +15,6 @@ export interface MdAutocompleteAsyncOptionProps {
 
 export interface MdAutocompleteAsyncProps {
   onSelected(_e: MdAutocompleteAsyncOptionProps): void;
-  onChange?(_e: MdAutocompleteAsyncOptionProps): void;
   label?: string | null;
   optionsLoader: (input: string) => Promise<MdAutocompleteAsyncOptionProps[]>;
   id?: string;
