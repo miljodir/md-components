@@ -67,7 +67,7 @@ const MdAutocompleteAsync = ({
   };
 
   const classNames = classnames('md-autocomplete', {
-    'md-autocomplete--open': !!open,
+    'md-autocomplete--open': open,
     'md-autocomplete--error': !!error,
     'md-autocomplete--disabled': !!disabled,
     'md-autocomplete--medium': size === 'medium',
@@ -75,7 +75,7 @@ const MdAutocompleteAsync = ({
   });
 
   const inputClassNames = classnames('md-autocomplete__input', {
-    'md-autocomplete__input--open': !!open,
+    'md-autocomplete__input--open': open,
     'md-autocomplete__input--error': !!error,
     'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
     'md-autocomplete--small': size === 'small',
@@ -210,6 +210,7 @@ const MdAutocompleteAsync = ({
               return (
                 <button
                   role="option"
+                  aria-selected={!!isSelectedOption(option)}
                   key={`md-autocomplete-option-${autocompleteId}-${option.value}`}
                   id={`md-autocomplete-option-${autocompleteId}-${option.value}`}
                   type="button"
