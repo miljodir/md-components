@@ -1,11 +1,13 @@
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Primary, Controls, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
-
 import MdAutocompleteAsync from '../packages/react/src/formElements/MdAutocompleteAsync';
 import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
-import type { MdAutocompleteAsyncOptionProps } from '../packages/react/src/formElements/MdAutocompleteAsync';
+import type {
+  MdAutocompleteAsyncOptionProps,
+  MdAutocompleteAsyncProps,
+} from '../packages/react/src/formElements/MdAutocompleteAsync';
 
 export default {
   title: 'Form/AutocompleteAsync',
@@ -19,9 +21,8 @@ export default {
             <Subtitle />
             <Description />
             <Primary />
-            <ArgsTable story={PRIMARY_STORY} />
-            <Stories />
-            <Description markdown={Readme} />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
@@ -190,10 +191,10 @@ export default {
   },
 };
 
-const Template = args => {
-  const [_, updateArgs] = useArgs();
+const Template = (args: MdAutocompleteAsyncProps) => {
+  const [, updateArgs] = useArgs();
 
-  const handleSelect = option => {
+  const handleSelect = (option: MdAutocompleteAsyncOptionProps) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };
@@ -204,10 +205,10 @@ const Template = args => {
 
   const optionsLoader = async (input: string): Promise<MdAutocompleteAsyncOptionProps[]> => {
     const filteredOptions = [
-      { value: 'optionA', text: 'Eple' },
-      { value: 'optionB', text: 'Banan' },
-      { value: 'optionC', text: 'Appelsin' },
-      { value: 'optionD', text: 'Vannmelon' },
+      { value: 'optionA', text: 'A option' },
+      { value: 'optionAB', text: 'AB option' },
+      { value: 'optionB', text: 'B option' },
+      { value: 'optionBC', text: 'BC option' },
     ].filter(({ text }) => {
       return text.toLocaleLowerCase().includes(input.toLocaleLowerCase());
     });
@@ -221,13 +222,7 @@ const Template = args => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdAutocompleteAsync
-        {...args}
-        onSelected={handleSelect}
-        optionsLoader={optionsLoader}
-        onChange={handleChange}
-        prefixIcon={<MdZoomIcon />}
-      />
+      <MdAutocompleteAsync {...args} onSelected={handleSelect} optionsLoader={optionsLoader} onChange={handleChange} />
     </div>
   );
 };
@@ -235,6 +230,7 @@ const Template = args => {
 export const AutocompleteAsync = Template.bind({});
 AutocompleteAsync.args = {
   label: 'Label',
+  prefixIcon: <MdZoomIcon />,
   value: '',
   id: '',
   disabled: false,
@@ -242,4 +238,5 @@ AutocompleteAsync.args = {
   helpText: '',
   error: false,
   errorText: '',
+  dropdownHeight: null,
 };

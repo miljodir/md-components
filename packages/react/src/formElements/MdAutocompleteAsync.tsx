@@ -14,18 +14,16 @@ export interface MdAutocompleteAsyncOptionProps {
 }
 
 export interface MdAutocompleteAsyncProps {
-  onSelected(e: MdAutocompleteAsyncOptionProps): void;
-
-  onChange?(e: MdAutocompleteAsyncOptionProps): void;
-
-  optionsLoader: (input: string) => Promise<MdAutocompleteAsyncOptionProps[]>;
+  onSelected(_e: MdAutocompleteAsyncOptionProps): void;
+  onChange?(_e: MdAutocompleteAsyncOptionProps): void;
   label?: string | null;
+  optionsLoader: (input: string) => Promise<MdAutocompleteAsyncOptionProps[]>;
   id?: string;
   name?: string;
   value?: string;
   placeholder?: string;
   disabled?: boolean;
-  size?: 'small' | 'medium';
+  size?: 'small' | 'medium' | 'large';
   helpText?: string;
   error?: boolean;
   errorText?: string;
@@ -48,19 +46,19 @@ const MdAutocompleteAsync = ({
   errorText,
   prefixIcon = null,
   onSelected,
-  onChange,
   required,
   displayValueAndText,
   autoComplete = 'off',
   ...otherProps
 }: MdAutocompleteAsyncProps) => {
-  const autocompleteId = id && id !== '' ? id : uuidv4();
   const [open, setOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [autocompleteValue, setAutocompleteValue] = useState('');
   const [results, setResults] = useState<MdAutocompleteAsyncOptionProps[]>([]);
   const [focused, setFocused] = React.useState(false);
   const [displayValue, setDisplayValue] = React.useState(placeholder);
+
+  const autocompleteId = id && id !== '' ? id : uuidv4();
 
   const onFocus = () => {
     setFocused(true);
@@ -79,6 +77,7 @@ const MdAutocompleteAsync = ({
     'md-autocomplete__input--open': !!open,
     'md-autocomplete__input--error': !!error,
     'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+    'md-autocomplete--small': size === 'small',
   });
 
   const optionClass = (option: MdAutocompleteAsyncOptionProps) => {
