@@ -198,11 +198,6 @@ const Template = (args: MdAutocompleteAsyncProps) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };
-  const handleChange = (option: MdAutocompleteAsyncOptionProps) => {
-    const newValue = args.value === option?.value ? '' : option?.value;
-    updateArgs({ ...args, value: newValue });
-  };
-
   const optionsLoader = async (input: string): Promise<MdAutocompleteAsyncOptionProps[]> => {
     const filteredOptions = [
       { value: 'optionA', text: 'A option' },
@@ -222,7 +217,7 @@ const Template = (args: MdAutocompleteAsyncProps) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdAutocompleteAsync {...args} onSelected={handleSelect} optionsLoader={optionsLoader} onChange={handleChange} />
+      <MdAutocompleteAsync {...args} onSelected={handleSelect} optionsLoader={optionsLoader} />
     </div>
   );
 };

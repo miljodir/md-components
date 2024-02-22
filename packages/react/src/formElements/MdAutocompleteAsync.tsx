@@ -15,7 +15,7 @@ export interface MdAutocompleteAsyncOptionProps {
 
 export interface MdAutocompleteAsyncProps {
   onSelected(_e: MdAutocompleteAsyncOptionProps): void;
-  onChange?(_e: MdAutocompleteAsyncOptionProps): void;
+  onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
   label?: string | null;
   optionsLoader: (input: string) => Promise<MdAutocompleteAsyncOptionProps[]>;
   id?: string;
@@ -102,6 +102,11 @@ const MdAutocompleteAsync = ({
     setFocused(false);
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(event);
+    setAutocompleteValue(event.target.value);
+  };
+
   useEffect(() => {
     if (autocompleteValue) {
       optionsLoader(autocompleteValue).then(result => {
@@ -184,9 +189,7 @@ const MdAutocompleteAsync = ({
           onFocus={() => {
             return !disabled && onFocus();
           }}
-          onChange={e => {
-            return setAutocompleteValue(e.target.value);
-          }}
+          onChange={handleChange}
           placeholder={placeholder}
           disabled={disabled}
           autoComplete={autoComplete}
