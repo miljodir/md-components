@@ -24,6 +24,7 @@ export interface MdInputProps {
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
+  onClick?(_e: React.MouseEvent<HTMLInputElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
   onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
   onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;

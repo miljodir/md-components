@@ -18,6 +18,7 @@ export interface MdTextAreaProps {
   helpText?: string;
   outerWrapperClass?: string;
   onChange?(_e: React.ChangeEvent<HTMLTextAreaElement>): void;
+  onClick?(_e: React.MouseEvent<HTMLTextAreaElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
   onFocus?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
 }
