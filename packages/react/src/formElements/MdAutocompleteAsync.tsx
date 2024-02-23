@@ -96,6 +96,10 @@ const MdAutocompleteAsync = React.forwardRef<HTMLInputElement, MdAutocompleteAsy
     };
 
     const isSelectedOption = (option: MdAutocompleteAsyncOptionProps) => {
+      if (displayValueAndText && value && value !== '') {
+        const combinedValueAndText = option.value + ' ' + option.text;
+        return value == combinedValueAndText;
+      }
       return value && value !== '' && value == option.value;
     };
 
