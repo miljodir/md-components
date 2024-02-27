@@ -30,8 +30,8 @@ export interface MdInputProps {
   onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;
   minLength?: number;
   maxLength?: number;
-  min?: number;
-  max?: number;
+  min?: number | string;
+  max?: number | string;
   step?: number;
 }
 
