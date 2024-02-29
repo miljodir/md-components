@@ -258,6 +258,22 @@ export default {
       // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
     },
+    min: {
+      type: { name: 'number | string' },
+      description: 'The minimum value of input value',
+      table: {
+        type: { summary: 'number | string' },
+      },
+      control: { type: 'text' },
+    },
+    max: {
+      type: { name: 'number | string' },
+      description: 'The maximum value of input value',
+      table: {
+        type: { summary: 'number | string' },
+      },
+      control: { type: 'text' },
+    },
   },
 };
 
