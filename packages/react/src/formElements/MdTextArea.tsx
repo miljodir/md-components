@@ -23,7 +23,7 @@ export interface MdTextAreaProps {
   onFocus?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
 }
 
-const MdTextArea: React.FunctionComponent<MdTextAreaProps> = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
+const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
   (
     {
       label,
