@@ -110,9 +110,9 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       });
     };
 
-    const displayedItems = autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : [];
-    const displayedItemsSliced =
-      amountOfElementsShown == null ? displayedItems : displayedItems.slice(0, amountOfElementsShown);
+    const displayedOptions = autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : [];
+    const displayedOptionsSliced =
+      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
 
     return (
       <div className={classNames}>
@@ -215,7 +215,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               className="md-autocomplete__dropdown"
               style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
-              {displayedItemsSliced.map(option => {
+              {displayedOptionsSliced.map(option => {
                 return (
                   <button
                     role="option"
