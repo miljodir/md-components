@@ -55,11 +55,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
+    const [autocompleteId] = useState(id && id !== '' ? id : uuidv4());
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
-
-    const autocompleteId = id && id !== '' ? id : uuidv4();
 
     const classNames = classnames('md-autocomplete', {
       'md-autocomplete--open': !!open,
