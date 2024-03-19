@@ -156,6 +156,17 @@ export default {
       },
       control: { type: 'number' },
     },
+    amountOfElementsShown: {
+      type: { name: 'number' },
+      description: 'Set max number of elements shown in the dropdown',
+      table: {
+        defaultValue: { summary: 'variable' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
     inputRef: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:

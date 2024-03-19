@@ -29,6 +29,7 @@ export interface MdAutocompleteProps {
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
+  amountOfElementsShown?: number;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -48,6 +49,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       prefixIcon = null,
       onChange,
       dropdownHeight,
+      amountOfElementsShown = null,
       ...otherProps
     },
     ref,
@@ -107,6 +109,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
         'md-autocomplete__dropdown-item--selected': isSelectedOption(option),
       });
     };
+
+    const displayedItems = autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : [];
+    const displayedItemsSliced =
+      amountOfElementsShown == null ? displayedItems : displayedItems.slice(0, amountOfElementsShown);
 
     return (
       <div className={classNames}>
@@ -209,7 +215,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               className="md-autocomplete__dropdown"
               style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
-              {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
+              {displayedItemsSliced.map(option => {
                 return (
                   <button
                     role="option"
