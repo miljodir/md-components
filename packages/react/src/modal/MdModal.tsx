@@ -44,6 +44,8 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
    * Also focuses on the first focusable element when modal is opened.
    */
   useEffect(() => {
+    if (!open) return;
+
     const keyListener = (event: KeyboardEvent) => {
       if (event.key === 'Tab') {
         const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
@@ -80,7 +82,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
     return () => {
       return document.removeEventListener('keydown', keyListener);
     };
-  }, []);
+  }, [open]);
 
   const closeModal = (e: React.MouseEvent) => {
     if (onClose) {
