@@ -5,6 +5,7 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   theme?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  topIcon?: React.ReactNode;
   children?: string | React.ReactNode;
   small?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
@@ -14,6 +15,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   theme,
   leftIcon,
   rightIcon,
+  topIcon,
   children,
   small,
   type = 'button',
@@ -25,25 +27,42 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
       'md-button--small': !!small,
       'md-button--secondary': theme === 'secondary',
       'md-button--danger': theme === 'danger',
+      'md-button--column': !!topIcon,
     },
     otherProps.className,
   );
 
   return (
     <button type={type} {...otherProps} className={classNames}>
-      {leftIcon && (
-        <div aria-hidden="true" className="md-button__leftIcon">
-          {leftIcon}
+      {topIcon && (
+        <div aria-hidden="true" className="md-button__topIcon">
+          {topIcon}
         </div>
       )}
-      {children}
-      {rightIcon && (
-        <div aria-hidden="true" className="md-button__rightIcon">
-          {rightIcon}
-        </div>
-      )}
+      <ConditionalWrapper
+        condition={!!topIcon}
+        wrap={wrappedChildren => {
+          return <div className="md-button__content">{wrappedChildren}</div>;
+        }}
+      >
+        {leftIcon && (
+          <div aria-hidden="true" className="md-button__leftIcon">
+            {leftIcon}
+          </div>
+        )}
+        {children}
+        {rightIcon && (
+          <div aria-hidden="true" className="md-button__rightIcon">
+            {rightIcon}
+          </div>
+        )}
+      </ConditionalWrapper>
     </button>
   );
 };
 
 export default MdButton;
+
+const ConditionalWrapper = ({ condition, wrap, children }) => {
+  return condition ? wrap(children) : children;
+};
