@@ -11,9 +11,26 @@
   border: none;
 }
 
+.md-button--column {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.md-button__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .md-button--small {
   padding: 0.4rem 0.8rem;
   border-radius: 0.43rem;
+}
+
+.md-button__topIcon {
+  height: 1rem;
+  width: 1rem;
+  flex-shrink: 0;
 }
 
 .md-button__leftIcon {
