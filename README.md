@@ -55,7 +55,7 @@ Dersom du ønsker endringer eller ønsker å bidra med nye komponenter, gjøres 
 
 For nye komponenter med tilhørende css, skal det også opprettes en README.md fil i mappen for css-fila, som beskriver HTML-strukturen til komponenten. Dette fordi man skal kunne bruke css-filen til å bygge komponenten selv, uten å inkludere React-komponenten. Se en eksisterende css-fil og README.md i `packages/css/..` for eksempler på oppbygging av README-fil.
 
-Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/file/6BUqOC0xQZz6AggPvI2iSR/MD---Designsystem?node-id=0%3A1&t=6GlPVAsZW9HT0IEs-0). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
+Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
 
 ## Kjøre opp utviklingsmiljø for Storybook lokalt
 
