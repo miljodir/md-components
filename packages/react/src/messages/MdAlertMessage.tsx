@@ -16,6 +16,7 @@ export interface MdAlertMessageProps {
   customIcon?: React.ReactNode | string;
   className?: string;
   alignContent?: 'start' | 'center' | 'end';
+  role?: React.AriaRole;
 }
 
 const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
@@ -28,6 +29,7 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   customIcon,
   className,
   alignContent,
+  role,
 }: MdAlertMessageProps) => {
   const classNames = classnames(
     'md-alert-message',
@@ -66,7 +68,7 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} role={role}>
       <div className={contentClassNames}>
         {!hideIcon && renderIcon()}
         {label}
