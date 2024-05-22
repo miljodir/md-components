@@ -178,6 +178,9 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
+            onClick={() => {
+              return !disabled && setOpen(!open);
+            }}
             onKeyDown={e => {
               if (e.key === 'Enter') {
                 setOpen(!open);
