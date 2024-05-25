@@ -3,12 +3,13 @@ import { debounce } from 'lodash';
 import React, { useState, useCallback } from 'react';
 
 export interface MdTooltipProps {
-  label: string;
+  content: string;
   position?: 'top' | 'bottom' | 'right' | 'left';
+  ariaLabel: string;
   children?: React.ReactNode;
 }
 
-const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', children }: MdTooltipProps) => {
+const MdTooltip: React.FC<MdTooltipProps> = ({ content, position = 'bottom', children, ariaLabel }: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
   const classNames = classnames('md-tooltip', {
     'md-tooltip--show': hover,
@@ -37,8 +38,9 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
   const debouncedSetHoverTrue = useCallback(debounce(setHoverTrue, 400), []);
 
   return (
-    <div>
+    <div aria-label={ariaLabel}>
       <div
+        aria-hidden="true"
         onMouseLeave={() => {
           setHoverFalse();
         }}
@@ -47,7 +49,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ label, position = 'bottom', child
       >
         {children}
       </div>
-      <div className={classNames}>{label}</div>
+      <div className={classNames}>{content}</div>
     </div>
   );
 };

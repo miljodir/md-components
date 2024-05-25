@@ -71,6 +71,7 @@ const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
 
 export const Tooltip = Template.bind({});
 Tooltip.args = {
-  label: 'This is some info',
+  content: 'This is some info',
   position: 'bottom',
+  ariaLabel: 'This is some info',
 };
