@@ -145,6 +145,28 @@ export default {
         },
       },
     },
+    dropdownHeight: {
+      type: { name: 'number' },
+      description: 'Set max height of dropdown in pixels',
+      table: {
+        defaultValue: { summary: 'variable' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
+    amountOfElementsShown: {
+      type: { name: 'number' },
+      description: 'Set max number of elements shown in the dropdown',
+      table: {
+        defaultValue: { summary: 'variable' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
     inputRef: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
@@ -190,4 +212,5 @@ Autocomplete.args = {
   helpText: '',
   error: false,
   errorText: '',
+  dropdownHeight: null,
 };

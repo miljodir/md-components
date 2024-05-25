@@ -7,17 +7,16 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div className="md-alert-message [md-alert-message--confirm, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]">
-    <div className="md-alert-message__content">
-        {Icon width="20" height="20"}
-        {label}
-    </div>
+<div
+  className="md-alert-message [md-alert-message--confirm, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]"
+>
+  <div className="md-alert-message__content">
+    <Icon className="md-alert-message__icon" width="20" height="20" />
+    {label}
+  </div>
 
-    <button
-        className="md-alert-message__button"
-        onClick={handleClick}
-    >
-        {Icon width="16" height="16"}
-    </button>
+  <button className="md-alert-message__button" onClick="{handleClick}">
+    <Icon width="16" height="16" />
+  </button>
 </div>
 ```

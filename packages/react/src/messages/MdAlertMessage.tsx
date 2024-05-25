@@ -8,12 +8,15 @@ import MdXIcon from '../icons/MdXIcon';
 
 export interface MdAlertMessageProps {
   theme?: 'info' | 'confirm' | 'warning' | 'error';
-  label?: string;
+  label?: string | React.ReactNode;
   hideIcon?: boolean;
   closable?: boolean;
   fullWidth?: boolean;
   onClose?(_e: React.MouseEvent): void;
   customIcon?: React.ReactNode | string;
+  className?: string;
+  alignContent?: 'start' | 'center' | 'end';
+  role?: React.AriaRole;
 }
 
 const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
@@ -24,22 +27,36 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   fullWidth = false,
   onClose,
   customIcon,
+  className,
+  alignContent,
+  role,
 }: MdAlertMessageProps) => {
-  const classNames = classnames('md-alert-message', {
-    'md-alert-message--fullWidth': !!fullWidth,
-    'md-alert-message--confirm': theme === 'confirm',
-    'md-alert-message--warning': theme === 'warning',
-    'md-alert-message--error': theme === 'error',
+  const classNames = classnames(
+    'md-alert-message',
+    {
+      'md-alert-message--fullWidth': !!fullWidth,
+      'md-alert-message--confirm': theme === 'confirm',
+      'md-alert-message--warning': theme === 'warning',
+      'md-alert-message--error': theme === 'error',
+    },
+    className,
+  );
+
+  const contentClassNames = classnames('md-alert-message__content', {
+    'md-alert-message__content--start': alignContent === 'start',
+    'md-alert-message__content--end': alignContent === 'end',
   });
 
   const renderIcon = () => {
-    let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
+    let icon = (
+      <MdInfoIcon className="md-alert-message__icon" aria-label="Info" width="20" height="20" />
+    ) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
     } else if (theme === 'confirm') {
-      icon = <MdCheckIcon aria-label="Bekreft" width="20" height="20" />;
+      icon = <MdCheckIcon className="md-alert-message__icon" aria-label="Bekreft" width="20" height="20" />;
     } else if (theme === 'warning' || theme === 'error') {
-      icon = <MdWarningIcon aria-label="Advarsel" width="20" height="20" />;
+      icon = <MdWarningIcon className="md-alert-message__icon" aria-label="Advarsel" width="20" height="20" />;
     }
     return icon;
   };
@@ -51,8 +68,8 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   };
 
   return (
-    <div className={classNames}>
-      <div className="md-alert-message__content">
+    <div className={classNames} role={role}>
+      <div className={contentClassNames}>
         {!hideIcon && renderIcon()}
         {label}
       </div>

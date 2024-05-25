@@ -19,9 +19,9 @@
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
-  margin: 0;
-  border: 2px solid var(--mdPrimaryColor80);
-  outline: none;
+  outline: 2px solid var(--mdPrimaryColor80);
+  outline-offset: -2px;
+  border-color: transparent;
 }
 
 .md-textarea.md-textarea--disabled:focus,

@@ -1,5 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
+import MdInputChip from '../chips/MdInputChip';
+import type { ReactNode } from 'react';
 
 export interface MdTabTitleProps {
   title: string;
@@ -7,6 +9,8 @@ export interface MdTabTitleProps {
   disabled?: boolean;
   selectedTab: number;
   setSelectedTab: (_index: number) => void;
+  chips?: boolean;
+  chipsPrefixIcon?: ReactNode;
 }
 
 const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
@@ -15,11 +19,30 @@ const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
   disabled = false,
   selectedTab,
   setSelectedTab,
+  chips,
+  chipsPrefixIcon,
 }: MdTabTitleProps) => {
   const classNames = classnames('md-tabs-button', {
     'md-tabs-button--selected': selectedTab === index,
     'md-tabs-button--disabled': !!disabled,
   });
+
+  if (chips) {
+    return (
+      <li>
+        <MdInputChip
+          hideCloseIcon
+          label={title}
+          disabled={disabled}
+          active={selectedTab === index}
+          onClick={() => {
+            return !disabled && setSelectedTab(index);
+          }}
+          prefixIcon={selectedTab === index && chipsPrefixIcon}
+        />
+      </li>
+    );
+  }
 
   return (
     <li>
@@ -30,6 +53,7 @@ const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
           return !disabled && setSelectedTab(index);
         }}
         tabIndex={disabled ? -1 : 0}
+        data-text={title}
       >
         {title}
       </button>

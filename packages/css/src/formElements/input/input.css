@@ -3,6 +3,10 @@
   font-size: 16px;
 }
 
+.md-input__outer-wrapper--small {
+  max-width: 336px;
+}
+
 .md-input {
   padding: 1em 2em 1em 1em;
   max-width: 100%;
@@ -22,9 +26,9 @@
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus {
-  margin: 0;
-  border: 2px solid var(--mdPrimaryColor80);
-  outline: none;
+  outline: 2px solid var(--mdPrimaryColor80);
+  outline-offset: -2px;
+  border-color: transparent;
 }
 
 .md-input.md-input--disabled:focus,
@@ -137,6 +141,7 @@
 .md-input__error-icon {
   width: 20px;
   height: 20px;
+  margin-left: 0.5em;
   color: var(--mdErrorColor);
 }
 
@@ -177,5 +182,5 @@
 .md-input.md-input--hide-number-arrows::-webkit-inner-spin-button {
   appearance: none;
   -webkit-appearance: none;
-  margin: 0;
+  margin: 1px;
 }

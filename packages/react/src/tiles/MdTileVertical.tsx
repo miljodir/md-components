@@ -17,7 +17,7 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   description,
   size,
   disabled = false,
-  href = '#',
+  href,
   icon = null,
   preventDefault = false,
   onClick,
@@ -37,19 +37,26 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
     }
   };
 
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a className={classNames} href={disabled ? '' : href} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
-      <div className="md-tile-vertical__content">
-        {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
-        <div className="md-tile-vertical__content-text">
-          <div className="md-tile-vertical__content-heading">{heading}</div>
-          {description && description !== '' && (
-            <div className="md-tile-vertical__content-description">{description}</div>
-          )}
-        </div>
+  const content = (
+    <div className="md-tile-vertical__content">
+      {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
+      <div className="md-tile-vertical__content-text">
+        <div className="md-tile-vertical__content-heading">{heading}</div>
+        {description && description !== '' && (
+          <div className="md-tile-vertical__content-description">{description}</div>
+        )}
       </div>
+    </div>
+  );
+
+  return href ? (
+    <a className={classNames} href={href || '#'} tabIndex={disabled ? -1 : 0}>
+      {content}
     </a>
+  ) : (
+    <button disabled={disabled} type="button" className={classNames} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
+      {content}
+    </button>
   );
 };
 

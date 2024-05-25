@@ -18,79 +18,86 @@ export interface MdTextAreaProps {
   helpText?: string;
   outerWrapperClass?: string;
   onChange?(_e: React.ChangeEvent<HTMLTextAreaElement>): void;
+  onClick?(_e: React.MouseEvent<HTMLTextAreaElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
   onFocus?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
 }
 
-const MdTextArea: React.FunctionComponent<MdTextAreaProps> = ({
-  label,
-  id,
-  rows = 10,
-  value = '',
-  placeholder,
-  disabled = false,
-  readOnly = false,
-  error = false,
-  errorText,
-  helpText,
-  outerWrapperClass = '',
-  ...otherProps
-}: MdTextAreaProps) => {
-  const [helpOpen, setHelpOpen] = useState(false);
-  const textAreaId = id && id !== '' ? id : uuidv4();
+const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
+  (
+    {
+      label,
+      id,
+      rows = 10,
+      value = '',
+      placeholder,
+      disabled = false,
+      readOnly = false,
+      error = false,
+      errorText,
+      helpText,
+      outerWrapperClass = '',
+      ...otherProps
+    },
+    ref,
+  ) => {
+    const [helpOpen, setHelpOpen] = useState(false);
+    const textAreaId = id && id !== '' ? id : uuidv4();
 
-  const classNames = classnames('md-textarea', {
-    'md-textarea--disabled': !!disabled,
-    'md-textarea--readonly': !!readOnly,
-    'md-textarea--error': !!error,
-  });
+    const classNames = classnames('md-textarea', {
+      'md-textarea--disabled': !!disabled,
+      'md-textarea--readonly': !!readOnly,
+      'md-textarea--error': !!error,
+    });
 
-  return (
-    <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
-      <div className="md-textarea__label">
-        {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
+    return (
+      <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
+        <div className="md-textarea__label">
+          {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
+          {helpText && helpText !== '' && (
+            <div className="md-textarea__help-button">
+              <MdHelpButton
+                ariaLabel={`Hjelpetekst for ${label}`}
+                id={`md-textarea_help-button_${textAreaId}`}
+                aria-expanded={helpOpen}
+                aria-controls={`md-textarea_help-text_${textAreaId}`}
+                onClick={() => {
+                  return setHelpOpen(!helpOpen);
+                }}
+                expanded={helpOpen}
+              />
+            </div>
+          )}
+        </div>
+
         {helpText && helpText !== '' && (
-          <div className="md-textarea__help-button">
-            <MdHelpButton
-              ariaLabel={`Hjelpetekst for ${label}`}
-              id={`md-textarea_help-button_${textAreaId}`}
-              aria-expanded={helpOpen}
-              aria-controls={`md-textarea_help-text_${textAreaId}`}
-              onClick={() => {
-                return setHelpOpen(!helpOpen);
-              }}
-              expanded={helpOpen}
-            />
+          <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
+            <MdHelpText
+              id={`md-textarea_help-text_${textAreaId}`}
+              aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
+            >
+              {helpText}
+            </MdHelpText>
           </div>
         )}
-      </div>
-
-      {helpText && helpText !== '' && (
-        <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
-          <MdHelpText
-            id={`md-textarea_help-text_${textAreaId}`}
-            aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
-          >
-            {helpText}
-          </MdHelpText>
+        <div className="md-textarea__wrapper">
+          <textarea
+            id={textAreaId}
+            aria-describedby={helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined}
+            value={value}
+            rows={rows}
+            className={classNames}
+            placeholder={placeholder}
+            disabled={!!disabled}
+            readOnly={!!readOnly}
+            ref={ref}
+            {...otherProps}
+          />
         </div>
-      )}
-      <div className="md-textarea__wrapper">
-        <textarea
-          id={textAreaId}
-          aria-describedby={helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined}
-          value={value}
-          rows={rows}
-          className={classNames}
-          placeholder={placeholder}
-          disabled={!!disabled}
-          readOnly={!!readOnly}
-          {...otherProps}
-        />
+        {error && errorText && errorText !== '' && <div className="md-textarea__error">{errorText}</div>}
       </div>
-      {error && errorText && errorText !== '' && <div className="md-textarea__error">{errorText}</div>}
-    </div>
-  );
-};
-
+    );
+  },
+);
+MdTextArea.displayName = 'MdTextArea';
 export default MdTextArea;

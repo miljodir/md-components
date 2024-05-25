@@ -37,7 +37,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['primary', 'secondary', 'warning', 'danger'],
+      options: ['primary', 'secondary', 'warning', 'danger', 'success'],
       control: { type: 'inline-radio' },
     },
     icon: {
@@ -48,7 +48,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['none', 'info', 'warning', 'error', 'custom'],
+      options: ['none', 'info', 'warning', 'error', 'check', 'custom'],
       control: { type: 'inline-radio' },
     },
     label: {
@@ -81,11 +81,41 @@ export default {
       },
       control: { type: 'html' },
     },
+    outline: {
+      description: 'Display outline around component',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    onClick: {
+      description: 'OnClick function. If provided, component will be rendered as a button.',
+      table: {
+        type: {
+          summary: 'function',
+        },
+      },
+      control: { type: null },
+    },
   },
 };
 
 const Template: StoryFn<typeof MdInfoTag> = (args: MdInfoTagProps) => {
-  return <MdInfoTag {...args} />;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <MdInfoTag {...args} />
+      <MdInfoTag
+        {...args}
+        label="This is some info, with an onClick function"
+        onClick={() => {
+          return null;
+        }}
+      />
+    </div>
+  );
 };
 
 export const InfoTag = Template.bind({});
@@ -95,4 +125,6 @@ InfoTag.args = {
   label: 'This is some info',
   icon: 'info',
   customIcon: null,
+  outline: true,
+  onClick: undefined,
 };

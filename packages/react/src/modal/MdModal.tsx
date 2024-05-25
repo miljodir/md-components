@@ -5,7 +5,8 @@ import React, { useEffect, useRef } from 'react';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-const focusableHtmlElements = 'a[href], button, textarea, input, select, [tabindex]';
+const focusableHtmlElements =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]';
 
 export interface MdModalProps {
   children: any;
@@ -16,7 +17,7 @@ export interface MdModalProps {
   error?: boolean;
   className?: string;
   closeOnOutsideClick?: boolean;
-  onClose?(_e: React.MouseEvent): void;
+  onClose?(_e?: React.MouseEvent): void;
 }
 
 const MdModal: React.FunctionComponent<MdModalProps> = ({
@@ -29,15 +30,13 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   closeOnOutsideClick = true,
   onClose,
 }: MdModalProps) => {
-  const classNames = classnames(
-    'md-modal',
-    {
-      'md-modal--open': !!open,
-      'md-modal--error': !!error,
-    },
-    className,
-  );
+  const classNames = classnames('md-modal', {
+    'md-modal--open': !!open,
+    'md-modal--error': !!error,
+  });
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const innerWrapperClassNames = classnames('md-modal__inner-wrapper', className);
 
   /**
    * Focus trap for keyboard users. Makes it impossible to tab out of modal,
@@ -45,6 +44,8 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
    * Also focuses on the first focusable element when modal is opened.
    */
   useEffect(() => {
+    if (!open) return;
+
     const keyListener = (event: KeyboardEvent) => {
       if (event.key === 'Tab') {
         const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
@@ -63,6 +64,11 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
           }
         }
       }
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        if (onClose) {
+          onClose();
+        }
+      }
     };
 
     document.addEventListener('keydown', keyListener);
@@ -76,7 +82,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
     return () => {
       return document.removeEventListener('keydown', keyListener);
     };
-  }, []);
+  }, [open]);
 
   const closeModal = (e: React.MouseEvent) => {
     if (onClose) {
@@ -91,7 +97,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
   return (
     <>
       <div className="md-modal__overlay" />
-      <div className={classNames}>
+      <div className={classNames} role="dialog" aria-modal={true} aria-label={heading}>
         <div className="md-modal__content">
           <MdClickOutsideWrapper
             onClickOutside={e => {
@@ -99,7 +105,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 closeModal(e);
               }
             }}
-            className="md-modal__inner-wrapper"
+            className={innerWrapperClassNames}
             ref={modalRef}
           >
             <div className="md-modal__header">
@@ -113,6 +119,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 onClick={e => {
                   closeModal(e);
                 }}
+                aria-label="Lukk"
               >
                 <MdXIcon className="md-modal__close-button-icon" />
               </button>

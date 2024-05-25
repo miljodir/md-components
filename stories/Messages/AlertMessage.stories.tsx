@@ -31,10 +31,11 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string', required: true },
-      description: 'The text to display on hover',
+      description:
+        'The content to display in the alert message. Can be either a plain string or a html-node containing subcontents.',
       table: {
         type: {
-          summary: 'text',
+          summary: 'text | ReactNode',
         },
       },
       control: 'text',
@@ -78,6 +79,46 @@ export default {
         },
       },
       control: null,
+    },
+    closable: {
+      description: 'Show close icon.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+      control: { type: 'boolean' },
+    },
+    onClose: {
+      description: 'Callback for reacting to closing message.',
+      table: {
+        defaultValue: { summary: 'function' },
+        type: {
+          summary: null,
+        },
+      },
+      action: 'close',
+    },
+    className: {
+      type: { name: 'string' },
+      description: 'Class names to apply to the component.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    alignContent: {
+      description: 'Decides vertical alignement of content i.e. icon and label.',
+      table: {
+        type: {
+          defaultValue: { summary: 'center' },
+          summary: 'text',
+        },
+      },
+      options: ['start', 'center', 'end'],
+      control: { type: 'inline-radio' },
     },
   },
 };

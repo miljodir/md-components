@@ -47,7 +47,8 @@
 .md-modal__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 1em;
   font-size: 1.43em;
 }
 
@@ -58,7 +59,8 @@
 }
 
 .md-modal__close-button {
-  padding: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
   background: transparent;
   border: 0;
   border-radius: 0;

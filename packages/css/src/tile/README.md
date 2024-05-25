@@ -9,22 +9,18 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 ## Tile horizontal
 
 ```html
-<a
-    className="md-tile"
-    href={href}
-    onClick={handleClick}
->
-    <div className="md-tile__content">
-        <div className="md-tile__content-icon">{icon}</div>
-        <div className="md-tile__content-text">
-            <div className="md-tile__content-heading">{heading}</div>
-            <div className="md-tile__content-description">{description}</div>
-        </div>
+<a className="md-tile" href="{href}" onClick="{handleClick}">
+  <div className="md-tile__content">
+    <div className="md-tile__content-icon">{icon}</div>
+    <div className="md-tile__content-text">
+      <div className="md-tile__content-heading">{heading}</div>
+      <div className="md-tile__content-description">{description}</div>
     </div>
+  </div>
 
-    <div className="md-tile__arrow">
-        <MdChevronIcon height={25} />
-    </div>
+  <div className="md-tile__arrow">
+    <MdChevronIcon height="{25}" />
+  </div>
 </a>
 ```
 
@@ -32,16 +28,16 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <a
-    className="md-tile-vertical [md-tile-vertical--small, md-tile-vertical--large]"
-    href={href}
-    onClick={handleClick}
+  className="md-tile-vertical [md-tile-vertical--small, md-tile-vertical--large]"
+  href="{href}"
+  onClick="{handleClick}"
 >
-    <div className="md-tile-vertical__content">
-        <div className="md-tile-vertical__content-icon">{icon}</div>
-        <div className="md-tile-vertical__content-text">
-            <div className="md-tile-vertical__content-heading">{heading}</div>
-            <div className="md-tile-vertical__content-description">{description}</div>
-        </div>
+  <div className="md-tile-vertical__content">
+    <div className="md-tile-vertical__content-icon">{icon}</div>
+    <div className="md-tile-vertical__content-text">
+      <div className="md-tile-vertical__content-heading">{heading}</div>
+      <div className="md-tile-vertical__content-description">{description}</div>
     </div>
+  </div>
 </a>
 ```

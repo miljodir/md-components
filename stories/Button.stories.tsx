@@ -1,9 +1,10 @@
 import { action } from '@storybook/addon-actions';
-import { Title, Subtitle, Markdown, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Markdown, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/button/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
 import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
+import MdXIcon from '../packages/react/src/icons/MdXIcon';
 
 const markdownString =
   // eslint-disable-next-line quotes
@@ -20,7 +21,7 @@ export default {
             <Title />
             <Subtitle />
             <Markdown>{markdownString}</Markdown>
-            <Primary />
+            <PrimaryStory />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
@@ -87,6 +88,14 @@ export default {
         },
       },
     },
+    topIcon: {
+      description: 'Icon above label',
+      table: {
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+    },
   },
 };
 
@@ -112,6 +121,20 @@ const TemplateWithIcon = (args: ButtonArgs) => {
       theme={args.theme}
       small={args.small}
       rightIcon={<MdChevronIcon />}
+    >
+      {args.label}
+    </MdButton>
+  );
+};
+
+const TemplateWithTopIcon = (args: ButtonArgs) => {
+  return (
+    <MdButton
+      onClick={action(args.label)}
+      disabled={args.disabled}
+      theme={args.theme}
+      small={args.small}
+      topIcon={<MdXIcon />}
     >
       {args.label}
     </MdButton>
@@ -152,6 +175,14 @@ Disabled.args = {
 
 export const ButtonWithIcon = TemplateWithIcon.bind({});
 ButtonWithIcon.args = {
+  theme: 'primary',
+  label: 'Knapp med ikon',
+  disabled: false,
+  small: false,
+};
+
+export const ButtonWithTopIcon = TemplateWithTopIcon.bind({});
+ButtonWithTopIcon.args = {
   theme: 'primary',
   label: 'Knapp med ikon',
   disabled: false,

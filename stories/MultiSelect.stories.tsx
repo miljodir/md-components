@@ -34,7 +34,7 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string' },
-      description: 'The label for the selct box.',
+      description: 'The label for the select box.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -162,6 +162,17 @@ export default {
         },
       },
     },
+    dropdownHeight: {
+      type: { name: 'number' },
+      description: 'Set max height of dropdown in pixels',
+      table: {
+        defaultValue: { summary: '350px' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
   },
 };
 
@@ -213,4 +224,5 @@ Multiselect.args = {
   helpText: '',
   error: false,
   errorText: '',
+  dropdownHeight: null,
 };

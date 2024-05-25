@@ -7,7 +7,7 @@ import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
 export interface MdInputProps {
-  value?: string | undefined;
+  value?: string | number | undefined;
   id?: string;
   size?: 'normal' | 'small';
   label?: string;
@@ -24,11 +24,15 @@ export interface MdInputProps {
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
+  onClick?(_e: React.MouseEvent<HTMLInputElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
   onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
   onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;
   minLength?: number;
   maxLength?: number;
+  min?: number | string;
+  max?: number | string;
+  step?: number;
 }
 
 const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
@@ -71,8 +75,16 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       'md-input__wrapper--small': size === 'small',
     });
 
+    const outerWrapperClasses = classnames(
+      'md-input__outer-wrapper',
+      {
+        'md-input__outer-wrapper--small': size === 'small',
+      },
+      outerWrapperClass,
+    );
+
     return (
-      <div className={`md-input__outer-wrapper ${outerWrapperClass}`}>
+      <div className={outerWrapperClasses}>
         <div className="md-input__label">
           {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
           {helpText && helpText !== '' && (

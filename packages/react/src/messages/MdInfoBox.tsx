@@ -7,6 +7,7 @@ export interface MdInfoBoxProps {
   hideIcon?: boolean;
   fullWidth?: boolean;
   customIcon?: React.ReactNode | string;
+  role?: React.AriaRole;
 }
 
 const MdInfoBox: React.FC<MdInfoBoxProps> = ({
@@ -14,6 +15,7 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   hideIcon = false,
   fullWidth = false,
   customIcon,
+  role,
 }: MdInfoBoxProps) => {
   const classNames = classnames('md-info-box', {
     'md-info-box--fullWidth': !!fullWidth,
@@ -28,7 +30,7 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} role={role}>
       {!hideIcon && renderIcon()}
       {label}
     </div>

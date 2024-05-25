@@ -28,6 +28,8 @@ export interface MdAutocompleteProps {
   error?: boolean;
   errorText?: string;
   prefixIcon?: React.ReactNode;
+  dropdownHeight?: number;
+  amountOfElementsShown?: number;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -46,6 +48,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       errorText,
       prefixIcon = null,
       onChange,
+      dropdownHeight,
+      amountOfElementsShown = null,
       ...otherProps
     },
     ref,
@@ -56,6 +60,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
+    const [displayValue, setDisplayValue] = useState('');
 
     const autocompleteId = id && id !== '' ? id : uuidv4();
 
@@ -71,28 +76,25 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--open': !!open,
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+      'md-autocomplete--small': size === 'small',
     });
-
-    const selectedOption =
-      value && value !== ''
-        ? options &&
-          options.find(o => {
-            return o.value === value;
-          })
-        : '';
-
-    let displayValue = placeholder;
-    if (selectedOption && selectedOption.value) {
-      displayValue = selectedOption.text;
-    }
-    if (open) {
-      displayValue = '';
-    }
 
     const handleOptionClick = (option: MdAutocompleteOptionProps) => {
       onChange(option);
       setOpen(false);
       setAutocompleteValue('');
+
+      const selectedOption =
+        value && value !== ''
+          ? options &&
+            options.find(o => {
+              return o.value === value;
+            })
+          : '';
+
+      if (selectedOption && selectedOption.value) {
+        setDisplayValue(selectedOption.text);
+      }
     };
 
     const isSelectedOption = (option: MdAutocompleteOptionProps) => {
@@ -105,29 +107,39 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       });
     };
 
+    const displayedOptions = autocompleteValue
+      ? results
+      : defaultOptions && defaultOptions.length
+      ? defaultOptions
+      : options
+      ? options
+      : [];
+    const displayedOptionsSliced =
+      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+
     return (
       <div className={classNames}>
-        <div className="md-autocomplete__label">
-          {label && label !== '' && (
+        {label && label !== '' && (
+          <div className="md-autocomplete__label">
             <label id={`md-autocomplete_label_${autocompleteId}`} htmlFor={autocompleteId}>
               {label}
             </label>
-          )}
-          {helpText && helpText !== '' && (
-            <div className="md-autocomplete__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-autocomplete_help-button_${autocompleteId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
+            {helpText && helpText !== '' && (
+              <div className="md-autocomplete__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-autocomplete_help-button_${autocompleteId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-autocomplete_help-text_${autocompleteId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
 
         {helpText && helpText !== '' && (
           <div className={`md-autocomplete__help-text ${helpOpen ? 'md-autocomplete__help-text--open' : ''}`}>
@@ -147,7 +159,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           onClickOutside={() => {
             return setOpen(false);
           }}
-          className="md-autocomplete__container"
+          className={`md-autocomplete__container ${size === 'small' ? 'md-autocomplete--small' : ''}`}
         >
           {prefixIcon && (
             <div
@@ -160,6 +172,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             </div>
           )}
           <input
+            autoComplete="off"
             role="combobox"
             aria-expanded={open}
             aria-controls={`md-autocomplete_dropdown_${autocompleteId}`}
@@ -194,17 +207,18 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             {...otherProps}
           />
           <div aria-hidden="true" className="md-autocomplete__input-icon">
-            <MdChevronIcon />
+            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
           </div>
 
           {options && options.length > 0 && (
             <div
               aria-labelledby={label && label !== '' ? `md-autocomplete_label_${autocompleteId}` : undefined}
               role="listbox"
-              id={`md-autocomplete__dropdown_${autocompleteId}`}
+              id={`md-autocomplete_dropdown_${autocompleteId}`}
               className="md-autocomplete__dropdown"
+              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
-              {(autocompleteValue ? results : defaultOptions ? defaultOptions : options ? options : []).map(option => {
+              {displayedOptionsSliced.map(option => {
                 return (
                   <button
                     role="option"

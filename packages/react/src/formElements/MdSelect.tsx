@@ -27,6 +27,7 @@ export interface MdSelectProps {
   error?: boolean;
   errorText?: string;
   onChange(_e: MdSelectOptionProps): void;
+  dropdownHeight?: number;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -43,6 +44,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       error = false,
       errorText,
       onChange,
+      dropdownHeight,
       ...otherProps
     },
     ref,
@@ -117,6 +119,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const buttonClassNames = classnames('md-select__button', {
       'md-select__button--open': !!open,
       'md-select__button--error': !!error,
+      'md-select__button--small': size === 'small',
     });
 
     const optionClass = (option: MdSelectOptionProps) => {
@@ -127,24 +130,25 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
     return (
       <div className={classNames}>
-        <div className="md-select__label">
-          {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
-          {helpText && helpText !== '' && (
-            <div className="md-select__help-button">
-              <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
-                id={`md-select_help-button_${selectId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-select_help-text_${selectId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
-            </div>
-          )}
-        </div>
-
+        {label && label !== '' && (
+          <div className="md-select__label">
+            {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
+            {helpText && helpText !== '' && (
+              <div className="md-select__help-button">
+                <MdHelpButton
+                  ariaLabel={`Hjelpetekst for ${label}`}
+                  id={`md-select_help-button_${selectId}`}
+                  aria-expanded={helpOpen}
+                  aria-controls={`md-select_help-text_${selectId}`}
+                  onClick={() => {
+                    return setHelpOpen(!helpOpen);
+                  }}
+                  expanded={helpOpen}
+                />
+              </div>
+            )}
+          </div>
+        )}
         {helpText && helpText !== '' && (
           <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
             <MdHelpText
@@ -181,7 +185,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           >
             <div className="md-select__button-text">{displayValue}</div>
             <div aria-hidden="true" className="md-select__button-icon">
-              <MdChevronIcon />
+              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 
@@ -191,6 +195,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               role="listbox"
               className="md-select__dropdown"
               id={`md-select_dropdown_${selectId}`}
+              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             >
               {options.map(option => {
                 return (
