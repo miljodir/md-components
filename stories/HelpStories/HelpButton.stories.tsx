@@ -80,7 +80,6 @@ const HelpButtonTemplate = (args: Args) => {
     <MdHelpButton
       expanded={args.expanded}
       hideArrow={args.hideArrow}
-      ariaLabel={args.ariaLabel}
       onClick={() => {
         return handleExpanded(!args.expanded);
       }}
@@ -92,5 +91,4 @@ export const HelpButton = HelpButtonTemplate.bind({});
 HelpButton.args = {
   expanded: false,
   hideArrow: false,
-  ariaLabel: 'Hjelpetekst',
 };

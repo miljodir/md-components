@@ -16,7 +16,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   className,
   expanded = false,
   id,
-  ariaLabel,
+  ariaLabel = 'Hjelpetekst',
   hideArrow = false,
   ...otherProps
 }: MdHelpButtonProps) => {
