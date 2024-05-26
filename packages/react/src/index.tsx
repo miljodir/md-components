@@ -123,6 +123,7 @@ import MdTabs, { MdTabsProps } from './tabs/MdTabs';
 import MdTile, { MdTileProps } from './tiles/MdTile';
 import MdTileVertical, { MdTileVerticalProps } from './tiles/MdTileVertical';
 import MdToggle, { MdToggleProps } from './toggle/MdToggle';
+import MdTooltip, { MdTooltipProps } from './tooltip/MdTooltip';
 import MdClickOutsideWrapper, { MdClickOutsideWrapperProps } from './utils/MdClickOutsideWrapper';
 
 export {
@@ -154,6 +155,7 @@ export {
   MdLoadingSpinner,
   MdInfoTag,
   MdInfoBox,
+  MdTooltip,
   MdAlertMessage,
   MdButtonProps,
   MdCheckboxProps,
@@ -186,6 +188,7 @@ export {
   MdLoadingSpinnerProps,
   MdInfoTagProps,
   MdInfoBoxProps,
+  MdTooltipProps,
   MdAlertMessageProps,
   MdBurgerMenuIcon,
   MdBurgerMenu64Icon,

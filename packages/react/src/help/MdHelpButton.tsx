@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import React from 'react';
-
 import MdHelpIcon from '../icons/MdHelpIcon64';
 
 export interface MdHelpButtonProps {
@@ -17,7 +16,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   className,
   expanded = false,
   id,
-  ariaLabel,
+  ariaLabel = 'Hjelpetekst',
   hideArrow = false,
   ...otherProps
 }: MdHelpButtonProps) => {
@@ -27,14 +26,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   });
 
   return (
-    <button
-      {...otherProps}
-      id={id}
-      aria-label={ariaLabel || 'Hjelpetekst'}
-      className={buttonClasses}
-      onClick={onClick}
-      type="button"
-    >
+    <button {...otherProps} id={id} aria-label={ariaLabel} className={buttonClasses} onClick={onClick} type="button">
       <MdHelpIcon aria-hidden="true" className="md-helpbutton__icon" />
     </button>
   );

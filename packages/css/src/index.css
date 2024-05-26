@@ -13,6 +13,7 @@
 @import './tabs/tabs.css';
 @import './loadingSpinner/loadingSpinner.css';
 @import './infoTag/infoTag.css';
+@import './tooltip/tooltip.css';
 @import './messages/alertMessage.css';
 @import './formElements/input/input.css';
 @import './formElements/checkbox/checkbox.css';
