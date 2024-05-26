@@ -1,9 +1,9 @@
 import classnames from 'classnames';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 import React, { useState, useCallback } from 'react';
 
 export interface MdTooltipProps {
-  content: string;
+  content: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
   ariaLabel: string;
   children?: React.ReactNode;
