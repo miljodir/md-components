@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import debounce from 'lodash.debounce';
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 export interface MdTooltipProps {
   content: React.ReactNode;
@@ -35,18 +34,9 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ content, position = 'bottom', chi
     setHover(false);
   };
 
-  const debouncedSetHoverTrue = useCallback(debounce(setHoverTrue, 400), []);
-
   return (
     <div aria-label={ariaLabel}>
-      <div
-        aria-hidden="true"
-        onMouseLeave={() => {
-          setHoverFalse();
-        }}
-        onMouseEnter={debouncedSetHoverTrue}
-        className="md-tooltip__child"
-      >
+      <div aria-hidden="true" onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
         {children}
       </div>
       <div className={classNames}>{content}</div>

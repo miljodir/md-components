@@ -42,7 +42,6 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-autofix": "^1.1.0",
     "eslint-plugin-import": "^2.29.1",
-    "@types/lodash.debounce": "^4.0.9",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-storybook": "^0.6.15",
     "react": "^18.2.0",
@@ -57,8 +56,7 @@
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "uuid": "^9.0.1",
-    "classnames": "^2.3.2",
-    "lodash.debounce": "^4.0.8"
+    "classnames": "^2.3.2"
   },
   "storybook-deployer": {
     "gitUsername": "miljodir",
