@@ -60,7 +60,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
-    const [displayValue, setDisplayValue] = useState('');
 
     const autocompleteId = id && id !== '' ? id : uuidv4();
 
@@ -79,22 +78,26 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete--small': size === 'small',
     });
 
+    const selectedOption =
+      value && value !== ''
+        ? options &&
+          options.find(o => {
+            return o.value === value;
+          })
+        : '';
+
+    let displayValue = placeholder;
+    if (selectedOption && selectedOption.value) {
+      displayValue = selectedOption.text;
+    }
+    if (open) {
+      displayValue = '';
+    }
+
     const handleOptionClick = (option: MdAutocompleteOptionProps) => {
       onChange(option);
       setOpen(false);
       setAutocompleteValue('');
-
-      const selectedOption =
-        value && value !== ''
-          ? options &&
-            options.find(o => {
-              return o.value === value;
-            })
-          : '';
-
-      if (selectedOption && selectedOption.value) {
-        setDisplayValue(selectedOption.text);
-      }
     };
 
     const isSelectedOption = (option: MdAutocompleteOptionProps) => {
