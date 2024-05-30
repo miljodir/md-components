@@ -26,6 +26,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
     {
       'md-button--small': !!small,
       'md-button--secondary': theme === 'secondary',
+      'md-button--tertiary': theme === 'tertiary',
       'md-button--danger': theme === 'danger',
       'md-button--column': !!topIcon,
     },

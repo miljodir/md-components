@@ -103,6 +103,52 @@
   color: var(--mdPrimaryColor);
 }
 
+.md-button--secondary:disabled > .md-button__rightIcon {
+  color: var(--mdGreyColor20);
+}
+
+.md-button--tertiary {
+  background-color: #ffffff;
+  border: none;
+  text-decoration: underline;
+  border-radius: 0.43rem;
+  color: var(--mdPrimaryColor);
+  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
+}
+
+.md-button--small.md-button--tertiary {
+  padding: calc(0.4rem - 2px) calc(0.8rem - 2px);
+}
+
+.md-button--tertiary:hover:enabled {
+  background-color: var(--mdPrimaryColor20);
+}
+
+.md-button--tertiary:focus:enabled {
+  border-color: var(--mdPrimaryColor);
+  outline: 2px var(--mdPrimaryColor80) solid;
+  background-color: #ffffff;
+  outline-offset: 0px;
+}
+
+.md-button--tertiary:focus:hover:enabled {
+   background-color: var(--mdPrimaryColor20);
+}
+
+.md-button--tertiary:disabled {
+  background-color: #fff;
+  color: var(--mdGreyColor20);
+  border-color: var(--mdGreyColor20);
+}
+
+.md-button--tertiary > .md-button__rightIcon {
+  color: var(--mdPrimaryColor);
+}
+
+.md-button--tertiary:disabled > .md-button__rightIcon {
+  color: var(--mdGreyColor20);
+}
+
 .md-button--danger {
   background-color: var(--mdErrorColor);
 }

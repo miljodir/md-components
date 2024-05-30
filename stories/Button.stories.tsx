@@ -50,7 +50,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['primary', 'secondary', 'danger'],
+      options: ['primary', 'secondary', 'danger', 'tertiary'],
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
@@ -153,6 +153,14 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   theme: 'secondary',
   label: 'Sekundærknapp',
+  disabled: false,
+  small: false,
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  theme: 'tertiary',
+  label: 'Tertiærknapp',
   disabled: false,
   small: false,
 };
