@@ -108,7 +108,7 @@
 }
 
 .md-button--tertiary {
-  background-color: #ffffff;
+  background-color: transparent;
   border: none;
   border-radius: 0.43rem;
   color: var(--mdPrimaryColor);
@@ -127,7 +127,7 @@
 .md-button--tertiary:focus:enabled {
   border-color: var(--mdPrimaryColor);
   outline: 2px var(--mdPrimaryColor80) solid;
-  background-color: #ffffff;
+  background-color: transparent;
   outline-offset: 0px;
 }
 
@@ -136,7 +136,7 @@
 }
 
 .md-button--tertiary:disabled {
-  background-color: #fff;
+  background-color: transparent;
   color: var(--mdGreyColor20);
   border-color: var(--mdGreyColor20);
 }
