@@ -1,13 +1,9 @@
-import { Title, Subtitle, Primary, Markdown, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Primary, Description, Markdown, Controls } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/filelist/README.md';
 import MdFileList from '../packages/react/src/fileList/MdFileList';
 import type { MdFileListProps } from '../packages/react/src/fileList/MdFileList';
 import type { StoryFn } from '@storybook/react';
-
-const markdownString =
-  // eslint-disable-next-line quotes
-  "A component for listing files, with buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Components/FileList',
@@ -19,12 +15,17 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Markdown>{markdownString}</Markdown>
+            <Description />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );
+      },
+      description: {
+        component:
+          // eslint-disable-next-line quotes
+          "A component for listing files, with buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`",
       },
     },
   },

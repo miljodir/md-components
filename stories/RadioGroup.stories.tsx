@@ -6,7 +6,7 @@ import MdRadioGroup from '../packages/react/src/formElements/MdRadioGroup';
 import type { MdRadioGroupProps } from '../packages/react/src/formElements/MdRadioGroup';
 
 export default {
-  title: 'Form/RadioGroup',
+  title: 'Form/Radio/RadioGroup',
   component: MdRadioGroup,
   parameters: {
     docs: {

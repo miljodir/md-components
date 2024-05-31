@@ -1,13 +1,9 @@
-import { Title, Subtitle, Markdown, Controls, Primary } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react';
-
-const markdownString =
-  // eslint-disable-next-line quotes
-  "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Form/Checkbox/CheckboxGroup',
@@ -19,12 +15,17 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Markdown>{markdownString}</Markdown>
+            <Description />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );
+      },
+      description: {
+        component:
+          // eslint-disable-next-line quotes
+          "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`",
       },
     },
   },
