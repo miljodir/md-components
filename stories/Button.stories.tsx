@@ -1,14 +1,10 @@
 import { action } from '@storybook/addon-actions';
-import { Title, Subtitle, Markdown, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
+import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/button/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
 import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
 import MdXIcon from '../packages/react/src/icons/MdXIcon';
-
-const markdownString =
-  // eslint-disable-next-line quotes
-  "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Components/Button',
@@ -20,17 +16,17 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Markdown>{markdownString}</Markdown>
+            <Description />
             <PrimaryStory />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
-    },
-    description: {
-      // eslint-disable-next-line quotes
-      component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
+      description: {
+        // eslint-disable-next-line quotes
+        component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
+      },
     },
   },
   argTypes: {

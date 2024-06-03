@@ -16,6 +16,7 @@ import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckbox
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { MdInputProps } from './formElements/MdInput';
 import MdMultiSelect, { MdMultiSelectOptionProps, MdMultiSelectProps } from './formElements/MdMultiSelect';
+import MdRadioButton, { MdRadioButtonProps } from './formElements/MdRadioButton';
 import MdRadioGroup, { MdRadioGroupProps } from './formElements/MdRadioGroup';
 import MdSelect, { MdSelectOptionProps, MdSelectProps } from './formElements/MdSelect';
 import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
@@ -135,6 +136,7 @@ export {
   MdMultiSelect,
   MdAutocomplete,
   MdRadioGroup,
+  MdRadioButton,
   MdTextArea,
   MdFileUpload,
   MdLink,
@@ -168,6 +170,7 @@ export {
   MdAutocompleteProps,
   MdAutocompleteOptionProps,
   MdRadioGroupProps,
+  MdRadioButtonProps,
   MdTextAreaProps,
   MdFileUploadProps,
   MdLinkProps,

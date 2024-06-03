@@ -1,13 +1,9 @@
-import { Title, Subtitle, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/checkbox/README.md';
 import MdCheckbox from '../packages/react/src/formElements/MdCheckbox';
 import type { MdCheckboxProps } from '../packages/react/src/formElements/MdCheckbox';
-
-const markdownString =
-  // eslint-disable-next-line quotes
-  "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`";
 
 export default {
   title: 'Form/Checkbox',
@@ -19,12 +15,17 @@ export default {
           <>
             <Title />
             <Subtitle />
-            <Markdown>{markdownString}</Markdown>
+            <Description />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>
         );
+      },
+      description: {
+        component:
+          // eslint-disable-next-line quotes
+          "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
       },
     },
   },
