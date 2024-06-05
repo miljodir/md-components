@@ -4,15 +4,16 @@
   color: #ffffff;
   font-family: 'Open sans';
   border-radius: 50%;
-  padding: 8px;
-  width: fit-content;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  display: flex;
   border: none;
 }
 
 .md-icon-button__icon {
   height: 20px;
   width: 20px;
-  position: relative;
 }
 
 .md-icon-button:focus {
@@ -38,7 +39,6 @@
   background-color: #ffffff;
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
-  padding: 8px;
   color: var(--mdPrimaryColor);
 }
 
@@ -53,7 +53,6 @@
 .md-icon-button--border:focus:enabled {
   background-color: #ffffff;
   border: 1px solid var(--mdPrimaryColor80);
-  padding: 7px;
   outline: 1px var(--mdPrimaryColor80) solid;
   outline-offset: -4px;
 }
@@ -61,7 +60,6 @@
 .md-icon-button--border:disabled {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
-  padding: 8px;
   outline: 1px solid var(--mdGreyColor60);
   outline-offset: -1px;
 }
