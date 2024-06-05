@@ -37,6 +37,7 @@
 .md-tooltip__child {
   display: flex;
   cursor: pointer;
+  width: fit-content;
 }
 
 

@@ -31,14 +31,23 @@ export default {
     },
   },
   argTypes: {
-    label: {
-      description: 'The text to display on hover',
+    content: {
+      description: 'The content to display on hover',
       table: {
         type: {
-          summary: 'text',
+          summary: 'ReactNode',
         },
       },
-      control: 'text',
+      control: { type: 'text' },
+    },
+    ariaLabel: {
+      description: 'The aria label for the tooltip',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
     },
     position: {
       description: 'Selected position for the tooltip',
