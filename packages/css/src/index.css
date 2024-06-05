@@ -1,5 +1,6 @@
 @import './colors.css';
 @import './button/button.css';
+@import './iconButton/iconButton.css';
 @import './link/link.css';
 @import './data-grid.css';
 @import './help/help.css';
