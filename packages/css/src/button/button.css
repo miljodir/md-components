@@ -42,8 +42,8 @@
 
 .md-button__rightIcon {
   height: 1rem;
-  flex-shrink: 0;
   width: 1rem;
+  flex-shrink: 0;
   margin-left: 0.4rem;
 }
 
