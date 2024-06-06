@@ -36,19 +36,15 @@
 .md-button__leftIcon {
   height: 1rem;
   width: 1rem;
-  position: relative;
-  right: 0.5rem;
-  top: 0;
   flex-shrink: 0;
+  margin-right: 0.4rem;
 }
 
 .md-button__rightIcon {
   height: 1rem;
   width: 1rem;
-  position: relative;
-  left: 0.5rem;
-  top: 0;
   flex-shrink: 0;
+  margin-left: 0.4rem;
 }
 
 .md-button:focus {
