@@ -59,20 +59,16 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
     handleDragDropEvent(e);
 
     if (!multiple && files.length > 0) {
-      // @ts-ignore
-      e.target?.classList?.add('md-fileupload__droparea--not-allowed');
+      (e.target as Element)?.classList?.add('md-fileupload__droparea--not-allowed');
     } else {
-      // @ts-ignore
-      e.target?.classList?.add('md-fileupload__droparea--active');
+      (e.target as Element)?.classList?.add('md-fileupload__droparea--active');
     }
   };
 
   const onDragLeaveEvent = (e: DragEvent<HTMLDivElement>) => {
     handleDragDropEvent(e);
-    // @ts-ignore
-    e.target?.classList?.remove('md-fileupload__droparea--active');
-    // @ts-ignore
-    e.target?.classList?.remove('md-fileupload__droparea--not-allowed');
+    (e.target as Element)?.classList?.remove('md-fileupload__droparea--active');
+    (e.target as Element)?.classList?.remove('md-fileupload__droparea--not-allowed');
   };
 
   const onRemoveFile = (file: File) => {

@@ -4,14 +4,13 @@ import React, { useEffect, useRef } from 'react';
 export interface MdClickOutsideWrapperProps {
   onClickOutside(_e: React.MouseEvent): void;
   children: React.ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  className?: any;
+  className?: string;
   ref?: React.ForwardedRef<HTMLDivElement>;
 }
 
 const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOutsideWrapperProps>(
   ({ onClickOutside, children, className = '', ...otherProps }, ref) => {
-    const innerRef = useRef(null);
+    const innerRef = useRef<HTMLDivElement>(null);
 
     /**
      * Combine ref from parent via props with internal ref
@@ -26,16 +25,13 @@ const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOutsideWra
     });
 
     useEffect(() => {
-      const handleClickOutside = (event: React.MouseEvent) => {
-        // @ts-ignore
-        if (innerRef.current && !innerRef.current?.contains(event.target)) {
-          onClickOutside && onClickOutside(event);
+      const handleClickOutside = (event: MouseEvent) => {
+        if (innerRef.current && !innerRef.current?.contains(event.target as Node)) {
+          onClickOutside && onClickOutside(event as unknown as React.MouseEvent);
         }
       };
-      // @ts-ignore
       document.addEventListener('click', handleClickOutside, true);
       return () => {
-        // @ts-ignore
         document.removeEventListener('click', handleClickOutside, true);
       };
     }, [onClickOutside]);

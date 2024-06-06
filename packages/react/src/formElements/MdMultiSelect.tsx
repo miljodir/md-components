@@ -28,8 +28,7 @@ export interface MdMultiSelectProps {
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  id?: any;
+  id?: string | number | null | undefined;
   onChange?(_e: React.ChangeEvent): void;
   dropdownHeight?: number;
 }
@@ -133,13 +132,12 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
         value: option.value,
         text: option.text,
       };
-      const event: React.ChangeEvent = {
+      const event = {
         target: {
-          // @ts-expect-error
           value: option.value,
           dataset: dataset,
         },
-      };
+      } as unknown as React.ChangeEvent;
 
       handleOptionClick(event);
     };
@@ -189,7 +187,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             aria-expanded={open}
             aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
             aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
-            id={multiSelectId}
+            id={String(multiSelectId) || undefined}
             aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
             className={buttonClassNames}
             type="button"

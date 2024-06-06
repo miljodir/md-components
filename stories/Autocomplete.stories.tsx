@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
@@ -25,7 +26,6 @@ export default {
       },
       description: {
         component:
-          // eslint-disable-next-line quotes
           "A form component for single autocomplete.<br/><br/>`import { MdAutocomplete } from '@miljodirektoratet/md-react'`",
       },
     },
@@ -47,7 +47,6 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },
@@ -57,7 +56,6 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          // eslint-disable-next-line quotes
           summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
         },
       },

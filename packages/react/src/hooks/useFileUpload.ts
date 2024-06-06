@@ -18,9 +18,6 @@ type useFileUploadHook = {
   ) => void;
 };
 
-/**
- * @function formatBytes
- */
 const formatBytes = (bytes: number, decimals = 2): string => {
   if (typeof bytes !== 'number') return 'n/a';
   if (bytes === 0) return '0 Bytes';
@@ -34,26 +31,17 @@ const formatBytes = (bytes: number, decimals = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
 
-/**
- * @function getTotalSizeInBytes
- */
 const getTotalSizeInBytes = (files: File[]): number => {
   return files.reduce((acc, file: File) => {
     return (acc += file.size);
   }, 0);
 };
 
-/**
- * @function handleDragDropEvent
- */
 const handleDragDropEvent = (e: DragEvent<HTMLDivElement>) => {
   e.stopPropagation();
   e.preventDefault();
 };
 
-/**
- * @ReactHook
- */
 export const useFileUpload = (): useFileUploadHook => {
   const [files, setFilesState] = useState<File[]>([]);
   const [fileNames, setFileNames] = useState<string[]>([]);
@@ -75,16 +63,17 @@ export const useFileUpload = (): useFileUploadHook => {
     handleSizes(files);
   }, [files]);
 
-  /** @function setFiles */
   const setFiles = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (e: any, mode = 'w', imagesOnly = false): void => {
+    (e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>, mode = 'w', imagesOnly = false): void => {
       let filesArr: File[] = [];
 
-      if (e.currentTarget?.files) {
-        filesArr = Array.from(e.currentTarget.files);
-      } else if (e?.dataTransfer.files) {
-        filesArr = Array.from(e.dataTransfer.files);
+      const dataTransfer = (e as React.DragEvent<HTMLDivElement>).dataTransfer;
+      const currentTarget = (e as ChangeEvent<HTMLInputElement>).currentTarget;
+
+      if (currentTarget?.files) {
+        filesArr = Array.from(currentTarget.files);
+      } else if (dataTransfer.files) {
+        filesArr = Array.from(dataTransfer.files);
       } else {
         // eslint-disable-next-line no-console
         console.error('Argument not recognized. Are you sure your passing setFiles an event object?');
@@ -108,7 +97,6 @@ export const useFileUpload = (): useFileUploadHook => {
     [files],
   );
 
-  /** @function handleSizes */
   const handleSizes = useCallback((files: File[]): void => {
     const sizeInBytes = getTotalSizeInBytes(files);
     const prettySize = formatBytes(sizeInBytes);
@@ -116,7 +104,6 @@ export const useFileUpload = (): useFileUploadHook => {
     setTotalSize(prettySize);
   }, []);
 
-  /** @function removeFile */
   const removeFile = useCallback(
     (file: number | string): void => {
       if (typeof file !== 'number' && typeof file !== 'string') {
@@ -142,22 +129,18 @@ export const useFileUpload = (): useFileUploadHook => {
     [files],
   );
 
-  /** @function clearAllFiles */
   const clearAllFiles = useCallback((): void => {
     setFilesState([]);
   }, []);
 
-  /** @function createFormData */
   const createFormData = useCallback((): FormData => {
     const formData = new FormData();
 
-    const updatedFormData = files.map((file: File) => {
-      return { ...formData, [file.name]: file };
+    files.map((file: File) => {
+      return formData.append(file.name, file);
     });
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    /* @ts-ignore */
-    return updatedFormData;
+    return formData;
   }, [files]);
 
   return {
