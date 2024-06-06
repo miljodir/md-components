@@ -22,6 +22,7 @@ import MdSelect, { MdSelectOptionProps, MdSelectProps } from './formElements/MdS
 import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { MdHelpTextProps } from './help/MdHelpText';
+import MdIconButton, { MdIconButtonProps } from './iconButton/MdIconButton';
 import MdBurgerMenuIcon from './icons/MdBurgerMenuIcon';
 import MdBurgerMenu64Icon from './icons/MdBurgerMenuIcon64';
 import MdCalendarDayIcon from './icons/MdCalendarDayIcon';
@@ -129,6 +130,7 @@ import MdClickOutsideWrapper, { MdClickOutsideWrapperProps } from './utils/MdCli
 
 export {
   MdButton,
+  MdIconButton,
   MdCheckbox,
   MdCheckboxGroup,
   MdInput,
@@ -160,6 +162,7 @@ export {
   MdTooltip,
   MdAlertMessage,
   MdButtonProps,
+  MdIconButtonProps,
   MdCheckboxProps,
   MdCheckboxGroupProps,
   MdInputProps,
