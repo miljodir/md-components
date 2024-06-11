@@ -173,7 +173,7 @@ export default {
       control: { type: 'text' },
     },
     suffix: {
-      type: { name: 'ReactNode' },
+      type: { name: 'string' },
       description: 'Suffix to apply to end of input field',
       table: {
         defaultValue: { summary: 'null' },
