@@ -4,6 +4,7 @@ import React from 'react';
 import Readme from '../packages/css/src/formElements/input/README.md';
 import MdInput from '../packages/react/src/formElements/MdInput';
 import MdUserIcon from '../packages/react/src/icons/MdUserIcon';
+
 import type { Args } from '@storybook/react';
 import type { ChangeEvent } from 'react';
 
@@ -172,12 +173,12 @@ export default {
       control: { type: 'text' },
     },
     suffix: {
-      type: { name: 'string' },
+      type: { name: 'ReactNode' },
       description: 'Suffix to apply to end of input field',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: 'string',
+          summary: 'string | DomElement | image | ReactNode',
         },
       },
       control: { type: 'text' },
@@ -322,6 +323,26 @@ InputWithPrefix.args = {
   placeholder: 'Placeholder...',
   id: '',
   suffix: '',
+  prefixIcon: <MdUserIcon />,
+  hideNumberArrows: false,
+};
+
+export const InputWithSuffix = Template.bind({});
+InputWithSuffix.args = {
+  value: '',
+  label: 'Label',
+  type: 'text',
+  size: 'normal',
+  disabled: false,
+  readOnly: false,
+  error: false,
+  errorText: '',
+  hideErrorIcon: false,
+  helpText: '',
+  outerWrapperClass: '',
+  placeholder: 'Placeholder...',
+  id: '',
+  suffix: <button>Clear</button>,
   prefixIcon: <MdUserIcon />,
   hideNumberArrows: false,
 };
