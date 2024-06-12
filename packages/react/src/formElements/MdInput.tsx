@@ -20,7 +20,7 @@ export interface MdInputProps {
   hideErrorIcon?: boolean;
   helpText?: string;
   outerWrapperClass?: string;
-  suffix?: string;
+  suffix?: string | React.ReactNode;
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
