@@ -6,9 +6,16 @@ export interface MdTooltipProps {
   position?: 'top' | 'bottom' | 'right' | 'left';
   ariaLabel: string;
   children?: React.ReactNode;
+  tooltipClass?: string;
 }
 
-const MdTooltip: React.FC<MdTooltipProps> = ({ content, position = 'bottom', children, ariaLabel }: MdTooltipProps) => {
+const MdTooltip: React.FC<MdTooltipProps> = ({
+  content,
+  position = 'bottom',
+  children,
+  ariaLabel,
+  tooltipClass,
+}: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
   const classNames = classnames('md-tooltip', {
     'md-tooltip--show': hover,
@@ -16,6 +23,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({ content, position = 'bottom', chi
     'md-tooltip--top': position === 'top',
     'md-tooltip--right': position === 'right',
     'md-tooltip--left': position === 'left',
+    tooltipClass,
   });
 
   const keydown = (event: KeyboardEvent) => {
