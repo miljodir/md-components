@@ -64,7 +64,7 @@ const MdInfoTag: React.FC<MdInfoTagProps> = ({
     }
   };
   return onClick ? (
-    <button onClick={onClick} {...otherProps} className={classNames}>
+    <button type="button" onClick={onClick} {...otherProps} className={classNames}>
       <div className={labelClassNames}>{label}</div>
 
       <div className="md-info-tag__icon">{renderIcon()}</div>

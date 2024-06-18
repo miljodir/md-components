@@ -6,14 +6,14 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
    * Replaces previous content-prop for specifying the content of the tooltip.
    * Content-prop is reserved as a standard HTML attribute on div-elements.
    */
-  label: React.ReactNode;
+  tooltipContent: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
   ariaLabel?: string;
   children?: React.ReactNode;
 }
 
 const MdTooltip: React.FC<MdTooltipProps> = ({
-  label,
+  tooltipContent,
   position = 'bottom',
   children,
   ariaLabel,
@@ -49,7 +49,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
       <div aria-hidden="true" onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
         {children}
       </div>
-      <div className={classNames}>{label}</div>
+      <div className={classNames}>{tooltipContent}</div>
     </div>
   );
 };
