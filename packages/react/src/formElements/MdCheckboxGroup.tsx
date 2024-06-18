@@ -15,7 +15,7 @@ export interface MdCheckboxGroupProps {
   options?: MdCheckboxGroupOptionProps[];
   selectedOptions?: MdCheckboxGroupOptionProps[];
   label?: string;
-  id?: string | number;
+  id?: string;
   disabled?: boolean;
   direction?: 'horizontal' | 'vertical' | 'grid';
   columns?: number;
@@ -120,7 +120,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
       )}
 
       <div
-        id={String(checkboxGroupId) || undefined}
+        id={checkboxGroupId}
         aria-describedby={helpText && helpText !== '' ? `md-checkboxgroup_help-text_${checkboxGroupId}` : undefined}
         className={optionsClassNames}
         style={{ gridTemplateColumns: `repeat(${columns}, minmax(max-content, 1fr))` }}

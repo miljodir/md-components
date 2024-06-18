@@ -71,12 +71,12 @@ export default {
       control: { type: 'boolean' },
     },
     id: {
-      type: { name: 'number | string' },
+      type: { name: 'string' },
       description: 'The unique id for checkbox group.',
       table: {
         defaultValue: { summary: 'uuidv4' },
         type: {
-          summary: 'number | string',
+          summary: 'string',
         },
       },
       control: { type: 'text' },

@@ -17,7 +17,7 @@ export interface MdSelectOptionProps {
 export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOptionProps[];
-  id?: string | number | null | undefined;
+  id?: string | null | undefined;
   name?: string;
   value?: string | number;
   placeholder?: string;
@@ -172,7 +172,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             aria-expanded={open}
             aria-controls={`md-select_dropdown_${selectId}`}
             aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
-            id={String(selectId) || undefined}
+            id={selectId}
             aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined}
             className={buttonClassNames}
             type="button"

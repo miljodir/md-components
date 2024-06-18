@@ -7,7 +7,7 @@ import MdMinusIcon from '../icons/MdMinusIcon';
 export interface MdAccordionItemProps {
   label?: string;
   headerContent?: React.ReactNode | string;
-  id?: string | number | null | undefined;
+  id?: string | null | undefined;
   expanded?: boolean;
   theme?: string;
   disabled?: boolean;
@@ -74,7 +74,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     <div className={accordionClassNames}>
       {/* Header */}
       <button
-        id={String(accordionId) || undefined}
+        id={accordionId}
         type="button"
         aria-expanded={isExpanded}
         aria-controls={`md-accordion-item_content_${accordionId}`}
@@ -95,7 +95,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       {!disabled && (
         <div
           id={`md-accordion-item_content_${accordionId}`}
-          aria-labelledby={String(accordionId) || undefined}
+          aria-labelledby={accordionId}
           className={contentClassNames}
         >
           <div className="md-accordion-item__content-inner">{children}</div>

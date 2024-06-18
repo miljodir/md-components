@@ -72,7 +72,7 @@ export default {
       control: { type: 'text' },
     },
     id: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
         defaultValue: { summary: 'uuid()' },

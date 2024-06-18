@@ -16,7 +16,7 @@ export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
   selectedOption?: any;
   label?: string;
-  id?: string | number;
+  id?: string;
   disabled?: boolean;
   direction?: string;
   className?: string;
@@ -114,7 +114,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
       )}
 
       <div
-        id={String(radioGroupId) || undefined}
+        id={radioGroupId}
         aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioGroupId}` : undefined}
         className={optionsClassNames}
       >

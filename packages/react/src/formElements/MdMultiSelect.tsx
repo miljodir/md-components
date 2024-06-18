@@ -28,7 +28,7 @@ export interface MdMultiSelectProps {
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
-  id?: string | number | null | undefined;
+  id?: string | null | undefined;
   onChange?(_e: React.ChangeEvent): void;
   dropdownHeight?: number;
 }
@@ -187,7 +187,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             aria-expanded={open}
             aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
             aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
-            id={String(multiSelectId) || undefined}
+            id={multiSelectId}
             aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
             className={buttonClassNames}
             type="button"
