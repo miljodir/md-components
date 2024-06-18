@@ -9,12 +9,14 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   tooltipContent: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
   children?: React.ReactNode;
+  tooltipClass?: string;
 }
 
 const MdTooltip: React.FC<MdTooltipProps> = ({
   tooltipContent,
   position = 'bottom',
   children,
+  tooltipClass,
   ...otherProps
 }: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
@@ -24,6 +26,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
     'md-tooltip--top': position === 'top',
     'md-tooltip--right': position === 'right',
     'md-tooltip--left': position === 'left',
+    tooltipClass,
   });
 
   const keydown = (event: KeyboardEvent) => {
