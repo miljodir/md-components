@@ -5,13 +5,11 @@ import MdHelpIcon from '../icons/MdHelpIcon64';
 export interface MdHelpButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   expanded: boolean;
   hideArrow?: boolean;
-  ariaLabel?: string;
 }
 
 const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   className,
   expanded = false,
-  ariaLabel = 'Hjelpetekst',
   hideArrow = false,
   ...otherProps
 }: MdHelpButtonProps) => {
@@ -21,7 +19,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   });
 
   return (
-    <button aria-label={ariaLabel} className={buttonClasses} type="button" {...otherProps}>
+    <button aria-label="Hjelpetekst" className={buttonClasses} type="button" {...otherProps}>
       <MdHelpIcon aria-hidden="true" className="md-helpbutton__icon" />
     </button>
   );

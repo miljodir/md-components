@@ -136,7 +136,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             {helpText && helpText !== '' && (
               <div className="md-select__help-button">
                 <MdHelpButton
-                  ariaLabel={`Hjelpetekst for ${label}`}
+                  aria-label={`Hjelpetekst for ${label}`}
                   id={`md-select_help-button_${selectId}`}
                   aria-expanded={helpOpen}
                   aria-controls={`md-select_help-text_${selectId}`}

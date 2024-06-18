@@ -8,7 +8,6 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   tooltipContent: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
-  ariaLabel?: string;
   children?: React.ReactNode;
 }
 
@@ -16,7 +15,6 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
   tooltipContent,
   position = 'bottom',
   children,
-  ariaLabel,
   ...otherProps
 }: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
@@ -45,7 +43,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
   };
 
   return (
-    <div aria-label={ariaLabel} {...otherProps}>
+    <div {...otherProps}>
       <div aria-hidden="true" onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
         {children}
       </div>

@@ -48,7 +48,7 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    ariaLabel: {
+    'aria-label': {
       description: 'Aria label',
       table: {
         type: {

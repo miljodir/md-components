@@ -90,7 +90,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
         {helpText && helpText !== '' && (
           <MdHelpButton
-            ariaLabel={`Hjelpetekst for ${label}`}
+            aria-label={`Hjelpetekst for ${label}`}
             id={`md-radiogroup_help-button_${radioGroupId}`}
             aria-expanded={helpOpen}
             aria-controls={`md-radiogroup_help-text_${radioGroupId}`}

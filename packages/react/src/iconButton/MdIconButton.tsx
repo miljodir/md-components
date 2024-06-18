@@ -4,7 +4,6 @@ import MdTooltip from '../tooltip/MdTooltip';
 
 export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'filled' | 'border' | 'plain';
-  ariaLabel: string;
   children?: React.ReactNode;
   disabled?: boolean;
   showTooltip?: boolean;
@@ -13,7 +12,6 @@ export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButton
 const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   theme,
   children,
-  ariaLabel,
   showTooltip = false,
   disabled,
   type = 'button',
@@ -31,7 +29,7 @@ const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   const button = (
-    <button aria-label={ariaLabel} type={type} disabled={disabled} className={classNames} {...otherProps}>
+    <button type={type} disabled={disabled} className={classNames} {...otherProps}>
       {children && (
         <div aria-hidden="true" className="md-icon-button__icon">
           {children}
@@ -41,7 +39,7 @@ const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   return showTooltip && !disabled ? (
-    <MdTooltip tooltipContent={ariaLabel} aria-label={ariaLabel}>
+    <MdTooltip tooltipContent={otherProps['aria-label']} aria-label={otherProps['aria-label']}>
       {button}
     </MdTooltip>
   ) : (

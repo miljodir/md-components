@@ -51,7 +51,7 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
           {helpText && helpText !== '' && (
             <div className="md-textarea__help-button">
               <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
+                aria-label={`Hjelpetekst for ${label}`}
                 id={`md-textarea_help-button_${textAreaId}`}
                 aria-expanded={helpOpen}
                 aria-controls={`md-textarea_help-text_${textAreaId}`}

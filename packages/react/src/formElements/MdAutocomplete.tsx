@@ -133,7 +133,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             {helpText && helpText !== '' && (
               <div className="md-autocomplete__help-button">
                 <MdHelpButton
-                  ariaLabel={`Hjelpetekst for ${label}`}
+                  aria-label={`Hjelpetekst for ${label}`}
                   id={`md-autocomplete_help-button_${autocompleteId}`}
                   aria-expanded={helpOpen}
                   aria-controls={`md-autocomplete_help-text_${autocompleteId}`}

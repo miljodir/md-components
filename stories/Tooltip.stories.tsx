@@ -31,7 +31,7 @@ export default {
     },
   },
   argTypes: {
-    label: {
+    tooltipContent: {
       description: 'The content to display on hover',
       table: {
         type: {
@@ -40,7 +40,7 @@ export default {
       },
       control: { type: 'text' },
     },
-    ariaLabel: {
+    'aria-label': {
       description: 'The aria label for the tooltip',
       table: {
         type: {
@@ -80,7 +80,7 @@ const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
 
 export const Tooltip = Template.bind({});
 Tooltip.args = {
-  label: 'This is some info',
+  tooltipContent: 'This is some info',
   position: 'bottom',
-  ariaLabel: 'This is some info',
+  'aria-label': 'This is some info',
 };
