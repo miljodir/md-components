@@ -1,6 +1,5 @@
-export interface MdIconProps {
+export interface MdIconProps extends React.SVGAttributes<SVGElement> {
   className?: string;
-  [otherProps: string]: unknown;
 }
 
 export default MdIconProps;

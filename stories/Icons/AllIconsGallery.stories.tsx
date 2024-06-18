@@ -49,163 +49,163 @@ const Template = (args: Args) => {
   return (
     <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, 10rem)' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdBurgerMenuIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdBurgerMenuIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdBurgerMenuIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCalendarDayIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCalendarDayIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCalendarDayIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCalendarIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCalendarIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCalendarIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCancelIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCancelIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCancelIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCheckCircleIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCheckCircleIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCheckCircleIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCheckIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCheckIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCheckIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdChevronIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdChevronIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdChevronIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCloseIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCloseIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCloseIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdCommentIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdCommentIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdCommentIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdConfirmIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdConfirmIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdConfirmIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdDeleteIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdDeleteIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdDeleteIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdDocIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdDocIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdDocIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdDocSearchIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdDocSearchIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdDocSearchIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdDownloadIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdDownloadIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdDownloadIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdEditIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdEditIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdEditIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdEnvelopeIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdEnvelopeIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdEnvelopeIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdExpandIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdExpandIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdExpandIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdGraphIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdGraphIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdGraphIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdHelpIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdHelpIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdHelpIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdHomeIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdHomeIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdHomeIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdImageIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdImageIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdImageIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdInfoIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdInfoIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdInfoIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdMinusIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdMinusIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdMinusIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdPanIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdPanIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdPanIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdPersonIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdPersonIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdPersonIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdPinIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdPinIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdPinIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdPlusIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdPlusIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdPlusIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdPrintIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdPrintIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdPrintIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdRedirectIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdRedirectIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdRedirectIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdSettingsIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdSettingsIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdSettingsIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdSignIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdSignIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdSignIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdSortingIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdSortingIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdSortingIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdSubmenuIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdSubmenuIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdSubmenuIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdTableIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdTableIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdTableIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdTimeIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdTimeIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdTimeIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdUploadIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdUploadIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdUploadIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdUserIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdUserIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdUserIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdWarningIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdWarningIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdWarningIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdXIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdXIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdXIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
-        <MdZoomIcon style={{ width: '32px', height: '32px', color: args.color }} className={args.className} />
+        <MdZoomIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdZoomIcon</span>
       </div>
     </div>
@@ -215,5 +215,7 @@ const Template = (args: Args) => {
 export const Gallery = Template.bind({});
 Gallery.args = {
   color: '#005e5d',
+  width: 32,
+  height: 32,
   className: '',
 };

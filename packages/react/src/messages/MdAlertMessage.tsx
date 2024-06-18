@@ -6,7 +6,7 @@ import MdInfoIcon from '../icons/MdInfoIcon';
 import MdWarningIcon from '../icons/MdWarningIcon';
 import MdXIcon from '../icons/MdXIcon';
 
-export interface MdAlertMessageProps {
+export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: 'info' | 'confirm' | 'warning' | 'error';
   label?: string | React.ReactNode;
   hideIcon?: boolean;
@@ -16,7 +16,6 @@ export interface MdAlertMessageProps {
   customIcon?: React.ReactNode | string;
   className?: string;
   alignContent?: 'start' | 'center' | 'end';
-  role?: React.AriaRole;
 }
 
 const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
@@ -29,7 +28,7 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   customIcon,
   className,
   alignContent,
-  role,
+  ...otherProps
 }: MdAlertMessageProps) => {
   const classNames = classnames(
     'md-alert-message',
@@ -68,7 +67,7 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   };
 
   return (
-    <div className={classNames} role={role}>
+    <div className={classNames} {...otherProps}>
       <div className={contentClassNames}>
         {!hideIcon && renderIcon()}
         {label}

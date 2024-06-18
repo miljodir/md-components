@@ -16,7 +16,11 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   suffix?: string | React.ReactNode;
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
-  componentSize?: 'normal' | 'small';
+  /**
+   * Replaces previous 'size'-prop for selecting overall size of whole component as normal or small.
+   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
+   */
+  mode?: 'normal' | 'small';
 }
 
 const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
@@ -34,7 +38,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       hideNumberArrows = false,
       disabled = false,
       readOnly = false,
-      componentSize = 'normal',
+      mode = 'normal',
       ...otherProps
     },
     ref,
@@ -43,7 +47,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     const inputId = id && id !== '' ? id : uuidv4();
 
     const classNames = classnames('md-input', {
-      'md-input--small': componentSize === 'small',
+      'md-input--small': mode === 'small',
       'md-input--disabled': !!disabled,
       'md-input--readonly': !!readOnly,
       'md-input--error': !!error,
@@ -53,13 +57,13 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     });
 
     const wrapperClassNames = classnames('md-input__wrapper', {
-      'md-input__wrapper--small': componentSize === 'small',
+      'md-input__wrapper--small': mode === 'small',
     });
 
     const outerWrapperClasses = classnames(
       'md-input__outer-wrapper',
       {
-        'md-input__outer-wrapper--small': componentSize === 'small',
+        'md-input__outer-wrapper--small': mode === 'small',
       },
       outerWrapperClass,
     );

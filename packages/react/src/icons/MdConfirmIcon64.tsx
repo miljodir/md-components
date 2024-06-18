@@ -1,14 +1,7 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-interface MdConfirmIconProps {
-  className?: string;
-  [otherProps: string]: unknown;
-}
-
-const MdConfirmIcon64: React.FunctionComponent<MdConfirmIconProps> = ({
-  className,
-  ...otherProps
-}: MdConfirmIconProps) => {
+const MdConfirmIcon64: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 64 64"

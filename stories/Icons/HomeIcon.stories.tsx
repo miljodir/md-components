@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Home/house icon. Color is inherited from parent.<br/><br/>`import { MdHomeIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHomeIcon64 } from '@miljodirektoratet/md-react'`",
+          "Home/house icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdHomeIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHomeIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

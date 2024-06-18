@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A chip component. Requires an onClick handler. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`",
+          "A chip component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -102,7 +102,7 @@ export default {
       control: { type: 'boolean' },
     },
     onClick: {
-      type: { name: 'function', required: true },
+      type: { name: 'function' },
       description: 'Callback for click handling.',
       table: {
         defaultValue: { summary: 'function' },

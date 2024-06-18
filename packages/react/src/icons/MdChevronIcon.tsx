@@ -1,14 +1,7 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-interface MdChevronIconProps {
-  className?: string;
-  [otherProps: string]: unknown;
-}
-
-const MdChevronIcon: React.FunctionComponent<MdChevronIconProps> = ({
-  className,
-  ...otherProps
-}: MdChevronIconProps) => {
+const MdChevronIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       version="1.1"

@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A checkbox component.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
+          "A checkbox component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
       },
     },
   },

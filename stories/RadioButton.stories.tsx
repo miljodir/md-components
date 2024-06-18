@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A radio button component.<br/><br/>`import { MdRadioButton } from '@miljodirektoratet/md-react'`",
+          "A radio button component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdRadioButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -61,12 +61,12 @@ export default {
       control: { type: 'boolean' },
     },
     id: {
-      type: { name: 'number | string' },
+      type: { name: 'string' },
       description: 'The unique id for radiogroup.',
       table: {
         defaultValue: { summary: 'uuidv4' },
         type: {
-          summary: 'number | string',
+          summary: 'string',
         },
       },
       control: { type: 'text' },
@@ -89,13 +89,13 @@ const Template = (args: MdRadioButtonProps) => {
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    updateArgs({ ...args, selectedOption: target.value });
+    updateArgs({ ...args, value: target.value });
   };
 
   return (
     <MdRadioButton
       {...args}
-      selectedOption={args.selectedOption}
+      value={args.value}
       onChange={(e: React.ChangeEvent) => {
         handleChange(e);
       }}

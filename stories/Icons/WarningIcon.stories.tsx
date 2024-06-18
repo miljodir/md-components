@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Warning icon. Color is inherited from parent.<br/><br/>`import { MdWarningIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdWarningIcon64 } from '@miljodirektoratet/md-react'`",
+          "Warning icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdWarningIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdWarningIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

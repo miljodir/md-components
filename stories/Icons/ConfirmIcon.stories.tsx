@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Confirm icon. Color is inherited from parent.<br/><br/>`import { MdConfirmIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdConfirmIcon64 } from '@miljodirektoratet/md-react'`",
+          "Confirm icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdConfirmIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdConfirmIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

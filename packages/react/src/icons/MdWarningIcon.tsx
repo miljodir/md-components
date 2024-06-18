@@ -1,14 +1,7 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-export interface MdWarningIconProps {
-  className?: string;
-  [otherProps: string]: unknown;
-}
-
-const MdWarningIcon: React.FunctionComponent<MdWarningIconProps> = ({
-  className = '',
-  ...otherProps
-}: MdWarningIconProps) => {
+const MdWarningIcon: React.FunctionComponent<MdIconProps> = ({ className = '', ...otherProps }: MdIconProps) => {
   return (
     <svg viewBox="0 0 32 32" className={className} {...otherProps}>
       <path

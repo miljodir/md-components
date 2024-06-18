@@ -13,17 +13,20 @@ export interface MdAutocompleteOptionProps {
   value: string;
 }
 
-export interface MdAutocompleteProps {
+export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
   options: MdAutocompleteOptionProps[];
   defaultOptions?: MdAutocompleteOptionProps[];
-  id?: string;
-  onChange(_e: MdAutocompleteOptionProps): void;
-  name?: string;
-  value?: string | number;
-  placeholder?: string;
-  disabled?: boolean;
-  size?: string;
+  /**
+   * Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * onChange-prop is now reserved as a standard prop om the inner html input element.
+   */
+  onSelectOption(_e: MdAutocompleteOptionProps): void;
+  /**
+   * Replaces previous 'size'-prop for reducing overall size of whole component from full width to either medium or small.
+   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
+   */
+  mode: 'full' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
@@ -42,12 +45,12 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       id,
       placeholder = 'Søk',
       disabled = false,
-      size,
+      mode,
       helpText,
       error = false,
       errorText,
       prefixIcon = null,
-      onChange,
+      onSelectOption,
       dropdownHeight,
       amountOfElementsShown = null,
       ...otherProps
@@ -67,15 +70,15 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete--open': !!open,
       'md-autocomplete--error': !!error,
       'md-autocomplete--disabled': !!disabled,
-      'md-autocomplete--medium': size === 'medium',
-      'md-autocomplete--small': size === 'small',
+      'md-autocomplete--medium': mode === 'medium',
+      'md-autocomplete--small': mode === 'small',
     });
 
     const inputClassNames = classnames('md-autocomplete__input', {
       'md-autocomplete__input--open': !!open,
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
-      'md-autocomplete--small': size === 'small',
+      'md-autocomplete--small': mode === 'small',
     });
 
     const selectedOption =
@@ -95,7 +98,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     }
 
     const handleOptionClick = (option: MdAutocompleteOptionProps) => {
-      onChange(option);
+      onSelectOption(option);
       setOpen(false);
       setAutocompleteValue('');
     };
@@ -162,7 +165,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           onClickOutside={() => {
             return setOpen(false);
           }}
-          className={`md-autocomplete__container ${size === 'small' ? 'md-autocomplete--small' : ''}`}
+          className={`md-autocomplete__container ${mode === 'small' ? 'md-autocomplete--small' : ''}`}
         >
           {prefixIcon && (
             <div

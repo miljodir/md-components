@@ -9,7 +9,7 @@ import MdWarningIcon from '../icons/MdWarningIcon';
 type ThemeTypes = null | undefined | '' | 'primary' | 'secondary' | 'warning' | 'danger' | 'success';
 type IconTypes = null | undefined | '' | 'none' | 'info' | 'warning' | 'error' | 'check' | 'custom';
 
-export interface MdInfoTagProps {
+export interface MdInfoTagProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ThemeTypes;
   keepOpen?: boolean;
   label?: string;
@@ -19,7 +19,7 @@ export interface MdInfoTagProps {
   onClick?(_e: React.MouseEvent): void;
 }
 
-const MdInfoTag: React.FC<MdInfoTagProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+const MdInfoTag: React.FC<MdInfoTagProps> = ({
   theme = 'primary',
   keepOpen = false,
   icon = 'none',
@@ -27,15 +27,20 @@ const MdInfoTag: React.FC<MdInfoTagProps & React.ButtonHTMLAttributes<HTMLButton
   label,
   outline = false,
   onClick = undefined,
-}: MdInfoTagProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const classNames = classnames('md-info-tag', {
-    'md-info-tag--secondary': theme === 'secondary',
-    'md-info-tag--warning': theme === 'warning',
-    'md-info-tag--danger': theme === 'danger',
-    'md-info-tag--success': theme === 'success',
-    'md-info-tag--outline': outline,
-    'md-info-tag--button': onClick,
-  });
+  ...otherProps
+}: MdInfoTagProps) => {
+  const classNames = classnames(
+    'md-info-tag',
+    {
+      'md-info-tag--secondary': theme === 'secondary',
+      'md-info-tag--warning': theme === 'warning',
+      'md-info-tag--danger': theme === 'danger',
+      'md-info-tag--success': theme === 'success',
+      'md-info-tag--outline': outline,
+      'md-info-tag--button': onClick,
+    },
+    otherProps.className,
+  );
 
   const labelClassNames = classnames('md-info-tag__label', {
     'md-info-tag__label--show': keepOpen,
@@ -59,7 +64,7 @@ const MdInfoTag: React.FC<MdInfoTagProps & React.ButtonHTMLAttributes<HTMLButton
     }
   };
   return onClick ? (
-    <button type="button" onClick={onClick} className={classNames}>
+    <button onClick={onClick} {...otherProps} className={classNames}>
       <div className={labelClassNames}>{label}</div>
 
       <div className="md-info-tag__icon">{renderIcon()}</div>

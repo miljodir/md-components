@@ -24,7 +24,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for alerts. Closable/removable by default.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
+          "A component for alerts. Closable/removable by default. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdAlertMessage } from '@miljodirektoratet/md-react'`",
       },
     },
   },

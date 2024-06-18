@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A chip component used for filters. Requires an onClick handler.<br/><br/>`import { MdFilterChip } from '@miljodirektoratet/md-react'`",
+          "A chip component used for filters. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdFilterChip } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -83,7 +83,7 @@ export default {
       control: { type: 'boolean' },
     },
     onClick: {
-      type: { name: 'function', required: true },
+      type: { name: 'function' },
       description: 'Callback for click handling.',
       table: {
         type: {

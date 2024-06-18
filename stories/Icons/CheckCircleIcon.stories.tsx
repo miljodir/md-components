@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Circle with checkmark icon. Color is inherited from parent.<br/><br/>`import { MdCheckCircleIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@miljodirektoratet/md-react'`",
+          "Circle with checkmark icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdCheckCircleIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdCheckCircleIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

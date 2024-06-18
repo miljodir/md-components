@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Pan icon. Color is inherited from parent.<br/><br/>`import { MdPanIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPanIcon64 } from '@miljodirektoratet/md-react'`",
+          "Pan icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdPanIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdPanIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for info tag. Display icon, and hover over to display/expand info-text.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
+          "A component for info tag. Display icon, and hover over to display/expand info-text. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },
     },
   },

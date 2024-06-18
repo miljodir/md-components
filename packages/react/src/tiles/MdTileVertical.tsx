@@ -21,12 +21,19 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   icon = null,
   preventDefault = false,
   onClick,
-}: MdTileVerticalProps) => {
-  const classNames = classnames('md-tile-vertical', {
-    'md-tile-vertical--disabled': !!disabled,
-    'md-tile-vertical--small': size === 'small',
-    'md-tile-vertical--large': size === 'large',
-  });
+  ...otherProps
+}: MdTileVerticalProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const classNames = classnames(
+    'md-tile-vertical',
+    {
+      'md-tile-vertical--disabled': !!disabled,
+      'md-tile-vertical--small': size === 'small',
+      'md-tile-vertical--large': size === 'large',
+    },
+    otherProps.className,
+  );
 
   const handleClick = (e: React.MouseEvent) => {
     if (preventDefault || disabled) {
@@ -50,11 +57,18 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   );
 
   return href ? (
-    <a className={classNames} href={href || '#'} tabIndex={disabled ? -1 : 0}>
+    <a {...otherProps} className={classNames} href={href || '#'} tabIndex={disabled ? -1 : 0}>
       {content}
     </a>
   ) : (
-    <button disabled={disabled} type="button" className={classNames} onClick={handleClick} tabIndex={disabled ? -1 : 0}>
+    <button
+      type="button"
+      {...otherProps}
+      disabled={disabled}
+      className={classNames}
+      onClick={handleClick}
+      tabIndex={disabled ? -1 : 0}
+    >
       {content}
     </button>
   );

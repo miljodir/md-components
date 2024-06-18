@@ -1,13 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
-import type { ChangeEvent } from 'react';
-
 export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  checked: boolean;
-  id: string;
-  onChange(_e: ChangeEvent<HTMLInputElement>): void;
   label?: string;
-  disabled?: boolean;
   error?: boolean;
   errorText?: string | undefined;
   wrapperClass?: string;
@@ -21,7 +15,7 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   error = false,
   errorText = undefined,
   wrapperClass = '',
-  onChange,
+  ...otherProps
 }: MdToggleProps) => {
   const classNames = classnames('md-toggle__label', {
     'md-toggle__label--error': !!error,
@@ -35,10 +29,6 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
 
   const outerWrapperClassNames = classnames('md-toggle__wrapper', wrapperClass);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e);
-  };
-
   return (
     <div>
       <div className={outerWrapperClassNames}>
@@ -48,10 +38,8 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
           id={id}
           type="checkbox"
           checked={checked}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            return handleChange(e);
-          }}
           disabled={disabled}
+          {...otherProps}
         />
         <label className={labelWrapperClassNames} htmlFor={id}>
           <div className="md-toggle__label-text">{label}</div>

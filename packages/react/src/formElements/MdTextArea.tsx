@@ -5,22 +5,12 @@ import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 
-export interface MdTextAreaProps {
-  value?: string | undefined;
-  rows?: number;
+export interface MdTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
-  id?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
   error?: boolean;
   errorText?: string;
   helpText?: string;
   outerWrapperClass?: string;
-  onChange?(_e: React.ChangeEvent<HTMLTextAreaElement>): void;
-  onClick?(_e: React.MouseEvent<HTMLTextAreaElement>): void;
-  onBlur?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
-  onFocus?(_e: React.FocusEvent<HTMLTextAreaElement>): void;
 }
 
 const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
@@ -30,13 +20,13 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
       id,
       rows = 10,
       value = '',
-      placeholder,
       disabled = false,
       readOnly = false,
       error = false,
       errorText,
       helpText,
       outerWrapperClass = '',
+      className,
       ...otherProps
     },
     ref,
@@ -44,11 +34,15 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
     const [helpOpen, setHelpOpen] = useState(false);
     const textAreaId = id && id !== '' ? id : uuidv4();
 
-    const classNames = classnames('md-textarea', {
-      'md-textarea--disabled': !!disabled,
-      'md-textarea--readonly': !!readOnly,
-      'md-textarea--error': !!error,
-    });
+    const classNames = classnames(
+      'md-textarea',
+      {
+        'md-textarea--disabled': !!disabled,
+        'md-textarea--readonly': !!readOnly,
+        'md-textarea--error': !!error,
+      },
+      className,
+    );
 
     return (
       <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
@@ -87,7 +81,6 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
             value={value}
             rows={rows}
             className={classNames}
-            placeholder={placeholder}
             disabled={!!disabled}
             readOnly={!!readOnly}
             ref={ref}

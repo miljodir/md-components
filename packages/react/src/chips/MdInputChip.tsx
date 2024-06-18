@@ -4,14 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MdXIcon from '../icons/MdXIcon';
 
-export interface MdInputChipProps {
+export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string | null;
-  id?: string | number;
   active?: boolean;
-  disabled?: boolean;
   prefixIcon?: React.ReactNode;
-  onClick?(_e: React.MouseEvent<HTMLButtonElement>): void;
-  className?: string;
   hideCloseIcon?: boolean;
   solid?: boolean;
 }
@@ -35,13 +31,7 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   });
 
   return (
-    <button
-      type="button"
-      className={buttonClassNames}
-      id={String(chipId) || undefined}
-      disabled={disabled}
-      {...otherProps}
-    >
+    <button type="button" className={buttonClassNames} id={chipId || undefined} disabled={disabled} {...otherProps}>
       {prefixIcon && (
         <div aria-hidden="true" className="md-chip__left-icon">
           {prefixIcon}

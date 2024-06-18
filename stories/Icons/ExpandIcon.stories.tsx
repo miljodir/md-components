@@ -11,7 +11,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Expand icon. Color is inherited from parent.<br/><br/>`import { MdExpandIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdExpandIcon64 } from '@miljodirektoratet/md-react'`",
+          "Expand icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdExpandIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdExpandIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
