@@ -7,7 +7,7 @@ import MdMinusIcon from '../icons/MdMinusIcon';
 export interface MdAccordionItemProps {
   label?: string;
   headerContent?: React.ReactNode | string;
-  id?: string | null | undefined;
+  id?: string;
   expanded?: boolean;
   theme?: string;
   disabled?: boolean;
@@ -22,7 +22,7 @@ export interface MdAccordionItemProps {
 const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   label = '',
   headerContent,
-  id = null,
+  id,
   expanded = false,
   theme,
   disabled = false,

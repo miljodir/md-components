@@ -28,7 +28,7 @@ export interface MdMultiSelectProps {
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
-  id?: string | null | undefined;
+  id?: string;
   onChange?(_e: React.ChangeEvent): void;
   dropdownHeight?: number;
 }

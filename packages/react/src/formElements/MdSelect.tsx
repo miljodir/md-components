@@ -17,7 +17,7 @@ export interface MdSelectOptionProps {
 export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOptionProps[];
-  id?: string | null | undefined;
+  id?: string;
   name?: string;
   value?: string | number;
   placeholder?: string;
@@ -36,7 +36,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       label,
       value,
       options,
-      id = null,
+      id,
       placeholder = 'Vennligst velg',
       disabled = false,
       size,
