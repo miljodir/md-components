@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,13 +7,13 @@ import MdHelpText from '../help/MdHelpText';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  id: any;
-  text: any;
+  id: string;
+  text: string;
 }
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  selectedOption?: any;
+  selectedOption?: string;
   label?: string;
   id?: string;
   disabled?: boolean;
@@ -57,9 +56,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
     'md-radiogroup__options--vertical': direction === 'vertical',
   });
 
-  const optionIsSelected = (option: any) => {
+  const optionIsSelected = (option: string) => {
     if (selectedOption) {
-      return option.toString() === selectedOption.toString();
+      return option === selectedOption;
     }
 
     return false;
