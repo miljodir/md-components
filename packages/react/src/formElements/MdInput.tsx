@@ -17,7 +17,7 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   /**
-   * Replaces previous 'size'-prop for selecting overall size of whole component as normal or small.
+   * Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'normal' | 'small';

@@ -23,10 +23,10 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
    */
   onSelectOption(_e: MdAutocompleteOptionProps): void;
   /**
-   * Replaces previous 'size'-prop for reducing overall size of whole component from full width to either medium or small.
+   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
-  mode: 'full' | 'medium' | 'small';
+  mode: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
@@ -45,7 +45,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       id,
       placeholder = 'Søk',
       disabled = false,
-      mode,
+      mode = 'large',
       helpText,
       error = false,
       errorText,

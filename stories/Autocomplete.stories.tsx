@@ -92,8 +92,8 @@ export default {
       control: { type: 'boolean' },
     },
     mode: {
-      description: 'Set size-mode of autocomplete box',
-      options: ['full', 'medium', 'small'],
+      description: 'Set width of autocomplete box',
+      options: ['large', 'medium', 'small'],
       table: {
         defaultValue: { summary: 'large' },
         type: {
@@ -206,7 +206,7 @@ Autocomplete.args = {
   value: 'optionA',
   id: '',
   disabled: false,
-  size: 'large',
+  mode: 'large',
   helpText: '',
   error: false,
   errorText: '',

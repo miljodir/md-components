@@ -22,7 +22,10 @@ export interface MdSelectProps {
   value?: string | number;
   placeholder?: string;
   disabled?: boolean;
-  size?: string;
+  /**
+   * Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
+   */
+  mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
@@ -39,7 +42,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       id,
       placeholder = 'Vennligst velg',
       disabled = false,
-      size,
+      mode = 'large',
       helpText,
       error = false,
       errorText,
@@ -60,8 +63,8 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       'md-select--open': !!open,
       'md-select--error': !!error,
       'md-select--disabled': !!disabled,
-      'md-select--medium': size === 'medium',
-      'md-select--small': size === 'small',
+      'md-select--medium': mode === 'medium',
+      'md-select--small': mode === 'small',
     });
 
     const selectedOption =
@@ -119,7 +122,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const buttonClassNames = classnames('md-select__button', {
       'md-select__button--open': !!open,
       'md-select__button--error': !!error,
-      'md-select__button--small': size === 'small',
+      'md-select__button--small': mode === 'small',
     });
 
     const optionClass = (option: MdSelectOptionProps) => {

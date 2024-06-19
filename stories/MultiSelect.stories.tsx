@@ -87,8 +87,8 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    size: {
-      description: 'Set size og select box',
+    mode: {
+      description: 'Set width of select box',
       options: ['large', 'medium', 'small'],
       table: {
         defaultValue: { summary: 'large' },
@@ -220,7 +220,7 @@ Multiselect.args = {
   disabled: false,
   showChips: false,
   closeOnSelect: true,
-  size: 'large',
+  mode: 'large',
   helpText: '',
   error: false,
   errorText: '',
