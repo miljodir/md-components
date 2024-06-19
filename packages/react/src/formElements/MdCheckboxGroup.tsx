@@ -7,8 +7,8 @@ import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
 export interface MdCheckboxGroupOptionProps {
-  value: string | number;
-  text?: string | number;
+  value: string;
+  text?: string;
 }
 
 export interface MdCheckboxGroupProps {

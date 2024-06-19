@@ -36,7 +36,7 @@ export default {
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: '[{ name: string, id?: string | number, url?: string, size?: number, type?: string }, ...]',
+          summary: '[{ name: string, id?: string, url?: string, size?: number, type?: string }, ...]',
         },
       },
     },

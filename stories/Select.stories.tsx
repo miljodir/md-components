@@ -48,12 +48,12 @@ export default {
       table: {
         type: {
           // eslint-disable-next-line quotes
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
     value: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },

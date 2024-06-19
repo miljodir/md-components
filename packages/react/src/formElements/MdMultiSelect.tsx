@@ -18,7 +18,7 @@ export interface MdMultiSelectOptionProps {
 export interface MdMultiSelectProps {
   label?: string | null;
   options?: MdMultiSelectOptionProps[];
-  selected?: MdMultiSelectOptionProps[];
+  selectedOptions?: MdMultiSelectOptionProps[];
   placeholder?: string;
   disabled?: boolean;
   /**
@@ -40,7 +40,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
     {
       label,
       options = [],
-      selected = [],
+      selectedOptions = [],
       placeholder = 'Vennligst velg',
       disabled = false,
       mode = 'large',
@@ -89,28 +89,28 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
 
     const optionIsChecked = (option: MdMultiSelectOptionProps) => {
       const isChecked =
-        selected &&
-        selected.length &&
-        selected.find(item => {
+        selectedOptions &&
+        selectedOptions.length &&
+        selectedOptions.find(item => {
           return item.value === option.value;
         });
       return isChecked && isChecked !== undefined;
     };
 
-    let displayValue: string | number = placeholder;
+    let displayValue = placeholder;
     const selectedOptionsFull: MdMultiSelectOptionProps[] = [];
-    if (!open && selected && selected.length > 0) {
+    if (!open && selectedOptions && selectedOptions.length > 0) {
       const findFirstOption = options.find(option => {
-        return option.value === selected[0].value;
+        return option.value === selectedOptions[0].value;
       });
       if (findFirstOption) {
         displayValue = findFirstOption.text;
       }
-      if (selected.length > 1) {
+      if (selectedOptions.length > 1) {
         hasMultipleSelected = true;
       }
 
-      selected.forEach(item => {
+      selectedOptions.forEach(item => {
         const opt = options.find(option => {
           return option.value === item.value;
         });
@@ -202,7 +202,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
           >
             <div className="md-multiselect__button-text">{displayValue}</div>
             {hasMultipleSelected && !open && (
-              <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
+              <div className="md-multiselect__button-hasmultiple">+{selectedOptions.length - 1}</div>
             )}
             <div aria-hidden="true" className="md-multiselect__button-icon">
               <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />

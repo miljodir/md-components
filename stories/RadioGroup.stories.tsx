@@ -46,16 +46,16 @@ export default {
       description: 'Array with data for radio buttons',
       table: {
         type: {
-          summary: '[{ id: any, text: any }, { id: any, text: any }, ...]',
+          summary: '[{ id: string, text: string }, { id: string, text: string }, ...]',
         },
       },
     },
-    selectedOption: {
-      type: { name: 'number | string | boolean' },
-      description: 'The selected options id',
+    value: {
+      type: { name: 'string' },
+      description: 'The selected option',
       table: {
         type: {
-          summary: 'number | string',
+          summary: 'string',
         },
       },
       control: { type: 'text' },
@@ -70,12 +70,12 @@ export default {
       control: { type: 'boolean' },
     },
     id: {
-      type: { name: 'number | string' },
+      type: { name: 'number' },
       description: 'The unique id for radiogroup.',
       table: {
         defaultValue: { summary: 'uuidv4' },
         type: {
-          summary: 'number | string',
+          summary: 'number',
         },
       },
       control: { type: 'text' },
@@ -129,13 +129,13 @@ const Template = (args: MdRadioGroupProps) => {
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    updateArgs({ ...args, selectedOption: target.value });
+    updateArgs({ ...args, value: target.value });
   };
 
   return (
     <MdRadioGroup
       {...args}
-      selectedOption={args.selectedOption}
+      value={args.value}
       onChange={(e: React.ChangeEvent) => {
         handleChange(e);
       }}
@@ -147,20 +147,20 @@ export const RadioGroup = Template.bind({});
 RadioGroup.args = {
   options: [
     {
-      id: 1,
+      id: '1',
       text: 'Option 1',
     },
     {
-      id: 2,
+      id: '2',
       text: 'Option 2',
     },
     {
-      id: 3,
+      id: '3',
       text: 'Option 3',
     },
   ],
   label: 'Select an option',
-  selectedOption: '2',
+  value: '2',
   id: 'radio_group',
   disabled: false,
   direction: 'horizontal',

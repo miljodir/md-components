@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import type { ChangeEvent } from 'react';
@@ -13,7 +12,7 @@ export interface MdRadioGroupOption {
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  selectedOption?: string;
+  value?: string;
   label?: string;
   id?: string;
   disabled?: boolean;
@@ -28,7 +27,7 @@ export interface MdRadioGroupProps {
 
 const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   options,
-  selectedOption,
+  value,
   id,
   disabled,
   direction,
@@ -56,9 +55,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
     'md-radiogroup__options--vertical': direction === 'vertical',
   });
 
-  const optionIsSelected = (option: string) => {
-    if (selectedOption) {
-      return option === selectedOption;
+  const optionIsSelected = (option: MdRadioGroupOption) => {
+    if (value) {
+      return option.id === value;
     }
 
     return false;
@@ -126,13 +125,13 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
                 className="md-radiogroup-option"
               >
                 <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.id}`}>
-                  {optionIsSelected(option.id) && <span className="md-radiogroup-option__selected-dot" />}
+                  {optionIsSelected(option) && <span className="md-radiogroup-option__selected-dot" />}
                 </span>
                 <input
                   id={`radio_${radioGroupId}_${option.id}`}
                   type="radio"
                   value={option.id}
-                  checked={optionIsSelected(option.id)}
+                  checked={optionIsSelected(option)}
                   onChange={handleChange}
                   disabled={disabled}
                   onFocus={handleFocus}

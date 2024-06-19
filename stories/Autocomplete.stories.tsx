@@ -47,7 +47,7 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
@@ -56,12 +56,12 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
     value: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },

@@ -19,7 +19,7 @@ export interface MdSelectProps {
   options?: MdSelectOptionProps[];
   id?: string;
   name?: string;
-  value?: string | number;
+  value?: string;
   placeholder?: string;
   disabled?: boolean;
   /**

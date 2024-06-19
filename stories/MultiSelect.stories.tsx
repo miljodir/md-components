@@ -49,19 +49,17 @@ export default {
       table: {
         defaultValue: { summary: '[]' },
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
-    selected: {
+    selectedOptions: {
       type: { name: 'array' },
       description: 'The currently selected values. An array with `options`',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -187,14 +185,14 @@ const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let newSelected = args.selected && args.selected.length ? args.selected : [];
+    let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
-      args.selected &&
-      args.selected.find((item: MdMultiSelectOptionProps) => {
+      args.selectedOptions &&
+      args.selectedOptions.find((item: MdMultiSelectOptionProps) => {
         return item.value === e?.target?.value;
       });
     if (found) {
-      newSelected = args.selected.filter((item: MdMultiSelectOptionProps) => {
+      newSelected = args.selectedOptions.filter((item: MdMultiSelectOptionProps) => {
         return item.value !== e?.target?.value;
       });
     } else {
@@ -202,7 +200,7 @@ const Template = (args: Args) => {
         newSelected.push({ value: e.target.value, text: e.target?.dataset?.text });
       }
     }
-    updateArgs({ ...args, selected: newSelected });
+    updateArgs({ ...args, selectedOptions: newSelected });
   };
 
   return (
@@ -216,7 +214,7 @@ export const Multiselect = Template.bind({});
 Multiselect.args = {
   label: 'Label',
   options: options,
-  selected: [options[0]],
+  selectedOptions: [options[0]],
   disabled: false,
   showChips: false,
   closeOnSelect: true,

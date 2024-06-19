@@ -29,6 +29,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   mode: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
+  value: string;
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
