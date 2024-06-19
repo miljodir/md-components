@@ -4,7 +4,10 @@ import React from 'react';
 export interface MdTileVerticalProps {
   heading?: string;
   description?: string;
-  size?: string;
+  /**
+   * Replaces previous 'size'-prop for controlling width of component from medium to either large or small.
+   */
+  mode?: 'large' | 'medium' | 'small';
   disabled?: boolean;
   href?: string;
   icon?: React.ReactNode;
@@ -15,7 +18,7 @@ export interface MdTileVerticalProps {
 const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
   description,
-  size,
+  mode = 'medium',
   disabled = false,
   href,
   icon = null,
@@ -29,8 +32,8 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
     'md-tile-vertical',
     {
       'md-tile-vertical--disabled': !!disabled,
-      'md-tile-vertical--small': size === 'small',
-      'md-tile-vertical--large': size === 'large',
+      'md-tile-vertical--small': mode === 'small',
+      'md-tile-vertical--large': mode === 'large',
     },
     otherProps.className,
   );

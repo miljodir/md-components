@@ -41,9 +41,9 @@ export default {
       },
       control: { type: 'text' },
     },
-    size: {
+    mode: {
       type: { name: 'string' },
-      description: 'Selected size for tile',
+      description: 'Selected width for tile',
       options: ['small', 'medium', 'large'],
       control: { type: 'inline-radio' },
       table: {
@@ -102,7 +102,7 @@ const Template = (args: Args) => {
       heading="Målinger"
       description="Oversikt over dine målestasjoner"
       href={args.href}
-      size={args.size}
+      mode={args.mode}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={128} height={128} />}
@@ -113,7 +113,7 @@ const Template = (args: Args) => {
 export const TileVertical = Template.bind({});
 TileVertical.args = {
   href: '#',
-  size: 'medium',
+  mode: 'medium',
   disabled: false,
   preventDefault: true,
   icon: true,

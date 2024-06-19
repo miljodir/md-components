@@ -79,7 +79,7 @@ export default {
       control: { type: 'text' },
     },
     mode: {
-      description: 'Set input field size-mode, possible values are "normal" and "small"',
+      description: 'Set input field width, possible values are "normal" and "small"',
       options: ['normal', 'small'],
       table: {
         defaultValue: { summary: 'normal' },
