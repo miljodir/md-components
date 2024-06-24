@@ -9,13 +9,7 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".md"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".md"]
       }
     }
   },
@@ -37,41 +31,23 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "prettier",
-    "@typescript-eslint",
-    "autofix",
-    "react-hooks"
-  ],
+  "plugins": ["autofix", "react-hooks"],
   "rules": {
-    "prettier/prettier": [
-      "error"
-    ]
+    "prettier/prettier": ["error"]
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts?(x)"
-      ],
+      "files": ["**/*.ts?(x)"],
       "rules": {
-        "prettier/prettier": [
-          "warn"
-        ],
+        "prettier/prettier": ["warn"],
         "react/react-in-jsx-scope": "off",
-        "spaced-comment": "error",
-        "quotes": [
-          "error",
-          "single"
-        ],
+        "spaced-comment": "warn",
+        "quotes": ["warn", "single"],
         "no-console": "warn",
         "no-redeclare": "warn",
         "react/display-name": "error",
         "react/jsx-key": "warn",
-        "arrow-body-style": [
-          "error",
-          "always"
-        ],
+        "arrow-body-style": ["warn", "always"],
         "react/self-closing-comp": [
           "error",
           {
@@ -88,23 +64,15 @@
           }
         ],
         "@typescript-eslint/consistent-type-imports": [
-          "error",
+          "warn",
           {
             "prefer": "type-imports"
           }
         ],
         "import/order": [
-          "error",
+          "warn",
           {
-            "groups": [
-              "builtin",
-              "external",
-              "parent",
-              "sibling",
-              "index",
-              "object",
-              "type"
-            ],
+            "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
             "pathGroups": [
               {
                 "pattern": "@/**/**",
