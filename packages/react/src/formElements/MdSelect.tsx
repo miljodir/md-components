@@ -9,14 +9,14 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-export interface MdSelectOptionProps {
+export interface MdSelectOption {
   text: string;
   value: string;
 }
 
 export interface MdSelectProps {
   label?: string | null;
-  options?: MdSelectOptionProps[];
+  options?: MdSelectOption[];
   id?: string;
   name?: string;
   value?: string;
@@ -29,7 +29,7 @@ export interface MdSelectProps {
   helpText?: string;
   error?: boolean;
   errorText?: string;
-  onChange(_e: MdSelectOptionProps): void;
+  onChange(_e: MdSelectOption): void;
   dropdownHeight?: number;
 }
 
@@ -110,12 +110,12 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       }
     };
 
-    const handleOptionClick = (option: MdSelectOptionProps) => {
+    const handleOptionClick = (option: MdSelectOption) => {
       onChange(option);
       setOpen(false);
     };
 
-    const isSelectedOption = (option: MdSelectOptionProps) => {
+    const isSelectedOption = (option: MdSelectOption) => {
       return value && value !== '' && value == option.value;
     };
 
@@ -125,7 +125,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       'md-select__button--small': mode === 'small',
     });
 
-    const optionClass = (option: MdSelectOptionProps) => {
+    const optionClass = (option: MdSelectOption) => {
       return classnames('md-select__dropdown-item', {
         'md-select__dropdown-item--selected': isSelectedOption(option),
       });

@@ -48,6 +48,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    'aria-label': {
+      description: 'Aria label',
+      table: {
+        type: {
+          summary: 'text',
+        },
+      },
+      control: { type: 'text' },
+    },
     onClick: {
       type: { name: 'function' },
       description: 'The onClick handler for change events',

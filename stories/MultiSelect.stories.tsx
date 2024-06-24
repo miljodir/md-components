@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiselect/README.md';
 import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
-import type { MdMultiSelectOptionProps } from '../packages/react/src/formElements/MdMultiSelect';
+import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdMultiSelect';
 import type { Args } from '@storybook/react';
 import type { ChangeEvent } from 'react';
 
@@ -188,11 +188,11 @@ const Template = (args: Args) => {
     let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
       args.selectedOptions &&
-      args.selectedOptions.find((item: MdMultiSelectOptionProps) => {
+      args.selectedOptions.find((item: MdMultiSelectOption) => {
         return item.value === e?.target?.value;
       });
     if (found) {
-      newSelected = args.selectedOptions.filter((item: MdMultiSelectOptionProps) => {
+      newSelected = args.selectedOptions.filter((item: MdMultiSelectOption) => {
         return item.value !== e?.target?.value;
       });
     } else {

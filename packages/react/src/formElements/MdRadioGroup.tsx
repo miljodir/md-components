@@ -6,7 +6,7 @@ import MdHelpText from '../help/MdHelpText';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  id: string;
+  value: string;
   text: string;
 }
 
@@ -57,7 +57,7 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
   const optionIsSelected = (option: MdRadioGroupOption) => {
     if (value) {
-      return option.id === value;
+      return option.value === value;
     }
 
     return false;
@@ -120,17 +120,17 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
           options.map(option => {
             return (
               <label
-                htmlFor={`radio_${radioGroupId}_${option.id}`}
-                key={`radio_${radioGroupId}_${option.id}`}
+                htmlFor={`radio_${radioGroupId}_${option.value}`}
+                key={`radio_${radioGroupId}_${option.value}`}
                 className="md-radiogroup-option"
               >
-                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.id}`}>
+                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.value}`}>
                   {optionIsSelected(option) && <span className="md-radiogroup-option__selected-dot" />}
                 </span>
                 <input
-                  id={`radio_${radioGroupId}_${option.id}`}
+                  id={`radio_${radioGroupId}_${option.value}`}
                   type="radio"
-                  value={option.id}
+                  value={option.value}
                   checked={optionIsSelected(option)}
                   onChange={handleChange}
                   disabled={disabled}

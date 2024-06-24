@@ -5,7 +5,7 @@ import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 import MdAutocomplete from '../packages/react/src/formElements/MdAutocomplete';
 import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
-import type { MdAutocompleteOptionProps, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
+import type { MdAutocompleteOption, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
 
 export default {
   title: 'Form/Autocomplete',
@@ -177,7 +177,7 @@ export default {
 const Template = (args: MdAutocompleteProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdAutocompleteOptionProps) => {
+  const handleChange = (option: MdAutocompleteOption) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };

@@ -10,15 +10,15 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-export interface MdMultiSelectOptionProps {
+export interface MdMultiSelectOption {
   text: string;
   value: string;
 }
 
 export interface MdMultiSelectProps {
   label?: string | null;
-  options?: MdMultiSelectOptionProps[];
-  selectedOptions?: MdMultiSelectOptionProps[];
+  options?: MdMultiSelectOption[];
+  selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
   disabled?: boolean;
   /**
@@ -81,13 +81,13 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       'md-multiselect__dropdown--open': !!open,
     });
 
-    const optionClass = (option: MdMultiSelectOptionProps) => {
+    const optionClass = (option: MdMultiSelectOption) => {
       return classnames('md-multiselect__dropdown-item', {
         'md-multiselect__dropdown-item--selected': optionIsChecked(option),
       });
     };
 
-    const optionIsChecked = (option: MdMultiSelectOptionProps) => {
+    const optionIsChecked = (option: MdMultiSelectOption) => {
       const isChecked =
         selectedOptions &&
         selectedOptions.length &&
@@ -98,7 +98,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
     };
 
     let displayValue = placeholder;
-    const selectedOptionsFull: MdMultiSelectOptionProps[] = [];
+    const selectedOptionsFull: MdMultiSelectOption[] = [];
     if (!open && selectedOptions && selectedOptions.length > 0) {
       const findFirstOption = options.find(option => {
         return option.value === selectedOptions[0].value;
@@ -129,7 +129,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       }
     };
 
-    const handleChipClick = (option: MdMultiSelectOptionProps) => {
+    const handleChipClick = (option: MdMultiSelectOption) => {
       const dataset = {
         value: option.value,
         text: option.text,
