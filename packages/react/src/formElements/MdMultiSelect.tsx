@@ -31,7 +31,7 @@ export interface MdMultiSelectProps {
   showChips?: boolean;
   closeOnSelect?: boolean;
   id?: string;
-  onChange?(_e: React.ChangeEvent): void;
+  onSelectOption?(_option: MdMultiSelectOption): void;
   dropdownHeight?: number;
 }
 
@@ -50,7 +50,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       showChips = false,
       closeOnSelect = false,
       id,
-      onChange,
+      onSelectOption,
       dropdownHeight,
       ...otherProps
     },
@@ -120,28 +120,13 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       });
     }
 
-    const handleOptionClick = (e: React.ChangeEvent) => {
-      if (onChange) {
-        onChange(e);
+    const handleOptionClick = (option: MdMultiSelectOption) => {
+      if (onSelectOption) {
+        onSelectOption(option);
       }
       if (closeOnSelect) {
         setOpen(false);
       }
-    };
-
-    const handleChipClick = (option: MdMultiSelectOption) => {
-      const dataset = {
-        value: option.value,
-        text: option.text,
-      };
-      const event = {
-        target: {
-          value: option.value,
-          dataset: dataset,
-        },
-      } as unknown as React.ChangeEvent;
-
-      handleOptionClick(event);
     };
 
     return (
@@ -231,13 +216,13 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
                       disabled={!!disabled}
                       data-value={option.value}
                       data-text={option.text}
-                      onKeyDown={(e: React.ChangeEvent<HTMLInputElement> & React.KeyboardEvent<HTMLInputElement>) => {
+                      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                         if (e.key === 'Enter') {
-                          return handleOptionClick(e);
+                          return handleOptionClick(option);
                         }
                       }}
-                      onChange={(e: React.ChangeEvent) => {
-                        return handleOptionClick(e);
+                      onChange={() => {
+                        return handleOptionClick(option);
                       }}
                     />
                   </div>
@@ -259,7 +244,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
                   id={`checkbox_chip_${multiSelectId}_${chip.value}`}
                   disabled={disabled}
                   onClick={() => {
-                    return handleChipClick(chip);
+                    return handleOptionClick(chip);
                   }}
                 />
               );
