@@ -6,30 +6,29 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
 import MdChevronIcon from '../icons/MdChevronIcon';
-
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-export interface MdMultiAutocompleteOptionProps {
+export interface MdMultiAutocompleteOption {
   text: string;
   value: string;
 }
 
 export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  options: MdMultiAutocompleteOptionProps[];
-  defaultOptions?: MdMultiAutocompleteOptionProps[];
-  onSelectOption(_e: MdMultiAutocompleteOptionProps): void;
+  options: MdMultiAutocompleteOption[];
+  defaultOptions?: MdMultiAutocompleteOption[];
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
-  selected?: MdMultiAutocompleteOptionProps[];
+  selectedOptions?: MdMultiAutocompleteOption[];
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
   amountOfElementsShown?: number;
+  onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 
 const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
@@ -44,7 +43,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       disabled = false,
       mode = 'large',
       helpText,
-      selected = [],
+      selectedOptions = [],
       error = false,
       errorText,
       prefixIcon = null,
@@ -59,7 +58,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
-    const [results, setResults] = useState<MdMultiAutocompleteOptionProps[]>([]);
+    const [results, setResults] = useState<MdMultiAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
 
@@ -82,32 +81,32 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       'md-multiautocomplete--small': mode === 'small',
     });
 
-    const optionClass = (option: MdMultiAutocompleteOptionProps) => {
+    const optionClass = (option: MdMultiAutocompleteOption) => {
       return classnames('md-multiautocomplete__dropdown-item', {
         'md-multiautocomplete__dropdown-item--selected': optionIsChecked(option),
       });
     };
 
-    const optionIsChecked = (option: MdMultiAutocompleteOptionProps) => {
+    const optionIsChecked = (option: MdMultiAutocompleteOption) => {
       const isChecked =
-        selected &&
-        selected.length &&
-        selected.find(item => {
+        selectedOptions &&
+        selectedOptions.length &&
+        selectedOptions.find(item => {
           return item.value === option.value;
         });
       return isChecked && isChecked !== undefined;
     };
 
     let displayValue = placeholder;
-    const selectedOptionsFull: MdMultiAutocompleteOptionProps[] = [];
-    if (!open && selected && selected.length > 0) {
+    const selectedOptionsFull: MdMultiAutocompleteOption[] = [];
+    if (!open && selectedOptions && selectedOptions.length > 0) {
       const findFirstOption = options.find(option => {
-        return option.value === selected[0].value;
+        return option.value === selectedOptions[0].value;
       });
       if (findFirstOption) {
         displayValue = findFirstOption.text;
       }
-      if (selected.length > 1) {
+      if (selectedOptions.length > 1) {
         hasMultipleSelected = true;
       }
 
@@ -115,7 +114,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
         displayValue = '';
       }
 
-      selected.forEach(item => {
+      selectedOptions.forEach(item => {
         const opt = options.find(option => {
           return option.value === item.value;
         });
@@ -125,7 +124,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       });
     }
 
-    const handleOptionClick = (option: MdMultiAutocompleteOptionProps) => {
+    const handleOptionClick = (option: MdMultiAutocompleteOption) => {
       onSelectOption(option);
       if (closeOnSelect) {
         setOpen(false);
@@ -133,7 +132,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       }
     };
 
-    const handleChipClick = (option: MdMultiAutocompleteOptionProps) => {
+    const handleChipClick = (option: MdMultiAutocompleteOption) => {
       handleOptionClick(option);
     };
 
@@ -239,7 +238,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             {...otherProps}
           />
           {hasMultipleSelected && !open && (
-            <div className="md-multiautocomplete__button-hasmultiple">+{selected.length - 1}</div>
+            <div className="md-multiautocomplete__button-hasmultiple">+{selectedOptions.length - 1}</div>
           )}
           <div aria-hidden="true" className="md-multiautocomplete__input-icon">
             <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
