@@ -1,11 +1,7 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-export interface MdUserIconProps {
-  className?: string;
-  [otherProps: string]: unknown;
-}
-
-const MdUserIcon64: React.FunctionComponent<MdUserIconProps> = ({ className = '', ...otherProps }: MdUserIconProps) => {
+const MdUserIcon64: React.FunctionComponent<MdIconProps> = ({ className = '', ...otherProps }: MdIconProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className={className} {...otherProps}>
       <g>

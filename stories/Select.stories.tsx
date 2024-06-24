@@ -64,7 +64,7 @@ export default {
       control: { type: 'text' },
     },
     id: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'Id for the select box. If not set, uses a random uuid',
       table: {
         defaultValue: { summary: 'uuid()' },
@@ -83,8 +83,8 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    size: {
-      description: 'Set size og select box',
+    mode: {
+      description: 'Set width of select box',
       options: ['large', 'medium', 'small'],
       table: {
         defaultValue: { summary: 'large' },
@@ -182,7 +182,7 @@ Select.args = {
   value: 'optionB',
   id: '',
   disabled: false,
-  size: 'large',
+  mode: 'large',
   helpText: '',
   error: false,
   errorText: '',

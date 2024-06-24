@@ -26,8 +26,9 @@ export default {
         );
       },
       description: {
-        // eslint-disable-next-line quotes
-        component: "Input field used in forms.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "Input field used in forms. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -77,8 +78,8 @@ export default {
       },
       control: { type: 'text' },
     },
-    size: {
-      description: 'Set input field size',
+    mode: {
+      description: 'Set input field width, possible values are "normal" and "small"',
       options: ['normal', 'small'],
       table: {
         defaultValue: { summary: 'normal' },
@@ -254,7 +255,7 @@ export default {
         type: { summary: 'number' },
       },
     },
-    inputRef: {
+    ref: {
       type: { name: 'Ref<HTMLInputElement>' },
       // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
@@ -293,7 +294,7 @@ Input.args = {
   value: '',
   label: 'Label',
   type: 'text',
-  size: 'normal',
+  mode: 'normal',
   disabled: false,
   readOnly: false,
   error: false,
@@ -312,7 +313,7 @@ InputWithPrefix.args = {
   value: '',
   label: 'Label',
   type: 'text',
-  size: 'normal',
+  mode: 'normal',
   disabled: false,
   readOnly: false,
   error: false,
@@ -332,7 +333,7 @@ InputWithSuffix.args = {
   value: '',
   label: 'Label',
   type: 'text',
-  size: 'normal',
+  mode: 'normal',
   disabled: false,
   readOnly: false,
   error: false,

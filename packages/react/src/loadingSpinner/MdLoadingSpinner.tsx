@@ -2,16 +2,16 @@ import classnames from 'classnames';
 import React from 'react';
 import MdLoadingSpinnerIcon from '../icons/MdLoadingSpinnerIcon';
 
-export interface MdLoadingSpinnerProps {
+export interface MdLoadingSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
   position?: string;
-  className?: string;
 }
 
 const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   size,
   position = '',
   className = '',
+  ...otherProps
 }: MdLoadingSpinnerProps) => {
   const classNames = classnames(
     'md-loading-spinner__container',
@@ -23,8 +23,8 @@ const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   );
 
   return (
-    <div aria-label="Laster" className={classNames}>
-      <MdLoadingSpinnerIcon className="md-loading-spinner" size={size} />
+    <div aria-label="Laster" className={classNames} {...otherProps}>
+      <MdLoadingSpinnerIcon className="md-loading-spinner" width={size} height={size} />
     </div>
   );
 };

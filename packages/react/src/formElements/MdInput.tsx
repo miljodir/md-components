@@ -6,15 +6,8 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
-export interface MdInputProps {
-  value?: string | number | undefined;
-  id?: string;
-  size?: 'normal' | 'small';
+export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  type?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
   error?: boolean;
   errorText?: string;
   hideErrorIcon?: boolean;
@@ -23,16 +16,11 @@ export interface MdInputProps {
   suffix?: string | React.ReactNode;
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
-  onChange?(_e: React.ChangeEvent<HTMLInputElement>): void;
-  onClick?(_e: React.MouseEvent<HTMLInputElement>): void;
-  onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
-  onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
-  onKeyDown?(_e: React.KeyboardEvent<HTMLInputElement>): void;
-  minLength?: number;
-  maxLength?: number;
-  min?: number | string;
-  max?: number | string;
-  step?: number;
+  /**
+   * Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
+   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
+   */
+  mode?: 'normal' | 'small';
 }
 
 const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
@@ -40,12 +28,6 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     {
       label,
       id,
-      value = '',
-      type = 'text',
-      size = 'normal',
-      placeholder,
-      disabled = false,
-      readOnly = false,
       error = false,
       errorText,
       hideErrorIcon = false,
@@ -54,6 +36,9 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       suffix = undefined,
       prefixIcon = null,
       hideNumberArrows = false,
+      disabled = false,
+      readOnly = false,
+      mode = 'normal',
       ...otherProps
     },
     ref,
@@ -62,7 +47,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     const inputId = id && id !== '' ? id : uuidv4();
 
     const classNames = classnames('md-input', {
-      'md-input--small': size === 'small',
+      'md-input--small': mode === 'small',
       'md-input--disabled': !!disabled,
       'md-input--readonly': !!readOnly,
       'md-input--error': !!error,
@@ -72,13 +57,13 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     });
 
     const wrapperClassNames = classnames('md-input__wrapper', {
-      'md-input__wrapper--small': size === 'small',
+      'md-input__wrapper--small': mode === 'small',
     });
 
     const outerWrapperClasses = classnames(
       'md-input__outer-wrapper',
       {
-        'md-input__outer-wrapper--small': size === 'small',
+        'md-input__outer-wrapper--small': mode === 'small',
       },
       outerWrapperClass,
     );
@@ -90,7 +75,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
           {helpText && helpText !== '' && (
             <div className="md-input__help-button">
               <MdHelpButton
-                ariaLabel={`Hjelpetekst for ${label}`}
+                aria-label={`Hjelpetekst for ${label}`}
                 id={`md-input_help-button_${inputId}`}
                 aria-expanded={helpOpen}
                 aria-controls={`md-input_help-text_${inputId}`}
@@ -128,12 +113,9 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             id={inputId}
             aria-describedby={helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined}
             className={classNames}
-            value={value}
-            type={type}
-            placeholder={placeholder}
+            ref={ref}
             disabled={!!disabled}
             readOnly={!!readOnly}
-            ref={ref}
             {...otherProps}
           />
 

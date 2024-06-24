@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A link styled as a horizontal tile, with optional icon (of your choice) before text.<br/><br/>`import { MdTile } from '@miljodirektoratet/md-react'`",
+          "A link/button styled as a horizontal tile, with optional icon (of your choice) before text. In addition to the properties presented here, the component accepts all standard attributes of HTML Button and Anchor element.<br/><br/>`import { MdTile } from '@miljodirektoratet/md-react'`",
       },
     },
   },

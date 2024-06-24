@@ -22,8 +22,9 @@ export default {
         );
       },
       description: {
-        // eslint-disable-next-line quotes
-        component: "A component for info box.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "A component for info box. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },

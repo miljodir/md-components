@@ -12,7 +12,6 @@ export interface MdModalProps {
   children: any;
   heading?: string;
   headingIcon?: React.ReactNode | string;
-  id?: any;
   open?: boolean;
   error?: boolean;
   className?: string;

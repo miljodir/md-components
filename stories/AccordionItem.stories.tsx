@@ -43,7 +43,7 @@ export default {
       control: { type: 'text' },
     },
     id: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'The id for the accordion item.',
       table: {
         defaultValue: { summary: 'null' },
@@ -55,7 +55,8 @@ export default {
     },
     expanded: {
       type: { name: 'boolean' },
-      description: 'Determines if the accordion is expanded. If not present, component handles expand/collapse internally.',
+      description:
+        'Determines if the accordion is expanded. If not present, component handles expand/collapse internally.',
       table: {
         defaultValue: { summary: 'false' },
         type: {

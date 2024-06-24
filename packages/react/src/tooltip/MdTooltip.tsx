@@ -1,20 +1,25 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 
-export interface MdTooltipProps {
-  content: React.ReactNode;
+export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Replaces previous content-prop for specifying the content of the tooltip.
+   * Content-prop is reserved as a standard HTML attribute on div-elements.
+   */
+  tooltipContent: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
-  ariaLabel: string;
+  ['aria-label']: string;
   children?: React.ReactNode;
   tooltipClass?: string;
 }
 
 const MdTooltip: React.FC<MdTooltipProps> = ({
-  content,
+  tooltipContent,
   position = 'bottom',
   children,
-  ariaLabel,
+  'aria-label': ariaLabel,
   tooltipClass,
+  ...otherProps
 }: MdTooltipProps) => {
   const [hover, setHover] = useState(false);
   const classNames = classnames('md-tooltip', {
@@ -43,11 +48,11 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
   };
 
   return (
-    <div aria-label={ariaLabel}>
+    <div aria-label={ariaLabel} {...otherProps}>
       <div aria-hidden="true" onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
         {children}
       </div>
-      <div className={classNames}>{content}</div>
+      <div className={classNames}>{tooltipContent}</div>
     </div>
   );
 };

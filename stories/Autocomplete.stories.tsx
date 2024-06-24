@@ -26,7 +26,7 @@ export default {
       },
       description: {
         component:
-          "A form component for single autocomplete.<br/><br/>`import { MdAutocomplete } from '@miljodirektoratet/md-react'`",
+          "A form component for single autocomplete. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdAutocomplete } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -72,7 +72,7 @@ export default {
       control: { type: 'text' },
     },
     id: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
         defaultValue: { summary: 'uuid()' },
@@ -91,8 +91,8 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    size: {
-      description: 'Set size og autocomplete box',
+    mode: {
+      description: 'Set width of autocomplete box',
       options: ['large', 'medium', 'small'],
       table: {
         defaultValue: { summary: 'large' },
@@ -134,9 +134,9 @@ export default {
       },
       control: { type: 'text' },
     },
-    onChange: {
+    onSelectOption: {
       type: { name: 'function' },
-      description: 'The onChange handler for change events. Returns the clicked option, to handle as you please.',
+      description: 'The onSelectOption handler for change events. Returns the clicked option, to handle as you please.',
       table: {
         type: {
           summary: 'function',
@@ -165,7 +165,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    inputRef: {
+    ref: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
         // eslint-disable-next-line quotes
@@ -184,7 +184,7 @@ const Template = (args: MdAutocompleteProps) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdAutocomplete {...args} onChange={handleChange} />
+      <MdAutocomplete {...args} onSelectOption={handleChange} />
     </div>
   );
 };
@@ -206,7 +206,7 @@ Autocomplete.args = {
   value: 'optionA',
   id: '',
   disabled: false,
-  size: 'large',
+  mode: 'large',
   helpText: '',
   error: false,
   errorText: '',

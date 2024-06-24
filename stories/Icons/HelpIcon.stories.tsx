@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Help icon. Color is inherited from parent.<br/><br/>`import { MdHelpIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHelpIcon64 } from '@miljodirektoratet/md-react'`",
+          "Help icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdHelpIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdHelpIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -1,13 +1,18 @@
+import classNames from 'classnames';
 import React from 'react';
 
-export interface MdHelpTextProps {
+export interface MdHelpTextProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode[] | React.ReactNode | string;
-  [otherProps: string]: unknown;
 }
 
-const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({ children, ...otherProps }: MdHelpTextProps) => {
+const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({
+  children,
+  className,
+  ...otherProps
+}: MdHelpTextProps) => {
+  const combinedClasses = classNames('md-helptext', className);
   return (
-    <div className="md-helptext" {...otherProps}>
+    <div className={combinedClasses} {...otherProps}>
       {children}
     </div>
   );

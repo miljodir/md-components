@@ -22,13 +22,16 @@ export interface MdMultiSelectProps {
   selected?: MdMultiSelectOptionProps[];
   placeholder?: string;
   disabled?: boolean;
-  size?: string;
+  /**
+   * Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
+   */
+  mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
-  id?: string | number | null | undefined;
+  id?: string;
   onChange?(_e: React.ChangeEvent): void;
   dropdownHeight?: number;
 }
@@ -41,7 +44,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       selected = [],
       placeholder = 'Vennligst velg',
       disabled = false,
-      size,
+      mode = 'large',
       helpText,
       error,
       errorText,
@@ -66,13 +69,13 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       'md-multiselect--open': !!open,
       'md-multiselect--disabled': !!disabled,
       'md-multiselect--error': !!error,
-      'md-multiselect--medium': size === 'medium',
-      'md-multiselect--small': size === 'small',
+      'md-multiselect--medium': mode === 'medium',
+      'md-multiselect--small': mode === 'small',
     });
 
     const buttonClassNames = classnames('md-multiselect__button', {
       'md-multiselect__button--open': !!open,
-      'md-multiselect--small': size === 'small',
+      'md-multiselect--small': mode === 'small',
     });
 
     const dropDownClassNames = classnames('md-multiselect__dropdown', {
@@ -150,7 +153,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             {helpText && helpText !== '' && (
               <div className="md-multiselect__help-button">
                 <MdHelpButton
-                  ariaLabel={`Hjelpetekst for ${label}`}
+                  aria-label={`Hjelpetekst for ${label}`}
                   id={`md-multiselect_help-button_${multiSelectId}`}
                   aria-expanded={helpOpen}
                   aria-controls={`md-multiselect_help-text_${multiSelectId}`}
@@ -187,7 +190,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             aria-expanded={open}
             aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
             aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
-            id={String(multiSelectId) || undefined}
+            id={multiSelectId}
             aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
             className={buttonClassNames}
             type="button"
@@ -229,7 +232,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
                       disabled={!!disabled}
                       data-value={option.value}
                       data-text={option.text}
-                      onKeyDown={(e: React.ChangeEvent & React.KeyboardEvent) => {
+                      onKeyDown={(e: React.ChangeEvent<HTMLInputElement> & React.KeyboardEvent<HTMLInputElement>) => {
                         if (e.key === 'Enter') {
                           return handleOptionClick(e);
                         }

@@ -24,8 +24,9 @@ export default {
         );
       },
       description: {
-        // eslint-disable-next-line quotes
-        component: "An icon button component.<br/><br/>`import { MdIconButton } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "An icon button component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdIconButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -41,7 +42,7 @@ export default {
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
-    ariaLabel: {
+    'aria-label': {
       description: 'The aria label for the tooltip',
       table: {
         type: {
@@ -74,7 +75,7 @@ export default {
 const Template = (args: MdIconButtonProps) => {
   return (
     <MdIconButton
-      ariaLabel="Last ned filen"
+      aria-label={args['aria-label']}
       showTooltip={args.showTooltip}
       onClick={action(args.theme || '')}
       disabled={args.disabled}
@@ -88,7 +89,7 @@ const Template = (args: MdIconButtonProps) => {
 export const Filled = Template.bind({});
 Filled.args = {
   theme: 'filled',
-  ariaLabel: 'Last ned filen',
+  'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
 };
@@ -96,7 +97,7 @@ Filled.args = {
 export const Border = Template.bind({});
 Border.args = {
   theme: 'border',
-  ariaLabel: 'Last ned filen',
+  'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
 };
@@ -104,7 +105,7 @@ Border.args = {
 export const Plain = Template.bind({});
 Plain.args = {
   theme: 'plain',
-  ariaLabel: 'Last ned filen',
+  'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
 };

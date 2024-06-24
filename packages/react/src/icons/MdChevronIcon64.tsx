@@ -1,14 +1,7 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-interface MdChevronIconProps {
-  className?: string;
-  [otherProps: string]: unknown;
-}
-
-const MdChevronIcon64: React.FunctionComponent<MdChevronIconProps> = ({
-  className,
-  ...otherProps
-}: MdChevronIconProps) => {
+const MdChevronIcon64: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 64 64"

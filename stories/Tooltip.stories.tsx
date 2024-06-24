@@ -26,12 +26,12 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for tooltip. Hover over to display/expand text.<br/><br/>`import { MdTooltip } from '@miljodirektoratet/md-react'`",
+          "A component for tooltip. Hover over to display/expand text. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdTooltip } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
-    content: {
+    tooltipContent: {
       description: 'The content to display on hover',
       table: {
         type: {
@@ -40,7 +40,7 @@ export default {
       },
       control: { type: 'text' },
     },
-    ariaLabel: {
+    'aria-label': {
       description: 'The aria label for the tooltip',
       table: {
         type: {
@@ -80,7 +80,7 @@ const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
 
 export const Tooltip = Template.bind({});
 Tooltip.args = {
-  content: 'This is some info',
+  tooltipContent: 'This is some info',
   position: 'bottom',
-  ariaLabel: 'This is some info',
+  'aria-label': 'This is some info',
 };

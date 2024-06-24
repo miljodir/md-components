@@ -1,16 +1,12 @@
 import React from 'react';
+import type MdIconProps from './icon.model';
 
-interface MdLoadingIconProps {
-  className?: string;
-  size?: number;
-  [otherProps: string]: unknown;
-}
-
-const MdLoadingSpinnerIcon: React.FunctionComponent<MdLoadingIconProps> = ({
+const MdLoadingSpinnerIcon: React.FunctionComponent<MdIconProps> = ({
   className,
-  size = 100,
+  width = 100,
+  height = 100,
   ...otherProps
-}: MdLoadingIconProps) => {
+}: MdIconProps) => {
   return (
     <svg
       viewBox="0 0 100 100"
@@ -18,8 +14,8 @@ const MdLoadingSpinnerIcon: React.FunctionComponent<MdLoadingIconProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       className={className}
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       {...otherProps}
     >
       <circle cx="50" cy="90" r="10" fill="#CCDFDE" />

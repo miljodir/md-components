@@ -24,7 +24,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Component for displaying help text, mainly used in conjunction with MdHelpButton.<br/><br/>`import { MdHelpText } from '@miljodirektoratet/md-react'`",
+          "Component for displaying help text, mainly used in conjunction with MdHelpButton. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdHelpText } from '@miljodirektoratet/md-react'`",
       },
     },
   },

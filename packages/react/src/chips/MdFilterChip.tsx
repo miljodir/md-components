@@ -4,13 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 import MdCheckIcon from '../icons/MdCheckIcon';
 
-export interface MdFilterChipProps {
+export interface MdFilterChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string | null;
-  id?: string | number;
   active?: boolean;
-  disabled?: boolean;
   prefixIcon?: React.ReactNode;
-  onClick?(_e: React.MouseEvent<HTMLButtonElement>): void;
   className?: string;
 }
 
@@ -34,7 +31,7 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
       type="button"
       aria-pressed={active}
       className={buttonClassNames}
-      id={String(chipId) || undefined}
+      id={chipId || undefined}
       disabled={disabled}
       {...otherProps}
     >

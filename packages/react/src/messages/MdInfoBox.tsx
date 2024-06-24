@@ -2,12 +2,11 @@ import classnames from 'classnames';
 import React from 'react';
 import MdInfoIcon from '../icons/MdInfoIcon';
 
-export interface MdInfoBoxProps {
+export interface MdInfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
   hideIcon?: boolean;
   fullWidth?: boolean;
   customIcon?: React.ReactNode | string;
-  role?: React.AriaRole;
 }
 
 const MdInfoBox: React.FC<MdInfoBoxProps> = ({
@@ -15,11 +14,16 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   hideIcon = false,
   fullWidth = false,
   customIcon,
-  role,
+  className,
+  ...otherProps
 }: MdInfoBoxProps) => {
-  const classNames = classnames('md-info-box', {
-    'md-info-box--fullWidth': !!fullWidth,
-  });
+  const classNames = classnames(
+    'md-info-box',
+    {
+      'md-info-box--fullWidth': !!fullWidth,
+    },
+    className,
+  );
 
   const renderIcon = () => {
     let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
@@ -30,7 +34,7 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   };
 
   return (
-    <div className={classNames} role={role}>
+    <div className={classNames} {...otherProps}>
       {!hideIcon && renderIcon()}
       {label}
     </div>

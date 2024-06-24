@@ -12,7 +12,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Chevron icon. Color is inherited from parent.<br/><br/>`import { MdChevronIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdChevronIcon64 } from '@miljodirektoratet/md-react'`",
+          "Chevron icon.  Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdChevronIcon } from '@miljodirektoratet/md-react'`<br/>`import { MdChevronIcon64 } from '@miljodirektoratet/md-react'`",
       },
     },
   },
