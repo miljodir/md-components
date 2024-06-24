@@ -25,6 +25,7 @@
 @import './formElements/radiobutton/radiobutton.css';
 @import './formElements/radiogroup/radiogroup.css';
 @import './formElements/multiselect/multiselect.css';
+@import './formElements/multiautocomplete/multiautocomplete.css';
 @import './formElements/fileupload/fileupload.css';
 @import './utils.css';
 
