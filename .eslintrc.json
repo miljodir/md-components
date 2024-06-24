@@ -32,14 +32,10 @@
     "sourceType": "module"
   },
   "plugins": ["autofix", "react-hooks"],
-  "rules": {
-    "prettier/prettier": ["error"]
-  },
   "overrides": [
     {
       "files": ["**/*.ts?(x)"],
       "rules": {
-        "prettier/prettier": ["warn"],
         "react/react-in-jsx-scope": "off",
         "spaced-comment": "warn",
         "quotes": ["warn", "single"],
