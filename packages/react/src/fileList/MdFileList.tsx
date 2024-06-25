@@ -80,7 +80,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   <button
                     type="button"
                     aria-label="Last ned fil"
-                    className="md-filelist__file-actions-button md-filelist__file-download"
+                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onDownloadFile(file);
                     }}
@@ -93,7 +93,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   <button
                     type="button"
                     aria-label="Slett fil"
-                    className="md-filelist__file-actions-button md-filelist__file-delete"
+                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onRemoveFile(file);
                     }}
@@ -106,7 +106,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   <button
                     type="button"
                     aria-label="Rediger fil"
-                    className="md-filelist__file-actions-button md-filelist__file-edit"
+                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onEditFile(file);
                     }}
@@ -119,7 +119,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   <button
                     type="button"
                     aria-label="Skriv ut fil"
-                    className="md-filelist__file-actions-button md-filelist__file-print"
+                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onPrintFile(file);
                     }}
