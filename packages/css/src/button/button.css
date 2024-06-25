@@ -37,14 +37,14 @@
   height: 1rem;
   width: 1rem;
   flex-shrink: 0;
-  margin-right: 0.4rem;
+  margin-right: 1rem;
 }
 
 .md-button__rightIcon {
   height: 1rem;
   width: 1rem;
   flex-shrink: 0;
-  margin-left: 0.4rem;
+  margin-left: 1rem;
 }
 
 .md-button:focus {
@@ -128,7 +128,7 @@
 }
 
 .md-button--tertiary:focus:hover:enabled {
-   background-color: var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor20);
 }
 
 .md-button--tertiary:disabled {
