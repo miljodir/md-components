@@ -22,6 +22,7 @@ export interface MdFileListProps {
   allowDelete?: boolean;
   allowEdit?: boolean;
   hideIcons?: boolean;
+  printableFileTypes?: string[];
   onRemoveFile?(_file: File | FileType): void;
   onDownloadFile?(_file: File | FileType): void;
   onEditFile?(_file: File | FileType): void;
@@ -48,6 +49,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   allowDelete = false,
   allowEdit = true,
   hideIcons = false,
+  printableFileTypes = ['pdf', 'docx'],
   onRemoveFile,
   onDownloadFile,
   onEditFile,
@@ -61,6 +63,8 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
       {files &&
         files.length > 0 &&
         files.map((file: FileType | File, index: number) => {
+          const fileEnding = file.name.split('.').pop();
+
           return (
             <div key={`md-filelist-file-${file.name}-${index}`} className={fileClass}>
               <div className="md-filelist__file-label">
@@ -115,7 +119,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   </button>
                 )}
 
-                {!hidePrint && onPrintFile && (
+                {!hidePrint && onPrintFile && fileEnding && printableFileTypes.includes(fileEnding) && (
                   <button
                     type="button"
                     aria-label="Skriv ut fil"
