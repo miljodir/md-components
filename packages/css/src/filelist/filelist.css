@@ -60,11 +60,7 @@
   transition: background 0.1s linear;
 }
 
-.md-filelist__file-delete-icon {
+.md-filelist__file-action-icon {
   width: 20px;
-}
-
-.md-filelist__file-download-icon {
   height: 20px;
-  width: 20px;
 }

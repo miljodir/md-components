@@ -5,6 +5,7 @@ import MdDeleteIcon from '../icons/MdDeleteIcon';
 import MdDocIcon from '../icons/MdDocIcon';
 import MdDownloadIcon from '../icons/MdDownloadIcon';
 import MdEditIcon from '../icons/MdEditIcon';
+import MdPrintIcon from '../icons/MdPrintIcon';
 
 interface FileType {
   name: string;
@@ -17,12 +18,14 @@ interface FileType {
 export interface MdFileListProps {
   files?: File[] | FileType[];
   hideDownload?: boolean;
+  hidePrint?: boolean;
   allowDelete?: boolean;
   allowEdit?: boolean;
   hideIcons?: boolean;
   onRemoveFile?(_file: File | FileType): void;
   onDownloadFile?(_file: File | FileType): void;
   onEditFile?(_file: File | FileType): void;
+  onPrintFile?(_file: File | FileType): void;
 }
 
 const formatBytes = (bytes: number, decimals = 2): string => {
@@ -41,12 +44,14 @@ const formatBytes = (bytes: number, decimals = 2): string => {
 const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   files,
   hideDownload = false,
+  hidePrint = true,
   allowDelete = false,
   allowEdit = true,
   hideIcons = false,
   onRemoveFile,
   onDownloadFile,
   onEditFile,
+  onPrintFile,
 }: MdFileListProps) => {
   const outerClass = classnames('md-filelist');
   const fileClass = classnames('md-filelist__file');
@@ -80,7 +85,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onDownloadFile(file);
                     }}
                   >
-                    <MdDownloadIcon aria-hidden="true" className="md-filelist__file-download-icon" />
+                    <MdDownloadIcon aria-hidden="true" className="md-filelist__file-action-icon" />
                   </button>
                 )}
 
@@ -93,7 +98,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onRemoveFile(file);
                     }}
                   >
-                    <MdDeleteIcon aria-hidden="true" className="md-filelist__file-delete-icon" />
+                    <MdDeleteIcon aria-hidden="true" className="md-filelist__file-action-icon" />
                   </button>
                 )}
 
@@ -106,7 +111,20 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onEditFile(file);
                     }}
                   >
-                    <MdEditIcon aria-hidden="true" className="md-filelist__file-delete-icon" />
+                    <MdEditIcon aria-hidden="true" className="md-filelist__file-action-icon" />
+                  </button>
+                )}
+
+                {!hidePrint && onPrintFile && (
+                  <button
+                    type="button"
+                    aria-label="Skriv ut fil"
+                    className="md-filelist__file-actions-button md-filelist__file-print"
+                    onClick={() => {
+                      onPrintFile(file);
+                    }}
+                  >
+                    <MdPrintIcon aria-hidden="true" className="md-filelist__file-action-icon" />
                   </button>
                 )}
               </div>
