@@ -87,6 +87,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    printableFileTypes: {
+      type: { name: 'array' },
+      description: 'Array of file types that can be printed.',
+      table: {
+        defaultValue: { summary: '["pdf"]' },
+        type: {
+          summary: 'string[]',
+        },
+      },
+      control: { type: 'array' },
+    },
     onRemoveFile: {
       type: { name: 'function' },
       description:
@@ -126,6 +137,7 @@ FileList.args = {
     { name: 'A file without url', id: 'file3', size: 2322211, type: 'application/msword' },
   ],
   hideDownload: false,
+  printableFileTypes: ['pdf'],
   hidePrint: false,
   allowDelete: true,
   allowEdit: true,
