@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
   value: string;
-  text: string;
+  text?: string;
 }
 
 export interface MdRadioGroupProps {
@@ -26,7 +27,7 @@ export interface MdRadioGroupProps {
 }
 
 const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
-  options,
+  options = [],
   value,
   id,
   disabled,
@@ -116,31 +117,23 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
         aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioGroupId}` : undefined}
         className={optionsClassNames}
       >
-        {options &&
-          options.map(option => {
-            return (
-              <label
-                htmlFor={`radio_${radioGroupId}_${option.value}`}
-                key={`radio_${radioGroupId}_${option.value}`}
-                className="md-radiogroup-option"
-              >
-                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.value}`}>
-                  {optionIsSelected(option) && <span className="md-radiogroup-option__selected-dot" />}
-                </span>
-                <input
-                  id={`radio_${radioGroupId}_${option.value}`}
-                  type="radio"
-                  value={option.value}
-                  checked={optionIsSelected(option)}
-                  onChange={handleChange}
-                  disabled={disabled}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                />
-                <span className="md-radiogroup-option__text">{option.text}</span>
-              </label>
-            );
-          })}
+        {options.map(option => {
+          return (
+            <MdRadioButton
+              key={`radio_${radioGroupId}_${option.value}`}
+              id={`radio_${radioGroupId}_${option.value}`}
+              label={option.text}
+              checked={optionIsSelected(option)}
+              disabled={disabled}
+              value={option.value}
+              data-value={option.value}
+              data-text={option.text}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          );
+        })}
       </div>
 
       {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}

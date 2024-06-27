@@ -46,7 +46,7 @@ export default {
       description: 'Array with data for radio buttons',
       table: {
         type: {
-          summary: '[{ id: string, text: string }, { id: string, text: string }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -127,39 +127,30 @@ export default {
 const Template = (args: MdRadioGroupProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (e: React.ChangeEvent) => {
-    const target = e.target as HTMLInputElement;
-    updateArgs({ ...args, value: target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLElement>) => {
+    updateArgs({ ...args, value: e.target.dataset.value });
   };
 
-  return (
-    <MdRadioGroup
-      {...args}
-      value={args.value}
-      onChange={(e: React.ChangeEvent) => {
-        handleChange(e);
-      }}
-    />
-  );
+  return <MdRadioGroup {...args} value={args.value} onChange={handleChange} />;
 };
 
 export const RadioGroup = Template.bind({});
 RadioGroup.args = {
   options: [
     {
-      id: '1',
+      value: '1',
       text: 'Option 1',
     },
     {
-      id: '2',
+      value: '2',
       text: 'Option 2',
     },
     {
-      id: '3',
+      value: '3',
       text: 'Option 3',
     },
   ],
-  label: 'Select an option',
+  label: 'Example radio group',
   value: '2',
   id: 'radio_group',
   disabled: false,

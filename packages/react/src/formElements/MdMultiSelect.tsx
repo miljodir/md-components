@@ -27,8 +27,8 @@ export interface MdMultiSelectProps {
   showChips?: boolean;
   closeOnSelect?: boolean;
   id?: string;
-  onSelectOption?(_option: MdMultiSelectOption): void;
   dropdownHeight?: number;
+  onSelectOption?(_option: MdMultiSelectOption): void;
 }
 
 const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(

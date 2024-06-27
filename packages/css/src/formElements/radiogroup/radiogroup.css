@@ -30,6 +30,7 @@
 .md-radiogroup .md-radiogroup__options {
   display: flex;
   flex-direction: row;
+  gap: 1em;
   margin: 0.7em 0;
 }
 

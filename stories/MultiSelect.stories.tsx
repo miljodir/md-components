@@ -5,7 +5,6 @@ import Readme from '../packages/css/src/formElements/multiselect/README.md';
 import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
 import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdMultiSelect';
 import type { Args } from '@storybook/react';
-import type { ChangeEvent } from 'react';
 
 export default {
   title: 'Form/Multiselect',
@@ -184,20 +183,20 @@ const options = [
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (option: MdMultiSelectOption) => {
     let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
       args.selectedOptions &&
       args.selectedOptions.find((item: MdMultiSelectOption) => {
-        return item.value === e?.target?.value;
+        return item.value === option.value;
       });
     if (found) {
       newSelected = args.selectedOptions.filter((item: MdMultiSelectOption) => {
-        return item.value !== e?.target?.value;
+        return item.value !== option.value;
       });
     } else {
-      if (e?.target?.value) {
-        newSelected.push({ value: e.target.value, text: e.target?.dataset?.text });
+      if (option.value) {
+        newSelected.push({ value: option.value, text: option.text });
       }
     }
     updateArgs({ ...args, selectedOptions: newSelected });
@@ -205,7 +204,7 @@ const Template = (args: Args) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdMultiSelect {...args} onChange={handleChange} />
+      <MdMultiSelect {...args} onSelectOption={handleChange} />
     </div>
   );
 };

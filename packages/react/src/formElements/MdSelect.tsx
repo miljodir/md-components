@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
@@ -26,8 +25,8 @@ export interface MdSelectProps {
   helpText?: string;
   error?: boolean;
   errorText?: string;
-  onChange(_e: MdSelectOption): void;
   dropdownHeight?: number;
+  onSelectOption(_e: MdSelectOption): void;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -43,7 +42,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       helpText,
       error = false,
       errorText,
-      onChange,
+      onSelectOption,
       dropdownHeight,
       ...otherProps
     },
@@ -108,7 +107,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     };
 
     const handleOptionClick = (option: MdSelectOption) => {
-      onChange(option);
+      onSelectOption(option);
       setOpen(false);
     };
 
