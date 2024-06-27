@@ -22,9 +22,6 @@ export interface MdSelectProps {
   value?: string;
   placeholder?: string;
   disabled?: boolean;
-  /**
-   * Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
-   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;

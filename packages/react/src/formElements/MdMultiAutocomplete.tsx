@@ -27,7 +27,7 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   closeOnSelect?: boolean;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  amountOfElementsShown?: number;
+  numberOfElementsShown?: number;
   onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 
@@ -50,7 +50,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       onSelectOption,
       closeOnSelect,
       dropdownHeight,
-      amountOfElementsShown = null,
+      numberOfElementsShown = null,
       ...otherProps
     },
     ref,
@@ -144,7 +144,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       ? options
       : [];
     const displayedOptionsSliced =
-      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+      numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
 
     return (
       <div className={classNames}>

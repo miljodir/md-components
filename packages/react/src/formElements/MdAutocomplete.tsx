@@ -17,15 +17,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   label?: string | null;
   options: MdAutocompleteOption[];
   defaultOptions?: MdAutocompleteOption[];
-  /**
-   * Replaces previous 'onChange'-prop for listening to changes in selected option.
-   * onChange-prop is now reserved as a standard prop om the inner html input element.
-   */
   onSelectOption(_e: MdAutocompleteOption): void;
-  /**
-   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
-   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
-   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
@@ -33,7 +25,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  amountOfElementsShown?: number;
+  numberOfElementsShown?: number;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -53,7 +45,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       prefixIcon = null,
       onSelectOption,
       dropdownHeight,
-      amountOfElementsShown = null,
+      numberOfElementsShown = null,
       ...otherProps
     },
     ref,
@@ -122,7 +114,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       ? options
       : [];
     const displayedOptionsSliced =
-      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+      numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
 
     return (
       <div className={classNames}>

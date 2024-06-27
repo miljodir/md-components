@@ -2,10 +2,6 @@ import classnames from 'classnames';
 import React, { useState } from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Replaces previous content-prop for specifying the content of the tooltip.
-   * Content-prop is reserved as a standard HTML attribute on div-elements.
-   */
   tooltipContent: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
   ['aria-label']: string;
