@@ -52,6 +52,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       prefixIcon = null,
       onSelectOption,
       dropdownHeight,
+      className,
       amountOfElementsShown = null,
       ...otherProps
     },
@@ -79,6 +80,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
       'md-autocomplete--small': mode === 'small',
+      className,
     });
 
     const selectedOption =

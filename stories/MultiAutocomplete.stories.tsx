@@ -6,7 +6,7 @@ import Readme from '../packages/css/src/formElements/multiautocomplete/README.md
 import MdMultiAutocomplete from '../packages/react/src/formElements/MdMultiAutocomplete';
 import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
 import type {
-  MdMultiAutocompleteOptionProps,
+  MdMultiAutocompleteOption,
   MdMultiAutocompleteProps,
 } from '../packages/react/src/formElements/MdMultiAutocomplete';
 
@@ -191,16 +191,16 @@ export default {
 const Template = (args: MdMultiAutocompleteProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdMultiAutocompleteOptionProps) => {
+  const handleChange = (option: MdMultiAutocompleteOption) => {
     let newSelected = args.selected && args.selected.length ? args.selected : [];
     const found =
       args.selected &&
-      args.selected.find((item: MdMultiAutocompleteOptionProps) => {
+      args.selected.find((item: MdMultiAutocompleteOption) => {
         return item.value === option.value;
       });
     if (found) {
       newSelected = args.selected
-        ? args.selected.filter((item: MdMultiAutocompleteOptionProps) => {
+        ? args.selected.filter((item: MdMultiAutocompleteOption) => {
             return item.value !== option.value;
           })
         : [];

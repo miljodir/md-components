@@ -10,20 +10,20 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-export interface MdMultiAutocompleteOptionProps {
+export interface MdMultiAutocompleteOption {
   text: string;
   value: string;
 }
 
 export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  options: MdMultiAutocompleteOptionProps[];
-  defaultOptions?: MdMultiAutocompleteOptionProps[];
-  onSelectOption(_e: MdMultiAutocompleteOptionProps): void;
+  options: MdMultiAutocompleteOption[];
+  defaultOptions?: MdMultiAutocompleteOption[];
+  onSelectOption(_e: MdMultiAutocompleteOption): void;
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
-  selected?: MdMultiAutocompleteOptionProps[];
+  selected?: MdMultiAutocompleteOption[];
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
@@ -51,6 +51,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       onSelectOption,
       closeOnSelect,
       dropdownHeight,
+      className,
       amountOfElementsShown = null,
       ...otherProps
     },
@@ -59,7 +60,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
-    const [results, setResults] = useState<MdMultiAutocompleteOptionProps[]>([]);
+    const [results, setResults] = useState<MdMultiAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
 
@@ -80,15 +81,16 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       'md-multiautocomplete__input--error': !!error,
       'md-multiautocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
       'md-multiautocomplete--small': mode === 'small',
+      className,
     });
 
-    const optionClass = (option: MdMultiAutocompleteOptionProps) => {
+    const optionClass = (option: MdMultiAutocompleteOption) => {
       return classnames('md-multiautocomplete__dropdown-item', {
         'md-multiautocomplete__dropdown-item--selected': optionIsChecked(option),
       });
     };
 
-    const optionIsChecked = (option: MdMultiAutocompleteOptionProps) => {
+    const optionIsChecked = (option: MdMultiAutocompleteOption) => {
       const isChecked =
         selected &&
         selected.length &&
@@ -99,7 +101,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
     };
 
     let displayValue = placeholder;
-    const selectedOptionsFull: MdMultiAutocompleteOptionProps[] = [];
+    const selectedOptionsFull: MdMultiAutocompleteOption[] = [];
     if (!open && selected && selected.length > 0) {
       const findFirstOption = options.find(option => {
         return option.value === selected[0].value;
@@ -125,7 +127,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       });
     }
 
-    const handleOptionClick = (option: MdMultiAutocompleteOptionProps) => {
+    const handleOptionClick = (option: MdMultiAutocompleteOption) => {
       onSelectOption(option);
       if (closeOnSelect) {
         setOpen(false);
@@ -133,7 +135,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       }
     };
 
-    const handleChipClick = (option: MdMultiAutocompleteOptionProps) => {
+    const handleChipClick = (option: MdMultiAutocompleteOption) => {
       handleOptionClick(option);
     };
 
