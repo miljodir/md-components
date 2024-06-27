@@ -26,6 +26,7 @@ export interface MdSelectProps {
   error?: boolean;
   errorText?: string;
   dropdownHeight?: number;
+  // 3.0.0: Rename previous prop onChange to onSelectOption and use MdSelectOption as parameter rather than event
   onSelectOption(_e: MdSelectOption): void;
 }
 

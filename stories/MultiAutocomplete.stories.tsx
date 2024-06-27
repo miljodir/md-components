@@ -50,7 +50,17 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
+        },
+      },
+    },
+    selectedOptions: {
+      type: { name: 'array' },
+      description: 'The currently selected values. An array with `options`',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -59,7 +69,7 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
@@ -236,7 +246,7 @@ Autocomplete.args = {
     { value: 'optionB', text: 'B option' },
   ],
   disabled: false,
-  selected: [options[0]],
+  selectedOptions: [options[0]],
   showChips: true,
   mode: 'large',
   helpText: '',

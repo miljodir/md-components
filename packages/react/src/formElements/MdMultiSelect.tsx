@@ -17,6 +17,7 @@ export interface MdMultiSelectOption {
 export interface MdMultiSelectProps {
   label?: string | null;
   options?: MdMultiSelectOption[];
+  // 3.0.0: Rename previous prop selected to selectedOptions
   selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
   disabled?: boolean;
@@ -28,6 +29,7 @@ export interface MdMultiSelectProps {
   closeOnSelect?: boolean;
   id?: string;
   dropdownHeight?: number;
+  // 3.0.0: Rename previous prop onChange to onSelectOption and use MdMultiSelectOption as parameter rather than event
   onSelectOption?(_option: MdMultiSelectOption): void;
 }
 

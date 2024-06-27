@@ -165,7 +165,7 @@ const Template = (args: Args) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdSelect {...args} onChange={handleChange} />
+      <MdSelect {...args} onSelectOption={handleChange} />
     </div>
   );
 };

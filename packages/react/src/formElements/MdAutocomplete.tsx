@@ -24,6 +24,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
+  // 3.0.0: Rename previous prop amountOfElementsShown to numberOfElementsShown
   numberOfElementsShown?: number;
   onSelectOption(_e: MdAutocompleteOption): void;
 }
