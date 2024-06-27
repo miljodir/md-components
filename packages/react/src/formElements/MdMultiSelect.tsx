@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';

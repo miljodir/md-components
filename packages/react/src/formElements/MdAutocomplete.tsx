@@ -17,7 +17,6 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   label?: string | null;
   options: MdAutocompleteOption[];
   defaultOptions?: MdAutocompleteOption[];
-  onSelectOption(_e: MdAutocompleteOption): void;
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
@@ -26,6 +25,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
   numberOfElementsShown?: number;
+  onSelectOption(_e: MdAutocompleteOption): void;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -43,9 +43,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       error = false,
       errorText,
       prefixIcon = null,
-      onSelectOption,
       dropdownHeight,
       numberOfElementsShown = null,
+      className,
+      onSelectOption,
       ...otherProps
     },
     ref,
@@ -72,6 +73,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
       'md-autocomplete--small': mode === 'small',
+      className,
     });
 
     const selectedOption =

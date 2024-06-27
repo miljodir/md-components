@@ -47,10 +47,11 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       error = false,
       errorText,
       prefixIcon = null,
-      onSelectOption,
       closeOnSelect,
       dropdownHeight,
       numberOfElementsShown = null,
+      className,
+      onSelectOption,
       ...otherProps
     },
     ref,
@@ -79,6 +80,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       'md-multiautocomplete__input--error': !!error,
       'md-multiautocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
       'md-multiautocomplete--small': mode === 'small',
+      className,
     });
 
     const optionClass = (option: MdMultiAutocompleteOption) => {
