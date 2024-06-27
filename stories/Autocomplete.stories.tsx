@@ -154,7 +154,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    amountOfElementsShown: {
+    numberOfElementsShown: {
       type: { name: 'number' },
       description: 'Set max number of elements shown in the dropdown',
       table: {

@@ -178,7 +178,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    amountOfElementsShown: {
+    numberOfElementsShown: {
       type: { name: 'number' },
       description: 'Set max number of elements shown in the dropdown',
       table: {
@@ -219,7 +219,7 @@ const Template = (args: MdMultiAutocompleteProps) => {
         newSelected.push({ value: option.value, text: option.text });
       }
     }
-    updateArgs({ ...args, selected: newSelected });
+    updateArgs({ ...args, selectedOptions: newSelected });
   };
 
   return (
