@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
@@ -16,10 +15,6 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   suffix?: string | React.ReactNode;
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
-  /**
-   * Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
-   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
-   */
   mode?: 'normal' | 'small';
 }
 

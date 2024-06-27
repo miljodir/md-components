@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/select/README.md';
 import MdSelect from '../packages/react/src/formElements/MdSelect';
-import type { MdSelectOptionProps } from '../packages/react/src/formElements/MdSelect';
+import type { MdSelectOption } from '../packages/react/src/formElements/MdSelect';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -48,12 +48,12 @@ export default {
       table: {
         type: {
           // eslint-disable-next-line quotes
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
     value: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },
@@ -158,14 +158,14 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdSelectOptionProps) => {
+  const handleChange = (option: MdSelectOption) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdSelect {...args} onChange={handleChange} />
+      <MdSelect {...args} onSelectOption={handleChange} />
     </div>
   );
 };

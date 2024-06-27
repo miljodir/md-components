@@ -18,7 +18,7 @@ const MdDataGridRow: React.FunctionComponent<MdDataGridRowProps> = ({
   return (
     <div className="md-data-grid__row">
       <div className="md-data-grid__row__flexWrapper">
-        <MdCheckbox label={null} {...checkboxProps} />
+        <MdCheckbox {...checkboxProps} />
         <div className="md-data-grid__row__values">{children}</div>
       </div>
       {isExpanded && (

@@ -9,7 +9,7 @@ import MdPrintIcon from '../icons/MdPrintIcon';
 
 interface FileType {
   name: string;
-  id?: string | number;
+  id?: string;
   url?: string;
   size?: number;
   type?: string;

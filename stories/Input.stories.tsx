@@ -205,76 +205,10 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    onChange: {
-      type: { name: 'function' },
-      description: 'The onChange handler for change events',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
-    onBlur: {
-      type: { name: 'function' },
-      description: 'The onBlur handler for blur events on input',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
-    onFocus: {
-      type: { name: 'function' },
-      description: 'The onFocus handler for focus events on input',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
-    onKeyDown: {
-      type: { name: 'function' },
-      description: 'The onKeyDown handler for key down events on input',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
-    minLength: {
-      type: { name: 'number' },
-      description: 'The minimum length of input value',
-      table: {
-        type: { summary: 'number' },
-      },
-    },
-    maxLength: {
-      type: { name: 'number' },
-      description: 'The maximum length of input value',
-      table: {
-        type: { summary: 'number' },
-      },
-    },
     ref: {
       type: { name: 'Ref<HTMLInputElement>' },
       // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
-    },
-    min: {
-      type: { name: 'number | string' },
-      description: 'The minimum value of input value',
-      table: {
-        type: { summary: 'number | string' },
-      },
-      control: { type: 'text' },
-    },
-    max: {
-      type: { name: 'number | string' },
-      description: 'The maximum value of input value',
-      table: {
-        type: { summary: 'number | string' },
-      },
-      control: { type: 'text' },
     },
   },
 };

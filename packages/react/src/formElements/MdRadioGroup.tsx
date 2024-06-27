@@ -1,20 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  id: any;
-  text: any;
+  // 3.0.0: Rename previous prop id to value
+  value: string;
+  text?: string;
 }
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  selectedOption?: any;
+  // 3.0.0: Rename previous prop selectedOption to value
+  value?: string;
   label?: string;
   id?: string;
   disabled?: boolean;
@@ -28,8 +29,8 @@ export interface MdRadioGroupProps {
 }
 
 const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
-  options,
-  selectedOption,
+  options = [],
+  value,
   id,
   disabled,
   direction,
@@ -57,9 +58,9 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
     'md-radiogroup__options--vertical': direction === 'vertical',
   });
 
-  const optionIsSelected = (option: any) => {
-    if (selectedOption) {
-      return option.toString() === selectedOption.toString();
+  const optionIsSelected = (option: MdRadioGroupOption) => {
+    if (value) {
+      return option.value === value;
     }
 
     return false;
@@ -118,31 +119,23 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
         aria-describedby={helpText && helpText !== '' ? `md-radiogroup_help-text_${radioGroupId}` : undefined}
         className={optionsClassNames}
       >
-        {options &&
-          options.map(option => {
-            return (
-              <label
-                htmlFor={`radio_${radioGroupId}_${option.id}`}
-                key={`radio_${radioGroupId}_${option.id}`}
-                className="md-radiogroup-option"
-              >
-                <span className="md-radiogroup-option__check-area" id={`dot_${radioGroupId}_${option.id}`}>
-                  {optionIsSelected(option.id) && <span className="md-radiogroup-option__selected-dot" />}
-                </span>
-                <input
-                  id={`radio_${radioGroupId}_${option.id}`}
-                  type="radio"
-                  value={option.id}
-                  checked={optionIsSelected(option.id)}
-                  onChange={handleChange}
-                  disabled={disabled}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                />
-                <span className="md-radiogroup-option__text">{option.text}</span>
-              </label>
-            );
-          })}
+        {options.map(option => {
+          return (
+            <MdRadioButton
+              key={`radio_${radioGroupId}_${option.value}`}
+              id={`radio_${radioGroupId}_${option.value}`}
+              label={option.text}
+              checked={optionIsSelected(option)}
+              disabled={disabled}
+              value={option.value}
+              data-value={option.value}
+              data-text={option.text}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          );
+        })}
       </div>
 
       {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}

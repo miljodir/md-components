@@ -5,7 +5,7 @@ import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 import MdAutocomplete from '../packages/react/src/formElements/MdAutocomplete';
 import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
-import type { MdAutocompleteOptionProps, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
+import type { MdAutocompleteOption, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
 
 export default {
   title: 'Form/Autocomplete',
@@ -47,7 +47,7 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
@@ -56,12 +56,12 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
     value: {
-      type: { name: 'string | number' },
+      type: { name: 'string' },
       description: 'The currently selected value. This corresponds to `value` from selected `option`',
       table: {
         defaultValue: { summary: 'null' },
@@ -154,7 +154,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    amountOfElementsShown: {
+    numberOfElementsShown: {
       type: { name: 'number' },
       description: 'Set max number of elements shown in the dropdown',
       table: {
@@ -177,7 +177,7 @@ export default {
 const Template = (args: MdAutocompleteProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdAutocompleteOptionProps) => {
+  const handleChange = (option: MdAutocompleteOption) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
   };

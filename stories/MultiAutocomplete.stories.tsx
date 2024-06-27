@@ -50,7 +50,17 @@ export default {
       description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
+        },
+      },
+    },
+    selectedOptions: {
+      type: { name: 'array' },
+      description: 'The currently selected values. An array with `options`',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -59,7 +69,7 @@ export default {
       description: 'Array with data objects for searchable autocomplete options',
       table: {
         type: {
-          summary: "[{ value: string | number, text: 'string' }, { value: string | number, text: 'string' }, ...]",
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
@@ -168,7 +178,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    amountOfElementsShown: {
+    numberOfElementsShown: {
       type: { name: 'number' },
       description: 'Set max number of elements shown in the dropdown',
       table: {
@@ -192,15 +202,15 @@ const Template = (args: MdMultiAutocompleteProps) => {
   const [, updateArgs] = useArgs();
 
   const handleChange = (option: MdMultiAutocompleteOption) => {
-    let newSelected = args.selected && args.selected.length ? args.selected : [];
+    let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
-      args.selected &&
-      args.selected.find((item: MdMultiAutocompleteOption) => {
+      args.selectedOptions &&
+      args.selectedOptions.find((item: MdMultiAutocompleteOption) => {
         return item.value === option.value;
       });
     if (found) {
-      newSelected = args.selected
-        ? args.selected.filter((item: MdMultiAutocompleteOption) => {
+      newSelected = args.selectedOptions
+        ? args.selectedOptions.filter((item: MdMultiAutocompleteOption) => {
             return item.value !== option.value;
           })
         : [];
@@ -209,7 +219,7 @@ const Template = (args: MdMultiAutocompleteProps) => {
         newSelected.push({ value: option.value, text: option.text });
       }
     }
-    updateArgs({ ...args, selected: newSelected });
+    updateArgs({ ...args, selectedOptions: newSelected });
   };
 
   return (
@@ -236,7 +246,7 @@ Autocomplete.args = {
     { value: 'optionB', text: 'B option' },
   ],
   disabled: false,
-  selected: [options[0]],
+  selectedOptions: [options[0]],
   showChips: true,
   mode: 'large',
   helpText: '',

@@ -6,14 +6,14 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
-export interface MdCheckboxGroupOptionProps {
-  value: string | number;
-  text?: string | number;
+export interface MdCheckboxGroupOption {
+  value: string;
+  text?: string;
 }
 
 export interface MdCheckboxGroupProps {
-  options?: MdCheckboxGroupOptionProps[];
-  selectedOptions?: MdCheckboxGroupOptionProps[];
+  options?: MdCheckboxGroupOption[];
+  selectedOptions?: MdCheckboxGroupOption[];
   label?: string;
   id?: string;
   disabled?: boolean;
@@ -59,7 +59,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
     'md-checkboxgroup__options--grid': direction === 'grid',
   });
 
-  const optionIsSelected = (option: MdCheckboxGroupOptionProps) => {
+  const optionIsSelected = (option: MdCheckboxGroupOption) => {
     if (selectedOptions) {
       const find = selectedOptions.find(item => {
         return item.value.toString() === option.value.toString();
@@ -134,9 +134,9 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
               disabled={disabled}
               checked={optionIsSelected(option)}
               value={option.value}
-              onChange={handleChange}
               data-value={option.value}
               data-text={option.text}
+              onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />

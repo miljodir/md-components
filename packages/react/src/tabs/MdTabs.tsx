@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import MdTabTitle from './MdTabTitle';
 import type { ReactElement, ReactNode } from 'react';
@@ -23,7 +22,7 @@ const MdTabs: React.FunctionComponent<MdTabsProps> = ({
   return (
     <div className="md-tabs-container">
       <ul>
-        {tabs.map((item: any, index: any) => {
+        {tabs.map((item, index) => {
           return (
             <MdTabTitle
               key={`md-tab-${index}`}

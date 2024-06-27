@@ -46,8 +46,7 @@ export default {
       description: 'Array with data for radio checkboxes in group',
       table: {
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -56,8 +55,7 @@ export default {
       description: 'Array with selected options. Corresponds with element from options-array.',
       table: {
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -140,8 +138,8 @@ export default {
 };
 
 type SelectedOptionType = {
-  value: string | number;
-  text?: string | number;
+  value: string;
+  text?: string;
 };
 
 const Template = (args: Args) => {
@@ -170,21 +168,21 @@ export const CheckboxGroup = Template.bind({});
 CheckboxGroup.args = {
   options: [
     {
-      value: 1,
+      value: '1',
       text: 'Option 1',
     },
     {
-      value: 2,
+      value: '2',
       text: 'Option 2',
     },
     {
-      value: 3,
+      value: '3',
       text: 'Option 3',
     },
   ],
   selectedOptions: [
     {
-      value: 2,
+      value: '2',
       text: 'Option 2',
     },
   ],

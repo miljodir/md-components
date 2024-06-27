@@ -13,7 +13,7 @@ const MdDataGridColumnHeaders: React.FunctionComponent<MdDataGridColumnHeadersPr
 }: MdDataGridColumnHeadersProps) => {
   return (
     <div className="md-data-grid__columnHeaders">
-      <MdCheckbox label={null} {...checkboxProps} />
+      <MdCheckbox {...checkboxProps} />
       <div className="md-data-grid__columnHeaders__flexWrapper">{children}</div>
     </div>
   );
