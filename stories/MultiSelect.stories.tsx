@@ -218,7 +218,7 @@ Multiselect.args = {
   options: options,
   selected: [options[0]],
   disabled: false,
-  showChips: false,
+  showChips: true,
   closeOnSelect: true,
   mode: 'large',
   helpText: '',
