@@ -131,7 +131,7 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
   };
 
   return (
-    <div>
+    <div onClick={e => alert('Event bubbled up to the md stories div. :(')}>
       <MdButton
         onClick={() => {
           return toggleModal();
