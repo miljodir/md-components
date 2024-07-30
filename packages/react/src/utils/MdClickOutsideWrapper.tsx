@@ -26,11 +26,21 @@ const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOutsideWra
 
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
-        if (innerRef.current && !innerRef.current?.contains(event.target as Node)) {
+        const modalRef = innerRef.current;
+        const target = event.target as Node;
+        const isOutsideClick = !modalRef?.contains(target);
+
+        console.log('Target', target);
+
+        if (isOutsideClick) {
           onClickOutside && onClickOutside(event as unknown as React.MouseEvent);
+        } else {
+          event.stopPropagation(); // Almost works, but now events don't bubble to close X etc
         }
       };
+
       document.addEventListener('click', handleClickOutside, true);
+
       return () => {
         document.removeEventListener('click', handleClickOutside, true);
       };
