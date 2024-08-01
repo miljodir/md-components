@@ -127,8 +127,8 @@ export default {
 const Template = (args: MdRadioGroupProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (e: React.ChangeEvent<HTMLElement>) => {
-    updateArgs({ ...args, value: e.target.dataset.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateArgs({ ...args, value: e.target.value });
   };
 
   return <MdRadioGroup {...args} value={args.value} onChange={handleChange} />;
