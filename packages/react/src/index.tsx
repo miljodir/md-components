@@ -2,13 +2,6 @@ import MdAccordionItem, { MdAccordionItemProps } from './accordion/MdAccordionIt
 import MdButton, { MdButtonProps } from './button/MdButton';
 import MdFilterChip, { MdFilterChipProps } from './chips/MdFilterChip';
 import MdInputChip, { MdInputChipProps } from './chips/MdInputChip';
-import MdDataGrid from './data-grid/MdDataGrid';
-import MdDataColumnHeader from './data-grid/MdDataGridColumnHeader';
-import MdDataColumnHeaders from './data-grid/MdDataGridColumnHeaders';
-import MdDataColumnRightAlignedContent from './data-grid/MdDataGridRightAlignedContent';
-import MdDataColumnRow from './data-grid/MdDataGridRow';
-import MdDataColumnRowValue from './data-grid/MdDataGridRowValue';
-import MdDataColumnRows from './data-grid/MdDataGridRows';
 import MdFileList, { MdFileListProps } from './fileList/MdFileList';
 import MdAutocomplete, { MdAutocompleteOption, MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
@@ -290,13 +283,6 @@ export {
   MdZoomIconMinus64,
   MdZoomIconPlus,
   MdZoomIconPlus64,
-  MdDataGrid,
-  MdDataColumnHeader,
-  MdDataColumnHeaders,
-  MdDataColumnRows,
-  MdDataColumnRow,
-  MdDataColumnRowValue,
-  MdDataColumnRightAlignedContent,
   MdStepper,
   MdStep,
   MdStepProps,

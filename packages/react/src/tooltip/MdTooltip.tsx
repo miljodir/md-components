@@ -44,7 +44,7 @@ const MdTooltip: React.FC<MdTooltipProps> = ({
   };
 
   return (
-    <div aria-label={ariaLabel} {...otherProps}>
+    <div role="tooltip" aria-label={ariaLabel} {...otherProps}>
       <div aria-hidden="true" onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
         {children}
       </div>
