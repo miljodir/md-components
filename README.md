@@ -37,6 +37,15 @@ import '@miljodirektoratet/md-css';
 
 `@miljodirektoratet/md-css` kan også importeres på overordnet nivå (alle klasser er prefikset med `md-`), slik at stilingen blir tilgjengelig på hele prosjektet. Dette bør gjøres dersom du skal stile komponenter som ikke er laget i React, HTML-strukturen for alle komponentene kan ses i Storybook, denne må da følges.
 
+## Kjøre opp utviklingsmiljø for Storybook lokalt
+
+Klon dette repoet og gjør følgende:
+
+```bash
+npm install
+npm run storybook
+```
+
 ### Eslint og Prettier
 
 Tooling EsLint og Prettier er aktivert i dette prosjektet. Ved lagring av en fil blir den automatisk formatert samt at eslint utfører autofixer som fjerning av ubrukte importer. Eslint gir også andre varsler som fek.s at variabler er definert men ikke brukt.
@@ -57,16 +66,42 @@ For nye komponenter med tilhørende css, skal det også opprettes en README.md f
 
 Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
 
-## Kjøre opp utviklingsmiljø for Storybook lokalt
-
-Klon dette repoet og gjør følgende:
-
-```bash
-npm install
-npm run storybook
-```
+NB! Alle PR-er skal merges som en squash commit. Dette for å holde historikken ren og oversiktlig, og få en release-log som er lett å lese.
 
 ## Labels på pull-requests
 
-Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å bumpe pakke versjonene før de publiseres til npm.
+Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
 Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
+
+## Releases
+
+Når prosjektet har fått relevante endringer, eks en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
+
+For å tagge en commit og pushe til remote, gjør følgende:
+
+```bash
+git tag -a v0.0.0 -m "Version 0.0.0"
+git push origin v0.0.0
+```
+
+### Breaking changes
+
+Ved breaking changes, gjør en ny release. Skriv i releasen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
+
+```javascript
+export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string | null;
+  options: MdAutocompleteOptionProps[];
+  defaultOptions?: MdAutocompleteOptionProps[];
+  /**
+   * Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * onChange-prop is now reserved as a standard prop om the inner html input element.
+   */
+  onSelectOption(_e: MdAutocompleteOptionProps): void;
+  /**
+   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
+   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
+   */
+  mode?: 'large' | 'medium' | 'small';
+}
+```
