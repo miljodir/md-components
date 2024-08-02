@@ -74,13 +74,13 @@ Fra `packages/react`:
 
 ```bash
 npm run build
-npm --pack-destination ~
+npm pack --pack-destination ~
 ```
 
 Fra `packages/css`:
 
 ```bash
-npm --pack-destination ~
+npm pack --pack-destination ~
 ```
 
 Genererer følgende filer:
@@ -113,6 +113,8 @@ For å tagge en commit og pushe til remote, gjør følgende:
 git tag -a v0.0.0 -m "Version 0.0.0"
 git push origin v0.0.0
 ```
+
+Hvis du skal tagge en gammel commit, checkout til commiten først.
 
 I GitHub, opprett en ny release fra taggen du lagde, og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
 
