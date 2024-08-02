@@ -6,6 +6,10 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
+
+/**
+ * 3.0.0: Replaces previous type MdCheckboxGroupOptionProps.
+ */
 export interface MdCheckboxGroupOption {
   value: string;
   text?: string;
