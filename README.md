@@ -37,7 +37,21 @@ import '@miljodirektoratet/md-css';
 
 `@miljodirektoratet/md-css` kan også importeres på overordnet nivå (alle klasser er prefikset med `md-`), slik at stilingen blir tilgjengelig på hele prosjektet. Dette bør gjøres dersom du skal stile komponenter som ikke er laget i React, HTML-strukturen for alle komponentene kan ses i Storybook, denne må da følges.
 
-## Kjøre opp utviklingsmiljø for Storybook lokalt
+### Eksempler og kode
+
+I [Storybook](https://miljodir.github.io/md-components) finnes alle tilgjengelige komponenter, eksempler på bruk, samt all HTML for alle komponenter.
+
+## Bidrag og/eller endringer
+
+Alle skal kunne bidra med komponenter til biblioteket, og også foreslå endringer. Selve komponentene ligger i `packages/react` og tilhørende css ligger i `packages/css`.
+
+Dersom du ønsker endringer eller ønsker å bidra med nye komponenter, gjøres dette som en PR i dette repoet. Dersom det er en ny komponent, kreves det en reactkomponent med tilhørende css (i sine respektive mapper i strukturen), samt en story for komponenten. Denne legges i `stories`, se en eksisterende story for detaljer om hvordan bygge denne. Husk også i inkludere komponenten som en eksport i `packages/react/index.tsx`, og registrere css importen i `packages/css/index.css`.
+
+For nye komponenter med tilhørende css, skal det også opprettes en README.md fil i mappen for css-fila, som beskriver HTML-strukturen til komponenten. Dette fordi man skal kunne bruke css-filen til å bygge komponenten selv, uten å inkludere React-komponenten. Se en eksisterende css-fil og README.md i `packages/css/..` for eksempler på oppbygging av README-fil.
+
+Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no).
+
+### Kjøre opp utviklingsmiljø for Storybook lokalt
 
 Klon dette repoet og gjør følgende:
 
@@ -52,19 +66,37 @@ Tooling EsLint og Prettier er aktivert i dette prosjektet. Ved lagring av en fil
 
 Dette er for å sikre at koden som skrives følger de samme standardene, at man unngår feil i koden, at man unngår whitespace-diffs, og at man bruker mindre tid på utvikling. Vennligst sjekk at eslint og prettier er installert og utfører formatering og autofixes ved lagring.
 
-### Eksempler og kode
+### Teste endringer i eget prosjekt
 
-I [Storybook](https://miljodir.github.io/md-components) finnes alle tilgjengelige komponenter, eksempler på bruk, samt all HTML for alle komponenter.
+Før man merger ny kode til master, kan det være lurt å teste endringene i et eget prosjekt. For eksempel, hvis endringer forsøker å fikse en bug. Dette kan gjøres ved å bygge pakkene lokalt og installere dem i prosjektet.
 
-## Bidrag og/eller endringer
+Fra `packages/react`:
 
-Alle skal kunne bidra med komponenter til biblioteket, og også foreslå endringer. Selve komponentene ligger i `packages/react` og tilhørende css ligger i `packages/css`.
+```bash
+npm run build
+npm --pack-destination ~
+```
 
-Dersom du ønsker endringer eller ønsker å bidra med nye komponenter, gjøres dette som en PR i dette repoet. Dersom det er en ny komponent, kreves det en reactkomponent med tilhørende css (i sine respektive mapper i strukturen), samt en story for komponenten. Denne legges i `stories`, se en eksisterende story for detaljer om hvordan bygge denne. Husk også i inkludere komponenten som en eksport i `packages/react/index.tsx`, og registrere css importen i `packages/css/index.css`.
+Fra `packages/css`:
 
-For nye komponenter med tilhørende css, skal det også opprettes en README.md fil i mappen for css-fila, som beskriver HTML-strukturen til komponenten. Dette fordi man skal kunne bruke css-filen til å bygge komponenten selv, uten å inkludere React-komponenten. Se en eksisterende css-fil og README.md i `packages/css/..` for eksempler på oppbygging av README-fil.
+```bash
+npm --pack-destination ~
+```
 
-Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
+Genererer følgende filer:
+
+- `miljodirektoratet-md-react-<versjon>.tgz`
+- `miljodirektoratet-md-css-<versjon>.tgz`
+
+Disse kan legges i `package.json` til eget prosjekt slik:
+
+```json
+  "dependencies": {
+    "@miljodirektoratet/md-css": "file:~/miljodirektoratet-md-css-<versjon>.tgz",
+    "@miljodirektoratet/md-react": "file:~/miljodirektoratet-md-react-<versjon>.tgz",
+    ...
+    }
+```
 
 ### Labels på pull-requests
 
