@@ -3,6 +3,7 @@ import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
+import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -137,22 +138,17 @@ export default {
   },
 };
 
-type SelectedOptionType = {
-  value: string;
-  text?: string;
-};
-
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
   const handleCheck = (e: React.ChangeEvent<HTMLElement>) => {
     const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
-    const found = newSelected.find((item: SelectedOptionType) => {
+    const found = newSelected.find((item: MdCheckboxGroupOption) => {
       return item.value.toString() === (dataset.value as string);
     });
     if (found) {
-      newSelected = newSelected.filter((item: SelectedOptionType) => {
+      newSelected = newSelected.filter((item: MdCheckboxGroupOption) => {
         return item.value.toString() !== (dataset.value as string);
       });
     } else {
