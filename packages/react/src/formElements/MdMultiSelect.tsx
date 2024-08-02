@@ -21,7 +21,7 @@ export interface MdMultiSelectProps {
   label?: string | null;
   options?: MdMultiSelectOption[];
   /**
-   * v3.0.0: Replaces previous `selected`-prop.
+   * v3.0.0: Replaces previous 'selected'-prop.
    */
   selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
@@ -38,7 +38,7 @@ export interface MdMultiSelectProps {
   id?: string;
   dropdownHeight?: number;
   /**
-   * 3.0.0: Replaces previous `onChange`-prop and use MdMultiSelectOption as parameter rather than event.
+   * 3.0.0: Replaces previous 'onChange'-prop and use MdMultiSelectOption as parameter rather than event.
    */
   onSelectOption?(_option: MdMultiSelectOption): void;
 }

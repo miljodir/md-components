@@ -94,7 +94,6 @@ Disse kan legges i `package.json` til eget prosjekt slik:
   "dependencies": {
     "@miljodirektoratet/md-css": "file:~/miljodirektoratet-md-css-<versjon>.tgz",
     "@miljodirektoratet/md-react": "file:~/miljodirektoratet-md-react-<versjon>.tgz",
-    ...
     }
 ```
 

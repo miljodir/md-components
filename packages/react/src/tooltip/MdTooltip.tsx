@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * v2.0.0: Replaces previous `content`-prop for specifying the content of the tooltip.
+   * v2.0.0: Replaces previous 'content'-prop for specifying the content of the tooltip.
    * Content-prop is reserved as a standard HTML attribute on div-elements.
    */
   tooltipContent: React.ReactNode;

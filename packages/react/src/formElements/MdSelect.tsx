@@ -33,7 +33,7 @@ export interface MdSelectProps {
   errorText?: string;
   dropdownHeight?: number;
   /**
-   * v3.0.0: Replaces previous `onChange`-prop and use MdSelectOption as parameter rather than event.
+   * v3.0.0: Replaces previous 'onChange'-prop and use MdSelectOption as parameter rather than event.
    */
   onSelectOption(_e: MdSelectOption): void;
 }
