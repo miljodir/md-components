@@ -9,6 +9,9 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
+/**
+ * v3.0.0: Replaces previous type MdMultiSelectOptionProps.
+ */
 export interface MdMultiSelectOption {
   text: string;
   value: string;

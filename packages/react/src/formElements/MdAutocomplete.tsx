@@ -8,6 +8,9 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
+/**
+ * v3.0.0: Replaces previous type MdAutocompleteOptionProps.
+ */
 export interface MdAutocompleteOption {
   text: string;
   value: string;
