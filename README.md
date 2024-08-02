@@ -74,13 +74,13 @@ Fra `packages/react`:
 
 ```bash
 npm run build
-npm --pack-destination ~
+npm pack --pack-destination ~
 ```
 
 Fra `packages/css`:
 
 ```bash
-npm --pack-destination ~
+npm pack --pack-destination ~
 ```
 
 Genererer følgende filer:
