@@ -84,9 +84,11 @@ git tag -a v0.0.0 -m "Version 0.0.0"
 git push origin v0.0.0
 ```
 
+I GitHub, opprett en ny release fra taggen du lagde, og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
+
 ### Breaking changes
 
-Ved breaking changes, gjør en ny release. Skriv i releasen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
+Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
 
 ```javascript
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
