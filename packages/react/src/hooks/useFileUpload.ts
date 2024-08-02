@@ -10,7 +10,7 @@ type useFileUploadHook = {
   clearAllFiles: () => void;
   createFormData: () => FormData;
   handleDragDropEvent: (_e: DragEvent<HTMLDivElement>) => void;
-  removeFile: (_file: number | string) => void;
+  removeFile: (_file: string) => void;
   setFiles: (
     _e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>,
     _mode?: 'a' | 'w',
@@ -105,7 +105,7 @@ export const useFileUpload = (): useFileUploadHook => {
   }, []);
 
   const removeFile = useCallback(
-    (file: number | string): void => {
+    (file: string): void => {
       if (typeof file !== 'number' && typeof file !== 'string') {
         // eslint-disable-next-line no-console
         console.error('argument supplied to removeFile must be of type number or string.');

@@ -3,16 +3,16 @@ import MdButton, { MdButtonProps } from './button/MdButton';
 import MdFilterChip, { MdFilterChipProps } from './chips/MdFilterChip';
 import MdInputChip, { MdInputChipProps } from './chips/MdInputChip';
 import MdFileList, { MdFileListProps } from './fileList/MdFileList';
-import MdAutocomplete, { MdAutocompleteOptionProps, MdAutocompleteProps } from './formElements/MdAutocomplete';
+import MdAutocomplete, { MdAutocompleteOption, MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { MdInputProps } from './formElements/MdInput';
 import MdMultiAutocomplete, { MdMultiAutocompleteOption } from './formElements/MdMultiAutocomplete';
-import MdMultiSelect, { MdMultiSelectOptionProps, MdMultiSelectProps } from './formElements/MdMultiSelect';
+import MdMultiSelect, { MdMultiSelectOption, MdMultiSelectProps } from './formElements/MdMultiSelect';
 import MdRadioButton, { MdRadioButtonProps } from './formElements/MdRadioButton';
 import MdRadioGroup, { MdRadioGroupProps } from './formElements/MdRadioGroup';
-import MdSelect, { MdSelectOptionProps, MdSelectProps } from './formElements/MdSelect';
+import MdSelect, { MdSelectOption, MdSelectProps } from './formElements/MdSelect';
 import MdTextArea, { MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { MdHelpTextProps } from './help/MdHelpText';
@@ -162,11 +162,11 @@ export {
   MdCheckboxGroupProps,
   MdInputProps,
   MdSelectProps,
-  MdSelectOptionProps,
+  MdSelectOption,
   MdMultiSelectProps,
-  MdMultiSelectOptionProps,
+  MdMultiSelectOption,
   MdAutocompleteProps,
-  MdAutocompleteOptionProps,
+  MdAutocompleteOption,
   MdMultiAutocompleteOption,
   MdRadioGroupProps,
   MdRadioButtonProps,

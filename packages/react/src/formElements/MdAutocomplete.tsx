@@ -8,31 +8,38 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-export interface MdAutocompleteOptionProps {
+/**
+ * v3.0.0: Replaces previous type MdAutocompleteOptionProps.
+ */
+export interface MdAutocompleteOption {
   text: string;
   value: string;
 }
 
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  options: MdAutocompleteOptionProps[];
-  defaultOptions?: MdAutocompleteOptionProps[];
+  options: MdAutocompleteOption[];
+  defaultOptions?: MdAutocompleteOption[];
   /**
-   * Replaces previous 'onChange'-prop for listening to changes in selected option.
-   * onChange-prop is now reserved as a standard prop om the inner html input element.
-   */
-  onSelectOption(_e: MdAutocompleteOptionProps): void;
-  /**
-   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
+  value?: string;
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  amountOfElementsShown?: number;
+  /**
+   * v3.0.0: Replaces previous 'amountOfElementsShown'-prop
+   */
+  numberOfElementsShown?: number;
+  /**
+   * v2.0.0: Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * onChange-prop is now reserved as a standard prop om the inner html input element.
+   */
+  onSelectOption(_e: MdAutocompleteOption): void;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -50,10 +57,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       error = false,
       errorText,
       prefixIcon = null,
-      onSelectOption,
       dropdownHeight,
+      numberOfElementsShown = null,
       className,
-      amountOfElementsShown = null,
+      onSelectOption,
       ...otherProps
     },
     ref,
@@ -61,7 +68,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
-    const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
+    const [results, setResults] = useState<MdAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
 
@@ -99,17 +106,17 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       displayValue = '';
     }
 
-    const handleOptionClick = (option: MdAutocompleteOptionProps) => {
+    const handleOptionClick = (option: MdAutocompleteOption) => {
       onSelectOption(option);
       setOpen(false);
       setAutocompleteValue('');
     };
 
-    const isSelectedOption = (option: MdAutocompleteOptionProps) => {
+    const isSelectedOption = (option: MdAutocompleteOption) => {
       return value && value !== '' && value == option.value;
     };
 
-    const optionClass = (option: MdAutocompleteOptionProps) => {
+    const optionClass = (option: MdAutocompleteOption) => {
       return classnames('md-autocomplete__dropdown-item', {
         'md-autocomplete__dropdown-item--selected': isSelectedOption(option),
       });
@@ -123,7 +130,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       ? options
       : [];
     const displayedOptionsSliced =
-      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+      numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
 
     return (
       <div className={classNames}>

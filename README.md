@@ -94,7 +94,6 @@ Disse kan legges i `package.json` til eget prosjekt slik:
   "dependencies": {
     "@miljodirektoratet/md-css": "file:~/miljodirektoratet-md-css-<versjon>.tgz",
     "@miljodirektoratet/md-react": "file:~/miljodirektoratet-md-react-<versjon>.tgz",
-    ...
     }
 ```
 
@@ -125,17 +124,19 @@ Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en go
 ```javascript
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  options: MdAutocompleteOptionProps[];
-  defaultOptions?: MdAutocompleteOptionProps[];
+  options: MdAutocompleteOption[];
+  defaultOptions?: MdAutocompleteOption[];
   /**
-   * Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * v2.0.0: Replaces previous 'onChange'-prop for listening to changes in selected option.
    * onChange-prop is now reserved as a standard prop om the inner html input element.
    */
-  onSelectOption(_e: MdAutocompleteOptionProps): void;
+  onSelectOption(_e: MdAutocompleteOption): void;
   /**
-   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'large' | 'medium' | 'small';
 }
 ```
+
+NB! Husk å bruke docstrings, ellers vil ikke kommentarene vises eksternt.

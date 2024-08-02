@@ -6,7 +6,6 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
 import MdChevronIcon from '../icons/MdChevronIcon';
-
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
@@ -19,17 +18,23 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   label?: string | null;
   options: MdMultiAutocompleteOption[];
   defaultOptions?: MdMultiAutocompleteOption[];
-  onSelectOption(_e: MdMultiAutocompleteOption): void;
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
-  selected?: MdMultiAutocompleteOption[];
+  /**
+   * v3.0.0: Replaces previous 'selected'-prop.
+   */
+  selectedOptions?: MdMultiAutocompleteOption[];
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  amountOfElementsShown?: number;
+  /**
+   * v3.0.0: Replaces previous 'amountOfElementsShown'-prop.
+   */
+  numberOfElementsShown?: number;
+  onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 
 const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
@@ -44,15 +49,15 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       disabled = false,
       mode = 'large',
       helpText,
-      selected = [],
+      selectedOptions = [],
       error = false,
       errorText,
       prefixIcon = null,
-      onSelectOption,
       closeOnSelect,
       dropdownHeight,
+      numberOfElementsShown = null,
       className,
-      amountOfElementsShown = null,
+      onSelectOption,
       ...otherProps
     },
     ref,
@@ -92,9 +97,9 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
 
     const optionIsChecked = (option: MdMultiAutocompleteOption) => {
       const isChecked =
-        selected &&
-        selected.length &&
-        selected.find(item => {
+        selectedOptions &&
+        selectedOptions.length &&
+        selectedOptions.find(item => {
           return item.value === option.value;
         });
       return isChecked && isChecked !== undefined;
@@ -102,14 +107,14 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
 
     let displayValue = placeholder;
     const selectedOptionsFull: MdMultiAutocompleteOption[] = [];
-    if (!open && selected && selected.length > 0) {
+    if (!open && selectedOptions && selectedOptions.length > 0) {
       const findFirstOption = options.find(option => {
-        return option.value === selected[0].value;
+        return option.value === selectedOptions[0].value;
       });
       if (findFirstOption) {
         displayValue = findFirstOption.text;
       }
-      if (selected.length > 1) {
+      if (selectedOptions.length > 1) {
         hasMultipleSelected = true;
       }
 
@@ -117,7 +122,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
         displayValue = '';
       }
 
-      selected.forEach(item => {
+      selectedOptions.forEach(item => {
         const opt = options.find(option => {
           return option.value === item.value;
         });
@@ -147,7 +152,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       ? options
       : [];
     const displayedOptionsSliced =
-      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+      numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
 
     return (
       <div className={classNames}>
@@ -241,7 +246,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             {...otherProps}
           />
           {hasMultipleSelected && !open && (
-            <div className="md-multiautocomplete__button-hasmultiple">+{selected.length - 1}</div>
+            <div className="md-multiautocomplete__button-hasmultiple">+{selectedOptions.length - 1}</div>
           )}
           <div aria-hidden="true" className="md-multiautocomplete__input-icon">
             <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />

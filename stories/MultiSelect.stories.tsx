@@ -3,9 +3,8 @@ import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiselect/README.md';
 import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
-import type { MdMultiSelectOptionProps } from '../packages/react/src/formElements/MdMultiSelect';
+import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdMultiSelect';
 import type { Args } from '@storybook/react';
-import type { ChangeEvent } from 'react';
 
 export default {
   title: 'Form/Multiselect',
@@ -49,19 +48,17 @@ export default {
       table: {
         defaultValue: { summary: '[]' },
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
-    selected: {
+    selectedOptions: {
       type: { name: 'array' },
       description: 'The currently selected values. An array with `options`',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -186,28 +183,28 @@ const options = [
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let newSelected = args.selected && args.selected.length ? args.selected : [];
+  const handleChange = (option: MdMultiSelectOption) => {
+    let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
-      args.selected &&
-      args.selected.find((item: MdMultiSelectOptionProps) => {
-        return item.value === e?.target?.value;
+      args.selectedOptions &&
+      args.selectedOptions.find((item: MdMultiSelectOption) => {
+        return item.value === option.value;
       });
     if (found) {
-      newSelected = args.selected.filter((item: MdMultiSelectOptionProps) => {
-        return item.value !== e?.target?.value;
+      newSelected = args.selectedOptions.filter((item: MdMultiSelectOption) => {
+        return item.value !== option.value;
       });
     } else {
-      if (e?.target?.value) {
-        newSelected.push({ value: e.target.value, text: e.target?.dataset?.text });
+      if (option.value) {
+        newSelected.push({ value: option.value, text: option.text });
       }
     }
-    updateArgs({ ...args, selected: newSelected });
+    updateArgs({ ...args, selectedOptions: newSelected });
   };
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdMultiSelect {...args} onChange={handleChange} />
+      <MdMultiSelect {...args} onSelectOption={handleChange} />
     </div>
   );
 };
@@ -216,7 +213,7 @@ export const Multiselect = Template.bind({});
 Multiselect.args = {
   label: 'Label',
   options: options,
-  selected: [options[0]],
+  selectedOptions: [options[0]],
   disabled: false,
   showChips: true,
   closeOnSelect: true,

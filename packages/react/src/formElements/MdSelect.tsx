@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
@@ -9,28 +8,34 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-export interface MdSelectOptionProps {
+/**
+ * 3.0.0: Replaces previous type MdSelectOptionProps.
+ */
+export interface MdSelectOption {
   text: string;
   value: string;
 }
 
 export interface MdSelectProps {
   label?: string | null;
-  options?: MdSelectOptionProps[];
+  options?: MdSelectOption[];
   id?: string;
   name?: string;
-  value?: string | number;
+  value?: string;
   placeholder?: string;
   disabled?: boolean;
   /**
-   * Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
    */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
-  onChange(_e: MdSelectOptionProps): void;
   dropdownHeight?: number;
+  /**
+   * v3.0.0: Replaces previous 'onChange'-prop and use MdSelectOption as parameter rather than event.
+   */
+  onSelectOption(_e: MdSelectOption): void;
 }
 
 const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
@@ -46,7 +51,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       helpText,
       error = false,
       errorText,
-      onChange,
+      onSelectOption,
       dropdownHeight,
       ...otherProps
     },
@@ -110,12 +115,12 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       }
     };
 
-    const handleOptionClick = (option: MdSelectOptionProps) => {
-      onChange(option);
+    const handleOptionClick = (option: MdSelectOption) => {
+      onSelectOption(option);
       setOpen(false);
     };
 
-    const isSelectedOption = (option: MdSelectOptionProps) => {
+    const isSelectedOption = (option: MdSelectOption) => {
       return value && value !== '' && value == option.value;
     };
 
@@ -125,7 +130,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       'md-select__button--small': mode === 'small',
     });
 
-    const optionClass = (option: MdSelectOptionProps) => {
+    const optionClass = (option: MdSelectOption) => {
       return classnames('md-select__dropdown-item', {
         'md-select__dropdown-item--selected': isSelectedOption(option),
       });
