@@ -66,8 +66,6 @@ For nye komponenter med tilhørende css, skal det også opprettes en README.md f
 
 Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
 
-NB! Alle PR-er skal merges som en squash commit. Dette for å holde historikken ren og oversiktlig, og få en release-log som er lett å lese.
-
 ### Labels på pull-requests
 
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
