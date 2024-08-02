@@ -114,6 +114,8 @@ git tag -a v0.0.0 -m "Version 0.0.0"
 git push origin v0.0.0
 ```
 
+Hvis du skal skal tagge en gammel commit, checkout til commiten først.
+
 I GitHub, opprett en ny release fra taggen du lagde, og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
 
 ### Breaking changes
