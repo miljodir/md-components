@@ -75,7 +75,7 @@ Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook
 
 ### Releases
 
-Når prosjektet har fått relevante endringer, eks en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
+Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
 
 For å tagge en commit og pushe til remote, gjør følgende:
 
