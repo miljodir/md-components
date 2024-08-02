@@ -163,17 +163,17 @@ export {
   MdInputProps,
   MdSelectProps,
   /**
-   * 3.0.0: Replaces previous type MdSelectOptionProps
+   * 3.0.0: Replaces previous type MdSelectOptionProps.
    */
   MdSelectOption,
   MdMultiSelectProps,
   /**
-   * v3.0.0: Replaces previous type MdMultiSelectOptionProps
+   * v3.0.0: Replaces previous type MdMultiSelectOptionProps.
    */
   MdMultiSelectOption,
   MdAutocompleteProps,
   /**
-   * v3.0.0: Replaces previous type MdAutocompleteOptionProps
+   * v3.0.0: Replaces previous type MdAutocompleteOptionProps.
    */
   MdAutocompleteOption,
   MdMultiAutocompleteOption,
