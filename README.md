@@ -66,16 +66,14 @@ For nye komponenter med tilhørende css, skal det også opprettes en README.md f
 
 Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no)
 
-NB! Alle PR-er skal merges som en squash commit. Dette for å holde historikken ren og oversiktlig, og få en release-log som er lett å lese.
-
-## Labels på pull-requests
+### Labels på pull-requests
 
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
 Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
 
-## Releases
+### Releases
 
-Når prosjektet har fått relevante endringer, eks en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
+Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
 
 For å tagge en commit og pushe til remote, gjør følgende:
 
@@ -84,9 +82,11 @@ git tag -a v0.0.0 -m "Version 0.0.0"
 git push origin v0.0.0
 ```
 
+I GitHub, opprett en ny release fra taggen du lagde, og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
+
 ### Breaking changes
 
-Ved breaking changes, gjør en ny release. Skriv i releasen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
+Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
 
 ```javascript
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
