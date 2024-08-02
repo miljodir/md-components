@@ -68,12 +68,12 @@ Før man lager nye komponenter skal design defineres i [Figma](https://www.figma
 
 NB! Alle PR-er skal merges som en squash commit. Dette for å holde historikken ren og oversiktlig, og få en release-log som er lett å lese.
 
-## Labels på pull-requests
+### Labels på pull-requests
 
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
 Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
 
-## Releases
+### Releases
 
 Når prosjektet har fått relevante endringer, eks en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release. Dette gjøres ved å lage en ny tag i git, pushe denne til remote, og opprette release fra Github "Releases" menyen. Sett taggen på committen som ble merget etter GitHub Actions har bumpet pakker, og navngi den etter versjonen som ble bumpet.
 
