@@ -139,3 +139,5 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   mode?: 'large' | 'medium' | 'small';
 }
 ```
+
+NB! Husk å bruke docstrings, ellers vil ikke kommentarene vises eksternt.
