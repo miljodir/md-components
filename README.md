@@ -119,7 +119,7 @@ I GitHub, opprett en ny release fra taggen du lagde, og trykk på `Generate rele
 
 ### Breaking changes
 
-Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v2.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
+Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en god beskrivelse av hva som er endret, og hva som kan være nødvendig å endre i eksisterende kode for å tilpasse seg endringene. Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v3.0.0). Kommenter (hvis relevant) også selve koden med hva som er endret, eks:
 
 ```javascript
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -139,4 +139,4 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
 }
 ```
 
-NB! Husk å bruke docstrings, ellers vil ikke kommentarene vises eksternt.
+NB! Husk å bruke docstrings, ellers vil ikke kommentarene være synlige i pakket versjon.
