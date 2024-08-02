@@ -7,14 +7,14 @@ import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  // 3.0.0: Rename previous prop id to value
+  // v3.0.0: Replaces previous ´id´-prop
   value: string;
   text?: string;
 }
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  // 3.0.0: Rename previous prop selectedOption to value
+  // v3.0.0: Replaces previous ´selectedOption´-prop
   value?: string;
   label?: string;
   id?: string;

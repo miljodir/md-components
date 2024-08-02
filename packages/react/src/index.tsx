@@ -162,13 +162,13 @@ export {
   MdCheckboxGroupProps,
   MdInputProps,
   MdSelectProps,
-  // 3.0.0: Rename previous type MdSelectOptionProps to MdSelectOption
+  // v3.0.0: Replaces previous type MdSelectOptionProps
   MdSelectOption,
   MdMultiSelectProps,
-  // 3.0.0: Rename previous type MdMultiSelectOptionProps to MdMultiSelectOption
+  // v3.0.0: Replaces previous type MdMultiSelectOptionProps
   MdMultiSelectOption,
   MdAutocompleteProps,
-  // 3.0.0: Rename previous type MdAutocompleteOptionProps to MdAutocompleteOption
+  // v3.0.0: Replaces previous type MdAutocompleteOptionProps
   MdAutocompleteOption,
   MdMultiAutocompleteOption,
   MdRadioGroupProps,

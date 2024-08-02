@@ -128,12 +128,12 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   options: MdAutocompleteOptionProps[];
   defaultOptions?: MdAutocompleteOptionProps[];
   /**
-   * Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * v2.0.0: Replaces previous 'onChange'-prop for listening to changes in selected option.
    * onChange-prop is now reserved as a standard prop om the inner html input element.
    */
   onSelectOption(_e: MdAutocompleteOptionProps): void;
   /**
-   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'large' | 'medium' | 'small';
