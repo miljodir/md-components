@@ -4,7 +4,9 @@ import React from 'react';
 export interface MdTileVerticalProps {
   heading?: string;
   description?: string;
-  // v2.0.0: Replaces previous 'size'-prop for controlling width of component from medium to either large or small
+  /**
+   * v2.0.0: Replaces previous 'size'-prop for controlling width of component from medium to either large or small
+   */
   mode?: 'large' | 'medium' | 'small';
   disabled?: boolean;
   href?: string;

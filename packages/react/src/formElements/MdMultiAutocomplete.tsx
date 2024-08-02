@@ -21,14 +21,18 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
-  // v3.0.0: Replaces previous ´selected´-prop
+  /**
+   * v3.0.0: Replaces previous ´selected´-prop
+   */
   selectedOptions?: MdMultiAutocompleteOption[];
   errorText?: string;
   showChips?: boolean;
   closeOnSelect?: boolean;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  // v3.0.0: Replaces previous ´amountOfElementsShown´-prop
+  /**
+   * v3.0.0: Replaces previous ´amountOfElementsShown´-prop
+   */
   numberOfElementsShown?: number;
   onSelectOption(_e: MdMultiAutocompleteOption): void;
 }

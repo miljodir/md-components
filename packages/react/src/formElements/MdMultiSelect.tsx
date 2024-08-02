@@ -17,11 +17,15 @@ export interface MdMultiSelectOption {
 export interface MdMultiSelectProps {
   label?: string | null;
   options?: MdMultiSelectOption[];
-  // v3.0.0: Replaces previous `selected`-prop
+  /**
+   * v3.0.0: Replaces previous `selected`-prop
+   */
   selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
   disabled?: boolean;
-  // v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small
+  /**
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small
+   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
@@ -30,7 +34,9 @@ export interface MdMultiSelectProps {
   closeOnSelect?: boolean;
   id?: string;
   dropdownHeight?: number;
-  // v3.0.0: Replaces previous `onChange`-prop and use MdMultiSelectOption as parameter rather than event
+  /**
+   * 3.0.0: Replaces previous `onChange`-prop and use MdMultiSelectOption as parameter rather than event
+   */
   onSelectOption?(_option: MdMultiSelectOption): void;
 }
 
