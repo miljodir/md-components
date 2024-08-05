@@ -248,7 +248,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               return (
                 <MdInputChip
                   key={`multiselect_chip_${multiSelectId}_${chip.value}`}
-                  label={chip.text.toString()}
+                  label={chip.text}
                   id={`checkbox_chip_${multiSelectId}_${chip.value}`}
                   disabled={disabled}
                   onClick={() => {

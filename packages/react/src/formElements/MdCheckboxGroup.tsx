@@ -66,7 +66,7 @@ const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   const optionIsSelected = (option: MdCheckboxGroupOption) => {
     if (selectedOptions) {
       const find = selectedOptions.find(item => {
-        return item.value.toString() === option.value.toString();
+        return item.value === option.value;
       });
       return find !== undefined;
     }
