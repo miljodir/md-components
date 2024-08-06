@@ -298,7 +298,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
               return (
                 <MdInputChip
                   key={`multiautocomplete_chip_${multiAutocompleteId}_${chip.value}`}
-                  label={chip.text.toString()}
+                  label={chip.text}
                   id={`checkbox_chip_${multiAutocompleteId}_${chip.value}`}
                   disabled={disabled}
                   onClick={() => {
