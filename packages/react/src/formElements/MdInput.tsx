@@ -67,6 +67,9 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       outerWrapperClass,
     );
 
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-input_error_${inputId}` : ariaDescribedBy;
+
     return (
       <div className={outerWrapperClasses}>
         <div className="md-input__label">
@@ -110,7 +113,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
           )}
           <input
             id={inputId}
-            aria-describedby={helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
             disabled={!!disabled}
@@ -127,7 +130,11 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             )}
           </div>
         </div>
-        {error && errorText && errorText !== '' && <div className="md-input__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-input_error_${inputId}`} className="md-input__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

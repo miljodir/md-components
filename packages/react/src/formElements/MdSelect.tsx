@@ -136,6 +136,9 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       });
     };
 
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-select_error_${selectId}` : ariaDescribedBy;
+
     return (
       <div className={classNames}>
         {label && label !== '' && (
@@ -181,7 +184,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             aria-controls={`md-select_dropdown_${selectId}`}
             aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
             id={selectId}
-            aria-describedby={helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={buttonClassNames}
             type="button"
             tabIndex={0}
@@ -232,7 +235,11 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-select__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-select_error_${selectId}`} className="md-select__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

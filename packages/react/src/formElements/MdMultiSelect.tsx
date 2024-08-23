@@ -137,6 +137,10 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       }
     };
 
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined;
+    ariaDescribedBy =
+      error && errorText && errorText !== '' ? `md-multiselect_error_${multiSelectId}` : ariaDescribedBy;
+
     return (
       <div className={classNames}>
         {label && label !== '' && (
@@ -183,7 +187,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
             aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
             id={multiSelectId}
-            aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={buttonClassNames}
             type="button"
             tabIndex={0}
@@ -240,7 +244,11 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-multiselect__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-multiselect_error_${multiSelectId}`} className="md-multiselect__error">
+            {errorText}
+          </div>
+        )}
 
         {!open && showChips && selectedOptionsFull.length > 0 && (
           <div className="md-multiselect__chips">

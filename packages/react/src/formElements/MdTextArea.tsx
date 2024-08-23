@@ -44,6 +44,9 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
       className,
     );
 
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-textarea_error_${textAreaId}` : ariaDescribedBy;
+
     return (
       <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
         <div className="md-textarea__label">
@@ -77,7 +80,7 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
         <div className="md-textarea__wrapper">
           <textarea
             id={textAreaId}
-            aria-describedby={helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             value={value}
             rows={rows}
             className={classNames}
@@ -87,7 +90,11 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
             {...otherProps}
           />
         </div>
-        {error && errorText && errorText !== '' && <div className="md-textarea__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-textarea_error_${textAreaId}`} className="md-textarea__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

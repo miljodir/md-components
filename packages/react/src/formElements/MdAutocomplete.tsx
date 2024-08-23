@@ -125,12 +125,16 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const displayedOptions = autocompleteValue
       ? results
       : defaultOptions && defaultOptions.length
-      ? defaultOptions
-      : options
-      ? options
-      : [];
+        ? defaultOptions
+        : options
+          ? options
+          : [];
     const displayedOptionsSliced =
       numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
+
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-autocomplete_help-text_${autocompleteId}` : undefined;
+    ariaDescribedBy =
+      error && errorText && errorText !== '' ? `md-autocomplete_error_${autocompleteId}` : ariaDescribedBy;
 
     return (
       <div className={classNames}>
@@ -192,7 +196,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             aria-expanded={open}
             aria-controls={`md-autocomplete_dropdown_${autocompleteId}`}
             id={autocompleteId}
-            aria-describedby={helpText && helpText !== '' ? `md-autocomplete_help-text_${autocompleteId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
@@ -265,7 +269,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-autocomplete__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-autocomplete_error_${autocompleteId}`} className="md-autocomplete__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

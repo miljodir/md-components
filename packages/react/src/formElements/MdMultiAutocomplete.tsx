@@ -147,12 +147,17 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
     const displayedOptions = autocompleteValue
       ? results
       : defaultOptions && defaultOptions.length
-      ? defaultOptions
-      : options
-      ? options
-      : [];
+        ? defaultOptions
+        : options
+          ? options
+          : [];
     const displayedOptionsSliced =
       numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
+
+    let ariaDescribedBy =
+      helpText && helpText !== '' ? `md-multiautocomplete_help-text_${multiAutocompleteId}` : undefined;
+    ariaDescribedBy =
+      error && errorText && errorText !== '' ? `md-multiautocomplete_error_${multiAutocompleteId}` : ariaDescribedBy;
 
     return (
       <div className={classNames}>
@@ -214,9 +219,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             aria-expanded={open}
             aria-controls={`md-multiautocomplete_dropdown_${multiAutocompleteId}`}
             id={multiAutocompleteId}
-            aria-describedby={
-              helpText && helpText !== '' ? `md-multiautocomplete_help-text_${multiAutocompleteId}` : undefined
-            }
+            aria-describedby={ariaDescribedBy}
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
@@ -290,7 +293,11 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-multiautocomplete__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-multiautocomplete_error_${multiAutocompleteId}`} className="md-multiautocomplete__error">
+            {errorText}
+          </div>
+        )}
 
         {!open && showChips && selectedOptionsFull.length > 0 && (
           <div className="md-multiautocomplete__chips">
