@@ -42,7 +42,11 @@ const MdTile: React.FC<MdTileProps> = ({
   const content = (
     <>
       <div className="md-tile__content">
-        {icon && icon !== '' && <div className="md-tile__content-icon">{icon}</div>}
+        {icon && icon !== '' && (
+          <div aria-hidden="true" className="md-tile__content-icon">
+            {icon}
+          </div>
+        )}
         <div className="md-tile__content-text">
           <div className="md-tile__content-heading">{heading}</div>
           {description && description !== '' && <div className="md-tile__content-description">{description}</div>}
