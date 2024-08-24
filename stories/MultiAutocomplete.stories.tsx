@@ -236,8 +236,8 @@ const options = [
   { value: 'optionBC', text: 'BC option' },
 ];
 
-export const Autocomplete = Template.bind({});
-Autocomplete.args = {
+export const MultiAutocomplete = Template.bind({});
+MultiAutocomplete.args = {
   label: 'Label',
   prefixIcon: <MdZoomIcon />,
   options,
