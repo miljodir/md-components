@@ -88,7 +88,7 @@
   width: 16px;
   display: flex;
   color: var(--mdPrimaryColor);
-  z-index: 0;
+  z-index: 10;
 }
 
 .md-autocomplete--small > .md-autocomplete__input__prefix {
