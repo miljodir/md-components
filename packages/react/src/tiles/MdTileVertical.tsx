@@ -49,7 +49,11 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
 
   const content = (
     <div className="md-tile-vertical__content">
-      {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
+      {icon && icon !== '' && (
+        <div aria-hidden="true" className="md-tile-vertical__content-icon">
+          {icon}
+        </div>
+      )}
       <div className="md-tile-vertical__content-text">
         <div className="md-tile-vertical__content-heading">{heading}</div>
         {description && description !== '' && (
