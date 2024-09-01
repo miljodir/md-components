@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import classnames from 'classnames';
 import React, { useRef } from 'react';
 import MdButton from '../button/MdButton';

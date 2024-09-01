@@ -5,7 +5,7 @@ export interface MdTileVerticalProps {
   heading?: string;
   description?: string;
   /**
-   * Replaces previous 'size'-prop for controlling width of component from medium to either large or small.
+   * v2.0.0: Replaces previous 'size'-prop for controlling width of component from medium to either large or small.
    */
   mode?: 'large' | 'medium' | 'small';
   disabled?: boolean;
@@ -49,7 +49,11 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
 
   const content = (
     <div className="md-tile-vertical__content">
-      {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
+      {icon && icon !== '' && (
+        <div aria-hidden="true" className="md-tile-vertical__content-icon">
+          {icon}
+        </div>
+      )}
       <div className="md-tile-vertical__content-text">
         <div className="md-tile-vertical__content-heading">{heading}</div>
         {description && description !== '' && (

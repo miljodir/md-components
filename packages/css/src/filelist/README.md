@@ -18,9 +18,9 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     </div>
 
     <div class="md-filelist__file-actions">
-      <button class="md-filelist__file-actions-button md-filelist__file-download">{downloadIcon}</button>
+      <button class="md-filelist__file-actions-button">{downloadIcon}</button>
 
-      <button class="md-filelist__file-actions-button md-filelist__file-delete">{deleteIcon}</button>
+      <button class="md-filelist__file-actions-button">{deleteIcon}</button>
       }
     </div>
   </div>

@@ -3,6 +3,7 @@ import { useArgs } from '@storybook/client-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
+import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -46,8 +47,7 @@ export default {
       description: 'Array with data for radio checkboxes in group',
       table: {
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -56,8 +56,7 @@ export default {
       description: 'Array with selected options. Corresponds with element from options-array.',
       table: {
         type: {
-          summary:
-            '[{ value: string | number, text: string | number }, { value: string | number, text: string | number }, ...]',
+          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
         },
       },
     },
@@ -139,22 +138,17 @@ export default {
   },
 };
 
-type SelectedOptionType = {
-  value: string | number;
-  text?: string | number;
-};
-
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
   const handleCheck = (e: React.ChangeEvent<HTMLElement>) => {
     const dataset = e.target?.dataset;
     let newSelected = args.selectedOptions;
-    const found = newSelected.find((item: SelectedOptionType) => {
+    const found = newSelected.find((item: MdCheckboxGroupOption) => {
       return item.value.toString() === (dataset.value as string);
     });
     if (found) {
-      newSelected = newSelected.filter((item: SelectedOptionType) => {
+      newSelected = newSelected.filter((item: MdCheckboxGroupOption) => {
         return item.value.toString() !== (dataset.value as string);
       });
     } else {
@@ -170,21 +164,21 @@ export const CheckboxGroup = Template.bind({});
 CheckboxGroup.args = {
   options: [
     {
-      value: 1,
+      value: '1',
       text: 'Option 1',
     },
     {
-      value: 2,
+      value: '2',
       text: 'Option 2',
     },
     {
-      value: 3,
+      value: '3',
       text: 'Option 3',
     },
   ],
   selectedOptions: [
     {
-      value: 2,
+      value: '2',
       text: 'Option 2',
     },
   ],

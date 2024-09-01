@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import classnames from 'classnames';
 import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -11,19 +9,25 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
-export interface MdMultiSelectOptionProps {
-  text: string | number;
-  value: string | number;
+/**
+ * v3.0.0: Replaces previous type MdMultiSelectOptionProps.
+ */
+export interface MdMultiSelectOption {
+  text: string;
+  value: string;
 }
 
 export interface MdMultiSelectProps {
   label?: string | null;
-  options?: MdMultiSelectOptionProps[];
-  selected?: MdMultiSelectOptionProps[];
+  options?: MdMultiSelectOption[];
+  /**
+   * v3.0.0: Replaces previous 'selected'-prop.
+   */
+  selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
   disabled?: boolean;
   /**
-   * Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
    */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
@@ -32,8 +36,11 @@ export interface MdMultiSelectProps {
   showChips?: boolean;
   closeOnSelect?: boolean;
   id?: string;
-  onChange?(_e: React.ChangeEvent): void;
   dropdownHeight?: number;
+  /**
+   * 3.0.0: Replaces previous 'onChange'-prop and use MdMultiSelectOption as parameter rather than event.
+   */
+  onSelectOption?(_option: MdMultiSelectOption): void;
 }
 
 const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
@@ -41,7 +48,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
     {
       label,
       options = [],
-      selected = [],
+      selectedOptions = [],
       placeholder = 'Vennligst velg',
       disabled = false,
       mode = 'large',
@@ -51,7 +58,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       showChips = false,
       closeOnSelect = false,
       id,
-      onChange,
+      onSelectOption,
       dropdownHeight,
       ...otherProps
     },
@@ -82,36 +89,36 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       'md-multiselect__dropdown--open': !!open,
     });
 
-    const optionClass = (option: MdMultiSelectOptionProps) => {
+    const optionClass = (option: MdMultiSelectOption) => {
       return classnames('md-multiselect__dropdown-item', {
         'md-multiselect__dropdown-item--selected': optionIsChecked(option),
       });
     };
 
-    const optionIsChecked = (option: MdMultiSelectOptionProps) => {
+    const optionIsChecked = (option: MdMultiSelectOption) => {
       const isChecked =
-        selected &&
-        selected.length &&
-        selected.find(item => {
+        selectedOptions &&
+        selectedOptions.length &&
+        selectedOptions.find(item => {
           return item.value === option.value;
         });
       return isChecked && isChecked !== undefined;
     };
 
-    let displayValue: string | number = placeholder;
-    const selectedOptionsFull: MdMultiSelectOptionProps[] = [];
-    if (!open && selected && selected.length > 0) {
+    let displayValue = placeholder;
+    const selectedOptionsFull: MdMultiSelectOption[] = [];
+    if (!open && selectedOptions && selectedOptions.length > 0) {
       const findFirstOption = options.find(option => {
-        return option.value === selected[0].value;
+        return option.value === selectedOptions[0].value;
       });
       if (findFirstOption) {
         displayValue = findFirstOption.text;
       }
-      if (selected.length > 1) {
+      if (selectedOptions.length > 1) {
         hasMultipleSelected = true;
       }
 
-      selected.forEach(item => {
+      selectedOptions.forEach(item => {
         const opt = options.find(option => {
           return option.value === item.value;
         });
@@ -121,29 +128,18 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
       });
     }
 
-    const handleOptionClick = (e: React.ChangeEvent) => {
-      if (onChange) {
-        onChange(e);
+    const handleOptionClick = (option: MdMultiSelectOption) => {
+      if (onSelectOption) {
+        onSelectOption(option);
       }
       if (closeOnSelect) {
         setOpen(false);
       }
     };
 
-    const handleChipClick = (option: MdMultiSelectOptionProps) => {
-      const dataset = {
-        value: option.value,
-        text: option.text,
-      };
-      const event = {
-        target: {
-          value: option.value,
-          dataset: dataset,
-        },
-      } as unknown as React.ChangeEvent;
-
-      handleOptionClick(event);
-    };
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined;
+    ariaDescribedBy =
+      error && errorText && errorText !== '' ? `md-multiselect_error_${multiSelectId}` : ariaDescribedBy;
 
     return (
       <div className={classNames}>
@@ -191,7 +187,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
             aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
             aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
             id={multiSelectId}
-            aria-describedby={helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={buttonClassNames}
             type="button"
             tabIndex={0}
@@ -203,7 +199,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
           >
             <div className="md-multiselect__button-text">{displayValue}</div>
             {hasMultipleSelected && !open && (
-              <div className="md-multiselect__button-hasmultiple">+{selected.length - 1}</div>
+              <div className="md-multiselect__button-hasmultiple">+{selectedOptions.length - 1}</div>
             )}
             <div aria-hidden="true" className="md-multiselect__button-icon">
               <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
@@ -232,13 +228,13 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
                       disabled={!!disabled}
                       data-value={option.value}
                       data-text={option.text}
-                      onKeyDown={(e: React.ChangeEvent<HTMLInputElement> & React.KeyboardEvent<HTMLInputElement>) => {
+                      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                         if (e.key === 'Enter') {
-                          return handleOptionClick(e);
+                          return handleOptionClick(option);
                         }
                       }}
-                      onChange={(e: React.ChangeEvent) => {
-                        return handleOptionClick(e);
+                      onChange={() => {
+                        return handleOptionClick(option);
                       }}
                     />
                   </div>
@@ -248,7 +244,11 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-multiselect__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-multiselect_error_${multiSelectId}`} className="md-multiselect__error">
+            {errorText}
+          </div>
+        )}
 
         {!open && showChips && selectedOptionsFull.length > 0 && (
           <div className="md-multiselect__chips">
@@ -256,11 +256,11 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               return (
                 <MdInputChip
                   key={`multiselect_chip_${multiSelectId}_${chip.value}`}
-                  label={chip.text.toString()}
+                  label={chip.text}
                   id={`checkbox_chip_${multiSelectId}_${chip.value}`}
                   disabled={disabled}
                   onClick={() => {
-                    return handleChipClick(chip);
+                    return handleOptionClick(chip);
                   }}
                 />
               );
