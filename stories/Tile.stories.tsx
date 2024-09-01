@@ -51,6 +51,18 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    theme: {
+      type: { name: 'string' },
+      description: 'Color theme for tile.',
+      options: ['primary', 'secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'inline-radio' },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -90,6 +102,7 @@ const Template = (args: Args) => {
       heading="Målinger"
       description="Oversikt over dine målestasjoner"
       href={args.href}
+      theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={64} height={64} />}
@@ -100,6 +113,7 @@ const Template = (args: Args) => {
 export const Tile = Template.bind({});
 Tile.args = {
   href: '#',
+  theme: 'primary',
   disabled: false,
   preventDefault: true,
   icon: true,
