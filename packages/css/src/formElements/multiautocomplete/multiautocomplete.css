@@ -1,33 +1,33 @@
-.md-autocomplete {
+.md-multiautocomplete {
   font-family: 'Open sans';
   width: 100%;
 }
 
-.md-autocomplete--medium {
+.md-multiautocomplete--medium {
   max-width: 440px;
 }
 
-.md-autocomplete--small {
+.md-multiautocomplete--small {
   max-width: 260px;
 }
 
-.md-autocomplete__container {
+.md-multiautocomplete__container {
   position: relative;
   background-color: white;
 }
 
-.md-autocomplete__label {
+.md-multiautocomplete__label {
   display: flex;
   align-items: flex-end;
   font-weight: 600;
   padding-bottom: 0.5em;
 }
 
-.md-autocomplete__label > * + * {
+.md-multiautocomplete__label > * + * {
   margin-left: 1em;
 }
 
-.md-autocomplete__input {
+.md-multiautocomplete__input {
   max-width: 100%;
   width: 100%;
   background-color: transparent;
@@ -47,40 +47,40 @@
   z-index: 1;
 }
 
-.md-autocomplete__input.md-autocomplete__input--error {
+.md-multiautocomplete__input.md-multiautocomplete__input--error {
   border-color: var(--mdErrorColor);
 }
 
-.md-autocomplete--small > .md-autocomplete__input {
+.md-multiautocomplete--small > .md-multiautocomplete__input {
   padding: 0.75em;
 }
 
-.md-autocomplete--disabled .md-autocomplete__input {
+.md-multiautocomplete--disabled .md-multiautocomplete__input {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
   cursor: not-allowed;
 }
 
-.md-autocomplete__input:focus,
-.md-autocomplete__input:focus-within {
+.md-multiautocomplete__input:focus,
+.md-multiautocomplete__input:focus-within {
   outline: none;
 }
 
-.md-autocomplete__input-text {
+.md-multiautocomplete__input-text {
   display: flex;
   flex-grow: 1;
   padding-right: 1em;
 }
 
-.md-autocomplete__input.md-autocomplete__input--has-prefix {
+.md-multiautocomplete__input.md-multiautocomplete__input--has-prefix {
   padding-left: 2.5em;
 }
 
-.md-autocomplete__input--small.md-autocomplete__input--has-prefix {
+.md-multiautocomplete__input--small.md-multiautocomplete__input--has-prefix {
   padding-left: 1.8em;
 }
 
-.md-autocomplete__input__prefix {
+.md-multiautocomplete__input__prefix {
   position: absolute;
   top: 1.3em;
   left: 1em;
@@ -91,16 +91,16 @@
   z-index: 10;
 }
 
-.md-autocomplete--small > .md-autocomplete__input__prefix {
+.md-multiautocomplete--small > .md-multiautocomplete__input__prefix {
   top: 1em;
   left: 1em;
 }
 
-.md-autocomplete__input__prefix.md-autocomplete__input__prefix--disabled {
+.md-multiautocomplete__input__prefix.md-multiautocomplete__input__prefix--disabled {
   color: var(--mdGreyColor60);
 }
 
-.md-autocomplete__input-icon {
+.md-multiautocomplete__input-icon {
   position: absolute;
   top: 1.3em;
   right: 0.9em;
@@ -112,25 +112,42 @@
   z-index: 0;
 }
 
-.md-autocomplete--small > .md-autocomplete__input-icon {
+.md-multiautocomplete--small > .md-multiautocomplete__input-icon {
   top: 1em;
   right: 1em;
 }
 
-.md-autocomplete__help-text {
+.md-multiautocomplete__button-text {
+  padding-right: 0.5em;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.md-multiautocomplete__button-hasmultiple {
+  position: absolute;
+  top: 1.5em;
+  right: 4.5em;
+  display: flex;
+  z-index: 0;
+  font-size: 0.8em;
+}
+
+.md-multiautocomplete__help-text {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.15s ease-out;
 }
 
-.md-autocomplete__help-text--open {
+.md-multiautocomplete__help-text--open {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
-.md-autocomplete__dropdown {
+.md-multiautocomplete__dropdown {
   position: absolute;
   max-height: 0;
   overflow: hidden;
@@ -140,7 +157,7 @@
   width: calc(100% - 4px); /* Full width minus border-width */
 }
 
-.md-autocomplete__dropdown-item {
+.md-multiautocomplete__dropdown-item {
   display: flex;
   align-items: center;
   font-family: 'Open sans';
@@ -153,23 +170,23 @@
   cursor: pointer;
 }
 
-.md-autocomplete__dropdown-item:hover,
-.md-autocomplete__dropdown-item:focus {
+.md-multiautocomplete__dropdown-item:hover,
+.md-multiautocomplete__dropdown-item:focus {
   outline: none;
   background-color: var(--mdPrimaryColor20);
   transition: background-color 0.15s ease-in-out;
 }
 
-.md-autocomplete__dropdown-item--selected {
+.md-multiautocomplete__dropdown-item--selected {
   background-color: var(--mdPrimaryColor10);
 }
 
-.md-autocomplete__dropdown-item-text {
+.md-multiautocomplete__dropdown-item-text {
   display: flex;
   flex-grow: 1;
 }
 
-.md-autocomplete__dropdown-item-clear {
+.md-multiautocomplete__dropdown-item-clear {
   display: flex;
   flex-shrink: 0;
   height: 12px;
@@ -177,18 +194,25 @@
   color: var(--mdPrimaryColor);
 }
 
+.md-multiautocomplete__chips {
+  display: flex;
+  margin-top: 0.7em;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
 /* Open state */
-.md-autocomplete--open .md-autocomplete__input {
+.md-multiautocomplete--open .md-multiautocomplete__input {
   border-left: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
   border-top: 2px solid var(--mdPrimaryColor);
   padding-bottom: calc(1em - 1px);
 }
-.md-autocomplete--open.md-autocomplete--small .md-autocomplete__input {
+.md-multiautocomplete--open.md-multiautocomplete--small .md-multiautocomplete__input {
   padding-bottom: calc(0.75em - 1px);
 }
 
-.md-autocomplete--open .md-autocomplete__dropdown {
+.md-multiautocomplete--open .md-multiautocomplete__dropdown {
   max-height: 350px;
   overflow-y: auto;
   opacity: 1;
@@ -201,20 +225,20 @@
 }
 
 /* Focus state */
-.md-autocomplete:not(.md-autocomplete--open) .md-autocomplete__input:focus {
+.md-multiautocomplete:not(.md-multiautocomplete--open) .md-multiautocomplete__input:focus {
   border: 2px solid var(--mdPrimaryColor);
 }
 
 /* open + error */
-.md-autocomplete--open.md-autocomplete--error .md-autocomplete__input {
+.md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__input {
   border-color: var(--mdErrorColor);
 }
-.md-autocomplete--open.md-autocomplete--error .md-autocomplete__dropdown {
+.md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__dropdown {
   border-color: var(--mdErrorColor);
 }
 
 /* Error text */
-.md-autocomplete__error {
+.md-multiautocomplete__error {
   color: var(--mdErrorColor);
   font-size: 0.88em;
 }

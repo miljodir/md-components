@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
@@ -17,7 +16,7 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   /**
-   * Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
+   * v2.0.0: Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'normal' | 'small';
@@ -68,6 +67,9 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       outerWrapperClass,
     );
 
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-input_error_${inputId}` : ariaDescribedBy;
+
     return (
       <div className={outerWrapperClasses}>
         <div className="md-input__label">
@@ -111,7 +113,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
           )}
           <input
             id={inputId}
-            aria-describedby={helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
             disabled={!!disabled}
@@ -128,7 +130,11 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             )}
           </div>
         </div>
-        {error && errorText && errorText !== '' && <div className="md-input__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-input_error_${inputId}`} className="md-input__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

@@ -1,14 +1,18 @@
-import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
+/* eslint-disable quotes */
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-import Readme from '../packages/css/src/formElements/multiselect/README.md';
-import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
-import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdMultiSelect';
-import type { Args } from '@storybook/react';
+import Readme from '../packages/css/src/formElements/multiautocomplete/README.md';
+import MdMultiAutocomplete from '../packages/react/src/formElements/MdMultiAutocomplete';
+import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import type {
+  MdMultiAutocompleteOption,
+  MdMultiAutocompleteProps,
+} from '../packages/react/src/formElements/MdMultiAutocomplete';
 
 export default {
-  title: 'Form/Multiselect',
-  component: MdMultiSelect,
+  title: 'Form/MultiAutocomplete',
+  component: MdMultiAutocomplete,
   parameters: {
     docs: {
       page: () => {
@@ -25,15 +29,14 @@ export default {
       },
       description: {
         component:
-          // eslint-disable-next-line quotes
-          "A form component for multi-select.<br/><br/>`import { MdMultiSelect } from '@miljodirektoratet/md-react'`",
+          "A form component for multi-autocomplete. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdMultiAutocomplete } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
     label: {
       type: { name: 'string' },
-      description: 'The label for the select box.',
+      description: 'The label for the autocomplete box.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -42,13 +45,12 @@ export default {
       },
       control: { type: 'text' },
     },
-    options: {
+    defaultOptions: {
       type: { name: 'array' },
-      description: 'Array with data objects for select options',
+      description: 'Array with data objects for default autocomplete options',
       table: {
-        defaultValue: { summary: '[]' },
         type: {
-          summary: '[{ value: string, text: string }, { value: string, text: string }, ...]',
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
         },
       },
     },
@@ -62,11 +64,20 @@ export default {
         },
       },
     },
+    options: {
+      type: { name: 'array', required: true },
+      description: 'Array with data objects for searchable autocomplete options',
+      table: {
+        type: {
+          summary: "[{ value: string, text: 'string' }, { value: string, text: 'string' }, ...]",
+        },
+      },
+    },
     id: {
       type: { name: 'string' },
-      description: 'Unique id for the multi select box.',
+      description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid' },
+        defaultValue: { summary: 'uuid()' },
         type: {
           summary: 'string',
         },
@@ -74,8 +85,6 @@ export default {
       control: { type: 'text' },
     },
     disabled: {
-      type: { name: 'boolean' },
-      description: 'Is the multi select disabled?',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -85,7 +94,7 @@ export default {
       control: { type: 'boolean' },
     },
     mode: {
-      description: 'Set width of select box',
+      description: 'Set width of autocomplete box',
       options: ['large', 'medium', 'small'],
       table: {
         defaultValue: { summary: 'large' },
@@ -97,7 +106,7 @@ export default {
     },
     helpText: {
       type: { name: 'string' },
-      description: 'Help text for the select box',
+      description: 'Help text for the autocomplete box',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -107,8 +116,7 @@ export default {
       control: { type: 'text' },
     },
     error: {
-      type: { name: 'boolean' },
-      description: 'Does the multi select contain an error?',
+      description: 'Does autocomplete box contain error?',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -119,7 +127,7 @@ export default {
     },
     errorText: {
       type: { name: 'string' },
-      description: 'Error text for the select box, displayed if `error = true`',
+      description: 'Text to display if error',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -127,6 +135,15 @@ export default {
         },
       },
       control: { type: 'text' },
+    },
+    onSelectOption: {
+      type: { name: 'function' },
+      description: 'The onSelectOption handler for change events. Returns the clicked option, to handle as you please.',
+      table: {
+        type: {
+          summary: 'function',
+        },
+      },
     },
     showChips: {
       type: { name: 'boolean' },
@@ -150,50 +167,53 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    onChange: {
-      type: { name: 'function' },
-      description: 'The onChange handler for change events. Returns the `ChangeEvent` from clicked option.',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
     dropdownHeight: {
       type: { name: 'number' },
       description: 'Set max height of dropdown in pixels',
       table: {
-        defaultValue: { summary: '350px' },
+        defaultValue: { summary: 'variable' },
         type: {
           summary: 'number',
         },
       },
       control: { type: 'number' },
     },
+    numberOfElementsShown: {
+      type: { name: 'number' },
+      description: 'Set max number of elements shown in the dropdown',
+      table: {
+        defaultValue: { summary: 'variable' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
+    ref: {
+      type: { name: 'Ref<HTMLButtonElement>' },
+      description:
+        // eslint-disable-next-line quotes
+        "Ref to the input element that toggles the select dropdown, use for example to bring focus to the component when there's an error.",
+    },
   },
 };
 
-const options = [
-  { value: 'option1', text: 'Option 1' },
-  { value: 'option2', text: 'Option with quite a long text' },
-  { value: 'option3', text: 'Option 3' },
-  { value: 'option4', text: 'Option 4' },
-];
-
-const Template = (args: Args) => {
+const Template = (args: MdMultiAutocompleteProps) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdMultiSelectOption) => {
+  const handleChange = (option: MdMultiAutocompleteOption) => {
     let newSelected = args.selectedOptions && args.selectedOptions.length ? args.selectedOptions : [];
     const found =
       args.selectedOptions &&
-      args.selectedOptions.find((item: MdMultiSelectOption) => {
+      args.selectedOptions.find((item: MdMultiAutocompleteOption) => {
         return item.value === option.value;
       });
     if (found) {
-      newSelected = args.selectedOptions.filter((item: MdMultiSelectOption) => {
-        return item.value !== option.value;
-      });
+      newSelected = args.selectedOptions
+        ? args.selectedOptions.filter((item: MdMultiAutocompleteOption) => {
+            return item.value !== option.value;
+          })
+        : [];
     } else {
       if (option.value) {
         newSelected.push({ value: option.value, text: option.text });
@@ -204,21 +224,33 @@ const Template = (args: Args) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdMultiSelect {...args} onSelectOption={handleChange} />
+      <MdMultiAutocomplete {...args} onSelectOption={handleChange} />
     </div>
   );
 };
 
-export const Multiselect = Template.bind({});
-Multiselect.args = {
+const options = [
+  { value: 'optionA', text: 'A option' },
+  { value: 'optionAB', text: 'AB option' },
+  { value: 'optionB', text: 'B option' },
+  { value: 'optionBC', text: 'BC option' },
+];
+
+export const MultiAutocomplete = Template.bind({});
+MultiAutocomplete.args = {
   label: 'Label',
-  options: options,
-  selectedOptions: [options[0]],
+  prefixIcon: <MdZoomIcon />,
+  options,
+  defaultOptions: [
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+  ],
   disabled: false,
+  selectedOptions: [options[0]],
   showChips: true,
-  closeOnSelect: true,
   mode: 'large',
   helpText: '',
+  closeOnSelect: false,
   error: false,
   errorText: '',
   dropdownHeight: null,

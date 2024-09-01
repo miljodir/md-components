@@ -8,31 +8,38 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-export interface MdAutocompleteOptionProps {
+/**
+ * v3.0.0: Replaces previous type MdAutocompleteOptionProps.
+ */
+export interface MdAutocompleteOption {
   text: string;
   value: string;
 }
 
 export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
-  options: MdAutocompleteOptionProps[];
-  defaultOptions?: MdAutocompleteOptionProps[];
+  options: MdAutocompleteOption[];
+  defaultOptions?: MdAutocompleteOption[];
   /**
-   * Replaces previous 'onChange'-prop for listening to changes in selected option.
-   * onChange-prop is now reserved as a standard prop om the inner html input element.
-   */
-  onSelectOption(_e: MdAutocompleteOptionProps): void;
-  /**
-   * Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
+   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
    * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
    */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
+  value?: string;
   errorText?: string;
   prefixIcon?: React.ReactNode;
   dropdownHeight?: number;
-  amountOfElementsShown?: number;
+  /**
+   * v3.0.0: Replaces previous 'amountOfElementsShown'-prop
+   */
+  numberOfElementsShown?: number;
+  /**
+   * v2.0.0: Replaces previous 'onChange'-prop for listening to changes in selected option.
+   * onChange-prop is now reserved as a standard prop om the inner html input element.
+   */
+  onSelectOption(_e: MdAutocompleteOption): void;
 }
 
 const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
@@ -50,9 +57,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       error = false,
       errorText,
       prefixIcon = null,
-      onSelectOption,
       dropdownHeight,
-      amountOfElementsShown = null,
+      numberOfElementsShown = null,
+      className,
+      onSelectOption,
       ...otherProps
     },
     ref,
@@ -60,9 +68,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
-    const [results, setResults] = useState<MdAutocompleteOptionProps[]>([]);
+    const [results, setResults] = useState<MdAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
+    const [focused, setFocused] = useState(false);
 
     const autocompleteId = id && id !== '' ? id : uuidv4();
 
@@ -79,6 +88,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       'md-autocomplete__input--error': !!error,
       'md-autocomplete__input--has-prefix': prefixIcon !== null && prefixIcon !== '',
       'md-autocomplete--small': mode === 'small',
+      className,
     });
 
     const selectedOption =
@@ -97,17 +107,17 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       displayValue = '';
     }
 
-    const handleOptionClick = (option: MdAutocompleteOptionProps) => {
+    const handleOptionClick = (option: MdAutocompleteOption) => {
       onSelectOption(option);
       setOpen(false);
       setAutocompleteValue('');
     };
 
-    const isSelectedOption = (option: MdAutocompleteOptionProps) => {
+    const isSelectedOption = (option: MdAutocompleteOption) => {
       return value && value !== '' && value == option.value;
     };
 
-    const optionClass = (option: MdAutocompleteOptionProps) => {
+    const optionClass = (option: MdAutocompleteOption) => {
       return classnames('md-autocomplete__dropdown-item', {
         'md-autocomplete__dropdown-item--selected': isSelectedOption(option),
       });
@@ -121,7 +131,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       ? options
       : [];
     const displayedOptionsSliced =
-      amountOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, amountOfElementsShown);
+      numberOfElementsShown == null ? displayedOptions : displayedOptions.slice(0, numberOfElementsShown);
+
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-autocomplete_help-text_${autocompleteId}` : undefined;
+    ariaDescribedBy =
+      error && errorText && errorText !== '' ? `md-autocomplete_error_${autocompleteId}` : ariaDescribedBy;
 
     return (
       <div className={classNames}>
@@ -180,12 +194,15 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           <input
             autoComplete="off"
             role="combobox"
+            onBlur={() => {
+              return setFocused(false);
+            }}
             aria-expanded={open}
             aria-controls={`md-autocomplete_dropdown_${autocompleteId}`}
             id={autocompleteId}
-            aria-describedby={helpText && helpText !== '' ? `md-autocomplete_help-text_${autocompleteId}` : undefined}
+            aria-describedby={ariaDescribedBy}
             className={inputClassNames}
-            value={open ? autocompleteValue : displayValue}
+            value={focused || open ? autocompleteValue : displayValue}
             tabIndex={0}
             onKeyDown={e => {
               if (e.key === 'Enter') {
@@ -204,6 +221,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               }
             }}
             onFocus={() => {
+              setFocused(true);
               !disabled && setOpen(true);
             }}
             type="text"
@@ -232,6 +250,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
                     key={`md-autocomplete-option-${autocompleteId}-${option.value}`}
                     id={`md-autocomplete-option-${autocompleteId}-${option.value}`}
                     type="button"
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') {
+                        return handleOptionClick(option);
+                      }
+                    }}
                     tabIndex={open ? 0 : -1}
                     className={optionClass(option)}
                     onClick={() => {
@@ -251,7 +274,11 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           )}
         </MdClickOutsideWrapper>
 
-        {error && errorText && errorText !== '' && <div className="md-autocomplete__error">{errorText}</div>}
+        {error && errorText && errorText !== '' && (
+          <div id={`md-autocomplete_error_${autocompleteId}`} className="md-autocomplete__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 
@@ -9,7 +8,7 @@ const focusableHtmlElements =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]';
 
 export interface MdModalProps {
-  children: any;
+  children: React.ReactNode;
   heading?: string;
   headingIcon?: React.ReactNode | string;
   open?: boolean;

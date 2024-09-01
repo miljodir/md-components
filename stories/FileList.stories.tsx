@@ -36,7 +36,7 @@ export default {
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: '[{ name: string, id?: string | number, url?: string, size?: number, type?: string }, ...]',
+          summary: '[{ name: string, id?: string, url?: string, size?: number, type?: string }, ...]',
         },
       },
     },
@@ -87,6 +87,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    printableFileTypes: {
+      type: { name: 'array' },
+      description: 'Array of file types that can be printed.',
+      table: {
+        defaultValue: { summary: '["pdf"]' },
+        type: {
+          summary: 'string[]',
+        },
+      },
+      control: { type: 'array' },
+    },
     onRemoveFile: {
       type: { name: 'function' },
       description:
@@ -105,6 +116,12 @@ export default {
         'The callback function for handling file edit. Returns the file-object, to be handled as you see fit. Example use in your component: `onEditFile={(file) => handleEdit(file)}`',
       action: 'Edit',
     },
+    onPrintFile: {
+      type: { name: 'function' },
+      description:
+        'The callback function for handling file print. Returns the file-object, to be handled as you see fit. Example use in your component: `onPrintFile={(file) => handlePrint(file)}`',
+      action: 'Print',
+    },
   },
 };
 
@@ -120,7 +137,9 @@ FileList.args = {
     { name: 'A file without url', id: 'file3', size: 2322211, type: 'application/msword' },
   ],
   hideDownload: false,
-  allowDelete: false,
+  printableFileTypes: ['pdf'],
+  hidePrint: false,
+  allowDelete: true,
   allowEdit: true,
   hideIcons: false,
 };
