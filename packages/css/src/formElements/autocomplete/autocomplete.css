@@ -88,7 +88,7 @@
   width: 16px;
   display: flex;
   color: var(--mdPrimaryColor);
-  z-index: 10;
+  z-index: 2;
 }
 
 .md-autocomplete--small > .md-autocomplete__input__prefix {
@@ -197,7 +197,7 @@
   border-left: 2px solid var(--mdPrimaryColor);
   border-bottom: 2px solid var(--mdPrimaryColor);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Focus state */
