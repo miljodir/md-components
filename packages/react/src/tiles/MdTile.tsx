@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import MdChevronIcon from '../icons/MdChevronIcon';
 
-export interface MdTileProps {
+export type MdTileProps = {
   heading?: string;
   description?: string;
   href?: string;
@@ -10,7 +10,8 @@ export interface MdTileProps {
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const MdTile: React.FC<MdTileProps> = ({
   heading,
@@ -21,7 +22,7 @@ const MdTile: React.FC<MdTileProps> = ({
   preventDefault = false,
   onClick,
   ...otherProps
-}: MdTileProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: MdTileProps) => {
   const classNames = classnames(
     'md-tile',
     {

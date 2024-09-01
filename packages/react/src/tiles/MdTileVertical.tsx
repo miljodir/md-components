@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export interface MdTileVerticalProps {
+export type MdTileVerticalProps = {
   heading?: string;
   description?: string;
   /**
@@ -13,7 +13,8 @@ export interface MdTileVerticalProps {
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
@@ -25,9 +26,7 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   preventDefault = false,
   onClick,
   ...otherProps
-}: MdTileVerticalProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: MdTileVerticalProps) => {
   const classNames = classnames(
     'md-tile-vertical',
     {
