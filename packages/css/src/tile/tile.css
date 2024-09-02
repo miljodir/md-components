@@ -25,6 +25,10 @@
   cursor: pointer;
 }
 
+.md-tile--secondary:not(.md-tile--disabled):hover {
+  background-color: var(--mdSecondaryColor80);
+}
+
 .md-tile:not(.md-tile--disabled):focus {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
@@ -114,6 +118,10 @@
   background-color: var(--mdPrimaryColor20);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
+}
+
+.md-tile-vertical--secondary:hover {
+  background-color: var(--mdSecondaryColor80);
 }
 
 .md-tile-vertical:focus {
