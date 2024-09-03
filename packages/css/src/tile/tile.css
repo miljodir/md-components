@@ -17,10 +17,6 @@
   transition: all 0.15s ease-in-out;
 }
 
-.md-tile--secondary {
-  background-color: var(--mdSecondaryColor40);
-}
-
 .md-tile:not(.md-tile--disabled):hover {
   border: 1px solid var(--mdPrimaryColor);
   background-color: var(--mdPrimaryColor20);
@@ -92,10 +88,6 @@
   text-decoration: none;
   font-family: 'Open sans';
   transition: all 0.15s ease-in-out;
-}
-
-.md-tile-vertical--secondary {
-  background-color: var(--mdSecondaryColor40);
 }
 
 .md-tile-vertical--small {
