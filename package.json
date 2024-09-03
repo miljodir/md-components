@@ -48,7 +48,7 @@
     "storybook": "^7.6.6",
     "trim": "^1.0.1",
     "typescript": "^5.2.0",
-    "webpack": "^5.89.0",
+    "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
