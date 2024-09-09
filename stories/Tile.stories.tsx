@@ -51,6 +51,16 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    fullWidth: {
+      description: 'Is tile full width?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     theme: {
       type: { name: 'string' },
       description: 'Color theme for tile.',
@@ -102,6 +112,7 @@ const Template = (args: Args) => {
       heading="Målinger"
       description="Oversikt over dine målestasjoner"
       href={args.href}
+      fullWidth={args.fullWidth}
       theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
@@ -115,6 +126,7 @@ Tile.args = {
   href: '#',
   theme: 'primary',
   disabled: false,
+  fullWidth: false,
   preventDefault: true,
   icon: true,
 };

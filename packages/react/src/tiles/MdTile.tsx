@@ -8,6 +8,7 @@ export type MdTileProps = {
   href?: string;
   theme?: string;
   disabled?: boolean;
+  fullWidth?: boolean;
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
@@ -21,6 +22,7 @@ const MdTile: React.FC<MdTileProps> = ({
   theme,
   disabled = false,
   icon = null,
+  fullWidth = false,
   preventDefault = false,
   onClick,
   ...otherProps
@@ -30,6 +32,7 @@ const MdTile: React.FC<MdTileProps> = ({
     {
       'md-tile--disabled': !!disabled,
       'md-tile--secondary': theme && theme === 'secondary',
+      'md-tile--full-width': fullWidth,
     },
     otherProps.className,
   );
