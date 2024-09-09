@@ -17,9 +17,13 @@
   transition: all 0.15s ease-in-out;
 }
 
+.md-tile--secondary {
+  background-color: var(--mdSecondaryColor40);
+}
+
 .md-tile:not(.md-tile--disabled):hover {
   border: 1px solid var(--mdPrimaryColor);
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor30);
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
@@ -27,7 +31,15 @@
 .md-tile:not(.md-tile--disabled):focus {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor30);
+}
+
+.md-tile--secondary:not(.md-tile--disabled):hover {
+  background-color: var(--mdSecondaryColor80);
+}
+
+.md-tile--secondary:not(.md-tile--disabled):focus {
+  background-color: var(--mdSecondaryColor80);
 }
 
 .md-tile--disabled {
@@ -90,6 +102,10 @@
   transition: all 0.15s ease-in-out;
 }
 
+.md-tile-vertical--secondary {
+  background-color: var(--mdSecondaryColor40);
+}
+
 .md-tile-vertical--small {
   width: 178px;
 }
@@ -108,7 +124,7 @@
 
 .md-tile-vertical:hover {
   border: 1px solid var(--mdPrimaryColor);
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor30);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
@@ -116,7 +132,15 @@
 .md-tile-vertical:focus {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--mdPrimaryColor30);
+}
+
+.md-tile-vertical--secondary:hover {
+  background-color: var(--mdSecondaryColor80);
+}
+
+.md-tile-vertical--secondary:focus {
+  background-color: var(--mdSecondaryColor80);
 }
 
 .md-tile-vertical__content {
