@@ -13,14 +13,14 @@
   gap: 1.5em;
   text-align: start;
   min-width: 440px;
-  max-width: 100%;
+  max-width: 440px;
   transition: all 0.15s ease-in-out;
 }
 
 .md-tile--full-width {
   width: 100%;
   height: 100%;
-  max-width: 440px;
+  max-width: 100%;
   min-width: 340px;
 }
 
