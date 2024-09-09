@@ -32,7 +32,7 @@ const MdTile: React.FC<MdTileProps> = ({
     {
       'md-tile--disabled': !!disabled,
       'md-tile--secondary': theme && theme === 'secondary',
-      'md-tile--full-width': fullWidth,
+      'md-tile--fullWidth': fullWidth,
     },
     otherProps.className,
   );
