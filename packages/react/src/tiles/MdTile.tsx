@@ -6,7 +6,7 @@ export type MdTileProps = {
   heading?: string;
   description?: string;
   href?: string;
-  theme?: string;
+  theme?: 'primary' | 'secondary';
   disabled?: boolean;
   icon?: React.ReactNode;
   preventDefault?: boolean;
@@ -18,7 +18,7 @@ const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
   href,
-  theme,
+  theme = 'primary',
   disabled = false,
   icon = null,
   preventDefault = false,

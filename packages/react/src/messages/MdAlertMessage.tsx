@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import React from 'react';
-
 import MdCheckIcon from '../icons/MdCheckIcon';
 import MdInfoIcon from '../icons/MdInfoIcon';
 import MdWarningIcon from '../icons/MdWarningIcon';

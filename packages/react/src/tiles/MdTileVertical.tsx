@@ -10,7 +10,7 @@ export type MdTileVerticalProps = {
   mode?: 'large' | 'medium' | 'small';
   disabled?: boolean;
   href?: string;
-  theme?: string;
+  theme?: 'primary' | 'secondary';
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
@@ -23,7 +23,7 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   mode = 'medium',
   disabled = false,
   href,
-  theme,
+  theme = 'primary',
   icon = null,
   preventDefault = false,
   onClick,
