@@ -63,6 +63,18 @@ export default {
       },
       control: { type: 'inline-radio' },
     },
+    mode: {
+      type: { name: 'string' },
+      description: 'Selected size for tile',
+      options: ['small', 'medium', 'large'],
+      control: { type: 'inline-radio' },
+      table: {
+        defaultValue: { summary: 'large' },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -102,6 +114,7 @@ const Template = (args: Args) => {
       heading="Målinger"
       description="Oversikt over dine målestasjoner"
       href={args.href}
+      mode={args.mode}
       theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
@@ -114,6 +127,7 @@ export const Tile = Template.bind({});
 Tile.args = {
   href: '#',
   theme: 'primary',
+  mode: 'large',
   disabled: false,
   preventDefault: true,
   icon: true,
