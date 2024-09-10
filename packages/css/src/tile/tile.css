@@ -17,6 +17,16 @@
   transition: all 0.15s ease-in-out;
 }
 
+.md-tile--medium {
+  width: 424px;
+}
+
+.md-tile--small {
+  width: 320px;
+  gap: 1em;
+  padding: 16px;
+}
+
 .md-tile--secondary {
   background-color: var(--mdSecondaryColor40);
 }

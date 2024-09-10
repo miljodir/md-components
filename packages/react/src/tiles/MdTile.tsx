@@ -8,6 +8,7 @@ export type MdTileProps = {
   href?: string;
   theme?: string;
   disabled?: boolean;
+  mode?: 'large' | 'medium' | 'small';
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
@@ -19,6 +20,7 @@ const MdTile: React.FC<MdTileProps> = ({
   description,
   href,
   theme,
+  mode = 'large',
   disabled = false,
   icon = null,
   preventDefault = false,
@@ -30,6 +32,8 @@ const MdTile: React.FC<MdTileProps> = ({
     {
       'md-tile--disabled': !!disabled,
       'md-tile--secondary': theme && theme === 'secondary',
+      'md-tile--medium': mode === 'medium',
+      'md-tile--small': mode === 'small',
     },
     otherProps.className,
   );
