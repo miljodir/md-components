@@ -1,19 +1,15 @@
 import classnames from 'classnames';
 import React from 'react';
-
 import MdCancelIcon from '../icons/MdCancelIcon';
 import MdCheckIcon from '../icons/MdCheckIcon';
 import MdInfoIcon from '../icons/MdInfoIcon';
 import MdWarningIcon from '../icons/MdWarningIcon';
 
-type ThemeTypes = null | undefined | '' | 'primary' | 'secondary' | 'warning' | 'danger' | 'success';
-type IconTypes = null | undefined | '' | 'none' | 'info' | 'warning' | 'error' | 'check' | 'custom';
-
 export interface MdInfoTagProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: ThemeTypes;
+  theme?: 'primary' | 'secondary' | 'warning' | 'danger' | 'success';
   keepOpen?: boolean;
   label?: string;
-  icon?: IconTypes;
+  icon?: 'none' | 'info' | 'warning' | 'error' | 'check' | 'custom';
   customIcon?: React.ReactNode;
   outline?: boolean;
   onClick?(_e: React.MouseEvent): void;

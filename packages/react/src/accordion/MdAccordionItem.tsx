@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 import MdMinusIcon from '../icons/MdMinusIcon';
 
 export interface MdAccordionItemProps {
@@ -9,7 +8,7 @@ export interface MdAccordionItemProps {
   headerContent?: React.ReactNode | string;
   id?: string;
   expanded?: boolean;
-  theme?: string;
+  theme?: 'primary' | 'secondary' | 'add';
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
@@ -24,7 +23,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   headerContent,
   id,
   expanded = false,
-  theme,
+  theme = 'primary',
   disabled = false,
   className = '',
   children,
