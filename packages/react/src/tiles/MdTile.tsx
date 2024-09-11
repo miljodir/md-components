@@ -7,6 +7,7 @@ export type MdTileProps = {
   description?: string;
   href?: string;
   theme?: 'primary' | 'secondary';
+  fullWidth?: boolean;
   disabled?: boolean;
   mode?: 'large' | 'medium' | 'small';
   icon?: React.ReactNode;
@@ -20,6 +21,7 @@ const MdTile: React.FC<MdTileProps> = ({
   description,
   href,
   theme = 'primary',
+  fullWidth = false,
   mode = 'large',
   disabled = false,
   icon = null,
@@ -34,6 +36,7 @@ const MdTile: React.FC<MdTileProps> = ({
       'md-tile--secondary': theme && theme === 'secondary',
       'md-tile--medium': mode === 'medium',
       'md-tile--small': mode === 'small',
+      'md-tile--fullWidth': !!fullWidth,
     },
     otherProps.className,
   );

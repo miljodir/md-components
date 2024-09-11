@@ -13,18 +13,26 @@
   gap: 1.5em;
   text-align: start;
   width: 440px;
+  min-width: 440px;
   max-width: 100%;
   transition: all 0.15s ease-in-out;
 }
 
 .md-tile--medium {
   width: 424px;
+  min-width: 424px;
 }
 
 .md-tile--small {
   width: 320px;
+  min-width: 320px;
   gap: 1em;
   padding: 16px;
+}
+
+.md-tile--fullWidth {
+  width: 100%;
+  min-width: 100%;
 }
 
 .md-tile--secondary {
