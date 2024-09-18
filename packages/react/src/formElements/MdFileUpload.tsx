@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import MdButton from '../button/MdButton';
 import MdFileList from '../fileList/MdFileList';
 import { useFileUpload } from '../hooks/useFileUpload';
@@ -15,6 +15,9 @@ export interface MdFileUploadProps {
   hideFileListIcons?: boolean;
   multiple?: boolean;
   imagesOnly?: boolean;
+  automaticTrigger?: boolean;
+  hideButtons?: boolean;
+  uploadTexts?: [string, string];
 }
 
 const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
@@ -26,13 +29,24 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   hideFileListIcons = false,
   multiple = true,
   imagesOnly = false,
+  automaticTrigger = false,
+  hideButtons = false,
+  uploadTexts,
 }: MdFileUploadProps) => {
   const { files, handleDragDropEvent, clearAllFiles, createFormData, setFiles, removeFile } = useFileUpload();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (e: MouseEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    if (automaticTrigger && files.length !== 0) {
+      handleSubmit();
+    }
+  }, [automaticTrigger, files]);
+
+  const handleSubmit = async (e?: MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
     if (onUpload) {
       if (useFormData) {
         const formData = createFormData();
@@ -95,7 +109,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         </div>
 
         <div className="md-fileupload__droparea-content">
-          {`Dropp ${imagesOnly ? 'et bilde' : 'en fil'} her eller `}
+          {uploadTexts && uploadTexts[0] ? uploadTexts[0] : `Dropp ${imagesOnly ? 'et bilde' : 'en fil'} her eller`}
           <button
             className="md-fileupload__button"
             type="button"
@@ -103,7 +117,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
               return inputRef.current?.click();
             }}
           >
-            velg fra denne maskinen
+            {uploadTexts && uploadTexts[1]  ? uploadTexts[1] : 'velg fra denne maskinen'}
           </button>
           <div className="md-fileupload__droparea-content--count">
             Antall {imagesOnly ? 'bilder' : 'filer'}: {files.length} {!multiple ? '/ 1' : ''}
@@ -140,15 +154,18 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           </div>
         )}
       </div>
+      {!hideButtons && (
+        <div className="md-fileupload__actions">
+          <MdButton theme="secondary" onClick={handleCancel}>
+            {cancelButtonText}
+          </MdButton>
+          <MdButton onClick={handleSubmit}>
+          {/* //disabled={!files || files.length === 0} */}
+            {uploadButtonText}
+          </MdButton>
+        </div>
+        )}
 
-      <div className="md-fileupload__actions">
-        <MdButton theme="secondary" onClick={handleCancel}>
-          {cancelButtonText}
-        </MdButton>
-        <MdButton onClick={handleSubmit} disabled={!files || files.length === 0}>
-          {uploadButtonText}
-        </MdButton>
-      </div>
     </div>
   );
 };
