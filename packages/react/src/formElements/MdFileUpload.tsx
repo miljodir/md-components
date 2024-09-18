@@ -12,12 +12,12 @@ export interface MdFileUploadProps {
   useFormData?: boolean;
   uploadButtonText?: string;
   cancelButtonText?: string;
+  uploadTexts?: [string, string];
   hideFileListIcons?: boolean;
   multiple?: boolean;
   imagesOnly?: boolean;
   automaticTrigger?: boolean;
   hideButtons?: boolean;
-  uploadTexts?: [string, string];
 }
 
 const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
@@ -26,12 +26,12 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   useFormData = false,
   uploadButtonText = 'Last opp',
   cancelButtonText = 'Avbryt',
+  uploadTexts,
   hideFileListIcons = false,
   multiple = true,
   imagesOnly = false,
   automaticTrigger = false,
   hideButtons = false,
-  uploadTexts,
 }: MdFileUploadProps) => {
   const { files, handleDragDropEvent, clearAllFiles, createFormData, setFiles, removeFile } = useFileUpload();
 
@@ -159,13 +159,11 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           <MdButton theme="secondary" onClick={handleCancel}>
             {cancelButtonText}
           </MdButton>
-          <MdButton onClick={handleSubmit}>
-          {/* //disabled={!files || files.length === 0} */}
+          <MdButton onClick={handleSubmit} disabled={!files || files.length === 0} >
             {uploadButtonText}
           </MdButton>
         </div>
         )}
-
     </div>
   );
 };

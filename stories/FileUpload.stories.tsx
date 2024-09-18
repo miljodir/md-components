@@ -73,6 +73,16 @@ export default {
       },
       control: { type: 'text' },
     },
+    uploadTexts: {
+      type: { name: 'array' },
+      description: 'Texts for upload area. Default depends on value of `imagesOnly`. Can be used to give user extra information about the upload, or change the language of the upload text.',
+      table: {
+        defaultValue: { summary: '["Dropp en fil her eller", "velg fra denne maskinen"]' },
+        type: {
+          summary: 'array',
+        },
+      },
+    },
     multiple: {
       type: { name: 'boolean' },
       description: 'Allow multiple files',
@@ -116,16 +126,6 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },
-    uploadTexts: {
-      type: { name: 'array' },
-      description: 'Texts for upload area. Default depends on value of `imagesOnly`. Can be used to give user extra information about the upload, or change the language of the upload text.',
-      table: {
-        defaultValue: { summary: '["Dropp en fil her eller", "velg fra denne maskinen"]' },
-        type: {
-          summary: 'array',
-        },
-      },
     },
     onUpload: {
       type: { name: 'function' },
