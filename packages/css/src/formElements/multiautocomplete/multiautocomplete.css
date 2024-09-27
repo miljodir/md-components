@@ -196,7 +196,7 @@
 }
 
 .md-autocomplete__dropdown-no-results {
-  padding: 1em;
+  padding: 0.9em;
   font-style: italic;
 }
 
