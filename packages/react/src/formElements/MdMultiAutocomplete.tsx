@@ -29,6 +29,7 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   showChips?: boolean;
   closeOnSelect?: boolean;
   prefixIcon?: React.ReactNode;
+  noResultsText?: string;
   dropdownHeight?: number;
   /**
    * v3.0.0: Replaces previous 'amountOfElementsShown'-prop.
@@ -57,6 +58,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       dropdownHeight,
       numberOfElementsShown = null,
       className,
+      noResultsText = 'Ingen resultater funnet',
       onSelectOption,
       ...otherProps
     },
@@ -289,6 +291,9 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
                   </div>
                 );
               })}
+              {displayedOptionsSliced.length === 0 && (
+                <div className="md-autocomplete__dropdown-no-results">{noResultsText}</div>
+              )}
             </div>
           )}
         </MdClickOutsideWrapper>

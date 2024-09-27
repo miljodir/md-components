@@ -162,6 +162,7 @@
   align-items: center;
   font-family: 'Open sans';
   border: 0;
+  font-size: 1em;
   background-color: #fff;
   width: 100%;
   text-align: left;
@@ -192,6 +193,11 @@
   height: 12px;
   width: 12px;
   color: var(--mdPrimaryColor);
+}
+
+.md-autocomplete__dropdown-no-results {
+  padding: 1em;
+  font-style: italic;
 }
 
 .md-multiautocomplete__chips {
