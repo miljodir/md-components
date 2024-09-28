@@ -197,6 +197,7 @@
 
 .md-autocomplete__dropdown-no-results {
   padding: 0.9em;
+  background-color: #fff;
   font-style: italic;
 }
 
