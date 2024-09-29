@@ -195,7 +195,7 @@
   color: var(--mdPrimaryColor);
 }
 
-.md-autocomplete__dropdown-no-results {
+.md-multiautocomplete__dropdown-no-results {
   padding: 0.9em;
   background-color: #fff;
   font-style: italic;

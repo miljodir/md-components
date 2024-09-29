@@ -292,7 +292,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
                 );
               })}
               {displayedOptionsSliced.length === 0 && (
-                <div className="md-autocomplete__dropdown-no-results">{noResultsText}</div>
+                <div className="md-multiautocomplete__dropdown-no-results">{noResultsText}</div>
               )}
             </div>
           )}
