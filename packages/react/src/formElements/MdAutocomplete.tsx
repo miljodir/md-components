@@ -71,7 +71,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [results, setResults] = useState<MdAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
-    const [focused, setFocused] = useState(false);
 
     const autocompleteId = id && id !== '' ? id : uuidv4();
 
@@ -194,15 +193,12 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
           <input
             autoComplete="off"
             role="combobox"
-            onBlur={() => {
-              return setFocused(false);
-            }}
             aria-expanded={open}
             aria-controls={`md-autocomplete_dropdown_${autocompleteId}`}
             id={autocompleteId}
             aria-describedby={ariaDescribedBy}
             className={inputClassNames}
-            value={focused || open ? autocompleteValue : displayValue}
+            value={open ? autocompleteValue : displayValue}
             tabIndex={0}
             onKeyDown={e => {
               if (e.key === 'Enter') {
@@ -221,7 +217,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
               }
             }}
             onFocus={() => {
-              setFocused(true);
               !disabled && setOpen(true);
             }}
             type="text"
