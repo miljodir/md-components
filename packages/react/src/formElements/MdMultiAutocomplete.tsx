@@ -223,11 +223,6 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                setOpen(!open);
-              }
-            }}
             onChange={e => {
               setAutocompleteValue(e.target.value);
               if (e.target.value && e.target.value !== '') {
