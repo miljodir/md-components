@@ -150,9 +150,9 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    onChange: {
+    onSelectOption: {
       type: { name: 'function' },
-      description: 'The onChange handler for change events. Returns the `ChangeEvent` from clicked option.',
+      description: 'The onSelectOption handler for change events. Returns the clicked option.',
       table: {
         type: {
           summary: 'function',

@@ -2,30 +2,41 @@ import classnames from 'classnames';
 import React from 'react';
 import MdChevronIcon from '../icons/MdChevronIcon';
 
-export interface MdTileProps {
+export type MdTileProps = {
   heading?: string;
   description?: string;
   href?: string;
+  theme?: 'primary' | 'secondary';
+  fullWidth?: boolean;
   disabled?: boolean;
+  mode?: 'large' | 'medium' | 'small';
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
   href,
+  theme = 'primary',
+  fullWidth = false,
+  mode = 'large',
   disabled = false,
   icon = null,
   preventDefault = false,
   onClick,
   ...otherProps
-}: MdTileProps & React.AnchorHTMLAttributes<HTMLAnchorElement> & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: MdTileProps) => {
   const classNames = classnames(
     'md-tile',
     {
       'md-tile--disabled': !!disabled,
+      'md-tile--secondary': theme && theme === 'secondary',
+      'md-tile--medium': mode === 'medium',
+      'md-tile--small': mode === 'small',
+      'md-tile--fullWidth': !!fullWidth,
     },
     otherProps.className,
   );
@@ -42,7 +53,11 @@ const MdTile: React.FC<MdTileProps> = ({
   const content = (
     <>
       <div className="md-tile__content">
-        {icon && icon !== '' && <div className="md-tile__content-icon">{icon}</div>}
+        {icon && icon !== '' && (
+          <div aria-hidden="true" className="md-tile__content-icon">
+            {icon}
+          </div>
+        )}
         <div className="md-tile__content-text">
           <div className="md-tile__content-heading">{heading}</div>
           {description && description !== '' && <div className="md-tile__content-description">{description}</div>}

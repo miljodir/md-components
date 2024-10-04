@@ -73,6 +73,16 @@ export default {
       },
       control: { type: 'text' },
     },
+    uploadTexts: {
+      type: { name: 'array' },
+      description: 'Texts for upload area. Default depends on value of `imagesOnly`. Can be used to give user extra information about the upload, or change the language of the upload text.',
+      table: {
+        defaultValue: { summary: '["Dropp en fil her eller", "velg fra denne maskinen"]' },
+        type: {
+          summary: 'array',
+        },
+      },
+    },
     multiple: {
       type: { name: 'boolean' },
       description: 'Allow multiple files',
@@ -87,6 +97,28 @@ export default {
     imagesOnly: {
       type: { name: 'boolean' },
       description: 'Allow only images to be uploaded',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    automaticTrigger: {
+      type: { name: 'boolean' },
+      description: 'Automatically trigger the onUpload callback whenever the filelist changes. Will not trigger when filelist becomes empty.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    hideButtons: {
+      type: { name: 'boolean' },
+      description: 'Hide upload and cancel buttons. Useful when automaticTrigger is set to true.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -126,4 +158,6 @@ FileUpload.args = {
   hideFileListIcons: false,
   multiple: true,
   imagesOnly: false,
+  automaticTrigger: false,
+  hideButtons: false,
 };

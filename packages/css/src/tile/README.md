@@ -9,7 +9,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 ## Tile horizontal
 
 ```html
-<a className="md-tile" href="{href}" onClick="{handleClick}">
+<a className="md-tile [md-tile--secondary, md-tile--small, md-tile--medium, md-tile--fullWidth]" href="{href}" onClick="{handleClick}">
   <div className="md-tile__content">
     <div className="md-tile__content-icon">{icon}</div>
     <div className="md-tile__content-text">
@@ -28,7 +28,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <a
-  className="md-tile-vertical [md-tile-vertical--small, md-tile-vertical--large]"
+  className="md-tile-vertical [md-tile-vertical--secondary, md-tile-vertical--small, md-tile-vertical--large]"
   href="{href}"
   onClick="{handleClick}"
 >

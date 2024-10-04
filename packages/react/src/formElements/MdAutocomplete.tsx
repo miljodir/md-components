@@ -30,6 +30,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   value?: string;
   errorText?: string;
   prefixIcon?: React.ReactNode;
+  noResultsText?: string;
   dropdownHeight?: number;
   /**
    * v3.0.0: Replaces previous 'amountOfElementsShown'-prop
@@ -60,6 +61,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
       dropdownHeight,
       numberOfElementsShown = null,
       className,
+      noResultsText = 'Ingen resultat funnet',
       onSelectOption,
       ...otherProps
     },
@@ -260,6 +262,9 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
                   </button>
                 );
               })}
+              {displayedOptionsSliced.length === 0 && (
+                <div className="md-autocomplete__dropdown-no-results">{noResultsText}</div>
+              )}
             </div>
           )}
         </MdClickOutsideWrapper>

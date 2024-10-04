@@ -11,7 +11,7 @@ export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButton
 }
 
 const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
-  theme,
+  theme = 'filled',
   children,
   showTooltip = false,
   disabled,
@@ -23,7 +23,6 @@ const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   const classNames = classnames(
     'md-icon-button',
     {
-      'md-icon-button--filled': theme === 'filled',
       'md-icon-button--border': theme === 'border',
       'md-icon-button--plain': theme === 'plain',
     },

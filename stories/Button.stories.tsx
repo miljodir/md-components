@@ -98,7 +98,7 @@ export default {
 interface ButtonArgs {
   label: string;
   disabled: boolean;
-  theme: string;
+  theme: 'primary' | 'secondary' | 'danger' | 'tertiary';
   small: boolean;
 }
 

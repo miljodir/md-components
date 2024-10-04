@@ -63,6 +63,18 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    theme: {
+      type: { name: 'string' },
+      description: 'Color theme for vertical tile.',
+      options: ['primary', 'secondary'],
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'inline-radio' },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -103,6 +115,7 @@ const Template = (args: Args) => {
       description="Oversikt over dine målestasjoner"
       href={args.href}
       mode={args.mode}
+      theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={128} height={128} />}
@@ -114,6 +127,7 @@ export const TileVertical = Template.bind({});
 TileVertical.args = {
   href: '#',
   mode: 'medium',
+  theme: 'primary',
   disabled: false,
   preventDefault: true,
   icon: true,

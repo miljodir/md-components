@@ -88,7 +88,7 @@
   width: 16px;
   display: flex;
   color: var(--mdPrimaryColor);
-  z-index: 0;
+  z-index: 2;
 }
 
 .md-autocomplete--small > .md-autocomplete__input__prefix {
@@ -144,6 +144,7 @@
   display: flex;
   align-items: center;
   font-family: 'Open sans';
+  font-size: 1em;
   border: 0;
   background-color: #fff;
   width: 100%;
@@ -177,6 +178,12 @@
   color: var(--mdPrimaryColor);
 }
 
+.md-autocomplete__dropdown-no-results {
+  padding: 0.9em;
+  background-color: #fff;
+  font-style: italic;
+}
+
 /* Open state */
 .md-autocomplete--open .md-autocomplete__input {
   border-left: 2px solid var(--mdPrimaryColor);
@@ -197,7 +204,7 @@
   border-left: 2px solid var(--mdPrimaryColor);
   border-bottom: 2px solid var(--mdPrimaryColor);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Focus state */

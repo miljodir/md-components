@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export interface MdTileVerticalProps {
+export type MdTileVerticalProps = {
   heading?: string;
   description?: string;
   /**
@@ -10,10 +10,12 @@ export interface MdTileVerticalProps {
   mode?: 'large' | 'medium' | 'small';
   disabled?: boolean;
   href?: string;
+  theme?: 'primary' | 'secondary';
   icon?: React.ReactNode;
   preventDefault?: boolean;
   onClick?(_e: React.MouseEvent): void;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
@@ -21,18 +23,18 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   mode = 'medium',
   disabled = false,
   href,
+  theme = 'primary',
   icon = null,
   preventDefault = false,
   onClick,
   ...otherProps
-}: MdTileVerticalProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: MdTileVerticalProps) => {
   const classNames = classnames(
     'md-tile-vertical',
     {
       'md-tile-vertical--disabled': !!disabled,
       'md-tile-vertical--small': mode === 'small',
+      'md-tile-vertical--secondary': theme && theme === 'secondary',
       'md-tile-vertical--large': mode === 'large',
     },
     otherProps.className,
@@ -49,7 +51,11 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
 
   const content = (
     <div className="md-tile-vertical__content">
-      {icon && icon !== '' && <div className="md-tile-vertical__content-icon">{icon}</div>}
+      {icon && icon !== '' && (
+        <div aria-hidden="true" className="md-tile-vertical__content-icon">
+          {icon}
+        </div>
+      )}
       <div className="md-tile-vertical__content-text">
         <div className="md-tile-vertical__content-heading">{heading}</div>
         {description && description !== '' && (
