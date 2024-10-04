@@ -69,7 +69,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
     const [autocompleteValue, setAutocompleteValue] = useState('');
     const [results, setResults] = useState<MdMultiAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    useDropdown(dropdownRef, open, setOpen);
+    useDropdown(dropdownRef, open, setOpen, 'autocomplete');
 
     const multiAutocompleteId = id && id !== '' ? id : uuidv4();
 
@@ -225,11 +225,6 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                setOpen(!open);
-              }
-            }}
             onChange={e => {
               setAutocompleteValue(e.target.value);
               if (e.target.value && e.target.value !== '') {
