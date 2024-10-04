@@ -228,6 +228,11 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
                       disabled={!!disabled}
                       data-value={option.value}
                       data-text={option.text}
+                      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                        if (e.key === 'Enter') {
+                          return handleOptionClick(option);
+                        }
+                      }}
                       onChange={() => {
                         return handleOptionClick(option);
                       }}

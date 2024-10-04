@@ -272,6 +272,11 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
                       disabled={!!disabled}
                       data-value={option.value}
                       data-text={option.text}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') {
+                          return handleOptionClick(option);
+                        }
+                      }}
                       onChange={() => {
                         handleOptionClick(option);
                       }}
