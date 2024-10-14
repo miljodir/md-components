@@ -30,6 +30,7 @@
 
 .md-radiobutton__check-area {
   width: 1.45rem;
+  /* min-width: 1.45rem; */
   height: 1.45rem;
   display: block;
   background-color: #fff;
