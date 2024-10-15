@@ -8,7 +8,6 @@
 .md-radiobutton {
   display: flex;
   align-items: center;
-  cursor: pointer;
   position: relative;
 }
 
@@ -17,14 +16,15 @@
   outline-offset: 2px;
 }
 
-.md-radiobutton:hover {
-  text-decoration: underline;
-}
-
 .md-radiobutton input[type='radio'] {
   position: absolute;
   left: 0;
   opacity: 0;
+  cursor: pointer;
+}
+
+.md-radiobutton__label:hover {
+  text-decoration: underline;
   cursor: pointer;
 }
 
