@@ -28,7 +28,9 @@ const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
     <div className={classNames}>
       <span className="md-radiobutton__check-area">{checked && <span className="md-radiobutton__selected-dot" />}</span>
       <input id={radioGroupId} type="radio" checked={checked} disabled={disabled} {...otherProps} />
-      <label htmlFor={radioGroupId}>{label && label !== '' && label}</label>
+      <label className="md-radiobutton__label" htmlFor={radioGroupId}>
+        {label && label !== '' && label}
+      </label>
     </div>
   );
 };
