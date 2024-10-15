@@ -28,6 +28,11 @@
   cursor: pointer;
 }
 
+.md-radiobutton__input {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
 .md-radiobutton__check-area {
   width: 1.45rem;
   flex-shrink: 0;
