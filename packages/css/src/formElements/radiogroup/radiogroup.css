@@ -5,40 +5,40 @@
   padding: 0;
 }
 
-.md-radiogroup .md-radiogroup__label {
+.md-radiogroup__label {
   display: flex;
   align-items: center;
   font-weight: 600;
 }
 
-.md-radiogroup .md-radiogroup__label > * + * {
+.md-radiogroup__label > * + * {
   margin-left: 1em;
 }
 
-.md-radiogroup .md-radiogroup__help-text {
+.md-radiogroup__help-text {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.15s ease-out;
 }
 
-.md-radiogroup .md-radiogroup__help-text--open {
+.md-radiogroup__help-text--open {
   padding-top: 0.5em;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
-.md-radiogroup .md-radiogroup__options {
+.md-radiogroup__options {
   display: flex;
   flex-direction: row;
   gap: 1em;
   margin: 0.7em 0;
 }
 
-.md-radiogroup .md-radiogroup__options--vertical {
+.md-radiogroup__options--vertical {
   flex-direction: column;
 }
 
-.md-radiogroup .md-radiogroup-option {
+.md-radiogroup-option {
   margin-right: 1.2rem;
   display: flex;
   align-items: center;
@@ -46,60 +46,11 @@
   position: relative;
 }
 
-.md-radiogroup .md-radiogroup__options--vertical .md-radiogroup-option {
+.md-radiogroup__options--vertical .md-radiogroup-option {
   margin-bottom: 1em;
 }
-.md-radiogroup .md-radiogroup__options--vertical .md-radiogroup-option:last-child {
+.md-radiogroup__options--vertical .md-radiogroup-option:last-child {
   margin-bottom: 0.2em;
-}
-
-.md-radiogroup .md-radiogroup-option:focus-within {
-  outline: 2px solid var(--mdPrimaryColor);
-  outline-offset: 2px;
-}
-
-.md-radiogroup .md-radiogroup-option:hover {
-  text-decoration: underline;
-}
-
-.md-radiogroup .md-radiogroup-option input[type='radio'] {
-  position: absolute;
-  left: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.md-radiogroup .md-radiogroup-option__check-area {
-  width: 1.45rem;
-  height: 1.45rem;
-  display: block;
-  background-color: #fff;
-  border: 1px solid var(--mdPrimaryColor);
-  border-radius: 50%;
-  margin: 0 0.5rem 0 0;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.md-radiogroup:not(.md-radiogroup--disabled) .md-radiogroup-option:focus-within .md-radiogroup-option__check-area,
-.md-radiogroup:not(.md-radiogroup--disabled) .md-radiogroup-option:hover .md-radiogroup-option__check-area {
-  background-color: var(--mdPrimaryColor20);
-}
-
-.md-radiogroup .md-radiogroup-option__selected-dot {
-  width: 0.6em;
-  height: 0.6em;
-  display: block;
-  background-color: var(--mdPrimaryColor);
-  border-radius: 50%;
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  animation: fadeIn 0.3s ease-out 1 forwards;
 }
 
 .md-radiogroup__error {
@@ -122,13 +73,13 @@
 
 /* Media */
 @media (max-width: 768px) {
-  .md-radiogroup .md-radiogroup__options {
+  .md-radiogroup__options {
     flex-wrap: wrap;
   }
-  .md-radiogroup .md-radiogroup-option {
+  .md-radiogroup-option {
     margin-bottom: 0.5em;
   }
-  .md-radiogroup .md-radiogroup__help-text {
+  .md-radiogroup__help-text {
     width: 100%;
   }
 }
