@@ -24,13 +24,10 @@
 .md-radiobutton input[type='radio'] {
   position: absolute;
   left: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.md-radiobutton__input {
   width: 1.45rem;
   height: 1.45rem;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .md-radiobutton__check-area {
