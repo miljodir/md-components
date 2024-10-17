@@ -15,22 +15,22 @@
   display: flex;
   align-items: flex-end;
   font-weight: 600;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
 }
 
 .md-multiselect__label > * + * {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .md-multiselect__button {
   font-family: 'Open sans';
-  font-size: 1em;
+  font-size: 1rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  padding: 1em;
+  padding: 1rem;
   border: 1px solid var(--mdGreyColor60);
   color: var(--mdGreyColor);
   text-align: left;
@@ -38,7 +38,7 @@
 }
 
 .md-multiselect__button.md-multiselect--small {
-  padding: 0.75em;
+  padding: 0.75rem;
 }
 
 .md-multiselect--disabled .md-multiselect__button {
@@ -55,13 +55,13 @@
   .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
 .md-multiselect:not(.md-multiselect--disabled)
   .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
-  padding: calc(0.75em - 1px);
+  padding: calc(0.75rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
-  padding: calc(1em - 1px);
+  padding: calc(1rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
@@ -70,7 +70,7 @@
 }
 
 .md-multiselect__button-text {
-  padding-right: 0.5em;
+  padding-right: 0.5rem;
   width: 90%;
   overflow: hidden;
   white-space: nowrap;
@@ -80,15 +80,15 @@
 .md-multiselect__button-icon {
   display: flex;
   flex-shrink: 0;
-  width: 15px;
-  height: 15px;
+  width: 0.9375rem;
+  height: 0.9375rem;
   rotate: 90deg;
   color: var(--mdGreyColor);
 }
 
 .md-multiselect__button-hasmultiple {
-  margin-right: 1em;
-  font-size: 0.8em;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 .md-multiselect__help-text {
@@ -98,8 +98,8 @@
 }
 
 .md-multiselect__help-text--open {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -122,7 +122,7 @@
   display: flex;
   align-items: center;
   font-family: 'Open sans';
-  font-size: 1em;
+  font-size: 1rem;
   border: 0;
   background-color: #fff;
   text-align: left;
@@ -140,7 +140,7 @@
   display: flex;
   flex-shrink: 0;
   flex-grow: 1;
-  padding: 0.75em;
+  padding: 0.75rem;
 }
 
 .md-multiselect__dropdown-item .md-checkbox .md-checkbox__label .md-checkbox__labelText {
@@ -149,10 +149,10 @@
 
 .md-multiselect__dropdown-item .md-checkbox__labelText {
   font-family: 'Open Sans';
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.375rem;
   color: var(--mdGreyColor);
 }
 
@@ -179,7 +179,7 @@
 .md-multiselect__dropdown-item-text {
   display: flex;
   flex-grow: 1;
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .md-multiselect__dropdown-item-checkbox {
@@ -187,8 +187,8 @@
   border: 1px solid var(--mdGreyColor60);
   content: '';
   cursor: pointer;
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 .md-multiselect__dropdown-item--selected .md-multiselect__dropdown-item-checkbox {
@@ -196,7 +196,7 @@
   background-repeat: no-repeat;
   background-position-y: 2px;
   background-position-x: 1px;
-  background-size: 18px;
+  background-size: 1.125rem;
 }
 
 .md-multiselect__error {
@@ -206,9 +206,9 @@
 
 .md-multiselect__chips {
   display: flex;
-  margin-top: 0.7em;
+  margin-top: 0.7rem;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 /* Open state */
@@ -216,27 +216,27 @@
   border-top: 2px solid var(--mdPrimaryColor80);
   border-right: 2px solid var(--mdPrimaryColor80);
   border-left: 2px solid var(--mdPrimaryColor80);
-  padding: calc(1em - 1px);
-  padding-bottom: 1em;
+  padding: calc(1rem - 1px);
+  padding-bottom: 1rem;
 }
 
 .md-multiselect--open .md-multiselect__button.md-multiselect--small {
   border-top: 2px solid var(--mdPrimaryColor80);
   border-right: 2px solid var(--mdPrimaryColor80);
   border-left: 2px solid var(--mdPrimaryColor80);
-  padding: calc(0.75em - 1px);
-  padding-bottom: 0.75em;
+  padding: calc(0.75rem - 1px);
+  padding-bottom: 0.75rem;
 }
 
 .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
-  padding: calc(1em - 1px);
+  padding: calc(1rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
 .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
 .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
-  padding: calc(0.75em - 1px);
+  padding: calc(0.75rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
