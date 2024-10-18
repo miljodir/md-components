@@ -6,8 +6,8 @@
   z-index: 2;
   background-color: var(--mdPrimaryColor20);
   color: var(--mdGreyColor);
-  padding: 4px 12px 4px 12px;
-  border-radius: 4px;
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+  border-radius: 0.25rem;
   font-family: 'Open Sans';
   text-align: left;
   white-space: nowrap;
@@ -53,24 +53,24 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
 }
 .md-info-tag:hover .md-info-tag__label {
   max-width: 100%;
-  padding-right: 16px;
+  padding-right: 1rem;
   transition: max-width 0.3s ease-in;
   white-space: nowrap;
 }
 
 .md-info-tag__label--show {
   max-width: 100%;
-  padding-right: 16px;
+  padding-right: 1rem;
   transition: max-width 0.3s ease-in;
   white-space: nowrap;
 }
 
 .md-info-tag__icon {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }

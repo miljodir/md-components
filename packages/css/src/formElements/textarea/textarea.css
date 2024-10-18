@@ -1,10 +1,10 @@
 .md-textarea__outer-wrapper {
   font-family: 'Open sans';
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .md-textarea {
-  padding: 1em 2em 1em 1em;
+  padding: 1rem 2rem 1rem 1rem;
   font-family: 'Open sans';
   max-width: 100%;
   width: 100%;
@@ -13,7 +13,7 @@
   border: 1px solid var(--mdGreyColor60);
   margin: 1px;
   color: var(--mdGreyColor);
-  font-size: 16px;
+  font-size: 1rem;
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .md-textarea__wrapper {
-  margin: 0.7em 0 0.3em 0;
+  margin: 0.7rem 0 0.3rem 0;
 }
 
 .md-textarea__label {
@@ -54,7 +54,7 @@
 }
 
 .md-textarea__label > * + * {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .md-textarea__help-button {
@@ -64,7 +64,7 @@
 
 .md-textarea__error {
   color: var(--mdErrorColor);
-  font-size: 0.88em;
+  font-size: 0.88rem;
 }
 
 .md-textarea__help-text {
@@ -74,7 +74,7 @@
 }
 
 .md-textarea__help-text--open {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }

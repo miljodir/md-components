@@ -1,14 +1,14 @@
 .md-filelist {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .md-filelist__file {
   display: flex;
   justify-content: space-between;
   border: 1px solid var(--mdPrimaryColor);
-  padding: 0.8em 1.1em;
+  padding: 0.8rem 1.1rem;
   font-family: 'Open sans';
   background-color: #fff;
   transition: background 0.2s linear;
@@ -21,36 +21,36 @@
 
 .md-filelist__file-label {
   display: flex;
-  gap: 1em;
-  font-size: 16px;
+  gap: 1rem;
+  font-size: 1rem;
 }
 
 .md-filelist__file-icon {
-  width: 32px;
+  width: 2rem;
 }
 
 .md-filelist__file-size {
-  font-size: 14px;
-  margin-top: 0.3em;
+  font-size: 0.875rem;
+  margin-top: 0.3rem;
 }
 
 /* File actions */
 .md-filelist__file-actions {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .md-filelist__file-actions-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: transparent;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   border: 0;
-  padding: 0.2em;
+  padding: 0.2rem;
   cursor: pointer;
   transition: background 0.1s linear;
 }
@@ -61,6 +61,6 @@
 }
 
 .md-filelist__file-action-icon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }

@@ -1,6 +1,6 @@
 .md-radiobutton {
   font-family: 'Open sans';
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   padding: 0;
 }
@@ -48,8 +48,8 @@
 }
 
 .md-radiobutton__selected-dot {
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.6rem;
+  height: 0.6rem;
   display: block;
   background-color: var(--mdPrimaryColor);
   border-radius: 50%;
