@@ -154,7 +154,7 @@
   z-index: -1;
   opacity: 0;
   transition: max-height 0.5s ease-in-out;
-  width: calc(100% - 4px); /* Full width minus border-width */
+  width: 100%;
 }
 
 .md-multiautocomplete__dropdown-item {
