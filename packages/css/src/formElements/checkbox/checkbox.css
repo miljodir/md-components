@@ -21,9 +21,9 @@
   border: 1px solid var(--mdGreyColor60);
   content: '';
   cursor: pointer;
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
+  min-width: 1.25rem;
 }
 
 .md-checkbox:focus-within .md-checkbox__label::before,
@@ -39,9 +39,9 @@
 .md-checkbox__input:checked + .md-checkbox__label::before {
   background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZTk2NWRkN2EtN2NlNS00MTc0LThjMjEtY2UwNjIzYmFmNTJhIiBkYXRhLW5hbWU9ImNoZWNrbWFyay1ncmVlbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTMgMTAuMDIiPjx0aXRsZT5jaGVja21hcmstZ3JlZW48L3RpdGxlPjxwYXRoIGQ9Ik0xMS4xNCwwLDQuODMsNi4zMWwtMy0zTDAsNS4xOSw0LjgzLDEwLDEzLDEuODZaIiBmaWxsPSIjMDA2MTVjIiAvPjwvc3ZnPg==);
   background-repeat: no-repeat;
-  background-position-y: 2px;
-  background-position-x: 1px;
-  background-size: 18px;
+  background-position-y: 0.125rem;
+  background-position-x: 0.0625rem;
+  background-size: 1.125rem;
 }
 
 .md-checkbox--disabled .md-checkbox__input:checked + .md-checkbox__label::before {
@@ -63,9 +63,9 @@
 
 .md-checkbox__labelText {
   font-size: 1rem;
-  left: 8px;
+  left: 0.5rem;
   position: relative;
-  padding-right: 8px;
+  padding-right: 0.5rem;
 }
 
 .md-checkbox:not(.md-checkbox--disabled):hover .md-checkbox__labelText {

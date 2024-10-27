@@ -1,6 +1,6 @@
 .md-checkboxgroup {
   font-family: 'Open sans';
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   padding: 0;
 }
@@ -12,7 +12,7 @@
 }
 
 .md-checkboxgroup .md-checkboxgroup__label > * + * {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .md-checkboxgroup .md-checkboxgroup__help-text {
@@ -22,7 +22,7 @@
 }
 
 .md-checkboxgroup .md-checkboxgroup__help-text--open {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -30,8 +30,8 @@
 .md-checkboxgroup .md-checkboxgroup__options {
   display: flex;
   flex-direction: row;
-  margin: 0.7em 0;
-  gap: 1em;
+  margin: 0.7rem 0;
+  gap: 1rem;
 }
 
 .md-checkboxgroup .md-checkboxgroup__options--vertical {
@@ -45,5 +45,5 @@
 
 .md-checkboxgroup__error {
   color: var(--mdErrorColor);
-  font-size: 0.88em;
+  font-size: 0.88rem;
 }

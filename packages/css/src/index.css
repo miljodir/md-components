@@ -28,6 +28,15 @@
 @import './formElements/fileupload/fileupload.css';
 @import './utils.css';
 
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 button {
   font-family: inherit;
   color: #000;
