@@ -64,9 +64,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'Unique id for the multi select box.',
+      description: 'Id for the multiselect box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },

@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
@@ -74,7 +73,8 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen, 'autocomplete');
 
-    const autocompleteId = id && id !== '' ? id : uuidv4();
+    const uuid = useId();
+    const autocompleteId = id && id !== '' ? id : uuid;
 
     const classNames = classnames('md-autocomplete', {
       'md-autocomplete--open': !!open,

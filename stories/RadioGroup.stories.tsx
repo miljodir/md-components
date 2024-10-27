@@ -71,9 +71,9 @@ export default {
     },
     id: {
       type: { name: 'number' },
-      description: 'The unique id for radiogroup.',
+      description: 'Id for the radio group. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuidv4' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'number',
         },

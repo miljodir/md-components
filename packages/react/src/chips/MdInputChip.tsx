@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId } from 'react';
 
 import MdXIcon from '../icons/MdXIcon';
 
@@ -23,7 +22,8 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   solid = false,
   ...otherProps
 }: MdInputChipProps) => {
-  const chipId = id && id !== '' ? id : uuidv4();
+  const uuid = useId();
+  const chipId = id && id !== '' ? id : uuid;
   const buttonClassNames = classnames('md-chip', className, {
     'md-chip--active': !!active,
     'md-chip--disabled': !!disabled,

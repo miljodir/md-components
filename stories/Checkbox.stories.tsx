@@ -50,9 +50,9 @@ export default {
       control: { type: 'boolean' },
     },
     id: {
-      description: 'The checkbox id',
+      description: 'Id for the checkbox. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'random uuid4 string' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'text',
         },
