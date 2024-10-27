@@ -180,7 +180,6 @@ Select.args = {
     { value: 'optionD', text: 'D option' },
   ],
   value: 'optionB',
-  id: '',
   disabled: false,
   mode: 'large',
   helpText: '',

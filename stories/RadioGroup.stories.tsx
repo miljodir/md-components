@@ -152,7 +152,6 @@ RadioGroup.args = {
   ],
   label: 'Example radio group',
   value: '2',
-  id: 'radio_group',
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',

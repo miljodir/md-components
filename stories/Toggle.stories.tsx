@@ -117,7 +117,6 @@ const Template = (args: MdToggleProps) => {
 
 export const Toggle = Template.bind({});
 Toggle.args = {
-  id: 'toggle_switch',
   label: 'Label',
   checked: false,
   disabled: false,

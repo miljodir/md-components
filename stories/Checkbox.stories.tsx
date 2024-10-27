@@ -104,7 +104,6 @@ export const Checkbox = Template.bind({});
 Checkbox.args = {
   label: 'Example checkbox',
   checked: true,
-  id: 'checkbox_id',
   value: 'checkbox_value',
   disabled: false,
 };

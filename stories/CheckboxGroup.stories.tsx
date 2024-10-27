@@ -183,7 +183,6 @@ CheckboxGroup.args = {
     },
   ],
   label: 'Example checkbox group',
-  id: 'checkbox-group_id',
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',

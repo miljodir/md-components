@@ -115,7 +115,6 @@ const Template = (args: MdFilterChipProps) => {
 export const FilterChip = Template.bind({});
 FilterChip.args = {
   label: 'Label',
-  id: 'filter-chip-1',
   disabled: false,
   active: false,
   prefixIcon: false,

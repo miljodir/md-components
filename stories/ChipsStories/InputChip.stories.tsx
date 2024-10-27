@@ -135,7 +135,6 @@ const Template = (args: MdInputChipProps) => {
 export const InputChip = Template.bind({});
 InputChip.args = {
   label: 'Label',
-  id: 'input-chip-1',
   disabled: false,
   active: false,
   hideCloseIcon: false,

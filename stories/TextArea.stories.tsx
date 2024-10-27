@@ -173,6 +173,5 @@ TextArea.args = {
   helpText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
-  id: '',
   rows: 10,
 };

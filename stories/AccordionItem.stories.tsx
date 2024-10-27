@@ -164,7 +164,6 @@ const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) =
 export const AccordionItem = Template.bind({});
 AccordionItem.args = {
   label: 'Click to toggle accordion item',
-  id: '',
   theme: 'primary',
   disabled: false,
   headerContent: false,

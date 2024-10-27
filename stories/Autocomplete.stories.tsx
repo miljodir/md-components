@@ -204,7 +204,6 @@ Autocomplete.args = {
     { value: 'optionB', text: 'B option' },
   ],
   value: 'optionA',
-  id: '',
   disabled: false,
   mode: 'large',
   helpText: '',
