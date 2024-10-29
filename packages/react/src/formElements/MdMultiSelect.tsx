@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useRef, useState } from 'react';
 import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -64,7 +63,8 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
     },
     ref,
   ) => {
-    const multiSelectId = id || uuidv4();
+    const uuid = useId();
+    const multiSelectId = id || uuid;
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);

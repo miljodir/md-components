@@ -44,9 +44,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'The id for the accordion item.',
+      description: 'Id for the accordion item. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'null' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -164,7 +164,6 @@ const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) =
 export const AccordionItem = Template.bind({});
 AccordionItem.args = {
   label: 'Click to toggle accordion item',
-  id: '',
   theme: 'primary',
   disabled: false,
   headerContent: false,

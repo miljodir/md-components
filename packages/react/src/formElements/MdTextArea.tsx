@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useState } from 'react';
 
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -31,8 +30,9 @@ const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
     },
     ref,
   ) => {
+    const uuid = useId();
+    const textAreaId = id && id !== '' ? id : uuid;
     const [helpOpen, setHelpOpen] = useState(false);
-    const textAreaId = id && id !== '' ? id : uuidv4();
 
     const classNames = classnames(
       'md-textarea',

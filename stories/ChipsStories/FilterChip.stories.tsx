@@ -41,9 +41,9 @@ export default {
       control: 'text',
     },
     id: {
-      description: 'The chips unique id.',
+      description: 'Id for the chip. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'random uuid4 string' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'text',
         },
@@ -115,7 +115,6 @@ const Template = (args: MdFilterChipProps) => {
 export const FilterChip = Template.bind({});
 FilterChip.args = {
   label: 'Label',
-  id: 'filter-chip-1',
   disabled: false,
   active: false,
   prefixIcon: false,

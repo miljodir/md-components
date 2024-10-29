@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdRadioButton from './MdRadioButton';
@@ -47,7 +46,8 @@ const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   onBlur,
   ...otherProps
 }: MdRadioGroupProps) => {
-  const radioGroupId = id || uuidv4();
+  const uuid = useId();
+  const radioGroupId = id || uuid;
   const [helpOpen, setHelpOpen] = useState(false);
 
   const classNames = classnames(

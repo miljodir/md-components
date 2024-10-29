@@ -140,9 +140,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'Assign id to input field',
+      description: 'Id for the text area. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'random uuidv4 string' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -173,6 +173,5 @@ TextArea.args = {
   helpText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
-  id: '',
   rows: 10,
 };

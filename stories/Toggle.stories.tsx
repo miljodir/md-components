@@ -42,11 +42,10 @@ export default {
     },
     id: {
       type: { name: 'string', required: true },
-      description:
-        '**Required**. Assign id to toggle field. This is used to identify which toggle is clicked, and which state it has.',
+      description: 'Id for the toggle. If not set, uses a random uuid',
       table: {
-        // defaultValue: { summary: 'random uuidv4 string' },
         type: {
+          defaultValue: { summary: 'useId()' },
           summary: 'string',
         },
       },
@@ -118,7 +117,6 @@ const Template = (args: MdToggleProps) => {
 
 export const Toggle = Template.bind({});
 Toggle.args = {
-  id: 'toggle_switch',
   label: 'Label',
   checked: false,
   disabled: false,

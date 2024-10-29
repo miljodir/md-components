@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import React, { useId } from 'react';
 export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: boolean;
@@ -10,13 +10,16 @@ export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElemen
 const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   checked = true,
   label,
-  id = 'toggle_switch',
+  id,
   disabled = false,
   error = false,
   errorText = undefined,
   wrapperClass = '',
   ...otherProps
 }: MdToggleProps) => {
+  const uuid = useId();
+  const toggleId = id && id !== '' ? id : uuid;
+
   const classNames = classnames('md-toggle__label', {
     'md-toggle__label--error': !!error,
     'md-toggle__label--checked': !!checked,
@@ -35,13 +38,13 @@ const MdToggle: React.FunctionComponent<MdToggleProps> = ({
         <input
           tabIndex={0}
           className="md-toggle__checkbox"
-          id={id}
+          id={toggleId}
           type="checkbox"
           checked={checked}
           disabled={disabled}
           {...otherProps}
         />
-        <label className={labelWrapperClassNames} htmlFor={id}>
+        <label className={labelWrapperClassNames} htmlFor={toggleId}>
           <div className="md-toggle__label-text">{label}</div>
           <div className={classNames}>
             <span className="md-toggle__button" />
