@@ -1,6 +1,6 @@
 {
   "name": "@miljodirektoratet/md-react",
-  "version": "3.9.0",
+  "version": "3.10.0",
   "description": "React-komponenter for Miljødirektoratet",
   "author": "Miljødirektoratet",
   "main": "./dist/index.js",
@@ -17,14 +17,12 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "uuid": "^9.0.1"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "@types/uuid": "^9.0.7",
     "typescript": "^5.2.0"
   },
   "files": [

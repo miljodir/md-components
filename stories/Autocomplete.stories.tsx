@@ -75,7 +75,7 @@ export default {
       type: { name: 'string' },
       description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid()' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -204,7 +204,6 @@ Autocomplete.args = {
     { value: 'optionB', text: 'B option' },
   ],
   value: 'optionA',
-  id: '',
   disabled: false,
   mode: 'large',
   helpText: '',

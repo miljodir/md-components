@@ -71,9 +71,9 @@ export default {
     },
     id: {
       type: { name: 'number' },
-      description: 'The unique id for radiogroup.',
+      description: 'Id for the radio group. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuidv4' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'number',
         },
@@ -152,7 +152,6 @@ RadioGroup.args = {
   ],
   label: 'Example radio group',
   value: '2',
-  id: 'radio_group',
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',

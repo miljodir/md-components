@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useState } from 'react';
 import MdMinusIcon from '../icons/MdMinusIcon';
 
 export interface MdAccordionItemProps {
@@ -32,7 +31,8 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   rounded = false,
   onToggle,
 }: MdAccordionItemProps) => {
-  const accordionId = id || uuidv4();
+  const uuid = useId();
+  const accordionId = id || uuid;
   const [isExpanded, setExpanded] = useState(false);
 
   React.useEffect(() => {

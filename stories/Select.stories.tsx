@@ -67,7 +67,7 @@ export default {
       type: { name: 'string' },
       description: 'Id for the select box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid()' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -180,7 +180,6 @@ Select.args = {
     { value: 'optionD', text: 'D option' },
   ],
   value: 'optionB',
-  id: '',
   disabled: false,
   mode: 'large',
   helpText: '',

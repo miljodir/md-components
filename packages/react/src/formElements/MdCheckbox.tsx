@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId } from 'react';
 
 export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -20,7 +19,8 @@ const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
     },
     className,
   );
-  const checkboxId = id || uuidv4();
+  const uuid = useId();
+  const checkboxId = id || uuid;
   return (
     <div className={classNames}>
       <input id={id || checkboxId || undefined} className="md-checkbox__input" type="checkbox" {...otherProps} />

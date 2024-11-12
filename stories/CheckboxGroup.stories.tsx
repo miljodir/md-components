@@ -71,9 +71,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'The unique id for checkbox group.',
+      description: 'Id for the  checkbox group. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuidv4' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -183,7 +183,6 @@ CheckboxGroup.args = {
     },
   ],
   label: 'Example checkbox group',
-  id: 'checkbox-group_id',
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',

@@ -164,9 +164,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'Assign id to input field',
+      description: 'Id for the input field. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'random uuidv4 string' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -237,7 +237,6 @@ Input.args = {
   helpText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
-  id: '',
   suffix: '',
   hideNumberArrows: false,
 };
@@ -256,7 +255,6 @@ InputWithPrefix.args = {
   helpText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
-  id: '',
   suffix: '',
   prefixIcon: <MdUserIcon />,
   hideNumberArrows: false,
@@ -276,7 +274,6 @@ InputWithSuffix.args = {
   helpText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
-  id: '',
   suffix: <button>Clear</button>,
   prefixIcon: <MdUserIcon />,
   hideNumberArrows: false,

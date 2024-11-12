@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId } from 'react';
 
 export interface MdRadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -14,7 +13,8 @@ const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
   checked,
   ...otherProps
 }: MdRadioButtonProps) => {
-  const radioGroupId = id || uuidv4();
+  const uuid = useId();
+  const radioGroupId = id || uuid;
 
   const classNames = classnames(
     'md-radiobutton',
