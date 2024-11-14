@@ -7,7 +7,11 @@ export interface MdStepProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const MdStep: React.FunctionComponent<MdStepProps> = ({ children, ...otherProps }: MdStepProps) => {
-  return <div {...otherProps}>{children}</div>;
+  // Destructure the title and completedContent props from the otherProps object
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { title, completedContent, ...rest } = otherProps;
+
+  return <div {...rest}>{children}</div>;
 };
 
 export default MdStep;
