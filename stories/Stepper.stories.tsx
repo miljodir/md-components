@@ -1,9 +1,9 @@
 import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import React from 'react';
-
 import Readme from '../packages/css/src/stepper/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
+import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
 import MdStep from '../packages/react/src/stepper/MdStep';
 import MdStepper from '../packages/react/src/stepper/MdStepper';
 import type { Args, StoryFn } from '@storybook/react';
@@ -97,44 +97,66 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
     updateArgs({ activeStep: args.activeStep - 1 });
   };
 
+  const stepContentStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.5rem',
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1rem',
+  };
+
+  const fontStyle: React.CSSProperties = {
+    fontFamily: 'Open sans',
+  };
+
   return (
     <>
       <MdStepper activeStep={args.activeStep}>
         <MdStep
+          style={fontStyle}
           title="Step 1"
           completedContent={
-            <>
+            <div style={fontStyle}>
               This is a completed step, which can be shown differently if the &quot;completedContent&quot; prop is
-              provided
-            </>
+              provided.
+            </div>
           }
         >
-          <div>
-            This is a step
-            <MdButton onClick={nextStep} small>
-              Next
+          <div style={stepContentStyle}>
+            This is a step.
+            <MdButton rightIcon={<MdChevronIcon />} onClick={nextStep}>
+              Go to step 2
             </MdButton>
           </div>
         </MdStep>
         <MdStep
           title="Step 2"
-          completedContent={<>This is what Step 2 looks like when completed, this is completely customizable!</>}
+          style={fontStyle}
+          completedContent={
+            <div style={fontStyle}>This is what Step 2 looks like when completed, this is completely customizable!</div>
+          }
         >
-          <div>
+          <div style={stepContentStyle}>
             This is the content of a MdStep. It can contain anything you want, text or HTML.
             <p>Here is a paragraph!</p>
-            <MdButton onClick={nextStep} small>
-              Next
-            </MdButton>
-            <MdButton onClick={prevStep} theme="secondary" small>
-              Previous
-            </MdButton>
+            <div style={buttonStyle}>
+              <MdButton onClick={prevStep} theme="secondary">
+                Previous
+              </MdButton>
+              <MdButton rightIcon={<MdChevronIcon />} onClick={nextStep}>
+                Go to step 3
+              </MdButton>
+            </div>
           </div>
         </MdStep>
-        <MdStep title="Step 3">
-          <div>
-            This is the last step in this example
-            <MdButton onClick={prevStep} theme="secondary" small>
+        <MdStep style={fontStyle} title="Step 3">
+          <div style={stepContentStyle}>
+            This is the last step in this example.
+            <MdButton onClick={prevStep} theme="secondary">
               Previous
             </MdButton>
           </div>
