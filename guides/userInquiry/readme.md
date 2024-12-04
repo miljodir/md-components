@@ -1,4 +1,4 @@
-# Svartjeneste skjemaet
+# Svartjenesten: En guide for utvikling av løsning for å koble på Dialogen/Nilex
 
 ## Inndeling
 
@@ -42,11 +42,14 @@ Forenklet JSX template som illustrerer dette:
 
 ```
 
+# Chat (copilot)
+Denne komponenten lastes inn som en iframe, og krever at man har satt opp en Copilot eller annen chatbot som kan lastes inn på denne måten. Husk å oppdatere CSP hvis det er i bruk på nettstedet.
+
 # Dialogen / Nilex
 
 ## Oppsett
 
-Det må settes opp en Nilex-backend i kundens miljø. Dette gjøres av ... Nilex?
+Det må settes opp en Nilex-backend i kundens miljø. Dette gjøres av leverandøren og er utenfor skopet til denne veiledningen.
 Backend eksponerer et HTTP-API som andre løsninger kan kommunisere med. Denne veiledningen gjelder innsending av forespørsler.
 
 ## Frontend
@@ -80,7 +83,7 @@ APIet ser ut til å håndtere både camelCase og PascalCase JSON.
 APIet bruker en HTTP flyt for autentisering. Først henter man ut et JWT token fra dette endepunktet:
 
 ```
-POST https://nilexapi.url.no/api/logon/TakeAuthenticationToken?email={settings.Email}&password={settings.Password}
+POST https://{settings.nilexApiUrl}/api/logon/TakeAuthenticationToken?email={settings.Email}&password={settings.Password}
 ```
 
 Responsen ser slik ut hvis det går bra:
@@ -119,7 +122,7 @@ Nilex' lagrer brukere basert på e-post-adressen. Før innsending av forespørse
 ```
 
 ```
-POST https://nilexapi.url.no/api/publicapi/getentitylistbyquery
+POST https://{settings.nilexApiUrl}/api/publicapi/getentitylistbyquery
 ```
 
 Respons:
@@ -129,9 +132,9 @@ Respons:
   "Total": 1,
   "Data": [
     {
-      "Id": 26333,
-      "Email": "ekstern_stilie@miljodir.no",
-      "EMailAddress": "ekstern_stilie@miljodir.no",
+      "Id": 12345,
+      "Email": "epost@domene.no",
+      "EMailAddress": "epost@domene.no",
       "EntityType": "Person"
     }
   ],
@@ -157,7 +160,7 @@ Dersom brukeren ikke finnes fra før av må det opprettes en ny brukerid. Dette 
 ```
 
 ```
-POST https://nilexapi.url.no/api/publicapi/saveentity
+POST https://{settings.nilexApiUrl}/api/publicapi/saveentity
 ```
 
 ### Innsending av forespørsel
