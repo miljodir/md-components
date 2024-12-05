@@ -4,13 +4,13 @@ import './../assets/fonts.css';
 import './../assets/preview.css';
 
 export const parameters = {
-  // actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
+    disableSaveFromUI: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
-    },
+    }
   },
   backgrounds: {
     grid: {
@@ -25,7 +25,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story: any) => (
+  (Story) => (
     <div className="preview-wrapper">
       <Story />
     </div>
