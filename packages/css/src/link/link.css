@@ -1,4 +1,7 @@
 .md-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   color: var(--mdPrimaryColor);
   background-color: transparent;
   border: none;
@@ -7,12 +10,28 @@
   font-weight: 500;
   font-size: 1rem;
   text-decoration: underline;
+  padding: 0.125rem 0.0625rem;
+}
+
+.md-link__icon {
+  height: 1rem;
+  width: 1rem;
 }
 
 .md-link:hover {
   color: var(--mdPrimaryColor120);
+  text-decoration-thickness: 0.0938rem;
+  text-decoration-color: var(--mdPrimaryColor);
 }
 
 .md-link:focus {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: 1px solid var(--mdPrimaryColor80);
+}
+
+.md-link:active {
+  background-color: var(--mdPrimaryColor10);
+}
+
+.md-link:visited {
+  color: var(--mdPrimaryColor160);
 }

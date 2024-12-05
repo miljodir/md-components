@@ -1,5 +1,6 @@
 import React from 'react';
 import MdLink from '../packages/react/src/link/MdLink';
+import MdRedirectIcon from '../packages/react/src/icons/MdRedirectIcon';
 
 export default {
   title: 'Components/Link',
@@ -31,6 +32,14 @@ export default {
       },
       control: 'text',
     },
+    icon: {
+      description: 'Icon after link text',
+      table: {
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+    },
     onClick: {
       description: 'Callback for controlling onClick along side href',
       table: {
@@ -61,8 +70,22 @@ const Template = (args: LinkArgs) => {
   );
 };
 
+const TemplateWithIcon = (args: LinkArgs) => {
+  return (
+    <MdLink onClick={clickHandler} href={args.href} icon={<MdRedirectIcon />}>
+      {args.text}
+    </MdLink>
+  );
+};
+
 export const Link = Template.bind({});
 Link.args = {
+  text: 'This is a link',
+  href: '#',
+};
+
+export const LinkWithIcon = TemplateWithIcon.bind({});
+LinkWithIcon.args = {
   text: 'This is a link',
   href: '#',
 };
