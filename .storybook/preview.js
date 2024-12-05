@@ -4,7 +4,7 @@ import './../assets/fonts.css';
 import './../assets/preview.css';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  // actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
     matchers: {
@@ -15,19 +15,20 @@ export const parameters = {
   backgrounds: {
     grid: {
       disable: true,
-    }
+    },
   },
   options: {
     storySort: {
       order: ['Introduction', ['Getting started', 'Contribute'], 'Components', 'Messages', 'Chips', 'Form', 'Icons'],
-    }
-  }
+    },
+  },
 };
 
 export const decorators = [
-  (Story) => (
+  (Story: any) => (
     <div className="preview-wrapper">
       <Story />
     </div>
   ),
 ];
+export const tags = ['autodocs'];
