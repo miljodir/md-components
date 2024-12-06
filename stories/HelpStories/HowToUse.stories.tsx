@@ -1,5 +1,5 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../../packages/css/src/help/README.md';
 import MdHelpButton from '../../packages/react/src/help/MdHelpButton';
