@@ -3,7 +3,6 @@
   border: 1px solid var(--mdGreyColor60);
   color: var(--mdGreyColor);
   font-family: 'Open sans';
-  margin-bottom: 1rem;
   transition: all 0.2s linear;
 }
 
