@@ -32,7 +32,7 @@
 }
 
 .md-modal__inner-wrapper {
-  padding: 0 0 2em 2em;
+  padding: 0 0 2em 2rem;
   background-color: #fff;
   min-width: 325px;
   max-width: 80%;
@@ -48,20 +48,20 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 1em;
-  font-size: 1.43em;
+  padding-top: 1rem;
+  font-size: 1.43rem;
 }
 
 .md-modal__header-content {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.5rem;
 }
 
 .md-modal__close-button {
-  margin-right: 2em;
+  margin-right: 2rem;
 }
 
 .md-modal__content-inner {
-  padding-right: 2em;
+  padding-right: 2rem;
 }

@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
@@ -72,9 +71,10 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     const [autocompleteValue, setAutocompleteValue] = useState('');
     const [results, setResults] = useState<MdAutocompleteOption[]>([]);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    useDropdown(dropdownRef, open, setOpen);
+    useDropdown(dropdownRef, open, setOpen, 'autocomplete');
 
-    const autocompleteId = id && id !== '' ? id : uuidv4();
+    const uuid = useId();
+    const autocompleteId = id && id !== '' ? id : uuid;
 
     const classNames = classnames('md-autocomplete', {
       'md-autocomplete--open': !!open,
@@ -202,11 +202,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             className={inputClassNames}
             value={open ? autocompleteValue : displayValue}
             tabIndex={0}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                setOpen(!open);
-              }
-            }}
             onChange={e => {
               setAutocompleteValue(e.target.value);
               if (e.target.value && e.target.value !== '') {

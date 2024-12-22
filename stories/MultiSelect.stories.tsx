@@ -1,5 +1,5 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiselect/README.md';
 import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
@@ -64,9 +64,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'Unique id for the multi select box.',
+      description: 'Id for the multiselect box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },

@@ -106,7 +106,9 @@ Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook
 
 Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release.
 
-I GitHub `Releases`, opprett en ny release fra `Draft a new release`. Opprett en ny tag med samme navn som siste bumpete pakkenavn, eks `v2.1.0`, og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
+Dersom det er noen spesielt viktige eller fremtredende endringer, lag en overskrift med tittelen `Highlighted changes` øverst og list opp disse.
+
+I GitHub `Releases`, opprett en ny release fra `Draft a new release`. Opprett en ny tag med samme navn som siste, bumpete pakkeversjon, eks `v2.1.0` (siden vi har to pakker i dette repoet, `md-react` og `md-css`, bruker vi versjonsnummeret fra den pakken med høyest versjonsnummer), og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
 
 Eventuelt kan du lage den nye taggen på i git, og pushe denne til remote slik:
 

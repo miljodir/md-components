@@ -6,6 +6,7 @@ export default function useDropdown(
   ref: React.RefObject<HTMLDivElement>,
   open: boolean,
   setOpen: (_open: boolean) => void,
+  elementType?: 'autocomplete' | 'select',
 ) {
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     const focusableElements = ref.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
@@ -13,6 +14,9 @@ export default function useDropdown(
     if (e.key === 'Escape') {
       const element = focusableElements?.[0];
       element?.focus();
+      if (elementType === 'autocomplete') {
+        element?.blur();
+      }
       document.removeEventListener('keydown', onKeyDown, false);
       setOpen(false);
     }

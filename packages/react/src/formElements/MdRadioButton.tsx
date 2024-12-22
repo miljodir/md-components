@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId } from 'react';
 
 export interface MdRadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -14,8 +13,8 @@ const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
   checked,
   ...otherProps
 }: MdRadioButtonProps) => {
-  const radioGroupId = id || uuidv4();
-  const [,] = useState(false);
+  const uuid = useId();
+  const radioGroupId = id || uuid;
 
   const classNames = classnames(
     'md-radiobutton',
@@ -29,7 +28,9 @@ const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
     <div className={classNames}>
       <span className="md-radiobutton__check-area">{checked && <span className="md-radiobutton__selected-dot" />}</span>
       <input id={radioGroupId} type="radio" checked={checked} disabled={disabled} {...otherProps} />
-      <label htmlFor={radioGroupId}>{label && label !== '' && label}</label>
+      <label className="md-radiobutton__label" htmlFor={radioGroupId}>
+        {label && label !== '' && label}
+      </label>
     </div>
   );
 };

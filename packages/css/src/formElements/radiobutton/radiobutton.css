@@ -1,6 +1,6 @@
 .md-radiobutton {
   font-family: 'Open sans';
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   padding: 0;
 }
@@ -8,7 +8,6 @@
 .md-radiobutton {
   display: flex;
   align-items: center;
-  cursor: pointer;
   position: relative;
 }
 
@@ -16,20 +15,24 @@
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: 2px;
 }
-
-.md-radiobutton:hover {
-  text-decoration: underline;
-}
-
 .md-radiobutton input[type='radio'] {
   position: absolute;
   left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
+  cursor: pointer;
+}
+
+.md-radiobutton__label:hover {
+  text-decoration: underline;
   cursor: pointer;
 }
 
 .md-radiobutton__check-area {
   width: 1.45rem;
+  flex-shrink: 0;
   height: 1.45rem;
   display: block;
   background-color: #fff;
@@ -47,8 +50,8 @@
 }
 
 .md-radiobutton__selected-dot {
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.6rem;
+  height: 0.6rem;
   display: block;
   background-color: var(--mdPrimaryColor);
   border-radius: 50%;

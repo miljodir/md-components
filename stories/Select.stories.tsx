@@ -1,5 +1,5 @@
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/select/README.md';
 import MdSelect from '../packages/react/src/formElements/MdSelect';
@@ -67,7 +67,7 @@ export default {
       type: { name: 'string' },
       description: 'Id for the select box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid()' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
@@ -180,7 +180,6 @@ Select.args = {
     { value: 'optionD', text: 'D option' },
   ],
   value: 'optionB',
-  id: '',
   disabled: false,
   mode: 'large',
   helpText: '',

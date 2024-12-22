@@ -78,11 +78,11 @@
   background-color: #ffffff;
   border: 2px solid var(--mdPrimaryColor);
   color: var(--mdPrimaryColor);
-  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
+  padding: 0.75rem 1.5rem;
 }
 
 .md-button--small.md-button--secondary {
-  padding: calc(0.4rem - 2px) calc(0.8rem - 2px);
+  padding: 0.5rem 0.75rem;
 }
 
 .md-button--secondary:hover:enabled {
@@ -116,11 +116,11 @@
   border: none;
   border-radius: 0.43rem;
   color: var(--mdPrimaryColor);
-  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
+  padding: 0.75rem 1.5rem;
 }
 
 .md-button--small.md-button--tertiary {
-  padding: calc(0.4rem - 2px) calc(0.8rem - 2px);
+  padding: 0.5rem 0.75rem;
 }
 
 .md-button--tertiary:hover:enabled {

@@ -5,12 +5,12 @@
   outline: 1px solid var(--mdPrimaryColor);
   outline-offset: -1px;
   border: none;
-  border-radius: 10em;
+  border-radius: 10rem;
   color: var(--mdPrimaryColor);
   font-weight: 400;
   font-family: 'Open sans';
   font-size: 1rem;
-  line-height: 22px;
+  line-height: 1.375rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: left;
@@ -59,9 +59,9 @@
 
 .md-chip__left-icon {
   display: flex;
-  width: 16px;
-  height: 16px;
-  margin-right: 0.66em;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.66rem;
 }
 
 .md-chip__label {
@@ -70,7 +70,7 @@
 
 .md-chip__right-icon {
   display: flex;
-  width: 16px;
-  height: 16px;
-  margin-left: 0.8em;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.8rem;
 }

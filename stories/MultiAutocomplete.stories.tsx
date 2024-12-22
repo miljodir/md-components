@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiautocomplete/README.md';
 import MdMultiAutocomplete from '../packages/react/src/formElements/MdMultiAutocomplete';
@@ -77,7 +77,7 @@ export default {
       type: { name: 'string' },
       description: 'Id for the autocomplete box. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuid()' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },

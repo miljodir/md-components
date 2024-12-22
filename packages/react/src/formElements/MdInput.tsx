@@ -1,6 +1,5 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdWarningIcon from '../icons/MdWarningIcon';
@@ -43,7 +42,8 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     ref,
   ) => {
     const [helpOpen, setHelpOpen] = useState(false);
-    const inputId = id && id !== '' ? id : uuidv4();
+    const uuid = useId();
+    const inputId = id && id !== '' ? id : uuid;
 
     const classNames = classnames('md-input', {
       'md-input--small': mode === 'small',

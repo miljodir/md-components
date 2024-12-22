@@ -1,5 +1,5 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/radiobutton/README.md';
 import MdRadioButton from '../packages/react/src/formElements/MdRadioButton';
@@ -32,7 +32,7 @@ export default {
   argTypes: {
     label: {
       type: { name: 'string' },
-      description: 'The label for the radio group.',
+      description: 'The label for the radio button.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -62,9 +62,9 @@ export default {
     },
     id: {
       type: { name: 'string' },
-      description: 'The unique id for radiogroup.',
+      description: 'Id for the radio button. If not set, uses a random uuid',
       table: {
-        defaultValue: { summary: 'uuidv4' },
+        defaultValue: { summary: 'useId()' },
         type: {
           summary: 'string',
         },
