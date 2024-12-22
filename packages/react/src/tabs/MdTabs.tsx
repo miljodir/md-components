@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import MdTabTitle from './MdTabTitle';
+import type { MdTabProps } from './MdTab';
 import type { ReactElement, ReactNode } from 'react';
 
 export interface MdTabsProps {
-  children: ReactElement[];
+  children: ReactElement<MdTabProps>[];
   initialTab?: number;
   chips?: boolean;
   chipsPrefixIcon?: ReactNode;
