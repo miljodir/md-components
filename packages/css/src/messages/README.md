@@ -22,6 +22,6 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 >
   <div className="md-alert-message__content">{Icon width="20" height="20"} {label}</div>
 
-  <button className="md-alert-message__button" onClick="{handleClick}">{Icon width="16" height="16"}</button>
+  <MdIconButton className="md-alert-message__button md-icon-button md-icon-button--plain" onClick="{handleClick}">{icon}</MdIconButton>
 </div>
 ```

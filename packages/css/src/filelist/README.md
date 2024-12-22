@@ -18,10 +18,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     </div>
 
     <div class="md-filelist__file-actions">
-      <button class="md-filelist__file-actions-button">{downloadIcon}</button>
-
-      <button class="md-filelist__file-actions-button">{deleteIcon}</button>
-      }
+      <MdIconButton className="md-icon-button md-icon-button--plain">{downloadIcon}</MdIconButton>
+      <MdIconButton className="md-icon-button md-icon-button--plain">{deleteIcon}</MdIconButton>
     </div>
   </div>
 

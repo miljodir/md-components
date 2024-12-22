@@ -59,17 +59,7 @@
 }
 
 .md-modal__close-button {
-  padding-right: 2rem;
-  padding-left: 2rem;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  cursor: pointer;
-}
-
-.md-modal__close-button-icon {
-  width: 1.125rem;
-  height: 1.125rem;
+  margin-right: 2rem;
 }
 
 .md-modal__content-inner {

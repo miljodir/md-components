@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
-
+import MdIconButton from '../iconButton/MdIconButton';
 import MdXIcon from '../icons/MdXIcon';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
@@ -111,16 +111,17 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 {headingIcon}
                 {heading}
               </div>
-              <button
+              <MdIconButton
                 type="button"
+                theme="plain"
                 className="md-modal__close-button"
                 onClick={e => {
                   closeModal(e);
                 }}
                 aria-label="Lukk"
               >
-                <MdXIcon className="md-modal__close-button-icon" />
-              </button>
+                <MdXIcon />
+              </MdIconButton>
             </div>
             <div className="md-modal__content-inner">{children}</div>
           </MdClickOutsideWrapper>

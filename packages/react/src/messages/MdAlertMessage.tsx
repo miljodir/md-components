@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
+import MdIconButton from '../iconButton/MdIconButton';
 import MdCheckIcon from '../icons/MdCheckIcon';
 import MdInfoIcon from '../icons/MdInfoIcon';
 import MdWarningIcon from '../icons/MdWarningIcon';
@@ -73,16 +74,17 @@ const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
       </div>
 
       {!!closable && onClose && (
-        <button
+        <MdIconButton
+          className="md-alert-message__button"
+          theme="plain"
           type="button"
           aria-label="Lukk"
-          className="md-alert-message__button"
           onClick={e => {
             return clickHandler(e);
           }}
         >
-          <MdXIcon aria-hidden="true" width="16" height="16" />
-        </button>
+          <MdXIcon />
+        </MdIconButton>
       )}
     </div>
   );
