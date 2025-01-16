@@ -78,7 +78,7 @@
   background-color: #ffffff;
   border: 2px solid var(--mdPrimaryColor);
   color: var(--mdPrimaryColor);
-  padding: 0.75rem 1.5rem;
+  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
 }
 
 .md-button--small.md-button--secondary {
