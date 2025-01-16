@@ -1,9 +1,10 @@
 import React from 'react';
 import MdCheckIcon from '../icons/MdCheckIcon';
+import type { MdStepProps } from './MdStep';
 
 export interface MdStepperProps {
   activeStep: number;
-  children: React.ReactElement[];
+  children: React.ReactElement<MdStepProps>[];
 }
 
 const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {

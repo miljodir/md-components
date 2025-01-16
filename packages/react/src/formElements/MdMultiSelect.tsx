@@ -39,238 +39,233 @@ export interface MdMultiSelectProps {
   /**
    * 3.0.0: Replaces previous 'onChange'-prop and use MdMultiSelectOption as parameter rather than event.
    */
+  ref?: React.Ref<HTMLButtonElement | null>;
   onSelectOption?(_option: MdMultiSelectOption): void;
 }
 
-const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
-  (
-    {
-      label,
-      options = [],
-      selectedOptions = [],
-      placeholder = 'Vennligst velg',
-      disabled = false,
-      mode = 'large',
-      helpText,
-      error,
-      errorText,
-      showChips = false,
-      closeOnSelect = false,
-      id,
-      onSelectOption,
-      dropdownHeight,
-      ...otherProps
-    },
-    ref,
-  ) => {
-    const uuid = useId();
-    const multiSelectId = id || uuid;
-    const [open, setOpen] = useState(false);
-    const [helpOpen, setHelpOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    useDropdown(dropdownRef, open, setOpen);
+const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
+  label,
+  options = [],
+  selectedOptions = [],
+  placeholder = 'Vennligst velg',
+  disabled = false,
+  mode = 'large',
+  helpText,
+  error,
+  errorText,
+  showChips = false,
+  closeOnSelect = false,
+  id,
+  onSelectOption,
+  dropdownHeight,
+  ref,
+  ...otherProps
+}) => {
+  const uuid = useId();
+  const multiSelectId = id || uuid;
+  const [open, setOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useDropdown(dropdownRef, open, setOpen);
 
-    let hasMultipleSelected = false;
+  let hasMultipleSelected = false;
 
-    const classNames = classnames('md-select', {
-      'md-multiselect--open': !!open,
-      'md-multiselect--disabled': !!disabled,
-      'md-multiselect--error': !!error,
-      'md-multiselect--medium': mode === 'medium',
-      'md-multiselect--small': mode === 'small',
+  const classNames = classnames('md-select', {
+    'md-multiselect--open': !!open,
+    'md-multiselect--disabled': !!disabled,
+    'md-multiselect--error': !!error,
+    'md-multiselect--medium': mode === 'medium',
+    'md-multiselect--small': mode === 'small',
+  });
+
+  const buttonClassNames = classnames('md-multiselect__button', {
+    'md-multiselect__button--open': !!open,
+    'md-multiselect--small': mode === 'small',
+  });
+
+  const dropDownClassNames = classnames('md-multiselect__dropdown', {
+    'md-multiselect__dropdown--open': !!open,
+  });
+
+  const optionClass = (option: MdMultiSelectOption) => {
+    return classnames('md-multiselect__dropdown-item', {
+      'md-multiselect__dropdown-item--selected': optionIsChecked(option),
     });
+  };
 
-    const buttonClassNames = classnames('md-multiselect__button', {
-      'md-multiselect__button--open': !!open,
-      'md-multiselect--small': mode === 'small',
+  const optionIsChecked = (option: MdMultiSelectOption) => {
+    const isChecked =
+      selectedOptions &&
+      selectedOptions.length &&
+      selectedOptions.find(item => {
+        return item.value === option.value;
+      });
+    return isChecked && isChecked !== undefined;
+  };
+
+  let displayValue = placeholder;
+  const selectedOptionsFull: MdMultiSelectOption[] = [];
+  if (!open && selectedOptions && selectedOptions.length > 0) {
+    const findFirstOption = options.find(option => {
+      return option.value === selectedOptions[0].value;
     });
-
-    const dropDownClassNames = classnames('md-multiselect__dropdown', {
-      'md-multiselect__dropdown--open': !!open,
-    });
-
-    const optionClass = (option: MdMultiSelectOption) => {
-      return classnames('md-multiselect__dropdown-item', {
-        'md-multiselect__dropdown-item--selected': optionIsChecked(option),
-      });
-    };
-
-    const optionIsChecked = (option: MdMultiSelectOption) => {
-      const isChecked =
-        selectedOptions &&
-        selectedOptions.length &&
-        selectedOptions.find(item => {
-          return item.value === option.value;
-        });
-      return isChecked && isChecked !== undefined;
-    };
-
-    let displayValue = placeholder;
-    const selectedOptionsFull: MdMultiSelectOption[] = [];
-    if (!open && selectedOptions && selectedOptions.length > 0) {
-      const findFirstOption = options.find(option => {
-        return option.value === selectedOptions[0].value;
-      });
-      if (findFirstOption) {
-        displayValue = findFirstOption.text;
-      }
-      if (selectedOptions.length > 1) {
-        hasMultipleSelected = true;
-      }
-
-      selectedOptions.forEach(item => {
-        const opt = options.find(option => {
-          return option.value === item.value;
-        });
-        if (opt) {
-          selectedOptionsFull.push(opt);
-        }
-      });
+    if (findFirstOption) {
+      displayValue = findFirstOption.text;
+    }
+    if (selectedOptions.length > 1) {
+      hasMultipleSelected = true;
     }
 
-    const handleOptionClick = (option: MdMultiSelectOption) => {
-      if (onSelectOption) {
-        onSelectOption(option);
+    selectedOptions.forEach(item => {
+      const opt = options.find(option => {
+        return option.value === item.value;
+      });
+      if (opt) {
+        selectedOptionsFull.push(opt);
       }
-      if (closeOnSelect) {
-        setOpen(false);
-      }
-    };
+    });
+  }
 
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined;
-    ariaDescribedBy =
-      error && errorText && errorText !== '' ? `md-multiselect_error_${multiSelectId}` : ariaDescribedBy;
+  const handleOptionClick = (option: MdMultiSelectOption) => {
+    if (onSelectOption) {
+      onSelectOption(option);
+    }
+    if (closeOnSelect) {
+      setOpen(false);
+    }
+  };
 
-    return (
-      <div className={classNames}>
-        {label && label !== '' && (
-          <div className="md-multiselect__label">
-            {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
-            {helpText && helpText !== '' && (
-              <div className="md-multiselect__help-button">
-                <MdHelpButton
-                  aria-label={`Hjelpetekst for ${label}`}
-                  id={`md-multiselect_help-button_${multiSelectId}`}
-                  aria-expanded={helpOpen}
-                  aria-controls={`md-multiselect_help-text_${multiSelectId}`}
-                  onClick={() => {
-                    return setHelpOpen(!helpOpen);
-                  }}
-                  expanded={helpOpen}
-                />
-              </div>
-            )}
-          </div>
-        )}
+  let ariaDescribedBy = helpText && helpText !== '' ? `md-multiselect_help-text_${multiSelectId}` : undefined;
+  ariaDescribedBy = error && errorText && errorText !== '' ? `md-multiselect_error_${multiSelectId}` : ariaDescribedBy;
 
-        {helpText && helpText !== '' && (
-          <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
-            <MdHelpText
-              id={`md-multiselect_help-text_${multiSelectId}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${multiSelectId}` : undefined}
-            >
-              {helpText}
-            </MdHelpText>
-          </div>
-        )}
-
-        <MdClickOutsideWrapper
-          ref={dropdownRef}
-          onClickOutside={() => {
-            return setOpen(false);
-          }}
-          className="md-multiselect__dropdown-wrapper"
-        >
-          <button
-            role="combobox"
-            aria-expanded={open}
-            aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
-            aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
-            id={multiSelectId}
-            aria-describedby={ariaDescribedBy}
-            className={buttonClassNames}
-            type="button"
-            tabIndex={0}
-            onClick={() => {
-              return !disabled && setOpen(!open);
-            }}
-            ref={ref}
-            {...otherProps}
-          >
-            <div className="md-multiselect__button-text">{displayValue}</div>
-            {hasMultipleSelected && !open && (
-              <div className="md-multiselect__button-hasmultiple">+{selectedOptions.length - 1}</div>
-            )}
-            <div aria-hidden="true" className="md-multiselect__button-icon">
-              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
-            </div>
-          </button>
-
-          {options && options.length > 0 && (
-            <div
-              aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
-              role="listbox"
-              id={`md-multiselect_dropdown_${multiSelectId}`}
-              className={dropDownClassNames}
-              style={{ maxHeight: dropdownHeight ? `${dropdownHeight}px` : 'auto' }}
-            >
-              {options.map(option => {
-                return (
-                  <div key={`checkbox_key_${multiSelectId}_${option.value}`} className={optionClass(option)}>
-                    <MdCheckbox
-                      role="option"
-                      aria-selected={!!optionIsChecked(option)}
-                      label={option.text}
-                      tabIndex={open ? 0 : -1}
-                      checked={!!optionIsChecked(option)}
-                      value={option.value}
-                      id={`checkbox_${multiSelectId}_${option.value}`}
-                      disabled={!!disabled}
-                      data-value={option.value}
-                      data-text={option.text}
-                      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                        if (e.key === 'Enter') {
-                          return handleOptionClick(option);
-                        }
-                      }}
-                      onChange={() => {
-                        return handleOptionClick(option);
-                      }}
-                    />
-                  </div>
-                );
-              })}
+  return (
+    <div className={classNames}>
+      {label && label !== '' && (
+        <div className="md-multiselect__label">
+          {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
+          {helpText && helpText !== '' && (
+            <div className="md-multiselect__help-button">
+              <MdHelpButton
+                aria-label={`Hjelpetekst for ${label}`}
+                id={`md-multiselect_help-button_${multiSelectId}`}
+                aria-expanded={helpOpen}
+                aria-controls={`md-multiselect_help-text_${multiSelectId}`}
+                onClick={() => {
+                  return setHelpOpen(!helpOpen);
+                }}
+                expanded={helpOpen}
+              />
             </div>
           )}
-        </MdClickOutsideWrapper>
+        </div>
+      )}
 
-        {error && errorText && errorText !== '' && (
-          <div id={`md-multiselect_error_${multiSelectId}`} className="md-multiselect__error">
-            {errorText}
+      {helpText && helpText !== '' && (
+        <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
+          <MdHelpText
+            id={`md-multiselect_help-text_${multiSelectId}`}
+            aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${multiSelectId}` : undefined}
+          >
+            {helpText}
+          </MdHelpText>
+        </div>
+      )}
+
+      <MdClickOutsideWrapper
+        ref={dropdownRef}
+        onClickOutside={() => {
+          return setOpen(false);
+        }}
+        className="md-multiselect__dropdown-wrapper"
+      >
+        <button
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
+          aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
+          id={multiSelectId}
+          aria-describedby={ariaDescribedBy}
+          className={buttonClassNames}
+          type="button"
+          tabIndex={0}
+          onClick={() => {
+            return !disabled && setOpen(!open);
+          }}
+          ref={ref}
+          {...otherProps}
+        >
+          <div className="md-multiselect__button-text">{displayValue}</div>
+          {hasMultipleSelected && !open && (
+            <div className="md-multiselect__button-hasmultiple">+{selectedOptions.length - 1}</div>
+          )}
+          <div aria-hidden="true" className="md-multiselect__button-icon">
+            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
           </div>
-        )}
+        </button>
 
-        {!open && showChips && selectedOptionsFull.length > 0 && (
-          <div className="md-multiselect__chips">
-            {selectedOptionsFull.map(chip => {
+        {options && options.length > 0 && (
+          <div
+            aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
+            role="listbox"
+            id={`md-multiselect_dropdown_${multiSelectId}`}
+            className={dropDownClassNames}
+            style={{ maxHeight: dropdownHeight ? `${dropdownHeight}px` : 'auto' }}
+          >
+            {options.map(option => {
               return (
-                <MdInputChip
-                  key={`multiselect_chip_${multiSelectId}_${chip.value}`}
-                  label={chip.text}
-                  id={`checkbox_chip_${multiSelectId}_${chip.value}`}
-                  disabled={disabled}
-                  onClick={() => {
-                    return handleOptionClick(chip);
-                  }}
-                />
+                <div key={`checkbox_key_${multiSelectId}_${option.value}`} className={optionClass(option)}>
+                  <MdCheckbox
+                    role="option"
+                    aria-selected={!!optionIsChecked(option)}
+                    label={option.text}
+                    tabIndex={open ? 0 : -1}
+                    checked={!!optionIsChecked(option)}
+                    value={option.value}
+                    id={`checkbox_${multiSelectId}_${option.value}`}
+                    disabled={!!disabled}
+                    data-value={option.value}
+                    data-text={option.text}
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                      if (e.key === 'Enter') {
+                        return handleOptionClick(option);
+                      }
+                    }}
+                    onChange={() => {
+                      return handleOptionClick(option);
+                    }}
+                  />
+                </div>
               );
             })}
           </div>
         )}
-      </div>
-    );
-  },
-);
+      </MdClickOutsideWrapper>
 
-MdMultiSelect.displayName = 'MdMultiSelect';
+      {error && errorText && errorText !== '' && (
+        <div id={`md-multiselect_error_${multiSelectId}`} className="md-multiselect__error">
+          {errorText}
+        </div>
+      )}
+
+      {!open && showChips && selectedOptionsFull.length > 0 && (
+        <div className="md-multiselect__chips">
+          {selectedOptionsFull.map(chip => {
+            return (
+              <MdInputChip
+                key={`multiselect_chip_${multiSelectId}_${chip.value}`}
+                label={chip.text}
+                id={`checkbox_chip_${multiSelectId}_${chip.value}`}
+                disabled={disabled}
+                onClick={() => {
+                  return handleOptionClick(chip);
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default MdMultiSelect;
