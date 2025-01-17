@@ -110,7 +110,7 @@ Authorization: Bearer {token}
 
 ### Uthenting av bruker
 
-Nilex' lagrer brukere basert på e-post-adressen. Før innsending av forespørsel må man forsøke å søke opp bruker-iden til gitt e-postadresse. Det gjør man ved å sende inn en SearchDto til endepunktet under:
+Nilex lagrer brukere basert på e-post-adressen. Før innsending av forespørsel må man forsøke å søke opp bruker-iden til gitt e-postadresse. Det gjør man ved å sende inn en SearchDto til endepunktet under:
 
 ```json
 {
@@ -143,6 +143,9 @@ Respons:
 }
 ```
 
+Hvis Data-arrayet er tomt, finnes ikke brukeren.
+
+
 ### Opprettelse av bruker
 
 Dersom brukeren ikke finnes fra før av må det opprettes en ny brukerid. Dette gjøres ved å POSTe en PersonDto til endepunktet under.
@@ -161,6 +164,16 @@ Dersom brukeren ikke finnes fra før av må det opprettes en ny brukerid. Dette 
 
 ```
 POST https://{settings.nilexApiUrl}/api/publicapi/saveentity
+```
+
+Responsen her indikerer om det oppsto feil, hvis det ikke oppsto feil ligger den nye bruker-iden i feltet Data.
+
+```json
+{
+  "Data": 26333,
+  "Errors": "",
+  "IsError": false
+}
 ```
 
 ### Innsending av forespørsel
@@ -182,7 +195,7 @@ Noen ting å merke seg her:
   "categoryId": "12",
   "entityType": "Ticket",
   "u_Opprinnelse": "https://url.no/siden/dette/er/sendt/fra",
-  "baseEndUser": "26333",
+  "baseEndUser": 26333,
   "dynamicProperties": {
     "PageName": "Sidenavn"
   },
@@ -196,6 +209,23 @@ Noen ting å merke seg her:
   ]
 }
 ```
+
+Objektet sendes til 
+```
+POST https://{settings.nilexApiUrl}/api/publicapi/saveentity
+```
+
+Responsen ser slik ut:
+```json
+{
+    "Data": 29623,
+    "Errors": null,
+    "IsError": false
+}
+```
+
+Vi har ikke dokumentasjon på hva som returneres, men hvis http-status er OK antar vi at dette gikk bra.
+
 
 ## Feilsøking
 
