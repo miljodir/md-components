@@ -1,6 +1,6 @@
 # Svartjenesten: En guide for utvikling av løsning for å koble på Dialogen/Nilex
 
-Vi ønsker å få utarbeidet en detaljert veiledning for hvordan man kan sette opp et skjema slik vi har gjort på Svartjenesten - miljodirektoratet.no og API-integrasjon mellom Nilex/Dialogen og våre interne systemer.
+Vi ønsker å få utarbeidet en detaljert veiledning for hvordan man kan sette opp et skjema slik vi har gjort på [Svartjenesten](https://www.miljodirektoratet.no/svartjenesten) - miljodirektoratet.no og API-integrasjon mellom Nilex/Dialogen og våre interne systemer.
 
 Formålet er at andre nettjenester - som ny Avfallsdeklarering.no, Tilde og andre - kan inkludere en modul for henvendelser som sendes inn i Dialogen
 
