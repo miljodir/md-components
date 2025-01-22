@@ -6,6 +6,8 @@ Formålet er at andre nettjenester - som ny Avfallsdeklarering.no, Tilde og andr
 
 Målet med denne veiledningen er å sikre at vi har en pålitelig og enkel metode for å sette opp skjema og API-integrasjon mellom Nilex og våre interne systemer. Dette vil bidra til å forbedre effektiviteten og brukervennligheten av våre tjenester.
 
+Dokumentasjon om APIet fra Nilex [foreligger her](https://nspdoc.nspnilex.com/11/en-US/Admin/index.html#!Documents/nsppublicapi.htm)
+
 ## Inndeling
 
 Tjenesten er delt i tre deler
@@ -188,10 +190,11 @@ Til slutt kan man sende inn forespørselen med bruker-id til innsenderen.
 
 Noen ting å merke seg her:
 
-- BaseEntityStatusId er hardkodet til 1
-- CategoryId er definert i Nilex
+- BaseEntityStatusId er hardkodet til 1 - enhetstype "Henvendelse". Dette vil variere fra type henvendelse og i hver Nilex installasjon, så her må man koordinere med det som ligger på Enheter i Nilex.
+- CategoryId er definert i Nilex, så det samme som steget over gjelder, man må koordinere CategoryId med de kategoriene man viser bruker i dropdown.
 - baseEndUser er bruker-id fra tidligere steg
 - attachment-dto sin "data" er base64-encodet filvedlegg
+- u_Opprinnelse er et brukerdefinert felt, ikke Nilex standard, og brukes til å fortelle hvor henendelsen er sendt inn fra.
 
 ```json
 {
@@ -230,7 +233,7 @@ Responsen ser slik ut:
 }
 ```
 
-Vi har ikke dokumentasjon på hva som returneres, men hvis http-status er OK antar vi at dette gikk bra.
+Data inneholder saksnummer, hvis IsError er false. Ellers er det oppstått en feil, og feilinfo ligger i Errors.
 
 
 ## Feilsøking
