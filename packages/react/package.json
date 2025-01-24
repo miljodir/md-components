@@ -17,7 +17,8 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "radix-ui": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
