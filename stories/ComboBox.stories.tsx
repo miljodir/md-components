@@ -83,6 +83,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    size: {
+      description: 'Set width of combobox',
+      options: ['full', 'large', 'medium', 'small'],
+      table: {
+        defaultValue: { summary: 'large' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'inline-radio' },
+    },
     onSelect: {
       type: { name: 'function' },
       description:
@@ -99,14 +110,14 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleSelect = (option: { id: string | number; value: string }) => {
+  const handleSelect = (option: { id: string; value: string }) => {
     if (args.multiple) {
       let value = args.value || [];
       if (!Array.isArray(value)) {
         value = [value];
       }
       if (value.includes(option.id)) {
-        value = value.filter((v: string | number) => {
+        value = value.filter((v: string) => {
           return v !== option.id.toString();
         });
       } else {
@@ -139,7 +150,8 @@ Combobox.args = {
     { id: 'optionC', value: 'C option' },
     { id: 'optionD', value: 'D option' },
   ],
-  value: ['optionA', 'optionC'],
+  value: ['optionA'],
   multiple: true,
   disabled: false,
+  size: 'large',
 };

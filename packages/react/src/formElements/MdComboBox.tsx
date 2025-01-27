@@ -5,16 +5,18 @@ import MdChevronIcon from '../icons/MdChevronIcon';
 import MdCheckbox from './MdCheckbox';
 
 export interface MdComboBoxOption {
-  id: string | number;
+  id: string;
   value: string;
 }
 
 export interface MdComboBoxProps {
   label?: string;
   options: MdComboBoxOption[];
-  value?: string | number | string[] | number[];
+  value?: string | string[];
   multiple?: boolean;
+  disabled?: boolean;
   placeholder?: string;
+  size?: 'large' | 'medium' | 'small' | 'full';
   onSelect(_e: MdComboBoxOption): void;
 }
 
@@ -23,39 +25,56 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
   options,
   value = [],
   multiple = false,
+  disabled = false,
   placeholder = 'Velg verdi',
+  size = 'large',
   onSelect,
 }: MdComboBoxProps) => {
   const [checked, setChecked] = useState<string[]>([]);
+  const [displayValue, setDisplayValue] = useState(placeholder);
 
   useEffect(() => {
     if (Array.isArray(value)) {
       if (!multiple) {
-        setChecked([value[0].toString()]);
+        setChecked([value[0]]);
+      } else {
+        setChecked(value);
       }
-      setChecked(
-        value.map((s: number | string) => {
-          return s.toString();
-        }),
-      );
     } else {
-      setChecked([value.toString()]);
+      setChecked([value]);
     }
   }, [value]);
+
+  useEffect(() => {
+    let displayValue = placeholder;
+    if (!multiple) {
+      const selectedOption = options.find(option => {
+        return option.id === checked[0];
+      });
+      displayValue = selectedOption ? selectedOption.value : placeholder;
+    }
+    setDisplayValue(displayValue);
+  }, [checked]);
 
   const handleSelect = (option: MdComboBoxOption) => {
     onSelect(option);
   };
 
   return (
-    <div className="md-combobox">
+    <div className={`md-combobox md-combobox--${size}`}>
       {label && label !== '' && <div className="md-combobox__label">{label}</div>}
       <DropdownMenu.Root>
-        <DropdownMenu.Trigger className="md-combobox__trigger">
-          <div>{placeholder}</div>
+        <DropdownMenu.Trigger className="md-combobox__trigger" disabled={disabled}>
+          <div className="md-combobox__trigger-content">
+            {displayValue}
+            {multiple && checked.length > 0 && <div className="md-combobox__selected-count">+{checked.length}</div>}
+          </div>
           <MdChevronIcon className="md-combobox__trigger-icon" />
         </DropdownMenu.Trigger>
-        <DropdownMenu.Portal>
+
+        <div className="md-combobox__portal" id="md-combobox__portal" />
+
+        <DropdownMenu.Portal container={document.getElementById('md-combobox__portal')}>
           <DropdownMenu.Content align="start" className="md-combobox__content">
             {options.map(option => {
               const isChecked = checked.includes(option.id.toString());
@@ -80,6 +99,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
                     onSelect={() => {
                       handleSelect(option);
                     }}
+                    disabled={isChecked}
                   >
                     {option.value}
                   </DropdownMenu.Item>

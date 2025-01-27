@@ -1,6 +1,17 @@
 .md-combobox {
   font-family: 'Open sans';
-  width: 260px;
+}
+.md-combobox.md-combobox--full {
+  width: 100%;
+}
+.md-combobox.md-combobox--small {
+  width: 16.25rem;
+}
+.md-combobox.md-combobox--medium {
+  width: 27.5rem;
+}
+.md-combobox.md-combobox--large {
+  width: 39.625rem;
 }
 
 .md-combobox__trigger {
@@ -17,10 +28,17 @@
   padding: 1rem;
 }
 
+.md-combobox.md-combobox--small .md-combobox__trigger {
+  padding: 0.75rem;
+}
+
 .md-combobox__trigger:focus-visible {
   outline: 0;
   border: 2px solid var(--mdPrimaryColor);
   padding: calc(1rem - 1px);
+}
+.md-combobox.md-combobox--small .md-combobox__trigger:focus-visible {
+  padding: calc(0.75rem - 1px);
 }
 
 .md-combobox__trigger[data-state='open'] {
@@ -29,6 +47,15 @@
   border-left: 2px solid var(--mdPrimaryColor);
   padding: calc(1rem - 1px);
   padding-bottom: 1rem;
+}
+.md-combobox.md-combobox--small .md-combobox__trigger[data-state='open'] {
+  padding: calc(0.75rem - 1px);
+  padding-bottom: 0.75rem;
+}
+
+.md-combobox__trigger[data-disabled] {
+  background-color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
 }
 
 .md-combobox__trigger-icon {
@@ -41,12 +68,36 @@
   transform: rotate(-90deg);
   transition: transform 0.2s linear;
 }
+.md-combobox__trigger-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* Portal container */
+.md-combobox.md-combobox--full .md-combobox__portal {
+  width: 100%;
+}
+.md-combobox.md-combobox--small .md-combobox__portal {
+  width: 16.25rem;
+}
+.md-combobox.md-combobox--medium .md-combobox__portal {
+  width: 27.5rem;
+}
+.md-combobox.md-combobox--large .md-combobox__portal {
+  width: 39.625rem;
+}
+.md-combobox__portal > div[data-radix-popper-content-wrapper] {
+  width: inherit;
+}
 
 /* Dropdown content */
 .md-combobox__content {
   display: flex;
   flex-direction: column;
-  width: 260px;
+  /* width: 260px; */
+  width: 100%;
   background-color: #fff;
   border-bottom: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
@@ -75,6 +126,7 @@
   padding: 0.75rem;
 }
 .md-combobox__item:hover {
+  outline: 0;
   cursor: pointer;
 }
 .md-combobox__item:not(.md-combobox__item--selected):hover {
