@@ -81,7 +81,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
               if (multiple) {
                 return (
                   <DropdownMenu.CheckboxItem
-                    key={`md-combobox-item-muliti-${option.id}`}
+                    key={`md-combobox-item-multi-${option.id}`}
                     className="md-combobox__checkbox-item"
                     checked={isChecked}
                     onCheckedChange={() => {
