@@ -1,5 +1,5 @@
 import { DropdownMenu } from 'radix-ui';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useId } from 'react';
 
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdCheckbox from './MdCheckbox';
@@ -10,26 +10,35 @@ export interface MdComboBoxOption {
 }
 
 export interface MdComboBoxProps {
+  id?: string;
   label?: string;
   options: MdComboBoxOption[];
   value?: string | string[];
   multiple?: boolean;
+  autocomplete?: boolean;
   disabled?: boolean;
+  errorText?: string;
   placeholder?: string;
-  size?: 'large' | 'medium' | 'small' | 'full';
+  size?: 'large' | 'medium' | 'small';
   onSelect(_e: MdComboBoxOption): void;
 }
 
 const MdComboBox: React.FC<MdComboBoxProps> = ({
+  id,
   label,
   options,
   value = [],
   multiple = false,
+  autocomplete = false,
   disabled = false,
   placeholder = 'Velg verdi',
-  size = 'large',
+  size = 'medium',
+  errorText,
   onSelect,
 }: MdComboBoxProps) => {
+  const uuid = useId();
+  const comboBoxId = id || uuid;
+  const [filteredOptions, setFilteredOptions] = useState<MdComboBoxOption[]>(options);
   const [checked, setChecked] = useState<string[]>([]);
   const [displayValue, setDisplayValue] = useState(placeholder);
 
@@ -61,9 +70,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
   };
 
   return (
-    <div className={`md-combobox md-combobox--${size}`}>
+    <div className={`md-combobox md-combobox--${size} ${errorText ? 'md-combobox--has-error' : ''}`}>
       {label && label !== '' && <div className="md-combobox__label">{label}</div>}
-      <DropdownMenu.Root>
+      <DropdownMenu.Root onOpenChange={e => console.log(e)}>
         <DropdownMenu.Trigger className="md-combobox__trigger" disabled={disabled}>
           <div className="md-combobox__trigger-content">
             {displayValue}
@@ -72,11 +81,28 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
           <MdChevronIcon className="md-combobox__trigger-icon" />
         </DropdownMenu.Trigger>
 
-        <div className="md-combobox__portal" id="md-combobox__portal" />
+        <div className="md-combobox__portal" id={`md-combobox-portal-${comboBoxId}`} />
 
-        <DropdownMenu.Portal container={document.getElementById('md-combobox__portal')}>
+        <DropdownMenu.Portal container={document.getElementById(`md-combobox-portal-${comboBoxId}`)}>
           <DropdownMenu.Content align="start" className="md-combobox__content">
-            {options.map(option => {
+            {autocomplete && (
+              <DropdownMenu.Item asChild>
+                <input
+                  type="text"
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    e.stopPropagation();
+                  }}
+                  placeholder="Søk.."
+                  onChange={e => {
+                    console.log('input change with e:', e);
+                  }}
+                  onClick={e => e.stopPropagation()}
+                  onSelect={e => e.preventDefault()}
+                />
+              </DropdownMenu.Item>
+            )}
+            {filteredOptions.map(option => {
               const isChecked = checked.includes(option.id.toString());
               if (multiple) {
                 return (
@@ -109,6 +135,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = ({
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
+      <div className="md_combobox__error">{errorText}</div>
     </div>
   );
 };

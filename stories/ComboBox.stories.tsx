@@ -84,15 +84,26 @@ export default {
       control: { type: 'boolean' },
     },
     size: {
-      description: 'Set width of combobox',
-      options: ['full', 'large', 'medium', 'small'],
+      description: 'Set size of combobox',
+      options: ['small', 'medium', 'large'],
       table: {
-        defaultValue: { summary: 'large' },
+        defaultValue: { summary: 'medium' },
         type: {
           summary: 'string',
         },
       },
       control: { type: 'inline-radio' },
+    },
+    errorText: {
+      type: { name: 'string' },
+      description: 'Display error text, and style the combobox as an error state',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
     },
     onSelect: {
       type: { name: 'function' },
@@ -152,6 +163,8 @@ Combobox.args = {
   ],
   value: ['optionA'],
   multiple: true,
+  autocomplete: true,
   disabled: false,
   size: 'large',
+  errorText: '',
 };

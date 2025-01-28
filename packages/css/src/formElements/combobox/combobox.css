@@ -1,17 +1,6 @@
 .md-combobox {
   font-family: 'Open sans';
-}
-.md-combobox.md-combobox--full {
   width: 100%;
-}
-.md-combobox.md-combobox--small {
-  width: 16.25rem;
-}
-.md-combobox.md-combobox--medium {
-  width: 27.5rem;
-}
-.md-combobox.md-combobox--large {
-  width: 39.625rem;
 }
 
 .md-combobox__trigger {
@@ -25,20 +14,28 @@
   text-align: left;
   font-size: 1rem;
   width: 100%;
-  padding: 1rem;
+  padding: 0.75rem;
+  line-height: 150%;
+  cursor: pointer;
 }
 
 .md-combobox.md-combobox--small .md-combobox__trigger {
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+.md-combobox.md-combobox--large .md-combobox__trigger {
+  padding: 1rem 0.75rem;
 }
 
 .md-combobox__trigger:focus-visible {
   outline: 0;
   border: 2px solid var(--mdPrimaryColor);
-  padding: calc(1rem - 1px);
+  padding: calc(0.75rem - 1px);
 }
 .md-combobox.md-combobox--small .md-combobox__trigger:focus-visible {
-  padding: calc(0.75rem - 1px);
+  padding: calc(0.5rem - 1px) calc(0.75rem - 1px);
+}
+.md-combobox.md-combobox--large .md-combobox__trigger:focus-visible {
+  padding: calc(1rem - 1px) calc(0.75rem - 1px);
 }
 
 .md-combobox__trigger[data-state='open'] {
@@ -49,8 +46,10 @@
   padding-bottom: 1rem;
 }
 .md-combobox.md-combobox--small .md-combobox__trigger[data-state='open'] {
-  padding: calc(0.75rem - 1px);
-  padding-bottom: 0.75rem;
+  padding: calc(0.5rem - 1px) calc(0.75rem - 1px);
+}
+.md-combobox.md-combobox--large .md-combobox__trigger[data-state='open'] {
+  padding: calc(1rem - 1px) calc(0.75rem - 1px);
 }
 
 .md-combobox__trigger[data-disabled] {
@@ -90,7 +89,7 @@
   border-bottom: 2px solid var(--mdPrimaryColor);
   border-right: 2px solid var(--mdPrimaryColor);
   border-left: 2px solid var(--mdPrimaryColor);
-  padding-top: 4px;
+  padding-top: 0.25rem;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -113,6 +112,13 @@
   font-size: 1rem;
   padding: 0.75rem;
 }
+.md-combobox.md-combobox--small .md-combobox__item {
+  padding: 0.5rem 0.75rem;
+}
+.md-combobox.md-combobox--large .md-combobox__item {
+  padding: 1rem 0.75rem;
+}
+
 .md-combobox__item:hover {
   outline: 0;
   cursor: pointer;
@@ -122,4 +128,15 @@
 }
 .md-combobox__item--selected {
   background-color: var(--mdPrimaryColor20);
+}
+
+/* Error states */
+.md-combobox--has-error .md-combobox__trigger,
+.md-combobox--has-error .md-combobox__content {
+  border-color: var(--mdErrorColor);
+}
+.md_combobox__error {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--mdErrorColor);
 }
