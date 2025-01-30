@@ -17,6 +17,7 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
+    "@ariakit/react": "^0.4.15",
     "classnames": "^2.3.2",
     "radix-ui": "^1.1.0"
   },
