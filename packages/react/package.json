@@ -19,6 +19,7 @@
   "dependencies": {
     "@ariakit/react": "^0.4.15",
     "classnames": "^2.3.2",
+    "match-sorter": "^8.0.0",
     "radix-ui": "^1.1.0"
   },
   "devDependencies": {

@@ -51,6 +51,7 @@
     "eslint-plugin-autofix": "^1.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-storybook": "^0.11.1",
+    "match-sorter": "^8.0.0",
     "radix-ui": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

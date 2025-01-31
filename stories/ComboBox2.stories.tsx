@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for combobox.<br/>Can handle single or mulitple selections.<br/><br/>`import { MdComboBox } from '@miljodirektoratet/md-react'`",
+          "A component for combobox.<br/>Can handle single or mulitple selections. For single selection set `value` to a string, for multiselect, set `value` to an array of strings.<br/><br/>`import { MdComboBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -42,35 +42,23 @@ export default {
       control: { type: 'text' },
     },
     options: {
-      type: { name: 'array' },
+      type: { name: 'array', required: true },
       description: 'Array with data objects for select options',
       table: {
-        defaultValue: { summary: '[]' },
         type: {
           summary: '[{ id: string | number, value: string }, ...]',
         },
       },
     },
     value: {
-      type: { name: 'array | string | number' },
-      description: 'The currently selected values. Either an array of numbers/strings or a single number/string',
+      type: { name: 'string[] | string', required: true },
+      description:
+        'The currently selected values. Either an array of numbers/strings or a single number/string. For multiselect, value needs to be an array.',
       table: {
-        defaultValue: { summary: 'null' },
         type: {
-          summary: '[string|number, ...] or string|number',
+          summary: '[string] or string',
         },
       },
-    },
-    multiple: {
-      type: { name: 'boolean' },
-      description: 'Allow mulitple selections',
-      table: {
-        defaultValue: { summary: 'false' },
-        type: {
-          summary: 'boolean',
-        },
-      },
-      control: { type: 'boolean' },
     },
     disabled: {
       type: { name: 'boolean' },
@@ -106,7 +94,7 @@ export default {
       control: { type: 'text' },
     },
     onSelect: {
-      type: { name: 'function' },
+      type: { name: 'function', required: true },
       description:
         'The onSelect handler for change events. Returns the clicked option: `{ id: string | number, value: string }`',
       table: {
@@ -121,50 +109,54 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleSelect = (values: string[]) => {
-    if (args.multiple) {
-      /* let value = args.value || [];
-      if (!Array.isArray(value)) {
-        value = [value];
-      }
-      if (value.includes(option.id)) {
-        value = value.filter((v: string) => {
-          return v !== option.id.toString();
-        });
-      } else {
-        value = [...value, option.id];
-      } */
-      updateArgs({ ...args, value: values });
-    } else {
-      // updateArgs({ ...args, value: option.id });
-    }
+  const handleSelect = (values: string[] | string) => {
+    updateArgs({ ...args, value: values });
   };
 
   return (
-    <MdComboBox
-      {...args}
-      options={args.options}
-      onSelect={values => {
-        handleSelect(values);
-      }}
-    />
+    <div style={{ minHeight: '340px' }}>
+      <MdComboBox
+        {...args}
+        value={args.value}
+        options={args.options}
+        onSelect={values => {
+          handleSelect(values);
+        }}
+      />
+    </div>
   );
 };
 
-export const Combobox = Template.bind({});
+export const Multi = Template.bind({});
+export const Single = Template.bind({});
 
-Combobox.args = {
+Multi.args = {
   label: 'Label',
   options: [
     { id: 'optionA', value: 'A option' },
     { id: 'optionB', value: 'B option' },
-    { id: 'optionC', value: 'C option' },
-    { id: 'optionD', value: 'D option' },
+    { id: 'optionC', value: 'Et valg' },
+    { id: 'optionD', value: 'Et annet valg som er litt langt' },
   ],
   value: ['optionA', 'optionC'],
-  multiple: true,
-  autocomplete: true,
+  // value: '',
   disabled: false,
   size: 'large',
+  helpText: 'This is a help text',
   errorText: '',
+};
+
+Single.args = {
+  label: 'Label',
+  options: [
+    { id: 'optionA', value: 'A option' },
+    { id: 'optionB', value: 'B option' },
+    { id: 'optionC', value: 'Et valg' },
+    { id: 'optionD', value: 'Et annet valg som er litt langt' },
+  ],
+  value: 'optionA',
+  disabled: false,
+  size: 'large',
+  helpText: 'This is a help text',
+  errorText: 'This is an example of an error text',
 };
