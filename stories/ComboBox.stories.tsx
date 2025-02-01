@@ -25,14 +25,43 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for combobox.<br/>Can handle single or mulitple selections.<br/><br/>`import { MdComboBox } from '@miljodirektoratet/md-react'`",
+          "A component for combobox.<br/>Can handle single or mulitple selections. For single selection set `value` to a string, for multiselect, set `value` to an array of strings.<br/><br/>`import { MdComboBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },
   argTypes: {
+    options: {
+      type: { name: 'array', required: true },
+      description: 'Array with data objects for select options',
+      table: {
+        type: {
+          summary: '[{ value: string | number, text: string }, ...]',
+        },
+      },
+    },
+    value: {
+      type: { name: 'string[] | string', required: true },
+      description:
+        'The currently selected values. Either an array of strings or a single string. For multiselect, value needs to be an array.',
+      table: {
+        type: {
+          summary: '[string, string, ...] or string',
+        },
+      },
+    },
+    onSelectOption: {
+      type: { name: 'function', required: true },
+      description:
+        'The handler for change events. Returns an array of strings for multiselect, or a single string value for single select.',
+      table: {
+        type: {
+          summary: 'function',
+        },
+      },
+    },
     label: {
       type: { name: 'string' },
-      description: 'The label for the select box.',
+      description: 'The label for the combobox.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -40,37 +69,6 @@ export default {
         },
       },
       control: { type: 'text' },
-    },
-    options: {
-      type: { name: 'array' },
-      description: 'Array with data objects for select options',
-      table: {
-        defaultValue: { summary: '[]' },
-        type: {
-          summary: '[{ id: string | number, value: string }, ...]',
-        },
-      },
-    },
-    value: {
-      type: { name: 'array | string | number' },
-      description: 'The currently selected values. Either an array of numbers/strings or a single number/string',
-      table: {
-        defaultValue: { summary: 'null' },
-        type: {
-          summary: '[string|number, ...] or string|number',
-        },
-      },
-    },
-    multiple: {
-      type: { name: 'boolean' },
-      description: 'Allow mulitple selections',
-      table: {
-        defaultValue: { summary: 'false' },
-        type: {
-          summary: 'boolean',
-        },
-      },
-      control: { type: 'boolean' },
     },
     disabled: {
       type: { name: 'boolean' },
@@ -83,7 +81,7 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    size: {
+    mode: {
       description: 'Set size of combobox',
       options: ['small', 'medium', 'large'],
       table: {
@@ -93,6 +91,17 @@ export default {
         },
       },
       control: { type: 'inline-radio' },
+    },
+    helpText: {
+      type: { name: 'string' },
+      description: 'Help text for the combobox',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
     },
     errorText: {
       type: { name: 'string' },
@@ -105,15 +114,16 @@ export default {
       },
       control: { type: 'text' },
     },
-    onSelect: {
-      type: { name: 'function' },
-      description:
-        'The onSelect handler for change events. Returns the clicked option: `{ id: string | number, value: string }`',
+    noResultsText: {
+      type: { name: 'string' },
+      description: 'The text to display when no results are found',
       table: {
+        defaultValue: { summary: 'Ingen treff' },
         type: {
-          summary: 'function',
+          summary: 'string',
         },
       },
+      control: { type: 'text' },
     },
   },
 };
@@ -121,50 +131,56 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleSelect = (option: { id: string; value: string }) => {
-    if (args.multiple) {
-      let value = args.value || [];
-      if (!Array.isArray(value)) {
-        value = [value];
-      }
-      if (value.includes(option.id)) {
-        value = value.filter((v: string) => {
-          return v !== option.id.toString();
-        });
-      } else {
-        value = [...value, option.id];
-      }
-      updateArgs({ ...args, value: value });
-    } else {
-      updateArgs({ ...args, value: option.id });
-    }
+  const handleSelect = (values: string[] | string) => {
+    updateArgs({ ...args, value: values });
   };
 
   return (
-    <MdComboBox
-      {...args}
-      options={args.options}
-      onSelect={option => {
-        handleSelect(option);
-      }}
-    />
+    <div style={{ minHeight: '340px' }}>
+      <MdComboBox
+        {...args}
+        value={args.value}
+        options={args.options}
+        onSelectOption={values => {
+          handleSelect(values);
+        }}
+        aria-required="true"
+      />
+    </div>
   );
 };
 
-export const Combobox = Template.bind({});
+export const Multi = Template.bind({});
+export const Single = Template.bind({});
 
-Combobox.args = {
-  label: 'Label',
+Multi.args = {
   options: [
-    { id: 'optionA', value: 'A option' },
-    { id: 'optionB', value: 'B option' },
-    { id: 'optionC', value: 'C option' },
-    { id: 'optionD', value: 'D option' },
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionC', text: 'Et valg' },
+    { value: 'optionD', text: 'Et annet valg som er litt langt' },
   ],
-  value: ['optionA'],
-  multiple: true,
-  autocomplete: true,
+  value: ['optionA', 'optionC'],
+  onSelectOption: () => {},
+  label: 'Label',
   disabled: false,
-  size: 'large',
+  mode: 'medium',
+  helpText: 'This is a help text',
   errorText: '',
+};
+
+Single.args = {
+  options: [
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionC', text: 'Et valg' },
+    { value: 'optionD', text: 'Et annet valg som er litt langt' },
+  ],
+  value: 'optionA',
+  onSelectOption: () => {},
+  label: 'Label',
+  disabled: false,
+  mode: 'medium',
+  helpText: 'This is a help text',
+  errorText: 'This is an example of an error text',
 };
