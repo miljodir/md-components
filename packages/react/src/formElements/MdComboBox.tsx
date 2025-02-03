@@ -158,11 +158,12 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
 
           <Ariakit.ComboboxPopover
             id={`${comboBoxId}_popover`}
+            key={`popover_${selectedValues.toString()}`}
             sameWidth
+            autoFocusOnShow={false}
             gutter={-1}
             className="md-combobox__popover"
             aria-busy={isPending}
-            key={`popover_${selectedValues.toString()}`}
           >
             {matches &&
               matches.map(option => {
@@ -182,7 +183,11 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                     className="md-combobox__checkbox-item"
                     aria-selected={isChecked}
                   >
-                    {isMultiSelect ? <MdCheckbox defaultChecked={isChecked} label={option.text} /> : option.text}
+                    {isMultiSelect ? (
+                      <MdCheckbox defaultChecked={isChecked} label={option.text} tabIndex={-1} />
+                    ) : (
+                      option.text
+                    )}
                   </Ariakit.ComboboxItem>
                 );
               })}
