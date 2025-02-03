@@ -160,7 +160,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             id={`${comboBoxId}_popover`}
             key={`popover_${selectedValues.toString()}`}
             sameWidth
-            autoFocusOnShow={false}
             gutter={-1}
             className="md-combobox__popover"
             aria-busy={isPending}
