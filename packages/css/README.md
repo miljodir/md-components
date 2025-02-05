@@ -25,7 +25,7 @@ const MyComponent = () => {
 
 This package uses the fonts "Sofia Pro" and "Open Sans", and assumes that you use, or have access to, these fonts in your project. The font "Sofia Pro"can be downloaded from [here](https://github.com/miljodir/md-components/tree/main/assets/webfonts). "Open Sans" is accessible through [Google Fonts](https://fonts.google.com/specimen/Open+Sans).
 
-## DISCLAIMER:
+## DISCLAIMER
 
 > All fonts included in this repository are provided solely for use as part of the Norwegian Environment agencys projects and its associated systems.
 >
