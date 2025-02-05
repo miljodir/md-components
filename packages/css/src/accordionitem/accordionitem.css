@@ -3,7 +3,6 @@
   border: 1px solid var(--mdGreyColor60);
   color: var(--mdGreyColor);
   font-family: 'Open sans';
-  margin-bottom: 1rem;
   transition: all 0.2s linear;
 }
 
@@ -78,6 +77,7 @@
   background-color: var(--mdGreyColor);
   transition: transform 0.15s ease-out;
 }
+
 /* Vertical line */
 .md-accordion-item__header .md-accordion-item__header-icon:before {
   top: 0;
@@ -86,7 +86,8 @@
   height: 100%;
   margin-left: -1px;
 }
-/* horizontal line */
+
+/* Horizontal line */
 .md-accordion-item__header .md-accordion-item__header-icon:after {
   top: 50%;
   left: 0;
