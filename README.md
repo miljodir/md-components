@@ -147,7 +147,7 @@ NB! Husk å bruke docstrings, ellers vil ikke kommentarene være synlige i pakke
 
 ## DISCLAIMER:
 
-> All fonts included in this repository are provided solely for use as part of this project and its associated systems.
+> All fonts included in this repository are provided solely for use as part of the Norwegian Environment agencys projects and its associated systems.
 >
 > It is strictly prohibited to redistribute, or reuse these fonts outside the scope of the Norwegian Environment agencys projects without obtaining proper authorization or licenses from their respective owners.
 >
