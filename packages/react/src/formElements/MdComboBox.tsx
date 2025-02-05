@@ -158,7 +158,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
 
           <Ariakit.ComboboxPopover
             id={`${comboBoxId}_popover`}
-            key={`popover_${selectedValues.toString()}`}
             sameWidth
             gutter={-1}
             className="md-combobox__popover"
@@ -183,7 +182,12 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                     aria-selected={isChecked}
                   >
                     {isMultiSelect ? (
-                      <MdCheckbox defaultChecked={isChecked} label={option.text} tabIndex={-1} />
+                      <MdCheckbox
+                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                        defaultChecked={isChecked}
+                        label={option.text}
+                        tabIndex={-1}
+                      />
                     ) : (
                       option.text
                     )}
