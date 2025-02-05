@@ -58,13 +58,12 @@
 }
 
 .md-alert-message__button {
-  border: 0;
-  background-color: transparent;
-  margin: 0;
-  padding: 1rem;
-  cursor: pointer;
+  margin-right: 0.75rem;
 }
 
+.md-alert-message--error .md-alert-message__button:hover {
+  outline-color: #fff;
+}
 .md-alert-message--error .md-alert-message__button {
   color: #fff;
 }

@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
+import MdIconButton from '../iconButton/MdIconButton';
 import MdDeleteIcon from '../icons/MdDeleteIcon';
 import MdDocIcon from '../icons/MdDocIcon';
 import MdDownloadIcon from '../icons/MdDownloadIcon';
@@ -81,55 +82,59 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
 
               <div className="md-filelist__file-actions">
                 {!hideDownload && onDownloadFile && 'url' in file && (
-                  <button
+                  <MdIconButton
+                    theme="plain"
                     type="button"
+                    showTooltip
                     aria-label="Last ned fil"
-                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onDownloadFile(file);
                     }}
                   >
-                    <MdDownloadIcon aria-hidden="true" className="md-filelist__file-action-icon" />
-                  </button>
+                    <MdDownloadIcon />
+                  </MdIconButton>
                 )}
 
                 {allowDelete && onRemoveFile && (
-                  <button
+                  <MdIconButton
+                    theme="plain"
+                    showTooltip
                     type="button"
                     aria-label="Slett fil"
-                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onRemoveFile(file);
                     }}
                   >
-                    <MdDeleteIcon aria-hidden="true" className="md-filelist__file-action-icon" />
-                  </button>
+                    <MdDeleteIcon />
+                  </MdIconButton>
                 )}
 
                 {allowEdit && onEditFile && (
-                  <button
+                  <MdIconButton
                     type="button"
+                    showTooltip
+                    theme="plain"
                     aria-label="Rediger fil"
-                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onEditFile(file);
                     }}
                   >
-                    <MdEditIcon aria-hidden="true" className="md-filelist__file-action-icon" />
-                  </button>
+                    <MdEditIcon />
+                  </MdIconButton>
                 )}
 
                 {!hidePrint && onPrintFile && fileEnding && printableFileTypes.includes(fileEnding) && (
-                  <button
+                  <MdIconButton
                     type="button"
+                    theme="plain"
+                    showTooltip
                     aria-label="Skriv ut fil"
-                    className="md-filelist__file-actions-button"
                     onClick={() => {
                       onPrintFile(file);
                     }}
                   >
-                    <MdPrintIcon aria-hidden="true" className="md-filelist__file-action-icon" />
-                  </button>
+                    <MdPrintIcon />
+                  </MdIconButton>
                 )}
               </div>
             </div>
