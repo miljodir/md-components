@@ -144,3 +144,13 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
 ```
 
 NB! Husk å bruke docstrings, ellers vil ikke kommentarene være synlige i pakket versjon.
+
+## DISCLAIMER
+
+> All fonts included in this repository are provided solely for use as part of the Norwegian Environment agencys projects and its associated systems.
+>
+> It is strictly prohibited to redistribute, or reuse these fonts outside the scope of the Norwegian Environment agencys projects without obtaining proper authorization or licenses from their respective owners.
+>
+> Our organization does not hold the rights to these fonts and cannot be held liable for any unauthorized use, distribution, or legal consequences arising from such actions.
+>
+> Please refer to the applicable font licenses for detailed terms of use.
