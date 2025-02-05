@@ -138,7 +138,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             </div>
           )}
 
-          <div className="md-combobox__input-wrapper">
+          <div className={`md-combobox__input-wrapper ${disabled && 'md-combobox__input-wrapper--disabled'}`}>
             <div className="md-combobox__input--before">
               <MdZoomIcon />
             </div>
