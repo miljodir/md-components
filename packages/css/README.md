@@ -23,7 +23,7 @@ const MyComponent = () => {
 
 ## Fonts
 
-This package uses the fonts "Sofia Pro" and "Open Sans", and assumes that you use, or have access to, these fonts in your project. To font "Sofia Pro"can be downloaded from [here](https://github.com/miljodir/md-components/tree/main/assets/webfonts). "Open Sans" is accessible through [Google Fonts](https://fonts.google.com/specimen/Open+Sans).
+This package uses the fonts "Sofia Pro" and "Open Sans", and assumes that you use, or have access to, these fonts in your project. The font "Sofia Pro"can be downloaded from [here](https://github.com/miljodir/md-components/tree/main/assets/webfonts). "Open Sans" is accessible through [Google Fonts](https://fonts.google.com/specimen/Open+Sans).
 
 ## DISCLAIMER:
 
