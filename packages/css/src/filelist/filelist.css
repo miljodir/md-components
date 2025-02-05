@@ -34,33 +34,8 @@
   margin-top: 0.3rem;
 }
 
-/* File actions */
 .md-filelist__file-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.md-filelist__file-actions-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: transparent;
-  border-radius: 6.25rem;
-  border: 0;
-  padding: 0.2rem;
-  cursor: pointer;
-  transition: background 0.1s linear;
-}
-
-.md-filelist__file-actions-button:hover {
-  background-color: #fff;
-  transition: background 0.1s linear;
-}
-
-.md-filelist__file-action-icon {
-  width: 1.25rem;
-  height: 1.25rem;
 }
