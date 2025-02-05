@@ -5,7 +5,7 @@ import MdBurgerMenuIcon64 from '../../packages/react/src/icons/MdBurgerMenuIcon6
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/BurgerMenu',
+  title: 'Deprecated/Icons/BurgerMenu',
   component: MdBurgerMenuIcon,
   parameters: {
     docs: {

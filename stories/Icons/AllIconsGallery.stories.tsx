@@ -42,7 +42,7 @@ import MdZoomIcon from '../../packages/react/src/icons/MdZoomIcon';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Gallery',
+  title: 'Deprecated/Icons/Gallery',
 };
 
 const Template = (args: Args) => {

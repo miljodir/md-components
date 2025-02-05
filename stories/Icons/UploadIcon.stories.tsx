@@ -5,7 +5,7 @@ import MdUploadIcon64 from '../../packages/react/src/icons/MdUploadIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Upload',
+  title: 'Deprecated/Icons/Upload',
   component: MdUploadIcon,
   parameters: {
     docs: {

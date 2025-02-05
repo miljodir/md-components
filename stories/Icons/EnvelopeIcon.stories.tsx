@@ -5,7 +5,7 @@ import MdEnvelopeIcon64 from '../../packages/react/src/icons/MdEnvelopeIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Envelope',
+  title: 'Deprecated/Icons/Envelope',
   component: MdEnvelopeIcon,
   parameters: {
     docs: {

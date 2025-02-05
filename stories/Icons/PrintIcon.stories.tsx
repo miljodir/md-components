@@ -5,7 +5,7 @@ import MdPrintIcon64 from '../../packages/react/src/icons/MdPrintIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Print',
+  title: 'Deprecated/Icons/Print',
   component: MdPrintIcon,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import MdSignIcon from '../../packages/react/src/icons/MdSignIcon';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Sign',
+  title: 'Deprecated/Icons/Sign',
   component: MdSignIcon,
   parameters: {
     docs: {

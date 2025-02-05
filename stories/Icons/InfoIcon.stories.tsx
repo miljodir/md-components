@@ -5,7 +5,7 @@ import MdInfoIcon64 from '../../packages/react/src/icons/MdInfoIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Info',
+  title: 'Deprecated/Icons/Info',
   component: MdInfoIcon,
   parameters: {
     docs: {

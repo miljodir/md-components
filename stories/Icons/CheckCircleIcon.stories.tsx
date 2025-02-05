@@ -5,7 +5,7 @@ import MdCheckCircleIcon64 from '../../packages/react/src/icons/MdCheckCircleIco
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/CheckCircle',
+  title: 'Deprecated/Icons/CheckCircle',
   component: MdCheckCircleIcon,
   parameters: {
     docs: {

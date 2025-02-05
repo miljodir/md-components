@@ -4,7 +4,7 @@ import MdTableIcon from '../../packages/react/src/icons/MdTableIcon';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Table',
+  title: 'Deprecated/Icons/Table',
   component: MdTableIcon,
   parameters: {
     docs: {

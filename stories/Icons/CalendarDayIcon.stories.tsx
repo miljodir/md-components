@@ -5,7 +5,7 @@ import MdCalendarDayIcon64 from '../../packages/react/src/icons/MdCalendarDayIco
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/CalendarDay',
+  title: 'Deprecated/Icons/CalendarDay',
   component: MdCalendarDayIcon,
   parameters: {
     docs: {

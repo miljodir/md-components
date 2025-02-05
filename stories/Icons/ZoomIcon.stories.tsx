@@ -8,7 +8,7 @@ import MdZoomIconPlus64 from '../../packages/react/src/icons/MdZoomIconPlus64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Zoom',
+  title: 'Deprecated/Icons/Zoom',
   component: MdZoomIcon,
   parameters: {
     docs: {

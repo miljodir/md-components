@@ -5,7 +5,7 @@ import MdDocSearchIcon64 from '../../packages/react/src/icons/MdDocSearchIcon64'
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/DocSearch',
+  title: 'Deprecated/Icons/DocSearch',
   component: MdDocSearchIcon,
   parameters: {
     docs: {

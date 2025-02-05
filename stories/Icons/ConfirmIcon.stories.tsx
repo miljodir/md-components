@@ -5,7 +5,7 @@ import MdConfirmIcon64 from '../../packages/react/src/icons/MdConfirmIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Confirm',
+  title: 'Deprecated/Icons/Confirm',
   component: MdConfirmIcon,
   parameters: {
     docs: {

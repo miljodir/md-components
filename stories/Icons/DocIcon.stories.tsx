@@ -5,7 +5,7 @@ import MdDocIcon64 from '../../packages/react/src/icons/MdDocIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Doc',
+  title: 'Deprecated/Icons/Doc',
   component: MdDocIcon,
   parameters: {
     docs: {

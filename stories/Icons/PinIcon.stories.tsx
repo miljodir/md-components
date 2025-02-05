@@ -6,7 +6,7 @@ import MdPinIcon64 from '../../packages/react/src/icons/MdPinIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Pin',
+  title: 'Deprecated/Icons/Pin',
   component: MdPinIcon,
   parameters: {
     docs: {

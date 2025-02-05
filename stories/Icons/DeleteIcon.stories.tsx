@@ -5,7 +5,7 @@ import MdDeleteIcon64 from '../../packages/react/src/icons/MdDeleteIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Delete',
+  title: 'Deprecated/Icons/Delete',
   component: MdDeleteIcon,
   parameters: {
     docs: {

@@ -5,7 +5,7 @@ import MdChevronIcon64 from '../../packages/react/src/icons/MdChevronIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Chevron',
+  title: 'Deprecated/Icons/Chevron',
   component: MdChevronIcon,
   parameters: {
     docs: {

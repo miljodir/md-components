@@ -4,7 +4,7 @@ import MdPersonIcon64 from '../../packages/react/src/icons/MdPersonIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Person',
+  title: 'Deprecated/Icons/Person',
   component: MdPersonIcon,
   parameters: {
     docs: {

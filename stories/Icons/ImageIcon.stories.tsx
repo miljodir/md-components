@@ -5,7 +5,7 @@ import MdImageIcon64 from '../../packages/react/src/icons/MdImageIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Image',
+  title: 'Deprecated/Icons/Image',
   component: MdImageIcon,
   parameters: {
     docs: {

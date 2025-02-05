@@ -5,7 +5,7 @@ import MdCancelIcon64 from '../../packages/react/src/icons/MdCancelIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Cancel',
+  title: 'Deprecated/Icons/Cancel',
   component: MdCancelIcon,
   parameters: {
     docs: {

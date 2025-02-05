@@ -5,7 +5,7 @@ import MdSubmenuIcon64 from '../../packages/react/src/icons/MdSubmenuIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Submenu',
+  title: 'Deprecated/Icons/Submenu',
   component: MdSubmenuIcon,
   parameters: {
     docs: {

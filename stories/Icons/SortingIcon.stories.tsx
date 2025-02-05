@@ -6,7 +6,7 @@ import MdSortingIcon64 from '../../packages/react/src/icons/MdSortingIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Icons/Sorting',
+  title: 'Deprecated/Icons/Sorting',
   component: MdSortingIcon,
   parameters: {
     docs: {
