@@ -26,6 +26,7 @@
 @import './formElements/multiselect/multiselect.css';
 @import './formElements/multiautocomplete/multiautocomplete.css';
 @import './formElements/fileupload/fileupload.css';
+@import './icons/icons.css';
 @import './utils.css';
 
 html {

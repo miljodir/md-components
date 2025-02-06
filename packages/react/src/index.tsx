@@ -59,6 +59,7 @@ import MdHelpIcon from './icons/MdHelpIcon';
 import MdHelpIcon64 from './icons/MdHelpIcon64';
 import MdHomeIcon from './icons/MdHomeIcon';
 import MdHomeIcon64 from './icons/MdHomeIcon64';
+import MdIcon from './icons/MdIcon';
 import MdImageIcon from './icons/MdImageIcon';
 import MdImageIcon64 from './icons/MdImageIcon64';
 import MdInfoIcon from './icons/MdInfoIcon';
@@ -284,4 +285,5 @@ export {
   MdStep,
   MdStepProps,
   MdStepperProps,
+  MdIcon,
 };
