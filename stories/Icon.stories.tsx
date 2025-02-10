@@ -7,7 +7,10 @@ import type { Args, StoryFn } from '@storybook/react';
 /**
  * Miljødirektoratet uses Material Icons as primary source for icons.
  *
- * See [Material Symbols](https://marella.me/material-symbols/demo/#sharp) for all possible icons.
+ * See [Material Symbols](https://marella.me/material-symbols/demo/#sharp) for all possible icons. Use the icon name from the "sharp" set as the icon prop.
+ *
+ * The size of the icon is controlled by either using the `size`-attribute, setting font-size on the parent element or directly on the icon (with style-tag or using a custom class).
+ * The `size`-attribute is set in rems, and will override the other options.
  *
  * `import { MdIcon } from '@miljodirektoratet/md-react'`
  */
@@ -34,8 +37,7 @@ export default {
   argTypes: {
     icon: {
       type: { name: 'string', required: true },
-      description:
-        'The icon name, from Material. See [Material Symbols](https://marella.me/material-symbols/demo/#sharp) for all possible icons. Use the icon name from the "sharp" set as the icon prop.',
+      description: 'The icon name, from Material.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -47,6 +49,17 @@ export default {
     className: {
       type: { name: 'string' },
       description: 'Custom class name appended to the icon.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    size: {
+      type: { name: 'string' },
+      description: 'Set icon size in rems.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -106,10 +119,9 @@ const ExamplesTemplate: StoryFn<typeof MdIcon> = (args: Args) => {
               flexDirection: 'column',
               gap: '0.5rem',
               alignItems: 'center',
-              // fontSize: '1.5rem',
             }}
           >
-            <MdIcon icon={icon} style={{ fontSize: `${args.size}rem` }} />
+            <MdIcon icon={icon} size={args.size} />
             <div style={{ fontSize: '0.8rem' }}>{`<MdIcon icon='${icon}' />`}</div>
           </div>
         );
@@ -122,6 +134,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   icon: 'account_circle',
   className: '',
+  size: '1.5',
 };
 
 export const Examples = ExamplesTemplate.bind({});
