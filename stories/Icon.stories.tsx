@@ -7,10 +7,10 @@ import type { Args, StoryFn } from '@storybook/react';
 /**
  * Miljødirektoratet uses Material Icons as primary source for icons.
  *
- * See [Material Symbols](https://marella.me/material-symbols/demo/#sharp) for all possible icons. Use the icon name from the "sharp" set as the icon prop.
+ * See [Material Symbols Library](https://fonts.google.com/icons?icon.style=Sharp) for all possible icons. Use the icon name as `icon`-prop. Click on the icon to see the name in the bottom of the sidebar.
  *
- * The size of the icon is controlled by either using the `size`-attribute, setting font-size on the parent element or directly on the icon (with style-tag or using a custom class).
- * The `size`-attribute is set in rems, and will override the other options.
+ * The size of the icon is controlled by either using the `size`-prop, setting font-size on the parent element or directly on the icon (with style-tag or using a custom class).
+ * The `size`-prop is set in rems, and will override the other options.
  *
  * `import { MdIcon } from '@miljodirektoratet/md-react'`
  */
@@ -37,7 +37,7 @@ export default {
   argTypes: {
     icon: {
       type: { name: 'string', required: true },
-      description: 'The icon name, from Material.',
+      description: 'The icon name, from Material Sybols.',
       table: {
         defaultValue: { summary: 'null' },
         type: {

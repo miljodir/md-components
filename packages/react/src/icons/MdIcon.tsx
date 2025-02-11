@@ -22,7 +22,7 @@ const MdIcon: React.FunctionComponent<MdIconProps> = ({ icon, className = '', st
     : style;
 
   return (
-    <span className={`md-icon ${className}`} aria-hidden style={iconStyle} {...rest}>
+    <span className={`md-icon ${className}`} style={iconStyle} {...rest}>
       {icon}
     </span>
   );
