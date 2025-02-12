@@ -9,3 +9,10 @@ Please also see WCAG for more info: [WCAG](https://www.w3.org/WAI/WCAG20/Techniq
 
 This component is for use in React apps, but for those that use other frameworks, there should be plenty of options on how to include
 Material Icons into your project/framework.
+
+If you use Material Icons in your Miljødirektoratet project without using our `MdIcon`-component, please uphold the following criteria:
+
+- Style: **Sharp**
+- Weight: **300**
+- Grade: **Normal**
+- Fill: **No fill**
