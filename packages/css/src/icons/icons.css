@@ -15,3 +15,8 @@
   text-rendering: optimizeLegibility;
   font-feature-settings: 'liga';
 }
+
+a .md-icon,
+button .md-icon {
+  text-decoration: none !important;
+}

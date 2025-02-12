@@ -16,7 +16,7 @@ import type { Args, StoryFn } from '@storybook/react';
  */
 
 export default {
-  title: 'Components/Icons',
+  title: 'Components/Icon',
   component: MdIcon,
   parameters: {
     docs: {
