@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useId, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -90,6 +90,13 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
       'md-multiautocomplete--small': mode === 'small',
       className,
     });
+
+    useEffect(() => {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Notice: MdAutocomplete and MdMultiAutocomplete are deprecated and will be removed in a future version. use MdCombobox instead.',
+      );
+    }, []);
 
     const optionClass = (option: MdMultiAutocompleteOption) => {
       return classnames('md-multiautocomplete__dropdown-item', {
