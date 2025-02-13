@@ -77,26 +77,40 @@ const Template: StoryFn<typeof MdIcon> = (args: Args) => {
 
 const ExamplesTemplate: StoryFn<typeof MdIcon> = (args: Args) => {
   const icons = [
-    'menu',
-    'calendar_month',
-    'calendar_today',
-    'cancel',
-    'check_circle',
-    'check',
     'chevron_right',
+    'keyboard_arrow_down',
+    'chevron_left',
+    'keyboard_arrow_up',
+    'expand_all',
+    'collapse_all',
+    'check',
+    'add',
     'close',
-    'comment',
-    'check_box',
-    'delete',
-    'docs',
-    'document_search',
-    'download',
-    'edit',
+    'remove',
+    'arrow_upward',
+    'arrow_downward',
+    'arrow_forward',
+    'help',
+    'warning',
     'account_circle',
-    'pin_drop',
-    'bar_chart_4_bars',
+    'cancel',
     'info',
     'search',
+    'settings',
+    'edit',
+    'delete',
+    'description',
+    'print',
+    'chat',
+    'table',
+    'bar_chart_4_bars',
+    'calendar_month',
+    'home',
+    'location_on',
+    'signpost',
+    'upload',
+    'download',
+    'open_in_new',
   ];
   return (
     <div
@@ -122,7 +136,7 @@ const ExamplesTemplate: StoryFn<typeof MdIcon> = (args: Args) => {
             }}
           >
             <MdIcon icon={icon} size={args.size} />
-            <div style={{ fontSize: '0.8rem' }}>{`<MdIcon icon='${icon}' />`}</div>
+            <pre style={{ fontSize: '0.7rem' }}>{`<MdIcon icon='${icon}' />`}</pre>
           </div>
         );
       })}
