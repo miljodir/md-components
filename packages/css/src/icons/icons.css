@@ -18,6 +18,8 @@
 }
 
 a .md-icon,
-button .md-icon {
+button .md-icon,
+a:hover .md-icon,
+button:hover .md-icon {
   text-decoration: none !important;
 }
