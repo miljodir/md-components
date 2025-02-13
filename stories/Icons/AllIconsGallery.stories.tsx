@@ -30,6 +30,7 @@ import MdPrintIcon from '../../packages/react/src/icons/MdPrintIcon';
 import MdRedirectIcon from '../../packages/react/src/icons/MdRedirectIcon';
 import MdSettingsIcon from '../../packages/react/src/icons/MdSettingsIcon';
 import MdSignIcon from '../../packages/react/src/icons/MdSignIcon';
+import MdSortingActiveIcon from '../../packages/react/src/icons/MdSortingActiveIcon';
 import MdSortingIcon from '../../packages/react/src/icons/MdSortingIcon';
 import MdSubmenuIcon from '../../packages/react/src/icons/MdSubmenuIcon';
 import MdTableIcon from '../../packages/react/src/icons/MdTableIcon';
@@ -175,6 +176,10 @@ const Template = (args: Args) => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
         <MdSortingIcon width={args.width} height={args.height} color={args.color} className={args.className} />
         <span>MdSortingIcon</span>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
+        <MdSortingActiveIcon width={args.width} height={args.height} color={args.color} className={args.className} />
+        <span>MdSortingActiveIcon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
         <MdSubmenuIcon width={args.width} height={args.height} color={args.color} className={args.className} />
