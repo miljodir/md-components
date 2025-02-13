@@ -110,7 +110,9 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
 
     useEffect(() => {
       // eslint-disable-next-line no-console
-      console.warn('Notice: MdAutocomplete is deprecated and will be removed in a future version.');
+      console.warn(
+        'Notice: MdAutocomplete and MdMultiAutocomplete are deprecated and will be removed in a future version. use MdCombobox instead.',
+      );
     }, []);
 
     const handleOptionClick = (option: MdAutocompleteOption) => {
