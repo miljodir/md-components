@@ -102,6 +102,10 @@ Disse kan legges i `package.json` til eget prosjekt slik:
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
 Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
 
+### Støtte for rammeverk som bruker React Server Components
+
+For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legges en `use client` på toppen av alle komponentfiler som kan inneholde JavaScript som kun kan kjøre på klienten. Typisk er dette event handlers som onClick, React Hooks som useState og useEffect, samt browser-APIer som window.
+
 ### Releases
 
 Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release.
