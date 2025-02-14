@@ -32,6 +32,11 @@
 .md-combobox--small .md-combobox__input {
   padding: 0.5rem 4rem 0.5rem 2.5rem;
 }
+.md-combobox__input--no-prefix-icon,
+.md-combobox--large .md-combobox__input--no-prefix-icon,
+.md-combobox--small .md-combobox__input--no-prefix-icon {
+  padding-left: 0.75rem;
+}
 .md-combobox__input::placeholder {
   color: var(--mdTextColor);
   font-size: 1rem;
