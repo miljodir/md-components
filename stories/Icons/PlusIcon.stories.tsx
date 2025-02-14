@@ -4,7 +4,7 @@ import MdPlusIcon64 from '../../packages/react/src/icons/MdPlusIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Plus',
+  title: 'Icons/Plus',
   component: MdPlusIcon,
   parameters: {
     docs: {

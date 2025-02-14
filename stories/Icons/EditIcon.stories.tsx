@@ -5,7 +5,7 @@ import MdEditIcon64 from '../../packages/react/src/icons/MdEditIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Edit',
+  title: 'Icons/Edit',
   component: MdEditIcon,
   parameters: {
     docs: {

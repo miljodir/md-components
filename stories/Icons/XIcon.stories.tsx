@@ -5,7 +5,7 @@ import MdXIcon64 from '../../packages/react/src/icons/MdXIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/X',
+  title: 'Icons/X',
   component: MdXIcon,
   parameters: {
     docs: {

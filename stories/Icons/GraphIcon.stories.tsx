@@ -5,7 +5,7 @@ import MdGraphIcon64 from '../../packages/react/src/icons/MdGraphIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Graph',
+  title: 'Icons/Graph',
   component: MdGraphIcon,
   parameters: {
     docs: {

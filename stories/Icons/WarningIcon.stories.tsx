@@ -5,7 +5,7 @@ import MdWarningIcon64 from '../../packages/react/src/icons/MdWarningIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Warning',
+  title: 'Icons/Warning',
   component: MdWarningIcon,
   parameters: {
     docs: {

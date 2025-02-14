@@ -5,7 +5,7 @@ import MdHelpIcon64 from '../../packages/react/src/icons/MdHelpIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Help',
+  title: 'Icons/Help',
   component: MdHelpIcon,
   parameters: {
     docs: {

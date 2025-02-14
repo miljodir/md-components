@@ -5,7 +5,7 @@ import MdCheckIcon64 from '../../packages/react/src/icons/MdCheckIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Check',
+  title: 'Icons/Check',
   component: MdCheckIcon,
   parameters: {
     docs: {

@@ -1,4 +1,6 @@
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import React from 'react';
+import Readme from '../../packages/css/src/icons/README.md';
 import MdBurgerMenuIcon from '../../packages/react/src/icons/MdBurgerMenuIcon';
 import MdCalendarDayIcon from '../../packages/react/src/icons/MdCalendarDayIcon';
 import MdCalendarIcon from '../../packages/react/src/icons/MdCalendarIcon';
@@ -43,7 +45,23 @@ import MdZoomIcon from '../../packages/react/src/icons/MdZoomIcon';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Gallery',
+  title: 'Icons/Gallery',
+  parameters: {
+    docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
+    },
+  },
 };
 
 const Template = (args: Args) => {

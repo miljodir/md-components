@@ -7,7 +7,7 @@ import MdCommentIcon64 from '../../packages/react/src/icons/MdCommentIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Comment',
+  title: 'Icons/Comment',
   component: MdCommentIcon,
   parameters: {
     docs: {

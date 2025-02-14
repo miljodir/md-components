@@ -5,7 +5,7 @@ import MdUserIcon64 from '../../packages/react/src/icons/MdUserIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/User',
+  title: 'Icons/User',
   component: MdUserIcon,
   parameters: {
     docs: {

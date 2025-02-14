@@ -5,7 +5,7 @@ import MdRedirectIcon64 from '../../packages/react/src/icons/MdRedirectIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Redirect',
+  title: 'Icons/Redirect',
   component: MdRedirectIcon,
   parameters: {
     docs: {

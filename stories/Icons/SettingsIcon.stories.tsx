@@ -5,7 +5,7 @@ import MdSettingsIcon64 from '../../packages/react/src/icons/MdSettingsIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Settings',
+  title: 'Icons/Settings',
   component: MdSettingsIcon,
   parameters: {
     docs: {

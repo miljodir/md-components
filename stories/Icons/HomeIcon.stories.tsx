@@ -5,7 +5,7 @@ import MdHomeIcon64 from '../../packages/react/src/icons/MdHomeIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Home',
+  title: 'Icons/Home',
   component: MdHomeIcon,
   parameters: {
     docs: {

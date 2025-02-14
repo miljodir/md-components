@@ -4,7 +4,7 @@ import MdExpandIcon64 from '../../packages/react/src/icons/MdExpandIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Expand',
+  title: 'Icons/Expand',
   component: MdExpandIcon,
   parameters: {
     docs: {

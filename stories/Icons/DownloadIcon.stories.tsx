@@ -5,7 +5,7 @@ import MdDownloadIcon64 from '../../packages/react/src/icons/MdDownloadIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Download',
+  title: 'Icons/Download',
   component: MdDownloadIcon,
   parameters: {
     docs: {

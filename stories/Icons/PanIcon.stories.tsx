@@ -5,7 +5,7 @@ import MdPanIcon64 from '../../packages/react/src/icons/MdPanIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Pan',
+  title: 'Icons/Pan',
   component: MdPanIcon,
   parameters: {
     docs: {

@@ -5,7 +5,7 @@ import MdTimeIcon64 from '../../packages/react/src/icons/MdTimeIcon64';
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Deprecated/Icons/Time',
+  title: 'Icons/Time',
   component: MdTimeIcon,
   parameters: {
     docs: {
