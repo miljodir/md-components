@@ -1,5 +1,6 @@
-import classnames from 'classnames';
+'use client';
 
+import classnames from 'classnames';
 import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';

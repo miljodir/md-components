@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import MdButton from '../button/MdButton';
@@ -117,7 +119,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
               return inputRef.current?.click();
             }}
           >
-            {uploadTexts && uploadTexts[1]  ? uploadTexts[1] : 'velg fra denne maskinen'}
+            {uploadTexts && uploadTexts[1] ? uploadTexts[1] : 'velg fra denne maskinen'}
           </button>
           <div className="md-fileupload__droparea-content--count">
             Antall {imagesOnly ? 'bilder' : 'filer'}: {files.length} {!multiple ? '/ 1' : ''}
@@ -159,11 +161,11 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
           <MdButton theme="secondary" onClick={handleCancel}>
             {cancelButtonText}
           </MdButton>
-          <MdButton onClick={handleSubmit} disabled={!files || files.length === 0} >
+          <MdButton onClick={handleSubmit} disabled={!files || files.length === 0}>
             {uploadButtonText}
           </MdButton>
         </div>
-        )}
+      )}
     </div>
   );
 };
