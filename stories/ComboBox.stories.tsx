@@ -3,6 +3,8 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import MdComboBox from '../packages/react/src/formElements/MdComboBox';
 
+import MdCalendarIcon from '../packages/react/src/icons/MdCalendarIcon';
+import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -33,6 +35,15 @@ export default {
     options: {
       type: { name: 'array', required: true },
       description: 'Array with data objects for select options',
+      table: {
+        type: {
+          summary: '[{ value: string | number, text: string }, ...]',
+        },
+      },
+    },
+    defaultOptions: {
+      type: { name: 'array' },
+      description: 'Array with data objects for default autocomplete options',
       table: {
         type: {
           summary: '[{ value: string | number, text: string }, ...]',
@@ -125,6 +136,17 @@ export default {
       },
       control: { type: 'text' },
     },
+    dropdownHeight: {
+      type: { name: 'number' },
+      description: 'Set max height of dropdown in pixels. Deafults to `300px` if not set.',
+      table: {
+        defaultValue: { summary: 'variable' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
   },
 };
 
@@ -162,10 +184,12 @@ Multi.args = {
   ],
   value: ['optionA', 'optionC'],
   onSelectOption: () => {},
+  defaultOptions: [],
   label: 'Label',
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
+  prefixIcon: <MdZoomIcon />,
   errorText: '',
 };
 
@@ -178,9 +202,14 @@ Single.args = {
   ],
   value: 'optionA',
   onSelectOption: () => {},
+  defaultOptions: [
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionD', text: 'Et annet valg som er litt langt' },
+  ],
   label: 'Label',
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
+  prefixIcon: <MdCalendarIcon />,
   errorText: 'This is an example of an error text',
 };

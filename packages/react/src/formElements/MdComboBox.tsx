@@ -1,5 +1,5 @@
 import * as Ariakit from '@ariakit/react';
-import { matchSorter } from 'match-sorter';
+
 import React, { useEffect, useMemo, useState, useTransition, useId } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -16,14 +16,17 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   id?: string;
   label?: string;
   options: MdComboBoxOption[];
-  value: string[];
+  defaultOptions?: MdComboBoxOption[];
+  value: string | string[];
   disabled?: boolean;
   errorText?: string;
   placeholder?: string;
   helpText?: string;
   mode?: 'large' | 'medium' | 'small';
   noResultsText?: string;
-  onSelectOption(_e: string[] | string): void;
+  dropdownHeight?: number;
+  prefixIcon?: React.ReactNode;
+  onSelectOption(_value: string[] | string): void;
 }
 
 /**
@@ -48,6 +51,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       id,
       label,
       options,
+      defaultOptions,
       value,
       disabled = false,
       placeholder = 'Søk',
@@ -55,6 +59,8 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       helpText,
       errorText,
       noResultsText = 'Ingen treff',
+      dropdownHeight,
+      prefixIcon,
       onSelectOption,
       ...otherProps
     },
@@ -73,7 +79,15 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     }, [selectedValues]);
 
     const matches = useMemo(() => {
-      return matchSorter(options, searchValue, { keys: ['value'], threshold: matchSorter.rankings.CONTAINS });
+      if (!searchValue && defaultOptions && defaultOptions.length > 0) {
+        return defaultOptions;
+      }
+
+      // return matchSorter(options, searchValue, { keys: ['value'], threshold: matchSorter.rankings.CONTAINS });
+      const results = options?.filter(o => {
+        return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
+      });
+      return results;
     }, [searchValue]);
 
     const getValueById = (value: string) => {
@@ -139,9 +153,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           )}
 
           <div className={`md-combobox__input-wrapper ${disabled && 'md-combobox__input-wrapper--disabled'}`}>
-            <div className="md-combobox__input--before">
-              <MdZoomIcon />
-            </div>
+            <div className="md-combobox__input--before">{prefixIcon ? prefixIcon : <MdZoomIcon />}</div>
             <Ariakit.Combobox
               ref={ref}
               placeholder={displayValue}
@@ -162,6 +174,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             gutter={-1}
             className="md-combobox__popover"
             aria-busy={isPending}
+            style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
           >
             {matches &&
               matches.map(option => {
