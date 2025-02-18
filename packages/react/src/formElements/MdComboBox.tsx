@@ -1,5 +1,6 @@
-import * as Ariakit from '@ariakit/react';
+'use client'
 
+import * as Ariakit from '@ariakit/react';
 import React, { useEffect, useMemo, useState, useTransition, useId } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
