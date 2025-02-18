@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useEffect, useId, useRef, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
@@ -109,13 +109,6 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
     if (open) {
       displayValue = '';
     }
-
-    useEffect(() => {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Notice: MdAutocomplete and MdMultiAutocomplete are deprecated and will be removed in a future version. use MdCombobox instead.',
-      );
-    }, []);
 
     const handleOptionClick = (option: MdAutocompleteOption) => {
       onSelectOption(option);
