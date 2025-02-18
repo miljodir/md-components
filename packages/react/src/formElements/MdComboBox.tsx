@@ -26,6 +26,7 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   noResultsText?: string;
   dropdownHeight?: number;
   prefixIcon?: React.ReactNode;
+  hidePrefixIcon?: boolean;
   onSelectOption(_value: string[] | string): void;
 }
 
@@ -43,6 +44,11 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
  * @params placeholder {string=} - The placeholder of the combobox.
  * @params mode {string=} - The size of the combobox. 'large' | 'medium' | 'small'
  * @params onSelectOption {function} - The onSelectOption handler for change events.
+ * @params helpText {string=} - The help text of the combobox.
+ * @params noResultsText {string=} - The text to display if no results are found.
+ * @params dropdownHeight {number=} - The height of the dropdown.
+ * @params prefixIcon {React.ReactNode=} - The prefix icon of the combobox.
+ * @params hidePrefixIcon {boolean=} - The hide prefix icon of the combobox.
  */
 
 const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
@@ -61,6 +67,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       noResultsText = 'Ingen treff',
       dropdownHeight,
       prefixIcon,
+      hidePrefixIcon = false,
       onSelectOption,
       ...otherProps
     },
@@ -153,11 +160,13 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           )}
 
           <div className={`md-combobox__input-wrapper ${disabled && 'md-combobox__input-wrapper--disabled'}`}>
-            <div className="md-combobox__input--before">{prefixIcon ? prefixIcon : <MdZoomIcon />}</div>
+            {!hidePrefixIcon && (
+              <div className="md-combobox__input--before">{prefixIcon ? prefixIcon : <MdZoomIcon />}</div>
+            )}
             <Ariakit.Combobox
               ref={ref}
               placeholder={displayValue}
-              className="md-combobox__input"
+              className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'}`}
               disabled={disabled}
               aria-describedby={ariaDescribedBy}
               {...otherProps}

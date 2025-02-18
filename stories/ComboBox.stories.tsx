@@ -191,6 +191,7 @@ Multi.args = {
   helpText: 'This is a help text',
   prefixIcon: <MdZoomIcon />,
   errorText: '',
+  hidePrefixIcon: true,
 };
 
 Single.args = {
