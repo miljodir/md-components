@@ -17,9 +17,7 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "@ariakit/react": "^0.4.15",
-    "classnames": "^2.3.2",
-    "match-sorter": "^8.0.0"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
