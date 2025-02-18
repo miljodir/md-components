@@ -104,7 +104,7 @@ Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook
 
 ### Støtte for rammeverk som bruker React Server Components
 
-For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legges en `use client` på toppen av alle komponentfiler som kan inneholde JavaScript som kun kan kjøre på klienten. Typisk er dette event handlers som onClick, React Hooks som useState og useEffect, samt browser-APIer som window.
+For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legges en `use client` på toppen av alle komponentfiler som kan inneholde interaktiv JavaScript som kun kan kjøre på klienten. Typisk er dette event handlers som `onClick`, React Hooks som `useState` og `useEffect`, samt browser-APIer som `window`. Les mer på [React sin dokumentasjon](https://react.dev/reference/rsc/use-client).
 
 ### Releases
 
