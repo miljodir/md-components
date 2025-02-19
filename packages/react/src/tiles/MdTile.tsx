@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
-import MdChevronIcon from '../icons/MdChevronIcon';
+import MdIconChevronForward from '../icons-material/MdIconChevronForward';
 
 export type MdTileProps = {
   heading?: string;
@@ -64,7 +64,7 @@ const MdTile: React.FC<MdTileProps> = ({
         </div>
       </div>
       <div className="md-tile__arrow">
-        <MdChevronIcon height={25} />
+        <MdIconChevronForward height={32} />
       </div>
     </>
   );

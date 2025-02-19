@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/stepper/README.md';
 import MdButton from '../packages/react/src/button/MdButton';
-import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
+import MdIconChevronForward from '../packages/react/src/icons-material/MdIconChevronForward';
 import MdStep from '../packages/react/src/stepper/MdStep';
 import MdStepper from '../packages/react/src/stepper/MdStepper';
 import type { Args, StoryFn } from '@storybook/react';
@@ -128,7 +128,7 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
         >
           <div style={stepContentStyle}>
             This is a step.
-            <MdButton rightIcon={<MdChevronIcon />} onClick={nextStep}>
+            <MdButton rightIcon={<MdIconChevronForward />} onClick={nextStep}>
               Go to step 2
             </MdButton>
           </div>
@@ -147,7 +147,7 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
               <MdButton onClick={prevStep} theme="secondary">
                 Previous
               </MdButton>
-              <MdButton rightIcon={<MdChevronIcon />} onClick={nextStep}>
+              <MdButton rightIcon={<MdIconChevronForward />} onClick={nextStep}>
                 Go to step 3
               </MdButton>
             </div>

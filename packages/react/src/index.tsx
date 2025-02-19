@@ -105,6 +105,94 @@ import MdZoomIconMinus from './icons/MdZoomIconMinus';
 import MdZoomIconMinus64 from './icons/MdZoomIconMinus64';
 import MdZoomIconPlus from './icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from './icons/MdZoomIconPlus64';
+import MdIconAccountCircle from './icons-material/MdIconAccountCircle';
+import MdIconAccountCircleLarge from './icons-material/MdIconAccountCircleLarge';
+import MdIconAdd from './icons-material/MdIconAdd';
+import MdIconAddLarge from './icons-material/MdIconAddLarge';
+import MdIconArrowBackward from './icons-material/MdIconArrowBackward';
+import MdIconArrowBackwardLarge from './icons-material/MdIconArrowBackwardLarge';
+import MdIconArrowDownward from './icons-material/MdIconArrowDownward';
+import MdIconArrowDownwardLarge from './icons-material/MdIconArrowDownwardLarge';
+import MdIconArrowForward from './icons-material/MdIconArrowForward';
+import MdIconArrowForwardLarge from './icons-material/MdIconArrowForwardLarge';
+import MdIconArrowUpward from './icons-material/MdIconArrowUpward';
+import MdIconArrowUpwardLarge from './icons-material/MdIconArrowUpwardLarge';
+import MdIconBarChart from './icons-material/MdIconBarChart';
+import MdIconBarChartLarge from './icons-material/MdIconBarChartLarge';
+import MdIconCalendarMonth from './icons-material/MdIconCalendarMonth';
+import MdIconCalendarMonthLarge from './icons-material/MdIconCalendarMonthLarge';
+import MdIconCancel from './icons-material/MdIconCancel';
+import MdIconCancelLarge from './icons-material/MdIconCancelLarge';
+import MdIconChat from './icons-material/MdIconChat';
+import MdIconChatLarge from './icons-material/MdIconChatLarge';
+import MdIconCheckCircle from './icons-material/MdIconCheckCircle';
+import MdIconCheckCircleLarge from './icons-material/MdIconCheckCircleLarge';
+import MdIconChevronBackward from './icons-material/MdIconChevronBackward';
+import MdIconChevronBackwardLarge from './icons-material/MdIconChevronBackwardLarge';
+import MdIconChevronForward from './icons-material/MdIconChevronForward';
+import MdIconChevronForwardLarge from './icons-material/MdIconChevronForwardLarge';
+import MdIconCollapseAll from './icons-material/MdIconCollapseAll';
+import MdIconCollapseAllLarge from './icons-material/MdIconCollapseAllLarge';
+import MdIconDelete from './icons-material/MdIconDelete';
+import MdIconDeleteLarge from './icons-material/MdIconDeleteLarge';
+import MdIconDescription from './icons-material/MdIconDescription';
+import MdIconDescriptionLarge from './icons-material/MdIconDescriptionLarge';
+import MdIconDownload from './icons-material/MdIconDownload';
+import MdIconDownloadLarge from './icons-material/MdIconDownloadLarge';
+import MdIconEdit from './icons-material/MdIconEdit';
+import MdIconEditLarge from './icons-material/MdIconEditLarge';
+import MdIconExpandAll from './icons-material/MdIconExpandAll';
+import MdIconExpandAllLarge from './icons-material/MdIconExpandAllLarge';
+import MdIconExpandContent from './icons-material/MdIconExpandContent';
+import MdIconExpandContentLarge from './icons-material/MdIconExpandContentLarge';
+import MdIconHelp from './icons-material/MdIconHelp';
+import MdIconHelpLarge from './icons-material/MdIconHelpLarge';
+import MdIconHome from './icons-material/MdIconHome';
+import MdIconHomeLarge from './icons-material/MdIconHomeLarge';
+import MdIconImage from './icons-material/MdIconImage';
+import MdIconImageLarge from './icons-material/MdIconImageLarge';
+import MdIconInfo from './icons-material/MdIconInfo';
+import MdIconInfoLarge from './icons-material/MdIconInfoLarge';
+import MdIconKeyboardArrowDown from './icons-material/MdIconKeyboardArrowDown';
+import MdIconKeyboardArrowDownLarge from './icons-material/MdIconKeyboardArrowDownLarge';
+import MdIconKeyboardArrowUp from './icons-material/MdIconKeyboardArrowUp';
+import MdIconKeyboardArrowUpLarge from './icons-material/MdIconKeyboardArrowUpLarge';
+import MdIconLocation from './icons-material/MdIconLocation';
+import MdIconLocationLarge from './icons-material/MdIconLocationLarge';
+import MdIconMail from './icons-material/MdIconMail';
+import MdIconMailLarge from './icons-material/MdIconMailLarge';
+import MdIconMenu from './icons-material/MdIconMenu';
+import MdIconMenuLarge from './icons-material/MdIconMenuLarge';
+import MdIconMore from './icons-material/MdIconMore';
+import MdIconMoreLarge from './icons-material/MdIconMoreLarge';
+import MdIconOpenInNew from './icons-material/MdIconOpenInNew';
+import MdIconOpenInNewLarge from './icons-material/MdIconOpenInNewLarge';
+import MdIconPerson from './icons-material/MdIconPerson';
+import MdIconPersonLarge from './icons-material/MdIconPersonLarge';
+import MdIconPrint from './icons-material/MdIconPrint';
+import MdIconPrintLarge from './icons-material/MdIconPrintLarge';
+import MdIconQuickReference from './icons-material/MdIconQuickReference';
+import MdIconQuickReferenceLarge from './icons-material/MdIconQuickReferenceLarge';
+import MdIconRemove from './icons-material/MdIconRemove';
+import MdIconRemoveLarge from './icons-material/MdIconRemoveLarge';
+import MdIconSchedule from './icons-material/MdIconSchedule';
+import MdIconScheduleLarge from './icons-material/MdIconScheduleLarge';
+import MdIconSearch from './icons-material/MdIconSearch';
+import MdIconSearchLarge from './icons-material/MdIconSearchLarge';
+import MdIconSettings from './icons-material/MdIconSettings';
+import MdIconSettingsLarge from './icons-material/MdIconSettingsLarge';
+import MdIconSignpost from './icons-material/MdIconSignpost';
+import MdIconSignpostLarge from './icons-material/MdIconSignpostLarge';
+import MdIconTable from './icons-material/MdIconTable';
+import MdIconTableLarge from './icons-material/MdIconTableLarge';
+import MdIconUpload from './icons-material/MdIconUpload';
+import MdIconUploadLarge from './icons-material/MdIconUploadLarge';
+import MdIconWarning from './icons-material/MdIconWarning';
+import MdIconWarningLarge from './icons-material/MdIconWarningLarge';
+import MdIconZoomIn from './icons-material/MdIconZoomIn';
+import MdIconZoomInLarge from './icons-material/MdIconZoomInLarge';
+import MdIconZoomOut from './icons-material/MdIconZoomOut';
+import MdIconZoomOutLarge from './icons-material/MdIconZoomOutLarge';
 import MdInfoTag, { MdInfoTagProps } from './infoTag/MdInfoTag';
 import MdLink, { MdLinkProps } from './link/MdLink';
 import MdLoadingSpinner, { MdLoadingSpinnerProps } from './loadingSpinner/MdLoadingSpinner';
@@ -284,4 +372,94 @@ export {
   MdStep,
   MdStepProps,
   MdStepperProps,
+
+  // Material icons
+  MdIconChevronBackward,
+  MdIconChevronBackwardLarge,
+  MdIconChevronForward,
+  MdIconChevronForwardLarge,
+  MdIconKeyboardArrowDown,
+  MdIconKeyboardArrowDownLarge,
+  MdIconKeyboardArrowUp,
+  MdIconKeyboardArrowUpLarge,
+  MdIconExpandAll,
+  MdIconExpandAllLarge,
+  MdIconCollapseAll,
+  MdIconCollapseAllLarge,
+  MdIconExpandContent,
+  MdIconExpandContentLarge,
+  MdIconMore,
+  MdIconMoreLarge,
+  MdIconMenu,
+  MdIconMenuLarge,
+  MdIconAdd,
+  MdIconAddLarge,
+  MdIconRemove,
+  MdIconRemoveLarge,
+  MdIconArrowDownward,
+  MdIconArrowDownwardLarge,
+  MdIconArrowForward,
+  MdIconArrowForwardLarge,
+  MdIconArrowBackward,
+  MdIconArrowBackwardLarge,
+  MdIconArrowUpward,
+  MdIconArrowUpwardLarge,
+  MdIconHelp,
+  MdIconHelpLarge,
+  MdIconWarning,
+  MdIconWarningLarge,
+  MdIconAccountCircle,
+  MdIconAccountCircleLarge,
+  MdIconCancel,
+  MdIconCancelLarge,
+  MdIconInfo,
+  MdIconInfoLarge,
+  MdIconSchedule,
+  MdIconScheduleLarge,
+  MdIconPerson,
+  MdIconPersonLarge,
+  MdIconCheckCircle,
+  MdIconCheckCircleLarge,
+  MdIconSearch,
+  MdIconSearchLarge,
+  MdIconSettings,
+  MdIconSettingsLarge,
+  MdIconEdit,
+  MdIconEditLarge,
+  MdIconDelete,
+  MdIconDeleteLarge,
+  MdIconDescription,
+  MdIconDescriptionLarge,
+  MdIconQuickReference,
+  MdIconQuickReferenceLarge,
+  MdIconImage,
+  MdIconImageLarge,
+  MdIconPrint,
+  MdIconPrintLarge,
+  MdIconChat,
+  MdIconChatLarge,
+  MdIconTable,
+  MdIconTableLarge,
+  MdIconBarChart,
+  MdIconBarChartLarge,
+  MdIconCalendarMonth,
+  MdIconCalendarMonthLarge,
+  MdIconHome,
+  MdIconHomeLarge,
+  MdIconLocation,
+  MdIconLocationLarge,
+  MdIconSignpost,
+  MdIconSignpostLarge,
+  MdIconUpload,
+  MdIconUploadLarge,
+  MdIconDownload,
+  MdIconDownloadLarge,
+  MdIconOpenInNew,
+  MdIconOpenInNewLarge,
+  MdIconMail,
+  MdIconMailLarge,
+  MdIconZoomIn,
+  MdIconZoomInLarge,
+  MdIconZoomOut,
+  MdIconZoomOutLarge,
 };

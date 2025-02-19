@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React, { useId } from 'react';
 
-import MdXIcon from '../icons/MdXIcon';
+import MdIconClose from '../icons-material/MdIconClose';
 
 export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string | null;
@@ -40,7 +40,7 @@ const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
       <div className="md-chip__label">{label}</div>
       {!hideCloseIcon && (
         <div aria-hidden="true" className="md-chip__right-icon">
-          <MdXIcon />
+          <MdIconClose />
         </div>
       )}
     </button>

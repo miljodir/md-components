@@ -4,7 +4,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiautocomplete/README.md';
 import MdMultiAutocomplete from '../packages/react/src/formElements/MdMultiAutocomplete';
-import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
 import type {
   MdMultiAutocompleteOption,
   MdMultiAutocompleteProps,
@@ -239,7 +239,7 @@ const options = [
 export const MultiAutocomplete = Template.bind({});
 MultiAutocomplete.args = {
   label: 'Label',
-  prefixIcon: <MdZoomIcon />,
+  prefixIcon: <MdIconSearch />,
   options,
   defaultOptions: [
     { value: 'optionA', text: 'A option' },

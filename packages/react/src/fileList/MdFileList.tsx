@@ -2,11 +2,11 @@ import classnames from 'classnames';
 import React from 'react';
 
 import MdIconButton from '../iconButton/MdIconButton';
-import MdDeleteIcon from '../icons/MdDeleteIcon';
-import MdDocIcon from '../icons/MdDocIcon';
-import MdDownloadIcon from '../icons/MdDownloadIcon';
-import MdEditIcon from '../icons/MdEditIcon';
-import MdPrintIcon from '../icons/MdPrintIcon';
+import MdIconDelete from '../icons-material/MdIconDelete';
+import MdIconDescription from '../icons-material/MdIconDescription';
+import MdIconDownload from '../icons-material/MdIconDownload';
+import MdIconEdit from '../icons-material/MdIconEdit';
+import MdIconPrint from '../icons-material/MdIconPrint';
 
 interface FileType {
   name: string;
@@ -71,7 +71,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
               <div className="md-filelist__file-label">
                 {!hideIcons && (
                   <div className="md-filelist__file-icon">
-                    <MdDocIcon aria-hidden="true" />
+                    <MdIconDescription aria-hidden="true" />
                   </div>
                 )}
                 <div>
@@ -91,7 +91,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onDownloadFile(file);
                     }}
                   >
-                    <MdDownloadIcon />
+                    <MdIconDownload />
                   </MdIconButton>
                 )}
 
@@ -105,7 +105,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onRemoveFile(file);
                     }}
                   >
-                    <MdDeleteIcon />
+                    <MdIconDelete />
                   </MdIconButton>
                 )}
 
@@ -119,7 +119,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onEditFile(file);
                     }}
                   >
-                    <MdEditIcon />
+                    <MdIconEdit />
                   </MdIconButton>
                 )}
 
@@ -133,7 +133,7 @@ const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                       onPrintFile(file);
                     }}
                   >
-                    <MdPrintIcon />
+                    <MdIconPrint />
                   </MdIconButton>
                 )}
               </div>

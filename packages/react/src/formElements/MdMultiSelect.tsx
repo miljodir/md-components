@@ -4,7 +4,7 @@ import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
-import MdChevronIcon from '../icons/MdChevronIcon';
+import MdIconChevronForward from '../icons-material/MdIconChevronForward';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
@@ -202,7 +202,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               <div className="md-multiselect__button-hasmultiple">+{selectedOptions.length - 1}</div>
             )}
             <div aria-hidden="true" className="md-multiselect__button-icon">
-              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
+              <MdIconChevronForward transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 

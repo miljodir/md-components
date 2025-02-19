@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
-import MdXIcon from '../icons/MdXIcon';
+import MdIconClose from '../icons-material/MdIconClose';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
 const focusableHtmlElements =
@@ -120,7 +120,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 }}
                 aria-label="Lukk"
               >
-                <MdXIcon />
+                <MdIconClose />
               </MdIconButton>
             </div>
             <div className="md-modal__content-inner">{children}</div>

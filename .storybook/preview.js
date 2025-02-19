@@ -26,6 +26,7 @@ export const parameters = {
         'Messages',
         'Chips',
         'Form',
+        'Icons',
         'Deprecated',
       ],
     },

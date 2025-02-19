@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdDownloadIcon64: React.FunctionComponent<MdIconProps> = ({ className = '', ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdDownloadIcon is deprecated and will be removed in a future release. Use MdIconDownload instead.');
+
   return (
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className={className} {...otherProps}>
       <path
