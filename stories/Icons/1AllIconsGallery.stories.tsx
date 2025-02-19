@@ -65,7 +65,7 @@ export default {
         );
       },
       description: {
-        component: 'A gallery of all available icons.<br/><br/>We have switched to Material Symbols for our icons.',
+        component: 'A gallery of all available icons.<br/>We have switched to Material Symbols for our icons.',
       },
     },
   },
