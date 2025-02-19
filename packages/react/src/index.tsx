@@ -144,6 +144,7 @@ import MdIconSchedule from './icons-material/MdIconSchedule';
 import MdIconSearch from './icons-material/MdIconSearch';
 import MdIconSettings from './icons-material/MdIconSettings';
 import MdIconSignpost from './icons-material/MdIconSignpost';
+import MdIconSwapVert from './icons-material/MdIconSwapVert';
 import MdIconTable from './icons-material/MdIconTable';
 import MdIconUpload from './icons-material/MdIconUpload';
 import MdIconWarning from './icons-material/MdIconWarning';
@@ -374,4 +375,5 @@ export {
   MdIconMail,
   MdIconZoomIn,
   MdIconZoomOut,
+  MdIconSwapVert,
 };

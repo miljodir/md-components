@@ -41,6 +41,7 @@ import MdIconSchedule from '../../packages/react/src/icons-material/MdIconSchedu
 import MdIconSearch from '../../packages/react/src/icons-material/MdIconSearch';
 import MdIconSettings from '../../packages/react/src/icons-material/MdIconSettings';
 import MdIconSignpost from '../../packages/react/src/icons-material/MdIconSignpost';
+import MdIconSwapVert from '../../packages/react/src/icons-material/MdIconSwapVert';
 import MdIconTable from '../../packages/react/src/icons-material/MdIconTable';
 import MdIconUpload from '../../packages/react/src/icons-material/MdIconUpload';
 import MdIconWarning from '../../packages/react/src/icons-material/MdIconWarning';
@@ -256,6 +257,10 @@ const Template = (args: Args) => {
       <div style={style}>
         <MdIconSignpost {...props} />
         <pre>MdIconSignpost</pre>
+      </div>
+      <div style={style}>
+        <MdIconSwapVert {...props} />
+        <pre>MdIconSwapVert</pre>
       </div>
       <div style={style}>
         <MdIconTable {...props} />
