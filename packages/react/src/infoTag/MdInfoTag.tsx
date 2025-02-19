@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React from 'react';
 import MdIconCancel from '../icons-material/MdIconCancel';

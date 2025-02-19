@@ -1,6 +1,7 @@
+'use client';
+
 import classnames from 'classnames';
 import React from 'react';
-
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconDelete from '../icons-material/MdIconDelete';
 import MdIconDescription from '../icons-material/MdIconDescription';

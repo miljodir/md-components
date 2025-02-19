@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import MdIconButton from '../iconButton/MdIconButton';

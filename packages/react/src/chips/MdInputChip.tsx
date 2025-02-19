@@ -1,6 +1,7 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useId } from 'react';
-
 import MdIconClose from '../icons-material/MdIconClose';
 
 export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
