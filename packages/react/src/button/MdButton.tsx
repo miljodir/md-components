@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import React from 'react';
+import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'danger';
@@ -11,6 +12,7 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   children?: string | React.ReactNode;
   small?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  loading?: boolean;
 }
 
 const MdButton: React.FunctionComponent<MdButtonProps> = ({
@@ -21,6 +23,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
   children,
   small,
   type = 'button',
+  loading = false,
   ...otherProps
 }: MdButtonProps) => {
   const classNames = classnames(
@@ -39,7 +42,7 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
     <button type={type} {...otherProps} className={classNames}>
       {topIcon && (
         <div aria-hidden="true" className="md-button__topIcon">
-          {topIcon}
+          {loading ? <MdLoadingSpinner /> : topIcon}
         </div>
       )}
       <ConditionalWrapper
@@ -54,9 +57,9 @@ const MdButton: React.FunctionComponent<MdButtonProps> = ({
           </div>
         )}
         {children}
-        {rightIcon && (
+        {(rightIcon || (loading && !topIcon)) && (
           <div aria-hidden="true" className="md-button__rightIcon">
-            {rightIcon}
+            {loading && !topIcon ? <MdLoadingSpinner /> : rightIcon}
           </div>
         )}
       </ConditionalWrapper>

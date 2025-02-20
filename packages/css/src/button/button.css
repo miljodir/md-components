@@ -32,6 +32,10 @@
   width: 1rem;
   flex-shrink: 0;
 }
+.md-button__topIcon .md-loading-spinner {
+  width: 1rem;
+  height: 1rem;
+}
 
 .md-button__leftIcon {
   height: 1rem;
@@ -49,6 +53,10 @@
   width: 1rem;
   flex-shrink: 0;
   margin-left: 1rem;
+}
+.md-button__rightIcon .md-loading-spinner {
+  width: 1rem;
+  height: 1rem;
 }
 
 .md-button--small > .md-button__rightIcon {
@@ -72,6 +80,10 @@
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
   cursor: not-allowed;
+}
+.md-button:not(.md-button--secondary, .md-button--tertiary)[disabled] .md-loading-spinner,
+.md-button:not(.md-button--secondary, .md-button--tertiary):disabled .md-loading-spinner {
+  filter: invert(1);
 }
 
 .md-button--secondary {
