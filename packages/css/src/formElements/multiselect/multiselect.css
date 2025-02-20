@@ -80,8 +80,8 @@
 .md-multiselect__button-icon {
   display: flex;
   flex-shrink: 0;
-  width: 0.9375rem;
-  height: 0.9375rem;
+  width: 1.25rem;
+  height: 1.25rem;
   rotate: 90deg;
   color: var(--mdGreyColor);
 }

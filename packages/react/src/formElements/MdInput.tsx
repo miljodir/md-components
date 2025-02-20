@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import MdWarningIcon from '../icons/MdWarningIcon';
+import MdIconWarning from '../icons-material/MdIconWarning';
 
 export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -127,7 +127,7 @@ const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             {suffix}
             {error && !hideErrorIcon && (
               <div className="md-input__error-icon">
-                <MdWarningIcon aria-hidden="true" />
+                <MdIconWarning aria-hidden="true" />
               </div>
             )}
           </div>

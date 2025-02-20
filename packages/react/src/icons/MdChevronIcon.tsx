@@ -2,6 +2,11 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdChevronIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'MdChevronIcon is deprecated and will be removed in a future release. Use one of the MdIconChevron- or MdIconKeyboardArrow icons instead.',
+  );
+
   return (
     <svg
       version="1.1"

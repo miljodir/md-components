@@ -28,14 +28,14 @@
 }
 
 .md-button__topIcon {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
   flex-shrink: 0;
 }
 
 .md-button__leftIcon {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
   flex-shrink: 0;
   margin-right: 1rem;
 }
@@ -45,8 +45,8 @@
 }
 
 .md-button__rightIcon {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
   flex-shrink: 0;
   margin-left: 1rem;
 }

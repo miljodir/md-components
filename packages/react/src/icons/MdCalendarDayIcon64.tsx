@@ -2,6 +2,11 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdCalendarDay64Icon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'MdCalendarDay64Icon is deprecated and will be removed in a future release. Use MdIconCalendarMonthLarge instead.',
+  );
+
   return (
     <svg
       viewBox="0 0 64 64"

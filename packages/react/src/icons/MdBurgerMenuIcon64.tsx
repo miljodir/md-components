@@ -2,6 +2,11 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdBurgerMenu64Icon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'MdBurgerMenuIcon64 is deprecated and will be removed in a future release. Use MdIconMenuLarge instead.',
+  );
+
   return (
     <svg
       version="1.1"

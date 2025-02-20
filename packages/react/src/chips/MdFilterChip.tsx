@@ -2,7 +2,8 @@
 
 import classnames from 'classnames';
 import React, { useId } from 'react';
-import MdCheckIcon from '../icons/MdCheckIcon';
+
+import MdIconCheck from '../icons-material/MdIconCheck';
 
 export interface MdFilterChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string | null;
@@ -43,7 +44,7 @@ const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
       )}
       {active && (
         <div aria-hidden="true" className="md-chip__left-icon">
-          <MdCheckIcon />
+          <MdIconCheck />
         </div>
       )}
       <div className="md-chip__label">{label}</div>

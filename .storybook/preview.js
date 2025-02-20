@@ -10,7 +10,7 @@ export const parameters = {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
-    }
+    },
   },
   backgrounds: {
     grid: {
@@ -19,13 +19,22 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Introduction', ['Getting started', 'Contribute'], 'Components', 'Messages', 'Chips', 'Form', 'Icons'],
+      order: [
+        'Introduction',
+        ['Getting started', 'Contribute'],
+        'Components',
+        'Messages',
+        'Chips',
+        'Form',
+        'Icons',
+        'Deprecated',
+      ],
     },
   },
 };
 
 export const decorators = [
-  (Story) => (
+  Story => (
     <div className="preview-wrapper">
       <Story />
     </div>

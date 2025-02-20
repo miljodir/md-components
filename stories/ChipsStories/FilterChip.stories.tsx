@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../../packages/css/src/chips/README.md';
 import MdFilterChip from '../../packages/react/src/chips/MdFilterChip';
-import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
+import MdIconAccountCircle from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import type { MdFilterChipProps } from '../../packages/react/src/chips/MdFilterChip';
 
 export default {
@@ -104,7 +104,7 @@ const Template = (args: MdFilterChipProps) => {
   return (
     <MdFilterChip
       {...args}
-      prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
+      prefixIcon={args.prefixIcon ? <MdIconAccountCircle /> : null}
       onClick={() => {
         handleClick();
       }}

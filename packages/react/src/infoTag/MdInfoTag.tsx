@@ -2,10 +2,10 @@
 
 import classnames from 'classnames';
 import React from 'react';
-import MdCancelIcon from '../icons/MdCancelIcon';
-import MdCheckIcon from '../icons/MdCheckIcon';
-import MdInfoIcon from '../icons/MdInfoIcon';
-import MdWarningIcon from '../icons/MdWarningIcon';
+import MdIconCancel from '../icons-material/MdIconCancel';
+import MdIconCheck from '../icons-material/MdIconCheck';
+import MdIconInfo from '../icons-material/MdIconInfo';
+import MdIconWarning from '../icons-material/MdIconWarning';
 
 export interface MdInfoTagProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'primary' | 'secondary' | 'warning' | 'danger' | 'success';
@@ -49,13 +49,13 @@ const MdInfoTag: React.FC<MdInfoTagProps> = ({
       return customIcon;
     } else {
       if (icon === 'info') {
-        return <MdInfoIcon aria-label="Info" />;
+        return <MdIconInfo aria-label="Info" />;
       } else if (icon === 'warning') {
-        return <MdWarningIcon aria-label="Advarsel" />;
+        return <MdIconWarning aria-label="Advarsel" />;
       } else if (icon === 'error') {
-        return <MdCancelIcon aria-label="Feil" />;
+        return <MdIconCancel aria-label="Feil" />;
       } else if (icon === 'check') {
-        return <MdCheckIcon aria-label="OK" />;
+        return <MdIconCheck aria-label="OK" />;
       } else {
         return null;
       }

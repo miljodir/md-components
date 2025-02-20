@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdPinAltIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdPinAltIcon is deprecated and will be removed in a future release. Use MdIconLocation instead.');
+
   return (
     <svg
       viewBox="0 0 32 32"

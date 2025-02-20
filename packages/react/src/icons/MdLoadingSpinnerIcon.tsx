@@ -7,6 +7,11 @@ const MdLoadingSpinnerIcon: React.FunctionComponent<MdIconProps> = ({
   height = 100,
   ...otherProps
 }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'MdLoadingSpinnerIcon is deprecated and will be removed in a future release. Use MdIconLoadingSpinner instead.',
+  );
+
   return (
     <svg
       viewBox="0 0 100 100"

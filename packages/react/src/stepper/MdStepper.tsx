@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import MdCheckIcon from '../icons/MdCheckIcon';
+import MdIconCheck from '../icons-material/MdIconCheck';
 
 export interface MdStepperProps {
   activeStep: number;
@@ -52,7 +52,7 @@ const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
       <div className="md-stepper__step-title">
         <div className="md-stepper__step-title-badge-outer-border">
           <div className="md-stepper__step-title-badge completed">
-            <MdCheckIcon width={18} />
+            <MdIconCheck width={20} />
           </div>
         </div>
         <h4 className="md-stepper__completed">{title}</h4>

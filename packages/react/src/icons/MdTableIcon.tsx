@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdTableIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdTableIcon is deprecated and will be removed in a future release. Use MdIconTable instead.');
+
   return (
     <svg
       viewBox="0 0 32 32"

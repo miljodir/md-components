@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdTimeIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdTimeIcon is deprecated and will be removed in a future release. Use MdIconSchedule instead.');
+
   return (
     <svg
       viewBox="0 0 20 20"
