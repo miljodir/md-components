@@ -83,7 +83,7 @@
 }
 .md-button:not(.md-button--secondary, .md-button--tertiary)[disabled] .md-loading-spinner,
 .md-button:not(.md-button--secondary, .md-button--tertiary):disabled .md-loading-spinner {
-  filter: invert(1);
+  filter: invert(0.3);
 }
 
 .md-button--secondary {

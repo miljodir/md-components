@@ -45,7 +45,7 @@
 }
 .md-icon-button:not(.md-icon-button--plain)[disabled] .md-loading-spinner,
 .md-icon-button:not(.md-icon-button--plain):disabled .md-loading-spinner {
-  filter: invert(1);
+  filter: invert(0.3);
 }
 
 .md-icon-button--border {

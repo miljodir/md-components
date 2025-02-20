@@ -85,6 +85,15 @@ export default {
         },
       },
     },
+    loading: {
+      description: 'Add loading indicator to button',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -128,6 +137,7 @@ const Template = (args: Args) => {
       fullWidth={args.fullWidth}
       theme={args.theme}
       disabled={args.disabled}
+      loading={args.loading}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdGraphIcon width={64} height={64} />}
     />
@@ -143,4 +153,5 @@ Tile.args = {
   disabled: false,
   preventDefault: true,
   icon: true,
+  loading: false,
 };
