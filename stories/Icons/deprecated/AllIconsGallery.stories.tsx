@@ -1,6 +1,5 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs';
 import React from 'react';
-import Readme from '../../../packages/css/src/icons/README.md';
 import MdBurgerMenuIcon from '../../../packages/react/src/icons/MdBurgerMenuIcon';
 import MdCalendarDayIcon from '../../../packages/react/src/icons/MdCalendarDayIcon';
 import MdCalendarIcon from '../../../packages/react/src/icons/MdCalendarIcon';
@@ -56,14 +55,13 @@ export default {
             <Description />
             <Primary />
             <Controls />
-            <Markdown>{Readme.toString()}</Markdown>
           </>
         );
       },
       description: {
         component:
           // eslint-disable-next-line quotes
-          'These icons are deprecated and will be removed in a future release. Please use the new icons prefixed with `MdIcon` instead.',
+          '### These icons are deprecated and will be removed in a future release. Please use the new icons prefixed with `MdIcon` instead.',
       },
     },
   },
