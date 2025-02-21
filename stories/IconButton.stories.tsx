@@ -69,6 +69,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    loading: {
+      description: 'Add loading indicator to button',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -80,6 +89,7 @@ const Template = (args: MdIconButtonProps) => {
       onClick={action(args.theme || '')}
       disabled={args.disabled}
       theme={args.theme}
+      loading={args.loading}
     >
       <MdDownloadIcon />
     </MdIconButton>
@@ -92,6 +102,7 @@ Filled.args = {
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
+  loading: false,
 };
 
 export const Border = Template.bind({});
@@ -100,6 +111,7 @@ Border.args = {
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
+  loading: false,
 };
 
 export const Plain = Template.bind({});
@@ -108,4 +120,5 @@ Plain.args = {
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
+  loading: false,
 };

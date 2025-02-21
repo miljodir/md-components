@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useId, useRef, useState } from 'react';
 import MdInputChip from '../chips/MdInputChip';

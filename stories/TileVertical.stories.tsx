@@ -75,6 +75,15 @@ export default {
       },
       control: { type: 'inline-radio' },
     },
+    loading: {
+      description: 'Add loading indicator to button',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -118,6 +127,7 @@ const Template = (args: Args) => {
       theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
+      loading={args.loading}
       icon={args.icon && <MdGraphIcon width={128} height={128} />}
     />
   );
@@ -131,4 +141,5 @@ TileVertical.args = {
   disabled: false,
   preventDefault: true,
   icon: true,
+  loading: false,
 };
