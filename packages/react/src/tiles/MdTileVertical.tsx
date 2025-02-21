@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import React from 'react';
+import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export type MdTileVerticalProps = {
   heading?: string;
@@ -15,6 +16,7 @@ export type MdTileVerticalProps = {
   theme?: 'primary' | 'secondary';
   icon?: React.ReactNode;
   preventDefault?: boolean;
+  loading?: boolean;
   onClick?(_e: React.MouseEvent): void;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -28,6 +30,7 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   theme = 'primary',
   icon = null,
   preventDefault = false,
+  loading = false,
   onClick,
   ...otherProps
 }: MdTileVerticalProps) => {
@@ -53,9 +56,9 @@ const MdTileVertical: React.FC<MdTileVerticalProps> = ({
 
   const content = (
     <div className="md-tile-vertical__content">
-      {icon && icon !== '' && (
+      {(icon || loading) && (
         <div aria-hidden="true" className="md-tile-vertical__content-icon">
-          {icon}
+          {loading ? <MdLoadingSpinner /> : icon}
         </div>
       )}
       <div className="md-tile-vertical__content-text">
