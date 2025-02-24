@@ -102,6 +102,10 @@ Disse kan legges i `package.json` til eget prosjekt slik:
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
 Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
 
+### Støtte for rammeverk som bruker React Server Components
+
+For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legges en `use client` på toppen av alle komponentfiler som kan inneholde interaktiv JavaScript som kun kan kjøre på klienten. Typisk er dette event handlers som `onClick`, React Hooks som `useState` og `useEffect`, samt browser-APIer som `window`. Les mer på [React sin dokumentasjon](https://react.dev/reference/rsc/use-client).
+
 ### Releases
 
 Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release.
@@ -144,3 +148,13 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
 ```
 
 NB! Husk å bruke docstrings, ellers vil ikke kommentarene være synlige i pakket versjon.
+
+## DISCLAIMER
+
+> All fonts included in this repository are provided solely for use as part of the Norwegian Environment agencys projects and its associated systems.
+>
+> It is strictly prohibited to redistribute, or reuse these fonts outside the scope of the Norwegian Environment agencys projects without obtaining proper authorization or licenses from their respective owners.
+>
+> Our organization does not hold the rights to these fonts and cannot be held liable for any unauthorized use, distribution, or legal consequences arising from such actions.
+>
+> Please refer to the applicable font licenses for detailed terms of use.

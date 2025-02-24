@@ -1,6 +1,7 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useId } from 'react';
-
 import MdXIcon from '../icons/MdXIcon';
 
 export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
