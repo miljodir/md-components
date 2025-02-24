@@ -66,7 +66,7 @@ const MdTile: React.FC<MdTileProps> = ({
         </div>
       </div>
       <div className="md-tile__arrow">
-        <MdIconChevronForward height={32} />
+        <MdIconChevronForward height={24} />
       </div>
     </>
   );
