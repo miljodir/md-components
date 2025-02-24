@@ -75,6 +75,15 @@ export default {
       },
       control: { type: 'inline-radio' },
     },
+    loading: {
+      description: 'Add loading indicator to button',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     preventDefault: {
       description: 'Only use the onClick handler and prevent click from triggering href.',
       table: {
@@ -131,4 +140,5 @@ TileVertical.args = {
   disabled: false,
   preventDefault: true,
   icon: true,
+  loading: false,
 };

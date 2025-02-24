@@ -2,6 +2,7 @@
 
 import classnames from 'classnames';
 import React from 'react';
+import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdTooltip from '../tooltip/MdTooltip';
 
 export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,6 +11,7 @@ export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   disabled?: boolean;
   showTooltip?: boolean;
   ['aria-label']: string;
+  loading?: boolean;
 }
 
 const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
@@ -20,6 +22,7 @@ const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   type = 'button',
   className,
   'aria-label': ariaLabel,
+  loading = false,
   ...otherProps
 }: MdIconButtonProps) => {
   const classNames = classnames(
@@ -35,7 +38,7 @@ const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
     <button aria-label={ariaLabel} type={type} disabled={disabled} className={classNames} {...otherProps}>
       {children && (
         <div aria-hidden="true" className="md-icon-button__icon">
-          {children}
+          {loading ? <MdLoadingSpinner /> : children}
         </div>
       )}
     </button>

@@ -3,6 +3,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import MdIconChevronForward from '../icons-material/MdIconChevronForward';
+import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export type MdTileProps = {
   heading?: string;
@@ -14,6 +15,7 @@ export type MdTileProps = {
   mode?: 'large' | 'medium' | 'small';
   icon?: React.ReactNode;
   preventDefault?: boolean;
+  loading?: boolean;
   onClick?(_e: React.MouseEvent): void;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -28,6 +30,7 @@ const MdTile: React.FC<MdTileProps> = ({
   disabled = false,
   icon = null,
   preventDefault = false,
+  loading = false,
   onClick,
   ...otherProps
 }: MdTileProps) => {
@@ -55,9 +58,9 @@ const MdTile: React.FC<MdTileProps> = ({
   const content = (
     <>
       <div className="md-tile__content">
-        {icon && icon !== '' && (
+        {(icon || loading) && (
           <div aria-hidden="true" className="md-tile__content-icon">
-            {icon}
+            {loading ? <MdLoadingSpinner /> : icon}
           </div>
         )}
         <div className="md-tile__content-text">

@@ -68,6 +68,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    loading: {
+      description: 'Add loading indicator to button',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     rightIcon: {
       description: 'Icon after label',
       table: {
@@ -100,11 +109,18 @@ interface ButtonArgs {
   disabled: boolean;
   theme: 'primary' | 'secondary' | 'danger' | 'tertiary';
   small: boolean;
+  loading?: boolean;
 }
 
 const Template = (args: ButtonArgs) => {
   return (
-    <MdButton onClick={action(args.label)} disabled={args.disabled} theme={args.theme} small={args.small}>
+    <MdButton
+      onClick={action(args.label)}
+      disabled={args.disabled}
+      theme={args.theme}
+      small={args.small}
+      loading={args.loading}
+    >
       {args.label}
     </MdButton>
   );
@@ -143,6 +159,7 @@ Primary.args = {
   label: 'Hovedknapp',
   disabled: false,
   small: false,
+  loading: false,
 };
 
 export const Secondary = Template.bind({});
@@ -151,6 +168,7 @@ Secondary.args = {
   label: 'Sekundærknapp',
   disabled: false,
   small: false,
+  loading: false,
 };
 
 export const Tertiary = Template.bind({});
@@ -159,6 +177,7 @@ Tertiary.args = {
   label: 'Tertiærknapp',
   disabled: false,
   small: false,
+  loading: false,
 };
 
 export const Error = Template.bind({});
@@ -167,6 +186,7 @@ Error.args = {
   label: 'Advarselsknapp',
   disabled: false,
   small: false,
+  loading: false,
 };
 
 export const Disabled = Template.bind({});
@@ -175,6 +195,7 @@ Disabled.args = {
   label: 'Deaktivert knapp',
   disabled: true,
   small: false,
+  loading: false,
 };
 
 export const ButtonWithIcon = TemplateWithIcon.bind({});
@@ -183,6 +204,7 @@ ButtonWithIcon.args = {
   label: 'Knapp med ikon',
   disabled: false,
   small: false,
+  loading: false,
 };
 
 export const ButtonWithTopIcon = TemplateWithTopIcon.bind({});
@@ -191,4 +213,5 @@ ButtonWithTopIcon.args = {
   label: 'Knapp med ikon',
   disabled: false,
   small: false,
+  loading: false,
 };

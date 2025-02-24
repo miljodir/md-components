@@ -197,6 +197,7 @@ const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
               return !disabled && setOpen(!open);
             }}
             ref={ref}
+            disabled={disabled}
             {...otherProps}
           >
             <div className="md-multiselect__button-text">{displayValue}</div>
