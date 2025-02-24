@@ -24,7 +24,7 @@
   border: 1px solid var(--mdPrimaryColor20);
 }
 
-.md-accordion-item:not(.md-accordion-item--expanded):hover {
+.md-accordion-item:not(.md-accordion-item--expanded, .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
   background-color: var(--mdPrimaryColor20);
 }
@@ -106,7 +106,7 @@
   font-size: 1.25rem;
   margin-left: 1em;
 }
-.md-accordion-item__header:hover .md-accordion-item__header-label {
+.md-accordion-item:not(.md-accordion-item--disabled) .md-accordion-item__header:hover .md-accordion-item__header-label {
   text-decoration: underline;
 }
 
