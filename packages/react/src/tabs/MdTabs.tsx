@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import MdTabTitle from './MdTabTitle';
 import type { MdTabProps } from './MdTab';

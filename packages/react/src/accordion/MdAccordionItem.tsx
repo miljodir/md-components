@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useId, useState } from 'react';
 import MdMinusIcon from '../icons/MdMinusIcon';

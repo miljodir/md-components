@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
@@ -184,6 +186,7 @@ const MdSelect: React.FunctionComponent<MdSelectProps> = ({
           id={selectId}
           aria-describedby={ariaDescribedBy}
           className={buttonClassNames}
+          disabled={disabled}
           type="button"
           tabIndex={0}
           onClick={() => {

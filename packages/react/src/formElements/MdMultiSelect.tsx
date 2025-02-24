@@ -1,3 +1,5 @@
+'use client';
+
 import classnames from 'classnames';
 import React, { useId, useRef, useState } from 'react';
 import MdInputChip from '../chips/MdInputChip';
@@ -187,11 +189,11 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
           aria-describedby={ariaDescribedBy}
           className={buttonClassNames}
           type="button"
+          disabled={disabled}
           tabIndex={0}
           onClick={() => {
             return !disabled && setOpen(!open);
           }}
-          ref={ref}
           {...otherProps}
         >
           <div className="md-multiselect__button-text">{displayValue}</div>

@@ -52,7 +52,7 @@
     "eslint-plugin-storybook": "^0.11.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "storybook": "^8.4.7",
+    "storybook": "^8.5.8",
     "trim": "^1.0.1",
     "typescript": "^5.2.0",
     "webpack": "^5.94.0",

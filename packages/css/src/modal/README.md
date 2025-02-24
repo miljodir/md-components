@@ -18,10 +18,10 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
       <MdClickOutsideWrapper class="md-modal__inner-wrapper">
         <div class="md-modal__header">
           <div>{heading}</div>
-          <button class="md-modal__close-button">
-            <MdXIcon class="md-modal__close-button-icon" />
+          <MdIconButton class="md-modal__close-button md-icon-button md-icon-button--plain">
+            <MdXIcon className="md-icon-button__icon"/>
             <!-- Icon for close-button, use the react icon from Miljødir, or you own -->
-          </button>
+          </MdIconButton>
         </div>
         <div class="md-modal__content-inner">MODAL CONTENT GOES HERE</div>
       </MdClickOutsideWrapper>
