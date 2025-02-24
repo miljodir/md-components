@@ -182,6 +182,7 @@ const MdMultiSelect: React.FunctionComponent<MdMultiSelectProps> = ({
       >
         <button
           role="combobox"
+          ref={ref}
           aria-expanded={open}
           aria-controls={`md-multiselect_dropdown_${multiSelectId}`}
           aria-labelledby={label && label !== '' ? `md-multiselect_label_${multiSelectId}` : undefined}
