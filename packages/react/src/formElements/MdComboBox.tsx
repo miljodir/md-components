@@ -1,3 +1,5 @@
+'use client';
+
 import * as Ariakit from '@ariakit/react';
 
 import React, { useEffect, useMemo, useState, useTransition, useId } from 'react';
@@ -169,6 +171,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
               className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'}`}
               disabled={disabled}
               aria-describedby={ariaDescribedBy}
+              value={searchValue}
               {...otherProps}
             />
             <div className="md-combobox__input--after">
@@ -202,6 +205,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                     setValueOnClick={false}
                     className="md-combobox__checkbox-item"
                     aria-selected={isChecked}
+                    onClick={() => {
+                      setSearchValue('');
+                    }}
                   >
                     {isMultiSelect ? (
                       <MdCheckbox
