@@ -29,7 +29,7 @@
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-accordion-item.md-accordion-item--secondary:not(.md-accordion-item--expanded):hover {
+.md-accordion-item.md-accordion-item--secondary:not(.md-accordion-item--expanded, .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
   background-color: var(--mdSecondaryColor);
 }
