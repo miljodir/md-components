@@ -26,7 +26,7 @@ const MdClickOutsideWrapper: React.FunctionComponent<MdClickOutsideWrapperProps>
     if (typeof ref === 'function') {
       ref(innerRef.current);
     } else {
-      ref.current = innerRef.current;
+      (ref as React.MutableRefObject<HTMLDivElement | null>).current = innerRef.current;
     }
   });
 
