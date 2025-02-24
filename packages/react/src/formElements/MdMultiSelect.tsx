@@ -41,7 +41,7 @@ export interface MdMultiSelectProps {
   /**
    * 3.0.0: Replaces previous 'onChange'-prop and use MdMultiSelectOption as parameter rather than event.
    */
-  ref?: React.Ref<HTMLButtonElement | null>;
+  ref?: React.Ref<HTMLButtonElement>;
   onSelectOption?(_option: MdMultiSelectOption): void;
 }
 

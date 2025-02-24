@@ -36,7 +36,7 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
    * v3.0.0: Replaces previous 'amountOfElementsShown'-prop.
    */
   numberOfElementsShown?: number;
-  ref?: React.Ref<HTMLInputElement | null>;
+  ref?: React.Ref<HTMLInputElement>;
   onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 

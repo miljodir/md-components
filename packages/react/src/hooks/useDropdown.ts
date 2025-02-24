@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 const focusableHtmlElements = 'button, input, [tabindex]';
 
 export default function useDropdown(
-  ref: React.RefObject<HTMLDivElement | null>,
+  ref: React.RefObject<HTMLDivElement>,
   open: boolean,
   setOpen: (_open: boolean) => void,
   elementType?: 'autocomplete' | 'select',
