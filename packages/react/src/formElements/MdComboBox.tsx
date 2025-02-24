@@ -161,7 +161,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             </div>
           )}
 
-          <div className={`md-combobox__input-wrapper ${disabled && 'md-combobox__input-wrapper--disabled'}`}>
+          <div className={`md-combobox__input-wrapper ${disabled ? 'md-combobox__input-wrapper--disabled' : ''}`}>
             {!hidePrefixIcon && (
               <div className="md-combobox__input--before">{prefixIcon ? prefixIcon : <MdZoomIcon />}</div>
             )}
