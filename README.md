@@ -84,7 +84,7 @@ Før man merger ny kode til master, kan det være lurt å teste endringene i et 
 Fra `packages/react`:
 
 ```bash
-npm run build
+npm run build-storybook
 npm pack --pack-destination ~
 ```
 
