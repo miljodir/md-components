@@ -97,6 +97,8 @@ Disse kan legges i `package.json` til eget prosjekt slik:
     }
 ```
 
+Eventuelt, bruk kommandoen `pack-locally` fra rotmappen for å bygge og pakke begge pakkene samtidig.
+
 ### Labels på pull-requests
 
 Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
