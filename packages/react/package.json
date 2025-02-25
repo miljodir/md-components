@@ -21,13 +21,19 @@
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "typescript": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "engines": {
+    "node": ">=20.10.5"
   },
   "files": [
     "dist",
-    "src",
     "README.md"
   ]
 }

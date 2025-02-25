@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "strict": true,
-    "esModuleInterop": true,
-    "target": "es6",
-    "moduleResolution": "node",
     "allowJs": true,
-    "outDir": "./dist",
-    "module": "commonjs",
-    "noImplicitAny": false,
     "sourceMap": true,
     "declaration": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "target": "es6",
+    "jsx": "react-jsx",
+    "lib": ["dom", "esnext"],
+    "outDir": "./dist",
+    "module": "commonjs",
+    "moduleResolution": "node",
   },
   "include": ["./src"]
 }
