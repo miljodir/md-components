@@ -97,7 +97,7 @@ Disse kan legges i `package.json` til eget prosjekt slik:
     }
 ```
 
-Eventuelt, bruk kommandoen `pack-locally` fra rotmappen for å bygge og pakke begge pakkene samtidig.
+Eventuelt, bruk kommandoen `pack-local` fra rotmappen for å bygge og pakke begge pakkene samtidig.
 
 ### Labels på pull-requests
 
