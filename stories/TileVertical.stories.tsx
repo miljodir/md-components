@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
-import MdGraphIcon from '../packages/react/src/icons/MdGraphIcon';
+import MdIconBarChart from '../packages/react/src/icons-material/MdIconBarChart';
 import MdTileVertical from '../packages/react/src/tiles/MdTileVertical';
 import type { Args } from '@storybook/react';
 
@@ -127,8 +127,7 @@ const Template = (args: Args) => {
       theme={args.theme}
       disabled={args.disabled}
       preventDefault={args.preventDefault}
-      loading={args.loading}
-      icon={args.icon && <MdGraphIcon width={128} height={128} />}
+      icon={args.icon && <MdIconBarChart large width={128} height={128} />}
     />
   );
 };

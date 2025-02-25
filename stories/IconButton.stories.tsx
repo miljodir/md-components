@@ -3,7 +3,7 @@ import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimarySto
 import React from 'react';
 import Readme from '../packages/css/src/iconButton/README.md';
 import MdIconButton from '../packages/react/src/iconButton/MdIconButton';
-import MdDownloadIcon from '../packages/react/src/icons/MdDownloadIcon';
+import MdIconDownload from '../packages/react/src/icons-material/MdIconDownload';
 import type { MdIconButtonProps } from '../packages/react/src/iconButton/MdIconButton';
 
 export default {
@@ -91,7 +91,7 @@ const Template = (args: MdIconButtonProps) => {
       theme={args.theme}
       loading={args.loading}
     >
-      <MdDownloadIcon />
+      <MdIconDownload />
     </MdIconButton>
   );
 };

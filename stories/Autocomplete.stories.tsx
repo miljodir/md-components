@@ -4,7 +4,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 import MdAutocomplete from '../packages/react/src/formElements/MdAutocomplete';
-import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
 import type { MdAutocompleteOption, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
 
 export default {
@@ -192,7 +192,7 @@ const Template = (args: MdAutocompleteProps) => {
 export const Autocomplete = Template.bind({});
 Autocomplete.args = {
   label: 'Label',
-  prefixIcon: <MdZoomIcon />,
+  prefixIcon: <MdIconSearch />,
   options: [
     { value: 'optionA', text: 'A option' },
     { value: 'optionAB', text: 'AB option' },

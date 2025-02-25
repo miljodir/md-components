@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
-import MdInfoIcon from '../icons/MdInfoIcon';
+import MdIconInfo from '../icons-material/MdIconInfo';
 
 export interface MdInfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -26,7 +26,7 @@ const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   );
 
   const renderIcon = () => {
-    let icon = (<MdInfoIcon aria-label="Info" width="20" height="20" />) as React.ReactNode;
+    let icon = (<MdIconInfo aria-label="Info" width="20" height="20" />) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
     }
