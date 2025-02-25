@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdCloseIcon: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdCloseIcon is deprecated and will be removed in a future release. Use MdIconClose instead.');
+
   return (
     <svg
       viewBox="0 0 20 20"

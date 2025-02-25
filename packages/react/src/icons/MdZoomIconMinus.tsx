@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdZoomIconMinus: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdZoomIconMinus is deprecated and will be removed in a future release. Use MdIconZoomOut instead.');
+
   return (
     <svg
       viewBox="0 0 20 20"

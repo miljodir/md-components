@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import React, { useId, useState } from 'react';
-import MdMinusIcon from '../icons/MdMinusIcon';
+import MdIconRemove from '../icons-material/MdIconRemove';
 
 export interface MdAccordionItemProps {
   label?: string;
@@ -110,7 +110,7 @@ const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
               }}
               tabIndex={isExpanded ? 0 : -1}
             >
-              <MdMinusIcon aria-hidden="true" className="md-accordion-item__close-button__icon" />
+              <MdIconRemove aria-hidden="true" className="md-accordion-item__close-button__icon" />
               {closeButtonText}
             </button>
           )}
