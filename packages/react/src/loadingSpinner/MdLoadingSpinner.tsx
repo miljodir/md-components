@@ -7,7 +7,7 @@ export interface MdLoadingSpinnerProps extends React.HTMLAttributes<HTMLDivEleme
   position?: string;
 }
 
-const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
+export const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   size,
   position = '',
   className = '',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconKeyboardArrowUp from '../../packages/react/src/icons-material/MdIconKeyboardArrowUp';
+import { MdIconKeyboardArrowUp } from '../../packages/react/src/icons-material/MdIconKeyboardArrowUp';
 
 import type { Args } from '@storybook/react';
 

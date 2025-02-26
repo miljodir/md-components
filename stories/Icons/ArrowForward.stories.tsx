@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconArrowForward from '../../packages/react/src/icons-material/MdIconArrowForward';
+import { MdIconArrowForward } from '../../packages/react/src/icons-material/MdIconArrowForward';
 
 import type { Args } from '@storybook/react';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconKeyboardArrowUp: React.FunctionComponent<MdIconProps> = ({
+export const MdIconKeyboardArrowUp: React.FunctionComponent<MdIconProps> = ({
   className,
   large = false,
   ...otherProps

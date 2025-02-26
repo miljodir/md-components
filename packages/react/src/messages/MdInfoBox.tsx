@@ -9,7 +9,7 @@ export interface MdInfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   customIcon?: React.ReactNode | string;
 }
 
-const MdInfoBox: React.FC<MdInfoBoxProps> = ({
+export const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   label,
   hideIcon = false,
   fullWidth = false,

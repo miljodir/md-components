@@ -1,12 +1,12 @@
 import React from 'react';
 
-import MdAddIcon from '../../packages/react/src/icons-material/MdIconAdd';
+import { MdIconAdd } from '../../packages/react/src/icons-material/MdIconAdd';
 
 import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Add',
-  component: MdAddIcon,
+  component: MdIconAdd,
   parameters: {
     docs: {
       description: {
@@ -56,7 +56,7 @@ const Template = (args: Args) => {
   }
   return (
     <div style={style}>
-      <MdAddIcon {...args} />
+      <MdIconAdd {...args} />
     </div>
   );
 };

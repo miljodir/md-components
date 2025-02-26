@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconBarChart from '../../packages/react/src/icons-material/MdIconBarChart';
+import { MdIconBarChart } from '../../packages/react/src/icons-material/MdIconBarChart';
 
 import type { Args } from '@storybook/react';
 

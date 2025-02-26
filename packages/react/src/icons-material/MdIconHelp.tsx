@@ -1,7 +1,11 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconHelp: React.FunctionComponent<MdIconProps> = ({ className, large = false, ...otherProps }: MdIconProps) => {
+export const MdIconHelp: React.FunctionComponent<MdIconProps> = ({
+  className,
+  large = false,
+  ...otherProps
+}: MdIconProps) => {
   if (large) {
     return (
       <svg

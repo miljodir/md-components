@@ -20,7 +20,7 @@ export type MdTileProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const MdTile: React.FC<MdTileProps> = ({
+export const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
   href,

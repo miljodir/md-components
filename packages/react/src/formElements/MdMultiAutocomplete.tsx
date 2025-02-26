@@ -39,7 +39,7 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 
-const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
+export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
   (
     {
       label,

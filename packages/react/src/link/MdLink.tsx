@@ -11,7 +11,7 @@ export type MdLinkProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const MdLink = forwardRef<HTMLAnchorElement | HTMLButtonElement, MdLinkProps>(
+export const MdLink = forwardRef<HTMLAnchorElement | HTMLButtonElement, MdLinkProps>(
   ({ href, children, icon, onClick, ...otherProps }, ref) => {
     const classNames = classnames('md-link', otherProps.className);
     return href ? (

@@ -6,7 +6,7 @@ export interface MdTabProps {
   children: React.ReactNode;
 }
 
-const MdTab: React.FunctionComponent<MdTabProps> = ({ children }: MdTabProps) => {
+export const MdTab: React.FunctionComponent<MdTabProps> = ({ children }: MdTabProps) => {
   return <div>{children}</div>;
 };
 

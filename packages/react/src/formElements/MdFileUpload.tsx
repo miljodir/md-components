@@ -22,7 +22,7 @@ export interface MdFileUploadProps {
   hideButtons?: boolean;
 }
 
-const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
+export const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   onUpload,
   onCancel,
   useFormData = false,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconMail from '../../packages/react/src/icons-material/MdIconMail';
+import { MdIconMail } from '../../packages/react/src/icons-material/MdIconMail';
 
 import type { Args } from '@storybook/react';
 

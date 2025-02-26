@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconArrowBackward: React.FunctionComponent<MdIconProps> = ({
+export const MdIconArrowBackward: React.FunctionComponent<MdIconProps> = ({
   className,
   large = false,
   ...otherProps

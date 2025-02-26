@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconQuickReference from '../../packages/react/src/icons-material/MdIconQuickReference';
+import { MdIconQuickReference } from '../../packages/react/src/icons-material/MdIconQuickReference';
 
 import type { Args } from '@storybook/react';
 

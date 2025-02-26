@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconChevronForward from '../../packages/react/src/icons-material/MdIconChevronForward';
+import { MdIconChevronForward } from '../../packages/react/src/icons-material/MdIconChevronForward';
 
 import type { Args } from '@storybook/react';
 

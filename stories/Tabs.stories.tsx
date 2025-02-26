@@ -1,9 +1,9 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tabs/README.md';
-import MdIconCheck from '../packages/react/src/icons-material/MdIconCheck';
-import MdTab from '../packages/react/src/tabs/MdTab';
-import MdTabs from '../packages/react/src/tabs/MdTabs';
+import { MdIconCheck } from '../packages/react/src/icons-material/MdIconCheck';
+import { MdTab } from '../packages/react/src/tabs/MdTab';
+import { MdTabs } from '../packages/react/src/tabs/MdTabs';
 import type { Args } from '@storybook/react';
 
 export default {

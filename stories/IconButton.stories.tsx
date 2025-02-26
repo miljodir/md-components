@@ -2,8 +2,8 @@ import { action } from '@storybook/addon-actions';
 import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/iconButton/README.md';
-import MdIconButton from '../packages/react/src/iconButton/MdIconButton';
-import MdIconDownload from '../packages/react/src/icons-material/MdIconDownload';
+import { MdIconButton } from '../packages/react/src/iconButton/MdIconButton';
+import { MdIconDownload } from '../packages/react/src/icons-material/MdIconDownload';
 import type { MdIconButtonProps } from '../packages/react/src/iconButton/MdIconButton';
 
 export default {

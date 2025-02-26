@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconLoadingSpinner: React.FunctionComponent<MdIconProps> = ({
+export const MdIconLoadingSpinner: React.FunctionComponent<MdIconProps> = ({
   className,
   width = 100,
   height = 100,

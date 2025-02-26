@@ -9,7 +9,7 @@ export interface MdClickOutsideWrapperProps {
   ref?: React.ForwardedRef<HTMLDivElement>;
 }
 
-const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOutsideWrapperProps>(
+export const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOutsideWrapperProps>(
   ({ onClickOutside, children, className = '', ...otherProps }, ref) => {
     const innerRef = useRef<HTMLDivElement>(null);
 

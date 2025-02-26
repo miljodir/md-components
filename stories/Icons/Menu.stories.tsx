@@ -1,12 +1,12 @@
 import React from 'react';
 
-import MdMenu from '../../packages/react/src/icons-material/MdIconMenu';
+import { MdIconMenu } from '../../packages/react/src/icons-material/MdIconMenu';
 
 import type { Args } from '@storybook/react';
 
 export default {
   title: 'Icons/Menu',
-  component: MdMenu,
+  component: MdIconMenu,
   parameters: {
     docs: {
       description: {
@@ -56,7 +56,7 @@ const Template = (args: Args) => {
   }
   return (
     <div style={style}>
-      <MdMenu {...args} />
+      <MdIconMenu {...args} />
     </div>
   );
 };

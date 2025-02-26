@@ -2,9 +2,9 @@ import { action } from '@storybook/addon-actions';
 import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/button/README.md';
-import MdButton from '../packages/react/src/button/MdButton';
-import MdIconChevronForward from '../packages/react/src/icons-material/MdIconChevronForward';
-import MdIconClose from '../packages/react/src/icons-material/MdIconClose';
+import { MdButton } from '../packages/react/src/button/MdButton';
+import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';
+import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
 
 export default {
   title: 'Components/Button',

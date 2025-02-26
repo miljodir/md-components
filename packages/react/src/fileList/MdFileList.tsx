@@ -44,7 +44,7 @@ const formatBytes = (bytes: number, decimals = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 };
 
-const MdFileList: React.FunctionComponent<MdFileListProps> = ({
+export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   files,
   hideDownload = false,
   hidePrint = true,

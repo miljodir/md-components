@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconArrowDownward from '../../packages/react/src/icons-material/MdIconArrowDownward';
+import { MdIconArrowDownward } from '../../packages/react/src/icons-material/MdIconArrowDownward';
 
 import type { Args } from '@storybook/react';
 

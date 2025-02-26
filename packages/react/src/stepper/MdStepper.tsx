@@ -8,7 +8,7 @@ export interface MdStepperProps {
   children: React.ReactElement[];
 }
 
-const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {
+export const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {
   return (
     <div className="md-stepper__stepper-container">
       <div className="md-stepper__stepper-list">

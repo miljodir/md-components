@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconImage from '../../packages/react/src/icons-material/MdIconImage';
+import { MdIconImage } from '../../packages/react/src/icons-material/MdIconImage';
 
 import type { Args } from '@storybook/react';
 

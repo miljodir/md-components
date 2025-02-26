@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconWarning from '../../packages/react/src/icons-material/MdIconWarning';
+import { MdIconWarning } from '../../packages/react/src/icons-material/MdIconWarning';
 
 import type { Args } from '@storybook/react';
 

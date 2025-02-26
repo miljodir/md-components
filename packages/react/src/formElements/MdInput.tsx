@@ -23,7 +23,7 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   mode?: 'normal' | 'small';
 }
 
-const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
+export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
   (
     {
       label,

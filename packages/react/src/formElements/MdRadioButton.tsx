@@ -7,7 +7,7 @@ export interface MdRadioButtonProps extends React.InputHTMLAttributes<HTMLInputE
   label?: string;
 }
 
-const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
+export const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
   id,
   disabled,
   className,

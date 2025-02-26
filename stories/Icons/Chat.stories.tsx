@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconChat from '../../packages/react/src/icons-material/MdIconChat';
+import { MdIconChat } from '../../packages/react/src/icons-material/MdIconChat';
 
 import type { Args } from '@storybook/react';
 

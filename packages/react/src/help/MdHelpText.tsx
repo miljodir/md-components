@@ -5,7 +5,7 @@ export interface MdHelpTextProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode[] | React.ReactNode | string;
 }
 
-const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({
+export const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({
   children,
   className,
   ...otherProps

@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import React, { useState, useRef } from 'react';
 import Readme from '../../packages/css/src/messages/AlertMessage.md';
-import MdAlertMessage from '../../packages/react/src/messages/MdAlertMessage';
+import { MdAlertMessage } from '../../packages/react/src/messages/MdAlertMessage';
 import type { Args, StoryFn } from '@storybook/react';
 
 export default {

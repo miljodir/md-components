@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconSignpost: React.FunctionComponent<MdIconProps> = ({
+export const MdIconSignpost: React.FunctionComponent<MdIconProps> = ({
   className,
   large = false,
   ...otherProps

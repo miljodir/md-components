@@ -15,7 +15,7 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   tooltipClass?: string;
 }
 
-const MdTooltip: React.FC<MdTooltipProps> = ({
+export const MdTooltip: React.FC<MdTooltipProps> = ({
   tooltipContent,
   position = 'bottom',
   children,

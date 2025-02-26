@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconOpenInNew from '../../packages/react/src/icons-material/MdIconOpenInNew';
+import { MdIconOpenInNew } from '../../packages/react/src/icons-material/MdIconOpenInNew';
 
 import type { Args } from '@storybook/react';
 

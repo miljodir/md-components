@@ -2,8 +2,8 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../../packages/css/src/help/README.md';
-import MdHelpButton from '../../packages/react/src/help/MdHelpButton';
-import MdHelpText from '../../packages/react/src/help/MdHelpText';
+import { MdHelpButton } from '../../packages/react/src/help/MdHelpButton';
+import { MdHelpText } from '../../packages/react/src/help/MdHelpText';
 import type { Args } from '@storybook/react';
 
 export default {

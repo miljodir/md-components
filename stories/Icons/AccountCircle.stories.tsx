@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconAccountCircle from '../../packages/react/src/icons-material/MdIconAccountCircle';
+import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 
 import type { Args } from '@storybook/react';
 

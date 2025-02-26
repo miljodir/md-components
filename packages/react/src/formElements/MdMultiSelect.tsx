@@ -44,7 +44,7 @@ export interface MdMultiSelectProps {
   onSelectOption?(_option: MdMultiSelectOption): void;
 }
 
-const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
+export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectProps>(
   (
     {
       label,

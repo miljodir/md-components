@@ -33,7 +33,7 @@ export interface MdRadioGroupProps {
   onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
 }
 
-const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
+export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   options = [],
   value,
   id,

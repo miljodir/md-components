@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../../packages/css/src/messages/InfoBox.md';
-import MdInfoBox from '../../packages/react/src/messages/MdInfoBox';
+import { MdInfoBox } from '../../packages/react/src/messages/MdInfoBox';
 import type { StoryFn } from '@storybook/react';
 
 export default {
