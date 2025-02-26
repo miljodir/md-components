@@ -54,7 +54,8 @@
 }
 
 .md-chip:not(.md-chip--disabled).md-chip--active:focus {
-  outline-offset: -2px;
+  outline-offset: -0.25rem;
+  outline-color: #fff;
 }
 
 .md-chip__left-icon {
