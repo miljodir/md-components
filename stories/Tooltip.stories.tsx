@@ -1,8 +1,8 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tooltip/README.md';
-import MdIconClose from '../packages/react/src/icons-material/MdIconClose';
-import MdTooltip from '../packages/react/src/tooltip/MdTooltip';
+import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
+import { MdTooltip } from '../packages/react/src/tooltip/MdTooltip';
 import type { MdTooltipProps } from '../packages/react/src/tooltip/MdTooltip';
 import type { StoryFn } from '@storybook/react';
 

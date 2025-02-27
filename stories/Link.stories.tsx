@@ -1,6 +1,6 @@
 import React from 'react';
-import MdIconOpenInNew from '../packages/react/src/icons-material/MdIconOpenInNew';
-import MdLink from '../packages/react/src/link/MdLink';
+import { MdIconOpenInNew } from '../packages/react/src/icons-material/MdIconOpenInNew';
+import { MdLink } from '../packages/react/src/link/MdLink';
 
 export default {
   title: 'Components/Link',

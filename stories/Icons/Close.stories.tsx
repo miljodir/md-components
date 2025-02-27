@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconClose from '../../packages/react/src/icons-material/MdIconClose';
+import { MdIconClose } from '../../packages/react/src/icons-material/MdIconClose';
 
 import type { Args } from '@storybook/react';
 

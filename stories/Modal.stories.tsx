@@ -2,9 +2,9 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/modal/README.md';
-import MdButton from '../packages/react/src/button/MdButton';
-import MdIconWarning from '../packages/react/src/icons-material/MdIconWarning';
-import MdModal from '../packages/react/src/modal/MdModal';
+import { MdButton } from '../packages/react/src/button/MdButton';
+import { MdIconWarning } from '../packages/react/src/icons-material/MdIconWarning';
+import { MdModal } from '../packages/react/src/modal/MdModal';
 import type { Args, StoryFn } from '@storybook/react';
 
 export default {

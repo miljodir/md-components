@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconSettings from '../../packages/react/src/icons-material/MdIconSettings';
+import { MdIconSettings } from '../../packages/react/src/icons-material/MdIconSettings';
 
 import type { Args } from '@storybook/react';
 

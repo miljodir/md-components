@@ -13,7 +13,7 @@ export interface MdTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAr
   outerWrapperClass?: string;
 }
 
-const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
+export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>(
   (
     {
       label,

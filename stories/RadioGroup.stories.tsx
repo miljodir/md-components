@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/radiogroup/README.md';
-import MdRadioGroup from '../packages/react/src/formElements/MdRadioGroup';
+import { MdRadioGroup } from '../packages/react/src/formElements/MdRadioGroup';
 import type { MdRadioGroupProps } from '../packages/react/src/formElements/MdRadioGroup';
 
 export default {

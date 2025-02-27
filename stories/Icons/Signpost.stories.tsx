@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconSignpost from '../../packages/react/src/icons-material/MdIconSignpost';
+import { MdIconSignpost } from '../../packages/react/src/icons-material/MdIconSignpost';
 
 import type { Args } from '@storybook/react';
 

@@ -31,7 +31,7 @@ export interface MdCheckboxGroupProps {
   onFocus?(_e: React.FocusEvent<HTMLInputElement>): void;
 }
 
-const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
+export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   options = [],
   selectedOptions,
   label,

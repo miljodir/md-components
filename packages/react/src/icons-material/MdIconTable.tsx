@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconTable: React.FunctionComponent<MdIconProps> = ({
+export const MdIconTable: React.FunctionComponent<MdIconProps> = ({
   className,
   large = false,
   ...otherProps

@@ -9,7 +9,7 @@ export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElemen
   wrapperClass?: string;
 }
 
-const MdToggle: React.FunctionComponent<MdToggleProps> = ({
+export const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   checked = true,
   label,
   id,

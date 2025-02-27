@@ -1,7 +1,7 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-const MdIconSwapVert: React.FunctionComponent<MdIconProps> = ({
+export const MdIconSwapVert: React.FunctionComponent<MdIconProps> = ({
   className,
   large = false,
   ...otherProps

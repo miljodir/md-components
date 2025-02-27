@@ -17,7 +17,7 @@ export interface MdInfoTagProps extends React.ButtonHTMLAttributes<HTMLButtonEle
   onClick?(_e: React.MouseEvent): void;
 }
 
-const MdInfoTag: React.FC<MdInfoTagProps> = ({
+export const MdInfoTag: React.FC<MdInfoTagProps> = ({
   theme = 'primary',
   keepOpen = false,
   icon = 'none',

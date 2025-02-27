@@ -19,7 +19,7 @@ export interface MdAccordionItemProps {
   onToggle?(_e: React.MouseEvent): void;
 }
 
-const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
+export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   label = '',
   headerContent,
   id,

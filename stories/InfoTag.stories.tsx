@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/infoTag/README.md';
-import MdInfoTag from '../packages/react/src/infoTag/MdInfoTag';
+import { MdInfoTag } from '../packages/react/src/infoTag/MdInfoTag';
 import type { MdInfoTagProps } from '../packages/react/src/infoTag/MdInfoTag';
 import type { StoryFn } from '@storybook/react';
 

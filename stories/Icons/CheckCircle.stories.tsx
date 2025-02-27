@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconCheckCircle from '../../packages/react/src/icons-material/MdIconCheckCircle';
+import { MdIconCheckCircle } from '../../packages/react/src/icons-material/MdIconCheckCircle';
 
 import type { Args } from '@storybook/react';
 

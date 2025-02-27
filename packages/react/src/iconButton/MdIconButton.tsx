@@ -14,7 +14,7 @@ export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   loading?: boolean;
 }
 
-const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
+export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   theme = 'filled',
   children,
   showTooltip = false,

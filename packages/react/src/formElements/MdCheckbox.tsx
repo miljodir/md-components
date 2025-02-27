@@ -7,7 +7,7 @@ export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElem
   label?: string;
 }
 
-const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
+export const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
   label,
   id,
   disabled,

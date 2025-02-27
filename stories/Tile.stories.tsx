@@ -1,8 +1,8 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
-import MdIconBarChart from '../packages/react/src/icons-material/MdIconBarChart';
-import MdTile from '../packages/react/src/tiles/MdTile';
+import { MdIconBarChart } from '../packages/react/src/icons-material/MdIconBarChart';
+import { MdTile } from '../packages/react/src/tiles/MdTile';
 import type { Args } from '@storybook/react';
 
 export default {

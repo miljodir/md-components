@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconCollapseAll from '../../packages/react/src/icons-material/MdIconCollapseAll';
+import { MdIconCollapseAll } from '../../packages/react/src/icons-material/MdIconCollapseAll';
 
 import type { Args } from '@storybook/react';
 

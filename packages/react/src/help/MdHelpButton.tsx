@@ -9,7 +9,7 @@ export interface MdHelpButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   hideArrow?: boolean;
 }
 
-const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
+export const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   className,
   expanded = false,
   hideArrow = false,

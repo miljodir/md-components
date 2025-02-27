@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconZoomIn from '../../packages/react/src/icons-material/MdIconZoomIn';
+import { MdIconZoomIn } from '../../packages/react/src/icons-material/MdIconZoomIn';
 
 import type { Args } from '@storybook/react';
 

@@ -20,7 +20,7 @@ export interface MdModalProps {
   onClose?(_e?: React.MouseEvent): void;
 }
 
-const MdModal: React.FunctionComponent<MdModalProps> = ({
+export const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
   headingIcon,

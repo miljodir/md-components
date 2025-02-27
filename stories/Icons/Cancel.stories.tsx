@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconCancel from '../../packages/react/src/icons-material/MdIconCancel';
+import { MdIconCancel } from '../../packages/react/src/icons-material/MdIconCancel';
 
 import type { Args } from '@storybook/react';
 

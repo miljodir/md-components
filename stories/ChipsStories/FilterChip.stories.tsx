@@ -2,8 +2,8 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../../packages/css/src/chips/README.md';
-import MdFilterChip from '../../packages/react/src/chips/MdFilterChip';
-import MdIconAccountCircle from '../../packages/react/src/icons-material/MdIconAccountCircle';
+import { MdFilterChip } from '../../packages/react/src/chips/MdFilterChip';
+import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import type { MdFilterChipProps } from '../../packages/react/src/chips/MdFilterChip';
 
 export default {

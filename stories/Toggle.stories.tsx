@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/toggle/README.md';
-import MdToggle from '../packages/react/src/toggle/MdToggle';
+import { MdToggle } from '../packages/react/src/toggle/MdToggle';
 import type { MdToggleProps } from '../packages/react/src/toggle/MdToggle';
 
 export default {

@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
-import MdCheckboxGroup from '../packages/react/src/formElements/MdCheckboxGroup';
+import { MdCheckboxGroup } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react';
 

@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/radiobutton/README.md';
-import MdRadioButton from '../packages/react/src/formElements/MdRadioButton';
+import { MdRadioButton } from '../packages/react/src/formElements/MdRadioButton';
 import type { MdRadioButtonProps } from '../packages/react/src/formElements/MdRadioButton';
 
 export default {

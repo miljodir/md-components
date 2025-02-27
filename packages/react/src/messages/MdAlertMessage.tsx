@@ -20,7 +20,7 @@ export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement
   alignContent?: 'start' | 'center' | 'end';
 }
 
-const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
+export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   theme = 'info',
   label,
   hideIcon = false,

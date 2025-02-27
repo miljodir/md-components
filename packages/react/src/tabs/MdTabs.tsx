@@ -11,7 +11,7 @@ export interface MdTabsProps {
   chipsPrefixIcon?: ReactNode;
 }
 
-const MdTabs: React.FunctionComponent<MdTabsProps> = ({
+export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
   children,
   initialTab = 0,
   chips = false,

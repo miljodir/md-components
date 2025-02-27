@@ -12,7 +12,7 @@ export interface MdFilterChipProps extends React.ButtonHTMLAttributes<HTMLButton
   className?: string;
 }
 
-const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
+export const MdFilterChip: React.FunctionComponent<MdFilterChipProps> = ({
   label,
   id,
   active = false,

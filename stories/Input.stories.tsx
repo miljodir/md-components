@@ -2,8 +2,8 @@ import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/input/README.md';
-import MdInput from '../packages/react/src/formElements/MdInput';
-import MdIconAccountCircle from '../packages/react/src/icons-material/MdIconAccountCircle';
+import { MdInput } from '../packages/react/src/formElements/MdInput';
+import { MdIconAccountCircle } from '../packages/react/src/icons-material/MdIconAccountCircle';
 
 import type { Args } from '@storybook/react';
 import type { ChangeEvent } from 'react';

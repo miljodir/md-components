@@ -12,7 +12,7 @@ export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonE
   solid?: boolean;
 }
 
-const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
+export const MdInputChip: React.FunctionComponent<MdInputChipProps> = ({
   label,
   id,
   active = false,

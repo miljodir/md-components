@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 
 import React, { useState } from 'react';
 import Readme from '../packages/css/src/accordionitem/README.md';
-import MdAccordionItem from '../packages/react/src/accordion/MdAccordionItem';
+import { MdAccordionItem } from '../packages/react/src/accordion/MdAccordionItem';
 import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react';
 

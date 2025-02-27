@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MdIconSchedule from '../../packages/react/src/icons-material/MdIconSchedule';
+import { MdIconSchedule } from '../../packages/react/src/icons-material/MdIconSchedule';
 
 import type { Args } from '@storybook/react';
 
