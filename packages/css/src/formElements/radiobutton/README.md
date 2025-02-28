@@ -7,9 +7,9 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div className="md-radiobutton [md-checkbox--disabled]">
-  <span className="md-radiobutton__check-area">
-    <span className="md-radiobutton__selected-dot" />
+<div class="md-radiobutton [md-checkbox--disabled]">
+  <span class="md-radiobutton__check-area">
+    <span class="md-radiobutton__selected-dot" />
   </span>
   <input
     id="{radioGroupId}"
