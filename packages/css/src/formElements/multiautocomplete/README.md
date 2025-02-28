@@ -40,25 +40,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <div class="md-multiautocomplete__dropdown [md-multiautocomplete__dropdown--open]">
       <div class="md-multiautocomplete__dropdown-item [md-multiautocomplete__dropdown-item--selected]">
         {IMPORTANT! see MdCheckbox styles for description for the individual checkboxes}
-        <MdCheckbox
-          label="{option.text}"
-          tabIndex="{open"
-          ?
-          0
-          :
-          -1}
-          checked="{true|false}"
-          value="{option.value}"
-          id="id-for-checkbox"
-          disabled="{true|false}"
-          data-value="{option.value}"
-          data-text="{option.text}"
-          onChange="{function"
-          for
-          change
-          handling}
-        />
-        ... ...
+        <MdCheckbox ... />
+        ...
       </div>
     </div>
   </MdClickOutsideWrapper>
