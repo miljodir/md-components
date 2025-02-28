@@ -106,6 +106,53 @@ import MdZoomIconMinus from './icons/MdZoomIconMinus';
 import MdZoomIconMinus64 from './icons/MdZoomIconMinus64';
 import MdZoomIconPlus from './icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from './icons/MdZoomIconPlus64';
+import MdIconAccountCircle from './icons-material/MdIconAccountCircle';
+import MdIconAdd from './icons-material/MdIconAdd';
+import MdIconArrowBackward from './icons-material/MdIconArrowBackward';
+import MdIconArrowDownward from './icons-material/MdIconArrowDownward';
+import MdIconArrowForward from './icons-material/MdIconArrowForward';
+import MdIconArrowUpward from './icons-material/MdIconArrowUpward';
+import MdIconBarChart from './icons-material/MdIconBarChart';
+import MdIconCalendarMonth from './icons-material/MdIconCalendarMonth';
+import MdIconCancel from './icons-material/MdIconCancel';
+import MdIconChat from './icons-material/MdIconChat';
+import MdIconCheck from './icons-material/MdIconCheck';
+import MdIconCheckCircle from './icons-material/MdIconCheckCircle';
+import MdIconChevronBackward from './icons-material/MdIconChevronBackward';
+import MdIconChevronForward from './icons-material/MdIconChevronForward';
+import MdIconClose from './icons-material/MdIconClose';
+import MdIconCollapseAll from './icons-material/MdIconCollapseAll';
+import MdIconDelete from './icons-material/MdIconDelete';
+import MdIconDescription from './icons-material/MdIconDescription';
+import MdIconDownload from './icons-material/MdIconDownload';
+import MdIconEdit from './icons-material/MdIconEdit';
+import MdIconExpandAll from './icons-material/MdIconExpandAll';
+import MdIconExpandContent from './icons-material/MdIconExpandContent';
+import MdIconHelp from './icons-material/MdIconHelp';
+import MdIconHome from './icons-material/MdIconHome';
+import MdIconImage from './icons-material/MdIconImage';
+import MdIconInfo from './icons-material/MdIconInfo';
+import MdIconKeyboardArrowDown from './icons-material/MdIconKeyboardArrowDown';
+import MdIconKeyboardArrowUp from './icons-material/MdIconKeyboardArrowUp';
+import MdIconLocation from './icons-material/MdIconLocation';
+import MdIconMail from './icons-material/MdIconMail';
+import MdIconMenu from './icons-material/MdIconMenu';
+import MdIconMore from './icons-material/MdIconMore';
+import MdIconOpenInNew from './icons-material/MdIconOpenInNew';
+import MdIconPerson from './icons-material/MdIconPerson';
+import MdIconPrint from './icons-material/MdIconPrint';
+import MdIconQuickReference from './icons-material/MdIconQuickReference';
+import MdIconRemove from './icons-material/MdIconRemove';
+import MdIconSchedule from './icons-material/MdIconSchedule';
+import MdIconSearch from './icons-material/MdIconSearch';
+import MdIconSettings from './icons-material/MdIconSettings';
+import MdIconSignpost from './icons-material/MdIconSignpost';
+import MdIconSwapVert from './icons-material/MdIconSwapVert';
+import MdIconTable from './icons-material/MdIconTable';
+import MdIconUpload from './icons-material/MdIconUpload';
+import MdIconWarning from './icons-material/MdIconWarning';
+import MdIconZoomIn from './icons-material/MdIconZoomIn';
+import MdIconZoomOut from './icons-material/MdIconZoomOut';
 import MdInfoTag, { MdInfoTagProps } from './infoTag/MdInfoTag';
 import MdLink, { MdLinkProps } from './link/MdLink';
 import MdLoadingSpinner, { MdLoadingSpinnerProps } from './loadingSpinner/MdLoadingSpinner';
@@ -287,4 +334,53 @@ export {
   MdStepperProps,
   MdComboBox,
   MdComboBoxOption,
+
+  // Material icons
+  MdIconAccountCircle,
+  MdIconAdd,
+  MdIconArrowBackward,
+  MdIconArrowDownward,
+  MdIconArrowForward,
+  MdIconArrowUpward,
+  MdIconBarChart,
+  MdIconCalendarMonth,
+  MdIconCancel,
+  MdIconChat,
+  MdIconCheck,
+  MdIconCheckCircle,
+  MdIconChevronBackward,
+  MdIconChevronForward,
+  MdIconClose,
+  MdIconCollapseAll,
+  MdIconDelete,
+  MdIconDescription,
+  MdIconDownload,
+  MdIconEdit,
+  MdIconExpandAll,
+  MdIconExpandContent,
+  MdIconHelp,
+  MdIconHome,
+  MdIconImage,
+  MdIconInfo,
+  MdIconKeyboardArrowDown,
+  MdIconKeyboardArrowUp,
+  MdIconLocation,
+  MdIconMail,
+  MdIconMenu,
+  MdIconMore,
+  MdIconOpenInNew,
+  MdIconPerson,
+  MdIconPrint,
+  MdIconQuickReference,
+  MdIconRemove,
+  MdIconSchedule,
+  MdIconSearch,
+  MdIconSettings,
+  MdIconSignpost,
+  MdIconSwapVert,
+  MdIconTable,
+  MdIconUpload,
+  MdIconWarning,
+  MdIconZoomIn,
+  MdIconZoomOut,
 };

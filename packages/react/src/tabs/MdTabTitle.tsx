@@ -15,7 +15,7 @@ export interface MdTabTitleProps {
   chipsPrefixIcon?: ReactNode;
 }
 
-const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
+export const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
   title,
   index,
   disabled = false,

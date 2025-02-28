@@ -107,7 +107,6 @@
   display: flex;
   width: 1rem;
   height: 1rem;
-  rotate: 90deg;
   color: var(--mdGreyColor);
   z-index: 0;
 }

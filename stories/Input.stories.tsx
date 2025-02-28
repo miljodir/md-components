@@ -2,8 +2,8 @@ import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/input/README.md';
-import MdInput from '../packages/react/src/formElements/MdInput';
-import MdUserIcon from '../packages/react/src/icons/MdUserIcon';
+import { MdInput } from '../packages/react/src/formElements/MdInput';
+import { MdIconAccountCircle } from '../packages/react/src/icons-material/MdIconAccountCircle';
 
 import type { Args } from '@storybook/react';
 import type { ChangeEvent } from 'react';
@@ -256,7 +256,7 @@ InputWithPrefix.args = {
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
   suffix: '',
-  prefixIcon: <MdUserIcon />,
+  prefixIcon: <MdIconAccountCircle />,
   hideNumberArrows: false,
 };
 
@@ -275,6 +275,6 @@ InputWithSuffix.args = {
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
   suffix: <button>Clear</button>,
-  prefixIcon: <MdUserIcon />,
+  prefixIcon: <MdIconAccountCircle />,
   hideNumberArrows: false,
 };

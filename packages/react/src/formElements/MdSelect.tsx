@@ -5,8 +5,8 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
-import MdChevronIcon from '../icons/MdChevronIcon';
-import MdXIcon from '../icons/MdXIcon';
+import MdIconChevronForward from '../icons-material/MdIconChevronForward';
+import MdIconClose from '../icons-material/MdIconClose';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
 /**
@@ -39,7 +39,7 @@ export interface MdSelectProps {
   onSelectOption(_e: MdSelectOption): void;
 }
 
-const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
+export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   (
     {
       label,
@@ -194,11 +194,12 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               return !disabled && setOpen(!open);
             }}
             ref={ref}
+            disabled={disabled}
             {...otherProps}
           >
             <div className="md-select__button-text">{displayValue}</div>
             <div aria-hidden="true" className="md-select__button-icon">
-              <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
+              <MdIconChevronForward transform={`rotate(${open ? '180' : '0'})`} />
             </div>
           </button>
 
@@ -227,7 +228,7 @@ const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
                     <div className="md-select__dropdown-item-text">{option.text}</div>
                     {isSelectedOption(option) && (
                       <div className="md-select__dropdown-item-clear" title="Klikk for å fjerne valg">
-                        <MdXIcon aria-hidden="true" />
+                        <MdIconClose aria-hidden="true" />
                       </div>
                     )}
                   </button>

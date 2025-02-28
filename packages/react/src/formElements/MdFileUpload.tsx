@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from 'react';
 import MdButton from '../button/MdButton';
 import MdFileList from '../fileList/MdFileList';
 import { useFileUpload } from '../hooks/useFileUpload';
-import MdUploadIcon from '../icons/MdUploadIcon';
+import MdIconUpload from '../icons-material/MdIconUpload';
 import type { ChangeEvent, DragEvent, MouseEvent } from 'react';
 
 export interface MdFileUploadProps {
@@ -22,7 +22,7 @@ export interface MdFileUploadProps {
   hideButtons?: boolean;
 }
 
-const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
+export const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
   onUpload,
   onCancel,
   useFormData = false,
@@ -107,7 +107,7 @@ const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
         }}
       >
         <div aria-hidden="true" className="md-fileupload__droparea-icon">
-          <MdUploadIcon />
+          <MdIconUpload />
         </div>
 
         <div className="md-fileupload__droparea-content">

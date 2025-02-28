@@ -21,7 +21,7 @@ export type MdTileVerticalProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const MdTileVertical: React.FC<MdTileVerticalProps> = ({
+export const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   heading,
   description,
   mode = 'medium',

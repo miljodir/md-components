@@ -7,11 +7,11 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<button className="md-chip [md-chip--active, md-chip--disabled, md-chip--solid]">
-  <div className="md-chip__left-icon">{leftIcon}</div>
+<button class="md-chip [md-chip--active, md-chip--disabled, md-chip--solid]">
+  <div class="md-chip__left-icon">{leftIcon}</div>
 
-  <div className="md-chip__label">{label}</div>
+  <div class="md-chip__label">{label}</div>
 
-  <div className="md-chip__right-icon">{rightIcon}</div>
+  <div class="md-chip__right-icon">{rightIcon}</div>
 </button>
 ```

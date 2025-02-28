@@ -41,6 +41,17 @@ import '@miljodirektoratet/md-css';
 
 I [Storybook](https://miljodir.github.io/md-components) finnes alle tilgjengelige komponenter, eksempler på bruk, samt all HTML for alle komponenter.
 
+## Ikoner og Material Symbols
+
+Miljødirektoratets designsystem bruker nå [Material Symbols](https://fonts.google.com/icons?icon.style=Sharp) ("sharp" versjonen). Vi har laget egne ikon komponenter som bruker svg ikoner fra Material Symbols.
+
+Hvis du ønsker å bruke et ikon fra Material som vi ikke har i vårt komponentbibliotek, kan du [legge inn et issue her](https://github.com/miljodir/md-components/issues). Du må også gjerne implementere Material Symbols i ditt eget prosjekt slik du ønsker, men i så fall skal følgende regler følges:
+
+- Style: **Sharp**
+- Weight: **300**
+- Grade: **0**
+- Fill: **No fill**
+
 ## Bidrag og/eller endringer
 
 Alle skal kunne bidra med komponenter til biblioteket, og også foreslå endringer. Selve komponentene ligger i `packages/react` og tilhørende css ligger i `packages/css`.
@@ -96,6 +107,8 @@ Disse kan legges i `package.json` til eget prosjekt slik:
     "@miljodirektoratet/md-react": "file:~/miljodirektoratet-md-react-<versjon>.tgz",
     }
 ```
+
+Eventuelt, bruk kommandoen `pack-local` fra rotmappen for å bygge og pakke begge pakkene samtidig.
 
 ### Labels på pull-requests
 

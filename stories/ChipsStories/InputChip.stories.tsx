@@ -2,8 +2,8 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../../packages/css/src/chips/README.md';
-import MdInputChip from '../../packages/react/src/chips/MdInputChip';
-import MdUserIcon from '../../packages/react/src/icons/MdUserIcon';
+import { MdInputChip } from '../../packages/react/src/chips/MdInputChip';
+import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import type { MdInputChipProps } from '../../packages/react/src/chips/MdInputChip';
 
 export default {
@@ -124,7 +124,7 @@ const Template = (args: MdInputChipProps) => {
   return (
     <MdInputChip
       {...args}
-      prefixIcon={args.prefixIcon ? <MdUserIcon /> : null}
+      prefixIcon={args.prefixIcon ? <MdIconAccountCircle /> : null}
       onClick={() => {
         handleClick();
       }}

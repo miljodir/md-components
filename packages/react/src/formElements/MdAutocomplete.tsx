@@ -5,8 +5,8 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
-import MdChevronIcon from '../icons/MdChevronIcon';
-import MdXIcon from '../icons/MdXIcon';
+import MdIconClose from '../icons-material/MdIconClose';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
 /**
@@ -44,7 +44,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   onSelectOption(_e: MdAutocompleteOption): void;
 }
 
-const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
+export const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
   (
     {
       label,
@@ -232,7 +232,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
             {...otherProps}
           />
           <div aria-hidden="true" className="md-autocomplete__input-icon">
-            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
+            <MdIconKeyboardArrowDown transform={`rotate(${open ? '180' : '0'})`} />
           </div>
 
           {options && options.length > 0 && (
@@ -265,7 +265,7 @@ const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteProps>(
                     <div className="md-autocomplete__dropdown-item-text">{option.text}</div>
                     {isSelectedOption(option) && (
                       <div className="md-autocomplete__dropdown-item-clear" title="Klikk for å fjerne valg">
-                        <MdXIcon />
+                        <MdIconClose />
                       </div>
                     )}
                   </button>

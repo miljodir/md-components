@@ -2,7 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiselect/README.md';
-import MdMultiSelect from '../packages/react/src/formElements/MdMultiSelect';
+import { MdMultiSelect } from '../packages/react/src/formElements/MdMultiSelect';
 import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdMultiSelect';
 import type { Args } from '@storybook/react';
 

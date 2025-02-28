@@ -2,9 +2,9 @@ import { action } from '@storybook/addon-actions';
 import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/button/README.md';
-import MdButton from '../packages/react/src/button/MdButton';
-import MdChevronIcon from '../packages/react/src/icons/MdChevronIcon';
-import MdXIcon from '../packages/react/src/icons/MdXIcon';
+import { MdButton } from '../packages/react/src/button/MdButton';
+import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';
+import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
 
 export default {
   title: 'Components/Button',
@@ -132,8 +132,7 @@ const TemplateWithIcon = (args: ButtonArgs) => {
       disabled={args.disabled}
       theme={args.theme}
       small={args.small}
-      loading={args.loading}
-      rightIcon={<MdChevronIcon />}
+      rightIcon={<MdIconChevronForward />}
     >
       {args.label}
     </MdButton>
@@ -147,8 +146,7 @@ const TemplateWithTopIcon = (args: ButtonArgs) => {
       disabled={args.disabled}
       theme={args.theme}
       small={args.small}
-      loading={args.loading}
-      topIcon={<MdXIcon />}
+      topIcon={<MdIconClose />}
     >
       {args.label}
     </MdButton>

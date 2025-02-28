@@ -89,8 +89,8 @@
 .md-select__button-icon {
   display: flex;
   flex-shrink: 0;
-  width: 0.9375rem;
-  height: 0.9375rem;
+  width: 1.25rem;
+  height: 1.25rem;
   rotate: 90deg;
   color: var(--mdGreyColor);
 }
@@ -151,8 +151,8 @@
 .md-select__dropdown-item-clear {
   display: flex;
   flex-shrink: 0;
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
   color: var(--mdPrimaryColor);
 }
 

@@ -2,9 +2,9 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/modal/README.md';
-import MdButton from '../packages/react/src/button/MdButton';
-import MdWarningIcon from '../packages/react/src/icons/MdWarningIcon';
-import MdModal from '../packages/react/src/modal/MdModal';
+import { MdButton } from '../packages/react/src/button/MdButton';
+import { MdIconWarning } from '../packages/react/src/icons-material/MdIconWarning';
+import { MdModal } from '../packages/react/src/modal/MdModal';
 import type { Args, StoryFn } from '@storybook/react';
 
 export default {
@@ -123,7 +123,7 @@ export default {
 const Template: StoryFn<typeof MdModal> = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const headingIcon = <MdWarningIcon width="20" height="20" style={{ color: '#ca0000' }} />;
+  const headingIcon = <MdIconWarning width="24" height="24" style={{ color: '#ca0000' }} />;
 
   const toggleModal = () => {
     const open = !args.open;

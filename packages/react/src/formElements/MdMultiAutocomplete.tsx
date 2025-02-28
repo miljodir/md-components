@@ -6,7 +6,7 @@ import MdInputChip from '../chips/MdInputChip';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import useDropdown from '../hooks/useDropdown';
-import MdChevronIcon from '../icons/MdChevronIcon';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
@@ -39,7 +39,7 @@ export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTML
   onSelectOption(_e: MdMultiAutocompleteOption): void;
 }
 
-const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
+export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocompleteProps>(
   (
     {
       label,
@@ -258,7 +258,7 @@ const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAutocomple
             <div className="md-multiautocomplete__button-hasmultiple">+{selectedOptions.length - 1}</div>
           )}
           <div aria-hidden="true" className="md-multiautocomplete__input-icon">
-            <MdChevronIcon transform={`rotate(${open ? '180' : '0'})`} />
+            <MdIconKeyboardArrowDown transform={`rotate(${open ? '180' : '0'})`} />
           </div>
 
           {options && options.length > 0 && (

@@ -9,17 +9,22 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 ## Tile horizontal
 
 ```html
-<a className="md-tile [md-tile--secondary, md-tile--small, md-tile--medium, md-tile--fullWidth]" href="{href}" onClick="{handleClick}">
-  <div className="md-tile__content">
-    <div className="md-tile__content-icon">{icon}</div>
-    <div className="md-tile__content-text">
-      <div className="md-tile__content-heading">{heading}</div>
-      <div className="md-tile__content-description">{description}</div>
+<a
+  class="md-tile [md-tile--secondary, md-tile--small, md-tile--medium, md-tile--fullWidth]"
+  href="{href}"
+  onClick="{handleClick}"
+>
+  <div class="md-tile__content">
+    <div class="md-tile__content-icon">{icon}</div>
+    <div class="md-tile__content-text">
+      <div class="md-tile__content-heading">{heading}</div>
+      <div class="md-tile__content-description">{description}</div>
     </div>
   </div>
 
-  <div className="md-tile__arrow">
-    <MdChevronIcon height="{25}" />
+  <div class="md-tile__arrow">
+    <!-- Can be replaced with chevron down icon from Material Symbols -->
+    <MdIconChevronForward height="{25}" />
   </div>
 </a>
 ```
@@ -28,15 +33,15 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <a
-  className="md-tile-vertical [md-tile-vertical--secondary, md-tile-vertical--small, md-tile-vertical--large]"
+  class="md-tile-vertical [md-tile-vertical--secondary, md-tile-vertical--small, md-tile-vertical--large]"
   href="{href}"
   onClick="{handleClick}"
 >
-  <div className="md-tile-vertical__content">
-    <div className="md-tile-vertical__content-icon">{icon}</div>
-    <div className="md-tile-vertical__content-text">
-      <div className="md-tile-vertical__content-heading">{heading}</div>
-      <div className="md-tile-vertical__content-description">{description}</div>
+  <div class="md-tile-vertical__content">
+    <div class="md-tile-vertical__content-icon">{icon}</div>
+    <div class="md-tile-vertical__content-text">
+      <div class="md-tile-vertical__content-heading">{heading}</div>
+      <div class="md-tile-vertical__content-description">{description}</div>
     </div>
   </div>
 </a>

@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import React from 'react';
-import MdChevronIcon from '../icons/MdChevronIcon';
+import MdIconChevronForward from '../icons-material/MdIconChevronForward';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export type MdTileProps = {
@@ -20,7 +20,7 @@ export type MdTileProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const MdTile: React.FC<MdTileProps> = ({
+export const MdTile: React.FC<MdTileProps> = ({
   heading,
   description,
   href,
@@ -69,7 +69,7 @@ const MdTile: React.FC<MdTileProps> = ({
         </div>
       </div>
       <div className="md-tile__arrow">
-        <MdChevronIcon height={25} />
+        <MdIconChevronForward height={24} />
       </div>
     </>
   );

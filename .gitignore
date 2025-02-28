@@ -6,3 +6,4 @@ package
 *.tgz
 packages/**/package-lock.json
 storybook-static
+.DS_store

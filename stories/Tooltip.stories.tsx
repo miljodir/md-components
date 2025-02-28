@@ -1,8 +1,8 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tooltip/README.md';
-import MdCloseIcon from '../packages/react/src/icons/MdCloseIcon';
-import MdTooltip from '../packages/react/src/tooltip/MdTooltip';
+import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
+import { MdTooltip } from '../packages/react/src/tooltip/MdTooltip';
 import type { MdTooltipProps } from '../packages/react/src/tooltip/MdTooltip';
 import type { StoryFn } from '@storybook/react';
 
@@ -72,7 +72,7 @@ const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
       }}
     >
       <MdTooltip {...args}>
-        <MdCloseIcon width={20} height={20} />
+        <MdIconClose width={20} height={20} />
       </MdTooltip>
     </div>
   );

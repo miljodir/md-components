@@ -2,14 +2,14 @@
 
 import classnames from 'classnames';
 import React from 'react';
-import MdHelpIcon from '../icons/MdHelpIcon64';
+import MdIconHelp from '../icons-material/MdIconHelp';
 
 export interface MdHelpButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   expanded: boolean;
   hideArrow?: boolean;
 }
 
-const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
+export const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   className,
   expanded = false,
   hideArrow = false,
@@ -22,7 +22,7 @@ const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
 
   return (
     <button aria-label="Hjelpetekst" className={buttonClasses} type="button" {...otherProps}>
-      <MdHelpIcon aria-hidden="true" className="md-helpbutton__icon" />
+      <MdIconHelp aria-hidden="true" className="md-helpbutton__icon" />
     </button>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import MdLoadingSpinner from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
+import { MdLoadingSpinner } from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
 import type { MdLoadingSpinnerProps } from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
 import type { StoryFn } from '@storybook/react';
 

@@ -1,9 +1,9 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/tabs/README.md';
-import MdCheckIcon from '../packages/react/src/icons/MdCheckIcon';
-import MdTab from '../packages/react/src/tabs/MdTab';
-import MdTabs from '../packages/react/src/tabs/MdTabs';
+import { MdIconCheck } from '../packages/react/src/icons-material/MdIconCheck';
+import { MdTab } from '../packages/react/src/tabs/MdTab';
+import { MdTabs } from '../packages/react/src/tabs/MdTabs';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -85,7 +85,7 @@ const Template = (args: Args) => {
     <MdTabs
       initialTab={args.initialTab}
       chips={args.chips}
-      chipsPrefixIcon={args.chipsPrefixIcon ? <MdCheckIcon /> : null}
+      chipsPrefixIcon={args.chipsPrefixIcon ? <MdIconCheck /> : null}
     >
       <MdTab title="Tab 1">
         <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the first tab</div>

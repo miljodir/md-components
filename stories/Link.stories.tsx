@@ -1,6 +1,6 @@
 import React from 'react';
-import MdLink from '../packages/react/src/link/MdLink';
-import MdRedirectIcon from '../packages/react/src/icons/MdRedirectIcon';
+import { MdIconOpenInNew } from '../packages/react/src/icons-material/MdIconOpenInNew';
+import { MdLink } from '../packages/react/src/link/MdLink';
 
 export default {
   title: 'Components/Link',
@@ -72,7 +72,7 @@ const Template = (args: LinkArgs) => {
 
 const TemplateWithIcon = (args: LinkArgs) => {
   return (
-    <MdLink onClick={clickHandler} href={args.href} icon={<MdRedirectIcon />}>
+    <MdLink onClick={clickHandler} href={args.href} icon={<MdIconOpenInNew />}>
       {args.text}
     </MdLink>
   );

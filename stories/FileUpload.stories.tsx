@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/fileupload/README.md';
-import MdFileUpload from '../packages/react/src/formElements/MdFileUpload';
+import { MdFileUpload } from '../packages/react/src/formElements/MdFileUpload';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -75,7 +75,8 @@ export default {
     },
     uploadTexts: {
       type: { name: 'array' },
-      description: 'Texts for upload area. Default depends on value of `imagesOnly`. Can be used to give user extra information about the upload, or change the language of the upload text.',
+      description:
+        'Texts for upload area. Default depends on value of `imagesOnly`. Can be used to give user extra information about the upload, or change the language of the upload text.',
       table: {
         defaultValue: { summary: '["Dropp en fil her eller", "velg fra denne maskinen"]' },
         type: {
@@ -107,7 +108,8 @@ export default {
     },
     automaticTrigger: {
       type: { name: 'boolean' },
-      description: 'Automatically trigger the onUpload callback whenever the filelist changes. Will not trigger when filelist becomes empty.',
+      description:
+        'Automatically trigger the onUpload callback whenever the filelist changes. Will not trigger when filelist becomes empty.',
       table: {
         defaultValue: { summary: 'false' },
         type: {

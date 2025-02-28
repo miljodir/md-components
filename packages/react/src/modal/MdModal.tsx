@@ -3,7 +3,7 @@
 import classnames from 'classnames';
 import React, { useEffect, useRef } from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
-import MdXIcon from '../icons/MdXIcon';
+import MdIconClose from '../icons-material/MdIconClose';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
 const focusableHtmlElements =
@@ -20,7 +20,7 @@ export interface MdModalProps {
   onClose?(_e?: React.MouseEvent): void;
 }
 
-const MdModal: React.FunctionComponent<MdModalProps> = ({
+export const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
   headingIcon,
@@ -122,7 +122,7 @@ const MdModal: React.FunctionComponent<MdModalProps> = ({
                 }}
                 aria-label="Lukk"
               >
-                <MdXIcon />
+                <MdIconClose />
               </MdIconButton>
             </div>
             <div className="md-modal__content-inner">{children}</div>

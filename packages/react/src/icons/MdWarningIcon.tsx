@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdWarningIcon: React.FunctionComponent<MdIconProps> = ({ className = '', ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdWarningIcon is deprecated and will be removed in a future release. Use MdIconWarning instead.');
+
   return (
     <svg viewBox="0 0 32 32" className={className} {...otherProps}>
       <path

@@ -15,7 +15,7 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   loading?: boolean;
 }
 
-const MdButton: React.FunctionComponent<MdButtonProps> = ({
+export const MdButton: React.FunctionComponent<MdButtonProps> = ({
   theme = 'primary',
   leftIcon,
   rightIcon,

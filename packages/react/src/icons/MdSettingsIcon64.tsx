@@ -2,6 +2,9 @@ import React from 'react';
 import type MdIconProps from './icon.model';
 
 const MdSettingsIcon64: React.FunctionComponent<MdIconProps> = ({ className, ...otherProps }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdSettingsIcon is deprecated and will be removed in a future release. Use MdIconSettings instead.');
+
   return (
     <svg
       viewBox="0 0 64 64"

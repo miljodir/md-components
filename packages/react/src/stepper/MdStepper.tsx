@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import MdCheckIcon from '../icons/MdCheckIcon';
+import MdIconCheck from '../icons-material/MdIconCheck';
 
 export interface MdStepperProps {
   activeStep: number;
   children: React.ReactElement[];
 }
 
-const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {
+export const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {
   return (
     <div className="md-stepper__stepper-container">
       <div className="md-stepper__stepper-list">
@@ -52,7 +52,7 @@ const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
       <div className="md-stepper__step-title">
         <div className="md-stepper__step-title-badge-outer-border">
           <div className="md-stepper__step-title-badge completed">
-            <MdCheckIcon width={18} />
+            <MdIconCheck width={20} />
           </div>
         </div>
         <h4 className="md-stepper__completed">{title}</h4>
