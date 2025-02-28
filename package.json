@@ -21,6 +21,7 @@
     "url": "git+https://github.com/miljodir/component-library"
   },
   "devDependencies": {
+    "@ariakit/react": "^0.4.15",
     "@babel/core": "^7.23.6",
     "@babel/plugin-syntax-flow": "^7.26.0",
     "@babel/preset-env": "^7.23.6",
