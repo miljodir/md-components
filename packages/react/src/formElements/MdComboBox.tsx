@@ -222,7 +222,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                   </Ariakit.ComboboxItem>
                 );
               })}
-            {!matches.length && <div className="md-combobox__checkbox-item">{noResultsText}</div>}
+            {!matches.length && (
+              <div className="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">{noResultsText}</div>
+            )}
           </Ariakit.ComboboxPopover>
         </Ariakit.ComboboxProvider>
 

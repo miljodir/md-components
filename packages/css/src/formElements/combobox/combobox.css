@@ -115,17 +115,20 @@
   animation-duration: 200ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(-5%);
+  z-index: 3;
 }
 .md-combobox__popover[data-enter] {
   opacity: 1;
   transform: translateY(0%);
-  z-index: 3;
 }
 
 /* Combobox item */
 .md-combobox__checkbox-item {
   padding: 0.75rem;
   cursor: pointer;
+}
+.md-combobox__checkbox-item--no-result {
+  font-style: italic;
 }
 .md-combobox--large .md-combobox__checkbox-item {
   padding: 1rem 0.75rem;
