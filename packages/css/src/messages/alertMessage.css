@@ -32,7 +32,7 @@
   background-color: var(--mdPrimaryColor20);
 }
 .md-alert-message--warning {
-  background-color: var(--mdWarningBackgoundColor);
+  background-color: var(--mdWarningBackgroundColor);
 }
 .md-alert-message--error {
   background-color: var(--mdErrorColor);
