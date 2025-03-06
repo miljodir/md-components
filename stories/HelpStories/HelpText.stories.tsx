@@ -29,13 +29,13 @@ export default {
     },
   },
   argTypes: {
-    text: {
+    children: {
       type: { name: 'string | html' },
       description: 'Text to display',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: 'string | html',
+          summary: 'string | ReactNode',
         },
       },
       control: false,
@@ -44,12 +44,12 @@ export default {
 };
 
 const HelpTextTemplate = (args: Args) => {
-  return <MdHelpText>{args.text}</MdHelpText>;
+  return <MdHelpText>{args.children}</MdHelpText>;
 };
 
 export const HelpText = HelpTextTemplate.bind({});
 HelpText.args = {
-  text: (
+  children: (
     <div>
       This is a helpful text, in a sweet green box. It can also contain <em>html</em>.
     </div>

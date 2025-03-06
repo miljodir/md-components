@@ -23,11 +23,11 @@ export default {
       },
       control: 'text',
     },
-    text: {
+    children: {
       description: 'The link text',
       table: {
         type: {
-          summary: 'text',
+          summary: 'text | ReactNode',
         },
       },
       control: 'text',
@@ -58,14 +58,14 @@ function clickHandler(event: React.MouseEvent) {
 }
 
 interface LinkArgs {
-  text: string;
+  children: string;
   href?: string;
 }
 
 const Template = (args: LinkArgs) => {
   return (
     <MdLink onClick={clickHandler} href={args.href}>
-      {args.text}
+      {args.children}
     </MdLink>
   );
 };
@@ -73,19 +73,19 @@ const Template = (args: LinkArgs) => {
 const TemplateWithIcon = (args: LinkArgs) => {
   return (
     <MdLink onClick={clickHandler} href={args.href} icon={<MdIconOpenInNew />}>
-      {args.text}
+      {args.children}
     </MdLink>
   );
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  text: 'This is a link',
+  children: 'This is a link',
   href: '#',
 };
 
 export const LinkWithIcon = TemplateWithIcon.bind({});
 LinkWithIcon.args = {
-  text: 'This is a link',
+  children: 'This is a link',
   href: '#',
 };

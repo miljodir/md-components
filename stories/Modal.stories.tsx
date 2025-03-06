@@ -53,6 +53,14 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    children: {
+      description: 'Modal content',
+      table: {
+        type: {
+          summary: 'ReactNode(s)',
+        },
+      },
+    },
     open: {
       type: { name: 'boolean' },
       description: 'State for open/closed',
