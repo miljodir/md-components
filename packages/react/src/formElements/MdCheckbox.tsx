@@ -25,7 +25,13 @@ export const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
   const checkboxId = id || uuid;
   return (
     <div className={classNames}>
-      <input id={id || checkboxId || undefined} className="md-checkbox__input" type="checkbox" {...otherProps} />
+      <input
+        id={id || checkboxId || undefined}
+        disabled={disabled}
+        className="md-checkbox__input"
+        type="checkbox"
+        {...otherProps}
+      />
       <label className="md-checkbox__label" htmlFor={checkboxId || undefined}>
         {label && label !== '' && <span className="md-checkbox__labelText">{label}</span>}
       </label>
