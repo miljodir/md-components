@@ -148,6 +148,17 @@ export default {
       },
       control: { type: 'number' },
     },
+    numberOfElementsShown: {
+      type: { name: 'number' },
+      description: 'Set max number of elements shown in dropdown. Note: ALL elements in list are still searchable.',
+      table: {
+        defaultValue: { summary: 'undefined' },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+    },
   },
 };
 
