@@ -2,11 +2,12 @@
 
 import * as Ariakit from '@ariakit/react';
 
-import React, { useEffect, useMemo, useState, useTransition, useId } from 'react';
+import React, { useEffect, useMemo, useState, useId, useTransition } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdChevronIcon from '../icons/MdChevronIcon';
 import MdZoomIcon from '../icons/MdZoomIcon';
+import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
 
 export interface MdComboBoxOption {
@@ -24,6 +25,8 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   errorText?: string;
   placeholder?: string;
   helpText?: string;
+  numberOfElementsShown?: number;
+  isSearching?: boolean;
   mode?: 'large' | 'medium' | 'small';
   noResultsText?: string;
   dropdownHeight?: number;
@@ -63,12 +66,14 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       value,
       disabled = false,
       placeholder = 'Søk',
+      numberOfElementsShown,
       mode = 'medium',
       helpText,
       errorText,
       noResultsText = 'Ingen treff',
       dropdownHeight,
       prefixIcon,
+      isSearching = false,
       hidePrefixIcon = false,
       onSelectOption,
       ...otherProps
@@ -96,8 +101,8 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       const results = options?.filter(o => {
         return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
       });
-      return results;
-    }, [searchValue]);
+      return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
+    }, [searchValue, numberOfElementsShown]);
 
     const getValueById = (value: string) => {
       const option = options.find(option => {
@@ -163,7 +168,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
 
           <div className={`md-combobox__input-wrapper ${disabled ? 'md-combobox__input-wrapper--disabled' : ''}`}>
             {!hidePrefixIcon && (
-              <div className="md-combobox__input--before">{prefixIcon ? prefixIcon : <MdZoomIcon />}</div>
+              <div className="md-combobox__input--before">
+                {isSearching ? <MdLoadingSpinner size={16} /> : prefixIcon ? prefixIcon : <MdZoomIcon />}
+              </div>
             )}
             <Ariakit.Combobox
               ref={ref}
