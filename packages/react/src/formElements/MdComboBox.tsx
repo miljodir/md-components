@@ -190,6 +190,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           <Ariakit.ComboboxPopover
             id={`${comboBoxId}_popover`}
             sameWidth
+            slide={false}
             gutter={-1}
             className="md-combobox__popover"
             aria-busy={isPending}
