@@ -214,7 +214,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                     className="md-combobox__checkbox-item"
                     aria-selected={isChecked}
                     onClick={() => {
-                      setSearchValue('');
+                      if (!isMultiSelect) {
+                        setSearchValue(option.text);
+                      }
                     }}
                   >
                     {isMultiSelect ? (
