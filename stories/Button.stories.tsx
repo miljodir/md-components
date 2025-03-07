@@ -30,11 +30,11 @@ export default {
     },
   },
   argTypes: {
-    label: {
+    children: {
       description: 'Button label text',
       table: {
         type: {
-          summary: 'text',
+          summary: 'text | ReactNode',
         },
       },
       control: { type: 'text' },
@@ -105,7 +105,7 @@ export default {
 };
 
 interface ButtonArgs {
-  label: string;
+  children: string | React.ReactNode;
   disabled: boolean;
   theme: 'primary' | 'secondary' | 'danger' | 'tertiary';
   small: boolean;
@@ -115,26 +115,26 @@ interface ButtonArgs {
 const Template = (args: ButtonArgs) => {
   return (
     <MdButton
-      onClick={action(args.label)}
+      onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
       small={args.small}
       loading={args.loading}
     >
-      {args.label}
+      {args.children}
     </MdButton>
   );
 };
 const TemplateWithIcon = (args: ButtonArgs) => {
   return (
     <MdButton
-      onClick={action(args.label)}
+      onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
       small={args.small}
       rightIcon={<MdIconChevronForward />}
     >
-      {args.label}
+      {args.children}
     </MdButton>
   );
 };
@@ -142,13 +142,13 @@ const TemplateWithIcon = (args: ButtonArgs) => {
 const TemplateWithTopIcon = (args: ButtonArgs) => {
   return (
     <MdButton
-      onClick={action(args.label)}
+      onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
       small={args.small}
       topIcon={<MdIconClose />}
     >
-      {args.label}
+      {args.children}
     </MdButton>
   );
 };
@@ -156,7 +156,7 @@ const TemplateWithTopIcon = (args: ButtonArgs) => {
 export const Primary = Template.bind({});
 Primary.args = {
   theme: 'primary',
-  label: 'Hovedknapp',
+  children: 'Hovedknapp',
   disabled: false,
   small: false,
   loading: false,
@@ -165,7 +165,7 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   theme: 'secondary',
-  label: 'Sekundærknapp',
+  children: 'Sekundærknapp',
   disabled: false,
   small: false,
   loading: false,
@@ -174,7 +174,7 @@ Secondary.args = {
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   theme: 'tertiary',
-  label: 'Tertiærknapp',
+  children: 'Tertiærknapp',
   disabled: false,
   small: false,
   loading: false,
@@ -183,7 +183,7 @@ Tertiary.args = {
 export const Error = Template.bind({});
 Error.args = {
   theme: 'danger',
-  label: 'Advarselsknapp',
+  children: 'Advarselsknapp',
   disabled: false,
   small: false,
   loading: false,
@@ -192,7 +192,7 @@ Error.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   theme: 'primary',
-  label: 'Deaktivert knapp',
+  children: 'Deaktivert knapp',
   disabled: true,
   small: false,
   loading: false,
@@ -201,7 +201,7 @@ Disabled.args = {
 export const ButtonWithIcon = TemplateWithIcon.bind({});
 ButtonWithIcon.args = {
   theme: 'primary',
-  label: 'Knapp med ikon',
+  children: 'Knapp med ikon',
   disabled: false,
   small: false,
   loading: false,
@@ -210,7 +210,7 @@ ButtonWithIcon.args = {
 export const ButtonWithTopIcon = TemplateWithTopIcon.bind({});
 ButtonWithTopIcon.args = {
   theme: 'primary',
-  label: 'Knapp med ikon',
+  children: 'Knapp med ikon',
   disabled: false,
   small: false,
   loading: false,

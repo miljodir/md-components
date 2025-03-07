@@ -31,7 +31,7 @@ export default {
     },
   },
   argTypes: {
-    text: {
+    children: {
       type: { name: 'string | html' },
       description: 'Text to display',
       table: {
@@ -96,7 +96,7 @@ const Template = (args: Args) => {
           display: args.expanded ? 'block' : 'none',
         }}
       >
-        {args.text}
+        {args.children}
       </MdHelpText>
     </div>
   );
@@ -104,7 +104,7 @@ const Template = (args: Args) => {
 
 export const HelpButtonAndText = Template.bind({});
 HelpButtonAndText.args = {
-  text: 'This is a help text, which is toggled by clicking the help icon',
+  children: 'This is a help text, which is toggled by clicking the help icon',
   expanded: false,
   hideArrow: false,
 };

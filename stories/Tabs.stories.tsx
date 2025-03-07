@@ -30,6 +30,14 @@ export default {
     },
   },
   argTypes: {
+    children: {
+      description: 'Tabs content',
+      table: {
+        type: {
+          summary: 'MdTab-components',
+        },
+      },
+    },
     disabled: {
       type: { name: 'boolean' },
       description:

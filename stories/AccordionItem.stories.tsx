@@ -53,6 +53,15 @@ export default {
       },
       control: { type: 'text' },
     },
+    children: {
+      description: 'Accordion content',
+      table: {
+        type: {
+          summary: 'text | ReactNode',
+        },
+      },
+      control: false,
+    },
     expanded: {
       type: { name: 'boolean' },
       description:
