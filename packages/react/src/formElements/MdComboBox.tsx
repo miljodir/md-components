@@ -5,8 +5,8 @@ import * as Ariakit from '@ariakit/react';
 import React, { useEffect, useMemo, useState, useId, useTransition } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import MdChevronIcon from '../icons/MdChevronIcon';
-import MdZoomIcon from '../icons/MdZoomIcon';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
+import MdIconSearch from '../icons-material/MdIconSearch';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
 
@@ -169,7 +169,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           <div className={`md-combobox__input-wrapper ${disabled ? 'md-combobox__input-wrapper--disabled' : ''}`}>
             {!hidePrefixIcon && (
               <div className="md-combobox__input--before">
-                {isSearching ? <MdLoadingSpinner size={16} /> : prefixIcon ? prefixIcon : <MdZoomIcon />}
+                {isSearching ? <MdLoadingSpinner size={16} /> : prefixIcon ? prefixIcon : <MdIconSearch />}
               </div>
             )}
             <Ariakit.Combobox
@@ -183,7 +183,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             />
             <div className="md-combobox__input--after">
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
-              <MdChevronIcon />
+              <MdIconKeyboardArrowDown />
             </div>
           </div>
 
