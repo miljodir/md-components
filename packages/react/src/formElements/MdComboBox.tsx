@@ -122,7 +122,11 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     ariaDescribedBy = errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
 
     return (
-      <div className={`md-combobox md-combobox--${mode} ${errorText && errorText !== '' && 'md-combobox--has-error'}`}>
+      <div
+        className={`md-combobox md-combobox--${mode} ${errorText && errorText !== '' && 'md-combobox--has-error'} ${
+          value && value !== '' && (isMultiSelect ? value.length > 0 : true) && 'md-combobox--has-value'
+        }`}
+      >
         <Ariakit.ComboboxProvider
           id={comboBoxId}
           selectedValue={selectedValues}

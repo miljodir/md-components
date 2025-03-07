@@ -38,19 +38,23 @@
   padding-left: 0.75rem;
 }
 .md-combobox__input::placeholder {
-  color: var(--mdTextColor);
+  color: var(--mdGreyColor60);
   font-size: 1rem;
 }
+.md-combobox--has-value .md-combobox__input[aria-expanded='false']::placeholder {
+  color: var(--mdTextColor);
+}
+
 .md-combobox__input[data-focus-visible],
 .md-combobox__input[aria-expanded='true'] {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
 }
 
-.md-combobox__input[data-focus-visible]::placeholder,
 .md-combobox__input[aria-expanded='true']::placeholder {
-  color: var(--mdGreyColor60);
+  opacity: 0;
 }
+
 .md-combobox__input:disabled {
   background-color: var(--mdGreyColor20);
   border-color: var(--mdGreyColor60);
