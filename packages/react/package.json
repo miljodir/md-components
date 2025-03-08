@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "material-symbols": "^0.28.1"
+    "material-symbols": "^0.28.1",
+    "@ariakit/react": "^0.4.15"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
