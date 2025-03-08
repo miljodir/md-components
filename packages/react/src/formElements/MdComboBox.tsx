@@ -2,7 +2,7 @@
 
 import * as Ariakit from '@ariakit/react';
 
-import React, { useMemo, useState, useId, useTransition } from 'react';
+import React, { useMemo, useState, useId, useTransition, useEffect } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
@@ -88,6 +88,10 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
 
+    useEffect(() => {
+      setSelectedValues(value);
+    }, [value]);
+
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
         return defaultOptions;
@@ -98,7 +102,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
       });
       return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
-    }, [searchValue, numberOfElementsShown]);
+    }, [searchValue, defaultOptions, options, numberOfElementsShown]);
 
     const getValueById = (value: string) => {
       const option = options.find(option => {
