@@ -31,12 +31,13 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["autofix", "react-hooks"],
+  "plugins": ["autofix", "react-hooks", "react-compiler"],
   "overrides": [
     {
       "files": ["**/*.ts?(x)"],
       "rules": {
         "react/react-in-jsx-scope": "off",
+        "react-compiler/react-compiler": "error",
         "spaced-comment": "warn",
         "quotes": ["warn", "single"],
         "no-console": "warn",
