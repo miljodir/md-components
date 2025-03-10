@@ -35,7 +35,6 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   prefixIcon?: React.ReactNode;
   hidePrefixIcon?: boolean;
   allowReset?: boolean;
-  resetButtonTitle?: string;
   flip?: boolean;
   onSelectOption(_value: string[] | string): void;
 }
@@ -63,7 +62,6 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
  * @params isSearching {boolean=} - The isSearching state of the combobox.
  * @params numberOfElementsShown {number=} - The number of elements shown in the dropdown.
  * @params allowReset {boolean=} - The allowReset state of the combobox.
- * @params resetButtonTitle {string=} - The title of the reset button.
  * @params flip {boolean=} - Allow popover to flip to the opposite side when it overflows.
  */
 
@@ -88,7 +86,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       isSearching = false,
       hidePrefixIcon = false,
       allowReset = false,
-      resetButtonTitle = 'Nullstill',
       flip = false,
       onSelectOption,
       ...otherProps
@@ -216,11 +213,11 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
               {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
                 <button
-                    className="md-combobox__reset"
-                    onClick={() => {
-                        return onReset()
-                    }}
-                    aria-label={resetButtonTitle}
+                  className="md-combobox__reset"
+                  onClick={() => {
+                    return onReset();
+                  }}
+                  aria-label="Nullstill"
                 >
                   <MdIconClose aria-hidden="true" />
                 </button>
