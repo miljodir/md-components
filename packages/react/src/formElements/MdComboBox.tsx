@@ -9,6 +9,7 @@ import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdIconSearch from '../icons-material/MdIconSearch';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
+import MdIconClose from '../icons-material/MdIconClose';
 
 export interface MdComboBoxOption {
   value: string;
@@ -22,6 +23,7 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   defaultOptions?: MdComboBoxOption[];
   value: string | string[];
   disabled?: boolean;
+  error?: boolean;
   errorText?: string;
   placeholder?: string;
   helpText?: string;
@@ -32,6 +34,9 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   dropdownHeight?: number;
   prefixIcon?: React.ReactNode;
   hidePrefixIcon?: boolean;
+  allowReset?: boolean;
+  resetButtonTitle?: string;
+  flip?: boolean;
   onSelectOption(_value: string[] | string): void;
 }
 
@@ -45,6 +50,7 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
  * @params options {MdComboBoxOption[]} - The options of the combobox.
  * @params value {string[] | string} - The value of the combobox. string for single select, string[] for multi select.
  * @params disabled {boolean=} - The disabled state of the combobox.
+ * @params error {boolean=} - The error state of the combobox.
  * @params errorText {string=} - The error text of the combobox.
  * @params placeholder {string=} - The placeholder of the combobox.
  * @params mode {string=} - The size of the combobox. 'large' | 'medium' | 'small'
@@ -54,6 +60,11 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
  * @params dropdownHeight {number=} - The height of the dropdown.
  * @params prefixIcon {React.ReactNode=} - The prefix icon of the combobox.
  * @params hidePrefixIcon {boolean=} - The hide prefix icon of the combobox.
+ * @params isSearching {boolean=} - The isSearching state of the combobox.
+ * @params numberOfElementsShown {number=} - The number of elements shown in the dropdown.
+ * @params allowReset {boolean=} - The allowReset state of the combobox.
+ * @params resetButtonTitle {string=} - The title of the reset button.
+ * @params flip {boolean=} - Allow popover to flip to the opposite side when it overflows.
  */
 
 const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
@@ -69,12 +80,16 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       numberOfElementsShown,
       mode = 'medium',
       helpText,
+      error = false,
       errorText,
       noResultsText = 'Ingen treff',
       dropdownHeight,
       prefixIcon,
       isSearching = false,
       hidePrefixIcon = false,
+      allowReset = false,
+      resetButtonTitle = 'Nullstill',
+      flip = false,
       onSelectOption,
       ...otherProps
     },
@@ -113,6 +128,13 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       return option ? option.text : placeholder;
     };
 
+    const onReset = () => {
+      const newValue = isMultiSelect ? [] : '';
+      setSearchValue('');
+      setSelectedValues(newValue);
+      onSelectOption(newValue);
+    };
+
     let displayValue: string | string[] = placeholder;
     if (isMultiSelect) {
       displayValue = selectedValues.length > 0 ? getValueById(selectedValues[0]) : placeholder;
@@ -121,13 +143,13 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     }
 
     let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
-    ariaDescribedBy = errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
 
     return (
       <div
-        className={`md-combobox md-combobox--${mode} ${errorText && errorText !== '' && 'md-combobox--has-error'} ${
-          value && value !== '' && (isMultiSelect ? value.length > 0 : true) && 'md-combobox--has-value'
-        }`}
+        className={`md-combobox md-combobox--${mode} ${
+          error && errorText && errorText !== '' && 'md-combobox--has-error'
+        } ${value && value !== '' && (isMultiSelect ? value.length > 0 : true) && 'md-combobox--has-value'}`}
       >
         <Ariakit.ComboboxProvider
           id={comboBoxId}
@@ -193,7 +215,12 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             />
             <div className="md-combobox__input--after">
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
-              <MdIconKeyboardArrowDown />
+              {allowReset && selectedValues.length > 0 && (
+                <button className="md-combobox__reset" onClick={() => onReset()} title={resetButtonTitle}>
+                  <MdIconClose />
+                </button>
+              )}
+              <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
             </div>
           </div>
 
@@ -202,6 +229,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             sameWidth
             slide={false}
             gutter={-1}
+            flip={flip}
             className="md-combobox__popover"
             aria-busy={isPending}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
@@ -248,7 +276,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           </Ariakit.ComboboxPopover>
         </Ariakit.ComboboxProvider>
 
-        {errorText && errorText !== '' && (
+        {error && errorText && errorText !== '' && (
           <div id={`md-combobox_error_${comboBoxId}`} className="md-combobox__error">
             {errorText}
           </div>

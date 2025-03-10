@@ -3,9 +3,8 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/combobox/README.md';
 import MdComboBox from '../packages/react/src/formElements/MdComboBox';
-
-import MdCalendarIcon from '../packages/react/src/icons/MdCalendarIcon';
-import MdZoomIcon from '../packages/react/src/icons/MdZoomIcon';
+import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
+import MdIconCalendarMonth from '../packages/react/src/icons-material/MdIconCalendarMonth';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -115,9 +114,20 @@ export default {
       },
       control: { type: 'text' },
     },
+    error: {
+      type: { name: 'boolean' },
+      description: 'Whether the combobox is in an error state',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     errorText: {
       type: { name: 'string' },
-      description: 'Display error text, and style the combobox as an error state',
+      description: 'Display error text if `error` is set, and style the combobox as an error state',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -158,6 +168,39 @@ export default {
         },
       },
       control: { type: 'number' },
+    },
+    allowReset: {
+      type: { name: 'boolean' },
+      description: 'Show reset button in combobox when value is set',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    resetButtonTitle: {
+      type: { name: 'string' },
+      description: 'The text to show when hovering over the reset button',
+      table: {
+        defaultValue: { summary: 'Nullstill' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    flip: {
+      type: { name: 'boolean' },
+      description: 'Allow popover to flip to the opposite side when it overflows',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
     },
   },
 };
@@ -201,9 +244,12 @@ Multi.args = {
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
-  prefixIcon: <MdZoomIcon />,
+  prefixIcon: <MdIconSearch />,
   errorText: '',
+  error: false,
   hidePrefixIcon: false,
+  allowReset: true,
+  flip: false,
 };
 
 Single.args = {
@@ -223,6 +269,9 @@ Single.args = {
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
-  prefixIcon: <MdCalendarIcon />,
+  prefixIcon: <MdIconCalendarMonth />,
   errorText: 'This is an example of an error text',
+  error: true,
+  allowReset: true,
+  flip: false,
 };
