@@ -100,7 +100,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         return defaultOptions;
       }
 
-      // return matchSorter(options, searchValue, { keys: ['value'], threshold: matchSorter.rankings.CONTAINS });
       const results = options?.filter(o => {
         return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
       });
