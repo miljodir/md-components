@@ -128,8 +128,10 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const onReset = () => {
       const newValue = isMultiSelect ? [] : '';
       setSearchValue('');
-      setSelectedValues(newValue);
-      onSelectOption(newValue);
+      if (value) {
+        setSelectedValues(newValue);
+        onSelectOption(newValue);
+      }
     };
 
     let displayValue: string | string[] = placeholder;
