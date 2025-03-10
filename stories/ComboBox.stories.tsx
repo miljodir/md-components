@@ -3,8 +3,8 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/combobox/README.md';
 import MdComboBox from '../packages/react/src/formElements/MdComboBox';
-import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
 import MdIconCalendarMonth from '../packages/react/src/icons-material/MdIconCalendarMonth';
+import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
 import type { Args } from '@storybook/react';
 
 export default {
@@ -179,17 +179,6 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },
-    resetButtonTitle: {
-      type: { name: 'string' },
-      description: 'The text to show when hovering over the reset button',
-      table: {
-        defaultValue: { summary: 'Nullstill' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'text' },
     },
     flip: {
       type: { name: 'boolean' },
