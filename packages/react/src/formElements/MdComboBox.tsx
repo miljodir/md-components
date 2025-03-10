@@ -215,9 +215,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             />
             <div className="md-combobox__input--after">
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
-              {allowReset && selectedValues.length > 0 && (
-                <button className="md-combobox__reset" onClick={() => onReset()} title={resetButtonTitle}>
-                  <MdIconClose />
+              {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
+                <button className="md-combobox__reset" onClick={() => onReset()} aria-label={resetButtonTitle}>
+                  <MdIconClose aria-hidden="true" />
                 </button>
               )}
               <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
