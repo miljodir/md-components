@@ -37,6 +37,10 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
             <div>
                 <!-- Counter for multi-select: +{count} -->
             </div>
+            <!-- Reset button - displayed when allowReset is true and there's a value or search text -->
+            <button class="md-combobox__reset" aria-label="Nullstill">
+                <!-- Close/clear icon -->
+            </button>
             <!-- Chevron icon -->
         </div>
     </div>
