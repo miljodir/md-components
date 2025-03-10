@@ -90,6 +90,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
 
     useEffect(() => {
       setSelectedValues(value);
+      if (!value) {
+        setSearchValue('');
+      }
     }, [value]);
 
     const matches = useMemo(() => {
@@ -181,6 +184,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             )}
             <Ariakit.Combobox
               ref={ref}
+              type="search"
               placeholder={displayValue}
               className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'}`}
               disabled={disabled}
