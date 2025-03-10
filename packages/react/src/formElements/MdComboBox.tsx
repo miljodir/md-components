@@ -5,11 +5,11 @@ import * as Ariakit from '@ariakit/react';
 import React, { useMemo, useState, useId, useTransition, useEffect } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
+import MdIconClose from '../icons-material/MdIconClose';
 import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdIconSearch from '../icons-material/MdIconSearch';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
-import MdIconClose from '../icons-material/MdIconClose';
 
 export interface MdComboBoxOption {
   value: string;
@@ -205,7 +205,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             )}
             <Ariakit.Combobox
               ref={ref}
-              type="search"
               placeholder={displayValue}
               className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'}`}
               disabled={disabled}
@@ -216,7 +215,13 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             <div className="md-combobox__input--after">
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
               {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
-                <button className="md-combobox__reset" onClick={() => onReset()} aria-label={resetButtonTitle}>
+                <button
+                    className="md-combobox__reset"
+                    onClick={() => {
+                        return onReset()
+                    }}
+                    aria-label={resetButtonTitle}
+                >
                   <MdIconClose aria-hidden="true" />
                 </button>
               )}
