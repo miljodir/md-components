@@ -2,7 +2,7 @@
 
 import * as Ariakit from '@ariakit/react';
 
-import React, { useMemo, useState, useId, useTransition, useEffect } from 'react';
+import React, { useMemo, useState, useId, useTransition, useEffect, useCallback } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconClose from '../icons-material/MdIconClose';
@@ -119,12 +119,14 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
     }, [searchValue, defaultOptions, options, numberOfElementsShown]);
 
-    const getValueById = (value: string) => {
-      const option = options.find(option => {
-        return option.value === value;
-      });
-      return option ? option.text : placeholder;
-    };
+    const getValueById = useMemo(() => {
+      return (value: string) => {
+        const option = options.find(option => {
+          return option.value === value;
+        });
+        return option ? option.text : placeholder;
+      };
+    }, [options, placeholder]);
 
     const onReset = () => {
       const newValue = isMultiSelect ? [] : '';
@@ -144,6 +146,13 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
 
     let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
+
+    const setItemCallback = useCallback(() => {
+      if (!isMultiSelect) {
+        setSearchValue('');
+      }
+      return false;
+    }, [isMultiSelect]);
 
     return (
       <div
@@ -261,14 +270,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                     key={`combobox_item_${option.value}`}
                     value={option.value}
                     focusOnHover
-                    setValueOnClick={false}
+                    setValueOnClick={setItemCallback}
                     className="md-combobox__checkbox-item"
                     aria-selected={isChecked}
-                    onClick={() => {
-                      if (!isMultiSelect) {
-                        setSearchValue(option.text);
-                      }
-                    }}
                   >
                     {isMultiSelect ? (
                       <MdCheckbox
