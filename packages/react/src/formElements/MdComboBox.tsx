@@ -99,6 +99,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const [searchValue, setSearchValue] = useState('');
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
+    const store = Ariakit.useComboboxStore();
 
     useEffect(() => {
       setSelectedValues(value);
@@ -153,6 +154,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         <Ariakit.ComboboxProvider
           id={comboBoxId}
           selectedValue={selectedValues}
+          store={store}
           setSelectedValue={values => {
             setSelectedValues(values);
             onSelectOption(values);
@@ -224,7 +226,14 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                   <MdIconClose aria-hidden="true" />
                 </button>
               )}
-              <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
+              <button
+                className="md-combobox__toggle"
+                onClick={() => {
+                  store.setOpen(!store.getState().open);
+                }}
+              >
+                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
+              </button>
             </div>
           </div>
 

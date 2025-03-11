@@ -85,7 +85,6 @@
   color: var(--mdTextColor);
   transform: translateY(-50%);
   z-index: 0;
-  pointer-events: none;
 }
 .md-combobox__input-wrapper--disabled .md-combobox__input--after {
   color: var(--mdGreyColor60);
@@ -105,8 +104,8 @@
   rotate: -180deg;
   transition: rotate 0.2s ease-in;
 }
-.md-combobox__reset {
-  pointer-events: all;
+.md-combobox__reset,
+.md-combobox__toggle {
   padding: 0;
   margin: 0;
   background: transparent;
