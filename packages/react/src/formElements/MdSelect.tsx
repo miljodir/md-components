@@ -141,35 +141,40 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     let ariaDescribedBy = helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined;
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-select_error_${selectId}` : ariaDescribedBy;
 
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
     return (
       <div className={classNames}>
-        {label && label !== '' && (
-          <div className="md-select__label">
-            {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
+        {showLabel && (
+          <div className="md-select__label-wrapper">
+            <div className="md-select__label">
+              {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
+              {helpText && helpText !== '' && (
+                <div className="md-select__help-button">
+                  <MdHelpButton
+                    aria-label={`Hjelpetekst for ${label}`}
+                    id={`md-select_help-button_${selectId}`}
+                    aria-expanded={helpOpen}
+                    aria-controls={`md-select_help-text_${selectId}`}
+                    onClick={() => {
+                      return setHelpOpen(!helpOpen);
+                    }}
+                    expanded={helpOpen}
+                  />
+                </div>
+              )}
+            </div>
+
             {helpText && helpText !== '' && (
-              <div className="md-select__help-button">
-                <MdHelpButton
-                  aria-label={`Hjelpetekst for ${label}`}
-                  id={`md-select_help-button_${selectId}`}
-                  aria-expanded={helpOpen}
-                  aria-controls={`md-select_help-text_${selectId}`}
-                  onClick={() => {
-                    return setHelpOpen(!helpOpen);
-                  }}
-                  expanded={helpOpen}
-                />
+              <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
+                <MdHelpText
+                  id={`md-select_help-text_${selectId}`}
+                  aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectId}` : undefined}
+                >
+                  {helpText}
+                </MdHelpText>
               </div>
             )}
-          </div>
-        )}
-        {helpText && helpText !== '' && (
-          <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
-            <MdHelpText
-              id={`md-select_help-text_${selectId}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectId}` : undefined}
-            >
-              {helpText}
-            </MdHelpText>
           </div>
         )}
 

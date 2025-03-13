@@ -48,36 +48,43 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
     let ariaDescribedBy = helpText && helpText !== '' ? `md-textarea_help-text_${textAreaId}` : undefined;
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-textarea_error_${textAreaId}` : ariaDescribedBy;
 
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
     return (
       <div className={`md-textarea__outer-wrapper ${outerWrapperClass}`}>
-        <div className="md-textarea__label">
-          {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
-          {helpText && helpText !== '' && (
-            <div className="md-textarea__help-button">
-              <MdHelpButton
-                aria-label={`Hjelpetekst for ${label}`}
-                id={`md-textarea_help-button_${textAreaId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-textarea_help-text_${textAreaId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
+        {showLabel && (
+          <div className="md-textarea__label-wrapper">
+            <div className="md-textarea__label">
+              {label && label !== '' && <label htmlFor={textAreaId}>{label}</label>}
+              {helpText && helpText !== '' && (
+                <div className="md-textarea__help-button">
+                  <MdHelpButton
+                    aria-label={`Hjelpetekst for ${label}`}
+                    id={`md-textarea_help-button_${textAreaId}`}
+                    aria-expanded={helpOpen}
+                    aria-controls={`md-textarea_help-text_${textAreaId}`}
+                    onClick={() => {
+                      return setHelpOpen(!helpOpen);
+                    }}
+                    expanded={helpOpen}
+                  />
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {helpText && helpText !== '' && (
-          <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
-            <MdHelpText
-              id={`md-textarea_help-text_${textAreaId}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
-            >
-              {helpText}
-            </MdHelpText>
+            {helpText && helpText !== '' && (
+              <div className={`md-textarea__help-text ${helpOpen ? 'md-textarea__help-text--open' : ''}`}>
+                <MdHelpText
+                  id={`md-textarea_help-text_${textAreaId}`}
+                  aria-labelledby={helpText && helpText !== '' ? `md-textarea_help-button_${textAreaId}` : undefined}
+                >
+                  {helpText}
+                </MdHelpText>
+              </div>
+            )}
           </div>
         )}
+
         <div className="md-textarea__wrapper">
           <textarea
             id={textAreaId}

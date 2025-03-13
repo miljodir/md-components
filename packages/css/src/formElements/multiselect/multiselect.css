@@ -15,7 +15,10 @@
   display: flex;
   align-items: flex-end;
   font-weight: 600;
-  padding-bottom: 0.5rem;
+}
+
+.md-multiselect__label-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .md-multiselect__label > * + * {
@@ -99,7 +102,6 @@
 
 .md-multiselect__help-text--open {
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }

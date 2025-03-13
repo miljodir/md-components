@@ -69,11 +69,14 @@
 
 .md-input__wrapper {
   position: relative;
-  margin: 0.7rem 0 0.3rem 0;
 }
 
 .md-input__wrapper.md-input__wrapper--small {
   max-width: 336px;
+}
+
+.md-input__label-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .md-input__label {

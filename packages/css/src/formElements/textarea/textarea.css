@@ -43,8 +43,8 @@
   border-color: var(--mdErrorColor);
 }
 
-.md-textarea__wrapper {
-  margin: 0.7rem 0 0.3rem 0;
+.md-textarea__label-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .md-textarea__label {

@@ -147,6 +147,8 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
 
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
     const setItemCallback = useCallback(() => {
       if (!isMultiSelect) {
         setSearchValue('');
@@ -174,10 +176,10 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             });
           }}
         >
-          {label && label !== '' && (
+          {showLabel && (
             <div className="md-combobox__label-wrapper">
               <div className="md-combobox__label">
-                <Ariakit.ComboboxLabel>{label}</Ariakit.ComboboxLabel>
+                {label && label !== '' && <Ariakit.ComboboxLabel>{label}</Ariakit.ComboboxLabel>}
                 {helpText && helpText !== '' && (
                   <div className="md-combobox__help-button">
                     <MdHelpButton
