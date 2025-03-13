@@ -42,6 +42,15 @@ export default {
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
+    children: {
+      description: 'Icon to place inside button',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'ReactNode | image',
+        },
+      },
+    },
     'aria-label': {
       description: 'The aria label for the tooltip',
       table: {

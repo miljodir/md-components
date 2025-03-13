@@ -40,6 +40,15 @@ export default {
       },
       control: { type: 'text' },
     },
+    children: {
+      description: 'Tooltip trigger element',
+      table: {
+        type: {
+          summary: 'text | ReactNode',
+        },
+      },
+      control: false,
+    },
     'aria-label': {
       description: 'The aria label for the tooltip',
       table: {
