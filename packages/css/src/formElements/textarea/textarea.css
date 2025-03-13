@@ -79,24 +79,7 @@
   transition: max-height 0.5s ease-in;
 }
 
-/* Placeholder "hacks" */
-.md-textarea::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-textarea::-moz-placeholder {
-  /* Firefox 19+ */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-textarea:-ms-input-placeholder {
-  /* IE 10+ */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-textarea:-moz-placeholder {
-  /* Firefox 18- */
-  color: var(--mdGreyColor40);
+.md-textarea::placeholder {
+  color: var(--mdGreyColor60);
   font-family: 'Open sans';
 }
