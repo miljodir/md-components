@@ -22,6 +22,15 @@
   --mdSecondaryColor40: #f7f5ed;
   --mdSecondaryColor20: #fbfaf6;
 
+  --mdTertiaryBlueColor: #1472ce;
+  --mdTertiaryBlueLightColor: #b9d9eb;
+  --mdTertiaryPinkColor: #ab5c57;
+  --mdTertiaryPinkLightColor: #e6baa8;
+  --mdTertiaryYellowColor: #d69a2d;
+  --mdTertiaryYellowLightColor: #ecd898;
+  --mdTertiaryBrownColor: #584446;
+  --mdTertiaryBrownLightColor: #d6d2c4;
+
   --mdTextColor: #222222;
 
   --mdWarningBackgroundColor: #fce4ca;
