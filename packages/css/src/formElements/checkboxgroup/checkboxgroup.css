@@ -51,4 +51,5 @@
 .md-checkboxgroup__error {
   color: var(--mdErrorColor);
   font-size: 0.88rem;
+  margin-top: 0.5rem;
 }
