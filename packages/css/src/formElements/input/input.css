@@ -69,11 +69,14 @@
 
 .md-input__wrapper {
   position: relative;
-  margin: 0.7rem 0 0.3rem 0;
 }
 
 .md-input__wrapper.md-input__wrapper--small {
   max-width: 336px;
+}
+
+.md-input__label-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .md-input__label {
@@ -94,6 +97,7 @@
 .md-input__error {
   color: var(--mdErrorColor);
   font-size: 0.88rem;
+  margin-top: 0.5rem;
 }
 
 .md-input__help-text {
@@ -154,25 +158,8 @@
   margin-left: 0.3rem;
 }
 
-/* Placeholder "hacks" */
-.md-input::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-input::-moz-placeholder {
-  /* Firefox 19+ */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-input:-ms-input-placeholder {
-  /* IE 10+ */
-  color: var(--mdGreyColor40);
-  font-family: 'Open sans';
-}
-.md-input:-moz-placeholder {
-  /* Firefox 18- */
-  color: var(--mdGreyColor40);
+.md-input::placeholder {
+  color: var(--mdGreyColor60);
   font-family: 'Open sans';
 }
 

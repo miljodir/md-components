@@ -143,36 +143,42 @@ export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectPr
     ariaDescribedBy =
       error && errorText && errorText !== '' ? `md-multiselect_error_${multiSelectId}` : ariaDescribedBy;
 
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
     return (
       <div className={classNames}>
-        {label && label !== '' && (
-          <div className="md-multiselect__label">
-            {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
+        {showLabel && (
+          <div className="md-multiselect__label-wrapper">
+            <div className="md-multiselect__label">
+              {label && label !== '' && <div id={`md-multiselect_label_${multiSelectId}`}>{label}</div>}
+              {helpText && helpText !== '' && (
+                <div className="md-multiselect__help-button">
+                  <MdHelpButton
+                    aria-label={`Hjelpetekst for ${label}`}
+                    id={`md-multiselect_help-button_${multiSelectId}`}
+                    aria-expanded={helpOpen}
+                    aria-controls={`md-multiselect_help-text_${multiSelectId}`}
+                    onClick={() => {
+                      return setHelpOpen(!helpOpen);
+                    }}
+                    expanded={helpOpen}
+                  />
+                </div>
+              )}
+            </div>
+
             {helpText && helpText !== '' && (
-              <div className="md-multiselect__help-button">
-                <MdHelpButton
-                  aria-label={`Hjelpetekst for ${label}`}
-                  id={`md-multiselect_help-button_${multiSelectId}`}
-                  aria-expanded={helpOpen}
-                  aria-controls={`md-multiselect_help-text_${multiSelectId}`}
-                  onClick={() => {
-                    return setHelpOpen(!helpOpen);
-                  }}
-                  expanded={helpOpen}
-                />
+              <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
+                <MdHelpText
+                  id={`md-multiselect_help-text_${multiSelectId}`}
+                  aria-labelledby={
+                    helpText && helpText !== '' ? `md-multiselect_help-button_${multiSelectId}` : undefined
+                  }
+                >
+                  {helpText}
+                </MdHelpText>
               </div>
             )}
-          </div>
-        )}
-
-        {helpText && helpText !== '' && (
-          <div className={`md-multiselect__help-text ${helpOpen ? 'md-multiselect__help-text--open' : ''}`}>
-            <MdHelpText
-              id={`md-multiselect_help-text_${multiSelectId}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-multiselect_help-button_${multiSelectId}` : undefined}
-            >
-              {helpText}
-            </MdHelpText>
           </div>
         )}
 

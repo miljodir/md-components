@@ -178,7 +178,6 @@
 }
 .md-combobox__help-text--open {
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }

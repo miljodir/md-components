@@ -93,34 +93,40 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
     }
   };
 
+  const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
   return (
     <fieldset className={classNames} {...otherProps}>
-      <legend className="md-checkboxgroup__label">
-        {label && label !== '' && <div>{label}</div>}
-        {helpText && helpText !== '' && (
-          <MdHelpButton
-            aria-label={`Hjelpetekst for ${label}`}
-            id={`md-checkboxgroup_help-button_${checkboxGroupId}`}
-            aria-expanded={helpOpen}
-            aria-controls={`md-checkboxgroup_help-text_${checkboxGroupId}`}
-            onClick={() => {
-              return setHelpOpen(!helpOpen);
-            }}
-            expanded={helpOpen}
-          />
-        )}
-      </legend>
+      {showLabel && (
+        <div className="md-checkboxgroup__label-wrapper">
+          <legend className="md-checkboxgroup__label">
+            {label && label !== '' && <div>{label}</div>}
+            {helpText && helpText !== '' && (
+              <MdHelpButton
+                aria-label={`Hjelpetekst for ${label}`}
+                id={`md-checkboxgroup_help-button_${checkboxGroupId}`}
+                aria-expanded={helpOpen}
+                aria-controls={`md-checkboxgroup_help-text_${checkboxGroupId}`}
+                onClick={() => {
+                  return setHelpOpen(!helpOpen);
+                }}
+                expanded={helpOpen}
+              />
+            )}
+          </legend>
 
-      {helpText && helpText !== '' && (
-        <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
-          <MdHelpText
-            id={`md-checkboxgroup_help-text_${checkboxGroupId}`}
-            aria-labelledby={
-              helpText && helpText !== '' ? `md-checkboxgroup_help-button_${checkboxGroupId}` : undefined
-            }
-          >
-            {helpText}
-          </MdHelpText>
+          {helpText && helpText !== '' && (
+            <div className={`md-checkboxgroup__help-text ${helpOpen ? 'md-checkboxgroup__help-text--open' : ''}`}>
+              <MdHelpText
+                id={`md-checkboxgroup_help-text_${checkboxGroupId}`}
+                aria-labelledby={
+                  helpText && helpText !== '' ? `md-checkboxgroup_help-button_${checkboxGroupId}` : undefined
+                }
+              >
+                {helpText}
+              </MdHelpText>
+            </div>
+          )}
         </div>
       )}
 

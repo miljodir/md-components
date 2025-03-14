@@ -3,12 +3,18 @@
   font-size: 1rem;
   border: none;
   padding: 0;
+  margin: 0;
+}
+
+.md-radiogroup__label-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .md-radiogroup__label {
   display: flex;
   align-items: center;
   font-weight: 600;
+  padding: 0;
 }
 
 .md-radiogroup__label > * + * {
@@ -31,7 +37,6 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin: 0.7rem 0;
 }
 
 .md-radiogroup__options--vertical {
@@ -56,6 +61,7 @@
 .md-radiogroup__error {
   color: var(--mdErrorColor);
   font-size: 0.88rem;
+  margin-top: 0.5rem;
 }
 
 /* Disabled */

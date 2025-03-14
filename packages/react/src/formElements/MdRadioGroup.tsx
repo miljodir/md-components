@@ -90,33 +90,39 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
     }
   };
 
+  const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
   return (
     <fieldset role="radiogroup" className={classNames} {...otherProps}>
-      <legend className="md-radiogroup__label">
-        {label && label !== '' && <div>{label}</div>}
+      {showLabel && (
+        <div className="md-radiogroup__label-wrapper">
+          <legend className="md-radiogroup__label">
+            {label && label !== '' && <div>{label}</div>}
 
-        {helpText && helpText !== '' && (
-          <MdHelpButton
-            aria-label={`Hjelpetekst for ${label}`}
-            id={`md-radiogroup_help-button_${radioGroupId}`}
-            aria-expanded={helpOpen}
-            aria-controls={`md-radiogroup_help-text_${radioGroupId}`}
-            onClick={() => {
-              return setHelpOpen(!helpOpen);
-            }}
-            expanded={helpOpen}
-          />
-        )}
-      </legend>
+            {helpText && helpText !== '' && (
+              <MdHelpButton
+                aria-label={`Hjelpetekst for ${label}`}
+                id={`md-radiogroup_help-button_${radioGroupId}`}
+                aria-expanded={helpOpen}
+                aria-controls={`md-radiogroup_help-text_${radioGroupId}`}
+                onClick={() => {
+                  return setHelpOpen(!helpOpen);
+                }}
+                expanded={helpOpen}
+              />
+            )}
+          </legend>
 
-      {helpText && helpText !== '' && (
-        <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
-          <MdHelpText
-            id={`md-radiogroup_help-text_${radioGroupId}`}
-            aria-labelledby={helpText && helpText !== '' ? `md-radiogroup_help-button_${radioGroupId}` : undefined}
-          >
-            {helpText}
-          </MdHelpText>
+          {helpText && helpText !== '' && (
+            <div className={`md-radiogroup__help-text ${helpOpen ? 'md-radiogroup__help-text--open' : ''}`}>
+              <MdHelpText
+                id={`md-radiogroup_help-text_${radioGroupId}`}
+                aria-labelledby={helpText && helpText !== '' ? `md-radiogroup_help-button_${radioGroupId}` : undefined}
+              >
+                {helpText}
+              </MdHelpText>
+            </div>
+          )}
         </div>
       )}
 

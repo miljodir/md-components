@@ -72,34 +72,40 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     let ariaDescribedBy = helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined;
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-input_error_${inputId}` : ariaDescribedBy;
 
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
     return (
       <div className={outerWrapperClasses}>
-        <div className="md-input__label">
-          {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
-          {helpText && helpText !== '' && (
-            <div className="md-input__help-button">
-              <MdHelpButton
-                aria-label={`Hjelpetekst for ${label}`}
-                id={`md-input_help-button_${inputId}`}
-                aria-expanded={helpOpen}
-                aria-controls={`md-input_help-text_${inputId}`}
-                onClick={() => {
-                  return setHelpOpen(!helpOpen);
-                }}
-                expanded={helpOpen}
-              />
+        {showLabel && (
+          <div className="md-input__label-wrapper">
+            <div className="md-input__label">
+              {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
+              {helpText && helpText !== '' && (
+                <div className="md-input__help-button">
+                  <MdHelpButton
+                    aria-label={`Hjelpetekst for ${label}`}
+                    id={`md-input_help-button_${inputId}`}
+                    aria-expanded={helpOpen}
+                    aria-controls={`md-input_help-text_${inputId}`}
+                    onClick={() => {
+                      return setHelpOpen(!helpOpen);
+                    }}
+                    expanded={helpOpen}
+                  />
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {helpText && helpText !== '' && (
-          <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
-            <MdHelpText
-              id={`md-input_help-text_${inputId}`}
-              aria-labelledby={helpText && helpText !== '' ? `md-input_help-button_${inputId}` : undefined}
-            >
-              {helpText}
-            </MdHelpText>
+            {helpText && helpText !== '' && (
+              <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
+                <MdHelpText
+                  id={`md-input_help-text_${inputId}`}
+                  aria-labelledby={helpText && helpText !== '' ? `md-input_help-button_${inputId}` : undefined}
+                >
+                  {helpText}
+                </MdHelpText>
+              </div>
+            )}
           </div>
         )}
         <div className={wrapperClassNames}>
