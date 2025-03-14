@@ -85,19 +85,18 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
           </div>
         )}
 
-        <div className="md-textarea__wrapper">
-          <textarea
-            id={textAreaId}
-            aria-describedby={ariaDescribedBy}
-            value={value}
-            rows={rows}
-            className={classNames}
-            disabled={!!disabled}
-            readOnly={!!readOnly}
-            ref={ref}
-            {...otherProps}
-          />
-        </div>
+        <textarea
+          id={textAreaId}
+          aria-describedby={ariaDescribedBy}
+          value={value}
+          rows={rows}
+          className={classNames}
+          disabled={!!disabled}
+          readOnly={!!readOnly}
+          ref={ref}
+          {...otherProps}
+        />
+
         {error && errorText && errorText !== '' && (
           <div id={`md-textarea_error_${textAreaId}`} className="md-textarea__error">
             {errorText}
