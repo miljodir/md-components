@@ -44,16 +44,16 @@
   background-size: 1.125rem;
 }
 
-.md-checkbox--disabled .md-checkbox__input:checked + .md-checkbox__label::before {
-  filter: grayscale(100%);
-}
-
 .md-checkbox--disabled .md-checkbox__label::before,
 .md-checkbox--disabled:focus-within .md-checkbox__label::before,
 .md-checkbox--disabled:hover .md-checkbox__label::before {
   background-color: var(--mdGreyColor20);
-  border-color: var(--mdGreyColor80);
+  border-color: var(--mdGreyColor60);
   cursor: default;
+}
+
+.md-checkbox--disabled .md-checkbox__input:checked + .md-checkbox__label::before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZTk2NWRkN2EtN2NlNS00MTc0LThjMjEtY2UwNjIzYmFmNTJhIiBkYXRhLW5hbWU9ImNoZWNrbWFyay1ncmVlbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTMgMTAuMDIiPjx0aXRsZT5jaGVja21hcmstZ3JlZW48L3RpdGxlPjxwYXRoIGQ9Ik0xMS4xNCwwLDQuODMsNi4zMWwtMy0zTDAsNS4xOSw0LjgzLDEwLDEzLDEuODZaIiBmaWxsPSIjODA4MDgwIiAvPjwvc3ZnPg==);
 }
 
 .md-checkbox--disabled .md-checkbox__labelText,
