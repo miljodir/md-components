@@ -21,6 +21,7 @@
     "url": "git+https://github.com/miljodir/component-library"
   },
   "devDependencies": {
+    "@ariakit/react": "^0.4.15",
     "@babel/core": "^7.23.6",
     "@babel/plugin-syntax-flow": "^7.26.0",
     "@babel/preset-env": "^7.23.6",
@@ -50,6 +51,8 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-autofix": "^1.1.0",
     "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-40c6c23-20250301",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-storybook": "^0.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

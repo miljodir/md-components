@@ -6,6 +6,7 @@ import MdFileList, { MdFileListProps } from './fileList/MdFileList';
 import MdAutocomplete, { MdAutocompleteOption, MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
+import MdComboBox, { MdComboBoxOption } from './formElements/MdComboBox';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { MdInputProps } from './formElements/MdInput';
 import MdMultiAutocomplete, { MdMultiAutocompleteOption } from './formElements/MdMultiAutocomplete';
@@ -121,6 +122,7 @@ import MdIconChevronBackward from './icons-material/MdIconChevronBackward';
 import MdIconChevronForward from './icons-material/MdIconChevronForward';
 import MdIconClose from './icons-material/MdIconClose';
 import MdIconCollapseAll from './icons-material/MdIconCollapseAll';
+import MdIconContentCopy from './icons-material/MdIconContentCopy';
 import MdIconDelete from './icons-material/MdIconDelete';
 import MdIconDescription from './icons-material/MdIconDescription';
 import MdIconDownload from './icons-material/MdIconDownload';
@@ -331,6 +333,8 @@ export {
   MdStep,
   MdStepProps,
   MdStepperProps,
+  MdComboBox,
+  MdComboBoxOption,
 
   // Material icons
   MdIconAccountCircle,
@@ -349,6 +353,7 @@ export {
   MdIconChevronForward,
   MdIconClose,
   MdIconCollapseAll,
+  MdIconContentCopy,
   MdIconDelete,
   MdIconDescription,
   MdIconDownload,
