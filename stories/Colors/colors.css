@@ -1,0 +1,101 @@
+.color-container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  h2 {
+    border-bottom: 0;
+    min-height: 2.6875rem;
+  }
+
+  .hidden-sm {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .color-container__colors {
+    width: 100%;
+
+    > div {
+      width: 100%;
+    }
+
+    .color-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @media screen and (min-width: 768px) {
+        flex-direction: row;
+      }
+
+      div {
+        font-family: 'SofiaPro-Regular', sans-serif;
+      }
+
+      .color-box__color-code {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-end;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+          width: auto;
+        }
+      }
+
+      button.color-box__button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        color: inherit;
+        font-size: 1rem;
+        font-family: 'Open sans', sans-serif;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.color-box__button--code {
+          font-size: 0.8rem;
+          font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+            Courier New;
+        }
+
+        .color-box__button-icon {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+
+    .color-box__title {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .text-white {
+      color: #fff;
+    }
+
+    .text-black {
+      color: var(--mdTextColor);
+    }
+  }
+}

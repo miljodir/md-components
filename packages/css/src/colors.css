@@ -1,8 +1,13 @@
 :root {
   --mdPrimaryColor: #005e5d;
   --mdPrimaryColor160: #003b3a;
+  --mdPrimaryColor140: #004646;
   --mdPrimaryColor120: #005251;
+  --mdPrimaryColor90: #196d6c;
   --mdPrimaryColor80: #337e7d;
+  --mdPrimaryColor70: #4c8e8d;
+  --mdPrimaryColor60: #669e9d;
+  --mdPrimaryColor50: #7faead;
   --mdPrimaryColor40: #99bebe;
   --mdPrimaryColor30: #b2cece;
   --mdPrimaryColor20: #ccdfde;
@@ -17,13 +22,23 @@
   --mdSecondaryColor40: #f7f5ed;
   --mdSecondaryColor20: #fbfaf6;
 
+  --mdTertiaryBlueColor: #1472ce;
+  --mdTertiaryBlueLightColor: #b9d9eb;
+  --mdTertiaryPinkColor: #ab5c57;
+  --mdTertiaryPinkLightColor: #e6baa8;
+  --mdTertiaryYellowColor: #d69a2d;
+  --mdTertiaryYellowLightColor: #ecd898;
+  --mdTertiaryBrownColor: #584446;
+  --mdTertiaryBrownLightColor: #d6d2c4;
+
   --mdTextColor: #222222;
 
-  --mdWarningBackgoundColor: #fce4ca;
+  --mdWarningBackgroundColor: #fce4ca;
   --mdWarningColor: #de8215;
 
   --mdErrorColor: #ca0000;
   --mdErrorColor120: #b7090d;
+  --mdErrorBackgroundColor: #f5cccc;
 
   --mdGreyColor: #222222;
   --mdGreyColor10: #e8e8e8;
