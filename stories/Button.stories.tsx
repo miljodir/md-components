@@ -46,7 +46,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['primary', 'secondary', 'danger', 'tertiary'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'danger-secondary'],
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
@@ -184,6 +184,15 @@ export const Error = Template.bind({});
 Error.args = {
   theme: 'danger',
   children: 'Advarselsknapp',
+  disabled: false,
+  small: false,
+  loading: false,
+};
+
+export const ErrorSecondary = Template.bind({});
+ErrorSecondary.args = {
+  theme: 'danger-secondary',
+  children: 'Advarselsknapp sekundær',
   disabled: false,
   small: false,
   loading: false,

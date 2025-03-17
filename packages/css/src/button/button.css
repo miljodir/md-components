@@ -6,7 +6,7 @@
   font-weight: 400;
   font-family: 'Open sans';
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   width: fit-content;
   border: none;
 }
@@ -23,8 +23,8 @@
 }
 
 .md-button--small {
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.43rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .md-button__topIcon {
@@ -41,7 +41,7 @@
   height: 1.25rem;
   width: 1.25rem;
   flex-shrink: 0;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .md-button--small > .md-button__leftIcon {
@@ -52,7 +52,7 @@
   height: 1.25rem;
   width: 1.25rem;
   flex-shrink: 0;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .md-button__rightIcon .md-loading-spinner {
   width: 1rem;
@@ -90,7 +90,7 @@
   background-color: #ffffff;
   border: 2px solid var(--mdPrimaryColor);
   color: var(--mdPrimaryColor);
-  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
+  padding: calc(0.75rem - 2px) calc(1rem - 2px);
 }
 
 .md-button--small.md-button--secondary {
@@ -111,7 +111,7 @@
 
 .md-button--secondary:disabled {
   background-color: #fff;
-  color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
   border-color: var(--mdGreyColor20);
 }
 
@@ -120,7 +120,7 @@
 }
 
 .md-button--secondary:disabled > .md-button__rightIcon {
-  color: var(--mdGreyColor20);
+  color: var(--mdGreyColor60);
 }
 
 .md-button--tertiary {
@@ -128,7 +128,7 @@
   border: none;
   border-radius: 0.43rem;
   color: var(--mdPrimaryColor);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
 }
 
 .md-button--small.md-button--tertiary {
@@ -177,4 +177,43 @@
 
 .md-button--danger:hover:enabled {
   background-color: var(--mdErrorColor120);
+}
+
+/* Danger secondary */
+.md-button--danger-secondary {
+  background-color: #ffffff;
+  border: 2px solid var(--mdErrorColor);
+  color: var(--mdErrorColor);
+  padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+.md-button--small.md-button--danger-secondary {
+  padding: 0.5rem 0.75rem;
+}
+
+.md-button--danger-secondary:hover:enabled {
+  background-color: var(--mdErrorBackgroundColor);
+  border-color: var(--mdErrorColor);
+}
+
+.md-button--danger-secondary:focus:enabled {
+  background-color: #ffffff;
+  border-color: var(--mdErrorColor);
+  color: var(--mdErrorColor);
+  outline: 2px var(--mdErrorColor) solid;
+  outline-offset: -6px;
+}
+
+.md-button--danger-secondary:disabled {
+  background-color: #fff;
+  color: var(--mdGreyColor60);
+  border-color: var(--mdGreyColor20);
+}
+
+.md-button--danger-secondary > .md-button__rightIcon {
+  color: var(--mdErrorColor);
+}
+
+.md-button--danger-secondary:disabled > .md-button__rightIcon {
+  color: var(--mdGreyColor60);
 }
