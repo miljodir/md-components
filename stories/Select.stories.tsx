@@ -53,15 +53,14 @@ export default {
       },
     },
     value: {
-      type: { name: 'string' },
-      description: 'The currently selected value. This corresponds to `value` from selected `option`',
+      type: { name: 'string[] | string', required: true },
+      description:
+        'The currently selected values. Either an array of strings or a single string. For multiselect, value needs to be an array.',
       table: {
-        defaultValue: { summary: 'null' },
         type: {
-          summary: 'string',
+          summary: '[string, string, ...] or string',
         },
       },
-      control: { type: 'text' },
     },
     id: {
       type: { name: 'string' },
@@ -165,7 +164,7 @@ const Template = (args: Args) => {
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdSelect {...args} onSelectOption={handleChange} />
+      <MdSelect {...args} value={args.value} onSelectOption={handleChange} />
     </div>
   );
 };
@@ -179,7 +178,7 @@ Select.args = {
     { value: 'optionC', text: 'C option' },
     { value: 'optionD', text: 'D option' },
   ],
-  value: 'optionB',
+  value: ['optionB'],
   disabled: false,
   mode: 'large',
   helpText: '',
