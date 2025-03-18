@@ -35,7 +35,7 @@ export interface MdSelectProps {
   /**
    * v3.0.0: Replaces previous 'onChange'-prop and use MdSelectOption as parameter rather than event.
    */
-  onSelectOption(_e: MdSelectOption): void;
+  onSelectOption(_value: string[] | string): void;
 }
 
 export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
@@ -85,7 +85,13 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
       <div
         className={`md-select md-select--${mode} ${error && errorText && errorText !== '' && 'md-select--has-error'}`}
       >
-        <Ariakit.SelectProvider value={value} store={store}>
+        <Ariakit.SelectProvider
+          value={value}
+          store={store}
+          setValue={val => {
+            onSelectOption(val);
+          }}
+        >
           {showLabel && (
             <div className="md-select__label-wrapper">
               <div className="md-select__label">
@@ -118,7 +124,7 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
             </div>
           )}
           <div className="md-select__button-wrapper">
-            <Ariakit.Select className={`md-select__button ${store.getState().open && 'md-select__button--open'}`}>
+            <Ariakit.Select className="md-select__button">
               {displayValue}
               <div className="md-select__button-right">
                 <Ariakit.SelectArrow
@@ -145,9 +151,6 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
                     key={`${comboBoxId}_option_${option.value}`}
                     className="select-item"
                     value={option.value}
-                    onClick={() => {
-                      return onSelectOption(option);
-                    }}
                   >
                     {option.text}
                   </Ariakit.SelectItem>

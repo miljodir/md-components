@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/select/README.md';
 import { MdSelect } from '../packages/react/src/formElements/MdSelect';
-import type { MdSelectOption } from '../packages/react/src/formElements/MdSelect';
+
 import type { Args } from '@storybook/react';
 
 export default {
@@ -126,8 +126,9 @@ export default {
       control: { type: 'text' },
     },
     onSelectOption: {
-      type: { name: 'function' },
-      description: 'The onSelectOption handler for change events. Returns the clicked option, to handle as you please.',
+      type: { name: 'function', required: true },
+      description:
+        'The handler for change events. Returns an array of strings for multiselect, or a single string value for single select.',
       table: {
         type: {
           summary: 'function',
@@ -157,14 +158,17 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdSelectOption) => {
+  /* const handleChange = (option: MdSelectOption) => {
     const newValue = args.value === option?.value ? '' : option?.value;
     updateArgs({ ...args, value: newValue });
+  }; */
+  const handleSelect = (values: string[] | string) => {
+    updateArgs({ ...args, value: values });
   };
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdSelect {...args} value={args.value} onSelectOption={handleChange} />
+      <MdSelect {...args} value={args.value} onSelectOption={handleSelect} />
     </div>
   );
 };
@@ -178,7 +182,8 @@ Select.args = {
     { value: 'optionC', text: 'C option' },
     { value: 'optionD', text: 'D option' },
   ],
-  value: ['optionB'],
+  // value: ['optionB'],
+  value: 'optionB',
   disabled: false,
   mode: 'large',
   helpText: '',

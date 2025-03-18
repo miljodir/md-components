@@ -33,24 +33,14 @@
 .md-select--small .md-select__button {
   padding: 0.5rem 1rem;
 }
-.md-select__button::placeholder {
-  color: var(--mdGreyColor60);
-  font-size: 1rem;
-}
 .md-select__button[data-focus-visible],
 .md-select__button[aria-expanded='true'] {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
 }
-.md-select__button[aria-expanded='true']::placeholder {
-  opacity: 0;
-}
 .md-select__button:disabled {
   background-color: var(--mdGreyColor20);
   border-color: var(--mdGreyColor60);
-}
-.md-select__button:disabled::placeholder {
-  color: var(--mdGreyColor60);
 }
 .md-select__button .md-select__button-icon {
   width: 1.5rem;
