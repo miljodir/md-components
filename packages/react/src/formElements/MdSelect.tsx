@@ -5,10 +5,9 @@ import * as Ariakit from '@ariakit/react';
 import React, { useState, useId, useEffect } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
-/*
 import MdIconClose from '../icons-material/MdIconClose';
-import MdCheckbox from './MdCheckbox'; */
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
+import MdCheckbox from './MdCheckbox';
 
 export interface MdSelectOption {
   text: string;
@@ -23,18 +22,13 @@ export interface MdSelectProps {
   value: string | string[];
   placeholder?: string;
   disabled?: boolean;
-  /**
-   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
-   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
   flip?: boolean;
   dropdownHeight?: number;
-  /**
-   * v3.0.0: Replaces previous 'onChange'-prop and use MdSelectOption as parameter rather than event.
-   */
+  allowReset?: boolean;
   onSelectOption(_value: string[] | string): void;
 }
 
@@ -46,13 +40,14 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
       options,
       id,
       placeholder = 'Velg verdi',
-      // disabled = false,
+      disabled = false,
       mode = 'large',
       helpText,
       error = false,
       errorText,
       flip = false,
       dropdownHeight,
+      allowReset = false,
       onSelectOption,
     },
     ref,
@@ -61,15 +56,20 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
     const comboBoxId = id || uuid;
     const isMultiSelect = Array.isArray(value);
     const [helpOpen, setHelpOpen] = useState(false);
+    const [selecteValues, setSelectedValues] = useState<string | string[]>(value);
     const [displayValue, setDisplayValue] = useState<string | null>(null);
-    const store = Ariakit.useComboboxStore();
+    const store = Ariakit.useSelectStore();
+
+    useEffect(() => {
+      setSelectedValues(value);
+    }, [value]);
 
     useEffect(() => {
       let dv = placeholder;
-      if (value && options) {
-        let option: string | string[] | null = value as string;
+      if (selecteValues && options) {
+        let option: string | string[] | null = selecteValues as string;
         if (isMultiSelect) {
-          option = value[0] || null;
+          option = selecteValues[0] || null;
         }
         dv =
           options.find(opt => {
@@ -77,7 +77,27 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
           })?.text || placeholder;
       }
       setDisplayValue(dv);
-    }, [value, isMultiSelect, placeholder, options]);
+    }, [selecteValues, isMultiSelect, placeholder, options]);
+
+    const onReset = (e: React.MouseEvent) => {
+      const newValue = isMultiSelect ? [] : '';
+      setSelectedValues(newValue);
+      onSelectOption(newValue);
+      e.stopPropagation();
+    };
+
+    const showReset = () => {
+      if (allowReset) {
+        if (isMultiSelect) {
+          return selecteValues.length > 0;
+        }
+        return selecteValues !== '';
+      }
+      return false;
+    };
+
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -89,6 +109,7 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
           value={value}
           store={store}
           setValue={val => {
+            setSelectedValues(val);
             onSelectOption(val);
           }}
         >
@@ -124,9 +145,27 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
             </div>
           )}
           <div className="md-select__button-wrapper">
-            <Ariakit.Select className="md-select__button">
+            <Ariakit.Select
+              disabled={disabled}
+              store={store}
+              render={<div />}
+              aria-describedby={ariaDescribedBy}
+              className="md-select__button"
+            >
               {displayValue}
               <div className="md-select__button-right">
+                <div>{isMultiSelect && selecteValues.length > 0 && `+${selecteValues.length}`}</div>
+                {showReset() && (
+                  <button
+                    className="md-select__reset"
+                    onClick={(e: React.MouseEvent) => {
+                      return onReset(e);
+                    }}
+                    aria-label="Nullstill"
+                  >
+                    <MdIconClose aria-hidden="true" />
+                  </button>
+                )}
                 <Ariakit.SelectArrow
                   className="md-select__button-icon"
                   render={<MdIconKeyboardArrowDown />}
@@ -141,18 +180,35 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
             slide={false}
             gutter={-1}
             flip={flip}
+            data-active-item={false}
             className="md-select__popover"
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
           >
             {options &&
               options.map(option => {
+                let isChecked = false;
+                if (isMultiSelect) {
+                  isChecked = selecteValues.includes(option.value);
+                } else {
+                  isChecked = selecteValues === option.value;
+                }
+
                 return (
                   <Ariakit.SelectItem
                     key={`${comboBoxId}_option_${option.value}`}
-                    className="select-item"
+                    className="md-select__item"
                     value={option.value}
                   >
-                    {option.text}
+                    {isMultiSelect ? (
+                      <MdCheckbox
+                        key={`checkbox_${option.value}_${selecteValues.toString()}`}
+                        defaultChecked={isChecked}
+                        label={option.text}
+                        tabIndex={-1}
+                      />
+                    ) : (
+                      option.text
+                    )}
                   </Ariakit.SelectItem>
                 );
               })}

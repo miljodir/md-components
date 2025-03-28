@@ -163,6 +163,7 @@ const Template = (args: Args) => {
     updateArgs({ ...args, value: newValue });
   }; */
   const handleSelect = (values: string[] | string) => {
+    // console.log('Selected values:', values);
     updateArgs({ ...args, value: values });
   };
 
@@ -182,7 +183,7 @@ Select.args = {
     { value: 'optionC', text: 'C option' },
     { value: 'optionD', text: 'D option' },
   ],
-  // value: ['optionB'],
+  /* value: ['optionB'], */
   value: 'optionB',
   disabled: false,
   mode: 'large',
@@ -190,4 +191,5 @@ Select.args = {
   error: false,
   errorText: '',
   dropdownHeight: null,
+  allowReset: true,
 };
