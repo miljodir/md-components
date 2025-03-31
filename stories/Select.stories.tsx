@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A form component for single select.<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
+          "A form component for select.<br/>Can handle single or mulitple selections. For single selection set `value` to a string (can be empty string for no pre-selected value), for multiselect, set `value` to an array of strings (can be empty array for no pre-selected value).<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -190,7 +190,6 @@ Select.args = {
   helpText: '',
   error: false,
   errorText: '',
-  dropdownHeight: null,
   allowReset: true,
 };
 
