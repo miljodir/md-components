@@ -18,7 +18,6 @@ export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOption[];
   id?: string;
-  name?: string;
   value: string | string[];
   placeholder?: string;
   disabled?: boolean;
@@ -32,7 +31,32 @@ export interface MdSelectProps {
   onSelectOption(_value: string[] | string): void;
 }
 
-export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
+/**
+ * MdSelect
+ *
+ * @type {React.FC<MdSelectProps>}
+ * @returns {React.ReactElement}
+ * @description MdSelect is a select box component that uses the Ariakit library for accessibility and keyboard navigation.
+ * It supports both single and multi-select options, and can be used with a variety of props to customize its appearance and behavior.
+ *
+ * @params label - Label for the select box
+ * @params options - Options for the select box
+ * @params id - Id for the select box
+ * @params value - Value for the select box
+ * @params placeholder - Placeholder for the select box
+ * @params disabled - If true, the select box is disabled
+ * @params mode - Set width of select box
+ * @params helpText - Help text for the select box
+ * @params error - If true, the select box is in error state
+ * @params errorText - Error text for the select box
+ * @params flip - If true, the select box will be flipped
+ * @params dropdownHeight - Height of the dropdown
+ * @params allowReset - If true, the select box will have a reset button
+ * @params onSelectOption - Callback function when the select box value is changed
+ *
+ **/
+
+export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   (
     {
       label,
@@ -53,7 +77,7 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
     ref,
   ) => {
     const uuid = `select_${useId()}`;
-    const comboBoxId = id || uuid;
+    const selectBoxId = id || uuid;
     const isMultiSelect = Array.isArray(value);
     const [helpOpen, setHelpOpen] = useState(false);
     const [selecteValues, setSelectedValues] = useState<string | string[]>(value);
@@ -96,8 +120,13 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
       return false;
     };
 
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
-    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
+    const toggle = (e: React.MouseEvent) => {
+      store.toggle();
+      e.stopPropagation();
+    };
+
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${selectBoxId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${selectBoxId}` : ariaDescribedBy;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -108,6 +137,7 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
         <Ariakit.SelectProvider
           value={value}
           store={store}
+          id={selectBoxId}
           setValue={val => {
             setSelectedValues(val);
             onSelectOption(val);
@@ -121,9 +151,9 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
                   <div className="md-select__help-button">
                     <MdHelpButton
                       aria-label={`Hjelpetekst for ${label}`}
-                      id={`md-select_help-button_${comboBoxId}`}
+                      id={`md-select_help-button_${selectBoxId}`}
                       aria-expanded={helpOpen}
-                      aria-controls={`md-select_help-text_${comboBoxId}`}
+                      aria-controls={`md-select_help-text_${selectBoxId}`}
                       onClick={() => {
                         return setHelpOpen(!helpOpen);
                       }}
@@ -135,8 +165,8 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
               {helpText && helpText !== '' && (
                 <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
                   <MdHelpText
-                    id={`md-select_help-text_${comboBoxId}`}
-                    aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${comboBoxId}` : undefined}
+                    id={`md-select_help-text_${selectBoxId}`}
+                    aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectBoxId}` : undefined}
                   >
                     {helpText}
                   </MdHelpText>
@@ -146,10 +176,13 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
           )}
           <div className="md-select__button-wrapper">
             <Ariakit.Select
+              ref={ref}
               disabled={disabled}
               store={store}
               render={<div />}
               aria-describedby={ariaDescribedBy}
+              aria-pressed={Ariakit.useStoreState(store, 'open')}
+              aria-expanded={Ariakit.useStoreState(store, 'open')}
               className="md-select__button"
             >
               {displayValue}
@@ -166,16 +199,18 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
                     <MdIconClose aria-hidden="true" />
                   </button>
                 )}
-                <Ariakit.SelectArrow
+                <button
+                  onClick={(e: React.MouseEvent) => {
+                    toggle(e);
+                  }}
                   className="md-select__button-icon"
-                  render={<MdIconKeyboardArrowDown />}
-                  style={{ width: '1.5rem', height: '1.5rem' }}
-                />
+                >
+                  <MdIconKeyboardArrowDown />
+                </button>
               </div>
             </Ariakit.Select>
           </div>
           <Ariakit.SelectPopover
-            ref={ref}
             sameWidth
             slide={false}
             gutter={-1}
@@ -195,7 +230,7 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
 
                 return (
                   <Ariakit.SelectItem
-                    key={`${comboBoxId}_option_${option.value}`}
+                    key={`${selectBoxId}_option_${option.value}`}
                     className="md-select__item"
                     value={option.value}
                   >
@@ -214,6 +249,12 @@ export const MdSelect = React.forwardRef<HTMLDivElement, MdSelectProps>(
               })}
           </Ariakit.SelectPopover>
         </Ariakit.SelectProvider>
+
+        {error && errorText && errorText !== '' && (
+          <div id={`md-select_error_${selectBoxId}`} className="md-select__error">
+            {errorText}
+          </div>
+        )}
       </div>
     );
   },

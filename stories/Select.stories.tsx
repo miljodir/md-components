@@ -146,7 +146,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    selectRef: {
+    ref: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
         // eslint-disable-next-line quotes
@@ -175,6 +175,7 @@ const Template = (args: Args) => {
 };
 
 export const Select = Template.bind({});
+export const MultiSelect = Template.bind({});
 Select.args = {
   label: 'Label',
   options: [
@@ -183,11 +184,28 @@ Select.args = {
     { value: 'optionC', text: 'C option' },
     { value: 'optionD', text: 'D option' },
   ],
-  /* value: ['optionB'], */
   value: 'optionB',
   disabled: false,
-  mode: 'large',
+  mode: 'medium',
   helpText: '',
+  error: false,
+  errorText: '',
+  dropdownHeight: null,
+  allowReset: true,
+};
+
+MultiSelect.args = {
+  label: 'Label',
+  options: [
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionC', text: 'C option' },
+    { value: 'optionD', text: 'D option' },
+  ],
+  value: ['optionB'],
+  disabled: false,
+  mode: 'medium',
+  helpText: 'This is some very helpful text',
   error: false,
   errorText: '',
   dropdownHeight: null,
