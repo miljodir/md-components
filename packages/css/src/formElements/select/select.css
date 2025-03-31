@@ -31,9 +31,11 @@
   padding: 0.75rem 1rem;
   background-color: #fff;
   position: relative;
-}
-.md-select__button:focus-visible {
-  outline: 0;
+  outline-width: 0;
+  outline-style: solid;
+  outline-offset: -2px;
+  outline-color: var(--mdPrimaryColor);
+  transition: outline-width 0.1s ease-in;
 }
 .md-select--large .md-select__button {
   padding: 1rem;
@@ -43,8 +45,8 @@
 }
 .md-select__button[data-focus-visible],
 .md-select__button[aria-expanded='true'] {
-  outline: 2px solid var(--mdPrimaryColor);
-  outline-offset: -2px;
+  outline-width: 2px;
+  transition: outline-width 0.1s ease-in;
 }
 .md-select__button:disabled {
   background-color: var(--mdGreyColor20);
