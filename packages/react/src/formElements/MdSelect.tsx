@@ -37,32 +37,7 @@ export interface MdSelectProps {
   onSelectOption(_value: string[] | string): void;
 }
 
-/**
- * MdSelect
- *
- * @type {React.FC<MdSelectProps>}
- * @returns {React.ReactElement}
- * @description MdSelect is a select box component that uses the Ariakit library for accessibility and keyboard navigation.
- * It supports both single and multi-select options, and can be used with a variety of props to customize its appearance and behavior.
- *
- * @params label - Label for the select box
- * @params options - Options for the select box
- * @params id - Id for the select box
- * @params value - Value for the select box
- * @params placeholder - Placeholder for the select box
- * @params disabled - If true, the select box is disabled
- * @params mode - Set width of select box
- * @params helpText - Help text for the select box
- * @params error - If true, the select box is in error state
- * @params errorText - Error text for the select box
- * @params flip - If true, the select box will be flipped
- * @params dropdownHeight - Height of the dropdown
- * @params allowReset - If true, the select box will have a reset button
- * @params onSelectOption - Callback function when the select box value is changed
- *
- **/
-
-export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
+export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   (
     {
       label,
@@ -71,7 +46,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       id,
       placeholder = 'Velg verdi',
       disabled = false,
-      mode = 'large',
+      mode = 'medium',
       helpText,
       error = false,
       errorText,
@@ -79,6 +54,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
       dropdownHeight,
       allowReset = false,
       onSelectOption,
+      ...otherProps
     },
     ref,
   ) => {
@@ -190,6 +166,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               aria-pressed={Ariakit.useStoreState(store, 'open')}
               aria-expanded={Ariakit.useStoreState(store, 'open')}
               className="md-select__button"
+              {...otherProps}
             >
               {displayValue}
               <div className="md-select__button-right">
