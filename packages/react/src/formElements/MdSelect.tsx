@@ -18,6 +18,9 @@ export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOption[];
   id?: string;
+  /**
+   * v5.0.0: value is now either a string or an array of strings
+   */
   value: string | string[];
   placeholder?: string;
   disabled?: boolean;
@@ -28,6 +31,9 @@ export interface MdSelectProps {
   flip?: boolean;
   dropdownHeight?: number;
   allowReset?: boolean;
+  /**
+   * v5.0.0: onSelectOption now returns either a string or an array of strings
+   */
   onSelectOption(_value: string[] | string): void;
 }
 
