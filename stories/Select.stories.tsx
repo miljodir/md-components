@@ -158,12 +158,7 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  /* const handleChange = (option: MdSelectOption) => {
-    const newValue = args.value === option?.value ? '' : option?.value;
-    updateArgs({ ...args, value: newValue });
-  }; */
   const handleSelect = (values: string[] | string) => {
-    // console.log('Selected values:', values);
     updateArgs({ ...args, value: values });
   };
 
