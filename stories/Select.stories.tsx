@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/select/README.md';
 import { MdSelect } from '../packages/react/src/formElements/MdSelect';
-import type { MdSelectOption } from '../packages/react/src/formElements/MdSelect';
+
 import type { Args } from '@storybook/react';
 
 export default {
@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A form component for single select.<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
+          "A form component for select.<br/>Can handle single or mulitple selections. For single selection set `value` to a string (can be empty string for no pre-selected value), for multiselect, set `value` to an array of strings (can be empty array for no pre-selected value).<br/><br/>`import { MdSelect } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -53,15 +53,14 @@ export default {
       },
     },
     value: {
-      type: { name: 'string' },
-      description: 'The currently selected value. This corresponds to `value` from selected `option`',
+      type: { name: 'string[] | string', required: true },
+      description:
+        'The currently selected values. Either an array of strings or a single string. For multiselect, value needs to be an array.',
       table: {
-        defaultValue: { summary: 'null' },
         type: {
-          summary: 'string',
+          summary: '[string, string, ...] or string',
         },
       },
-      control: { type: 'text' },
     },
     id: {
       type: { name: 'string' },
@@ -127,8 +126,9 @@ export default {
       control: { type: 'text' },
     },
     onSelectOption: {
-      type: { name: 'function' },
-      description: 'The onSelectOption handler for change events. Returns the clicked option, to handle as you please.',
+      type: { name: 'function', required: true },
+      description:
+        'The handler for change events. Returns an array of strings for multiselect, or a single string value for single select.',
       table: {
         type: {
           summary: 'function',
@@ -146,7 +146,7 @@ export default {
       },
       control: { type: 'number' },
     },
-    selectRef: {
+    ref: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
         // eslint-disable-next-line quotes
@@ -158,19 +158,19 @@ export default {
 const Template = (args: Args) => {
   const [, updateArgs] = useArgs();
 
-  const handleChange = (option: MdSelectOption) => {
-    const newValue = args.value === option?.value ? '' : option?.value;
-    updateArgs({ ...args, value: newValue });
+  const handleSelect = (values: string[] | string) => {
+    updateArgs({ ...args, value: values });
   };
 
   return (
     <div style={{ minHeight: '300px' }}>
-      <MdSelect {...args} onSelectOption={handleChange} />
+      <MdSelect {...args} value={args.value} onSelectOption={handleSelect} />
     </div>
   );
 };
 
 export const Select = Template.bind({});
+export const MultiSelect = Template.bind({});
 Select.args = {
   label: 'Label',
   options: [
@@ -181,9 +181,27 @@ Select.args = {
   ],
   value: 'optionB',
   disabled: false,
-  mode: 'large',
+  mode: 'medium',
   helpText: '',
   error: false,
   errorText: '',
+  allowReset: true,
+};
+
+MultiSelect.args = {
+  label: 'Label',
+  options: [
+    { value: 'optionA', text: 'A option' },
+    { value: 'optionB', text: 'B option' },
+    { value: 'optionC', text: 'C option' },
+    { value: 'optionD', text: 'D option' },
+  ],
+  value: ['optionB'],
+  disabled: false,
+  mode: 'medium',
+  helpText: 'This is some very helpful text',
+  error: false,
+  errorText: '',
   dropdownHeight: null,
+  allowReset: true,
 };
