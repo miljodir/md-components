@@ -86,7 +86,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const selectBoxId = id || uuid;
     const isMultiSelect = Array.isArray(value);
     const [helpOpen, setHelpOpen] = useState(false);
-    const [selecteValues, setSelectedValues] = useState<string | string[]>(value);
+    const [selectedValues, setSelectedValues] = useState<string | string[]>(value);
     const [displayValue, setDisplayValue] = useState<string | null>(null);
     const store = Ariakit.useSelectStore();
 
@@ -96,10 +96,10 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
 
     useEffect(() => {
       let dv = placeholder;
-      if (selecteValues && options) {
-        let option: string | string[] | null = selecteValues as string;
+      if (selectedValues && options) {
+        let option: string | string[] | null = selectedValues as string;
         if (isMultiSelect) {
-          option = selecteValues[0] || null;
+          option = selectedValues[0] || null;
         }
         dv =
           options.find(opt => {
@@ -107,7 +107,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           })?.text || placeholder;
       }
       setDisplayValue(dv);
-    }, [selecteValues, isMultiSelect, placeholder, options]);
+    }, [selectedValues, isMultiSelect, placeholder, options]);
 
     const onReset = (e: React.MouseEvent) => {
       const newValue = isMultiSelect ? [] : '';
@@ -119,9 +119,9 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     const showReset = () => {
       if (allowReset) {
         if (isMultiSelect) {
-          return selecteValues.length > 0;
+          return selectedValues.length > 0;
         }
-        return selecteValues !== '';
+        return selectedValues !== '';
       }
       return false;
     };
@@ -193,7 +193,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
             >
               {displayValue}
               <div className="md-select__button-right">
-                <div>{isMultiSelect && selecteValues.length > 0 && `+${selecteValues.length}`}</div>
+                <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
                 {showReset() && (
                   <button
                     className="md-select__reset"
@@ -229,9 +229,9 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
               options.map(option => {
                 let isChecked = false;
                 if (isMultiSelect) {
-                  isChecked = selecteValues.includes(option.value);
+                  isChecked = selectedValues.includes(option.value);
                 } else {
-                  isChecked = selecteValues === option.value;
+                  isChecked = selectedValues === option.value;
                 }
 
                 return (
@@ -242,7 +242,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
                   >
                     {isMultiSelect ? (
                       <MdCheckbox
-                        key={`checkbox_${option.value}_${selecteValues.toString()}`}
+                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
                         defaultChecked={isChecked}
                         label={option.text}
                         tabIndex={-1}
