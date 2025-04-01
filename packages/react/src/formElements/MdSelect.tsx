@@ -1,17 +1,14 @@
 'use client';
 
-import classnames from 'classnames';
-import React, { useEffect, useId, useRef, useState } from 'react';
+import * as Ariakit from '@ariakit/react';
+
+import React, { useState, useId, useEffect } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-import useDropdown from '../hooks/useDropdown';
-import MdIconChevronForward from '../icons-material/MdIconChevronForward';
 import MdIconClose from '../icons-material/MdIconClose';
-import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
+import MdCheckbox from './MdCheckbox';
 
-/**
- * 3.0.0: Replaces previous type MdSelectOptionProps.
- */
 export interface MdSelectOption {
   text: string;
   value: string;
@@ -21,230 +18,223 @@ export interface MdSelectProps {
   label?: string | null;
   options?: MdSelectOption[];
   id?: string;
-  name?: string;
-  value?: string;
+  /**
+   * v5.0.0: value is now either a string or an array of strings
+   */
+  value: string | string[];
   placeholder?: string;
   disabled?: boolean;
-  /**
-   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of whole component from large to either medium or small.
-   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
   errorText?: string;
+  flip?: boolean;
   dropdownHeight?: number;
+  allowReset?: boolean;
   /**
-   * v3.0.0: Replaces previous 'onChange'-prop and use MdSelectOption as parameter rather than event.
+   * v5.0.0: onSelectOption now returns either a string or an array of strings
    */
-  onSelectOption(_e: MdSelectOption): void;
+  onSelectOption(_value: string[] | string): void;
 }
 
-export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
+export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   (
     {
       label,
       value,
       options,
       id,
-      placeholder = 'Vennligst velg',
+      placeholder = 'Velg verdi',
       disabled = false,
-      mode = 'large',
+      mode = 'medium',
       helpText,
       error = false,
       errorText,
-      onSelectOption,
+      flip = false,
       dropdownHeight,
+      allowReset = false,
+      onSelectOption,
       ...otherProps
     },
     ref,
   ) => {
-    const [open, setOpen] = useState(false);
+    const uuid = `select_${useId()}`;
+    const selectBoxId = id || uuid;
+    const isMultiSelect = Array.isArray(value);
     const [helpOpen, setHelpOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    useDropdown(dropdownRef, open, setOpen);
-
-    const uuid = useId();
-    const selectId = id || uuid;
-
-    const classNames = classnames('md-select', {
-      'md-select--open': !!open,
-      'md-select--error': !!error,
-      'md-select--disabled': !!disabled,
-      'md-select--medium': mode === 'medium',
-      'md-select--small': mode === 'small',
-    });
-
-    const selectedOption =
-      value && value !== ''
-        ? options &&
-          options.find(o => {
-            return o.value === value;
-          })
-        : '';
-
-    let displayValue = placeholder;
-    if (selectedOption && selectedOption.value) {
-      displayValue = selectedOption.text;
-    }
-    if (open) {
-      displayValue = '';
-    }
+    const [selectedValues, setSelectedValues] = useState<string | string[]>(value);
+    const [displayValue, setDisplayValue] = useState<string | null>(null);
+    const store = Ariakit.useSelectStore();
 
     useEffect(() => {
-      document.addEventListener('keydown', onKeyDown, false);
+      setSelectedValues(value);
+    }, [value]);
 
-      return () => {
-        document.removeEventListener('keydown', onKeyDown, false);
-      };
-    });
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (open) {
-        const reg = /[a-z\Wæøå]+/gim;
-        const key = e.key;
-        if (key && reg.test(key) && key.length === 1) {
-          const option = options?.find(o => {
-            return o.text?.startsWith(key.toLowerCase()) || o.text?.startsWith(key.toUpperCase());
-          });
-          if (option) {
-            /* Find corresponding button */
-            const button = document.getElementById(`md-select-option-${selectId}-${option.value}`);
-            if (button) {
-              button.focus();
-            }
-          }
+    useEffect(() => {
+      let dv = placeholder;
+      if (selectedValues && options) {
+        let option: string | string[] | null = selectedValues as string;
+        if (isMultiSelect) {
+          option = selectedValues[0] || null;
         }
+        dv =
+          options.find(opt => {
+            return opt.value === option;
+          })?.text || placeholder;
       }
+      setDisplayValue(dv);
+    }, [selectedValues, isMultiSelect, placeholder, options]);
+
+    const onReset = (e: React.MouseEvent) => {
+      const newValue = isMultiSelect ? [] : '';
+      setSelectedValues(newValue);
+      onSelectOption(newValue);
+      e.stopPropagation();
     };
 
-    const handleOptionClick = (option: MdSelectOption) => {
-      onSelectOption(option);
-      setOpen(false);
+    const showReset = () => {
+      if (allowReset) {
+        if (isMultiSelect) {
+          return selectedValues.length > 0;
+        }
+        return selectedValues !== '';
+      }
+      return false;
     };
 
-    const isSelectedOption = (option: MdSelectOption) => {
-      return value && value !== '' && value == option.value;
+    const toggle = (e: React.MouseEvent) => {
+      store.toggle();
+      e.stopPropagation();
     };
 
-    const buttonClassNames = classnames('md-select__button', {
-      'md-select__button--open': !!open,
-      'md-select__button--error': !!error,
-      'md-select__button--small': mode === 'small',
-    });
-
-    const optionClass = (option: MdSelectOption) => {
-      return classnames('md-select__dropdown-item', {
-        'md-select__dropdown-item--selected': isSelectedOption(option),
-      });
-    };
-
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-select_help-text_${selectId}` : undefined;
-    ariaDescribedBy = error && errorText && errorText !== '' ? `md-select_error_${selectId}` : ariaDescribedBy;
+    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${selectBoxId}` : undefined;
+    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${selectBoxId}` : ariaDescribedBy;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
     return (
-      <div className={classNames}>
-        {showLabel && (
-          <div className="md-select__label-wrapper">
-            <div className="md-select__label">
-              {label && label !== '' && <div id={`md-select_label_${selectId}`}>{label}</div>}
+      <div
+        className={`md-select md-select--${mode} ${error && errorText && errorText !== '' && 'md-select--has-error'}`}
+      >
+        <Ariakit.SelectProvider
+          value={value}
+          store={store}
+          id={selectBoxId}
+          setValue={val => {
+            setSelectedValues(val);
+            onSelectOption(val);
+          }}
+        >
+          {showLabel && (
+            <div className="md-select__label-wrapper">
+              <div className="md-select__label">
+                {label && label !== '' && <Ariakit.SelectLabel>{label}</Ariakit.SelectLabel>}
+                {helpText && helpText !== '' && (
+                  <div className="md-select__help-button">
+                    <MdHelpButton
+                      aria-label={`Hjelpetekst for ${label}`}
+                      id={`md-select_help-button_${selectBoxId}`}
+                      aria-expanded={helpOpen}
+                      aria-controls={`md-select_help-text_${selectBoxId}`}
+                      onClick={() => {
+                        return setHelpOpen(!helpOpen);
+                      }}
+                      expanded={helpOpen}
+                    />
+                  </div>
+                )}
+              </div>
               {helpText && helpText !== '' && (
-                <div className="md-select__help-button">
-                  <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
-                    id={`md-select_help-button_${selectId}`}
-                    aria-expanded={helpOpen}
-                    aria-controls={`md-select_help-text_${selectId}`}
-                    onClick={() => {
-                      return setHelpOpen(!helpOpen);
-                    }}
-                    expanded={helpOpen}
-                  />
+                <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
+                  <MdHelpText
+                    id={`md-select_help-text_${selectBoxId}`}
+                    aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectBoxId}` : undefined}
+                  >
+                    {helpText}
+                  </MdHelpText>
                 </div>
               )}
             </div>
-
-            {helpText && helpText !== '' && (
-              <div className={`md-select__help-text ${helpOpen ? 'md-select__help-text--open' : ''}`}>
-                <MdHelpText
-                  id={`md-select_help-text_${selectId}`}
-                  aria-labelledby={helpText && helpText !== '' ? `md-select_help-button_${selectId}` : undefined}
-                >
-                  {helpText}
-                </MdHelpText>
-              </div>
-            )}
-          </div>
-        )}
-
-        <MdClickOutsideWrapper
-          ref={dropdownRef}
-          onClickOutside={() => {
-            return setOpen(false);
-          }}
-          className="md-select__container"
-        >
-          <button
-            role="combobox"
-            aria-expanded={open}
-            aria-controls={`md-select_dropdown_${selectId}`}
-            aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
-            id={selectId}
-            aria-describedby={ariaDescribedBy}
-            className={buttonClassNames}
-            type="button"
-            tabIndex={0}
-            onClick={() => {
-              return !disabled && setOpen(!open);
-            }}
-            ref={ref}
-            disabled={disabled}
-            {...otherProps}
-          >
-            <div className="md-select__button-text">{displayValue}</div>
-            <div aria-hidden="true" className="md-select__button-icon">
-              <MdIconChevronForward transform={`rotate(${open ? '180' : '0'})`} />
-            </div>
-          </button>
-
-          {options && options.length > 0 && (
-            <div
-              aria-labelledby={label && label !== '' ? `md-select_label_${selectId}` : undefined}
-              role="listbox"
-              className="md-select__dropdown"
-              id={`md-select_dropdown_${selectId}`}
-              style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
+          )}
+          <div className="md-select__button-wrapper">
+            <Ariakit.Select
+              ref={ref}
+              disabled={disabled}
+              store={store}
+              render={<div />}
+              aria-describedby={ariaDescribedBy}
+              aria-pressed={Ariakit.useStoreState(store, 'open')}
+              aria-expanded={Ariakit.useStoreState(store, 'open')}
+              className="md-select__button"
+              {...otherProps}
             >
-              {options.map(option => {
-                return (
+              {displayValue}
+              <div className="md-select__button-right">
+                <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
+                {showReset() && (
                   <button
-                    role="option"
-                    aria-selected={!!isSelectedOption(option)}
-                    key={`md-select-option-${selectId}-${option.value}`}
-                    id={`md-select-option-${selectId}-${option.value}`}
-                    type="button"
-                    tabIndex={open ? 0 : -1}
-                    className={optionClass(option)}
-                    onClick={() => {
-                      return open && handleOptionClick(option);
+                    className="md-select__reset"
+                    onClick={(e: React.MouseEvent) => {
+                      return onReset(e);
                     }}
+                    aria-label="Nullstill"
                   >
-                    <div className="md-select__dropdown-item-text">{option.text}</div>
-                    {isSelectedOption(option) && (
-                      <div className="md-select__dropdown-item-clear" title="Klikk for å fjerne valg">
-                        <MdIconClose aria-hidden="true" />
-                      </div>
-                    )}
+                    <MdIconClose aria-hidden="true" />
                   </button>
+                )}
+                <button
+                  onClick={(e: React.MouseEvent) => {
+                    toggle(e);
+                  }}
+                  className="md-select__button-icon"
+                >
+                  <MdIconKeyboardArrowDown />
+                </button>
+              </div>
+            </Ariakit.Select>
+          </div>
+          <Ariakit.SelectPopover
+            sameWidth
+            slide={false}
+            gutter={-1}
+            flip={flip}
+            data-active-item={false}
+            className="md-select__popover"
+            style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
+          >
+            {options &&
+              options.map(option => {
+                let isChecked = false;
+                if (isMultiSelect) {
+                  isChecked = selectedValues.includes(option.value);
+                } else {
+                  isChecked = selectedValues === option.value;
+                }
+
+                return (
+                  <Ariakit.SelectItem
+                    key={`${selectBoxId}_option_${option.value}`}
+                    className="md-select__item"
+                    value={option.value}
+                  >
+                    {isMultiSelect ? (
+                      <MdCheckbox
+                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                        defaultChecked={isChecked}
+                        label={option.text}
+                        tabIndex={-1}
+                      />
+                    ) : (
+                      option.text
+                    )}
+                  </Ariakit.SelectItem>
                 );
               })}
-            </div>
-          )}
-        </MdClickOutsideWrapper>
+          </Ariakit.SelectPopover>
+        </Ariakit.SelectProvider>
 
         {error && errorText && errorText !== '' && (
-          <div id={`md-select_error_${selectId}`} className="md-select__error">
+          <div id={`md-select_error_${selectBoxId}`} className="md-select__error">
             {errorText}
           </div>
         )}
@@ -252,6 +242,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
     );
   },
 );
+
 MdSelect.displayName = 'MdSelect';
 
 export default MdSelect;

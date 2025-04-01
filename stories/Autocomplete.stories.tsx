@@ -8,7 +8,7 @@ import { MdIconSearch } from '../packages/react/src/icons-material/MdIconSearch'
 import type { MdAutocompleteOption, MdAutocompleteProps } from '../packages/react/src/formElements/MdAutocomplete';
 
 export default {
-  title: 'Deprecated/Form elements/Autocomplete',
+  title: 'Deprecated/Form/Autocomplete',
   component: MdAutocomplete,
   parameters: {
     docs: {

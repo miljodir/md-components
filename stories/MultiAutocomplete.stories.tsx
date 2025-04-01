@@ -11,7 +11,7 @@ import type {
 } from '../packages/react/src/formElements/MdMultiAutocomplete';
 
 export default {
-  title: 'Deprecated/Form elements/MultiAutocomplete',
+  title: 'Deprecated/Form/MultiAutocomplete',
   component: MdMultiAutocomplete,
   parameters: {
     docs: {
