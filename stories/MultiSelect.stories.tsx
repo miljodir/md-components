@@ -7,7 +7,7 @@ import type { MdMultiSelectOption } from '../packages/react/src/formElements/MdM
 import type { Args } from '@storybook/react';
 
 export default {
-  title: 'Form/Multiselect (DELETE THIS)',
+  title: 'Deprecated/Form/Multiselect',
   component: MdMultiSelect,
   parameters: {
     docs: {
