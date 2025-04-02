@@ -37,7 +37,7 @@ export default {
       description: 'Array with data objects for select options',
       table: {
         type: {
-          summary: '[{ value: string | number, text: string }, ...]',
+          summary: '[{label: string, icon?: ReactNode, values: [{ value: string | number, text: string }, ...]}, ...]',
         },
       },
     },
