@@ -27,7 +27,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for combobox.<br/>Can handle single or mulitple selections. For single selection set `value` to a string, for multiselect, set `value` to an array of strings.<br/><br/>`import { MdComboBox } from '@miljodirektoratet/md-react'`",
+          "A component for combobox.<br/>Can handle single or mulitple selections. For single selection set `value` to a string, for multiselect, set `value` to an array of strings.<br/><br/>`import { MdComboBoxGrouped } from '@miljodirektoratet/md-react'`",
       },
     },
   },
