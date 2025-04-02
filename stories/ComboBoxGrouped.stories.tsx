@@ -1,7 +1,7 @@
 import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
-import Readme from '../packages/css/src/formElements/combobox/README.md';
+import Readme from '../packages/css/src/formElements/combobox/README_GROUPED.md';
 import MdComboBoxGrouped from '../packages/react/src/formElements/MdComboBoxGrouped';
 import MdIconCalendarMonth from '../packages/react/src/icons-material/MdIconCalendarMonth';
 import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
