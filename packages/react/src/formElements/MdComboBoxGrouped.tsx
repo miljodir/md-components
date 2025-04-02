@@ -43,33 +43,6 @@ export interface MdComboBoxGroupedProps extends React.InputHTMLAttributes<HTMLIn
   onSelectOption(_value: string[] | string): void;
 }
 
-/**
- * MdComboBoxGrouped.
- *
- * @type {React.FC<MdComboBoxGroupedProps>}
- * @returns {React.ReactElement} MdComboBoxGrouped.
- * @params id {string=} - The id of the combobox.
- * @params label {string=} - The label of the combobox.
- * @params options {MdComboBoxGroupedOption[]} - The options of the combobox.
- * @params value {string[] | string} - The value of the combobox. string for single select, string[] for multi select.
- * @params disabled {boolean=} - The disabled state of the combobox.
- * @params error {boolean=} - The error state of the combobox.
- * @params errorText {string=} - The error text of the combobox.
- * @params placeholder {string=} - The placeholder of the combobox.
- * @params mode {string=} - The size of the combobox. 'large' | 'medium' | 'small'
- * @params onSelectOption {function} - The onSelectOption handler for change events.
- * @params helpText {string=} - The help text of the combobox.
- * @params noResultsText {string=} - The text to display if no results are found.
- * @params dropdownHeight {number=} - The height of the dropdown.
- * @params prefixIcon {React.ReactNode=} - The prefix icon of the combobox.
- * @params hidePrefixIcon {boolean=} - The hide prefix icon of the combobox.
- * @params isSearching {boolean=} - The isSearching state of the combobox.
- * @params numberOfElementsShown {number=} - The number of elements shown in the dropdown.
- * @params allowReset {boolean=} - The allowReset state of the combobox.
- * @params flip {boolean=} - Allow popover to flip to the opposite side when it overflows.
- * @params hideSeparatorLine {boolean=} - Hide the separator line between the label and values in group.
- */
-
 const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTMLInputElement, MdComboBoxGroupedProps>(
   (
     {
@@ -119,22 +92,41 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
         return defaultOptions;
       }
 
-      const results = options?.filter(o => {
-        return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
-      });
+      const results = options
+        .map(group => {
+          // Filter the values within each group based on the searchValue
+          const matchingValues = group.values.filter(value => {
+            return value.value.toLowerCase().includes(searchValue.toLowerCase() || '');
+          });
+
+          // Return the group only if it has matching values
+          if (matchingValues.length > 0) {
+            return {
+              ...group,
+              values: matchingValues, // Include only the matching values
+            };
+          }
+
+          return null; // Exclude groups with no matching values
+        })
+        .filter(group => {
+          return group !== null;
+        }); // Remove null groups
       return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
     }, [searchValue, defaultOptions, options, numberOfElementsShown]);
 
     const getValueById = useMemo(() => {
-      const val = placeholder || '';
-      /* return (value: string) => {
-        const option = options.find(option => {
-          return option.values.some(v => {
-            return v.value === value;
+      return (value: string) => {
+        let val = placeholder;
+        options.forEach(option => {
+          option.values.forEach(v => {
+            if (v.value === value) {
+              val = v.text;
+            }
           });
         });
-        return option ? option.text : placeholder;
-      }; */
+        return val;
+      };
     }, [options, placeholder]);
 
     const onReset = () => {
@@ -164,8 +156,6 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
       }
       return false;
     }, [isMultiSelect]);
-
-    console.log(hideSeparatorLine);
 
     return (
       <div
@@ -253,8 +243,9 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                 onClick={() => {
                   store.setOpen(!store.getState().open);
                 }}
+                aria-label="Åpne/lukke liste"
               >
-                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
+                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -270,34 +261,54 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
           >
             {matches &&
-              matches.map(option => {
-                let isChecked = false;
-                if (isMultiSelect) {
-                  isChecked = selectedValues.includes(option.value);
-                } else {
-                  isChecked = selectedValues === option.value;
-                }
-
+              matches.map((group, index: number) => {
                 return (
-                  <Ariakit.ComboboxItem
-                    key={`combobox_item_${option.value}`}
-                    value={option.value}
-                    focusOnHover
-                    setValueOnClick={setItemCallback}
-                    className="md-combobox__checkbox-item"
-                    aria-selected={isChecked}
-                  >
-                    {isMultiSelect ? (
-                      <MdCheckbox
-                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
-                        defaultChecked={isChecked}
-                        label={option.text}
-                        tabIndex={-1}
-                      />
-                    ) : (
-                      option.text
+                  <>
+                    {!hideSeparatorLine && index !== 0 && (
+                      <div className="md-combobox__group-separator">
+                        <hr className="" />
+                      </div>
                     )}
-                  </Ariakit.ComboboxItem>
+                    <div
+                      className={`md-combobox__group ${hideSeparatorLine ? 'md-combobox__group--no-separator' : ''}`}
+                      key={`combobox_group_${comboBoxId}_${group.label}`}
+                    >
+                      <div className="md-combobox__group-label">
+                        {group.icon && <div className="md-combobox__group-icon">{group.icon}</div>}
+                        {group.label}
+                      </div>
+                      {group.values &&
+                        group.values.map(option => {
+                          let isChecked = false;
+                          if (isMultiSelect) {
+                            isChecked = selectedValues.includes(option.value);
+                          } else {
+                            isChecked = selectedValues === option.value;
+                          }
+                          return (
+                            <Ariakit.ComboboxItem
+                              key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}`}
+                              value={option.value}
+                              focusOnHover
+                              setValueOnClick={setItemCallback}
+                              className="md-combobox__checkbox-item"
+                              aria-selected={isChecked}
+                            >
+                              {isMultiSelect ? (
+                                <MdCheckbox
+                                  key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                                  defaultChecked={isChecked}
+                                  label={option.text}
+                                  tabIndex={-1}
+                                />
+                              ) : (
+                                option.text
+                              )}
+                            </Ariakit.ComboboxItem>
+                          );
+                        })}
+                    </div>
+                  </>
                 );
               })}
             {!matches.length && (

@@ -12,7 +12,7 @@ export const MdHelpText: React.FunctionComponent<MdHelpTextProps> = ({
 }: MdHelpTextProps) => {
   const combinedClasses = classNames('md-helptext', className);
   return (
-    <div className={combinedClasses} {...otherProps}>
+    <div className={combinedClasses} role="tooltip" {...otherProps}>
       {children}
     </div>
   );

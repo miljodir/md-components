@@ -242,8 +242,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                 onClick={() => {
                   store.setOpen(!store.getState().open);
                 }}
+                aria-label="Åpne/lukke liste"
               >
-                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" />
+                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden />
               </button>
             </div>
           </div>

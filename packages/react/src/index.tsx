@@ -7,6 +7,7 @@ import MdAutocomplete, { MdAutocompleteOption, MdAutocompleteProps } from './for
 import MdCheckbox, { MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
 import MdComboBox, { MdComboBoxOption } from './formElements/MdComboBox';
+import MdComboBoxGrouped, { MdComboBoxGroupedProps } from './formElements/MdComboBoxGrouped';
 import MdFileUpload, { MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { MdInputProps } from './formElements/MdInput';
 import MdMultiAutocomplete, { MdMultiAutocompleteOption } from './formElements/MdMultiAutocomplete';
@@ -335,6 +336,8 @@ export {
   MdStepperProps,
   MdComboBox,
   MdComboBoxOption,
+  MdComboBoxGrouped,
+  MdComboBoxGroupedProps,
 
   // Material icons
   MdIconAccountCircle,
