@@ -11,7 +11,7 @@ import MdIconSearch from '../icons-material/MdIconSearch';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
 
-import type { MdComboBoxOption } from './MdComboBox';
+import type { MdComboBoxBaseProps, MdComboBoxOption } from './MdComboBox';
 
 export interface MdComboBoxGroupedOption {
   label: string;
@@ -19,26 +19,10 @@ export interface MdComboBoxGroupedOption {
   values: MdComboBoxOption[];
 }
 
-export interface MdComboBoxGroupedProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id?: string;
-  label?: string;
+export interface MdComboBoxGroupedProps extends React.InputHTMLAttributes<HTMLInputElement>, MdComboBoxBaseProps {
   options: MdComboBoxGroupedOption[];
   defaultOptions?: MdComboBoxGroupedOption[];
   value: string | string[];
-  disabled?: boolean;
-  error?: boolean;
-  errorText?: string;
-  placeholder?: string;
-  helpText?: string;
-  numberOfElementsShown?: number;
-  isSearching?: boolean;
-  mode?: 'large' | 'medium' | 'small';
-  noResultsText?: string;
-  dropdownHeight?: number;
-  prefixIcon?: React.ReactNode;
-  hidePrefixIcon?: boolean;
-  allowReset?: boolean;
-  flip?: boolean;
   hideSeparatorLine?: boolean;
   onSelectOption(_value: string[] | string): void;
 }

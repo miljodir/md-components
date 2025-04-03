@@ -16,12 +16,9 @@ export interface MdComboBoxOption {
   text: string;
 }
 
-export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface MdComboBoxBaseProps {
   id?: string;
   label?: string;
-  options: MdComboBoxOption[];
-  defaultOptions?: MdComboBoxOption[];
-  value: string | string[];
   disabled?: boolean;
   error?: boolean;
   errorText?: string;
@@ -36,34 +33,14 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   hidePrefixIcon?: boolean;
   allowReset?: boolean;
   flip?: boolean;
-  onSelectOption(_value: string[] | string): void;
 }
 
-/**
- * MdComboBox.
- *
- * @type {React.FC<MdComboBoxProps>}
- * @returns {React.ReactElement} MdCombobox.
- * @params id {string=} - The id of the combobox.
- * @params label {string=} - The label of the combobox.
- * @params options {MdComboBoxOption[]} - The options of the combobox.
- * @params value {string[] | string} - The value of the combobox. string for single select, string[] for multi select.
- * @params disabled {boolean=} - The disabled state of the combobox.
- * @params error {boolean=} - The error state of the combobox.
- * @params errorText {string=} - The error text of the combobox.
- * @params placeholder {string=} - The placeholder of the combobox.
- * @params mode {string=} - The size of the combobox. 'large' | 'medium' | 'small'
- * @params onSelectOption {function} - The onSelectOption handler for change events.
- * @params helpText {string=} - The help text of the combobox.
- * @params noResultsText {string=} - The text to display if no results are found.
- * @params dropdownHeight {number=} - The height of the dropdown.
- * @params prefixIcon {React.ReactNode=} - The prefix icon of the combobox.
- * @params hidePrefixIcon {boolean=} - The hide prefix icon of the combobox.
- * @params isSearching {boolean=} - The isSearching state of the combobox.
- * @params numberOfElementsShown {number=} - The number of elements shown in the dropdown.
- * @params allowReset {boolean=} - The allowReset state of the combobox.
- * @params flip {boolean=} - Allow popover to flip to the opposite side when it overflows.
- */
+export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElement>, MdComboBoxBaseProps {
+  options: MdComboBoxOption[];
+  defaultOptions?: MdComboBoxOption[];
+  value: string | string[];
+  onSelectOption(_value: string[] | string): void;
+}
 
 const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
   (
@@ -244,7 +221,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                 }}
                 aria-label="Åpne/lukke liste"
               >
-                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden />
+                <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden="true" />
               </button>
             </div>
           </div>
