@@ -37,6 +37,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     },
-    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "cSpell.language": "en,no",
+    "cSpell.words": ["Hjelpetekst"]
   }
 }

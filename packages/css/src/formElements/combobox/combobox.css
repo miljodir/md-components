@@ -193,3 +193,28 @@
   outline-color: var(--mdErrorColor);
   border-color: var(--mdErrorColor);
 }
+
+/* GROUPED STYLES */
+.md-combobox__group .md-combobox__group-icon {
+  width: 1rem;
+  height: 1rem;
+}
+.md-combobox__group.md-combobox__group--no-separator {
+  margin-bottom: 0.5rem;
+}
+.md-combobox__group .md-combobox__group-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--mdGreyColor60);
+  line-height: 130%;
+}
+.md-combobox__group-separator {
+  padding: 0.5rem 0.75rem;
+}
+.md-combobox__group-separator hr {
+  border: 0;
+  border-top: 1px solid var(--mdGreyColor20);
+}

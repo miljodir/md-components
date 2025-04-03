@@ -11,38 +11,23 @@ import MdIconSearch from '../icons-material/MdIconSearch';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdCheckbox from './MdCheckbox';
 
-export interface MdComboBoxOption {
-  value: string;
-  text: string;
+import type { MdComboBoxBaseProps, MdComboBoxOption } from './MdComboBox';
+
+export interface MdComboBoxGroupedOption {
+  label: string;
+  icon: React.ReactNode;
+  values: MdComboBoxOption[];
 }
 
-export interface MdComboBoxBaseProps {
-  id?: string;
-  label?: string;
-  disabled?: boolean;
-  error?: boolean;
-  errorText?: string;
-  placeholder?: string;
-  helpText?: string;
-  numberOfElementsShown?: number;
-  isSearching?: boolean;
-  mode?: 'large' | 'medium' | 'small';
-  noResultsText?: string;
-  dropdownHeight?: number;
-  prefixIcon?: React.ReactNode;
-  hidePrefixIcon?: boolean;
-  allowReset?: boolean;
-  flip?: boolean;
-}
-
-export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElement>, MdComboBoxBaseProps {
-  options: MdComboBoxOption[];
-  defaultOptions?: MdComboBoxOption[];
+export interface MdComboBoxGroupedProps extends React.InputHTMLAttributes<HTMLInputElement>, MdComboBoxBaseProps {
+  options: MdComboBoxGroupedOption[];
+  defaultOptions?: MdComboBoxGroupedOption[];
   value: string | string[];
+  hideSeparatorLine?: boolean;
   onSelectOption(_value: string[] | string): void;
 }
 
-const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
+const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTMLInputElement, MdComboBoxGroupedProps>(
   (
     {
       id,
@@ -64,6 +49,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       hidePrefixIcon = false,
       allowReset = false,
       flip = false,
+      hideSeparatorLine = false,
       onSelectOption,
       ...otherProps
     },
@@ -90,18 +76,40 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         return defaultOptions;
       }
 
-      const results = options?.filter(o => {
-        return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
-      });
+      const results = options
+        .map(group => {
+          // Filter the values within each group based on the searchValue
+          const matchingValues = group.values.filter(value => {
+            return value.value.toLowerCase().includes(searchValue.toLowerCase() || '');
+          });
+
+          // Return the group only if it has matching values
+          if (matchingValues.length > 0) {
+            return {
+              ...group,
+              values: matchingValues, // Include only the matching values
+            };
+          }
+
+          return null; // Exclude groups with no matching values
+        })
+        .filter(group => {
+          return group !== null;
+        }); // Remove null groups
       return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
     }, [searchValue, defaultOptions, options, numberOfElementsShown]);
 
     const getValueById = useMemo(() => {
       return (value: string) => {
-        const option = options.find(option => {
-          return option.value === value;
+        let val = placeholder;
+        options.forEach(option => {
+          option.values.forEach(v => {
+            if (v.value === value) {
+              val = v.text;
+            }
+          });
         });
-        return option ? option.text : placeholder;
+        return val;
       };
     }, [options, placeholder]);
 
@@ -237,34 +245,54 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
           >
             {matches &&
-              matches.map(option => {
-                let isChecked = false;
-                if (isMultiSelect) {
-                  isChecked = selectedValues.includes(option.value);
-                } else {
-                  isChecked = selectedValues === option.value;
-                }
-
+              matches.map((group, index: number) => {
                 return (
-                  <Ariakit.ComboboxItem
-                    key={`combobox_item_${option.value}`}
-                    value={option.value}
-                    focusOnHover
-                    setValueOnClick={setItemCallback}
-                    className="md-combobox__checkbox-item"
-                    aria-selected={isChecked}
-                  >
-                    {isMultiSelect ? (
-                      <MdCheckbox
-                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
-                        defaultChecked={isChecked}
-                        label={option.text}
-                        tabIndex={-1}
-                      />
-                    ) : (
-                      option.text
+                  <>
+                    {!hideSeparatorLine && index !== 0 && (
+                      <div className="md-combobox__group-separator">
+                        <hr className="" />
+                      </div>
                     )}
-                  </Ariakit.ComboboxItem>
+                    <div
+                      className={`md-combobox__group ${hideSeparatorLine ? 'md-combobox__group--no-separator' : ''}`}
+                      key={`combobox_group_${comboBoxId}_${group.label}`}
+                    >
+                      <div className="md-combobox__group-label">
+                        {group.icon && <div className="md-combobox__group-icon">{group.icon}</div>}
+                        {group.label}
+                      </div>
+                      {group.values &&
+                        group.values.map(option => {
+                          let isChecked = false;
+                          if (isMultiSelect) {
+                            isChecked = selectedValues.includes(option.value);
+                          } else {
+                            isChecked = selectedValues === option.value;
+                          }
+                          return (
+                            <Ariakit.ComboboxItem
+                              key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}`}
+                              value={option.value}
+                              focusOnHover
+                              setValueOnClick={setItemCallback}
+                              className="md-combobox__checkbox-item"
+                              aria-selected={isChecked}
+                            >
+                              {isMultiSelect ? (
+                                <MdCheckbox
+                                  key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                                  defaultChecked={isChecked}
+                                  label={option.text}
+                                  tabIndex={-1}
+                                />
+                              ) : (
+                                option.text
+                              )}
+                            </Ariakit.ComboboxItem>
+                          );
+                        })}
+                    </div>
+                  </>
                 );
               })}
             {!matches.length && (
@@ -283,6 +311,6 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
   },
 );
 
-MdComboBox.displayName = 'MdComboBox';
+MdComboBoxGrouped.displayName = 'MdComboBoxGrouped';
 
-export default MdComboBox;
+export default MdComboBoxGrouped;

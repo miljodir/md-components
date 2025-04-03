@@ -1,8 +1,8 @@
 # Structure
 
-To use the `MdComboBox` css in `@miljodirektoratet/md-css` as a standalone, without the accompanying React component, please use the following HTML structure. Note that this component is built on [Ariakit combobox](https://ariakit.org/components/combobox), so implementing it outside React may be challenging due to the complex accessibility behavior it provides.
+To use the `MdComboBoxGrouped` CSS in `@miljodirektoratet/md-css` as a standalone, without the accompanying React component, please use the following HTML structure. Note that this component is built on [Ariakit combobox](https://ariakit.org/components/combobox), so implementing it outside React may be challenging due to the complex accessibility behavior it provides.
 
-Class names in brackets [] are optional-/togglable-/decorator- or state dependant classes.
+Class names in brackets [] are optional-/togglable-/decorator- or state-dependent classes.
 
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
@@ -44,14 +44,27 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
   <!-- Dropdown/popover -->
   <Ariakit.ComboboxPopover class="md-combobox__popover">
-    <!-- For regular options -->
-    <Ariakit.ComboboxItem class="md-combobox__checkbox-item [md-combobox__checkbox-item--selected]">
-      <!-- For single select: just text -->
-      Option text
+    <!-- Separator between groups -->
+    <!-- if !hideSeparatorLine & !firstElement} -->
+    <div class="md-combobox__group-separator">
+      <hr />
+    </div>
 
-      <!-- For multi-select: checkbox -->
-      <MdCheckbox label="Option text" />
-    </Ariakit.ComboboxItem>
+    <!-- Grouped options -->
+    <div class="md-combobox__group [md-combobox__group--no-separator]">
+      <div class="md-combobox__group-label">
+        <!-- Optional group icon -->
+        <div class="md-combobox__group-icon">{icon}</div>
+        {groupLabel}
+      </div>
+      <Ariakit.ComboboxItem class="md-combobox__checkbox-item [md-combobox__checkbox-item--selected]">
+        <!-- For single select: just text -->
+        Option text
+
+        <!-- For multi-select: checkbox -->
+        <MdCheckbox label="Option text" />
+      </Ariakit.ComboboxItem>
+    </div>
 
     <!-- No results state -->
     <div class="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">No results found</div>
@@ -64,11 +77,11 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ## Accessibility Notes
 
-The MdComboBox component uses Ariakit's ComboBox component which handles numerous accessibility attributes including:
+The MdComboBoxGrouped component uses Ariakit's ComboBox component, which handles numerous accessibility attributes, including:
 
 - Proper ARIA roles and attributes
 - Keyboard navigation
 - Focus management
 - Screen reader announcements
 
-When implementing this outside of React, you'll need to handle these accessibility concerns manually. The library automatically manages attributes like `aria-activedescendant`, `aria-controls`, `aria-expanded`, etc.
+When implementing this outside of React, you'll need to handle these accessibility concerns manually. The library automatically manages attributes like `aria-activedescendant`, `aria-controls`, `aria-expanded`, etc. ```
