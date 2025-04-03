@@ -1,63 +1,48 @@
 'use client';
 
-import classnames from 'classnames';
-import React, { useState } from 'react';
+import { Tooltip, TooltipAnchor, TooltipProvider } from '@ariakit/react';
+import React from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * v2.0.0: Replaces previous 'content'-prop for specifying the content of the tooltip.
    * Content-prop is reserved as a standard HTML attribute on div-elements.
+   * v5.1.x Removed support for ReactNode for tooltipContent, only string is supported.
    */
-  tooltipContent: React.ReactNode;
+  tooltipContent: string;
+  children: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
-  ['aria-label']: string;
-  children?: React.ReactNode;
-  tooltipClass?: string;
+  ['aria-label']?: string;
+  timeout?: number;
+  mode?: 'small' | 'medium' | 'large';
+  anchorClassName?: string;
+  tooltipClassName?: string;
 }
 
 export const MdTooltip: React.FC<MdTooltipProps> = ({
   tooltipContent,
-  position = 'bottom',
   children,
+  position = 'bottom',
   'aria-label': ariaLabel,
-  tooltipClass,
+  timeout = 250,
+  mode = 'medium',
+  anchorClassName = '',
+  tooltipClassName = '',
   ...otherProps
 }: MdTooltipProps) => {
-  const [hover, setHover] = useState(false);
-  const classNames = classnames('md-tooltip', {
-    'md-tooltip--show': hover,
-    'md-tooltip--bottom': position === 'bottom',
-    'md-tooltip--top': position === 'top',
-    'md-tooltip--right': position === 'right',
-    'md-tooltip--left': position === 'left',
-    tooltipClass,
-  });
-
-  const keydown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      setHoverFalse();
-    }
-  };
-
-  const setHoverTrue = () => {
-    document.addEventListener('keydown', keydown);
-    setHover(true);
-  };
-
-  const setHoverFalse = () => {
-    document.removeEventListener('keydown', keydown);
-    setHover(false);
-  };
+  const classNames = `md-tooltip md-tooltip--${mode} ${tooltipClassName}`;
 
   return (
-    <div role="tooltip" aria-label={ariaLabel} {...otherProps}>
-      <div onMouseLeave={setHoverFalse} onMouseEnter={setHoverTrue} className="md-tooltip__child">
+    <TooltipProvider placement={position} timeout={timeout}>
+      <TooltipAnchor
+        aria-label={ariaLabel || tooltipContent}
+        className={`md-tooltip__anchor ${anchorClassName}`}
+        {...otherProps}
+      >
         {children}
-      </div>
-      <div aria-hidden="true" className={classNames}>
-        {tooltipContent}
-      </div>
-    </div>
+      </TooltipAnchor>
+      <Tooltip className={classNames}>{tooltipContent}</Tooltip>
+    </TooltipProvider>
   );
 };
 
