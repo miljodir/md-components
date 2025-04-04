@@ -5,14 +5,11 @@ import React from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * v2.0.0: Replaces previous 'content'-prop for specifying the content of the tooltip.
-   * Content-prop is reserved as a standard HTML attribute on div-elements.
    * v5.1.x Removed support for ReactNode for tooltipContent, only string is supported.
    */
   tooltipContent: string;
   children: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
-  ['aria-label']?: string;
   timeout?: number;
   mode?: 'small' | 'medium' | 'large';
   anchorClassName?: string;
@@ -23,7 +20,6 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
   tooltipContent,
   children,
   position = 'bottom',
-  'aria-label': ariaLabel,
   timeout = 250,
   mode = 'medium',
   anchorClassName = '',
@@ -34,11 +30,7 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
 
   return (
     <TooltipProvider placement={position} timeout={timeout}>
-      <TooltipAnchor
-        aria-label={ariaLabel || tooltipContent}
-        className={`md-tooltip__anchor ${anchorClassName}`}
-        {...otherProps}
-      >
+      <TooltipAnchor aria-label={tooltipContent} className={`md-tooltip__anchor ${anchorClassName}`} {...otherProps}>
         {children}
       </TooltipAnchor>
       <Tooltip className={classNames}>{tooltipContent}</Tooltip>

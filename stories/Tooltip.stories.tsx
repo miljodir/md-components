@@ -51,17 +51,6 @@ export default {
       },
       control: false,
     },
-    'aria-label': {
-      type: { name: 'string' },
-      description: 'The aria label for the tooltip',
-      table: {
-        defaultValue: { summary: 'tooltipContent' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'text' },
-    },
     mode: {
       description: 'Set the size of the tooltip, affects only font-size of the tooltip content',
       options: ['small', 'medium', 'large'],
@@ -116,7 +105,6 @@ export const Tooltip = Template.bind({});
 Tooltip.args = {
   tooltipContent: 'This is some info',
   position: 'bottom',
-  'aria-label': 'This is some info',
   timeout: 100,
   mode: 'medium',
 };

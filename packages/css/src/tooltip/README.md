@@ -10,7 +10,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 <!-- Ariakit.TooltipProvider -->
 <div>
   <!-- Ariakit.TooltipAnchor -->
-  <div class="md-tooltip__anchor" aria-label="Same as tooltip content">{children}</div>
+  <div class="md-tooltip__anchor" aria-label="{tooltipContent}">{children}</div>
 
   <!-- Ariakit.Tooltip -->
   <div
