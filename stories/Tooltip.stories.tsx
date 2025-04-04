@@ -32,15 +32,17 @@ export default {
   },
   argTypes: {
     tooltipContent: {
+      type: { name: 'string', required: true },
       description: 'The content to display on hover',
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: 'string',
         },
       },
       control: { type: 'text' },
     },
     children: {
+      type: { name: 'string | ReactNode', required: true },
       description: 'Tooltip trigger element',
       table: {
         type: {
@@ -49,14 +51,16 @@ export default {
       },
       control: false,
     },
-    'aria-label': {
-      description: 'The aria label for the tooltip',
+    mode: {
+      description: 'Set the size of the tooltip, affects only font-size of the tooltip content',
+      options: ['small', 'medium', 'large'],
       table: {
+        defaultValue: { summary: 'medium' },
         type: {
           summary: 'string',
         },
       },
-      control: { type: 'text' },
+      control: { type: 'inline-radio' },
     },
     position: {
       description: 'Selected position for the tooltip',
@@ -68,6 +72,16 @@ export default {
       options: ['right', 'top', 'bottom', 'left'],
       control: { type: 'inline-radio' },
       if: { arg: 'position', exists: true },
+    },
+    timeout: {
+      description: 'Time in ms before the tooltip is shown',
+      table: {
+        defaultValue: { summary: 250 },
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
     },
   },
 };
@@ -81,7 +95,7 @@ const Template: StoryFn<typeof MdTooltip> = (args: MdTooltipProps) => {
       }}
     >
       <MdTooltip {...args}>
-        <MdIconClose width={20} height={20} />
+        <MdIconClose width={24} height={24} />
       </MdTooltip>
     </div>
   );
@@ -91,5 +105,6 @@ export const Tooltip = Template.bind({});
 Tooltip.args = {
   tooltipContent: 'This is some info',
   position: 'bottom',
-  'aria-label': 'This is some info',
+  timeout: 100,
+  mode: 'medium',
 };

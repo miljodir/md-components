@@ -1,40 +1,25 @@
 .md-tooltip {
   background-color: white;
-  visibility: hidden;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.14);
   border: 1px solid var(--mdPrimaryColor);
   font-family: 'Open Sans';
   height: fit-content;
   width: fit-content;
-  position: absolute;
-  z-index: 99;
   font-weight: 400;
   font-size: 0.875rem;
   border-radius: 0.5rem;
   padding: 0.625rem;
 }
 
-.md-tooltip--show {
-  visibility: visible;
+.md-tooltip--small {
+  font-size: 0.75rem;
+}
+.md-tooltip--large {
+  font-size: 1rem;
 }
 
-.md-tooltip--bottom {
-  transform: translate(-35%, 0.8rem);
-}
-
-.md-tooltip--right {
-  transform: translate(2.3em, -2rem);
-}
-
-.md-tooltip--left {
-  transform: translate(calc(-100% - 0.8rem), -2rem);
-}
-
-.md-tooltip--top {
-  transform: translate(-35%, calc(-100% - 2.3rem));
-}
-
-.md-tooltip__child {
+.md-tooltip__anchor {
   display: flex;
   cursor: pointer;
   width: fit-content;
