@@ -151,7 +151,6 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
         <Ariakit.ComboboxProvider
           id={comboBoxId}
           selectedValue={selectedValues}
-          includesBaseElement={false}
           store={store}
           setSelectedValue={values => {
             setSelectedValues(values);
