@@ -34,7 +34,7 @@ export interface MdSelectProps {
   /**
    * When `true`, the popover will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
    * @default false
-   * @see https://ariakit.org/reference/combobox-popover#unmountonhide
+   * @see https://ariakit.org/reference/select-popover#unmountonhide
    */
   unmountOnHide?: boolean;
   /**
