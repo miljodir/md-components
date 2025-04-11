@@ -15,7 +15,7 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   anchorClassName?: string;
   tooltipClassName?: string;
   /**
-   * When `true`, the popover will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
+   * When `true`, the tooltip will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
    * @default false
    * @see https://ariakit.org/reference/tooltip#unmountonhide
    */
