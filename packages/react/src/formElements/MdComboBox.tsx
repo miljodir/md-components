@@ -33,6 +33,12 @@ export interface MdComboBoxBaseProps {
   hidePrefixIcon?: boolean;
   allowReset?: boolean;
   flip?: boolean;
+  /**
+   * When `true`, the popover will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
+   * @default false
+   * @see https://ariakit.org/reference/combobox-popover#unmountonhide
+   */
+  unmountOnHide?: boolean;
 }
 
 export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElement>, MdComboBoxBaseProps {
@@ -65,6 +71,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       allowReset = false,
       flip = false,
       onSelectOption,
+      unmountOnHide,
       ...otherProps
     },
     ref,
@@ -228,6 +235,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           </div>
 
           <Ariakit.ComboboxPopover
+            unmountOnHide={unmountOnHide}
             id={`${comboBoxId}_popover`}
             sameWidth
             slide={false}
