@@ -51,6 +51,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
       flip = false,
       hideSeparatorLine = false,
       onSelectOption,
+      unmountOnHide,
       ...otherProps
     },
     ref,
@@ -238,6 +239,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
             id={`${comboBoxId}_popover`}
             sameWidth
             slide={false}
+            unmountOnHide={unmountOnHide}
             gutter={-1}
             flip={flip}
             className="md-combobox__popover"
