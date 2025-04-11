@@ -141,6 +141,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       >
         <Ariakit.ComboboxProvider
           id={comboBoxId}
+          includesBaseElement={false}
           selectedValue={selectedValues}
           store={store}
           setSelectedValue={values => {
