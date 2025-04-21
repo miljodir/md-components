@@ -54,7 +54,7 @@ Hvis du ønsker å bruke et ikon fra Material som vi ikke har i vårt komponentb
 
 ## Bruk av Ariakit
 
-Vi bruker [Ariakit](https://ariakit.org/) sine unstyled, React primitiver for noen komponenter. Dette er et bibliotek som gir oss mulighet til å lage tilgjengelige komponenter med lite kode og høy kvalitet. Ariakit håndterer mange av de komplekse tilgjengelighetskravene som:
+Miljødirektoratets designsystem bruker [Ariakit](https://ariakit.org/) sine unstyled, React primitiver for noen komponenter. Dette er et bibliotek som gir mulighet til å lage tilgjengelige komponenter med lite kode og høy kvalitet. Ariakit håndterer mange av de komplekse tilgjengelighetskravene som:
 
 - Korrekte ARIA-roller og attributter
 - Tastaturnavigasjon
