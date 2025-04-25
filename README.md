@@ -52,6 +52,25 @@ Hvis du ønsker å bruke et ikon fra Material som vi ikke har i vårt komponentb
 - Grade: **0**
 - Fill: **No fill**
 
+## Bruk av Ariakit
+
+Miljødirektoratets designsystem bruker [Ariakit](https://ariakit.org/) sine unstyled, React primitiver for noen komponenter. Dette er et bibliotek som gir mulighet til å lage tilgjengelige komponenter med lite kode og høy kvalitet. Ariakit håndterer mange av de komplekse tilgjengelighetskravene som:
+
+- Korrekte ARIA-roller og attributter
+- Tastaturnavigasjon
+- Fokusstyring
+- Skjermleserannonseringer
+
+### Eksempel: MdComboBox
+
+MdComboBox-komponenten er bygget på Ariakit sin ComboBox-komponent, som gir avansert tilgjengelighetsstøtte. Dette inkluderer:
+
+- Automatisk håndtering av `aria-activedescendant`, `aria-controls`, `aria-expanded` og andre nødvendige attributter.
+- Dynamisk oppdatering av tilstand og fokus basert på brukerinteraksjoner.
+- Støtte for både enkel- og flervalgsmekanismer.
+
+Ved implementering utenfor React må disse tilgjengelighetskravene håndteres manuelt. Se [Ariakit-dokumentasjonen](https://ariakit.org/) for mer informasjon.
+
 ## Bidrag og/eller endringer
 
 Alle skal kunne bidra med komponenter til biblioteket, og også foreslå endringer. Selve komponentene ligger i `packages/react` og tilhørende css ligger i `packages/css`.
