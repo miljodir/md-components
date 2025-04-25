@@ -14,6 +14,12 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   mode?: 'small' | 'medium' | 'large';
   anchorClassName?: string;
   tooltipClassName?: string;
+  /**
+   * When `true`, the tooltip will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
+   * @default false
+   * @see https://ariakit.org/reference/tooltip#unmountonhide
+   */
+  unmountOnHide?: boolean;
 }
 
 export const MdTooltip: React.FC<MdTooltipProps> = ({
@@ -23,6 +29,7 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
   timeout = 250,
   mode = 'medium',
   anchorClassName = '',
+  unmountOnHide,
   tooltipClassName = '',
   ...otherProps
 }: MdTooltipProps) => {
@@ -33,7 +40,9 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
       <TooltipAnchor aria-label={tooltipContent} className={`md-tooltip__anchor ${anchorClassName}`} {...otherProps}>
         {children}
       </TooltipAnchor>
-      <Tooltip className={classNames}>{tooltipContent}</Tooltip>
+      <Tooltip unmountOnHide={unmountOnHide} className={classNames}>
+        {tooltipContent}
+      </Tooltip>
     </TooltipProvider>
   );
 };

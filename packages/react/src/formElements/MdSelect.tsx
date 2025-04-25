@@ -32,6 +32,12 @@ export interface MdSelectProps {
   dropdownHeight?: number;
   allowReset?: boolean;
   /**
+   * When `true`, the popover will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
+   * @default false
+   * @see https://ariakit.org/reference/select-popover#unmountonhide
+   */
+  unmountOnHide?: boolean;
+  /**
    * v5.0.0: onSelectOption now returns either a string or an array of strings
    */
   onSelectOption(_value: string[] | string): void;
@@ -54,6 +60,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
       dropdownHeight,
       allowReset = false,
       onSelectOption,
+      unmountOnHide,
       ...otherProps
     },
     ref,
@@ -194,6 +201,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
             </Ariakit.Select>
           </div>
           <Ariakit.SelectPopover
+            unmountOnHide={unmountOnHide}
             sameWidth
             slide={false}
             gutter={-1}
