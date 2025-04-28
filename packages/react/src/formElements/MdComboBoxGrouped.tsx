@@ -215,6 +215,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
               {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
                 <button
+                  type="button"
                   className="md-combobox__reset"
                   onClick={() => {
                     return onReset();
@@ -225,6 +226,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                 </button>
               )}
               <button
+                type="button"
                 className="md-combobox__toggle"
                 onClick={() => {
                   store.setOpen(!store.getState().open);

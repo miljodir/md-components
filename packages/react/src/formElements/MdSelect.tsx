@@ -180,6 +180,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
                 <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
                 {showReset() && (
                   <button
+                    type="button"
                     className="md-select__reset"
                     onClick={(e: React.MouseEvent) => {
                       return onReset(e);
@@ -190,6 +191,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
                   </button>
                 )}
                 <button
+                  type="button"
                   onClick={(e: React.MouseEvent) => {
                     toggle(e);
                   }}
