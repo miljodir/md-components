@@ -191,6 +191,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
                   </button>
                 )}
                 <button
+                  aria-label="Åpne/lukke liste"
                   type="button"
                   onClick={(e: React.MouseEvent) => {
                     toggle(e);
