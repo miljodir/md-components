@@ -213,6 +213,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
               {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
                 <button
+                  type="button"
                   className="md-combobox__reset"
                   onClick={() => {
                     return onReset();
@@ -223,6 +224,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                 </button>
               )}
               <button
+                type="button"
                 className="md-combobox__toggle"
                 onClick={() => {
                   store.setOpen(!store.getState().open);
