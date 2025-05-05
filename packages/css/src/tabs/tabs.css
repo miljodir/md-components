@@ -63,3 +63,47 @@
   background-color: var(--mdPrimaryColor20);
   cursor: pointer;
 }
+
+/* Compact tabs */
+.md-tabs-container.md-tabs__compact ul {
+  gap: 0;
+  flex-wrap: nowrap;
+  border-radius: 0.25rem;
+}
+
+.md-tabs-container.md-tabs__compact ul li .md-tabs-button {
+  height: 1.875rem;
+  padding: 0.25rem 1rem;
+  justify-content: center;
+  border: 0.0625rem solid var(--mdGreyColor40);
+}
+
+.md-tabs-container.md-tabs__compact ul li:first-child .md-tabs-button {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-right: none;
+}
+
+.md-tabs-container.md-tabs__compact ul li:last-child .md-tabs-button {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-left: none;
+}
+
+.md-tabs-container.md-tabs__compact ul li .md-tabs-button.md-tabs-button--selected {
+  background-color: var(--mdPrimaryColor80);
+  color: white;
+  border-color: var(--mdPrimaryColor80);
+  font-weight: 400;
+}
+
+
+.md-tabs-container.md-tabs__compact ul li .md-tabs-button--selected:hover:not(.md-tabs-button--disabled) {
+  background-color: var(--mdPrimaryColor);
+  color: white;
+  cursor: default;
+}
+
+.md-tabs-container.md-tabs__compact ul li .md-tabs-button::after {
+  display: none;
+}
