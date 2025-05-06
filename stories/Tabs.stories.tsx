@@ -85,6 +85,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    compact: {
+      type: { name: 'boolean' },
+      description: 'Use compact mode for the tabs.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -94,6 +105,7 @@ const Template = (args: Args) => {
       initialTab={args.initialTab}
       chips={args.chips}
       chipsPrefixIcon={args.chipsPrefixIcon ? <MdIconCheck /> : null}
+      compact={args.compact}
     >
       <MdTab title="Tab 1">
         <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the first tab</div>
@@ -121,4 +133,5 @@ Tabs.args = {
   initialTab: 0,
   chips: false,
   chipsPrefixIcon: false,
+  compact: false,
 };

@@ -9,6 +9,7 @@ export interface MdTabsProps {
   initialTab?: number;
   chips?: boolean;
   chipsPrefixIcon?: ReactNode;
+  compact?: boolean;
 }
 
 export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
@@ -16,13 +17,14 @@ export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
   initialTab = 0,
   chips = false,
   chipsPrefixIcon = false,
+  compact = false,
 }: MdTabsProps) => {
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   const tabs = children instanceof Array ? children : [children];
 
   return (
-    <div className="md-tabs-container">
+    <div className={`md-tabs-container${compact ? ' md-tabs__compact' : ''}`}>
       <ul>
         {tabs.map((item, index) => {
           return (
