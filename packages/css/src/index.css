@@ -37,8 +37,3 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
-button {
-  font-family: inherit;
-  color: #000;
-}
