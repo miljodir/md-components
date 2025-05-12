@@ -39,6 +39,7 @@
 
 .md-button__leftIcon {
   height: 1.25rem;
+  align-content: center;
   width: 1.25rem;
   flex-shrink: 0;
   margin-right: 0.5rem;
@@ -51,6 +52,7 @@
 .md-button__rightIcon {
   height: 1.25rem;
   width: 1.25rem;
+  align-content: center;
   flex-shrink: 0;
   margin-left: 0.5rem;
 }
