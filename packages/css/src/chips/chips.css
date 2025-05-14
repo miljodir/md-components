@@ -24,6 +24,10 @@
   background-color: var(--mdPrimaryColor120);
   color: #fff;
 }
+.md-chip.md-chip--active:not(.md-chip--disabled):hover {
+  background-color: var(--mdPrimaryColor120);
+  color: #fff;
+}
 .md-chip.md-chip--solid:not(.md-chip--disabled):focus {
   outline-offset: 0.1875rem;
 }
