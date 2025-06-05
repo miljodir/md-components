@@ -48,7 +48,7 @@
   outline-width: 2px;
   transition: outline-width 0.1s ease-in;
 }
-.md-select__button:disabled {
+.md-select__button[aria-disabled='true'] {
   background-color: var(--mdGreyColor20);
   border-color: var(--mdGreyColor60);
 }
