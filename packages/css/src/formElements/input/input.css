@@ -1,6 +1,6 @@
 .md-input__outer-wrapper {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
 }
 
 .md-input__outer-wrapper--small {
@@ -8,25 +8,25 @@
 }
 
 .md-input {
-  padding: 1rem 2rem 1rem 1rem;
+  padding: var(--spacing-16) var(--spacing-32) var(--spacing-16) var(--spacing-16);
   max-width: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--color-grey-white);
   border-radius: 0;
-  border: 1px solid var(--mdGreyColor60);
+  border: 1px solid var(--color-grey-60);
   margin: 1px;
-  color: var(--mdGreyColor);
-  font-size: 1rem;
+  color: var(--color-grey-100);
+  font-size: var(--typography-body-m-font-size);
   box-sizing: border-box;
 }
 
 .md-input--small {
-  padding: 0.5rem 2rem 0.5rem 1rem;
+  padding: var(--spacing-8) var(--spacing-32) var(--spacing-8) var(--spacing-16);
 }
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: 2px solid var(--color-primary-80);
   outline-offset: -2px;
   border-color: transparent;
 }
@@ -38,33 +38,33 @@
 }
 
 .md-input.md-input--disabled {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--color-grey-20);
 }
 
 .md-input.md-input--readonly:not(.md-input.md-input--disabled) {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--mdGreyColor60);
+  border-bottom: 1px solid var(--color-grey-60);
 }
 
 .md-input.md-input--error {
-  border-color: var(--mdErrorColor);
+  border-color: var(--color-support-error-100);
 }
 
 .md-input.md-input--has-suffix {
-  padding-right: 5rem;
+  padding-right: var(--spacing-80);
 }
 
 .md-input--small.md-input--has-suffix {
-  padding-right: 3.5rem;
+  padding-right: var(--spacing-56);
 }
 
 .md-input.md-input--has-prefix {
-  padding-left: 2.5rem;
+  padding-left: var(--spacing-40);
 }
 
 .md-input--small.md-input--has-prefix {
-  padding-left: 1.8rem;
+  padding-left: var(--spacing-32);
 }
 
 .md-input__wrapper {
@@ -76,7 +76,7 @@
 }
 
 .md-input__label-wrapper {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-8);
 }
 
 .md-input__label {
@@ -86,7 +86,7 @@
 }
 
 .md-input__label > * + * {
-  margin-left: 1rem;
+  margin-left: var(--spacing-16);
 }
 
 .md-input__help-button {
@@ -95,9 +95,9 @@
 }
 
 .md-input__error {
-  color: var(--mdErrorColor);
-  font-size: 0.88rem;
-  margin-top: 0.5rem;
+  color: var(--color-support-error-100);
+  font-size: var(--typography-body-s-font-size);
+  margin-top: var(--spacing-8);
 }
 
 .md-input__help-text {
@@ -107,60 +107,60 @@
 }
 
 .md-input__help-text--open {
-  padding-top: 0.5rem;
+  padding-top: var(--spacing-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
 .md-input__prefix {
   position: absolute;
-  top: 1.1rem;
-  left: 1rem;
-  height: 1.25rem;
-  width: 1.25rem;
+  top: var(--spacing-16);
+  left: var(--spacing-16);
+  height: var(--spacing-20);
+  width: var(--spacing-20);
   display: flex;
-  color: var(--mdPrimaryColor);
+  color: var(--color-primary-100);
 }
 
 .md-input__prefix.md-input__prefix--disabled {
-  color: var(--mdGreyColor60);
+  color: var(--color-grey-60);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__prefix {
-  top: 0.65rem;
-  left: 0.5rem;
+  top: var(--spacing-12);
+  left: var(--spacing-8);
 }
 
 .md-input__suffix {
   position: absolute;
-  top: 1.05rem;
-  right: 0.9rem;
+  top: var(--spacing-16);
+  right: var(--spacing-16);
   display: flex;
 }
 
 .md-input__suffix > * + * {
-  margin-left: 0.5rem;
+  margin-left: var(--spacing-8);
 }
 
 .md-input__error-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-left: 0.5rem;
-  color: var(--mdErrorColor);
+  width: var(--spacing-20);
+  height: var(--spacing-20);
+  margin-left: var(--spacing-8);
+  color: var(--color-support-error-100);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix {
-  top: 0.55rem;
-  right: 0.7rem;
+  top: var(--spacing-8);
+  right: var(--spacing-12);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix > * + * {
-  margin-left: 0.3rem;
+  margin-left: var(--spacing-4);
 }
 
 .md-input::placeholder {
-  color: var(--mdGreyColor60);
-  font-family: 'Open sans';
+  color: var(--color-grey-60);
+  font-family: var(--font-family-open-sans);
 }
 
 /* Hacks for hiding arrows if type=number */

@@ -1,25 +1,25 @@
 .md-textarea__outer-wrapper {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
 }
 
 .md-textarea {
-  padding: 1rem 2rem 1rem 1rem;
-  font-family: 'Open sans';
+  padding: var(--spacing-16) var(--spacing-32) var(--spacing-16) var(--spacing-16);
+  font-family: var(--font-family-open-sans);
   max-width: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--color-surface-primary);
   border-radius: 0;
-  border: 1px solid var(--mdGreyColor60);
+  border: 1px solid var(--color-border-primary);
   margin: 1px;
-  color: var(--mdGreyColor);
-  font-size: 1rem;
+  color: var(--color-text-primary);
+  font-size: var(--typography-body-m-font-size);
   box-sizing: border-box;
 }
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: 2px solid var(--color-cta-primary-focus);
   outline-offset: -2px;
   border-color: transparent;
 }
@@ -31,7 +31,7 @@
 }
 
 .md-textarea.md-textarea--disabled {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--color-disabled-bg);
 }
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
@@ -40,11 +40,11 @@
 }
 
 .md-textarea.md-textarea--error {
-  border-color: var(--mdErrorColor);
+  border-color: var(--color-attention-error-primary);
 }
 
 .md-textarea__label-wrapper {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-8);
 }
 
 .md-textarea__label {
@@ -54,7 +54,7 @@
 }
 
 .md-textarea__label > * + * {
-  margin-left: 1rem;
+  margin-left: var(--spacing-16);
 }
 
 .md-textarea__help-button {
@@ -63,9 +63,9 @@
 }
 
 .md-textarea__error {
-  color: var(--mdErrorColor);
-  font-size: 0.88rem;
-  margin-top: 0.5rem;
+  color: var(--color-attention-error-primary);
+  font-size: var(--typography-body-s-font-size);
+  margin-top: var(--spacing-8);
 }
 
 .md-textarea__help-text {
@@ -75,12 +75,12 @@
 }
 
 .md-textarea__help-text--open {
-  padding-top: 0.5rem;
+  padding-top: var(--spacing-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
 .md-textarea::placeholder {
-  color: var(--mdGreyColor60);
-  font-family: 'Open sans';
+  color: var(--color-text-disabled);
+  font-family: var(--font-family-open-sans);
 }

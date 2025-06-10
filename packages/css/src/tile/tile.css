@@ -1,16 +1,16 @@
 /* HORIZONTAL TILES */
 .md-tile {
-  padding: 1.5rem;
-  border: 1px solid var(--mdGreyColor60);
-  background-color: var(--mdPrimaryColor10);
-  color: var(--mdGreyColor);
+  padding: var(--spacing-24);
+  border: 1px solid var(--color-border-primary);
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  font-family: 'Open sans';
+  font-family: var(--font-family-open-sans);
   box-sizing: border-box;
-  gap: 1.5rem;
+  gap: var(--spacing-24);
   text-align: start;
   width: 27.5rem;
   min-width: 27.5rem;
@@ -26,8 +26,8 @@
 .md-tile--small {
   width: 20rem;
   min-width: 20rem;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
 }
 
 .md-tile--fullWidth {
@@ -40,30 +40,30 @@
 }
 
 .md-tile:not(.md-tile--disabled):hover {
-  border: 1px solid var(--mdPrimaryColor);
-  background-color: var(--mdPrimaryColor30);
+  border: 1px solid var(--color-cta-primary-default);
+  background-color: var(--color-cta-primary-hover);
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
 
 .md-tile:not(.md-tile--disabled):focus {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: 2px solid var(--color-cta-primary-default);
   outline-offset: -2px;
-  background-color: var(--mdPrimaryColor30);
+  background-color: var(--color-cta-primary-hover);
 }
 
 .md-tile--secondary:not(.md-tile--disabled):hover {
-  background-color: var(--mdSecondaryColor80);
+  background-color: var(--color-cta-secondary-hover);
 }
 
 .md-tile--secondary:not(.md-tile--disabled):focus {
-  background-color: var(--mdSecondaryColor80);
+  background-color: var(--color-cta-secondary-hover);
 }
 
 .md-tile--disabled {
-  background-color: var(--mdGreyColor20);
-  border: 1px solid var(--mdGreyColor60);
-  color: var(--mdGreyColor60);
+  background-color: var(--color-disabled-bg);
+  border: 1px solid var(--color-text-disabled);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -77,7 +77,7 @@
   height: 4rem;
   width: 4rem;
   margin-right: 1rem;
-  color: var(--mdPrimaryColor80);
+  color: var(--color-cta-primary-focus);
 }
 .md-tile__content-icon .md-loading-spinner__container {
   height: 100%;
@@ -91,7 +91,7 @@
 }
 
 .md-tile--disabled .md-tile__content-icon {
-  color: var(--mdGreyColor60);
+  color: var(--color-text-disabled);
 }
 
 .md-tile__content-heading {
@@ -123,10 +123,10 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--mdGreyColor60);
-  background-color: var(--mdPrimaryColor10);
-  color: var(--mdGreyColor);
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-primary);
   text-decoration: none;
-  font-family: 'Open sans';
+  font-family: var(--font-family-open-sans);
   transition: all 0.15s ease-in-out;
 }
 

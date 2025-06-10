@@ -1,5 +1,5 @@
 .md-multiselect {
-  font-family: 'Open sans';
+  font-family: var(--font-family-open-sans);
   width: 100%;
 }
 
@@ -18,35 +18,35 @@
 }
 
 .md-multiselect__label-wrapper {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-8);
 }
 
 .md-multiselect__label > * + * {
-  margin-left: 1rem;
+  margin-left: var(--spacing-16);
 }
 
 .md-multiselect__button {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  padding: 1rem;
-  border: 1px solid var(--mdGreyColor60);
-  color: var(--mdGreyColor);
+  background-color: var(--color-surface-primary);
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
   text-align: left;
   cursor: pointer;
 }
 
 .md-multiselect__button.md-multiselect--small {
-  padding: 0.75rem;
+  padding: var(--spacing-12);
 }
 
 .md-multiselect--disabled .md-multiselect__button {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
+  background-color: var(--color-disabled-bg);
+  color: var(--color-text-disabled);
   cursor: default;
 }
 
@@ -123,10 +123,10 @@
 .md-multiselect__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
   border: 0;
-  background-color: #fff;
+  background-color: var(--color-surface-primary);
   text-align: left;
   transition: background-color 0.15s ease-in-out;
   cursor: pointer;
@@ -150,12 +150,12 @@
 }
 
 .md-multiselect__dropdown-item .md-checkbox__labelText {
-  font-family: 'Open Sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.375rem;
-  color: var(--mdGreyColor);
+  line-height: var(--typography-body-m-line-height);
+  color: var(--color-text-primary);
 }
 
 .md-multiselect__dropdown-item:hover,

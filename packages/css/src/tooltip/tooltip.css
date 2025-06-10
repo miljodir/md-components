@@ -1,22 +1,22 @@
 .md-tooltip {
-  background-color: white;
+  background-color: var(--color-surface-primary);
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.12),
     0px 0px 1px 0px rgba(0, 0, 0, 0.14);
-  border: 1px solid var(--mdPrimaryColor);
-  font-family: 'Open Sans';
+  border: 1px solid var(--color-border-tertiary);
+  font-family: var(--font-family-open-sans);
   height: fit-content;
   width: fit-content;
   font-weight: 400;
-  font-size: 0.875rem;
-  border-radius: 0.5rem;
-  padding: 0.625rem;
+  font-size: var(--typography-body-s-font-size);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-8);
 }
 
 .md-tooltip--small {
-  font-size: 0.75rem;
+  font-size: var(--typography-label-s-font-size);
 }
 .md-tooltip--large {
-  font-size: 1rem;
+  font-size: var(--typography-body-m-font-size);
 }
 
 .md-tooltip__anchor {

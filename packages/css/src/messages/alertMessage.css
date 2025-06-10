@@ -2,12 +2,12 @@
 .md-info-box {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-family: 'Open sans';
-  font-size: 1rem;
-  padding: 1rem;
-  background-color: var(--mdSecondaryColor20);
-  border: 1px dashed var(--mdPrimaryColor);
+  gap: var(--spacing-16);
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
+  padding: var(--spacing-16);
+  background-color: var(--color-surface-tertiary);
+  border: 1px dashed var(--color-border-tertiary);
 }
 .md-info-box:not(.md-info-box--fullWidth) {
   max-width: 634px;
@@ -18,10 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
   width: 100%;
-  background-color: var(--mdPrimaryColor10);
+  background-color: var(--color-surface-secondary);
 }
 
 .md-alert-message:not(.md-alert-message--fullWidth) {
@@ -29,14 +29,14 @@
 }
 
 .md-alert-message--confirm {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--color-surface-info-primary);
 }
 .md-alert-message--warning {
-  background-color: var(--mdWarningBackgroundColor);
+  background-color: var(--color-attention-warning-bg);
 }
 .md-alert-message--error {
-  background-color: var(--mdErrorColor);
-  color: #fff;
+  background-color: var(--color-attention-error-primary);
+  color: var(--color-text-invert);
 }
 
 .md-alert-message__icon {

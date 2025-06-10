@@ -4,11 +4,11 @@
   align-items: center;
   max-width: fit-content;
   z-index: 2;
-  background-color: var(--mdPrimaryColor20);
-  color: var(--mdGreyColor);
-  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-  border-radius: 0.25rem;
-  font-family: 'Open Sans';
+  background-color: var(--color-cta-secondary-hover);
+  color: var(--color-text-primary);
+  padding: var(--spacing-4) var(--spacing-12) var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-open-sans);
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -17,33 +17,33 @@
 }
 
 .md-info-tag--button:hover {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: 2px solid var(--color-cta-primary-default);
   outline-offset: -2px;
   text-decoration: underline;
   cursor: pointer;
 }
 
 .md-info-tag--secondary {
-  background-color: var(--mdSecondaryColor40);
+  background-color: var(--color-surface-info-secondary);
 }
 .md-info-tag--warning {
-  background-color: var(--mdWarningBackgroundColor);
+  background-color: var(--color-attention-warning-bg);
 }
 .md-info-tag--warning.md-info-tag--button:hover {
-  outline: 2px solid var(--mdWarningColor);
+  outline: 2px solid var(--color-attention-warning-primary);
   outline-offset: -2px;
 }
 
 .md-info-tag--danger {
-  background-color: var(--mdErrorColor);
-  color: #fff;
+  background-color: var(--color-attention-error-primary);
+  color: var(--color-text-invert);
 }
 .md-info-tag--success {
-  background-color: var(--mdGreenColor60);
+  background-color: var(--color-tertiary-blue-light);
 }
 
 .md-info-tag--outline {
-  outline: 1px solid var(--mdGreyColor80);
+  outline: 1px solid var(--color-text-disabled);
   outline-offset: -1px;
 }
 
@@ -71,6 +71,6 @@
 }
 
 .md-info-tag__icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  height: var(--spacing-20);
+  width: var(--spacing-20);
 }

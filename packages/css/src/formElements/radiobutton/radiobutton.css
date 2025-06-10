@@ -1,6 +1,6 @@
 .md-radiobutton {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
   border: none;
   padding: 0;
 }
@@ -12,7 +12,7 @@
 }
 
 .md-radiobutton:focus-within {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: 2px solid var(--color-cta-primary-default);
   outline-offset: 2px;
 }
 .md-radiobutton input[type='radio'] {
@@ -31,29 +31,29 @@
 }
 
 .md-radiobutton__check-area {
-  width: 1.45rem;
+  width: var(--spacing-20);
   flex-shrink: 0;
-  height: 1.45rem;
+  height: var(--spacing-20);
   display: block;
-  background-color: #fff;
-  border: 1px solid var(--mdPrimaryColor);
+  background-color: var(--color-surface-primary);
+  border: 1px solid var(--color-border-tertiary);
   border-radius: 50%;
-  margin: 0 0.5rem 0 0;
+  margin: 0 var(--spacing-8) 0 0;
   box-sizing: border-box;
   position: relative;
 }
 
 .md-radiobutton:not(.md-radiobutton--disabled):focus-within .md-radiobutton__check-area,
 .md-radiobutton:not(.md-radiobutton--disabled):hover .md-radiobutton__check-area {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--color-cta-secondary-hover);
   text-decoration: underline;
 }
 
 .md-radiobutton__selected-dot {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
   display: block;
-  background-color: var(--mdPrimaryColor);
+  background-color: var(--color-cta-primary-default);
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
@@ -71,9 +71,9 @@
   cursor: default;
 }
 .md-radiobutton--disabled .md-radiobutton__check-area {
-  background-color: var(--mdGreyColor20);
-  border-color: var(--mdGreyColor60);
+  background-color: var(--color-disabled-bg);
+  border-color: var(--color-disabled-default);
 }
 .md-radiobutton--disabled .md-radiobutton__selected-dot {
-  background-color: var(--mdGreyColor60);
+  background-color: var(--color-text-disabled);
 }

@@ -95,7 +95,7 @@
     }
 
     .text-black {
-      color: var(--mdTextColor);
+      color: var(--color-text-primary);
     }
   }
 }

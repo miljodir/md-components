@@ -1,50 +1,50 @@
 .md-chip {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  outline: 1px solid var(--mdPrimaryColor);
+  background-color: var(--color-surface-primary);
+  outline: 1px solid var(--color-border-tertiary);
   outline-offset: -1px;
   border: none;
   border-radius: 10rem;
-  color: var(--mdPrimaryColor);
+  color: var(--color-text-secondary);
   font-weight: 400;
-  font-family: 'Open sans';
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
+  font-family: var(--font-family-open-sans);
+  font-size: var(--typography-body-m-font-size);
+  line-height: var(--typography-body-m-line-height);
+  padding: var(--spacing-8) var(--spacing-16);
   cursor: pointer;
   text-align: left;
 }
 
 .md-chip.md-chip--solid:not(.md-chip--disabled) {
-  background-color: var(--mdPrimaryColor80);
-  color: #fff;
+  background-color: var(--color-cta-primary-focus);
+  color: var(--color-text-invert);
 }
 .md-chip.md-chip--solid:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor120);
-  color: #fff;
+  background-color: var(--color-cta-primary-hover);
+  color: var(--color-text-invert);
 }
 .md-chip.md-chip--active:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor120);
-  color: #fff;
+  background-color: var(--color-cta-primary-hover);
+  color: var(--color-text-invert);
 }
 .md-chip.md-chip--solid:not(.md-chip--disabled):focus {
   outline-offset: 0.1875rem;
 }
 
 .md-chip:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--color-cta-secondary-hover);
 }
 
 .md-chip:not(.md-chip--disabled):focus {
-  outline: 0.1875rem solid var(--mdPrimaryColor);
+  outline: 0.1875rem solid var(--color-cta-primary-default);
   outline-offset: -0.1875rem;
 }
 
 .md-chip--disabled {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
-  outline: 1px solid var(--mdGreyColor60);
+  background-color: var(--color-disabled-bg);
+  color: var(--color-text-disabled);
+  outline: 1px solid var(--color-disabled-default);
   cursor: default;
 }
 
@@ -64,8 +64,8 @@
 
 .md-chip__left-icon {
   display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--spacing-20);
+  height: var(--spacing-20);
   margin-right: 0.66rem;
 }
 
@@ -75,7 +75,7 @@
 
 .md-chip__right-icon {
   display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--spacing-20);
+  height: var(--spacing-20);
   margin-left: 0.8rem;
 }

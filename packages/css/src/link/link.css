@@ -1,37 +1,37 @@
 .md-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  color: var(--mdPrimaryColor);
+  gap: var(--spacing-4);
+  color: var(--color-primary-100);
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-family: 'Open sans';
+  font-family: var(--font-family-open-sans);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: var(--typography-body-m-font-size);
   text-decoration: underline;
-  padding: 0.125rem 0.0625rem;
+  padding: var(--spacing-4);
 }
 
 .md-link__icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  height: var(--spacing-20);
+  width: var(--spacing-20);
 }
 
 .md-link:hover {
-  color: var(--mdPrimaryColor120);
+  color: var(--color-primary-120);
   text-decoration-thickness: 0.0938rem;
-  text-decoration-color: var(--mdPrimaryColor);
+  text-decoration-color: var(--color-primary-100);
 }
 
 .md-link:focus {
-  outline: 1px solid var(--mdPrimaryColor80);
+  outline: 1px solid var(--color-primary-80);
 }
 
 .md-link:active {
-  background-color: var(--mdPrimaryColor10);
+  background-color: var(--color-primary-10);
 }
 
 .md-link:visited {
-  color: var(--mdPrimaryColor160);
+  color: var(--color-primary-160);
 }
