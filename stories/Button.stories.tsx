@@ -59,8 +59,18 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    mode: {
+      description: 'Button size mode',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      options: ['small', 'medium', 'large'],
+      control: { type: 'inline-radio' },
+    },
     small: {
-      description: 'Make button smaller',
+      description: 'Make button smaller (deprecated - use mode="small" instead)',
       table: {
         type: {
           summary: 'boolean',
@@ -107,7 +117,8 @@ export default {
 interface ButtonArgs {
   children: string | React.ReactNode;
   disabled: boolean;
-  theme: 'primary' | 'secondary' | 'danger' | 'tertiary';
+  theme: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'danger-secondary';
+  mode: 'small' | 'medium' | 'large';
   small: boolean;
   loading?: boolean;
 }
@@ -118,6 +129,7 @@ const Template = (args: ButtonArgs) => {
       onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
+      mode={args.mode}
       small={args.small}
       loading={args.loading}
     >
@@ -131,6 +143,7 @@ const TemplateWithIcon = (args: ButtonArgs) => {
       onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
+      mode={args.mode}
       small={args.small}
       rightIcon={<MdIconChevronForward />}
     >
@@ -145,6 +158,7 @@ const TemplateWithTopIcon = (args: ButtonArgs) => {
       onClick={action(args.children as string)}
       disabled={args.disabled}
       theme={args.theme}
+      mode={args.mode}
       small={args.small}
       topIcon={<MdIconClose />}
     >
@@ -158,6 +172,7 @@ Primary.args = {
   theme: 'primary',
   children: 'Hovedknapp',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -167,6 +182,7 @@ Secondary.args = {
   theme: 'secondary',
   children: 'Sekundærknapp',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -176,6 +192,7 @@ Tertiary.args = {
   theme: 'tertiary',
   children: 'Tertiærknapp',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -185,6 +202,7 @@ Error.args = {
   theme: 'danger',
   children: 'Advarselsknapp',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -194,6 +212,7 @@ ErrorSecondary.args = {
   theme: 'danger-secondary',
   children: 'Advarselsknapp sekundær',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -203,6 +222,7 @@ Disabled.args = {
   theme: 'primary',
   children: 'Deaktivert knapp',
   disabled: true,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -212,6 +232,7 @@ ButtonWithIcon.args = {
   theme: 'primary',
   children: 'Knapp med ikon',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
@@ -221,6 +242,7 @@ ButtonWithTopIcon.args = {
   theme: 'primary',
   children: 'Knapp med ikon',
   disabled: false,
+  mode: 'medium',
   small: false,
   loading: false,
 };
