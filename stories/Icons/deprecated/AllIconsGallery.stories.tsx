@@ -60,7 +60,6 @@ export default {
       },
       description: {
         component:
-          // eslint-disable-next-line quotes
           '### These icons are deprecated and will be removed in a future release. Please use the new icons prefixed with `MdIcon` instead.',
       },
     },

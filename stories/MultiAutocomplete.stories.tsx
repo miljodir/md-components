@@ -1,5 +1,6 @@
 /* eslint-disable quotes */
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
+// eslint-disable-next-line import/named
 import { useArgs } from '@storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/multiautocomplete/README.md';
@@ -192,7 +193,6 @@ export default {
     ref: {
       type: { name: 'Ref<HTMLButtonElement>' },
       description:
-        // eslint-disable-next-line quotes
         "Ref to the input element that toggles the select dropdown, use for example to bring focus to the component when there's an error.",
     },
   },
