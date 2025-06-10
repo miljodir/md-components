@@ -54,7 +54,7 @@
   line-height: 1.5rem;
 }
 
-.md-accordion-item__header:focus {
+.md-accordion-item__header:focus-visible {
   outline: 2px solid var(--mdPrimaryColor80);
   outline-offset: -8px;
 }
@@ -138,7 +138,7 @@
   text-decoration: underline;
 }
 
-.md-accordion-item__close-button:focus {
+.md-accordion-item__close-button:focus-visible {
   outline: 2px solid var(--mdPrimaryColor80);
   outline-offset: 2px;
 }

@@ -11,10 +11,11 @@
   position: relative;
 }
 
-.md-radiobutton:focus-within {
+.md-radiobutton:has(input[type='radio']:focus-visible) {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: 2px;
 }
+
 .md-radiobutton input[type='radio'] {
   position: absolute;
   left: 0;
@@ -43,7 +44,7 @@
   position: relative;
 }
 
-.md-radiobutton:not(.md-radiobutton--disabled):focus-within .md-radiobutton__check-area,
+.md-radiobutton:has(input[type='radio']:focus-visible) .md-radiobutton__check-area,
 .md-radiobutton:not(.md-radiobutton--disabled):hover .md-radiobutton__check-area {
   background-color: var(--mdPrimaryColor20);
   text-decoration: underline;
