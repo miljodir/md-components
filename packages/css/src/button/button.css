@@ -8,7 +8,7 @@
   font-size: 1rem;
   padding: 0.75rem 1rem;
   width: fit-content;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
 }
 
@@ -25,7 +25,7 @@
 
 .md-button--small {
   padding: 0.5rem 0.75rem;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .md-button__topIcon {
