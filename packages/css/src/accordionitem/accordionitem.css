@@ -48,8 +48,10 @@
   border: 0;
   width: 100%;
   margin: 0;
+  color: var(--mdGreyColor);
   padding: 1.5em 1.8em;
   cursor: pointer;
+  font-family: 'SofiaPro-Regular', 'Sofia Pro', 'Open Sans', 'sans-serif' !important;
   text-align: left;
   line-height: 1.5rem;
 }
