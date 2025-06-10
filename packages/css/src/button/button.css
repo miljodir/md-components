@@ -8,6 +8,7 @@
   font-size: 1rem;
   padding: 0.75rem 1rem;
   width: fit-content;
+  border-radius: 8px;
   border: none;
 }
 
@@ -24,7 +25,7 @@
 
 .md-button--small {
   padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
 }
 
 .md-button__topIcon {
@@ -96,7 +97,7 @@
 }
 
 .md-button--small.md-button--secondary {
-  padding: 0.5rem 0.75rem;
+  padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
 }
 
 .md-button--secondary:hover:enabled {
@@ -128,7 +129,6 @@
 .md-button--tertiary {
   background-color: transparent;
   border: none;
-  border-radius: 0.43rem;
   color: var(--mdPrimaryColor);
   padding: 0.75rem 1rem;
 }
@@ -190,7 +190,7 @@
 }
 
 .md-button--small.md-button--danger-secondary {
-  padding: 0.5rem 0.75rem;
+  padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
 }
 
 .md-button--danger-secondary:hover:enabled {
