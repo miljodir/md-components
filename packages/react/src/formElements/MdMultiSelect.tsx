@@ -65,6 +65,11 @@ export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectPr
     },
     ref,
   ) => {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'MdMultiSelect is deprecated and will be removed in a future release. Use MdSelect multiple options instead.',
+    );
+
     const uuid = useId();
     const multiSelectId = id || uuid;
     const [open, setOpen] = useState(false);
