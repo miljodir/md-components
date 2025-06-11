@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/addon-docs';
+import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+
+export const CopyButton = ({ text }) => {
+  return (
+    <button
+      onClick={() => navigator.clipboard.writeText(text)}
+      title="Copy to clipboard"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        padding: '0.25rem 0.5rem',
+        background: 'transparent',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        fontSize: '0.875rem'
+      }}
+    >
+      {text}
+      <MdIconContentCopy style={{ width: '1rem', height: '1rem' }} />
+    </button>
+  );
+};
+
+export const RadiusDemo = ({ radius, name, cssVar }) => {
+  return (
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '1rem', 
+      marginBottom: '1rem',
+      padding: '0.5rem',
+      border: '1px solid #eee',
+      borderRadius: '4px'
+    }}>
+      <div style={{ 
+        width: '80px', 
+        height: '60px', 
+        backgroundColor: '#005e5d',
+        borderRadius: `var(${cssVar})`
+      }} />
+      <div style={{ flex: 1 }}>
+        <div style={{ fontWeight: '600', fontSize: '0.875rem' }}>{name}</div>
+        <div style={{ fontSize: '0.75rem', color: '#666' }}>{radius}</div>
+      </div>
+      <CopyButton text={cssVar} />
+    </div>
+  );
+};
+
+<Meta
+  title="Introduction/Border Radius"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    backgrounds: { disable: true },
+  }}
+/>
+
+# Border Radius
+
+Consistent rounded corner values for creating cohesive visual hierarchy.
+
+## Radius Scale
+
+<div style={{ maxWidth: '600px' }}>
+  <RadiusDemo radius="2px" name="Extra Small" cssVar="--md-radius-xs" />
+  <RadiusDemo radius="4px" name="Small" cssVar="--md-radius-sm" />
+  <RadiusDemo radius="8px" name="Medium" cssVar="--md-radius-md" />
+  <RadiusDemo radius="16px" name="Large" cssVar="--md-radius-lg" />
+  <RadiusDemo radius="360px" name="Extra Large" cssVar="--md-radius-xl" />
+</div>
+
+## Usage Examples
+
+### Components
+Use radius tokens for consistent component styling:
+```css
+.card {
+  border-radius: var(--md-radius-md);
+}
+
+.button {
+  border-radius: var(--md-radius-sm);
+}
+
+.pill {
+  border-radius: var(--md-radius-xl);
+}
+```
+
+### Guidelines
+- **XS (2px)**: Small interactive elements, tags
+- **SM (4px)**: Buttons, inputs, small cards
+- **MD (8px)**: Cards, modals, containers
+- **LG (16px)**: Large containers, sections
+- **XL (360px)**: Pills, badges, fully rounded elements

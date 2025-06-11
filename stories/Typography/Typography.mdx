@@ -1,0 +1,213 @@
+import { Meta } from '@storybook/addon-docs';
+import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+
+export const CopyButton = ({ text }) => {
+  return (
+    <button
+      onClick={() => navigator.clipboard.writeText(text)}
+      title="Copy to clipboard"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        padding: '0.25rem 0.5rem',
+        background: 'transparent',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        fontSize: '0.875rem'
+      }}
+    >
+      {text}
+      <MdIconContentCopy style={{ width: '1rem', height: '1rem' }} />
+    </button>
+  );
+};
+
+<Meta
+  title="Introduction/Typography"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    backgrounds: { disable: true },
+  }}
+/>
+
+# Typography
+
+Design system typography tokens for font families, sizes, and line heights.
+
+## Font Families
+
+### Sofia Pro
+Used for headings and display text.
+
+<div style={{ fontFamily: 'var(--md-font-family-sofia-pro)', fontSize: '1.5rem', marginBottom: '1rem' }}>
+  The quick brown fox jumps over the lazy dog
+</div>
+
+**CSS Variable:** <CopyButton text="--md-font-family-sofia-pro" />
+
+### Open Sans
+Used for body text and UI elements.
+
+<div style={{ fontFamily: 'var(--md-font-family-open-sans)', fontSize: '1rem', marginBottom: '1rem' }}>
+  The quick brown fox jumps over the lazy dog
+</div>
+
+**CSS Variable:** <CopyButton text="--md-font-family-open-sans" />
+
+## Heading Typography
+
+### Heading XXL
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-xxl-font-size)', 
+  lineHeight: 'var(--md-typography-heading-xxl-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading XXL Sample
+</div>
+**Size:** 34px / 40px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-xxl-font-size" /> <CopyButton text="--md-typography-heading-xxl-line-height" />
+
+### Heading XL
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-xl-font-size)', 
+  lineHeight: 'var(--md-typography-heading-xl-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading XL Sample
+</div>
+**Size:** 36px / 44px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-xl-font-size" /> <CopyButton text="--md-typography-heading-xl-line-height" />
+
+### Heading L
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-l-font-size)', 
+  lineHeight: 'var(--md-typography-heading-l-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading L Sample
+</div>
+**Size:** 28px / 34px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-l-font-size" /> <CopyButton text="--md-typography-heading-l-line-height" />
+
+### Heading M
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-m-font-size)', 
+  lineHeight: 'var(--md-typography-heading-m-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading M Sample
+</div>
+**Size:** 24px / 30px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-m-font-size" /> <CopyButton text="--md-typography-heading-m-line-height" />
+
+### Heading S
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-s-font-size)', 
+  lineHeight: 'var(--md-typography-heading-s-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading S Sample
+</div>
+**Size:** 20px / 24px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-s-font-size" /> <CopyButton text="--md-typography-heading-s-line-height" />
+
+### Heading XS
+<div style={{ 
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  fontSize: 'var(--md-typography-heading-xs-font-size)', 
+  lineHeight: 'var(--md-typography-heading-xs-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Heading XS Sample
+</div>
+**Size:** 18px / 22px  
+**CSS Variables:** <CopyButton text="--md-typography-heading-xs-font-size" /> <CopyButton text="--md-typography-heading-xs-line-height" />
+
+## Body Typography
+
+### Body L
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-body-l-font-size)', 
+  lineHeight: 'var(--md-typography-body-l-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Body L sample text for reading and content.
+</div>
+**Size:** 18px / 28px  
+**CSS Variables:** <CopyButton text="--md-typography-body-l-font-size" /> <CopyButton text="--md-typography-body-l-line-height" />
+
+### Body M
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-body-m-font-size)', 
+  lineHeight: 'var(--md-typography-body-m-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Body M sample text for reading and content.
+</div>
+**Size:** 16px / 24px  
+**CSS Variables:** <CopyButton text="--md-typography-body-m-font-size" /> <CopyButton text="--md-typography-body-m-line-height" />
+
+### Body S
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-body-s-font-size)', 
+  lineHeight: 'var(--md-typography-body-s-line-height)',
+  marginBottom: '0.5rem'
+}}>
+  Body S sample text for reading and content.
+</div>
+**Size:** 14px / 20px  
+**CSS Variables:** <CopyButton text="--md-typography-body-s-font-size" /> <CopyButton text="--md-typography-body-s-line-height" />
+
+## Label Typography
+
+### Label L
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-label-l-font-size)', 
+  lineHeight: 'var(--md-typography-label-l-line-height)',
+  fontWeight: '600',
+  marginBottom: '0.5rem'
+}}>
+  Label L Sample
+</div>
+**Size:** 18px / 28px  
+**CSS Variables:** <CopyButton text="--md-typography-label-l-font-size" /> <CopyButton text="--md-typography-label-l-line-height" />
+
+### Label M
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-label-m-font-size)', 
+  lineHeight: 'var(--md-typography-label-m-line-height)',
+  fontWeight: '600',
+  marginBottom: '0.5rem'
+}}>
+  Label M Sample
+</div>
+**Size:** 16px / 24px  
+**CSS Variables:** <CopyButton text="--md-typography-label-m-font-size" /> <CopyButton text="--md-typography-label-m-line-height" />
+
+### Label S
+<div style={{ 
+  fontFamily: 'var(--md-font-family-open-sans)',
+  fontSize: 'var(--md-typography-label-s-font-size)', 
+  lineHeight: 'var(--md-typography-label-s-line-height)',
+  fontWeight: '600',
+  marginBottom: '0.5rem'
+}}>
+  Label S Sample
+</div>
+**Size:** 14px / 20px  
+**CSS Variables:** <CopyButton text="--md-typography-label-s-font-size" /> <CopyButton text="--md-typography-label-s-line-height" />

@@ -11,9 +11,23 @@ import { Meta } from '@storybook/blocks';
   }}
 />
 
-<div className="gs-wrapper">
+<div style={{
+  fontFamily: 'var(--md-sys-typescale-body-large-font)',
+  maxWidth: '800px',
+  margin: '0 auto',
+  padding: '2rem',
+  lineHeight: '1.6'
+}}>
 
 # Getting started
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container-low)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  marginBottom: '2rem',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
 
 ## Installation
 
@@ -23,11 +37,28 @@ Install the necessary packages from npm
 npm install @miljodirektoratet/md-react @miljodirektoratet/md-css
 ```
 
-You can install the CSS-package only, if you do not need the React components.
+<p style={{ fontSize: 'var(--md-sys-typescale-body-medium-size)', color: 'var(--md-sys-color-on-surface-variant)', marginTop: '1rem' }}>
+  You can install the CSS-package only, if you do not need the React components.
+</p>
+
+</div>
 
 ## Usage
 
 Each Story in this Storybook has instructions on how the component should be implemented and used, but here are some examples.
+
+<div style={{
+  display: 'grid',
+  gap: '1.5rem',
+  marginTop: '1.5rem'
+}}>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
 
 ### React
 
@@ -47,6 +78,15 @@ import { MdButton } from @miljodirektoratet/md-react;
   Hovedknapp
 </MdButton>
 ```
+
+</div>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
 
 ### CSS
 
@@ -72,5 +112,9 @@ Import the CSS directly into you React component, where you want to use a compon
 import { MdButton } from @miljodirektoratet/md-react;
 import "@miljodirektoratet/md-css";
 ```
+
+</div>
+
+</div>
 
 </div>

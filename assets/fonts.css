@@ -35,35 +35,37 @@
 /* @import must be at top of file, otherwise CSS will not work */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
+/* Individual font families (legacy support) */
 @font-face {
   font-family: 'SofiaPro-Regularitalic';
   src: url('./webfonts/SofiaPro-Regularitalic/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Regularitalic/font.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
 }
 @font-face {
   font-family: 'SofiaPro-Light';
   src: url('./webfonts/SofiaPro-Light/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Light/font.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 @font-face {
   font-family: 'SofiaPro-Lightitalic';
   src: url('./webfonts/SofiaPro-Lightitalic/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Lightitalic/font.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
 }
 @font-face {
   font-family: 'SofiaPro-Medium';
   src: url('./webfonts/SofiaPro-Medium/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Medium/font.woff') format('woff');
-}
-@font-face {
-  font-family: 'SofiaPro-Regular';
-  src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'),
-    url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SofiaPro';
+  font-family: 'SofiaPro-Regular';
   src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
   font-weight: 400;
@@ -74,6 +76,50 @@
   src: url('./webfonts/SofiaPro-Bold/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Bold/font.woff') format('woff');
   font-weight: 700;
+  font-style: normal;
+}
+
+/* Unified SofiaPro font family for design tokens */
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Light/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Light/font.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Lightitalic/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Lightitalic/font.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Regularitalic/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Regularitalic/font.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Medium/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Medium/font.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Medium/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Medium/font.woff') format('woff');
+  font-weight: 600;
   font-style: normal;
 }
 @font-face {

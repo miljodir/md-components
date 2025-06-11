@@ -1,0 +1,214 @@
+import { Meta } from '@storybook/addon-docs';
+import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+
+export const CopyButton = ({ text }) => {
+  return (
+    <button
+      onClick={() => navigator.clipboard.writeText(text)}
+      title="Copy to clipboard"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        padding: '0.25rem 0.5rem',
+        background: 'transparent',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        fontSize: '0.875rem'
+      }}
+    >
+      {text}
+      <MdIconContentCopy style={{ width: '1rem', height: '1rem' }} />
+    </button>
+  );
+};
+
+export const SemanticColorDemo = ({ cssVar, name, description }) => {
+  return (
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '1rem', 
+      marginBottom: '1rem',
+      padding: '0.75rem',
+      border: '1px solid #eee',
+      borderRadius: '4px'
+    }}>
+      <div style={{ 
+        width: '60px', 
+        height: '40px', 
+        backgroundColor: `var(${cssVar})`,
+        border: '1px solid #ccc',
+        borderRadius: '4px'
+      }} />
+      <div style={{ flex: 1 }}>
+        <div style={{ fontWeight: '600', fontSize: '0.875rem' }}>{name}</div>
+        <div style={{ fontSize: '0.75rem', color: '#666' }}>{description}</div>
+      </div>
+      <CopyButton text={cssVar} />
+    </div>
+  );
+};
+
+<Meta
+  title="Introduction/Semantic Tokens"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    backgrounds: { disable: true },
+  }}
+/>
+
+# Semantic Tokens
+
+Meaning-based color tokens that provide contextual meaning rather than specific color values.
+
+## CTA (Call-to-Action) Colors
+
+<div style={{ maxWidth: '700px' }}>
+  <SemanticColorDemo 
+    cssVar="--md-color-cta-primary-default" 
+    name="Primary Default" 
+    description="Main call-to-action color"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-cta-primary-hover" 
+    name="Primary Hover" 
+    description="Primary CTA hover state"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-cta-primary-disabled" 
+    name="Primary Disabled" 
+    description="Primary CTA disabled state"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-cta-secondary-default" 
+    name="Secondary Default" 
+    description="Secondary call-to-action color"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-cta-secondary-hover" 
+    name="Secondary Hover" 
+    description="Secondary CTA hover state"
+  />
+</div>
+
+## Text Colors
+
+<div style={{ maxWidth: '700px' }}>
+  <SemanticColorDemo 
+    cssVar="--md-color-text-primary" 
+    name="Text Primary" 
+    description="Main text color for headings and body"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-text-secondary" 
+    name="Text Secondary" 
+    description="Supporting text, captions, labels"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-text-tertiary" 
+    name="Text Tertiary" 
+    description="Placeholder text, disabled text"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-text-inverse" 
+    name="Text Inverse" 
+    description="Text on dark backgrounds"
+  />
+</div>
+
+## Surface Colors
+
+<div style={{ maxWidth: '700px' }}>
+  <SemanticColorDemo 
+    cssVar="--md-color-surface-primary" 
+    name="Surface Primary" 
+    description="Default background color"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-surface-secondary" 
+    name="Surface Secondary" 
+    description="Card and container backgrounds"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-surface-tertiary" 
+    name="Surface Tertiary" 
+    description="Subtle background variations"
+  />
+</div>
+
+## Border Colors
+
+<div style={{ maxWidth: '700px' }}>
+  <SemanticColorDemo 
+    cssVar="--md-color-border-primary" 
+    name="Border Primary" 
+    description="Default border color"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-border-secondary" 
+    name="Border Secondary" 
+    description="Subtle borders, dividers"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-border-tertiary" 
+    name="Border Tertiary" 
+    description="Focus states, active borders"
+  />
+</div>
+
+## State Colors
+
+<div style={{ maxWidth: '700px' }}>
+  <SemanticColorDemo 
+    cssVar="--md-color-state-success" 
+    name="Success" 
+    description="Success messages and indicators"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-state-error" 
+    name="Error" 
+    description="Error messages and indicators"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-state-warning" 
+    name="Warning" 
+    description="Warning messages and indicators"
+  />
+  <SemanticColorDemo 
+    cssVar="--md-color-state-info" 
+    name="Info" 
+    description="Informational messages and indicators"
+  />
+</div>
+
+## Usage Guidelines
+
+Semantic tokens provide meaning and context to your colors:
+
+- **Use semantic tokens instead of base colors** in component styles
+- **Base colors define the palette**, semantic tokens define the meaning
+- **Semantic tokens can be remapped** for themes or brand variations
+- **They create consistency** across different UI contexts
+
+### Example Usage
+```css
+.button-primary {
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-inverse);
+}
+
+.button-primary:hover {
+  background-color: var(--md-color-cta-primary-hover);
+}
+
+.card {
+  background-color: var(--md-color-surface-secondary);
+  border: 1px solid var(--md-color-border-secondary);
+  color: var(--md-color-text-primary);
+}
+```

@@ -1,0 +1,111 @@
+import { Meta } from '@storybook/addon-docs';
+import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+
+export const CopyButton = ({ text }) => {
+  return (
+    <button
+      onClick={() => navigator.clipboard.writeText(text)}
+      title="Copy to clipboard"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        padding: '0.25rem 0.5rem',
+        background: 'transparent',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        fontSize: '0.875rem'
+      }}
+    >
+      {text}
+      <MdIconContentCopy style={{ width: '1rem', height: '1rem' }} />
+    </button>
+  );
+};
+
+export const SizeDemo = ({ size, name, cssVar }) => {
+  return (
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '1rem', 
+      marginBottom: '1rem',
+      padding: '0.5rem',
+      border: '1px solid #eee',
+      borderRadius: '4px'
+    }}>
+      <div style={{ 
+        width: `var(${cssVar})`, 
+        height: `var(${cssVar})`, 
+        backgroundColor: '#005e5d',
+        borderRadius: '2px'
+      }} />
+      <div style={{ flex: 1 }}>
+        <div style={{ fontWeight: '600', fontSize: '0.875rem' }}>{name}</div>
+        <div style={{ fontSize: '0.75rem', color: '#666' }}>{size}</div>
+      </div>
+      <CopyButton text={cssVar} />
+    </div>
+  );
+};
+
+<Meta
+  title="Introduction/Size"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    backgrounds: { disable: true },
+  }}
+/>
+
+# Size
+
+Consistent measurements for spacing, layout, and component sizing.
+
+## Size Scale
+
+<div style={{ maxWidth: '600px' }}>
+  <SizeDemo size="1px" name="Size 1" cssVar="--md-size-1" />
+  <SizeDemo size="2px" name="Size 2" cssVar="--md-size-2" />
+  <SizeDemo size="4px" name="Size 4" cssVar="--md-size-4" />
+  <SizeDemo size="8px" name="Size 8" cssVar="--md-size-8" />
+  <SizeDemo size="12px" name="Size 12" cssVar="--md-size-12" />
+  <SizeDemo size="16px" name="Size 16" cssVar="--md-size-16" />
+  <SizeDemo size="20px" name="Size 20" cssVar="--md-size-20" />
+  <SizeDemo size="24px" name="Size 24" cssVar="--md-size-24" />
+  <SizeDemo size="32px" name="Size 32" cssVar="--md-size-32" />
+  <SizeDemo size="40px" name="Size 40" cssVar="--md-size-40" />
+  <SizeDemo size="48px" name="Size 48" cssVar="--md-size-48" />
+  <SizeDemo size="56px" name="Size 56" cssVar="--md-size-56" />
+  <SizeDemo size="64px" name="Size 64" cssVar="--md-size-64" />
+  <SizeDemo size="72px" name="Size 72" cssVar="--md-size-72" />
+  <SizeDemo size="80px" name="Size 80" cssVar="--md-size-80" />
+</div>
+
+## Usage Examples
+
+### Spacing
+Use size tokens for consistent spacing between elements:
+```css
+.element {
+  margin: var(--md-size-16);
+  padding: var(--md-size-8) var(--md-size-16);
+  gap: var(--md-size-12);
+}
+```
+
+### Component Sizing
+Use size tokens for component dimensions:
+```css
+.icon {
+  width: var(--md-size-24);
+  height: var(--md-size-24);
+}
+
+.button {
+  padding: var(--md-size-12) var(--md-size-24);
+}
+```

@@ -11,18 +11,29 @@ import { Meta } from '@storybook/blocks';
   }}
 />
 
-<div className="gs-wrapper">
+<div style={{
+  maxWidth: '800px',
+  margin: '0 auto',
+  padding: '2rem',
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  lineHeight: '1.6',
+  color: 'var(--md-color-text-primary)'
+}}>
 
 # Material Symbols
 
-Miljødirektoratets design system now uses [Material Symbols](https://fonts.google.com/icons?icon.style=Sharp) ("sharp" version). We have made our own icon components that use svgs from Material Symbols.
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container-low)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  marginBottom: '2rem',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
 
-If you wish to use an icon from Material that we do not have in our library, [please create an issue on GitHub](https://github.com/miljodir/md-components/issues) and we'll set it up,
-You may also freely implement Material Symbols in your own project, but please adhere to the rules set below.
+Miljødirektoratets design system uses [Material Symbols](https://fonts.google.com/icons?icon.style=Sharp) with custom icon components that use SVGs from Material Symbols.
 
-- Style: **Sharp**
-- Weight: **300**
-- Grade: **0**
-- Fill: **No fill**
+If you need an icon from Material Symbols that we don't have in our library, [please create an issue on GitHub](https://github.com/miljodir/md-components/issues) and we'll add it to the component library.
+
+</div>
 
 </div>
