@@ -68,6 +68,9 @@ export const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteP
     },
     ref,
   ) => {
+    // eslint-disable-next-line no-console
+    console.warn('MdAutocomplete is deprecated and will be removed in a future release. Use MdCombobox instead.');
+
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
