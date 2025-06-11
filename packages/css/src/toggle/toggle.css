@@ -8,8 +8,8 @@
 }
 
 .md-toggle__wrapper * {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
 }
 
 .md-toggle__checkbox {
@@ -26,7 +26,7 @@
 }
 
 .md-toggle__wrapper:focus-within .md-toggle__label-wrapper {
-  outline: 2px solid var(--color-primary-80);
+  outline: 2px solid var(--md-color-primary-80);
   outline-offset: 4px;
 }
 
@@ -47,44 +47,44 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: var(--spacing-40);
-  height: var(--spacing-24);
-  background-color: var(--color-grey-white);
-  border: 1px solid var(--color-grey-60);
-  border-radius: var(--radius-xl);
+  width: var(--md-spacing-40);
+  height: var(--md-spacing-24);
+  background-color: var(--md-color-grey-white);
+  border: 1px solid var(--md-color-grey-60);
+  border-radius: var(--md-radius-xl);
   position: relative;
 }
 .md-toggle__label--error.md-toggle__label {
-  border-color: var(--color-support-error-100);
+  border-color: var(--md-color-support-error-100);
 }
 
 .md-toggle__label--checked {
-  background-color: var(--color-primary-20);
+  background-color: var(--md-color-primary-20);
 }
 
 .md-toggle__label--disabled {
-  background-color: var(--color-grey-20);
+  background-color: var(--md-color-grey-20);
   cursor: default;
 }
 
 .md-toggle__label-text {
-  margin-right: var(--spacing-8);
+  margin-right: var(--md-spacing-8);
 }
 
 .md-toggle__label .md-toggle__button {
   content: '';
   position: absolute;
   top: 0.0625rem;
-  left: var(--spacing-4);
-  width: var(--spacing-20);
-  height: var(--spacing-20);
-  border-radius: var(--radius-xl);
-  background: var(--color-grey-60);
+  left: var(--md-spacing-4);
+  width: var(--md-spacing-20);
+  height: var(--md-spacing-20);
+  border-radius: var(--md-radius-xl);
+  background: var(--md-color-grey-60);
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
 .md-toggle__label--checked:not(.md-toggle__label--disabled) .md-toggle__button {
-  background-color: var(--color-primary-100);
+  background-color: var(--md-color-primary-100);
 }
 
 .md-toggle__checkbox:checked + .md-toggle__label-wrapper .md-toggle__label .md-toggle__button {
@@ -94,7 +94,7 @@
 
 /* Error text */
 .md-toggle__error {
-  color: var(--color-support-error-100);
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-s-font-size);
+  color: var(--md-color-support-error-100);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-s-font-size);
 }

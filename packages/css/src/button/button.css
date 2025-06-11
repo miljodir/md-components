@@ -1,20 +1,20 @@
 .md-button {
   align-items: center;
-  background-color: var(--color-primary-100);
-  color: var(--color-grey-white);
+  background-color: var(--md-color-primary-100);
+  color: var(--md-color-grey-white);
   display: flex;
   font-weight: 400;
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
-  padding: var(--spacing-12) var(--spacing-16);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
+  padding: var(--md-spacing-12) var(--md-spacing-16);
   width: fit-content;
-  border-radius: var(--radius-md);
+  border-radius: var(--md-radius-md);
   border: none;
 }
 
 .md-button--column {
   flex-direction: column;
-  gap: var(--spacing-8);
+  gap: var(--md-spacing-8);
 }
 
 .md-button__content {
@@ -24,64 +24,64 @@
 }
 
 .md-button--small {
-  padding: var(--spacing-8) var(--spacing-12);
-  border-radius: var(--radius-md);
+  padding: var(--md-spacing-8) var(--md-spacing-12);
+  border-radius: var(--md-radius-md);
 }
 
 .md-button__topIcon {
-  height: var(--spacing-20);
-  width: var(--spacing-20);
+  height: var(--md-spacing-20);
+  width: var(--md-spacing-20);
   flex-shrink: 0;
 }
 .md-button__topIcon .md-loading-spinner {
-  width: var(--spacing-16);
-  height: var(--spacing-16);
+  width: var(--md-spacing-16);
+  height: var(--md-spacing-16);
 }
 
 .md-button__leftIcon {
-  height: var(--spacing-20);
+  height: var(--md-spacing-20);
   align-content: center;
-  width: var(--spacing-20);
+  width: var(--md-spacing-20);
   flex-shrink: 0;
-  margin-right: var(--spacing-8);
+  margin-right: var(--md-spacing-8);
 }
 
 .md-button--small > .md-button__leftIcon {
-  margin-right: var(--spacing-8);
+  margin-right: var(--md-spacing-8);
 }
 
 .md-button__rightIcon {
-  height: var(--spacing-20);
-  width: var(--spacing-20);
+  height: var(--md-spacing-20);
+  width: var(--md-spacing-20);
   align-content: center;
   flex-shrink: 0;
-  margin-left: var(--spacing-8);
+  margin-left: var(--md-spacing-8);
 }
 .md-button__rightIcon .md-loading-spinner {
-  width: var(--spacing-16);
-  height: var(--spacing-16);
+  width: var(--md-spacing-16);
+  height: var(--md-spacing-16);
 }
 
 .md-button--small > .md-button__rightIcon {
-  margin-left: var(--spacing-8);
+  margin-left: var(--md-spacing-8);
 }
 
 .md-button:focus {
-  background-color: var(--color-cta-primary-focus);
+  background-color: var(--md-color-cta-primary-focus);
   outline: 2px white solid;
   outline-offset: -4px;
 }
 
 .md-button:hover {
   cursor: pointer;
-  background-color: var(--color-cta-primary-hover);
-  border-color: var(--color-cta-primary-hover);
+  background-color: var(--md-color-cta-primary-hover);
+  border-color: var(--md-color-cta-primary-hover);
 }
 
 .md-button[disabled],
 .md-button:disabled {
-  background-color: var(--color-disabled-bg);
-  color: var(--color-text-disabled);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
   cursor: not-allowed;
 }
 .md-button:not(.md-button--secondary, .md-button--tertiary)[disabled] .md-loading-spinner,
@@ -90,132 +90,132 @@
 }
 
 .md-button--secondary {
-  background-color: var(--color-grey-white);
-  border: 2px solid var(--color-primary-100);
-  color: var(--color-primary-100);
-  padding: calc(var(--spacing-12) - 2px) calc(var(--spacing-16) - 2px);
+  background-color: var(--md-color-grey-white);
+  border: 2px solid var(--md-color-primary-100);
+  color: var(--md-color-primary-100);
+  padding: calc(var(--md-spacing-12) - 2px) calc(var(--md-spacing-16) - 2px);
 }
 
 .md-button--small.md-button--secondary {
-  padding: calc(var(--spacing-8) - 2px) calc(var(--spacing-12) - 2px);
+  padding: calc(var(--md-spacing-8) - 2px) calc(var(--md-spacing-12) - 2px);
 }
 
 .md-button--secondary:hover:enabled {
-  background-color: var(--color-primary-20);
+  background-color: var(--md-color-primary-20);
 }
 
 .md-button--secondary:focus:enabled {
-  background-color: var(--color-grey-white);
-  border-color: var(--color-primary-80);
-  color: var(--color-primary-80);
-  outline: 2px var(--color-primary-80) solid;
+  background-color: var(--md-color-grey-white);
+  border-color: var(--md-color-primary-80);
+  color: var(--md-color-primary-80);
+  outline: 2px var(--md-color-primary-80) solid;
   outline-offset: -6px;
 }
 
 .md-button--secondary:disabled {
-  background-color: var(--color-grey-white);
-  color: var(--color-grey-60);
-  border-color: var(--color-grey-20);
+  background-color: var(--md-color-grey-white);
+  color: var(--md-color-grey-60);
+  border-color: var(--md-color-grey-20);
 }
 
 .md-button--secondary > .md-button__rightIcon {
-  color: var(--color-primary-100);
+  color: var(--md-color-primary-100);
 }
 
 .md-button--secondary:disabled > .md-button__rightIcon {
-  color: var(--color-grey-60);
+  color: var(--md-color-grey-60);
 }
 
 .md-button--tertiary {
   background-color: transparent;
   border: none;
-  color: var(--color-primary-100);
-  padding: var(--spacing-12) var(--spacing-16);
+  color: var(--md-color-primary-100);
+  padding: var(--md-spacing-12) var(--md-spacing-16);
 }
 
 .md-button--small.md-button--tertiary {
-  padding: var(--spacing-8) var(--spacing-12);
+  padding: var(--md-spacing-8) var(--md-spacing-12);
 }
 
 .md-button--tertiary:hover:enabled {
   text-decoration: underline;
-  background-color: var(--color-primary-20);
+  background-color: var(--md-color-primary-20);
 }
 
 .md-button--tertiary:focus:enabled {
-  border-color: var(--color-primary-100);
-  outline: 2px var(--color-primary-80) solid;
+  border-color: var(--md-color-primary-100);
+  outline: 2px var(--md-color-primary-80) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
 .md-button--tertiary:focus:hover:enabled {
-  background-color: var(--color-primary-20);
+  background-color: var(--md-color-primary-20);
 }
 
 .md-button--tertiary:disabled {
   background-color: transparent;
-  color: var(--color-grey-20);
-  border-color: var(--color-grey-20);
+  color: var(--md-color-grey-20);
+  border-color: var(--md-color-grey-20);
 }
 
 .md-button--tertiary > .md-button__rightIcon {
-  color: var(--color-primary-100);
+  color: var(--md-color-primary-100);
 }
 
 .md-button--tertiary:disabled > .md-button__rightIcon {
-  color: var(--color-grey-20);
+  color: var(--md-color-grey-20);
 }
 
 .md-button--danger {
-  background-color: var(--color-support-error-100);
+  background-color: var(--md-color-support-error-100);
 }
 
 .md-button--danger:focus:enabled {
-  background-color: var(--color-support-error-100);
-  outline: 2px var(--color-grey-white) solid;
+  background-color: var(--md-color-support-error-100);
+  outline: 2px var(--md-color-grey-white) solid;
   outline-offset: -4px;
 }
 
 .md-button--danger:hover:enabled {
-  background-color: var(--color-support-error-120);
+  background-color: var(--md-color-support-error-120);
 }
 
 /* Danger secondary */
 .md-button--danger-secondary {
-  background-color: var(--color-grey-white);
-  border: 2px solid var(--color-support-error-100);
-  color: var(--color-support-error-100);
-  padding: calc(var(--spacing-12) - 2px) calc(var(--spacing-16) - 2px);
+  background-color: var(--md-color-grey-white);
+  border: 2px solid var(--md-color-support-error-100);
+  color: var(--md-color-support-error-100);
+  padding: calc(var(--md-spacing-12) - 2px) calc(var(--md-spacing-16) - 2px);
 }
 
 .md-button--small.md-button--danger-secondary {
-  padding: calc(var(--spacing-8) - 2px) calc(var(--spacing-12) - 2px);
+  padding: calc(var(--md-spacing-8) - 2px) calc(var(--md-spacing-12) - 2px);
 }
 
 .md-button--danger-secondary:hover:enabled {
-  background-color: var(--color-support-error-40);
-  border-color: var(--color-support-error-100);
+  background-color: var(--md-color-support-error-40);
+  border-color: var(--md-color-support-error-100);
 }
 
 .md-button--danger-secondary:focus:enabled {
-  background-color: var(--color-grey-white);
-  border-color: var(--color-support-error-100);
-  color: var(--color-support-error-100);
-  outline: 2px var(--color-support-error-100) solid;
+  background-color: var(--md-color-grey-white);
+  border-color: var(--md-color-support-error-100);
+  color: var(--md-color-support-error-100);
+  outline: 2px var(--md-color-support-error-100) solid;
   outline-offset: -6px;
 }
 
 .md-button--danger-secondary:disabled {
-  background-color: var(--color-grey-white);
-  color: var(--color-grey-60);
-  border-color: var(--color-grey-20);
+  background-color: var(--md-color-grey-white);
+  color: var(--md-color-grey-60);
+  border-color: var(--md-color-grey-20);
 }
 
 .md-button--danger-secondary > .md-button__rightIcon {
-  color: var(--color-support-error-100);
+  color: var(--md-color-support-error-100);
 }
 
 .md-button--danger-secondary:disabled > .md-button__rightIcon {
-  color: var(--color-grey-60);
+  color: var(--md-color-grey-60);
 }

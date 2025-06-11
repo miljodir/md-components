@@ -1,6 +1,6 @@
 .md-radiobutton {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   border: none;
   padding: 0;
 }
@@ -12,7 +12,7 @@
 }
 
 .md-radiobutton:focus-within {
-  outline: 2px solid var(--color-cta-primary-default);
+  outline: 2px solid var(--md-color-cta-primary-default);
   outline-offset: 2px;
 }
 .md-radiobutton input[type='radio'] {
@@ -31,29 +31,29 @@
 }
 
 .md-radiobutton__check-area {
-  width: var(--spacing-20);
+  width: var(--md-spacing-20);
   flex-shrink: 0;
-  height: var(--spacing-20);
+  height: var(--md-spacing-20);
   display: block;
-  background-color: var(--color-surface-primary);
-  border: 1px solid var(--color-border-tertiary);
+  background-color: var(--md-color-surface-primary);
+  border: 1px solid var(--md-color-border-tertiary);
   border-radius: 50%;
-  margin: 0 var(--spacing-8) 0 0;
+  margin: 0 var(--md-spacing-8) 0 0;
   box-sizing: border-box;
   position: relative;
 }
 
 .md-radiobutton:not(.md-radiobutton--disabled):focus-within .md-radiobutton__check-area,
 .md-radiobutton:not(.md-radiobutton--disabled):hover .md-radiobutton__check-area {
-  background-color: var(--color-cta-secondary-hover);
+  background-color: var(--md-color-cta-secondary-hover);
   text-decoration: underline;
 }
 
 .md-radiobutton__selected-dot {
-  width: var(--spacing-8);
-  height: var(--spacing-8);
+  width: var(--md-spacing-8);
+  height: var(--md-spacing-8);
   display: block;
-  background-color: var(--color-cta-primary-default);
+  background-color: var(--md-color-cta-primary-default);
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
@@ -71,9 +71,9 @@
   cursor: default;
 }
 .md-radiobutton--disabled .md-radiobutton__check-area {
-  background-color: var(--color-disabled-bg);
-  border-color: var(--color-disabled-default);
+  background-color: var(--md-color-disabled-bg);
+  border-color: var(--md-color-disabled-default);
 }
 .md-radiobutton--disabled .md-radiobutton__selected-dot {
-  background-color: var(--color-text-disabled);
+  background-color: var(--md-color-text-disabled);
 }

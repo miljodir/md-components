@@ -1,13 +1,13 @@
 .md-checkboxgroup {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   border: none;
   padding: 0;
   margin: 0;
 }
 
 .md-checkboxgroup .md-checkboxgroup__label-wrapper {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--md-spacing-8);
 }
 
 .md-checkboxgroup .md-checkboxgroup__label {
@@ -18,7 +18,7 @@
 }
 
 .md-checkboxgroup .md-checkboxgroup__label > * + * {
-  margin-left: var(--spacing-16);
+  margin-left: var(--md-spacing-16);
 }
 
 .md-checkboxgroup .md-checkboxgroup__help-text {
@@ -28,7 +28,7 @@
 }
 
 .md-checkboxgroup .md-checkboxgroup__help-text--open {
-  padding-top: var(--spacing-8);
+  padding-top: var(--md-spacing-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -36,7 +36,7 @@
 .md-checkboxgroup .md-checkboxgroup__options {
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-16);
+  gap: var(--md-spacing-16);
 }
 
 .md-checkboxgroup .md-checkboxgroup__options--vertical {

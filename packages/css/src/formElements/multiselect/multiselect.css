@@ -1,5 +1,5 @@
 .md-multiselect {
-  font-family: var(--font-family-open-sans);
+  font-family: var(--md-font-family-open-sans);
   width: 100%;
 }
 
@@ -18,35 +18,35 @@
 }
 
 .md-multiselect__label-wrapper {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--md-spacing-8);
 }
 
 .md-multiselect__label > * + * {
-  margin-left: var(--spacing-16);
+  margin-left: var(--md-spacing-16);
 }
 
 .md-multiselect__button {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-surface-primary);
-  padding: var(--spacing-16);
-  border: 1px solid var(--color-border-primary);
-  color: var(--color-text-primary);
+  background-color: var(--md-color-surface-primary);
+  padding: var(--md-spacing-16);
+  border: 1px solid var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
   text-align: left;
   cursor: pointer;
 }
 
 .md-multiselect__button.md-multiselect--small {
-  padding: var(--spacing-12);
+  padding: var(--md-spacing-12);
 }
 
 .md-multiselect--disabled .md-multiselect__button {
-  background-color: var(--color-disabled-bg);
-  color: var(--color-text-disabled);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
   cursor: default;
 }
 
@@ -123,10 +123,10 @@
 .md-multiselect__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   border: 0;
-  background-color: var(--color-surface-primary);
+  background-color: var(--md-color-surface-primary);
   text-align: left;
   transition: background-color 0.15s ease-in-out;
   cursor: pointer;
@@ -150,12 +150,12 @@
 }
 
 .md-multiselect__dropdown-item .md-checkbox__labelText {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   font-style: normal;
   font-weight: 400;
-  line-height: var(--typography-body-m-line-height);
-  color: var(--color-text-primary);
+  line-height: var(--md-typography-body-m-line-height);
+  color: var(--md-color-text-primary);
 }
 
 .md-multiselect__dropdown-item:hover,

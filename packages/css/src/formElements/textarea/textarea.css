@@ -1,25 +1,25 @@
 .md-textarea__outer-wrapper {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
 }
 
 .md-textarea {
-  padding: var(--spacing-16) var(--spacing-32) var(--spacing-16) var(--spacing-16);
-  font-family: var(--font-family-open-sans);
+  padding: var(--md-spacing-16) var(--md-spacing-32) var(--md-spacing-16) var(--md-spacing-16);
+  font-family: var(--md-font-family-open-sans);
   max-width: 100%;
   width: 100%;
-  background-color: var(--color-surface-primary);
+  background-color: var(--md-color-surface-primary);
   border-radius: 0;
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--md-color-border-primary);
   margin: 1px;
-  color: var(--color-text-primary);
-  font-size: var(--typography-body-m-font-size);
+  color: var(--md-color-text-primary);
+  font-size: var(--md-typography-body-m-font-size);
   box-sizing: border-box;
 }
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
-  outline: 2px solid var(--color-cta-primary-focus);
+  outline: 2px solid var(--md-color-cta-primary-focus);
   outline-offset: -2px;
   border-color: transparent;
 }
@@ -31,7 +31,7 @@
 }
 
 .md-textarea.md-textarea--disabled {
-  background-color: var(--color-disabled-bg);
+  background-color: var(--md-color-disabled-bg);
 }
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
@@ -40,11 +40,11 @@
 }
 
 .md-textarea.md-textarea--error {
-  border-color: var(--color-attention-error-primary);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-textarea__label-wrapper {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--md-spacing-8);
 }
 
 .md-textarea__label {
@@ -54,7 +54,7 @@
 }
 
 .md-textarea__label > * + * {
-  margin-left: var(--spacing-16);
+  margin-left: var(--md-spacing-16);
 }
 
 .md-textarea__help-button {
@@ -63,9 +63,9 @@
 }
 
 .md-textarea__error {
-  color: var(--color-attention-error-primary);
-  font-size: var(--typography-body-s-font-size);
-  margin-top: var(--spacing-8);
+  color: var(--md-color-attention-error-primary);
+  font-size: var(--md-typography-body-s-font-size);
+  margin-top: var(--md-spacing-8);
 }
 
 .md-textarea__help-text {
@@ -75,12 +75,12 @@
 }
 
 .md-textarea__help-text--open {
-  padding-top: var(--spacing-8);
+  padding-top: var(--md-spacing-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
 .md-textarea::placeholder {
-  color: var(--color-text-disabled);
-  font-family: var(--font-family-open-sans);
+  color: var(--md-color-text-disabled);
+  font-family: var(--md-font-family-open-sans);
 }

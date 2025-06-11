@@ -1,5 +1,5 @@
 .md-tabs-container {
-  font-family: var(--font-family-open-sans);
+  font-family: var(--md-font-family-open-sans);
 }
 
 .md-tabs-container ul {
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: var(--spacing-24);
+  gap: var(--md-spacing-24);
   padding-inline-start: 0px;
 }
 
@@ -23,12 +23,12 @@
   align-items: center;
   justify-content: space-between;
 
-  font-size: var(--typography-body-m-font-size);
+  font-size: var(--md-typography-body-m-font-size);
   font-weight: 400;
-  padding: var(--spacing-12) var(--spacing-24) var(--spacing-12) var(--spacing-24);
+  padding: var(--md-spacing-12) var(--md-spacing-24) var(--md-spacing-12) var(--md-spacing-24);
   border: 0;
   background-color: transparent;
-  border-bottom: 1px solid var(--color-text-disabled);
+  border-bottom: 1px solid var(--md-color-text-disabled);
 }
 .md-tabs-container ul li .md-tabs-button::after {
   content: attr(data-text);
@@ -42,25 +42,25 @@
 }
 
 .md-tabs-container ul li .md-tabs-button.md-tabs-button--disabled {
-  background-color: var(--color-disabled-bg);
-  color: var(--color-text-disabled);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
   cursor: not-allowed;
 }
 
 .md-tabs-container ul li .md-tabs-button.md-tabs-button--selected {
   font-weight: 600;
-  padding: var(--spacing-12) var(--spacing-24) var(--spacing-8) var(--spacing-24);
-  border-bottom: 4px solid var(--color-cta-primary-focus);
+  padding: var(--md-spacing-12) var(--md-spacing-24) var(--md-spacing-8) var(--md-spacing-24);
+  border-bottom: 4px solid var(--md-color-cta-primary-focus);
 }
 .md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):hover {
-  background-color: var(--color-cta-secondary-hover);
+  background-color: var(--md-color-cta-secondary-hover);
   cursor: pointer;
 }
 
 .md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):focus {
-  outline: 2px solid var(--color-cta-primary-default);
+  outline: 2px solid var(--md-color-cta-primary-default);
   outline-offset: -2px;
-  background-color: var(--color-cta-secondary-hover);
+  background-color: var(--md-color-cta-secondary-hover);
   cursor: pointer;
 }
 
@@ -68,38 +68,38 @@
 .md-tabs-container.md-tabs__compact ul {
   gap: 0;
   flex-wrap: nowrap;
-  border-radius: var(--radius-sm);
+  border-radius: var(--md-radius-sm);
 }
 
 .md-tabs-container.md-tabs__compact ul li .md-tabs-button {
-  height: var(--spacing-24);
-  padding: var(--spacing-4) var(--spacing-16);
+  height: var(--md-spacing-24);
+  padding: var(--md-spacing-4) var(--md-spacing-16);
   justify-content: center;
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--md-color-border-primary);
 }
 
 .md-tabs-container.md-tabs__compact ul li:first-child .md-tabs-button {
-  border-top-left-radius: var(--radius-sm);
-  border-bottom-left-radius: var(--radius-sm);
+  border-top-left-radius: var(--md-radius-sm);
+  border-bottom-left-radius: var(--md-radius-sm);
   border-right: none;
 }
 
 .md-tabs-container.md-tabs__compact ul li:last-child .md-tabs-button {
-  border-top-right-radius: var(--radius-sm);
-  border-bottom-right-radius: var(--radius-sm);
+  border-top-right-radius: var(--md-radius-sm);
+  border-bottom-right-radius: var(--md-radius-sm);
   border-left: none;
 }
 
 .md-tabs-container.md-tabs__compact ul li .md-tabs-button.md-tabs-button--selected {
-  background-color: var(--color-cta-primary-focus);
-  color: var(--color-text-invert);
-  border-color: var(--color-cta-primary-focus);
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-invert);
+  border-color: var(--md-color-cta-primary-focus);
   font-weight: 400;
 }
 
 .md-tabs-container.md-tabs__compact ul li .md-tabs-button--selected:hover:not(.md-tabs-button--disabled) {
-  background-color: var(--color-cta-primary-default);
-  color: var(--color-text-invert);
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-invert);
   cursor: default;
 }
 

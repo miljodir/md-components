@@ -1,6 +1,6 @@
 .md-input__outer-wrapper {
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
 }
 
 .md-input__outer-wrapper--small {
@@ -8,25 +8,25 @@
 }
 
 .md-input {
-  padding: var(--spacing-16) var(--spacing-32) var(--spacing-16) var(--spacing-16);
+  padding: var(--md-spacing-16) var(--md-spacing-32) var(--md-spacing-16) var(--md-spacing-16);
   max-width: 100%;
   width: 100%;
-  background-color: var(--color-grey-white);
+  background-color: var(--md-color-grey-white);
   border-radius: 0;
-  border: 1px solid var(--color-grey-60);
+  border: 1px solid var(--md-color-grey-60);
   margin: 1px;
-  color: var(--color-grey-100);
-  font-size: var(--typography-body-m-font-size);
+  color: var(--md-color-grey-100);
+  font-size: var(--md-typography-body-m-font-size);
   box-sizing: border-box;
 }
 
 .md-input--small {
-  padding: var(--spacing-8) var(--spacing-32) var(--spacing-8) var(--spacing-16);
+  padding: var(--md-spacing-8) var(--md-spacing-32) var(--md-spacing-8) var(--md-spacing-16);
 }
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus {
-  outline: 2px solid var(--color-primary-80);
+  outline: 2px solid var(--md-color-primary-80);
   outline-offset: -2px;
   border-color: transparent;
 }
@@ -38,33 +38,33 @@
 }
 
 .md-input.md-input--disabled {
-  background-color: var(--color-grey-20);
+  background-color: var(--md-color-grey-20);
 }
 
 .md-input.md-input--readonly:not(.md-input.md-input--disabled) {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--color-grey-60);
+  border-bottom: 1px solid var(--md-color-grey-60);
 }
 
 .md-input.md-input--error {
-  border-color: var(--color-support-error-100);
+  border-color: var(--md-color-support-error-100);
 }
 
 .md-input.md-input--has-suffix {
-  padding-right: var(--spacing-80);
+  padding-right: var(--md-spacing-80);
 }
 
 .md-input--small.md-input--has-suffix {
-  padding-right: var(--spacing-56);
+  padding-right: var(--md-spacing-56);
 }
 
 .md-input.md-input--has-prefix {
-  padding-left: var(--spacing-40);
+  padding-left: var(--md-spacing-40);
 }
 
 .md-input--small.md-input--has-prefix {
-  padding-left: var(--spacing-32);
+  padding-left: var(--md-spacing-32);
 }
 
 .md-input__wrapper {
@@ -76,7 +76,7 @@
 }
 
 .md-input__label-wrapper {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--md-spacing-8);
 }
 
 .md-input__label {
@@ -86,7 +86,7 @@
 }
 
 .md-input__label > * + * {
-  margin-left: var(--spacing-16);
+  margin-left: var(--md-spacing-16);
 }
 
 .md-input__help-button {
@@ -95,9 +95,9 @@
 }
 
 .md-input__error {
-  color: var(--color-support-error-100);
-  font-size: var(--typography-body-s-font-size);
-  margin-top: var(--spacing-8);
+  color: var(--md-color-support-error-100);
+  font-size: var(--md-typography-body-s-font-size);
+  margin-top: var(--md-spacing-8);
 }
 
 .md-input__help-text {
@@ -107,60 +107,60 @@
 }
 
 .md-input__help-text--open {
-  padding-top: var(--spacing-8);
+  padding-top: var(--md-spacing-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
 .md-input__prefix {
   position: absolute;
-  top: var(--spacing-16);
-  left: var(--spacing-16);
-  height: var(--spacing-20);
-  width: var(--spacing-20);
+  top: var(--md-spacing-16);
+  left: var(--md-spacing-16);
+  height: var(--md-spacing-20);
+  width: var(--md-spacing-20);
   display: flex;
-  color: var(--color-primary-100);
+  color: var(--md-color-primary-100);
 }
 
 .md-input__prefix.md-input__prefix--disabled {
-  color: var(--color-grey-60);
+  color: var(--md-color-grey-60);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__prefix {
-  top: var(--spacing-12);
-  left: var(--spacing-8);
+  top: var(--md-spacing-12);
+  left: var(--md-spacing-8);
 }
 
 .md-input__suffix {
   position: absolute;
-  top: var(--spacing-16);
-  right: var(--spacing-16);
+  top: var(--md-spacing-16);
+  right: var(--md-spacing-16);
   display: flex;
 }
 
 .md-input__suffix > * + * {
-  margin-left: var(--spacing-8);
+  margin-left: var(--md-spacing-8);
 }
 
 .md-input__error-icon {
-  width: var(--spacing-20);
-  height: var(--spacing-20);
-  margin-left: var(--spacing-8);
-  color: var(--color-support-error-100);
+  width: var(--md-spacing-20);
+  height: var(--md-spacing-20);
+  margin-left: var(--md-spacing-8);
+  color: var(--md-color-support-error-100);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix {
-  top: var(--spacing-8);
-  right: var(--spacing-12);
+  top: var(--md-spacing-8);
+  right: var(--md-spacing-12);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix > * + * {
-  margin-left: var(--spacing-4);
+  margin-left: var(--md-spacing-4);
 }
 
 .md-input::placeholder {
-  color: var(--color-grey-60);
-  font-family: var(--font-family-open-sans);
+  color: var(--md-color-grey-60);
+  font-family: var(--md-font-family-open-sans);
 }
 
 /* Hacks for hiding arrows if type=number */

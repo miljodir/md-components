@@ -1,5 +1,5 @@
 .md-multiautocomplete {
-  font-family: var(--font-family-open-sans);
+  font-family: var(--md-font-family-open-sans);
   width: 100%;
 }
 
@@ -13,18 +13,18 @@
 
 .md-multiautocomplete__container {
   position: relative;
-  background-color: var(--color-surface-primary);
+  background-color: var(--md-color-surface-primary);
 }
 
 .md-multiautocomplete__label {
   display: flex;
   align-items: flex-end;
   font-weight: 600;
-  padding-bottom: var(--spacing-8);
+  padding-bottom: var(--md-spacing-8);
 }
 
 .md-multiautocomplete__label > * + * {
-  margin-left: var(--spacing-16);
+  margin-left: var(--md-spacing-16);
 }
 
 .md-multiautocomplete__input {
@@ -32,14 +32,14 @@
   width: 100%;
   background-color: transparent;
   border-radius: 0;
-  color: var(--color-text-primary);
+  color: var(--md-color-text-primary);
   box-sizing: border-box;
-  font-family: var(--font-family-open-sans);
-  font-size: var(--typography-body-m-font-size);
+  font-family: var(--md-font-family-open-sans);
+  font-size: var(--md-typography-body-m-font-size);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-16);
+  padding: var(--md-spacing-16);
   border: 1px solid var(--mdGreyColor60);
   text-align: left;
   cursor: pointer;
@@ -159,13 +159,13 @@
 .md-multiautocomplete__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: var(--font-family-open-sans);
+  font-family: var(--md-font-family-open-sans);
   border: 0;
-  font-size: var(--typography-body-m-font-size);
-  background-color: var(--color-surface-primary);
+  font-size: var(--md-typography-body-m-font-size);
+  background-color: var(--md-color-surface-primary);
   width: 100%;
   text-align: left;
-  padding: var(--spacing-16);
+  padding: var(--md-spacing-16);
   transition: background-color 0.15s ease-in-out;
   cursor: pointer;
 }

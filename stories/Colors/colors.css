@@ -95,7 +95,7 @@
     }
 
     .text-black {
-      color: var(--color-text-primary);
+      color: var(--md-color-text-primary);
     }
   }
 }

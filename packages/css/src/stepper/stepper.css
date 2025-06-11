@@ -1,28 +1,28 @@
 .md-stepper__stepper-container {
-  padding-top: var(--spacing-40);
+  padding-top: var(--md-spacing-40);
 }
 
 .md-stepper__stepper-container .md-stepper__stepper-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-32);
+  gap: var(--md-spacing-32);
 }
 
 .md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title {
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-16);
+  gap: var(--md-spacing-16);
 }
 .md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title h4 {
-  font-family: var(--font-family-sofia-pro) !important;
-  font-size: var(--typography-heading-s-font-size);
+  font-family: var(--md-font-family-sofia-pro) !important;
+  font-size: var(--md-typography-heading-s-font-size);
   font-weight: 400;
-  line-height: var(--typography-heading-s-line-height);
+  line-height: var(--md-typography-heading-s-line-height);
   letter-spacing: 0rem;
   text-align: left;
   margin: 0;
 
-  height: var(--spacing-40);
+  height: var(--md-spacing-40);
 
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   h4.md-stepper__disabled {
-  color: var(--color-text-disabled);
+  color: var(--md-color-text-disabled);
 }
 
 .md-stepper__stepper-container
@@ -40,7 +40,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   h4.md-stepper__completed {
-  color: var(--color-text-secondary);
+  color: var(--md-color-text-secondary);
 }
 
 .md-stepper__stepper-container
@@ -105,8 +105,8 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge.disabled {
-  background-color: var(--color-disabled-bg);
-  color: var(--color-text-disabled);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
 }
 
 .md-stepper__stepper-container
@@ -124,7 +124,7 @@
   .md-stepper__step-content-sideline {
   width: 0.125rem;
   height: auto;
-  background-color: var(--color-cta-primary-default);
+  background-color: var(--md-color-cta-primary-default);
   margin-left: 1.0625rem;
   margin-right: 1.0625rem;
   margin-top: 0.5rem;
@@ -135,7 +135,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-content-container
   .md-stepper__step-content-sideline.disabled {
-  background-color: var(--color-disabled-bg);
+  background-color: var(--md-color-disabled-bg);
 }
 
 .md-stepper__stepper-container
@@ -152,5 +152,5 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-content-container
   .md-stepper__step-content-children.completed {
-  color: var(--color-text-secondary);
+  color: var(--md-color-text-secondary);
 }
