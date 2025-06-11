@@ -49,14 +49,14 @@ export const useFileUpload = (): useFileUploadHook => {
   const [totalSize, setTotalSize] = useState('');
   const [totalSizeInBytes, setTotalSizeInBytes] = useState(0);
 
-  const handleSizes = useCallback((files: File[]): void => {
-    const sizeInBytes = getTotalSizeInBytes(files);
-    const prettySize = formatBytes(sizeInBytes);
-    setTotalSizeInBytes(sizeInBytes);
-    setTotalSize(prettySize);
-  }, []);
-
   useEffect(() => {
+    const handleSizes = (files: File[]): void => {
+      const sizeInBytes = getTotalSizeInBytes(files);
+      const prettySize = formatBytes(sizeInBytes);
+      setTotalSizeInBytes(sizeInBytes);
+      setTotalSize(prettySize);
+    };
+
     setFileNames(
       files.map((file: File) => {
         return file.name;
@@ -68,7 +68,7 @@ export const useFileUpload = (): useFileUploadHook => {
       }),
     );
     handleSizes(files);
-  }, [files, handleSizes]);
+  }, [files]);
 
   const setFiles = useCallback(
     (e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>, mode = 'w', imagesOnly = false): void => {
