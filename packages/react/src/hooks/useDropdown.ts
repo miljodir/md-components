@@ -6,17 +6,18 @@ const focusableHtmlElements = 'button, input, [tabindex]';
  * @deprecated This hook is deprecated and will be removed in a future release.
  * It is only being used for deprecated components.
  */
-// eslint-disable-next-line no-console
-console.warn(
-  '[DEPRECATION WARNING] useDropdown is deprecated and will be removed in a future release. ' +
-    'It is only being used for deprecated components.',
-);
 export default function useDropdown(
   ref: React.RefObject<HTMLDivElement>,
   open: boolean,
   setOpen: (_open: boolean) => void,
   elementType?: 'autocomplete' | 'select',
 ) {
+  // eslint-disable-next-line no-console
+  console.warn(
+    '[DEPRECATION WARNING] useDropdown is deprecated and will be removed in a future release. ' +
+      'It is only being used for deprecated components.',
+  );
+
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       const focusableElements = ref.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
