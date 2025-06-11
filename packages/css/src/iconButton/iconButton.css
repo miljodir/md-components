@@ -37,6 +37,10 @@
   border-color: var(--mdPrimaryColor120);
 }
 
+.md-icon-button:active:enabled {
+  background-color: var(--mdPrimaryColor140);
+}
+
 .md-icon-button[disabled],
 .md-icon-button:disabled {
   background-color: var(--mdGreyColor20);
@@ -70,6 +74,12 @@
   outline-offset: -4px;
 }
 
+.md-icon-button--border:active:enabled {
+  background-color: var(--mdPrimaryColor30) !important;
+  color: var(--mdPrimaryColor120) !important;
+  outline-color: var(--mdPrimaryColor120);
+}
+
 .md-icon-button--border:disabled {
   background-color: var(--mdGreyColor20);
   color: var(--mdGreyColor60);
@@ -94,6 +104,11 @@
   outline: 2px var(--mdPrimaryColor80) solid;
   outline-offset: -2px;
   background-color: transparent;
+}
+
+.md-icon-button--plain:active:enabled {
+  background-color: var(--mdPrimaryColor20);
+  color: var(--mdPrimaryColor120);
 }
 
 .md-icon-button--plain:disabled {
