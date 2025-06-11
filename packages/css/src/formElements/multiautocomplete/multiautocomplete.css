@@ -61,8 +61,8 @@
   cursor: not-allowed;
 }
 
-.md-multiautocomplete__input:focus,
-.md-multiautocomplete__input:focus-within {
+.md-multiautocomplete__input:focus-visible,
+.md-multiautocomplete__input:focus-visible-within {
   outline: none;
 }
 
@@ -171,7 +171,7 @@
 }
 
 .md-multiautocomplete__dropdown-item:hover,
-.md-multiautocomplete__dropdown-item:focus {
+.md-multiautocomplete__dropdown-item:focus-visible {
   outline: none;
   background-color: var(--mdPrimaryColor20);
   transition: background-color 0.15s ease-in-out;
@@ -231,7 +231,7 @@
 }
 
 /* Focus state */
-.md-multiautocomplete:not(.md-multiautocomplete--open) .md-multiautocomplete__input:focus {
+.md-multiautocomplete:not(.md-multiautocomplete--open) .md-multiautocomplete__input:focus-visible {
   border: 2px solid var(--mdPrimaryColor);
 }
 

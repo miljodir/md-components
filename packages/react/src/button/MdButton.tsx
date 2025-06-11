@@ -10,6 +10,8 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   rightIcon?: React.ReactNode;
   topIcon?: React.ReactNode;
   children?: string | React.ReactNode;
+  mode?: 'small' | 'medium' | 'large';
+  /** @deprecated Use `mode="small"` instead */
   small?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean;
@@ -21,15 +23,20 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
   rightIcon,
   topIcon,
   children,
+  mode = 'medium',
   small,
   type = 'button',
   loading = false,
   ...otherProps
 }: MdButtonProps) => {
+  // Handle backward compatibility: if small prop is used, override mode
+  const effectiveMode = small ? 'small' : mode;
+
   const classNames = classnames(
     'md-button',
     {
-      'md-button--small': !!small,
+      'md-button--small': effectiveMode === 'small',
+      'md-button--large': effectiveMode === 'large',
       'md-button--secondary': theme === 'secondary',
       'md-button--tertiary': theme === 'tertiary',
       'md-button--danger': theme === 'danger',

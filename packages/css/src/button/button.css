@@ -28,6 +28,11 @@
   border-radius: 8px;
 }
 
+.md-button--large {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+}
+
 .md-button__topIcon {
   height: 1.25rem;
   width: 1.25rem;
@@ -66,7 +71,7 @@
   margin-left: 0.5rem;
 }
 
-.md-button:focus {
+.md-button:focus-visible {
   background-color: var(--mdPrimaryColor80);
   outline: 2px white solid;
   outline-offset: -4px;
@@ -104,11 +109,15 @@
   padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
 }
 
+.md-button--large.md-button--secondary {
+  padding: calc(1rem - 2px) calc(1.25rem - 2px);
+}
+
 .md-button--secondary:hover:enabled {
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-button--secondary:focus:enabled {
+.md-button--secondary:focus-visible:enabled {
   background-color: #ffffff;
   border-color: var(--mdPrimaryColor80);
   color: var(--mdPrimaryColor80);
@@ -147,19 +156,23 @@
   padding: 0.5rem 0.75rem;
 }
 
+.md-button--large.md-button--tertiary {
+  padding: 1rem 1.25rem;
+}
+
 .md-button--tertiary:hover:enabled {
   text-decoration: underline;
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-button--tertiary:focus:enabled {
+.md-button--tertiary:focus-visible:enabled {
   border-color: var(--mdPrimaryColor);
   outline: 2px var(--mdPrimaryColor80) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
-.md-button--tertiary:focus:hover:enabled {
+.md-button--tertiary:focus-visible:hover:enabled {
   background-color: var(--mdPrimaryColor20);
 }
 
@@ -186,7 +199,7 @@
   background-color: var(--mdErrorColor);
 }
 
-.md-button--danger:focus:enabled {
+.md-button--danger:focus-visible:enabled {
   background-color: var(--mdErrorColor);
   outline: 2px white solid;
   outline-offset: -4px;
@@ -212,12 +225,16 @@
   padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
 }
 
+.md-button--large.md-button--danger-secondary {
+  padding: calc(1rem - 2px) calc(1.25rem - 2px);
+}
+
 .md-button--danger-secondary:hover:enabled {
   background-color: var(--mdErrorColor20);
   border-color: var(--mdErrorColor);
 }
 
-.md-button--danger-secondary:focus:enabled {
+.md-button--danger-secondary:focus-visible:enabled {
   background-color: #ffffff;
   border-color: var(--mdErrorColor);
   color: var(--mdErrorColor);

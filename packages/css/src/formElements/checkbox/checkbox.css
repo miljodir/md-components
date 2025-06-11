@@ -26,12 +26,12 @@
   min-width: 1.25rem;
 }
 
-.md-checkbox:focus-within .md-checkbox__label::before,
+.md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox:hover .md-checkbox__label::before {
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-checkbox:focus-within .md-checkbox__label {
+.md-checkbox__input:focus-visible + .md-checkbox__label {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: 2px;
 }
@@ -45,7 +45,7 @@
 }
 
 .md-checkbox--disabled .md-checkbox__label::before,
-.md-checkbox--disabled:focus-within .md-checkbox__label::before,
+.md-checkbox--disabled .md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox--disabled:hover .md-checkbox__label::before {
   background-color: var(--mdGreyColor20);
   border-color: var(--mdGreyColor60);

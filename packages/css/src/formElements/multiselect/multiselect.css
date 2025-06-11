@@ -50,20 +50,21 @@
   cursor: default;
 }
 
-.md-multiselect__button:focus,
-.md-multiselect__button:focus-within {
+.md-multiselect__button:focus-visible,
+.md-multiselect__button:focus-visible-within {
   outline: none;
 }
 .md-multiselect:not(.md-multiselect--disabled)
-  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
+  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-visible,
 .md-multiselect:not(.md-multiselect--disabled)
-  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
+  .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-visible-within {
   padding: calc(0.75rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
-.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
-.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
+.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-visible,
+.md-multiselect:not(.md-multiselect--disabled)
+  .md-multiselect__button:not(.md-multiselect__button--open):focus-visible-within {
   padding: calc(1rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
@@ -159,22 +160,22 @@
 }
 
 .md-multiselect__dropdown-item:hover,
-.md-multiselect__dropdown-item:focus,
-.md-multiselect__dropdown-item:focus-within {
+.md-multiselect__dropdown-item:focus-visible,
+.md-multiselect__dropdown-item:focus-visible-within {
   outline: none;
   background-color: var(--mdPrimaryColor20);
   transition: background-color 0.15s ease-in-out;
 }
 
 .md-multiselect__dropdown-item:hover .md-checkbox__label,
-.md-multiselect__dropdown-item:focus .md-checkbox__label,
-.md-multiselect__dropdown-item:focus-within .md-checkbox__label {
+.md-multiselect__dropdown-item:focus-visible .md-checkbox__label,
+.md-multiselect__dropdown-item:focus-visible-within .md-checkbox__label {
   outline: none;
 }
 
 .md-multiselect__dropdown-item:hover .md-checkbox .md-checkbox__label::before,
-.md-multiselect__dropdown-item:focus .md-checkbox .md-checkbox__label::before,
-.md-multiselect__dropdown-item:focus-within .md-checkbox .md-checkbox__label::before {
+.md-multiselect__dropdown-item:focus-visible .md-checkbox .md-checkbox__label::before,
+.md-multiselect__dropdown-item:focus-visible-within .md-checkbox .md-checkbox__label::before {
   background-color: #fff;
 }
 
@@ -231,14 +232,14 @@
   padding-bottom: 0.75rem;
 }
 
-.md-multiselect__button:not(.md-multiselect__button--open):focus,
-.md-multiselect__button:not(.md-multiselect__button--open):focus-within {
+.md-multiselect__button:not(.md-multiselect__button--open):focus-visible,
+.md-multiselect__button:not(.md-multiselect__button--open):focus-visible-within {
   padding: calc(1rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
 
-.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
-.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
+.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-visible,
+.md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-visible-within {
   padding: calc(0.75rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }

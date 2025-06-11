@@ -17,7 +17,7 @@
   font-weight: 600;
 }
 
-.md-select__button-wrapper:focus-visible {
+.md-select__button-wrapper:focus-visible-visible {
   outline: 0;
 }
 .md-select__button {
@@ -64,7 +64,7 @@
   border-radius: 0;
   line-height: 150%;
 
-  &:focus-visible {
+  &:focus-visible-visible {
     outline: 2px solid var(--mdPrimaryColor);
     outline-offset: -2px;
   }
@@ -94,7 +94,7 @@
   cursor: pointer;
   line-height: 150%;
 
-  &:focus-visible {
+  &:focus-visible-visible {
     outline: 2px solid var(--mdPrimaryColor);
     outline-offset: -2px;
   }
