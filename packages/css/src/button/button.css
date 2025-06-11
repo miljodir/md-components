@@ -78,6 +78,10 @@
   border-color: var(--mdPrimaryColor120);
 }
 
+.md-button:active:enabled {
+  background-color: var(--mdPrimaryColor140);
+}
+
 .md-button[disabled],
 .md-button:disabled {
   background-color: var(--mdGreyColor20);
@@ -110,6 +114,12 @@
   color: var(--mdPrimaryColor80);
   outline: 2px var(--mdPrimaryColor80) solid;
   outline-offset: -6px;
+}
+
+.md-button--secondary:active:enabled {
+  background-color: var(--mdPrimaryColor30);
+  color: var(--mdPrimaryColor120);
+  border-color: var(--mdPrimaryColor120);
 }
 
 .md-button--secondary:disabled {
@@ -153,6 +163,11 @@
   background-color: var(--mdPrimaryColor20);
 }
 
+.md-button--tertiary:active:enabled {
+  background-color: var(--mdPrimaryColor30) !important;
+  color: var(--mdPrimaryColor120) !important;
+}
+
 .md-button--tertiary:disabled {
   background-color: transparent;
   color: var(--mdGreyColor20);
@@ -181,6 +196,10 @@
   background-color: var(--mdErrorColor120);
 }
 
+.md-button--danger:active:enabled {
+  background-color: var(--mdErrorColor140);
+}
+
 /* Danger secondary */
 .md-button--danger-secondary {
   background-color: #ffffff;
@@ -194,7 +213,7 @@
 }
 
 .md-button--danger-secondary:hover:enabled {
-  background-color: var(--mdErrorBackgroundColor);
+  background-color: var(--mdErrorColor20);
   border-color: var(--mdErrorColor);
 }
 
@@ -204,6 +223,12 @@
   color: var(--mdErrorColor);
   outline: 2px var(--mdErrorColor) solid;
   outline-offset: -6px;
+}
+
+.md-button--danger-secondary:active:enabled {
+  background-color: var(--mdErrorBackgroundColor);
+  color: var(--mdErrorColor120);
+  border-color: var(--mdErrorColor120);
 }
 
 .md-button--danger-secondary:disabled {
