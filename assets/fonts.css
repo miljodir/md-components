@@ -59,9 +59,27 @@
   font-family: 'SofiaPro-Regular';
   src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Regular/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Regular/font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
   font-family: 'SofiaPro-Bold';
   src: url('./webfonts/SofiaPro-Bold/font.woff2') format('woff2'),
     url('./webfonts/SofiaPro-Bold/font.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./webfonts/SofiaPro-Bold/font.woff2') format('woff2'),
+    url('./webfonts/SofiaPro-Bold/font.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }

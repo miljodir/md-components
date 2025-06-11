@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--md-spacing-32);
+  padding: var(--md-size-32);
   border: 1px dashed var(--md-color-text-disabled);
   margin-bottom: 4rem;
   background-color: var(--md-color-surface-primary);
@@ -27,10 +27,10 @@
 }
 
 .md-fileupload__droparea-icon {
-  width: var(--md-spacing-32);
-  height: var(--md-spacing-32);
+  width: var(--md-size-32);
+  height: var(--md-size-32);
   color: var(--md-color-text-primary);
-  margin-bottom: var(--md-spacing-24);
+  margin-bottom: var(--md-size-24);
 }
 
 .md-fileupload__droparea-content {
@@ -48,7 +48,7 @@
   background: none;
   border: 0;
   font-size: 1rem;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-primary-100);
   text-decoration: underline;
   padding: 0;
   margin: 0;

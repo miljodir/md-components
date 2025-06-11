@@ -32,12 +32,12 @@
 }
 
 .md-modal__inner-wrapper {
-  padding: 0 0 var(--md-spacing-32) var(--md-spacing-32);
+  padding: 0 0 var(--md-size-32) var(--md-size-32);
   background-color: var(--md-color-surface-primary);
   min-width: 325px;
   max-width: 80%;
   border: 1px solid var(--md-color-border-secondary);
-  box-shadow: var(--md-spacing-8) var(--md-spacing-8) var(--md-spacing-16) var(--md-color-border-primary);
+  box-shadow: var(--md-size-8) var(--md-size-8) var(--md-size-16) var(--md-color-border-primary);
 }
 
 .md-modal--error .md-modal__inner-wrapper {
@@ -48,20 +48,20 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: var(--md-spacing-16);
+  padding-top: var(--md-size-16);
   font-size: var(--md-typography-heading-s-font-size);
 }
 
 .md-modal__header-content {
   display: flex;
   align-items: center;
-  gap: var(--md-spacing-8);
+  gap: var(--md-size-8);
 }
 
 .md-modal__close-button {
-  margin-right: var(--md-spacing-32);
+  margin-right: var(--md-size-32);
 }
 
 .md-modal__content-inner {
-  padding-right: var(--md-spacing-32);
+  padding-right: var(--md-size-32);
 }

@@ -21,9 +21,9 @@
   border: 1px solid var(--md-color-border-primary);
   content: '';
   cursor: pointer;
-  height: var(--md-spacing-20);
-  width: var(--md-spacing-20);
-  min-width: var(--md-spacing-20);
+  height: var(--md-size-20);
+  width: var(--md-size-20);
+  min-width: var(--md-size-20);
 }
 
 .md-checkbox:focus-within .md-checkbox__label::before,
@@ -63,9 +63,9 @@
 
 .md-checkbox__labelText {
   font-size: var(--md-typography-body-m-font-size);
-  left: var(--md-spacing-8);
+  left: var(--md-size-8);
   position: relative;
-  padding-right: var(--md-spacing-8);
+  padding-right: var(--md-size-8);
 }
 
 .md-checkbox:not(.md-checkbox--disabled):hover .md-checkbox__labelText {

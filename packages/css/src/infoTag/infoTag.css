@@ -6,7 +6,7 @@
   z-index: 2;
   background-color: var(--md-color-cta-secondary-hover);
   color: var(--md-color-text-primary);
-  padding: var(--md-spacing-4) var(--md-spacing-12) var(--md-spacing-4) var(--md-spacing-12);
+  padding: var(--md-size-4) var(--md-size-12) var(--md-size-4) var(--md-size-12);
   border-radius: var(--md-radius-sm);
   font-family: var(--md-font-family-open-sans);
   text-align: left;
@@ -71,6 +71,6 @@
 }
 
 .md-info-tag__icon {
-  height: var(--md-spacing-20);
-  width: var(--md-spacing-20);
+  height: var(--md-size-20);
+  width: var(--md-size-20);
 }

@@ -4,7 +4,7 @@
 }
 
 .md-textarea {
-  padding: var(--md-spacing-16) var(--md-spacing-32) var(--md-spacing-16) var(--md-spacing-16);
+  padding: var(--md-size-16) var(--md-size-32) var(--md-size-16) var(--md-size-16);
   font-family: var(--md-font-family-open-sans);
   max-width: 100%;
   width: 100%;
@@ -44,7 +44,7 @@
 }
 
 .md-textarea__label-wrapper {
-  margin-bottom: var(--md-spacing-8);
+  margin-bottom: var(--md-size-8);
 }
 
 .md-textarea__label {
@@ -54,7 +54,7 @@
 }
 
 .md-textarea__label > * + * {
-  margin-left: var(--md-spacing-16);
+  margin-left: var(--md-size-16);
 }
 
 .md-textarea__help-button {
@@ -65,7 +65,7 @@
 .md-textarea__error {
   color: var(--md-color-attention-error-primary);
   font-size: var(--md-typography-body-s-font-size);
-  margin-top: var(--md-spacing-8);
+  margin-top: var(--md-size-8);
 }
 
 .md-textarea__help-text {
@@ -75,7 +75,7 @@
 }
 
 .md-textarea__help-text--open {
-  padding-top: var(--md-spacing-8);
+  padding-top: var(--md-size-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }

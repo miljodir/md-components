@@ -1,17 +1,17 @@
 .md-stepper__stepper-container {
-  padding-top: var(--md-spacing-40);
+  padding-top: var(--md-size-40);
 }
 
 .md-stepper__stepper-container .md-stepper__stepper-list {
   display: flex;
   flex-direction: column;
-  gap: var(--md-spacing-32);
+  gap: var(--md-size-32);
 }
 
 .md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title {
   display: flex;
   flex-direction: row;
-  gap: var(--md-spacing-16);
+  gap: var(--md-size-16);
 }
 .md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title h4 {
   font-family: var(--md-font-family-sofia-pro) !important;
@@ -22,7 +22,7 @@
   text-align: left;
   margin: 0;
 
-  height: var(--md-spacing-40);
+  height: var(--md-size-40);
 
   display: flex;
   align-items: center;
@@ -60,8 +60,8 @@
   .md-stepper__step-title
   .md-stepper__step-title-badge-outer-border.selected {
   border-radius: 50%;
-  border: 1px solid var(--mdPrimaryColor80);
-  background-color: var(--mdPrimaryColor20);
+  border: 1px solid var(--md-color-primary-10080);
+  background-color: var(--md-color-primary-10020);
 }
 
 .md-stepper__stepper-container
@@ -87,7 +87,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge.completed {
-  background-color: var(--mdPrimaryColor80);
+  background-color: var(--md-color-primary-10080);
   color: white;
 }
 
@@ -96,7 +96,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge.selected {
-  background-color: var(--mdPrimaryColor);
+  background-color: var(--md-color-primary-100);
   color: white;
 }
 

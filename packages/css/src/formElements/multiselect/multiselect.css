@@ -18,11 +18,11 @@
 }
 
 .md-multiselect__label-wrapper {
-  margin-bottom: var(--md-spacing-8);
+  margin-bottom: var(--md-size-8);
 }
 
 .md-multiselect__label > * + * {
-  margin-left: var(--md-spacing-16);
+  margin-left: var(--md-size-16);
 }
 
 .md-multiselect__button {
@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--md-color-surface-primary);
-  padding: var(--md-spacing-16);
+  padding: var(--md-size-16);
   border: 1px solid var(--md-color-border-primary);
   color: var(--md-color-text-primary);
   text-align: left;
@@ -41,7 +41,7 @@
 }
 
 .md-multiselect__button.md-multiselect--small {
-  padding: var(--md-spacing-12);
+  padding: var(--md-size-12);
 }
 
 .md-multiselect--disabled .md-multiselect__button {
@@ -59,17 +59,17 @@
 .md-multiselect:not(.md-multiselect--disabled)
   .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
   padding: calc(0.75rem - 1px);
-  border: 2px solid var(--mdPrimaryColor80);
+  border: 2px solid var(--md-color-primary-80);
 }
 
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1rem - 1px);
-  border: 2px solid var(--mdPrimaryColor80);
+  border: 2px solid var(--md-color-primary-80);
 }
 
 .md-multiselect--error:not(.md-multiselect--disabled) .md-multiselect__button {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-support-error-100);
 }
 
 .md-multiselect__button-text {
@@ -86,7 +86,7 @@
   width: 1.25rem;
   height: 1.25rem;
   rotate: 90deg;
-  color: var(--mdGreyColor);
+  color: var(--md-color-grey-100);
 }
 
 .md-multiselect__button-hasmultiple {
@@ -162,7 +162,7 @@
 .md-multiselect__dropdown-item:focus,
 .md-multiselect__dropdown-item:focus-within {
   outline: none;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-primary-10020);
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -186,7 +186,7 @@
 
 .md-multiselect__dropdown-item-checkbox {
   background-color: #ffffff;
-  border: 1px solid var(--mdGreyColor60);
+  border: 1px solid var(--md-color-grey-60);
   content: '';
   cursor: pointer;
   height: 1.25rem;
@@ -202,7 +202,7 @@
 }
 
 .md-multiselect__error {
-  color: var(--mdErrorColor);
+  color: var(--md-color-support-error-100);
   font-size: 0.88em;
   margin-top: 0.5rem;
 }
@@ -216,17 +216,17 @@
 
 /* Open state */
 .md-multiselect--open .md-multiselect__button {
-  border-top: 2px solid var(--mdPrimaryColor80);
-  border-right: 2px solid var(--mdPrimaryColor80);
-  border-left: 2px solid var(--mdPrimaryColor80);
+  border-top: 2px solid var(--md-color-primary-80);
+  border-right: 2px solid var(--md-color-primary-80);
+  border-left: 2px solid var(--md-color-primary-80);
   padding: calc(1rem - 1px);
   padding-bottom: 1rem;
 }
 
 .md-multiselect--open .md-multiselect__button.md-multiselect--small {
-  border-top: 2px solid var(--mdPrimaryColor80);
-  border-right: 2px solid var(--mdPrimaryColor80);
-  border-left: 2px solid var(--mdPrimaryColor80);
+  border-top: 2px solid var(--md-color-primary-80);
+  border-right: 2px solid var(--md-color-primary-80);
+  border-left: 2px solid var(--md-color-primary-80);
   padding: calc(0.75rem - 1px);
   padding-bottom: 0.75rem;
 }
@@ -234,13 +234,13 @@
 .md-multiselect__button:not(.md-multiselect__button--open):focus,
 .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1rem - 1px);
-  border: 2px solid var(--mdPrimaryColor80);
+  border: 2px solid var(--md-color-primary-80);
 }
 
 .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus,
 .md-multiselect__button.md-multiselect--small:not(.md-multiselect__button--open):focus-within {
   padding: calc(0.75rem - 1px);
-  border: 2px solid var(--mdPrimaryColor80);
+  border: 2px solid var(--md-color-primary-80);
 }
 
 .md-multiselect__dropdown--open {
@@ -248,10 +248,10 @@
   overflow-y: auto;
   z-index: 2;
   opacity: 1;
-  border: 2px solid var(--mdPrimaryColor80);
+  border: 2px solid var(--md-color-primary-80);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   border-top: 0;
 }
 .md-multiselect--open.md-multiselect--error .md-multiselect__dropdown {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-support-error-100);
 }

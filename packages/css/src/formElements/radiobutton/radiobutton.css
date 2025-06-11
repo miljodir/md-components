@@ -31,14 +31,14 @@
 }
 
 .md-radiobutton__check-area {
-  width: var(--md-spacing-20);
+  width: var(--md-size-20);
   flex-shrink: 0;
-  height: var(--md-spacing-20);
+  height: var(--md-size-20);
   display: block;
   background-color: var(--md-color-surface-primary);
   border: 1px solid var(--md-color-border-tertiary);
   border-radius: 50%;
-  margin: 0 var(--md-spacing-8) 0 0;
+  margin: 0 var(--md-size-8) 0 0;
   box-sizing: border-box;
   position: relative;
 }
@@ -50,8 +50,8 @@
 }
 
 .md-radiobutton__selected-dot {
-  width: var(--md-spacing-8);
-  height: var(--md-spacing-8);
+  width: var(--md-size-8);
+  height: var(--md-size-8);
   display: block;
   background-color: var(--md-color-cta-primary-default);
   border-radius: 50%;

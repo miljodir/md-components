@@ -52,20 +52,22 @@
   --md-color-tertiary-brown: #584446;
   --md-color-tertiary-brown-light: #d6d2c4;
 
-  /* ===== SPACING ===== */
-  --md-spacing-4: 0.25rem; /* 4px */
-  --md-spacing-8: 0.5rem; /* 8px */
-  --md-spacing-12: 0.75rem; /* 12px */
-  --md-spacing-16: 1rem; /* 16px */
-  --md-spacing-20: 1.25rem; /* 20px */
-  --md-spacing-24: 1.5rem; /* 24px */
-  --md-spacing-32: 2rem; /* 32px */
-  --md-spacing-40: 2.5rem; /* 40px */
-  --md-spacing-48: 3rem; /* 48px */
-  --md-spacing-56: 3.5rem; /* 56px */
-  --md-spacing-64: 4rem; /* 64px */
-  --md-spacing-72: 4.5rem; /* 72px */
-  --md-spacing-80: 5rem; /* 80px */
+  /* ===== SIZE ===== */
+  --md-size-1: 0.0625rem; /* 1px */
+  --md-size-2: 0.125rem; /* 2px */
+  --md-size-4: 0.25rem; /* 4px */
+  --md-size-8: 0.5rem; /* 8px */
+  --md-size-12: 0.75rem; /* 12px */
+  --md-size-16: 1rem; /* 16px */
+  --md-size-20: 1.25rem; /* 20px */
+  --md-size-24: 1.5rem; /* 24px */
+  --md-size-32: 2rem; /* 32px */
+  --md-size-40: 2.5rem; /* 40px */
+  --md-size-48: 3rem; /* 48px */
+  --md-size-56: 3.5rem; /* 56px */
+  --md-size-64: 4rem; /* 64px */
+  --md-size-72: 4.5rem; /* 72px */
+  --md-size-80: 5rem; /* 80px */
 
   /* ===== RADIUS ===== */
   --md-radius-xs: 2px;
@@ -75,10 +77,12 @@
   --md-radius-xl: 360px;
 
   /* ===== TYPOGRAPHY ===== */
-  --md-font-family-sofia-pro: 'SofiaPro-Regular', sans-serif;
+  --md-font-family-sofia-pro: 'SofiaPro', sans-serif;
   --md-font-family-open-sans: 'Open Sans', sans-serif;
 
   /* Heading Typography */
+  --md-typography-heading-xxl-font-size: 2.125rem; /* 34px - from Figma size/8 */
+  --md-typography-heading-xxl-line-height: 2.5rem; /* 40px - calculated line height */
   --md-typography-heading-xl-font-size: 2.25rem; /* 36px */
   --md-typography-heading-xl-line-height: 2.75rem; /* 44px */
   --md-typography-heading-l-font-size: 1.75rem; /* 28px */

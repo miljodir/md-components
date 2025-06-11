@@ -9,7 +9,7 @@
   font-weight: 400;
   font-size: var(--md-typography-body-s-font-size);
   border-radius: var(--md-radius-md);
-  padding: var(--md-spacing-8);
+  padding: var(--md-size-8);
 }
 
 .md-tooltip--small {

@@ -1,7 +1,7 @@
 .md-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--md-spacing-4);
+  gap: var(--md-size-4);
   color: var(--md-color-primary-100);
   background-color: transparent;
   border: none;
@@ -10,12 +10,12 @@
   font-weight: 500;
   font-size: var(--md-typography-body-m-font-size);
   text-decoration: underline;
-  padding: var(--md-spacing-4);
+  padding: var(--md-size-4);
 }
 
 .md-link__icon {
-  height: var(--md-spacing-20);
-  width: var(--md-spacing-20);
+  height: var(--md-size-20);
+  width: var(--md-size-20);
 }
 
 .md-link:hover {

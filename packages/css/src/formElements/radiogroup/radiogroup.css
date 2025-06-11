@@ -7,7 +7,7 @@
 }
 
 .md-radiogroup__label-wrapper {
-  margin-bottom: var(--md-spacing-8);
+  margin-bottom: var(--md-size-8);
 }
 
 .md-radiogroup__label {
@@ -18,7 +18,7 @@
 }
 
 .md-radiogroup__label > * + * {
-  margin-left: var(--md-spacing-16);
+  margin-left: var(--md-size-16);
 }
 
 .md-radiogroup__help-text {
@@ -28,7 +28,7 @@
 }
 
 .md-radiogroup__help-text--open {
-  padding-top: var(--md-spacing-8);
+  padding-top: var(--md-size-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
@@ -36,7 +36,7 @@
 .md-radiogroup__options {
   display: flex;
   flex-direction: row;
-  gap: var(--md-spacing-16);
+  gap: var(--md-size-16);
 }
 
 .md-radiogroup__options--vertical {
@@ -59,7 +59,7 @@
 }
 
 .md-radiogroup__error {
-  color: var(--mdErrorColor);
+  color: var(--md-color-support-error-100);
   font-size: 0.88rem;
   margin-top: 0.5rem;
 }
@@ -70,11 +70,11 @@
   cursor: default;
 }
 .md-radiogroup--disabled .md-radiogroup-option__check-area {
-  background-color: var(--mdGreyColor20);
-  border-color: var(--mdGreyColor60);
+  background-color: var(--md-color-grey-20);
+  border-color: var(--md-color-grey-60);
 }
 .md-radiogroup--disabled .md-radiogroup-option__selected-dot {
-  background-color: var(--mdGreyColor60);
+  background-color: var(--md-color-grey-60);
 }
 
 /* Media */

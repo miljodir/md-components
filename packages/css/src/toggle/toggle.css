@@ -47,8 +47,8 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: var(--md-spacing-40);
-  height: var(--md-spacing-24);
+  width: var(--md-size-40);
+  height: var(--md-size-24);
   background-color: var(--md-color-grey-white);
   border: 1px solid var(--md-color-grey-60);
   border-radius: var(--md-radius-xl);
@@ -68,16 +68,16 @@
 }
 
 .md-toggle__label-text {
-  margin-right: var(--md-spacing-8);
+  margin-right: var(--md-size-8);
 }
 
 .md-toggle__label .md-toggle__button {
   content: '';
   position: absolute;
   top: 0.0625rem;
-  left: var(--md-spacing-4);
-  width: var(--md-spacing-20);
-  height: var(--md-spacing-20);
+  left: var(--md-size-4);
+  width: var(--md-size-20);
+  height: var(--md-size-20);
   border-radius: var(--md-radius-xl);
   background: var(--md-color-grey-60);
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);

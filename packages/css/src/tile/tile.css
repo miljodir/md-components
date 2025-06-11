@@ -1,6 +1,6 @@
 /* HORIZONTAL TILES */
 .md-tile {
-  padding: var(--md-spacing-24);
+  padding: var(--md-size-24);
   border: 1px solid var(--md-color-border-primary);
   background-color: var(--md-color-surface-secondary);
   color: var(--md-color-text-primary);
@@ -10,7 +10,7 @@
   text-decoration: none;
   font-family: var(--md-font-family-open-sans);
   box-sizing: border-box;
-  gap: var(--md-spacing-24);
+  gap: var(--md-size-24);
   text-align: start;
   width: 27.5rem;
   min-width: 27.5rem;
@@ -26,8 +26,8 @@
 .md-tile--small {
   width: 20rem;
   min-width: 20rem;
-  gap: var(--md-spacing-16);
-  padding: var(--md-spacing-16);
+  gap: var(--md-size-16);
+  padding: var(--md-size-16);
 }
 
 .md-tile--fullWidth {
@@ -36,7 +36,7 @@
 }
 
 .md-tile--secondary {
-  background-color: var(--mdSecondaryColor40);
+  background-color: var(--md-color-secondary-40);
 }
 
 .md-tile:not(.md-tile--disabled):hover {
@@ -106,11 +106,11 @@
 }
 
 .md-tile__arrow {
-  color: var(--mdGreyColor);
+  color: var(--md-color-grey-100);
 }
 
 .md-tile--disabled .md-tile__arrow {
-  color: var(--mdGreyColor60);
+  color: var(--md-color-grey-60);
 }
 
 /* VERTICAL TILES */
@@ -122,7 +122,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--mdGreyColor60);
+  border: 1px solid var(--md-color-grey-60);
   background-color: var(--md-color-surface-secondary);
   color: var(--md-color-text-primary);
   text-decoration: none;
@@ -131,7 +131,7 @@
 }
 
 .md-tile-vertical--secondary {
-  background-color: var(--mdSecondaryColor40);
+  background-color: var(--md-color-secondary-40);
 }
 
 .md-tile-vertical--small {
@@ -143,32 +143,32 @@
 }
 
 .md-tile-vertical--disabled {
-  background-color: var(--mdGreyColor20);
-  border: 1px solid var(--mdGreyColor60);
-  color: var(--mdGreyColor60);
+  background-color: var(--md-color-grey-20);
+  border: 1px solid var(--md-color-grey-60);
+  color: var(--md-color-grey-60);
   cursor: not-allowed;
   pointer-events: none;
 }
 
 .md-tile-vertical:hover {
-  border: 1px solid var(--mdPrimaryColor);
-  background-color: var(--mdPrimaryColor30);
+  border: 1px solid var(--md-color-primary-100);
+  background-color: var(--md-color-primary-30);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
 
 .md-tile-vertical:focus {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: 2px solid var(--md-color-primary-100);
   outline-offset: -2px;
-  background-color: var(--mdPrimaryColor30);
+  background-color: var(--md-color-primary-30);
 }
 
 .md-tile-vertical--secondary:hover {
-  background-color: var(--mdSecondaryColor80);
+  background-color: var(--md-color-secondary-80);
 }
 
 .md-tile-vertical--secondary:focus {
-  background-color: var(--mdSecondaryColor80);
+  background-color: var(--md-color-secondary-80);
 }
 
 .md-tile-vertical__content {
@@ -196,13 +196,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
-  color: var(--mdPrimaryColor80);
+  color: var(--md-color-primary-10080);
   width: 8rem;
   height: 8rem;
 }
 
 .md-tile-vertical--disabled .md-tile-vertical__content-icon {
-  color: var(--mdGreyColor60);
+  color: var(--md-color-grey-60);
 }
 
 .md-tile-vertical__content-icon .md-loading-spinner__container {

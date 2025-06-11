@@ -49,7 +49,7 @@
   font-size: var(--md-typography-body-s-font-size);
   background-color: var(--md-color-cta-primary-default);
   color: var(--md-color-text-invert);
-  padding: var(--md-spacing-24);
+  padding: var(--md-size-24);
   border-radius: var(--md-radius-md);
   max-width: 100%;
 }

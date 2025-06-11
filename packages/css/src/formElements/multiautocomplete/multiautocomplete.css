@@ -20,11 +20,11 @@
   display: flex;
   align-items: flex-end;
   font-weight: 600;
-  padding-bottom: var(--md-spacing-8);
+  padding-bottom: var(--md-size-8);
 }
 
 .md-multiautocomplete__label > * + * {
-  margin-left: var(--md-spacing-16);
+  margin-left: var(--md-size-16);
 }
 
 .md-multiautocomplete__input {
@@ -39,8 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--md-spacing-16);
-  border: 1px solid var(--mdGreyColor60);
+  padding: var(--md-size-16);
+  border: 1px solid var(--md-color-grey-60);
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -48,7 +48,7 @@
 }
 
 .md-multiautocomplete__input.md-multiautocomplete__input--error {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-support-error-100);
 }
 
 .md-multiautocomplete--small > .md-multiautocomplete__input {
@@ -56,8 +56,8 @@
 }
 
 .md-multiautocomplete--disabled .md-multiautocomplete__input {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
+  background-color: var(--md-color-grey-20);
+  color: var(--md-color-grey-60);
   cursor: not-allowed;
 }
 
@@ -87,7 +87,7 @@
   height: 1.25rem;
   width: 1.25rem;
   display: flex;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-primary-100);
   z-index: 2;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .md-multiautocomplete__input__prefix.md-multiautocomplete__input__prefix--disabled {
-  color: var(--mdGreyColor60);
+  color: var(--md-color-grey-60);
 }
 
 .md-multiautocomplete__input-icon {
@@ -107,7 +107,7 @@
   display: flex;
   width: 1rem;
   height: 1rem;
-  color: var(--mdGreyColor);
+  color: var(--md-color-grey-100);
   z-index: 0;
 }
 
@@ -165,7 +165,7 @@
   background-color: var(--md-color-surface-primary);
   width: 100%;
   text-align: left;
-  padding: var(--md-spacing-16);
+  padding: var(--md-size-16);
   transition: background-color 0.15s ease-in-out;
   cursor: pointer;
 }
@@ -173,12 +173,12 @@
 .md-multiautocomplete__dropdown-item:hover,
 .md-multiautocomplete__dropdown-item:focus {
   outline: none;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-primary-10020);
   transition: background-color 0.15s ease-in-out;
 }
 
 .md-multiautocomplete__dropdown-item--selected {
-  background-color: var(--mdPrimaryColor10);
+  background-color: var(--md-color-primary-10010);
 }
 
 .md-multiautocomplete__dropdown-item-text {
@@ -191,7 +191,7 @@
   flex-shrink: 0;
   height: 0.75rem;
   width: 0.75rem;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-primary-100);
 }
 
 .md-multiautocomplete__dropdown-no-results {
@@ -209,9 +209,9 @@
 
 /* Open state */
 .md-multiautocomplete--open .md-multiautocomplete__input {
-  border-left: 2px solid var(--mdPrimaryColor);
-  border-right: 2px solid var(--mdPrimaryColor);
-  border-top: 2px solid var(--mdPrimaryColor);
+  border-left: 2px solid var(--md-color-primary-100);
+  border-right: 2px solid var(--md-color-primary-100);
+  border-top: 2px solid var(--md-color-primary-100);
   padding-bottom: calc(1rem - 1px);
 }
 .md-multiautocomplete--open.md-multiautocomplete--small .md-multiautocomplete__input {
@@ -223,28 +223,28 @@
   overflow-y: auto;
   opacity: 1;
   transition: max-height 0.5s ease-in-out;
-  border-right: 2px solid var(--mdPrimaryColor);
-  border-left: 2px solid var(--mdPrimaryColor);
-  border-bottom: 2px solid var(--mdPrimaryColor);
+  border-right: 2px solid var(--md-color-primary-100);
+  border-left: 2px solid var(--md-color-primary-100);
+  border-bottom: 2px solid var(--md-color-primary-100);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
   z-index: 3;
 }
 
 /* Focus state */
 .md-multiautocomplete:not(.md-multiautocomplete--open) .md-multiautocomplete__input:focus {
-  border: 2px solid var(--mdPrimaryColor);
+  border: 2px solid var(--md-color-primary-100);
 }
 
 /* open + error */
 .md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__input {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-support-error-100);
 }
 .md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__dropdown {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-support-error-100);
 }
 
 /* Error text */
 .md-multiautocomplete__error {
-  color: var(--mdErrorColor);
+  color: var(--md-color-support-error-100);
   font-size: 0.88rem;
 }
