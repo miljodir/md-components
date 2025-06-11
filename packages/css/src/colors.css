@@ -201,7 +201,4 @@
   --mdTertiaryYellowLightColor: var(--md-color-tertiary-yellow-light);
   --mdTertiaryBrownColor: var(--md-color-tertiary-brown);
   --mdTertiaryBrownLightColor: var(--md-color-tertiary-brown-light);
-
-  --mdLightPrimaryColor: #40c1ac; /* Keep as is for now */
-  --mdDarkPrimaryColor: var(--md-color-primary-120);
 }
