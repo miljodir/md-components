@@ -3,10 +3,7 @@
   font-size: 1rem;
   border: none;
   padding: 0;
-}
-
-.md-radiobutton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   position: relative;
 }
@@ -15,6 +12,7 @@
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: 2px;
 }
+
 .md-radiobutton input[type='radio'] {
   position: absolute;
   left: 0;
