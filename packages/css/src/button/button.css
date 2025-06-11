@@ -71,7 +71,7 @@
   margin-left: 0.5rem;
 }
 
-.md-button:focus {
+.md-button:focus-visible {
   background-color: var(--mdPrimaryColor80);
   outline: 2px white solid;
   outline-offset: -4px;
@@ -117,7 +117,7 @@
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-button--secondary:focus:enabled {
+.md-button--secondary:focus-visible:enabled {
   background-color: #ffffff;
   border-color: var(--mdPrimaryColor80);
   color: var(--mdPrimaryColor80);
@@ -165,14 +165,14 @@
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-button--tertiary:focus:enabled {
+.md-button--tertiary:focus-visible:enabled {
   border-color: var(--mdPrimaryColor);
   outline: 2px var(--mdPrimaryColor80) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
-.md-button--tertiary:focus:hover:enabled {
+.md-button--tertiary:focus-visible:hover:enabled {
   background-color: var(--mdPrimaryColor20);
 }
 
@@ -199,7 +199,7 @@
   background-color: var(--mdErrorColor);
 }
 
-.md-button--danger:focus:enabled {
+.md-button--danger:focus-visible:enabled {
   background-color: var(--mdErrorColor);
   outline: 2px white solid;
   outline-offset: -4px;
@@ -234,7 +234,7 @@
   border-color: var(--mdErrorColor);
 }
 
-.md-button--danger-secondary:focus:enabled {
+.md-button--danger-secondary:focus-visible:enabled {
   background-color: #ffffff;
   border-color: var(--mdErrorColor);
   color: var(--mdErrorColor);

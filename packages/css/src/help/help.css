@@ -23,11 +23,11 @@
   border-right: 6px solid transparent;
 }
 
-.md-helpbutton:focus {
+.md-helpbutton:focus-visible {
   outline: none;
 }
 
-.md-helpbutton:focus .md-helpbutton__icon {
+.md-helpbutton:focus-visible .md-helpbutton__icon {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: 2px;
 }

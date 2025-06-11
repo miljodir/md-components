@@ -25,14 +25,14 @@
 }
 
 .md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):active,
-.md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus {
+.md-input:not(.md-input.md-input--readonly):not(.md-input.md-input--disabled):focus-visible {
   outline: 2px solid var(--mdPrimaryColor80);
   outline-offset: -2px;
   border-color: transparent;
 }
 
-.md-input.md-input--disabled:focus,
-.md-input.md-input--readonly:focus {
+.md-input.md-input--disabled:focus-visible,
+.md-input.md-input--readonly:focus-visible {
   outline: 0;
   cursor: default;
 }

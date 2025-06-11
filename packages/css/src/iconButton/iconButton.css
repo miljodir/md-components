@@ -25,7 +25,7 @@
   height: 1rem;
 }
 
-.md-icon-button:focus {
+.md-icon-button:focus-visible {
   outline: 2px white solid;
   background-color: var(--mdPrimaryColor80);
   outline-offset: -3px;
@@ -63,11 +63,11 @@
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-icon-button--border:hover:focus:enabled {
+.md-icon-button--border:hover:focus-visible:enabled {
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-icon-button--border:focus:enabled {
+.md-icon-button--border:focus-visible:enabled {
   background-color: #ffffff;
   border: 1px solid var(--mdPrimaryColor80);
   outline: 1px var(--mdPrimaryColor80) solid;
@@ -100,7 +100,7 @@
   background-color: transparent;
 }
 
-.md-icon-button--plain:focus:enabled {
+.md-icon-button--plain:focus-visible:enabled {
   outline: 2px var(--mdPrimaryColor80) solid;
   outline-offset: -2px;
   background-color: transparent;

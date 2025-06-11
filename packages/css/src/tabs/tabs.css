@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 
-.md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):focus {
+.md-tabs-container ul li .md-tabs-button:not(.md-tabs-button--disabled):focus-visible {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
   background-color: var(--mdPrimaryColor20);
@@ -96,7 +96,6 @@
   border-color: var(--mdPrimaryColor80);
   font-weight: 400;
 }
-
 
 .md-tabs-container.md-tabs__compact ul li .md-tabs-button--selected:hover:not(.md-tabs-button--disabled) {
   background-color: var(--mdPrimaryColor);
