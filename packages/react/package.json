@@ -17,15 +17,15 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "material-symbols": "^0.28.1",
-    "@ariakit/react": "^0.4.15"
+    "classnames": "^2.5.1",
+    "material-symbols": "^0.31.7",
+    "@ariakit/react": "^0.4.17"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
+    "@types/node": "^24.0.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "typescript": "^5.2.0"
+    "typescript": "^5.8.3"
   },
   "files": [
     "dist",

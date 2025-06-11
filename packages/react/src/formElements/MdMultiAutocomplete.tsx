@@ -250,7 +250,9 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
               }
             }}
             onFocus={() => {
-              !disabled && setOpen(true);
+              if (!disabled) {
+                setOpen(true);
+              }
             }}
             type="text"
             placeholder={placeholder}

@@ -226,7 +226,7 @@ export const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteP
               }
             }}
             onFocus={() => {
-              !disabled && setOpen(true);
+              if (!disabled) setOpen(true);
             }}
             type="text"
             placeholder={placeholder}
@@ -262,7 +262,7 @@ export const MdAutocomplete = React.forwardRef<HTMLInputElement, MdAutocompleteP
                     tabIndex={open ? 0 : -1}
                     className={optionClass(option)}
                     onClick={() => {
-                      open && handleOptionClick(option);
+                      if (open) handleOptionClick(option);
                     }}
                   >
                     <div className="md-autocomplete__dropdown-item-text">{option.text}</div>

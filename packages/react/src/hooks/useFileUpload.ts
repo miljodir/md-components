@@ -50,6 +50,13 @@ export const useFileUpload = (): useFileUploadHook => {
   const [totalSizeInBytes, setTotalSizeInBytes] = useState(0);
 
   useEffect(() => {
+    const handleSizes = (files: File[]): void => {
+      const sizeInBytes = getTotalSizeInBytes(files);
+      const prettySize = formatBytes(sizeInBytes);
+      setTotalSizeInBytes(sizeInBytes);
+      setTotalSize(prettySize);
+    };
+
     setFileNames(
       files.map((file: File) => {
         return file.name;
@@ -96,13 +103,6 @@ export const useFileUpload = (): useFileUploadHook => {
     },
     [files],
   );
-
-  const handleSizes = useCallback((files: File[]): void => {
-    const sizeInBytes = getTotalSizeInBytes(files);
-    const prettySize = formatBytes(sizeInBytes);
-    setTotalSizeInBytes(sizeInBytes);
-    setTotalSize(prettySize);
-  }, []);
 
   const removeFile = useCallback(
     (file: string): void => {
