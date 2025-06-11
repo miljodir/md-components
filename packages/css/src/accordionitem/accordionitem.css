@@ -58,7 +58,6 @@
 
 .md-accordion-item__header:focus {
   outline: 2px solid var(--mdPrimaryColor80);
-  outline-offset: -8px;
 }
 
 .md-accordion-item__header-left {
