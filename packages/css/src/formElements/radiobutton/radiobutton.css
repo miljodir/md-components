@@ -3,10 +3,7 @@
   font-size: 1rem;
   border: none;
   padding: 0;
-}
-
-.md-radiobutton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   position: relative;
 }
