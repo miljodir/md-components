@@ -1,53 +1,207 @@
+/* Design Tokens */
 :root {
-  --mdPrimaryColor: #005e5d;
-  --mdPrimaryColor160: #003b3a;
-  --mdPrimaryColor140: #004646;
-  --mdPrimaryColor120: #005251;
-  --mdPrimaryColor90: #196d6c;
-  --mdPrimaryColor80: #337e7d;
-  --mdPrimaryColor70: #4c8e8d;
-  --mdPrimaryColor60: #669e9d;
-  --mdPrimaryColor50: #7faead;
-  --mdPrimaryColor40: #99bebe;
-  --mdPrimaryColor30: #b2cece;
-  --mdPrimaryColor20: #ccdfde;
-  --mdPrimaryColor10: #e5eeee;
+  /* ===== BASE COLORS ===== */
+  /* Primary Colors */
+  --md-color-primary-160: #003b3a;
+  --md-color-primary-140: #004646;
+  --md-color-primary-120: #005251;
+  --md-color-primary-100: #005e5d;
+  --md-color-primary-90: #196d6c;
+  --md-color-primary-80: #337e7d;
+  --md-color-primary-70: #4c8e8d;
+  --md-color-primary-60: #669e9d;
+  --md-color-primary-50: #7faead;
+  --md-color-primary-40: #99bebe;
+  --md-color-primary-30: #b2cece;
+  --md-color-primary-20: #ccdfde;
+  --md-color-primary-10: #e5eeee;
 
-  --mdLightPrimaryColor: #40c1ac;
-  --mdDarkPrimaryColor: #005251;
+  /* Secondary Colors */
+  --md-color-secondary-100: #ece7d2;
+  --md-color-secondary-80: #efebdb;
+  --md-color-secondary-60: #f3f0e4;
+  --md-color-secondary-40: #f7f5ed;
+  --md-color-secondary-20: #fbfaf6;
 
-  --mdSecondaryColor: #ece7d2;
-  --mdSecondaryColor80: #efebdb;
-  --mdSecondaryColor60: #f3f0e4;
-  --mdSecondaryColor40: #f7f5ed;
-  --mdSecondaryColor20: #fbfaf6;
+  /* Grey Colors */
+  --md-color-grey-white: #ffffff;
+  --md-color-grey-100: #222222;
+  --md-color-grey-80: #4e4e4e;
+  --md-color-grey-60: #767676;
+  --md-color-grey-40: #a6a6a6;
+  --md-color-grey-20: #d2d2d2;
+  --md-color-grey-10: #e8e8e8;
 
-  --mdTertiaryBlueColor: #1472ce;
-  --mdTertiaryBlueLightColor: #b9d9eb;
-  --mdTertiaryPinkColor: #ab5c57;
-  --mdTertiaryPinkLightColor: #e6baa8;
-  --mdTertiaryYellowColor: #d69a2d;
-  --mdTertiaryYellowLightColor: #ecd898;
-  --mdTertiaryBrownColor: #584446;
-  --mdTertiaryBrownLightColor: #d6d2c4;
+  /* Support Colors */
+  --md-color-support-error-140: #830000;
+  --md-color-support-error-120: #b7090d;
+  --md-color-support-error-100: #ca0000;
+  --md-color-support-error-40: #f5cccc;
+  --md-color-support-error-20: #f9e3e3;
+  --md-color-support-error-10: #ffeaea;
 
-  --mdTextColor: #222222;
+  --md-color-support-warning-dark: #de8215;
+  --md-color-support-warning-light: #fce4ca;
 
-  --mdWarningBackgroundColor: #fce4ca;
-  --mdWarningColor: #de8215;
+  /* Tertiary Colors */
+  --md-color-tertiary-blue: #1472ce;
+  --md-color-tertiary-blue-light: #b9d9eb;
+  --md-color-tertiary-pink: #ab5c57;
+  --md-color-tertiary-pink-light: #e6baa8;
+  --md-color-tertiary-yellow: #d69a2d;
+  --md-color-tertiary-yellow-light: #ecd898;
+  --md-color-tertiary-brown: #584446;
+  --md-color-tertiary-brown-light: #d6d2c4;
 
-  --mdErrorColor: #ca0000;
-  --mdErrorColor20: #f9e3e3;
-  --mdErrorColor120: #b7090d;
-  --mdErrorColor140: #830000;
-  --mdErrorBackgroundColor: #f5cccc;
+  /* ===== SIZE ===== */
+  --md-size-1: 0.0625rem; /* 1px */
+  --md-size-2: 0.125rem; /* 2px */
+  --md-size-4: 0.25rem; /* 4px */
+  --md-size-8: 0.5rem; /* 8px */
+  --md-size-12: 0.75rem; /* 12px */
+  --md-size-16: 1rem; /* 16px */
+  --md-size-20: 1.25rem; /* 20px */
+  --md-size-24: 1.5rem; /* 24px */
+  --md-size-32: 2rem; /* 32px */
+  --md-size-40: 2.5rem; /* 40px */
+  --md-size-48: 3rem; /* 48px */
+  --md-size-56: 3.5rem; /* 56px */
+  --md-size-64: 4rem; /* 64px */
+  --md-size-72: 4.5rem; /* 72px */
+  --md-size-80: 5rem; /* 80px */
 
-  --mdGreyColor: #222222;
-  --mdGreyColor10: #e8e8e8;
-  --mdGreyColor20: #d2d2d2;
-  --mdGreyColor40: #a6a6a6;
-  --mdGreyColor60: #767676;
-  --mdGreyColor80: #4e4e4e;
+  /* ===== RADIUS ===== */
+  --md-radius-xs: 2px;
+  --md-radius-sm: 4px;
+  --md-radius-md: 8px;
+  --md-radius-lg: 16px;
+  --md-radius-xl: 360px;
 
-  --mdGreenColor60: #b3e8c2;
+  /* ===== TYPOGRAPHY ===== */
+  --md-font-family-sofia-pro: 'SofiaPro', sans-serif;
+  --md-font-family-open-sans: 'Open Sans', sans-serif;
+
+  /* Heading Typography */
+  --md-typography-heading-xxl-font-size: 2.125rem; /* 34px - from Figma size/8 */
+  --md-typography-heading-xxl-line-height: 2.5rem; /* 40px - calculated line height */
+  --md-typography-heading-xl-font-size: 2.25rem; /* 36px */
+  --md-typography-heading-xl-line-height: 2.75rem; /* 44px */
+  --md-typography-heading-l-font-size: 1.75rem; /* 28px */
+  --md-typography-heading-l-line-height: 2.125rem; /* 34px */
+  --md-typography-heading-m-font-size: 1.5rem; /* 24px */
+  --md-typography-heading-m-line-height: 1.875rem; /* 30px */
+  --md-typography-heading-s-font-size: 1.25rem; /* 20px */
+  --md-typography-heading-s-line-height: 1.5rem; /* 24px */
+  --md-typography-heading-xs-font-size: 1.125rem; /* 18px */
+  --md-typography-heading-xs-line-height: 1.375rem; /* 22px */
+
+  /* Body Typography */
+  --md-typography-body-l-font-size: 1.125rem; /* 18px */
+  --md-typography-body-l-line-height: 1.75rem; /* 28px */
+  --md-typography-body-m-font-size: 1rem; /* 16px */
+  --md-typography-body-m-line-height: 1.5rem; /* 24px */
+  --md-typography-body-s-font-size: 0.875rem; /* 14px */
+  --md-typography-body-s-line-height: 1.25rem; /* 20px */
+
+  /* Label Typography */
+  --md-typography-label-l-font-size: 1.125rem; /* 18px */
+  --md-typography-label-l-line-height: 1.75rem; /* 28px */
+  --md-typography-label-m-font-size: 1rem; /* 16px */
+  --md-typography-label-m-line-height: 1.5rem; /* 24px */
+  --md-typography-label-s-font-size: 0.875rem; /* 14px */
+  --md-typography-label-s-line-height: 1.25rem; /* 20px */
+
+  /* ===== SEMANTIC COLOR TOKENS ===== */
+
+  /* CTA (Call-to-Action) Colors */
+  --md-color-cta-primary-default: var(--md-color-primary-100);
+  --md-color-cta-primary-hover: var(--md-color-primary-120);
+  --md-color-cta-primary-focus: var(--md-color-primary-80);
+  --md-color-cta-primary-active: var(--md-color-primary-160);
+  --md-color-cta-secondary-default: var(--md-color-grey-white);
+  --md-color-cta-secondary-stroke: var(--md-color-primary-100);
+  --md-color-cta-secondary-hover: var(--md-color-primary-20);
+  --md-color-cta-secondary-active: var(--md-color-primary-30);
+
+  /* Disabled Colors */
+  --md-color-disabled-default: var(--md-color-grey-60);
+  --md-color-disabled-dark: var(--md-color-grey-80);
+  --md-color-disabled-bg: var(--md-color-grey-20);
+
+  /* Attention Colors */
+  --md-color-attention-error-primary: var(--md-color-support-error-100);
+  --md-color-attention-error-hover: var(--md-color-support-error-120);
+  --md-color-attention-error-active: var(--md-color-support-error-140);
+  --md-color-attention-error-bg: var(--md-color-support-error-40);
+  --md-color-attention-error-bg-hover: var(--md-color-support-error-40);
+  --md-color-attention-error-x-light: var(--md-color-support-error-10);
+  --md-color-attention-warning-primary: var(--md-color-support-warning-dark);
+  --md-color-attention-warning-bg: var(--md-color-support-warning-light);
+
+  /* Surface Colors */
+  --md-color-surface-primary: var(--md-color-grey-white);
+  --md-color-surface-secondary: var(--md-color-primary-10);
+  --md-color-surface-tertiary: var(--md-color-secondary-20);
+  --md-color-surface-info-primary: var(--md-color-primary-20);
+  --md-color-surface-info-secondary: var(--md-color-secondary-40);
+  --md-color-surface-grey: var(--md-color-grey-10);
+
+  /* Text Colors */
+  --md-color-text-primary: var(--md-color-grey-100);
+  --md-color-text-secondary: var(--md-color-primary-100);
+  --md-color-text-invert: var(--md-color-grey-white);
+  --md-color-text-disabled: var(--md-color-grey-60);
+  --md-color-text-visited: var(--md-color-primary-160);
+
+  /* Border Colors */
+  --md-color-border-primary: var(--md-color-grey-60);
+  --md-color-border-secondary: var(--md-color-grey-20);
+  --md-color-border-tertiary: var(--md-color-primary-100);
+
+  /* ===== LEGACY COMPATIBILITY ===== */
+  /* Keep existing tokens for backward compatibility */
+  --mdPrimaryColor: var(--md-color-primary-100);
+  --mdPrimaryColor160: var(--md-color-primary-160);
+  --mdPrimaryColor140: var(--md-color-primary-140);
+  --mdPrimaryColor120: var(--md-color-primary-120);
+  --mdPrimaryColor90: var(--md-color-primary-90);
+  --mdPrimaryColor80: var(--md-color-primary-80);
+  --mdPrimaryColor70: var(--md-color-primary-70);
+  --mdPrimaryColor60: var(--md-color-primary-60);
+  --mdPrimaryColor50: var(--md-color-primary-50);
+  --mdPrimaryColor40: var(--md-color-primary-40);
+  --mdPrimaryColor30: var(--md-color-primary-30);
+  --mdPrimaryColor20: var(--md-color-primary-20);
+  --mdPrimaryColor10: var(--md-color-primary-10);
+
+  --mdSecondaryColor: var(--md-color-secondary-100);
+  --mdSecondaryColor80: var(--md-color-secondary-80);
+  --mdSecondaryColor60: var(--md-color-secondary-60);
+  --mdSecondaryColor40: var(--md-color-secondary-40);
+  --mdSecondaryColor20: var(--md-color-secondary-20);
+
+  --mdTextColor: var(--md-color-grey-100);
+  --mdWarningBackgroundColor: var(--md-color-support-warning-light);
+  --mdWarningColor: var(--md-color-support-warning-dark);
+  --mdErrorColor: var(--md-color-support-error-100);
+  --mdErrorColor20: var(--md-color-support-error-20);
+  --mdErrorColor120: var(--md-color-support-error-120);
+  --mdErrorColor140: var(--md-color-support-error-140);
+  --mdErrorBackgroundColor: var(--md-color-support-error-40);
+
+  --mdGreyColor: var(--md-color-grey-100);
+  --mdGreyColor10: var(--md-color-grey-10);
+  --mdGreyColor20: var(--md-color-grey-20);
+  --mdGreyColor40: var(--md-color-grey-40);
+  --mdGreyColor60: var(--md-color-grey-60);
+  --mdGreyColor80: var(--md-color-grey-80);
+
+  --mdTertiaryBlueColor: var(--md-color-tertiary-blue);
+  --mdTertiaryBlueLightColor: var(--md-color-tertiary-blue-light);
+  --mdTertiaryPinkColor: var(--md-color-tertiary-pink);
+  --mdTertiaryPinkLightColor: var(--md-color-tertiary-pink-light);
+  --mdTertiaryYellowColor: var(--md-color-tertiary-yellow);
+  --mdTertiaryYellowLightColor: var(--md-color-tertiary-yellow-light);
+  --mdTertiaryBrownColor: var(--md-color-tertiary-brown);
+  --mdTertiaryBrownLightColor: var(--md-color-tertiary-brown-light);
 }

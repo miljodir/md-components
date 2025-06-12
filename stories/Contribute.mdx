@@ -11,10 +11,143 @@ import { Meta } from '@storybook/blocks';
   }}
 />
 
-<div className="gs-wrapper">
+<div style={{
+  maxWidth: '800px',
+  margin: '0 auto',
+  padding: '2rem',
+  fontFamily: 'var(--md-font-family-sofia-pro)',
+  lineHeight: '1.6',
+  color: 'var(--md-color-text-primary)'
+}}>
 
 # Contribute
 
-Everyone can contribute to this library of components. To do so, please read the instructions provided in [the repository on GitHub](https://github.com/miljodir/md-components).
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container-low)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  marginBottom: '2rem',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
+
+Everyone can contribute to this library of components. Components are located in `packages/react` with corresponding CSS in `packages/css`. All changes must be approved by Miljødirektoratet's communication department.
+
+</div>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)',
+  marginBottom: '1.5rem'
+}}>
+
+## New Components Requirements
+
+For new components, you need to create:
+
+1. **React component** in `packages/react`
+2. **CSS styles** in `packages/css` 
+3. **Storybook story** in `stories/`
+4. **README.md** in the CSS folder describing HTML structure
+5. **Export** the component in `packages/react/index.tsx`
+6. **Register** CSS import in `packages/css/index.css`
+
+<p style={{ fontSize: 'var(--md-sys-typescale-body-medium-size)', color: 'var(--md-sys-color-on-surface-variant)', marginTop: '1rem' }}>
+  <strong>Design approval required:</strong> New components must be designed in <a href="https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102" target="_blank">Figma</a> first. Contact <a href="mailto:ithjelp@miljodir.no">ithjelp@miljodir.no</a> for access.
+</p>
+
+</div>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)',
+  marginBottom: '1.5rem'
+}}>
+
+## Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/miljodir/md-components.git
+
+# Install dependencies
+npm install
+
+# Start Storybook
+npm run storybook
+```
+
+<p style={{ fontSize: 'var(--md-sys-typescale-body-medium-size)', color: 'var(--md-sys-color-on-surface-variant)', marginTop: '1rem' }}>
+  The project uses ESLint and Prettier for code formatting and quality. Files are automatically formatted on save.
+</p>
+
+</div>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)',
+  marginBottom: '1.5rem'
+}}>
+
+## Testing Changes Locally
+
+Before merging, test your changes in your own project:
+
+```bash
+# From packages/react
+npm run build
+npm pack --pack-destination ~
+
+# From packages/css  
+npm pack --pack-destination ~
+```
+
+Then add to your project's `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@miljodirektoratet/md-css": "file:~/miljodirektoratet-md-css-<version>.tgz",
+    "@miljodirektoratet/md-react": "file:~/miljodirektoratet-md-react-<version>.tgz"
+  }
+}
+```
+
+</div>
+
+<div style={{
+  backgroundColor: 'var(--md-sys-color-surface-container)',
+  padding: '1.5rem',
+  borderRadius: 'var(--md-sys-shape-corner-medium)',
+  border: '1px solid var(--md-sys-color-outline-variant)'
+}}>
+
+## Pull Request Requirements
+
+All pull requests must include:
+
+- **Required labels**: Add a label (`major`, `minor`, or `patch`) for version management
+- **Self-review**: Perform a self-review and test of your code
+- **Server Components**: Add `"use client"` directive to interactive components
+
+### New Component Checklist
+
+When creating new components, ensure you complete:
+
+- ✅ **Story creation**: Add Storybook story in `stories/` folder
+- ✅ **CSS documentation**: Create README.md file for CSS documentation
+- ✅ **React export**: Add component import to `packages/react/index.tsx`
+- ✅ **CSS registration**: Add CSS file to `packages/css/index.css`
+
+<p style={{ fontSize: 'var(--md-sys-typescale-body-medium-size)', color: 'var(--md-sys-color-on-surface-variant)', marginTop: '1rem' }}>
+  The repository includes a pull request template that guides you through these requirements.
+</p>
+
+</div>
 
 </div>
