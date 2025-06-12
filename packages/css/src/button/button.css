@@ -28,6 +28,11 @@
   border-radius: var(--md-radius-md);
 }
 
+.md-button--large {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+}
+
 .md-button__topIcon {
   height: var(--md-size-20);
   width: var(--md-size-20);
@@ -66,7 +71,7 @@
   margin-left: var(--md-size-8);
 }
 
-.md-button:focus {
+.md-button:focus-visible {
   background-color: var(--md-color-cta-primary-focus);
   outline: 2px white solid;
   outline-offset: -4px;
@@ -76,6 +81,10 @@
   cursor: pointer;
   background-color: var(--md-color-cta-primary-hover);
   border-color: var(--md-color-cta-primary-hover);
+}
+
+.md-button:active:enabled {
+  background-color: var(--md-color-cta-primary-active);
 }
 
 .md-button[disabled],
@@ -100,16 +109,26 @@
   padding: calc(var(--md-size-8) - 2px) calc(var(--md-size-12) - 2px);
 }
 
+.md-button--large.md-button--secondary {
+  padding: calc(1rem - 2px) calc(1.25rem - 2px);
+}
+
 .md-button--secondary:hover:enabled {
   background-color: var(--md-color-primary-20);
 }
 
-.md-button--secondary:focus:enabled {
+.md-button--secondary:focus-visible:enabled {
   background-color: var(--md-color-grey-white);
   border-color: var(--md-color-primary-80);
   color: var(--md-color-primary-80);
   outline: 2px var(--md-color-primary-80) solid;
   outline-offset: -6px;
+}
+
+.md-button--secondary:active:enabled {
+  background-color: var(--md-color-cta-secondary-active);
+  color: var(--md-color-cta-primary-hover);
+  border-color: var(--md-color-cta-primary-hover);
 }
 
 .md-button--secondary:disabled {
@@ -137,20 +156,29 @@
   padding: var(--md-size-8) var(--md-size-12);
 }
 
+.md-button--large.md-button--tertiary {
+  padding: 1rem 1.25rem;
+}
+
 .md-button--tertiary:hover:enabled {
   text-decoration: underline;
   background-color: var(--md-color-primary-20);
 }
 
-.md-button--tertiary:focus:enabled {
+.md-button--tertiary:focus-visible:enabled {
   border-color: var(--md-color-primary-100);
   outline: 2px var(--md-color-primary-80) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
-.md-button--tertiary:focus:hover:enabled {
+.md-button--tertiary:focus-visible:hover:enabled {
   background-color: var(--md-color-primary-20);
+}
+
+.md-button--tertiary:active:enabled {
+  background-color: var(--md-color-cta-secondary-active) !important;
+  color: var(--md-color-cta-primary-hover) !important;
 }
 
 .md-button--tertiary:disabled {
@@ -171,7 +199,7 @@
   background-color: var(--md-color-support-error-100);
 }
 
-.md-button--danger:focus:enabled {
+.md-button--danger:focus-visible:enabled {
   background-color: var(--md-color-support-error-100);
   outline: 2px var(--md-color-grey-white) solid;
   outline-offset: -4px;
@@ -179,6 +207,10 @@
 
 .md-button--danger:hover:enabled {
   background-color: var(--md-color-support-error-120);
+}
+
+.md-button--danger:active:enabled {
+  background-color: var(--md-color-attention-error-active);
 }
 
 /* Danger secondary */
@@ -193,17 +225,27 @@
   padding: calc(var(--md-size-8) - 2px) calc(var(--md-size-12) - 2px);
 }
 
+.md-button--large.md-button--danger-secondary {
+  padding: calc(1rem - 2px) calc(1.25rem - 2px);
+}
+
 .md-button--danger-secondary:hover:enabled {
   background-color: var(--md-color-support-error-40);
   border-color: var(--md-color-support-error-100);
 }
 
-.md-button--danger-secondary:focus:enabled {
+.md-button--danger-secondary:focus-visible:enabled {
   background-color: var(--md-color-grey-white);
   border-color: var(--md-color-support-error-100);
   color: var(--md-color-support-error-100);
   outline: 2px var(--md-color-support-error-100) solid;
   outline-offset: -6px;
+}
+
+.md-button--danger-secondary:active:enabled {
+  background-color: var(--md-color-attention-error-bg);
+  color: var(--md-color-attention-error-hover);
+  border-color: var(--md-color-attention-error-hover);
 }
 
 .md-button--danger-secondary:disabled {

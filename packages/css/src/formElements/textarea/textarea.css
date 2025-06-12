@@ -18,14 +18,14 @@
 }
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
-.md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus {
+.md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus-visible {
   outline: 2px solid var(--md-color-cta-primary-focus);
   outline-offset: -2px;
   border-color: transparent;
 }
 
-.md-textarea.md-textarea--disabled:focus,
-.md-textarea.md-textarea--readonly:focus {
+.md-textarea.md-textarea--disabled:focus-visible,
+.md-textarea.md-textarea--readonly:focus-visible {
   outline: 0;
   cursor: default;
 }

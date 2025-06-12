@@ -28,7 +28,9 @@ export const MdClickOutsideWrapper = React.forwardRef<HTMLDivElement, MdClickOut
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
         if (innerRef.current && !innerRef.current?.contains(event.target as Node)) {
-          onClickOutside && onClickOutside(event as unknown as React.MouseEvent);
+          if (onClickOutside) {
+            onClickOutside(event as unknown as React.MouseEvent);
+          }
         }
       };
       document.addEventListener('click', handleClickOutside, true);

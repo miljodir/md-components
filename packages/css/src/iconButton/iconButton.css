@@ -25,7 +25,7 @@
   height: var(--md-size-16);
 }
 
-.md-icon-button:focus {
+.md-icon-button:focus-visible {
   outline: 2px var(--md-color-grey-white) solid;
   background-color: var(--md-color-primary-80);
   outline-offset: -3px;
@@ -35,6 +35,10 @@
   cursor: pointer;
   background-color: var(--md-color-primary-120);
   border-color: var(--md-color-primary-120);
+}
+
+.md-icon-button:active:enabled {
+  background-color: var(--mdPrimaryColor140);
 }
 
 .md-icon-button[disabled],
@@ -59,15 +63,21 @@
   background-color: var(--md-color-primary-20);
 }
 
-.md-icon-button--border:hover:focus:enabled {
+.md-icon-button--border:hover:focus-visible:enabled {
   background-color: var(--md-color-primary-20);
 }
 
-.md-icon-button--border:focus:enabled {
+.md-icon-button--border:focus-visible:enabled {
   background-color: var(--md-color-grey-white);
   border: 1px solid var(--md-color-primary-80);
   outline: 1px var(--md-color-primary-80) solid;
   outline-offset: -4px;
+}
+
+.md-icon-button--border:active:enabled {
+  background-color: var(--mdPrimaryColor30) !important;
+  color: var(--mdPrimaryColor120) !important;
+  outline-color: var(--mdPrimaryColor120);
 }
 
 .md-icon-button--border:disabled {
@@ -90,10 +100,15 @@
   background-color: transparent;
 }
 
-.md-icon-button--plain:focus:enabled {
+.md-icon-button--plain:focus-visible:enabled {
   outline: 2px var(--md-color-primary-80) solid;
   outline-offset: -2px;
   background-color: transparent;
+}
+
+.md-icon-button--plain:active:enabled {
+  background-color: var(--mdPrimaryColor20);
+  color: var(--mdPrimaryColor120);
 }
 
 .md-icon-button--plain:disabled {

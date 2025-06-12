@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-.md-tile:not(.md-tile--disabled):focus {
+.md-tile:not(.md-tile--disabled):focus-visible {
   outline: 2px solid var(--md-color-cta-primary-default);
   outline-offset: -2px;
   background-color: var(--md-color-cta-primary-hover);
@@ -56,7 +56,7 @@
   background-color: var(--md-color-cta-secondary-hover);
 }
 
-.md-tile--secondary:not(.md-tile--disabled):focus {
+.md-tile--secondary:not(.md-tile--disabled):focus-visible {
   background-color: var(--md-color-cta-secondary-hover);
 }
 
@@ -157,7 +157,7 @@
   transition: all 0.15s ease-in-out;
 }
 
-.md-tile-vertical:focus {
+.md-tile-vertical:focus-visible {
   outline: 2px solid var(--md-color-primary-100);
   outline-offset: -2px;
   background-color: var(--md-color-primary-30);
@@ -167,7 +167,7 @@
   background-color: var(--md-color-secondary-80);
 }
 
-.md-tile-vertical--secondary:focus {
+.md-tile-vertical--secondary:focus-visible {
   background-color: var(--md-color-secondary-80);
 }
 

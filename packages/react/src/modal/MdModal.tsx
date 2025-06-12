@@ -82,7 +82,7 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
     return () => {
       return document.removeEventListener('keydown', keyListener);
     };
-  }, [open]);
+  }, [onClose, open]);
 
   const closeModal = (e: React.MouseEvent) => {
     if (onClose) {

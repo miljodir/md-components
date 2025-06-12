@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import MdButton from '../button/MdButton';
 import MdFileList from '../fileList/MdFileList';
 import { useFileUpload } from '../hooks/useFileUpload';
@@ -39,25 +39,28 @@ export const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const handleSubmit = useCallback(
+    async (e?: MouseEvent) => {
+      if (e) {
+        e.preventDefault();
+      }
+      if (onUpload) {
+        if (useFormData) {
+          const formData = createFormData();
+          onUpload(formData);
+        } else {
+          onUpload(files);
+        }
+      }
+    },
+    [onUpload, useFormData, createFormData, files],
+  );
+
   useEffect(() => {
     if (automaticTrigger && files.length !== 0) {
       handleSubmit();
     }
-  }, [automaticTrigger, files]);
-
-  const handleSubmit = async (e?: MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-    }
-    if (onUpload) {
-      if (useFormData) {
-        const formData = createFormData();
-        onUpload(formData);
-      } else {
-        onUpload(files);
-      }
-    }
-  };
+  }, [automaticTrigger, files, handleSubmit]);
 
   const handleCancel = (e: MouseEvent) => {
     e.preventDefault();

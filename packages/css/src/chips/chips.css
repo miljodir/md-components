@@ -28,7 +28,7 @@
   background-color: var(--md-color-cta-primary-hover);
   color: var(--md-color-text-invert);
 }
-.md-chip.md-chip--solid:not(.md-chip--disabled):focus {
+.md-chip.md-chip--solid:not(.md-chip--disabled):focus-visible {
   outline-offset: 0.1875rem;
 }
 
@@ -36,7 +36,7 @@
   background-color: var(--md-color-cta-secondary-hover);
 }
 
-.md-chip:not(.md-chip--disabled):focus {
+.md-chip:not(.md-chip--disabled):focus-visible {
   outline: 0.1875rem solid var(--md-color-cta-primary-default);
   outline-offset: -0.1875rem;
 }
@@ -48,7 +48,7 @@
   cursor: default;
 }
 
-.md-chip--disabled:focus {
+.md-chip--disabled:focus-visible {
   outline: none;
 }
 
@@ -57,7 +57,7 @@
   color: #fff;
 }
 
-.md-chip:not(.md-chip--disabled).md-chip--active:focus {
+.md-chip:not(.md-chip--disabled).md-chip--active:focus-visible {
   outline-offset: -0.3125rem;
   outline-color: #fff;
 }

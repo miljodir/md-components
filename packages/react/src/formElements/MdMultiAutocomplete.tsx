@@ -65,6 +65,10 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
     },
     ref,
   ) => {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'MdAutocomplete is deprecated and will be removed in a future release. Use MdCombobox with multiple options instead.',
+    );
     const [open, setOpen] = useState(false);
     const [helpOpen, setHelpOpen] = useState(false);
     const [autocompleteValue, setAutocompleteValue] = useState('');
@@ -246,7 +250,9 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
               }
             }}
             onFocus={() => {
-              !disabled && setOpen(true);
+              if (!disabled) {
+                setOpen(true);
+              }
             }}
             type="text"
             placeholder={placeholder}

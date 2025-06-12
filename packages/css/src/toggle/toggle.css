@@ -2,8 +2,8 @@
   display: flex;
 }
 
-.md-toggle__wrapper:focus-within,
-.md-toggle__wrapper:focus {
+.md-toggle__wrapper:focus-visible-within,
+.md-toggle__wrapper:focus-visible {
   outline: none;
 }
 
@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 
-.md-toggle__wrapper:focus-within .md-toggle__label-wrapper {
+.md-toggle__wrapper:focus-visible-within .md-toggle__label-wrapper {
   outline: 2px solid var(--md-color-primary-80);
   outline-offset: 4px;
 }
