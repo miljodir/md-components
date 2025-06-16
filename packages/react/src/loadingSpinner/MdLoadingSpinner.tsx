@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import MdIconLoadingSpinner from '../icons-material/MdIconLoadingSpinner';
+import { VisuallyHidden } from '@ariakit/react';
 
 export interface MdLoadingSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
@@ -23,8 +24,9 @@ export const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   );
 
   return (
-    <div aria-label="Laster" className={classNames} {...otherProps}>
-      <MdIconLoadingSpinner className="md-loading-spinner" width={size} height={size} />
+    <div className={classNames} {...otherProps}>
+      <VisuallyHidden>Laster..</VisuallyHidden>
+      <MdIconLoadingSpinner aria-hidden className="md-loading-spinner" width={size} height={size} />
     </div>
   );
 };

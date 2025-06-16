@@ -98,6 +98,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
           id={`md-accordion-item_content_${accordionId}`}
           aria-labelledby={accordionId}
           className={contentClassNames}
+          role="region"
         >
           <div className="md-accordion-item__content-inner">{children}</div>
 
