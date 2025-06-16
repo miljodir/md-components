@@ -1,11 +1,11 @@
 .md-textarea__outer-wrapper {
-  font-family: var(--md-font-family-open-sans);
+  font-family: var(--md-font-family-sofia-pro);
   font-size: var(--md-typography-body-m-font-size);
 }
 
 .md-textarea {
   padding: var(--md-size-16) var(--md-size-32) var(--md-size-16) var(--md-size-16);
-  font-family: var(--md-font-family-open-sans);
+  font-family: var(--md-font-family-sofia-pro);
   max-width: 100%;
   width: 100%;
   background-color: var(--md-color-surface-primary);

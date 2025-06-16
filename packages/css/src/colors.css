@@ -33,12 +33,14 @@
   --md-color-grey-10: #e8e8e8;
 
   /* Support Colors */
+  --md-color-support-error-160: #830000;
   --md-color-support-error-140: #830000;
   --md-color-support-error-120: #b7090d;
   --md-color-support-error-100: #ca0000;
   --md-color-support-error-40: #f5cccc;
   --md-color-support-error-20: #f9e3e3;
   --md-color-support-error-10: #ffeaea;
+  --md-color-support-error-x-light: #ffeaea;
 
   --md-color-support-warning-dark: #de8215;
   --md-color-support-warning-light: #fce4ca;
@@ -130,11 +132,13 @@
 
   /* Attention Colors */
   --md-color-attention-error-primary: var(--md-color-support-error-100);
-  --md-color-attention-error-hover: var(--md-color-support-error-120);
-  --md-color-attention-error-active: var(--md-color-support-error-140);
-  --md-color-attention-error-bg: var(--md-color-support-error-40);
+  --md-color-attention-error-primary-hover: var(--md-color-support-error-120);
+  --md-color-attention-error-primary-active: var(--md-color-support-error-160);
+  --md-color-attention-error-secondary: var(--md-color-grey-white);
+  --md-color-attention-error-secondary-hover: var(--md-color-support-error-10);
+  --md-color-attention-error-secondary-active: var(--md-color-support-error-40);
+  --md-color-attention-error-bg: var(--md-color-support-error-20);
   --md-color-attention-error-bg-hover: var(--md-color-support-error-40);
-  --md-color-attention-error-x-light: var(--md-color-support-error-10);
   --md-color-attention-warning-primary: var(--md-color-support-warning-dark);
   --md-color-attention-warning-bg: var(--md-color-support-warning-light);
 
@@ -183,11 +187,11 @@
   --mdTextColor: var(--md-color-grey-100);
   --mdWarningBackgroundColor: var(--md-color-support-warning-light);
   --mdWarningColor: var(--md-color-support-warning-dark);
-  --mdErrorColor: var(--md-color-support-error-100);
-  --mdErrorColor20: var(--md-color-support-error-20);
-  --mdErrorColor120: var(--md-color-support-error-120);
+  --mdErrorColor: var(--md-color-attention-error-primary);
+  --mdErrorColor20: var(--md-color-attention-error-bg);
+  --mdErrorColor120: var(--md-color-attention-error-primary-hover);
   --mdErrorColor140: var(--md-color-support-error-140);
-  --mdErrorBackgroundColor: var(--md-color-support-error-40);
+  --mdErrorBackgroundColor: var(--md-color-attention-error-bg-hover);
 
   --mdGreyColor: var(--md-color-grey-100);
   --mdGreyColor10: var(--md-color-grey-10);

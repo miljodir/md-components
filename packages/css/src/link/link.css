@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--md-size-4);
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -19,19 +19,19 @@
 }
 
 .md-link:hover {
-  color: var(--md-color-primary-120);
+  color: var(--md-color-cta-primary-hover);
   text-decoration-thickness: 0.0938rem;
-  text-decoration-color: var(--md-color-primary-100);
+  text-decoration-color: var(--md-color-text-secondary);
 }
 
 .md-link:focus-visible {
-  outline: 1px solid var(--md-color-primary-80);
+  outline: 1px solid var(--md-color-cta-primary-focus);
 }
 
 .md-link:active {
-  background-color: var(--md-color-primary-10);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-link:visited {
-  color: var(--md-color-primary-160);
+  color: var(--md-color-text-visited);
 }

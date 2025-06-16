@@ -1,9 +1,9 @@
 .md-button {
   align-items: center;
-  background-color: var(--md-color-primary-100);
-  color: var(--md-color-grey-white);
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-invert);
   display: flex;
-  font-weight: 400;
+  font-weight: 600;
   font-family: var(--md-font-family-open-sans);
   font-size: var(--md-typography-body-m-font-size);
   padding: var(--md-size-12) var(--md-size-16);
@@ -99,9 +99,9 @@
 }
 
 .md-button--secondary {
-  background-color: var(--md-color-grey-white);
-  border: 2px solid var(--md-color-primary-100);
-  color: var(--md-color-primary-100);
+  background-color: var(--md-color-cta-secondary-default);
+  border: 2px solid var(--md-color-cta-secondary-stroke);
+  color: var(--md-color-text-secondary);
   padding: calc(var(--md-size-12) - 2px) calc(var(--md-size-16) - 2px);
 }
 
@@ -114,14 +114,14 @@
 }
 
 .md-button--secondary:hover:enabled {
-  background-color: var(--md-color-primary-20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-button--secondary:focus-visible:enabled {
-  background-color: var(--md-color-grey-white);
-  border-color: var(--md-color-primary-80);
-  color: var(--md-color-primary-80);
-  outline: 2px var(--md-color-primary-80) solid;
+  background-color: var(--md-color-cta-secondary-default);
+  border-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-cta-primary-focus);
+  outline: 2px var(--md-color-cta-primary-focus) solid;
   outline-offset: -6px;
 }
 
@@ -132,23 +132,23 @@
 }
 
 .md-button--secondary:disabled {
-  background-color: var(--md-color-grey-white);
-  color: var(--md-color-grey-60);
-  border-color: var(--md-color-grey-20);
+  background-color: var(--md-color-surface-primary);
+  color: var(--md-color-text-disabled);
+  border-color: var(--md-color-border-secondary);
 }
 
 .md-button--secondary > .md-button__rightIcon {
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
 }
 
 .md-button--secondary:disabled > .md-button__rightIcon {
-  color: var(--md-color-grey-60);
+  color: var(--md-color-text-disabled);
 }
 
 .md-button--tertiary {
   background-color: transparent;
   border: none;
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
   padding: var(--md-size-12) var(--md-size-16);
 }
 
@@ -162,18 +162,18 @@
 
 .md-button--tertiary:hover:enabled {
   text-decoration: underline;
-  background-color: var(--md-color-primary-20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-button--tertiary:focus-visible:enabled {
-  border-color: var(--md-color-primary-100);
-  outline: 2px var(--md-color-primary-80) solid;
+  border-color: var(--md-color-cta-secondary-stroke);
+  outline: 2px var(--md-color-cta-primary-focus) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
 .md-button--tertiary:focus-visible:hover:enabled {
-  background-color: var(--md-color-primary-20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-button--tertiary:active:enabled {
@@ -183,41 +183,41 @@
 
 .md-button--tertiary:disabled {
   background-color: transparent;
-  color: var(--md-color-grey-20);
-  border-color: var(--md-color-grey-20);
+  color: var(--md-color-text-disabled);
+  border-color: var(--md-color-border-secondary);
 }
 
 .md-button--tertiary > .md-button__rightIcon {
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
 }
 
 .md-button--tertiary:disabled > .md-button__rightIcon {
-  color: var(--md-color-grey-20);
+  color: var(--md-color-text-disabled);
 }
 
 .md-button--danger {
-  background-color: var(--md-color-support-error-100);
+  background-color: var(--md-color-attention-error-primary);
 }
 
 .md-button--danger:focus-visible:enabled {
-  background-color: var(--md-color-support-error-100);
-  outline: 2px var(--md-color-grey-white) solid;
+  background-color: var(--md-color-attention-error-primary);
+  outline: 2px var(--md-color-text-invert) solid;
   outline-offset: -4px;
 }
 
 .md-button--danger:hover:enabled {
-  background-color: var(--md-color-support-error-120);
+  background-color: var(--md-color-attention-error-primary-hover);
 }
 
 .md-button--danger:active:enabled {
-  background-color: var(--md-color-attention-error-active);
+  background-color: var(--md-color-attention-error-primary-active);
 }
 
 /* Danger secondary */
 .md-button--danger-secondary {
-  background-color: var(--md-color-grey-white);
-  border: 2px solid var(--md-color-support-error-100);
-  color: var(--md-color-support-error-100);
+  background-color: var(--md-color-attention-error-secondary);
+  border: 2px solid var(--md-color-attention-error-primary);
+  color: var(--md-color-attention-error-primary);
   padding: calc(var(--md-size-12) - 2px) calc(var(--md-size-16) - 2px);
 }
 
@@ -230,34 +230,34 @@
 }
 
 .md-button--danger-secondary:hover:enabled {
-  background-color: var(--md-color-support-error-40);
-  border-color: var(--md-color-support-error-100);
+  background-color: var(--md-color-attention-error-secondary-hover);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-button--danger-secondary:focus-visible:enabled {
-  background-color: var(--md-color-grey-white);
-  border-color: var(--md-color-support-error-100);
-  color: var(--md-color-support-error-100);
-  outline: 2px var(--md-color-support-error-100) solid;
+  background-color: var(--md-color-attention-error-secondary);
+  border-color: var(--md-color-attention-error-primary);
+  color: var(--md-color-attention-error-primary);
+  outline: 2px var(--md-color-attention-error-primary) solid;
   outline-offset: -6px;
 }
 
 .md-button--danger-secondary:active:enabled {
-  background-color: var(--md-color-attention-error-bg);
-  color: var(--md-color-attention-error-hover);
-  border-color: var(--md-color-attention-error-hover);
+  background-color: var(--md-color-attention-error-secondary-active);
+  color: var(--md-color-attention-error-primary-hover);
+  border-color: var(--md-color-attention-error-primary-hover);
 }
 
 .md-button--danger-secondary:disabled {
-  background-color: var(--md-color-grey-white);
-  color: var(--md-color-grey-60);
-  border-color: var(--md-color-grey-20);
+  background-color: var(--md-color-attention-error-secondary);
+  color: var(--md-color-text-disabled);
+  border-color: var(--md-color-border-secondary);
 }
 
 .md-button--danger-secondary > .md-button__rightIcon {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
 }
 
 .md-button--danger-secondary:disabled > .md-button__rightIcon {
-  color: var(--md-color-grey-60);
+  color: var(--md-color-text-disabled);
 }

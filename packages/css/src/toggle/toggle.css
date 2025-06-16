@@ -55,7 +55,7 @@
   position: relative;
 }
 .md-toggle__label--error.md-toggle__label {
-  border-color: var(--md-color-support-error-100);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-toggle__label--checked {
@@ -84,7 +84,7 @@
 }
 
 .md-toggle__label--checked:not(.md-toggle__label--disabled) .md-toggle__button {
-  background-color: var(--md-color-primary-100);
+  background-color: var(--md-color-cta-primary-default);
 }
 
 .md-toggle__checkbox:checked + .md-toggle__label-wrapper .md-toggle__label .md-toggle__button {
@@ -94,7 +94,7 @@
 
 /* Error text */
 .md-toggle__error {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-family: var(--md-font-family-open-sans);
   font-size: var(--md-typography-body-s-font-size);
 }

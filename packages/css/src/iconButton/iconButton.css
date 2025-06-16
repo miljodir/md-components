@@ -5,8 +5,8 @@
   width: var(--md-size-32);
   height: var(--md-size-32);
   justify-content: center;
-  background-color: var(--md-color-primary-100);
-  color: var(--md-color-grey-white);
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-invert);
   font-family: var(--md-font-family-open-sans);
   border-radius: var(--md-radius-xl);
   border: none;
@@ -26,19 +26,19 @@
 }
 
 .md-icon-button:focus-visible {
-  outline: 2px var(--md-color-grey-white) solid;
-  background-color: var(--md-color-primary-80);
+  outline: 2px var(--md-color-text-invert) solid;
+  background-color: var(--md-color-cta-primary-focus);
   outline-offset: -3px;
 }
 
 .md-icon-button:hover {
   cursor: pointer;
-  background-color: var(--md-color-primary-120);
-  border-color: var(--md-color-primary-120);
+  background-color: var(--md-color-cta-primary-hover);
+  border-color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button:active:enabled {
-  background-color: var(--mdPrimaryColor140);
+  background-color: var(--md-color-cta-primary-active);
 }
 
 .md-icon-button[disabled],
@@ -53,31 +53,31 @@
 }
 
 .md-icon-button--border {
-  background-color: var(--md-color-grey-white);
-  outline: 2px solid var(--md-color-primary-100);
+  background-color: var(--md-color-cta-secondary-default);
+  outline: 2px solid var(--md-color-cta-secondary-stroke);
   outline-offset: -2px;
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
 }
 
 .md-icon-button--border:hover:enabled {
-  background-color: var(--md-color-primary-20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-icon-button--border:hover:focus-visible:enabled {
-  background-color: var(--md-color-primary-20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-icon-button--border:focus-visible:enabled {
-  background-color: var(--md-color-grey-white);
-  border: 1px solid var(--md-color-primary-80);
-  outline: 1px var(--md-color-primary-80) solid;
+  background-color: var(--md-color-cta-secondary-default);
+  border: 1px solid var(--md-color-cta-primary-focus);
+  outline: 1px var(--md-color-cta-primary-focus) solid;
   outline-offset: -4px;
 }
 
 .md-icon-button--border:active:enabled {
-  background-color: var(--mdPrimaryColor30) !important;
-  color: var(--mdPrimaryColor120) !important;
-  outline-color: var(--mdPrimaryColor120);
+  background-color: var(--md-color-cta-secondary-active) !important;
+  color: var(--md-color-cta-primary-hover) !important;
+  outline-color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button--border:disabled {
@@ -90,7 +90,7 @@
 .md-icon-button--plain {
   background-color: transparent;
   border: none;
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
 }
 
 .md-icon-button--plain:hover:enabled {

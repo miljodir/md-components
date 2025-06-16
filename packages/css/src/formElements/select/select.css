@@ -1,5 +1,5 @@
 .md-select {
-  font-family: var(--md-font-family-open-sans);
+  font-family: var(--md-font-family-sofia-pro);
   width: 100%;
 }
 
@@ -65,7 +65,7 @@
   line-height: 150%;
 
   &:focus-visible {
-    outline: 2px solid var(--md-color-primary-100);
+    outline: 2px solid var(--md-color-cta-primary-focus);
     outline-offset: -2px;
   }
 }
@@ -95,7 +95,7 @@
   line-height: 150%;
 
   &:focus-visible {
-    outline: 2px solid var(--md-color-primary-100);
+    outline: 2px solid var(--md-color-cta-primary-focus);
     outline-offset: -2px;
   }
 }
@@ -106,7 +106,7 @@
   max-height: min(var(--popover-available-height, 300px), 300px);
   overflow: auto;
   overscroll-behavior: contain;
-  border: 2px solid var(--md-color-primary-100);
+  border: 2px solid var(--md-color-border-tertiary);
   border-top: 0;
   opacity: 0;
   transition-duration: 200ms;
@@ -137,11 +137,11 @@
   padding: 0.5rem 0.75rem;
 }
 .md-select__item[aria-selected='true'] {
-  background-color: var(--md-color-primary-10020);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 .md-select__item[data-focus-visible],
 .md-select__item[data-active-item] {
-  background-color: var(--md-color-primary-10040);
+  background-color: var(--md-color-cta-secondary-active);
 
   .md-checkbox__label::before {
     background-color: #fff;
@@ -163,11 +163,11 @@
 /* Error */
 .md-select__error {
   margin-top: 0.5rem;
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-size: 0.88em;
 }
 .md-select--has-error .md-select__button,
 .md-select--has-error .md-select__popover {
-  outline-color: var(--md-color-support-error-100);
-  border-color: var(--md-color-support-error-100);
+  outline-color: var(--md-color-attention-error-primary);
+  border-color: var(--md-color-attention-error-primary);
 }

@@ -1,5 +1,5 @@
 .md-input__outer-wrapper {
-  font-family: var(--md-font-family-open-sans);
+  font-family: var(--md-font-family-sofia-pro);
   font-size: var(--md-typography-body-m-font-size);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .md-input.md-input--error {
-  border-color: var(--md-color-support-error-100);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-input.md-input--has-suffix {
@@ -95,7 +95,7 @@
 }
 
 .md-input__error {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-size: var(--md-typography-body-s-font-size);
   margin-top: var(--md-size-8);
 }
@@ -119,7 +119,7 @@
   height: var(--md-size-20);
   width: var(--md-size-20);
   display: flex;
-  color: var(--md-color-primary-100);
+  color: var(--md-color-text-secondary);
 }
 
 .md-input__prefix.md-input__prefix--disabled {
@@ -146,7 +146,7 @@
   width: var(--md-size-20);
   height: var(--md-size-20);
   margin-left: var(--md-size-8);
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
 }
 
 .md-input__wrapper.md-input__wrapper--small .md-input__suffix {
@@ -160,7 +160,7 @@
 
 .md-input::placeholder {
   color: var(--md-color-grey-60);
-  font-family: var(--md-font-family-open-sans);
+  font-family: var(--md-font-family-sofia-pro);
 }
 
 /* Hacks for hiding arrows if type=number */

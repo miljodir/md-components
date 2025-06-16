@@ -48,7 +48,7 @@
 }
 
 .md-multiautocomplete__input.md-multiautocomplete__input--error {
-  border-color: var(--md-color-support-error-100);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-multiautocomplete--small > .md-multiautocomplete__input {
@@ -237,14 +237,14 @@
 
 /* open + error */
 .md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__input {
-  border-color: var(--md-color-support-error-100);
+  border-color: var(--md-color-attention-error-primary);
 }
 .md-multiautocomplete--open.md-multiautocomplete--error .md-multiautocomplete__dropdown {
-  border-color: var(--md-color-support-error-100);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 /* Error text */
 .md-multiautocomplete__error {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-size: 0.88rem;
 }

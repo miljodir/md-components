@@ -49,7 +49,7 @@
 }
 
 .md-checkboxgroup__error {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-size: 0.88rem;
   margin-top: 0.5rem;
 }

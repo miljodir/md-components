@@ -221,6 +221,6 @@
 
 /* Error text */
 .md-autocomplete__error {
-  color: var(--md-color-support-error-100);
+  color: var(--md-color-attention-error-primary);
   font-size: 0.88rem;
 }

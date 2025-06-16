@@ -151,16 +151,16 @@
 }
 
 .md-tile-vertical:hover {
-  border: 1px solid var(--md-color-primary-100);
-  background-color: var(--md-color-primary-30);
+  border: 1px solid var(--md-color-border-tertiary);
+  background-color: var(--md-color-cta-secondary-active);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
 
 .md-tile-vertical:focus-visible {
-  outline: 2px solid var(--md-color-primary-100);
+  outline: 2px solid var(--md-color-cta-primary-focus);
   outline-offset: -2px;
-  background-color: var(--md-color-primary-30);
+  background-color: var(--md-color-cta-secondary-active);
 }
 
 .md-tile-vertical--secondary:hover {

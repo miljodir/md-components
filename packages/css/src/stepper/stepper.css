@@ -96,7 +96,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge.selected {
-  background-color: var(--md-color-primary-100);
+  background-color: var(--md-color-cta-primary-default);
   color: white;
 }
 
