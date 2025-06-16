@@ -1,0 +1,30 @@
+.md-skip-to-content {
+  position: absolute;
+  transform: translateY(-100%);
+  display: flex;
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  background-color: var(--mdPrimaryColor);
+  padding: 0;
+  font-family: 'Open sans';
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.md-skip-to-content:focus-visible {
+  position: relative;
+  transform: translateY(0%);
+  height: auto;
+  overflow: visible;
+  width: 100%;
+  opacity: 1;
+  text-decoration: underline;
+  padding: 0.5rem 1rem;
+  line-height: 150%;
+  font-size: 1.125rem;
+  color: #fff;
+  justify-content: center;
+  white-space: initial;
+  outline: 0;
+}

@@ -8,6 +8,7 @@
 @import './filelist/filelist.css';
 @import './accordionitem/accordionitem.css';
 @import './modal/modal.css';
+@import './skipToContent/skipToContent.css';
 @import './stepper/stepper.css';
 @import './tile/tile.css';
 @import './tabs/tabs.css';
