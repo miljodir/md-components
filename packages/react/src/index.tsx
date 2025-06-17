@@ -15,7 +15,7 @@ import MdMultiSelect, { type MdMultiSelectOption, type MdMultiSelectProps } from
 import MdRadioButton, { type MdRadioButtonProps } from './formElements/MdRadioButton';
 import MdRadioGroup, { type MdRadioGroupProps } from './formElements/MdRadioGroup';
 import MdSelect, { type MdSelectOption, type MdSelectProps } from './formElements/MdSelect';
-import MdSkipToContent, { type MdSkipToContentProps } from './skipToContent/MdSkipToContent';
+import MdSkipToMainContent, { type MdSkipToMainContentProps } from './skipToMainContent/MdSkipToMainContent';
 import MdTextArea, { type MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { type MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { type MdHelpTextProps } from './help/MdHelpText';
@@ -339,8 +339,8 @@ export {
   MdComboBoxOption,
   MdComboBoxGrouped,
   MdComboBoxGroupedProps,
-  MdSkipToContent,
-  MdSkipToContentProps,
+  MdSkipToMainContent,
+  MdSkipToMainContentProps,
 
   // Material icons
   MdIconAccountCircle,

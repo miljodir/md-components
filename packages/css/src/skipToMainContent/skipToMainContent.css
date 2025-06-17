@@ -1,4 +1,4 @@
-.md-skip-to-content {
+.md-skip-to-main-content {
   position: absolute;
   transform: translateY(-100%);
   display: flex;
@@ -12,7 +12,7 @@
   white-space: nowrap;
 }
 
-.md-skip-to-content:focus-visible {
+.md-skip-to-main-content:focus-visible {
   position: relative;
   transform: translateY(0%);
   height: auto;
