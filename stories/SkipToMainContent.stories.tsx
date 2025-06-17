@@ -66,10 +66,10 @@ const Template = (args: Args) => {
           fontFamily: 'Open Sans, sans-serif',
         }}
       >
-        <a href="#">
+        <a href="#main-content">
           <img src="/assets/logo-primary.svg" height="46px" alt="Logo" />
         </a>
-        <div>Press "tab" to shift focus from the skip-to-main-content link</div>
+        <div>Press &quot;tab&quot; to shift focus from the skip-to-main-content link</div>
       </div>
     </>
   );
