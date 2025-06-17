@@ -15,7 +15,6 @@ import MdMultiSelect, { type MdMultiSelectOption, type MdMultiSelectProps } from
 import MdRadioButton, { type MdRadioButtonProps } from './formElements/MdRadioButton';
 import MdRadioGroup, { type MdRadioGroupProps } from './formElements/MdRadioGroup';
 import MdSelect, { type MdSelectOption, type MdSelectProps } from './formElements/MdSelect';
-import MdSkipToMainContent, { type MdSkipToMainContentProps } from './skipToMainContent/MdSkipToMainContent';
 import MdTextArea, { type MdTextAreaProps } from './formElements/MdTextArea';
 import MdHelpButton, { type MdHelpButtonProps } from './help/MdHelpButton';
 import MdHelpText, { type MdHelpTextProps } from './help/MdHelpText';
@@ -162,6 +161,7 @@ import MdLoadingSpinner, { type MdLoadingSpinnerProps } from './loadingSpinner/M
 import MdAlertMessage, { type MdAlertMessageProps } from './messages/MdAlertMessage';
 import MdInfoBox, { type MdInfoBoxProps } from './messages/MdInfoBox';
 import MdModal, { type MdModalProps } from './modal/MdModal';
+import MdSkipToMainContent, { type MdSkipToMainContentProps } from './skipToMainContent/MdSkipToMainContent';
 import MdStep, { type MdStepProps } from './stepper/MdStep';
 import MdStepper, { type MdStepperProps } from './stepper/MdStepper';
 import MdTab, { type MdTabProps } from './tabs/MdTab';
