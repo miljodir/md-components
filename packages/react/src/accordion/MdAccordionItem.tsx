@@ -38,8 +38,12 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 
   useEffect(() => {
     const accordionItem = document.getElementById(accordionDetailsId);
-    if (accordionItem && expanded) {
-      accordionItem.setAttribute('open', expanded ? '' : 'false');
+    if (accordionItem) {
+      if (expanded) {
+        accordionItem.setAttribute('open', '');
+      } else {
+        accordionItem.removeAttribute('open');
+      }
     }
   }, [expanded, accordionDetailsId]);
 
