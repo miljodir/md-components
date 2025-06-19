@@ -1,7 +1,8 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useId, useState } from 'react';
+import React, { useEffect, useId } from 'react';
+import MdIconAdd from '../icons-material/MdIconAdd';
 import MdIconRemove from '../icons-material/MdIconRemove';
 
 export interface MdAccordionItemProps {
@@ -10,13 +11,12 @@ export interface MdAccordionItemProps {
   id?: string;
   expanded?: boolean;
   theme?: 'primary' | 'secondary' | 'add';
-  disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
   hideCloseButton?: boolean;
   closeButtonText?: string;
   rounded?: boolean;
-  onToggle?(_e: React.MouseEvent): void;
+  name?: string; // Used to group details elements in the DOM
 }
 
 export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
@@ -25,99 +25,71 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   id,
   expanded = false,
   theme = 'primary',
-  disabled = false,
   className = '',
   children,
   hideCloseButton = false,
   closeButtonText = 'Lukk',
   rounded = false,
-  onToggle,
+  name,
 }: MdAccordionItemProps) => {
   const uuid = useId();
   const accordionId = id || uuid;
-  const [isExpanded, setExpanded] = useState(false);
+  const accordionDetailsId = `md-accordion-item-details_${accordionId}`;
 
-  React.useEffect(() => {
-    setExpanded(expanded && !disabled);
-  }, [expanded, disabled]);
+  useEffect(() => {
+    const accordionItem = document.getElementById(accordionDetailsId);
+    if (accordionItem && expanded) {
+      accordionItem.setAttribute('open', expanded ? '' : 'false');
+    }
+  }, [expanded, accordionDetailsId]);
+
+  const handleCloseButton = () => {
+    const accordionItem = document.getElementById(accordionDetailsId);
+    accordionItem?.removeAttribute('open');
+  };
 
   const accordionClassNames = classnames(
     'md-accordion-item',
     {
-      'md-accordion-item--expanded': !!isExpanded && !disabled,
       'md-accordion-item--secondary': theme && theme === 'secondary',
       'md-accordion-item--add': theme && theme === 'add',
-      'md-accordion-item--disabled': !!disabled,
       'md-accordion-item--rounded': !!rounded,
     },
     className,
   );
 
-  const headerClassNames = classnames('md-accordion-item__header', {
-    'md-accordion-item__header--expanded': !!isExpanded && !disabled,
-  });
-
-  const contentClassNames = classnames('md-accordion-item__content', {
-    'md-accordion-item__content--expanded': !!isExpanded && !disabled,
-  });
-
-  const toggle = (e: React.MouseEvent) => {
-    // Handle expand/collapse externally
-    if (onToggle) {
-      onToggle(e);
-    } else {
-      // Handle expand/collapse internally
-      setExpanded(!isExpanded);
-    }
-  };
-
   return (
-    <div className={accordionClassNames}>
+    <details className={accordionClassNames} id={accordionDetailsId} name={name}>
       {/* Header */}
-      <button
-        id={accordionId}
-        type="button"
-        aria-expanded={isExpanded}
-        aria-controls={`md-accordion-item_content_${accordionId}`}
-        className={headerClassNames}
-        disabled={!!disabled}
-        onClick={(e: React.MouseEvent) => {
-          return toggle(e);
-        }}
-      >
+      <summary className="md-accordion-item__header">
         <div className="md-accordion-item__header-left">
-          <div className="md-accordion-item__header-icon" />
+          <div className="md-accordion-item__header-icon" aria-hidden="true">
+            <MdIconAdd className="md-accordion-item__header-icon__open" />
+            <MdIconRemove className="md-accordion-item__header-icon__close" />
+          </div>
           {label && label !== '' && <div className="md-accordion-item__header-label">{label}</div>}
         </div>
         {headerContent && <div className="md-accordion-item__header-right">{headerContent}</div>}
-      </button>
+      </summary>
 
       {/* Content */}
-      {!disabled && (
-        <div
-          id={`md-accordion-item_content_${accordionId}`}
-          aria-labelledby={accordionId}
-          className={contentClassNames}
-          role="region"
-        >
-          <div className="md-accordion-item__content-inner">{children}</div>
+      <div id={`md-accordion-item_content_${accordionId}`} className="md-accordion-item__content">
+        <div className="md-accordion-item__content-inner">{children}</div>
 
-          {!hideCloseButton && (
-            <button
-              type="button"
-              className="md-accordion-item__close-button"
-              onClick={(e: React.MouseEvent) => {
-                return toggle(e);
-              }}
-              tabIndex={isExpanded ? 0 : -1}
-            >
-              <MdIconRemove aria-hidden="true" className="md-accordion-item__close-button__icon" />
-              {closeButtonText}
-            </button>
-          )}
-        </div>
-      )}
-    </div>
+        {!hideCloseButton && (
+          <button
+            type="button"
+            className="md-accordion-item__close-button"
+            onClick={() => {
+              handleCloseButton();
+            }}
+          >
+            <MdIconRemove aria-hidden="true" className="md-accordion-item__close-button__icon" />
+            {closeButtonText}
+          </button>
+        )}
+      </div>
+    </details>
   );
 };
 
