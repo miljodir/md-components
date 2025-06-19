@@ -24,7 +24,7 @@
   font-size: 1rem;
   background-color: #fff;
   line-height: 150%;
-  border: 1px solid var(--mdPrimaryColor);
+  border: 1px solid var(--mdGreyColor60);
   padding: 0.6875rem 6rem 0.6875rem 2.5rem;
 }
 .md-combobox--large .md-combobox__input {
