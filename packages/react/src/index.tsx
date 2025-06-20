@@ -1,3 +1,4 @@
+import MdAccordion, { type MdAccordionProps } from './accordion/MdAccordion';
 import MdAccordionItem, { type MdAccordionItemProps } from './accordion/MdAccordionItem';
 import MdButton, { type MdButtonProps } from './button/MdButton';
 import MdFilterChip, { type MdFilterChipProps } from './chips/MdFilterChip';
@@ -195,6 +196,7 @@ export {
   MdInputChip,
   MdFilterChip,
   MdFileList,
+  MdAccordion,
   MdAccordionItem,
   MdModal,
   MdTile,
@@ -231,6 +233,7 @@ export {
   MdInputChipProps,
   MdFilterChipProps,
   MdFileListProps,
+  MdAccordionProps,
   MdAccordionItemProps,
   MdModalProps,
   MdTileProps,

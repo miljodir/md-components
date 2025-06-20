@@ -116,6 +116,7 @@ export default [
           },
         },
       ],
+      'storybook/no-renderer-packages': 'off', // Disable this rule until we update to Storybook 9
     },
   },
 ];
