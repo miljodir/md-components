@@ -9,7 +9,7 @@ export interface MdTabProps {
 }
 
 export const MdTab: React.FunctionComponent<MdTabProps> = ({ children }: MdTabProps) => {
-  return <div>{children}</div>;
+  return <>{children}</>;
 };
 
 export default MdTab;
