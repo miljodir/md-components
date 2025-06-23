@@ -140,7 +140,7 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
   };
 
   return (
-    <div>
+    <div style={{ minHeight: '300px' }}>
       <MdButton
         onClick={() => {
           return toggleModal();
