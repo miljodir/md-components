@@ -16,6 +16,7 @@ export interface MdAccordionItemProps {
   hideCloseButton?: boolean;
   closeButtonText?: string;
   rounded?: boolean;
+  disabled?: boolean;
   name?: string; // Used to group details elements in the DOM
 }
 
@@ -30,6 +31,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   hideCloseButton = false,
   closeButtonText = 'Lukk',
   rounded = false,
+  disabled = false,
   name,
 }: MdAccordionItemProps) => {
   const uuid = useId();
@@ -47,6 +49,37 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
     }
   }, [expanded, accordionDetailsId]);
 
+  useEffect(() => {
+    const disableClick = (event: MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    const disableKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+    const accordionItem = document.getElementById(accordionDetailsId);
+    if (accordionItem) {
+      const summaryElement = accordionItem.querySelector('summary');
+      if (summaryElement && disabled) {
+        summaryElement.addEventListener('click', disableClick);
+        summaryElement.addEventListener('keydown', disableKeyDown);
+      }
+    }
+    // Cleanup event listeners on unmount or when disabled changes
+    return () => {
+      if (accordionItem) {
+        const summaryElement = accordionItem.querySelector('summary');
+        if (summaryElement) {
+          summaryElement.removeEventListener('click', disableClick);
+          summaryElement.removeEventListener('keydown', disableKeyDown);
+        }
+      }
+    };
+  }, [disabled, accordionDetailsId]);
+
   const handleCloseButton = () => {
     const accordionItem = document.getElementById(accordionDetailsId);
     accordionItem?.removeAttribute('open');
@@ -58,12 +91,19 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       'md-accordion-item--secondary': theme && theme === 'secondary',
       'md-accordion-item--add': theme && theme === 'add',
       'md-accordion-item--rounded': !!rounded,
+      'md-accordion-item--disabled': !!disabled,
     },
     className,
   );
 
   return (
-    <details className={accordionClassNames} id={accordionDetailsId} name={name}>
+    <details
+      className={accordionClassNames}
+      id={accordionDetailsId}
+      name={name}
+      tabIndex={disabled ? -1 : 0}
+      aria-disabled={disabled}
+    >
       {/* Header */}
       <summary className="md-accordion-item__header">
         <div className="md-accordion-item__header-left">
@@ -80,7 +120,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       <div id={`md-accordion-item_content_${accordionId}`} className="md-accordion-item__content">
         <div className="md-accordion-item__content-inner">{children}</div>
 
-        {!hideCloseButton && (
+        {!hideCloseButton && !disabled && (
           <button
             type="button"
             className="md-accordion-item__close-button"

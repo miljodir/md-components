@@ -48,7 +48,7 @@
   border: 0;
   margin: 0;
   color: var(--mdGreyColor);
-  padding: 1.5em 1.8em;
+  padding: 1em 1.5rem;
   cursor: pointer;
   font-family: 'SofiaPro-Regular', 'Sofia Pro';
   text-align: left;
@@ -129,7 +129,8 @@
 .md-accordion-item--secondary.md-accordion-item--disabled {
   background-color: var(--mdGreyColor20);
 }
-.md-accordion-item--disabled .md-accordion-item__header {
+.md-accordion-item--disabled .md-accordion-item__header,
+.md-accordion-item--disabled .md-accordion-item__content {
   color: var(--mdGreyColor60);
   cursor: default;
 }

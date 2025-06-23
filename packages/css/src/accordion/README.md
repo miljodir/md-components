@@ -11,6 +11,9 @@ To override props on children, just set the prop you want to override on the chi
 </MdAccordion>
 ```
 
+When using the MdAccordion wrapper, the following properties can be overridden on each MdAccordionItem child:
+`theme`, `disabled`, `hideCloseButton` and `rounded`
+
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html

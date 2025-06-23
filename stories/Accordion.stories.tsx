@@ -63,6 +63,17 @@ export default {
       },
       control: { type: 'inline-radio' },
     },
+    disabled: {
+      type: { name: 'boolean' },
+      description: 'Enable/disabled accordion.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     hideCloseButton: {
       type: { name: 'boolean' },
       description: 'Hide close button inside accordion content',
@@ -95,6 +106,7 @@ const Template: StoryFn<typeof MdAccordion> = (args: MdAccordionProps) => {
       theme={args.theme}
       hideCloseButton={args.hideCloseButton}
       rounded={args.rounded}
+      disabled={args.disabled}
       style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
     >
       <MdAccordionItem label="Accordion 1">Dette er element 1 in accordion</MdAccordionItem>
@@ -109,4 +121,5 @@ Accordion.args = {
   theme: 'primary',
   hideCloseButton: false,
   rounded: false,
+  disabled: false,
 };
