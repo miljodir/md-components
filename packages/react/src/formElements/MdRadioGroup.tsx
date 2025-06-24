@@ -26,7 +26,8 @@ export interface MdRadioGroupProps {
   disabled?: boolean;
   direction?: string;
   className?: string;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
   helpText?: string;
   onChange(_e: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
@@ -42,7 +43,8 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   className,
   label,
   helpText,
-  error,
+  error = false,
+  errorText,
   onChange,
   onFocus,
   onBlur,
@@ -148,7 +150,7 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
         })}
       </div>
 
-      {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}
+      {error && errorText && errorText !== '' && <div className="md-radiogroup__error">{errorText}</div>}
     </fieldset>
   );
 };
