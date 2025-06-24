@@ -225,6 +225,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
               )}
               <button
                 type="button"
+                disabled={disabled}
                 className="md-combobox__toggle"
                 onClick={() => {
                   store.setOpen(!store.getState().open);

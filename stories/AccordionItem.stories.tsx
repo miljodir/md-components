@@ -1,8 +1,11 @@
+import { action } from '@storybook/addon-actions';
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 
 import React from 'react';
 import Readme from '../packages/css/src/accordionitem/README.md';
 import { MdAccordionItem } from '../packages/react/src/accordion/MdAccordionItem';
+import MdComboBox from '../packages/react/src/formElements/MdComboBox';
+import MdSelect from '../packages/react/src/formElements/MdSelect';
 import MdIconHome from '../packages/react/src/icons-material/MdIconHome';
 import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react';
@@ -146,7 +149,7 @@ export default {
 
 const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) => {
   return (
-    <div style={{ minHeight: '200px' }}>
+    <div style={{ minHeight: '300px' }}>
       <MdAccordionItem
         {...args}
         headerContent={
@@ -158,7 +161,30 @@ const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) =
           ) : undefined
         }
       >
-        Dette er element i accordion
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <MdSelect
+            disabled={args.disabled}
+            options={[
+              { value: 'optionA', text: 'A option' },
+              { value: 'optionB', text: 'B option' },
+              { value: 'optionC', text: 'C option' },
+              { value: 'optionD', text: 'D option' },
+            ]}
+            value="optionB"
+            onSelectOption={(values: string[] | string) => {
+              return action('Select')(('Selected option: ' + values) as string);
+            }}
+          />
+          <MdComboBox
+            name="example-combobox"
+            label="Example combobox"
+            placeholder="Select an option"
+            options={[]}
+            value={''}
+            onSelectOption={function (): void {}}
+            disabled={args.disabled}
+          />
+        </div>
       </MdAccordionItem>
     </div>
   );

@@ -19,22 +19,25 @@
   border: 1px dashed var(--mdGreyColor80);
   transition: all 0.2s linear;
 }
-.md-accordion-item--expanded.md-accordion-item--add {
-  background-color: var(--mdPrimaryColor20);
-  border: 1px solid var(--mdPrimaryColor20);
+.md-accordion-item[open].md-accordion-item--add {
+  /* background-color: var(--mdPrimaryColor20);
+  border: 1px solid var(--mdPrimaryColor20); */
+  background-color: transparent;
+  border: 1px dashed var(--mdGreyColor80);
+  transition: all 0.2s linear;
 }
 
-.md-accordion-item:not(.md-accordion-item--expanded, .md-accordion-item--disabled):hover {
+.md-accordion-item:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
   background-color: var(--mdPrimaryColor20);
 }
 
-.md-accordion-item.md-accordion-item--secondary:not(.md-accordion-item--expanded, .md-accordion-item--disabled):hover {
+.md-accordion-item.md-accordion-item--secondary:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
   background-color: var(--mdSecondaryColor);
 }
 
-.md-accordion-item.md-accordion-item--add:not(.md-accordion-item--expanded):hover {
+.md-accordion-item.md-accordion-item--add:not([open]):hover {
   transition: all 0.2s linear;
   background-color: transparent;
 }
@@ -97,6 +100,11 @@
 /* CONTENT */
 .md-accordion-item__content {
   padding: 1rem 1.8rem 1.5rem 1.8rem;
+}
+.md-accordion-item__content,
+.md-accordion-item__content-inner {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .md-accordion-item__close-button {
