@@ -9,9 +9,6 @@ import MdIconClose from '../icons-material/MdIconClose';
 import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-/**
- * v3.0.0: Replaces previous type MdAutocompleteOptionProps.
- */
 export interface MdAutocompleteOption {
   text: string;
   value: string;
@@ -21,10 +18,6 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   label?: string | null;
   options: MdAutocompleteOption[];
   defaultOptions?: MdAutocompleteOption[];
-  /**
-   * v2.0.0: Replaces previous 'size'-prop for reducing overall width of component from large to either medium or small.
-   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
-   */
   mode?: 'large' | 'medium' | 'small';
   helpText?: string;
   error?: boolean;
@@ -33,14 +26,7 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
   prefixIcon?: React.ReactNode;
   noResultsText?: string;
   dropdownHeight?: number;
-  /**
-   * v3.0.0: Replaces previous 'amountOfElementsShown'-prop
-   */
   numberOfElementsShown?: number;
-  /**
-   * v2.0.0: Replaces previous 'onChange'-prop for listening to changes in selected option.
-   * onChange-prop is now reserved as a standard prop om the inner html input element.
-   */
   onSelectOption(_e: MdAutocompleteOption): void;
 }
 

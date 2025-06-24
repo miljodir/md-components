@@ -8,18 +8,12 @@ import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  /**
-   * v3.0.0: Replaces previous 'id'-prop.
-   */
   value: string;
   text?: string;
 }
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  /**
-   * v3.0.0: Replaces previous 'selectedOption'-prop.
-   */
   value?: string;
   label?: string;
   id?: string;

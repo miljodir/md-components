@@ -17,7 +17,14 @@ export interface MdAccordionItemProps {
   closeButtonText?: string;
   rounded?: boolean;
   disabled?: boolean;
-  name?: string; // Used to group details elements in the DOM
+  /**
+   * v6.0.0: Added `name` prop to allow grouping of accordion items.
+   * This is useful for accessibility and when you want to manage multiple accordion items together.
+   */
+  name?: string;
+  /**
+   * v6.0.0: removed `onToggle` prop as it was no longer needed.
+   */
 }
 
 export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({

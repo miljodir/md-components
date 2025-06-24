@@ -25,6 +25,9 @@ export interface MdCheckboxGroupProps {
   columns?: number;
   className?: string;
   error?: boolean;
+  /**
+   * v6.0.0: Added `errorText` prop to display error messages, this is now required to set error state.
+   */
   errorText?: string;
   helpText?: string;
   onChange?(_e: ChangeEvent<HTMLInputElement>): void;
