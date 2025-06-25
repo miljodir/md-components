@@ -2,7 +2,6 @@
 
 import classnames from 'classnames';
 import React, { useId } from 'react';
-
 import MdIconCheck from '../icons-material/MdIconCheck';
 
 export interface MdFilterChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
