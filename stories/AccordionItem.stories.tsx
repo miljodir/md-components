@@ -1,13 +1,17 @@
+import { action } from '@storybook/addon-actions';
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Readme from '../packages/css/src/accordionitem/README.md';
 import { MdAccordionItem } from '../packages/react/src/accordion/MdAccordionItem';
+import MdComboBox from '../packages/react/src/formElements/MdComboBox';
+import MdSelect from '../packages/react/src/formElements/MdSelect';
+import MdIconHome from '../packages/react/src/icons-material/MdIconHome';
 import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react';
 
 export default {
-  title: 'Components/AccordionItem',
+  title: 'Components/Accordion/AccordionItem',
   component: MdAccordionItem,
   parameters: {
     docs: {
@@ -64,8 +68,7 @@ export default {
     },
     expanded: {
       type: { name: 'boolean' },
-      description:
-        'Determines if the accordion is expanded. If not present, component handles expand/collapse internally.',
+      description: 'Determines if the accordion item should be initially expanded.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -141,32 +144,49 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    onToggle: {
-      type: { name: 'function' },
-      description:
-        'Handler for controlling expand/collapse. If not present, component handles expand/collapse internally.',
-      table: {
-        type: {
-          summary: 'function',
-        },
-      },
-    },
   },
 };
 
 const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
-    <MdAccordionItem
-      {...args}
-      expanded={expanded}
-      onToggle={() => {
-        setExpanded(!expanded);
-      }}
-    >
-      Dette er element i accordion
-    </MdAccordionItem>
+    <div style={{ minHeight: '300px' }}>
+      <MdAccordionItem
+        {...args}
+        headerContent={
+          args.headerContent ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
+              Example content
+              <MdIconHome style={{ height: '1.15rem' }} />
+            </div>
+          ) : undefined
+        }
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <MdSelect
+            disabled={args.disabled}
+            options={[
+              { value: 'optionA', text: 'A option' },
+              { value: 'optionB', text: 'B option' },
+              { value: 'optionC', text: 'C option' },
+              { value: 'optionD', text: 'D option' },
+            ]}
+            value="optionB"
+            onSelectOption={(values: string[] | string) => {
+              return action('Select')(('Selected option: ' + values) as string);
+            }}
+          />
+          <MdComboBox
+            name="example-combobox"
+            label="Example combobox"
+            placeholder="Select an option"
+            options={[]}
+            value={''}
+            onSelectOption={function (): void {}}
+            disabled={args.disabled}
+          />
+        </div>
+      </MdAccordionItem>
+    </div>
   );
 };
 

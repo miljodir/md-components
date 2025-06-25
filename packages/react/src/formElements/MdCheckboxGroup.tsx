@@ -24,7 +24,11 @@ export interface MdCheckboxGroupProps {
   direction?: 'horizontal' | 'vertical' | 'grid';
   columns?: number;
   className?: string;
-  error?: string;
+  error?: boolean;
+  /**
+   * v6.0.0: Added `errorText` prop to display error messages, this is now required to set error state.
+   */
+  errorText?: string;
   helpText?: string;
   onChange?(_e: ChangeEvent<HTMLInputElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
@@ -40,7 +44,8 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   direction,
   columns = 2,
   className = '',
-  error,
+  error = false,
+  errorText,
   helpText,
   onChange,
   onFocus,
@@ -155,7 +160,7 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
         })}
       </div>
 
-      {error && error !== '' && <div className="md-checkboxgroup__error">{error}</div>}
+      {error && errorText && errorText !== '' && <div className="md-checkboxgroup__error">{errorText}</div>}
     </fieldset>
   );
 };

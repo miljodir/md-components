@@ -8,25 +8,20 @@ import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
 export interface MdRadioGroupOption {
-  /**
-   * v3.0.0: Replaces previous 'id'-prop.
-   */
   value: string;
   text?: string;
 }
 
 export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
-  /**
-   * v3.0.0: Replaces previous 'selectedOption'-prop.
-   */
   value?: string;
   label?: string;
   id?: string;
   disabled?: boolean;
   direction?: string;
   className?: string;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
   helpText?: string;
   onChange(_e: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(_e: React.FocusEvent<HTMLInputElement>): void;
@@ -42,7 +37,8 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   className,
   label,
   helpText,
-  error,
+  error = false,
+  errorText,
   onChange,
   onFocus,
   onBlur,
@@ -148,7 +144,7 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
         })}
       </div>
 
-      {error && error !== '' && <div className="md-radiogroup__error">{error}</div>}
+      {error && errorText && errorText !== '' && <div className="md-radiogroup__error">{errorText}</div>}
     </fieldset>
   );
 };

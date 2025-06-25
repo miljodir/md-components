@@ -18,6 +18,7 @@
 
 .md-combobox__input-wrapper {
   position: relative;
+  /* display: flex; */
 }
 .md-combobox__input {
   width: 100%;
