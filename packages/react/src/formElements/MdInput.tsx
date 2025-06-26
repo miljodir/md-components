@@ -17,10 +17,9 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   prefixIcon?: React.ReactNode;
   hideNumberArrows?: boolean;
   /**
-   * v2.0.0: Replaces previous 'size'-prop for selecting overall width of whole component as normal or small.
-   * Size-prop is now reserved as a standard prop on the inner html input element to specify its width.
+   * v6.x.x: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead
    */
-  mode?: 'normal' | 'small';
+  mode?: 'small' | 'medium' | 'large' | 'normal';
 }
 
 export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
@@ -38,7 +37,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       hideNumberArrows = false,
       disabled = false,
       readOnly = false,
-      mode = 'normal',
+      mode = 'medium',
       ...otherProps
     },
     ref,
@@ -49,6 +48,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
 
     const classNames = classnames('md-input', {
       'md-input--small': mode === 'small',
+      'md-input--large': mode === 'large',
       'md-input--disabled': !!disabled,
       'md-input--readonly': !!readOnly,
       'md-input--error': !!error,
@@ -59,12 +59,14 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
 
     const wrapperClassNames = classnames('md-input__wrapper', {
       'md-input__wrapper--small': mode === 'small',
+      'md-input__wrapper--large': mode === 'large',
     });
 
     const outerWrapperClasses = classnames(
       'md-input__outer-wrapper',
       {
         'md-input__outer-wrapper--small': mode === 'small',
+        'md-input__outer-wrapper--large': mode === 'large',
       },
       outerWrapperClass,
     );
@@ -73,6 +75,13 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     ariaDescribedBy = error && errorText && errorText !== '' ? `md-input_error_${inputId}` : ariaDescribedBy;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
+    /* Log warning if mode = 'normal' */
+    if (mode === 'normal') {
+      console.warn(
+        'MdInput: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead.',
+      );
+    }
 
     return (
       <div className={outerWrapperClasses}>
