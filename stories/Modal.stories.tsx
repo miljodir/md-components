@@ -26,8 +26,9 @@ export default {
         );
       },
       description: {
-        // eslint-disable-next-line quotes
-        component: "An overlay modal component.<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
+        component:
+          // eslint-disable-next-line quotes
+          "An overlay modal component. Extends HTMLDivElement<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -54,6 +55,39 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    headingDivider: {
+      type: { name: 'boolean' },
+      description: 'Show divider below heading',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    footerDivider: {
+      type: { name: 'boolean' },
+      description: 'Toggle divider above footer, if footer is present',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    footer: {
+      type: { name: 'ReactNode' },
+      description: 'Content to display in the footer area.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'DomElement | ReactNode',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     children: {
       description: 'Modal content',
       table: {
@@ -72,28 +106,6 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },
-    id: {
-      type: { name: 'string' },
-      description: 'Unique id for the modal',
-      table: {
-        defaultValue: { summary: 'null' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'text' },
-    },
-    className: {
-      type: { name: 'string' },
-      description: 'Additional class names for outer wrapper',
-      table: {
-        defaultValue: { summary: 'null' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'text' },
     },
     error: {
       type: { name: 'boolean' },
@@ -134,16 +146,18 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
 
   const headingIcon = <MdIconWarning width="24" height="24" style={{ color: '#ca0000' }} />;
 
-  const toggleModal = () => {
-    const open = !args.open;
-    updateArgs({ ...args, open: open });
+  const closeModal = () => {
+    updateArgs({ ...args, open: false });
+  };
+  const openModal = () => {
+    updateArgs({ ...args, open: true });
   };
 
   return (
     <div style={{ minHeight: '300px' }}>
       <MdButton
         onClick={() => {
-          return toggleModal();
+          openModal();
         }}
       >
         Toggle modal
@@ -153,10 +167,32 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
         {...args}
         headingIcon={args.headingIcon ? headingIcon : null}
         onClose={() => {
-          return toggleModal();
+          closeModal();
         }}
+        footer={
+          args.footer && (
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+              <MdButton
+                onClick={() => {
+                  closeModal();
+                }}
+                theme="danger"
+              >
+                Close
+              </MdButton>
+              <MdButton
+                onClick={() => {
+                  closeModal();
+                }}
+                theme="primary"
+              >
+                Close
+              </MdButton>
+            </div>
+          )
+        }
       >
-        <p>This is html content in the modal.</p>
+        <div>This is html content in the modal.</div>
         <p style={{ color: '#000', background: '#ccc' }}>This is even more html content, with style tag.</p>
       </MdModal>
     </div>
@@ -165,9 +201,12 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
 
 export const Modal = Template.bind({});
 Modal.args = {
-  open: true,
+  open: false,
   heading: 'Modal title',
   headingIcon: false,
   error: false,
   closeOnOutsideClick: true,
+  headingDivider: true,
+  footerDivider: true,
+  footer: false,
 };
