@@ -40,9 +40,6 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
     'md-modal--error': !!error,
     [className]: className,
   });
-  const headingClassNames = classnames('md-modal__header', {
-    'md-modal__header--divider': headingDivider,
-  });
   const contentClassNames = classnames('md-modal__content', {
     [contentClassName]: contentClassName,
   });
@@ -62,7 +59,7 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
       {...rest}
     >
       <div className="md-modal__header-wrapper">
-        <div className={headingClassNames}>
+        <div className="md-modal__header">
           <DialogHeading className="md-modal__header-content" render={<div />}>
             {headingIcon}
             {heading}
