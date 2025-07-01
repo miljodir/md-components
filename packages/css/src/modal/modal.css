@@ -31,7 +31,8 @@
     margin-top: 0px;
     max-height: 80vh;
     min-width: 325px;
-    max-width: 80%;
+    width: 80%;
+    max-width: 800px;
   }
 }
 
