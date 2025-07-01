@@ -96,6 +96,17 @@ export default {
         },
       },
     },
+    contentClassName: {
+      type: { name: 'string' },
+      description: 'Class name for content wrapper',
+      table: {
+        defaultValue: { summary: null },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
     open: {
       type: { name: 'boolean' },
       description: 'State for open/closed',
@@ -192,8 +203,17 @@ const Template: StoryFn<typeof MdModal> = (args: Args) => {
           )
         }
       >
-        <div>This is html content in the modal.</div>
-        <p style={{ color: '#000', background: '#ccc' }}>This is even more html content, with style tag.</p>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+          <br />
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          <br />
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
       </MdModal>
     </div>
   );
@@ -209,4 +229,6 @@ Modal.args = {
   headingDivider: true,
   footerDivider: true,
   footer: false,
+  className: 'extra-modal-class',
+  contentClassName: 'extra-content-class',
 };

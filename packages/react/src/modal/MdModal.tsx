@@ -12,11 +12,11 @@ export interface MdModalProps extends React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   error?: boolean;
   className?: string;
+  contentClassName?: string;
   closeOnOutsideClick?: boolean;
   headingDivider?: boolean;
   footerDivider?: boolean;
   footer?: React.ReactNode;
-  // onClose?(_e?: React.MouseEvent): void;
   onClose?: () => void;
 }
 
@@ -32,15 +32,19 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
   footerDivider = false,
   footer,
   className = '',
+  contentClassName = '',
   ...rest
 }: MdModalProps) => {
   const dismissRef = useRef<HTMLButtonElement>(null);
   const classNames = classnames('md-modal', {
     'md-modal--error': !!error,
-    className,
+    [className]: className,
   });
   const headingClassNames = classnames('md-modal__header', {
     'md-modal__header--divider': headingDivider,
+  });
+  const contentClassNames = classnames('md-modal__content', {
+    [contentClassName]: contentClassName,
   });
 
   return (
@@ -69,7 +73,7 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
         </div>
         {headingDivider && <div className="md-modal__header-divider" />}
       </div>
-      <div className="md-modal__content">{children}</div>
+      <div className={contentClassNames}>{children}</div>
 
       {footer && (
         <div className="md-modal__footer-wrapper">

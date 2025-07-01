@@ -5,7 +5,6 @@
   margin: auto;
   display: flex;
   height: fit-content;
-  width: fit-content;
   max-height: calc(100dvh - var(--inset) * 2);
   flex-direction: column;
   gap: 1rem;
@@ -59,9 +58,11 @@
 
 .md-modal__content {
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
+  max-width: 100%;
   padding: 0.5rem 2rem;
 }
 
