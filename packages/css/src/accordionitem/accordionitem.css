@@ -76,16 +76,16 @@
   width: 1.5rem;
   height: 1.5rem;
 }
-.md-accordion-item .md-accordion-item__header-icon__open {
+.md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__open {
   display: block;
 }
-.md-accordion-item[open] .md-accordion-item__header-icon__open {
+.md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon__open {
   display: none;
 }
-.md-accordion-item .md-accordion-item__header-icon__close {
+.md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__close {
   display: none;
 }
-.md-accordion-item[open] .md-accordion-item__header-icon__close {
+.md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon__close {
   display: block;
 }
 
