@@ -42,7 +42,11 @@
   opacity: 1;
   transform: scale(1);
 }
+.md-modal.md-modal--error {
+  border: 2px solid var(--mdErrorColor);
+}
 
+/* OVERLAY */
 .md-modal__overlay {
   background: rgba(34, 34, 34, 0.4);
   -webkit-backdrop-filter: blur(2px);
@@ -58,6 +62,7 @@
   backdrop-filter: blur(2px);
 }
 
+/* CONTENT */
 .md-modal__content {
   display: flex;
   flex: 1 1 auto;
@@ -73,10 +78,7 @@
   }
 }
 
-.md-modal.md-modal--error {
-  border: 2px solid var(--mdErrorColor);
-}
-
+/* HEADER */
 .md-modal__header-wrapper {
   flex: 0 0 auto;
 }
