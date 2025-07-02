@@ -10,6 +10,7 @@
   font-size: 0.875rem;
   border-radius: 0.5rem;
   padding: 0.625rem;
+  z-index: 950;
 }
 
 .md-tooltip--small {
