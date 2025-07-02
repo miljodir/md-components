@@ -47,9 +47,7 @@ export const MdModal: React.FunctionComponent<MdModalProps> = ({
   return (
     <Dialog
       open={open}
-      onClose={() => {
-        onClose();
-      }}
+      onClose={onClose}
       hideOnEscape={true}
       hideOnInteractOutside={closeOnOutsideClick}
       backdrop={<div className="md-modal__overlay" />}
