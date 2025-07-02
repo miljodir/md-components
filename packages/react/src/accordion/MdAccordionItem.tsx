@@ -43,10 +43,9 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
 }: MdAccordionItemProps) => {
   const uuid = useId();
   const accordionId = id || uuid;
-  const accordionDetailsId = `md-accordion-item-details_${accordionId}`;
 
   useEffect(() => {
-    const accordionItem = document.getElementById(accordionDetailsId);
+    const accordionItem = document.getElementById(accordionId);
     if (accordionItem) {
       if (expanded) {
         accordionItem.setAttribute('open', '');
@@ -54,7 +53,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         accordionItem.removeAttribute('open');
       }
     }
-  }, [expanded, accordionDetailsId]);
+  }, [expanded, accordionId]);
 
   useEffect(() => {
     const disableClick = (event: MouseEvent) => {
@@ -67,7 +66,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         event.stopPropagation();
       }
     };
-    const accordionItem = document.getElementById(accordionDetailsId);
+    const accordionItem = document.getElementById(accordionId);
     if (accordionItem) {
       const summaryElement = accordionItem.querySelector('summary');
       if (summaryElement && disabled) {
@@ -85,10 +84,10 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
         }
       }
     };
-  }, [disabled, accordionDetailsId]);
+  }, [disabled, accordionId]);
 
   const handleCloseButton = () => {
-    const accordionItem = document.getElementById(accordionDetailsId);
+    const accordionItem = document.getElementById(accordionId);
     accordionItem?.removeAttribute('open');
   };
 
@@ -106,7 +105,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   return (
     <details
       className={accordionClassNames}
-      id={accordionDetailsId}
+      id={accordionId}
       name={name}
       tabIndex={disabled ? -1 : 0}
       aria-disabled={disabled}
