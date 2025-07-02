@@ -17,6 +17,9 @@ export interface MdModalProps extends React.HTMLAttributes<HTMLDivElement> {
   headingDivider?: boolean;
   footerDivider?: boolean;
   footer?: React.ReactNode;
+  /**
+   * v6.0.0: Removed event argument.
+   */
   onClose?: () => void;
 }
 
