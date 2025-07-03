@@ -234,7 +234,7 @@ export const Single = Template.bind({});
 const options = [
   {
     label: 'Group 1',
-    icon: <MdIconCalendarMonth style={{ color: 'var(--mdPrimaryColor)' }} />,
+    icon: <MdIconCalendarMonth style={{ color: 'var(--md-color-cta-primary-default)' }} />,
     values: [
       {
         text: 'group 1 value a',

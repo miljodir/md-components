@@ -11,11 +11,14 @@
 }
 
 /* Global style overrides */
-h1, h2, h3, h4 {
-  font-family: 'SofiaPro-Bold' !important;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--md-font-family-sofia-pro) !important;
 }
 
 /* Getting started page */
 .gs-wrapper {
-  font-family: 'SofiaPro-Medium' !important;
+  font-family: var(--md-font-family-sofia-pro) !important;
 }
