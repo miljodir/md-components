@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { MdIconHelp } from '../../packages/react/src/icons-material/MdIconHelp';
+import { MdIconHelpFilled } from '../../packages/react/src/icons-material/MdIconHelpFilled';
 
 import type { Args } from '@storybook/react';
 
@@ -12,7 +13,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Help icon. Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdIconHelp } from '@miljodirektoratet/md-react'`",
+          "Help icon. Color can be inherited from parent, or set directly on the component.<br/>The filled variant can be used for hover or active states.<br/>In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdIconHelp, MdIconHelpFilled } from '@miljodirektoratet/md-react'`",
       },
     },
   },
@@ -60,9 +61,29 @@ const Template = (args: Args) => {
     </div>
   );
 };
+const TemplateFilled = (args: Args) => {
+  const style = { width: '32px', height: '32px', color: args.color };
+
+  if (args.large) {
+    style.height = '64px';
+    style.width = '64px';
+  }
+  return (
+    <div style={style}>
+      <MdIconHelpFilled {...args} />
+    </div>
+  );
+};
 
 export const Help = Template.bind({});
 Help.args = {
+  large: false,
+  className: '',
+  color: '#005e5d',
+};
+
+export const HelpFilled = TemplateFilled.bind({});
+HelpFilled.args = {
   large: false,
   className: '',
   color: '#005e5d',
