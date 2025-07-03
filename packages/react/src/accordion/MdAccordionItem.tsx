@@ -1,7 +1,8 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useId, useState } from 'react';
+import React, { useEffect, useId } from 'react';
+import MdIconAdd from '../icons-material/MdIconAdd';
 import MdIconRemove from '../icons-material/MdIconRemove';
 
 export interface MdAccordionItemProps {
@@ -10,13 +11,20 @@ export interface MdAccordionItemProps {
   id?: string;
   expanded?: boolean;
   theme?: 'primary' | 'secondary' | 'add';
-  disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
   hideCloseButton?: boolean;
   closeButtonText?: string;
   rounded?: boolean;
-  onToggle?(_e: React.MouseEvent): void;
+  disabled?: boolean;
+  /**
+   * v6.0.0: Added `name` prop to allow grouping of accordion items.
+   * This is useful for accessibility and when you want to manage multiple accordion items together.
+   */
+  name?: string;
+  /**
+   * v6.0.0: removed `onToggle` prop as it was no longer needed.
+   */
 }
 
 export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
@@ -25,98 +33,113 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   id,
   expanded = false,
   theme = 'primary',
-  disabled = false,
   className = '',
   children,
   hideCloseButton = false,
   closeButtonText = 'Lukk',
   rounded = false,
-  onToggle,
+  disabled = false,
+  name,
 }: MdAccordionItemProps) => {
   const uuid = useId();
   const accordionId = id || uuid;
-  const [isExpanded, setExpanded] = useState(false);
 
-  React.useEffect(() => {
-    setExpanded(expanded && !disabled);
-  }, [expanded, disabled]);
+  useEffect(() => {
+    const accordionItem = document.getElementById(accordionId);
+    if (accordionItem) {
+      if (expanded) {
+        accordionItem.setAttribute('open', '');
+      } else {
+        accordionItem.removeAttribute('open');
+      }
+    }
+  }, [expanded, accordionId]);
+
+  useEffect(() => {
+    const disableClick = (event: MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+    const disableKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+    const accordionItem = document.getElementById(accordionId);
+    if (accordionItem) {
+      const summaryElement = accordionItem.querySelector('summary');
+      if (summaryElement && disabled) {
+        summaryElement.addEventListener('click', disableClick);
+        summaryElement.addEventListener('keydown', disableKeyDown);
+      }
+    }
+    // Cleanup event listeners on unmount or when disabled changes
+    return () => {
+      if (accordionItem) {
+        const summaryElement = accordionItem.querySelector('summary');
+        if (summaryElement) {
+          summaryElement.removeEventListener('click', disableClick);
+          summaryElement.removeEventListener('keydown', disableKeyDown);
+        }
+      }
+    };
+  }, [disabled, accordionId]);
+
+  const handleCloseButton = () => {
+    const accordionItem = document.getElementById(accordionId);
+    accordionItem?.removeAttribute('open');
+  };
 
   const accordionClassNames = classnames(
     'md-accordion-item',
     {
-      'md-accordion-item--expanded': !!isExpanded && !disabled,
       'md-accordion-item--secondary': theme && theme === 'secondary',
       'md-accordion-item--add': theme && theme === 'add',
-      'md-accordion-item--disabled': !!disabled,
       'md-accordion-item--rounded': !!rounded,
+      'md-accordion-item--disabled': !!disabled,
     },
     className,
   );
 
-  const headerClassNames = classnames('md-accordion-item__header', {
-    'md-accordion-item__header--expanded': !!isExpanded && !disabled,
-  });
-
-  const contentClassNames = classnames('md-accordion-item__content', {
-    'md-accordion-item__content--expanded': !!isExpanded && !disabled,
-  });
-
-  const toggle = (e: React.MouseEvent) => {
-    // Handle expand/collapse externally
-    if (onToggle) {
-      onToggle(e);
-    } else {
-      // Handle expand/collapse internally
-      setExpanded(!isExpanded);
-    }
-  };
-
   return (
-    <div className={accordionClassNames}>
+    <details
+      className={accordionClassNames}
+      id={accordionId}
+      name={name}
+      tabIndex={disabled ? -1 : 0}
+      aria-disabled={disabled}
+    >
       {/* Header */}
-      <button
-        id={accordionId}
-        type="button"
-        aria-expanded={isExpanded}
-        aria-controls={`md-accordion-item_content_${accordionId}`}
-        className={headerClassNames}
-        disabled={!!disabled}
-        onClick={(e: React.MouseEvent) => {
-          return toggle(e);
-        }}
-      >
+      <summary className="md-accordion-item__header">
         <div className="md-accordion-item__header-left">
-          <div className="md-accordion-item__header-icon" />
+          <div className="md-accordion-item__header-icon" aria-hidden="true">
+            <MdIconAdd className="md-accordion-item__header-icon__open" />
+            <MdIconRemove className="md-accordion-item__header-icon__close" />
+          </div>
           {label && label !== '' && <div className="md-accordion-item__header-label">{label}</div>}
         </div>
         {headerContent && <div className="md-accordion-item__header-right">{headerContent}</div>}
-      </button>
+      </summary>
 
       {/* Content */}
-      {!disabled && (
-        <div
-          id={`md-accordion-item_content_${accordionId}`}
-          aria-labelledby={accordionId}
-          className={contentClassNames}
-        >
-          <div className="md-accordion-item__content-inner">{children}</div>
+      <div id={`md-accordion-item_content_${accordionId}`} className="md-accordion-item__content">
+        <div className="md-accordion-item__content-inner">{children}</div>
 
-          {!hideCloseButton && (
-            <button
-              type="button"
-              className="md-accordion-item__close-button"
-              onClick={(e: React.MouseEvent) => {
-                return toggle(e);
-              }}
-              tabIndex={isExpanded ? 0 : -1}
-            >
-              <MdIconRemove aria-hidden="true" className="md-accordion-item__close-button__icon" />
-              {closeButtonText}
-            </button>
-          )}
-        </div>
-      )}
-    </div>
+        {!hideCloseButton && !disabled && (
+          <button
+            type="button"
+            className="md-accordion-item__close-button"
+            onClick={() => {
+              handleCloseButton();
+            }}
+          >
+            <MdIconRemove aria-hidden="true" className="md-accordion-item__close-button__icon" />
+            {closeButtonText}
+          </button>
+        )}
+      </div>
+    </details>
   );
 };
 

@@ -105,8 +105,19 @@ export default {
       control: { type: 'text' },
     },
     error: {
+      type: { name: 'boolean' },
+      description: 'Whether the checkbox group is in an error state',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    errorText: {
       type: { name: 'string' },
-      description: 'Error text for the checkbox group',
+      description: 'Display error text if `error` is set, and style the checkbox group as an error state',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -187,6 +198,7 @@ CheckboxGroup.args = {
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',
-  error: '',
+  error: false,
+  errorText: '',
   columns: 3,
 };

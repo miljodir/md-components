@@ -1,0 +1,30 @@
+.md-skip-to-main-content {
+  position: absolute;
+  transform: translateY(-100%);
+  display: flex;
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  background-color: var(--md-color-cta-primary-default);
+  padding: 0;
+  font-family: var(--md-font-family-open-sans);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.md-skip-to-main-content:focus-visible {
+  position: relative;
+  transform: translateY(0%);
+  height: auto;
+  overflow: visible;
+  width: 100%;
+  opacity: 1;
+  text-decoration: underline;
+  padding: var(--md-size-8) var(--md-size-16);
+  line-height: 150%;
+  font-size: var(--md-typography-body-l-font-size);
+  color: var(--md-color-text-invert);
+  justify-content: center;
+  white-space: initial;
+  outline: 0;
+}

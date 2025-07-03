@@ -1,6 +1,6 @@
 'use client';
 
-import { Tooltip, TooltipAnchor, TooltipProvider } from '@ariakit/react';
+import { Tooltip, TooltipAnchor, TooltipProvider, VisuallyHidden } from '@ariakit/react';
 import React from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,7 +37,8 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
 
   return (
     <TooltipProvider placement={position} timeout={timeout}>
-      <TooltipAnchor aria-label={tooltipContent} className={`md-tooltip__anchor ${anchorClassName}`} {...otherProps}>
+      <TooltipAnchor className={`md-tooltip__anchor ${anchorClassName}`} {...otherProps}>
+        <VisuallyHidden>{tooltipContent}</VisuallyHidden>
         {children}
       </TooltipAnchor>
       <Tooltip unmountOnHide={unmountOnHide} className={classNames}>

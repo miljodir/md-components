@@ -1,135 +1,85 @@
 'use client';
 
+import { Dialog, DialogHeading, DialogDismiss } from '@ariakit/react';
 import classnames from 'classnames';
-import React, { useEffect, useRef } from 'react';
-import MdIconButton from '../iconButton/MdIconButton';
+import React, { useRef } from 'react';
 import MdIconClose from '../icons-material/MdIconClose';
-import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 
-const focusableHtmlElements =
-  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]';
-
-export interface MdModalProps {
+export interface MdModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   heading?: string;
   headingIcon?: React.ReactNode | string;
   open?: boolean;
   error?: boolean;
   className?: string;
+  contentClassName?: string;
   closeOnOutsideClick?: boolean;
-  onClose?(_e?: React.MouseEvent): void;
+  headingDivider?: boolean;
+  footerDivider?: boolean;
+  footer?: React.ReactNode;
+  /**
+   * v6.0.0: Removed event argument.
+   */
+  onClose?: () => void;
 }
 
 export const MdModal: React.FunctionComponent<MdModalProps> = ({
   children,
   heading = '',
-  headingIcon,
   open = false,
   error = false,
-  className = '',
+  onClose = () => {},
+  headingIcon,
   closeOnOutsideClick = true,
-  onClose,
+  headingDivider = false,
+  footerDivider = false,
+  footer,
+  className = '',
+  contentClassName = '',
+  ...rest
 }: MdModalProps) => {
+  const dismissRef = useRef<HTMLButtonElement>(null);
   const classNames = classnames('md-modal', {
-    'md-modal--open': !!open,
     'md-modal--error': !!error,
+    [className]: className,
   });
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  const innerWrapperClassNames = classnames('md-modal__inner-wrapper', className);
-
-  /**
-   * Focus trap for keyboard users. Makes it impossible to tab out of modal,
-   * when last focusable element in modal is reached it starts over on the first.
-   * Also focuses on the first focusable element when modal is opened.
-   */
-  useEffect(() => {
-    if (!open) return;
-
-    const keyListener = (event: KeyboardEvent) => {
-      if (event.key === 'Tab') {
-        const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(focusableHtmlElements);
-        if (focusableElements) {
-          const firstElement = focusableElements[0];
-          const lastElement = focusableElements[focusableElements.length - 1];
-
-          if (!event.shiftKey && document.activeElement === lastElement) {
-            firstElement.focus();
-            event.preventDefault();
-          }
-
-          if (event.shiftKey && document.activeElement === firstElement) {
-            lastElement.focus();
-            event.preventDefault();
-          }
-        }
-      }
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        if (onClose) {
-          onClose();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', keyListener);
-
-    const firstElement = modalRef.current?.querySelector<HTMLElement>(focusableHtmlElements);
-
-    if (firstElement) {
-      firstElement.focus();
-    }
-
-    return () => {
-      return document.removeEventListener('keydown', keyListener);
-    };
-  }, [onClose, open]);
-
-  const closeModal = (e: React.MouseEvent) => {
-    if (onClose) {
-      onClose(e);
-    }
-  };
-
-  if (!open) {
-    return null;
-  }
+  const contentClassNames = classnames('md-modal__content', {
+    [contentClassName]: contentClassName,
+  });
 
   return (
-    <>
-      <div className="md-modal__overlay" />
-      <div className={classNames} role="dialog" aria-modal={true} aria-label={heading}>
-        <div className="md-modal__content">
-          <MdClickOutsideWrapper
-            onClickOutside={e => {
-              if (closeOnOutsideClick) {
-                closeModal(e);
-              }
-            }}
-            className={innerWrapperClassNames}
-            ref={modalRef}
-          >
-            <div className="md-modal__header">
-              <div className="md-modal__header-content">
-                {headingIcon}
-                {heading}
-              </div>
-              <MdIconButton
-                type="button"
-                theme="plain"
-                className="md-modal__close-button"
-                onClick={e => {
-                  closeModal(e);
-                }}
-                aria-label="Lukk"
-              >
-                <MdIconClose />
-              </MdIconButton>
-            </div>
-            <div className="md-modal__content-inner">{children}</div>
-          </MdClickOutsideWrapper>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      hideOnEscape={true}
+      hideOnInteractOutside={closeOnOutsideClick}
+      backdrop={<div className="md-modal__overlay" />}
+      className={classNames}
+      modal
+      unmountOnHide
+      {...rest}
+    >
+      <div className="md-modal__header-wrapper">
+        <div className="md-modal__header">
+          <DialogHeading className="md-modal__header-content" render={<div />}>
+            {headingIcon}
+            {heading}
+          </DialogHeading>
+          <DialogDismiss ref={dismissRef} className="md-modal__close-button">
+            <MdIconClose />
+          </DialogDismiss>
         </div>
+        {headingDivider && <div className="md-modal__header-divider" />}
       </div>
-    </>
+      <div className={contentClassNames}>{children}</div>
+
+      {footer && (
+        <div className="md-modal__footer-wrapper">
+          {footerDivider && <div className="md-modal__footer-divider" />}
+          <div className="md-modal__footer">{footer}</div>
+        </div>
+      )}
+    </Dialog>
   );
 };
 

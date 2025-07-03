@@ -107,8 +107,8 @@
 }
 
 .md-icon-button--plain:active:enabled {
-  background-color: var(--mdPrimaryColor20);
-  color: var(--mdPrimaryColor120);
+  background-color: var(--md-color-cta-secondary-active);
+  color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button--plain:disabled {

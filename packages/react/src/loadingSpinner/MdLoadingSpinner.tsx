@@ -1,3 +1,6 @@
+'use client';
+
+import { VisuallyHidden } from '@ariakit/react';
 import classnames from 'classnames';
 import React from 'react';
 import MdIconLoadingSpinner from '../icons-material/MdIconLoadingSpinner';
@@ -23,8 +26,9 @@ export const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   );
 
   return (
-    <div aria-label="Laster" className={classNames} {...otherProps}>
-      <MdIconLoadingSpinner className="md-loading-spinner" width={size} height={size} />
+    <div className={classNames} {...otherProps}>
+      <VisuallyHidden>Laster..</VisuallyHidden>
+      <MdIconLoadingSpinner aria-hidden className="md-loading-spinner" width={size} height={size} />
     </div>
   );
 };
