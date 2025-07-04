@@ -55,7 +55,7 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
       )}
       <ConditionalWrapper
         condition={!!topIcon}
-        wrap={wrappedChildren => {
+        wrap={(wrappedChildren: React.ReactNode) => {
           return <div className="md-button__content">{wrappedChildren}</div>;
         }}
       >

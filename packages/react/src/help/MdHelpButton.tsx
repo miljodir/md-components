@@ -3,6 +3,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import MdIconHelp from '../icons-material/MdIconHelp';
+import MdIconHelpFilled from '../icons-material/MdIconHelpFilled';
 
 export interface MdHelpButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   expanded: boolean;
@@ -21,8 +22,12 @@ export const MdHelpButton: React.FunctionComponent<MdHelpButtonProps> = ({
   });
 
   return (
-    <button aria-label="Hjelpetekst" className={buttonClasses} type="button" {...otherProps}>
-      <MdIconHelp aria-hidden="true" className="md-helpbutton__icon" />
+    <button aria-label="Hjelpetekst" aria-pressed={expanded} className={buttonClasses} type="button" {...otherProps}>
+      {expanded ? (
+        <MdIconHelpFilled aria-hidden="true" className="md-helpbutton__icon" />
+      ) : (
+        <MdIconHelp aria-hidden="true" className="md-helpbutton__icon" />
+      )}
     </button>
   );
 };
