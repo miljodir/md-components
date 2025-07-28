@@ -45,7 +45,7 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   return showTooltip && !disabled ? (
-    <MdTooltip tooltipContent={ariaLabel} aria-label={ariaLabel}>
+    <MdTooltip unmountOnHide tooltipContent={ariaLabel} aria-label={ariaLabel}>
       {button}
     </MdTooltip>
   ) : (
