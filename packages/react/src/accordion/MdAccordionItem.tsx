@@ -103,15 +103,9 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
   );
 
   return (
-    <details
-      className={accordionClassNames}
-      id={accordionId}
-      name={name}
-      tabIndex={disabled ? -1 : 0}
-      aria-disabled={disabled}
-    >
+    <details className={accordionClassNames} id={accordionId} name={name} aria-disabled={disabled}>
       {/* Header */}
-      <summary className="md-accordion-item__header">
+      <summary className="md-accordion-item__header" tabIndex={disabled ? -1 : undefined} aria-disabled={disabled}>
         <div className="md-accordion-item__header-left">
           <div className="md-accordion-item__header-icon" aria-hidden="true">
             <MdIconAdd className="md-accordion-item__header-icon__open" />
