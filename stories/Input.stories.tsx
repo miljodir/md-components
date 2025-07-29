@@ -152,6 +152,17 @@ export default {
       },
       control: { type: 'text' },
     },
+    supportText: {
+      type: { name: 'string' },
+      description: 'Optional support text, will be replaced by error text if error is true and error text is set.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
     outerWrapperClass: {
       type: { name: 'string' },
       description: 'Class names to apply to the inputs outer most wrapper.',
@@ -236,6 +247,7 @@ Input.args = {
   errorText: '',
   hideErrorIcon: false,
   helpText: '',
+  supportText: '',
   outerWrapperClass: '',
   placeholder: 'Placeholder...',
   suffix: '',
@@ -252,6 +264,7 @@ InputWithPrefix.args = {
   readOnly: false,
   error: false,
   errorText: '',
+  supportText: '',
   hideErrorIcon: false,
   helpText: '',
   outerWrapperClass: '',
@@ -271,6 +284,7 @@ InputWithSuffix.args = {
   readOnly: false,
   error: false,
   errorText: '',
+  supportText: '',
   hideErrorIcon: false,
   helpText: '',
   outerWrapperClass: '',
