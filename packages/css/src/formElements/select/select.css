@@ -28,6 +28,7 @@
   font-size: 1rem;
   line-height: 150%;
   border: 1px solid var(--mdPrimaryColor);
+  border-radius: 4px;
   padding: 0.6875rem 1rem;
   background-color: #fff;
   position: relative;
@@ -47,6 +48,7 @@
 .md-select__button[aria-expanded='true'] {
   outline-width: 2px;
   transition: outline-width 0.1s ease-in;
+  border-radius: 4px 4px 0 0;
 }
 .md-select__button[aria-disabled='true'] {
   background-color: var(--mdGreyColor20);
@@ -107,6 +109,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   border: 2px solid var(--mdPrimaryColor);
+  border-radius: 0 0 4px 4px;
   border-top: 0;
   opacity: 0;
   transition-duration: 200ms;
