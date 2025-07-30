@@ -9,7 +9,7 @@
   max-width: 100%;
   width: 100%;
   background-color: #fff;
-  border-radius: 0;
+  border-radius: 4px;
   border: 1px solid var(--mdGreyColor60);
   margin: 1px;
   color: var(--mdGreyColor);
