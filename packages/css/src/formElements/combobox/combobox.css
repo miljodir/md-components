@@ -26,6 +26,7 @@
   background-color: #fff;
   line-height: 150%;
   border: 1px solid var(--mdGreyColor60);
+  border-radius: 4px;
   padding: 0.6875rem 6rem 0.6875rem 2.5rem;
 }
 .md-combobox--large .md-combobox__input {
@@ -51,6 +52,7 @@
 .md-combobox__input[aria-expanded='true'] {
   outline: 2px solid var(--mdPrimaryColor);
   outline-offset: -2px;
+  border-radius: 4px 4px 0 0;
 }
 
 .md-combobox__input[aria-expanded='true']::placeholder {
@@ -132,6 +134,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   border: 2px solid var(--mdPrimaryColor);
+  border-radius: 0 0 4px 4px;
   border-top: 0;
   opacity: 0;
   transition-duration: 200ms;
