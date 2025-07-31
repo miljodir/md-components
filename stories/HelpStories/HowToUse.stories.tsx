@@ -83,7 +83,7 @@ const Template = (args: Args) => {
   return (
     <div>
       <div style={{ display: 'flex', marginBottom: '.45em', fontFamily: 'Open sans' }}>
-        <div style={{ marginRight: '1em' }}>Click icon to toggle</div>
+        <div style={{ marginRight: '0.5em' }}>Click icon to toggle</div>
         <MdHelpButton
           expanded={args.expanded}
           hideArrow={args.hideArrow}
