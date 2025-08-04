@@ -49,5 +49,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
   <!-- Optional container for error text -->
   <div class="md-input__error">{errorText}</div>
+
+  <!-- Optional container for support text -->
+  <div class="md-input__support-text">{supportText}</div>
 </div>
 ```

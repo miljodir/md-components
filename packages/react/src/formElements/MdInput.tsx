@@ -10,6 +10,7 @@ export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement
   label?: string;
   error?: boolean;
   errorText?: string;
+  supportText?: string;
   hideErrorIcon?: boolean;
   helpText?: string;
   outerWrapperClass?: string;
@@ -29,6 +30,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       id,
       error = false,
       errorText,
+      supportText,
       hideErrorIcon = false,
       helpText,
       outerWrapperClass = '',
@@ -71,8 +73,12 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       outerWrapperClass,
     );
 
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-input_help-text_${inputId}` : undefined;
-    ariaDescribedBy = error && errorText && errorText !== '' ? `md-input_error_${inputId}` : ariaDescribedBy;
+    // Build aria-describedby in order of priority: error → support → help text
+    const ariaDescribedBy = [
+      helpText && helpText !== '' && `md-input_help-text_${inputId}`,
+      error && errorText && errorText !== '' && `md-input_error_${inputId}`,
+      supportText && supportText !== '' && `md-input_support-text_${inputId}`,
+    ].filter(Boolean).join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -147,11 +153,15 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             )}
           </div>
         </div>
-        {error && errorText && errorText !== '' && (
+        {error && errorText && errorText !== '' ? (
           <div id={`md-input_error_${inputId}`} className="md-input__error">
             {errorText}
           </div>
-        )}
+        ) : supportText && supportText !== '' ? (
+          <div id={`md-input_support_${inputId}`} className="md-input__support-text">
+            {supportText}
+          </div>
+        ) : null}
       </div>
     );
   },
