@@ -132,6 +132,7 @@ import MdIconEdit from './icons-material/MdIconEdit';
 import MdIconExpandAll from './icons-material/MdIconExpandAll';
 import MdIconExpandContent from './icons-material/MdIconExpandContent';
 import MdIconHelp from './icons-material/MdIconHelp';
+import MdIconHelpFilled from './icons-material/MdIconHelpFilled';
 import MdIconHome from './icons-material/MdIconHome';
 import MdIconImage from './icons-material/MdIconImage';
 import MdIconInfo from './icons-material/MdIconInfo';
@@ -370,6 +371,7 @@ export {
   MdIconExpandAll,
   MdIconExpandContent,
   MdIconHelp,
+  MdIconHelpFilled,
   MdIconHome,
   MdIconImage,
   MdIconInfo,

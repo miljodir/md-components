@@ -1,6 +1,7 @@
 /* HELP BUTTON */
 .md-helpbutton {
   display: flex;
+  align-items: center;
   position: relative;
   background-color: transparent;
   padding: 0;
@@ -13,7 +14,7 @@
 .md-helpbutton--expanded:not(.md-helpbutton--noarrow):after {
   content: '';
   position: absolute;
-  left: 0.3rem;
+  left: 0.25rem;
   bottom: -0.65rem;
   margin: 0 auto;
   width: 0;
@@ -40,7 +41,7 @@
 .md-helpbutton--expanded .md-helpbutton__icon,
 .md-helpbutton:hover .md-helpbutton__icon {
   color: #fff;
-  fill: var(--mdPrimaryColor);
+  fill: var(--mdPrimaryColor80);
 }
 
 /* HELP TEXT */
