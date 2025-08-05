@@ -38,6 +38,13 @@
   }
 }
 
+@media (min-width: 1539px) {
+  .md-modal {
+    width: fit-content;
+    max-width: 1000px;
+  }
+}
+
 .md-modal[data-enter] {
   opacity: 1;
   transform: scale(1);
