@@ -169,4 +169,5 @@
   appearance: none;
   -webkit-appearance: none;
   margin: 1px;
+  -moz-appearance: textfield;
 }
