@@ -170,7 +170,6 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
               store={store}
               render={<div />}
               aria-describedby={ariaDescribedBy}
-              aria-pressed={Ariakit.useStoreState(store, 'open')}
               aria-expanded={Ariakit.useStoreState(store, 'open')}
               className="md-select__button"
               {...otherProps}
