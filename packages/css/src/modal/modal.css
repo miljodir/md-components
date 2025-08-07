@@ -40,7 +40,6 @@
 
 @media (min-width: 1539px) {
   .md-modal {
-    width: fit-content;
     max-width: 1000px;
   }
 }
