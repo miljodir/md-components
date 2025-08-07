@@ -10,6 +10,7 @@
   width: fit-content;
   border-radius: 8px;
   border: none;
+  transition: all 200ms ease-in-out;
 }
 
 .md-button--column {
