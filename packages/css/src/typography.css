@@ -1,54 +1,54 @@
 /* HEADINGS */
-.md-heading-xs {
+.md-typography-heading-xs {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-14);
 }
-.md-heading-sm {
+.md-typography-heading-sm {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-16);
 }
-.md-heading-md,
-.md-heading {
+.md-typography-heading-md,
+.md-typography-heading {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-20);
 }
-.md-heading-lg {
+.md-typography-heading-lg {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-24);
 }
-.md-heading-xl {
+.md-typography-heading-xl {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-28);
 }
-.md-heading-2xl {
+.md-typography-heading-2xl {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-34);
 }
 
 /* BODY TEXT */
-.md-body-xs {
+.md-typography-body-xs {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-12);
 }
-.md-body-sm {
+.md-typography-body-sm {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-14);
 }
-.md-body-md,
-.md-body {
+.md-typography-body-md,
+.md-typography-body {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-16);
 }
-.md-body-lg {
+.md-typography-body-lg {
   font-family: var(--md-typography-family-body);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-18);
