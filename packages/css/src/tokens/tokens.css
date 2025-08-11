@@ -76,9 +76,9 @@
 
   /* TYPOGRAPHY */
   /* family */
-  --md-typoraphy-family-heading: 'SofiaPro-Regular', sans-serif;
-  --md-typoraphy-family-body: 'Open Sans', sans-serif;
-  --md-typoraphy-family-label: 'Open Sans', sans-serif;
+  --md-typography-family-heading: 'SofiaPro-Regular', sans-serif;
+  --md-typography-family-body: 'Open Sans', sans-serif;
+  --md-typography-family-label: 'Open Sans', sans-serif;
 
   /* weight */
   --md-typography-weight-regular: 400;

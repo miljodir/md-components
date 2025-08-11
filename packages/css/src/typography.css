@@ -1,55 +1,55 @@
 /* HEADINGS */
 .md-heading-xs {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-14);
 }
 .md-heading-sm {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-16);
 }
 .md-heading-md,
 .md-heading {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-20);
 }
 .md-heading-lg {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-24);
 }
 .md-heading-xl {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-28);
 }
 .md-heading-2xl {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-34);
 }
 
 /* BODY TEXT */
 .md-body-xs {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-12);
 }
 .md-body-sm {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-14);
 }
 .md-body-md,
 .md-body {
-  font-family: var(--md-typoraphy-family-heading);
+  font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-16);
 }
 .md-body-lg {
-  font-family: var(--md-typoraphy-family-body);
+  font-family: var(--md-typography-family-body);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-18);
 }
