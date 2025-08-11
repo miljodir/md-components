@@ -1,0 +1,68 @@
+:root {
+  /* COLORS */
+  --md-color-primary-160: #003b3a;
+  --md-color-primary-140: #004646;
+  --md-color-primary-120: #005251;
+  --md-color-primary-100: #005e5d;
+  --md-color-primary-90: #196d6c;
+  --md-color-primary-80: #337e7d;
+  --md-color-primary-70: #4c8e8d;
+  --md-color-primary-60: #669e9d;
+  --md-color-primary-50: #7faead;
+  --md-color-primary-40: #99bebe;
+  --md-color-primary-30: #b2cece;
+  --md-color-primary-20: #ccdfde;
+  --md-color-primary-10: #e5eeee;
+
+  --md-color-secondary-100: #ece7d2;
+  --md-color-secondary-80: #efebdb;
+  --md-color-secondary-60: #f3f0e4;
+  --md-color-secondary-40: #f7f5ed;
+  --md-color-secondary-20: #fbfaf6;
+
+  --md-color-tertiary-blue-dark: #0072ce;
+  --md-color-tertiary-blue-light: #b9d9eb;
+  --md-color-tertiary-pink-dark: #ab5c57;
+  --md-color-tertiary-pink-light: #e6baa8;
+  --md-color-tertiary-yellow-dark: #d69a2d;
+  --md-color-tertiary-yellow-light: #ecd898;
+  --md-color-tertiary-brown-dark: #584446;
+  --md-color-tertiary-brown-light: #d6d2c4;
+
+  --md-color-grey-100: #222222;
+  --md-color-grey-80: #4e4e4e;
+  --md-color-grey-60: #767676;
+  --md-color-grey-40: #a6a6a6;
+  --md-color-grey-20: #d2d2d2;
+  --md-color-grey-10: #e8e8e8;
+  --md-color-white: #ffffff;
+
+  --md-color-warning-light: #fce4ca;
+  --md-color-warning-dark: #de8215;
+  --md-color-error-x-light: #f5cccc;
+  --md-color-error-160: #830000;
+  --md-color-error-120: #a50000;
+  --md-color-error-100: #ca0000;
+  --md-color-error-40: #ea9999;
+  --md-color-error-20: #f5cccc;
+  --md-color-error-10: #f9e3e3;
+
+  /* SPACINGS / SIZES */
+  --md-spacing-0: 0px;
+  --md-spacing-1: 0.0625rem;
+  --md-spacing-2: 0.125rem; /* 2px */
+  --md-spacing-4: 0.25rem; /* 4px */
+  --md-spacing-8: 0.5rem; /* 8px */
+  --md-spacing-12: 0.75rem; /* 12px */
+  --md-spacing-16: 1rem; /* 16px */
+  --md-spacing-20: 1.25rem; /* 20px */
+  --md-spacing-24: 1.5rem; /* 24px */
+  --md-spacing-32: 2rem; /* 32px */
+  --md-spacing-40: 2.5rem; /* 40px */
+  --md-spacing-48: 3rem; /* 48px */
+  --md-spacing-56: 3.5rem; /* 56px */
+  --md-spacing-64: 4rem; /* 64px */
+  --md-spacing-72: 4.5rem; /* 72px */
+  --md-spacing-80: 5rem; /* 80px */
+  --md-spacing-360: 22.5rem;
+}

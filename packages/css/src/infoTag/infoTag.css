@@ -27,10 +27,10 @@
   background-color: var(--mdSecondaryColor40);
 }
 .md-info-tag--warning {
-  background-color: var(--mdWarningBackgroundColor);
+  background-color: transparent;
 }
 .md-info-tag--warning.md-info-tag--button:hover {
-  outline: 2px solid var(--mdWarningColor);
+  outline: 2px solid var(--mdWarningDarkColor);
   outline-offset: -2px;
 }
 

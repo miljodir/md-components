@@ -45,7 +45,7 @@
   font-size: 1rem;
 }
 .md-combobox--has-value .md-combobox__input[aria-expanded='false']::placeholder {
-  color: var(--mdTextColor);
+  color: var(--mdGreyColor);
 }
 
 .md-combobox__input[data-focus-visible],
@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--mdTextColor);
+  color: var(--mdGreyColor);
   transform: translateY(-50%);
   z-index: 0;
 }
@@ -96,7 +96,7 @@
 .md-combobox__input--after svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--mdTextColor);
+  color: var(--mdGreyColor);
 }
 .md-combobox__input--after svg.md-combobox__input-arrow {
   transition: rotate 0.2s ease-in;

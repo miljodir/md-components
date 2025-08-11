@@ -211,7 +211,7 @@
 }
 
 .md-button--danger:active:enabled {
-  background-color: var(--mdErrorColor140);
+  background-color: var(--mdErrorColor160);
 }
 
 /* Danger secondary */
@@ -244,7 +244,7 @@
 }
 
 .md-button--danger-secondary:active:enabled {
-  background-color: var(--mdErrorBackgroundColor);
+  background-color: var(--mdErrorColor20);
   color: var(--mdErrorColor120);
   border-color: var(--mdErrorColor120);
 }

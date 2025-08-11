@@ -1,0 +1,96 @@
+:root {
+  /* COLORS */
+
+  /* cta */
+  --md-color-cta-primary-default: var(--md-color-primary-100);
+  --md-color-cta-primary-hover: var(--md-color-primary-120);
+  --md-color-cta-primary-focus: var(--md-color-primary-80);
+  --md-color-cta-primary-active: var(--md-color-primary-160);
+  --md-color-cta-secondary-default: var(--md-color-white);
+  --md-color-cta-secondary-stroke: var(--md-color-primary-100);
+  --md-color-cta-secondary-hover: var(--md-color-primary-20);
+  --md-color-cta-secondary-active: var(--md-color-primary-30);
+
+  /* disabled */
+  --md-color-disabled-default: var(--md-color-grey-60);
+  --md-color-disabled-dark: var(--md-color-grey-80);
+  --md-color-disabled-bg: var(--md-color-grey-20);
+
+  /* attention */
+  --md-color-attention-error-primary: var(--md-color-error-100);
+  --md-color-attention-error-primary-hover: var(--md-color-error-120);
+  --md-color-attention-error-primary-active: var(--md-color-error-160);
+  --md-color-attention-error-secondary: var(--md-color-white);
+  --md-color-attention-error-secondary-hover: var(--md-color-error-10);
+  --md-color-attention-error-secondary-active: var(--md-color-error-40);
+  --md-color-attention-error-bg: var(--md-color-error-20);
+  --md-color-attention-error-bg-hover: var(--md-color-error-40);
+  --md-color-attention-warning-primary: var(--md-color-warning-dark);
+  --md-color-attention-warning-bg: var(--md-color-warning-light);
+
+  /* surface */
+  --md-color-surface-primary: var(--md-color-white);
+  --md-color-surface-secondary: var(--md-color-grey-10);
+  --md-color-surface-tertiary: var(--md-color-secondary-20);
+  --md-color-surface-info-primary: var(--md-color-primary-20);
+  --md-color-surface-info-secondary: var(--md-color-secondary-40);
+  --md-color-surface-grey: var(--md-color-grey-10);
+
+  /* text */
+  --md-color-text-primary: var(--md-color-grey-100);
+  --md-color-text-secondary: var(--md-color-primary-100);
+  --md-color-text-inverted: var(--md-color-white);
+  --md-color-text-disabled: var(--md-color-grey-60);
+  --md-color-text-visited: var(--md-color-primary-160);
+
+  /* border */
+  --md-color-border-primary: var(--md-color-grey-60);
+  --md-color-border-secondary: var(--md-color-grey-20);
+  --md-color-border-tertiary: var(--md-color-primary-100);
+
+  /* SIZES */
+  --md-size-0: var(--md-spacing-0);
+  --md-size-1: var(--md-spacing-1);
+  --md-size-2: var(--md-spacing-2);
+  --md-size-4: var(--md-spacing-4);
+  --md-size-8: var(--md-spacing-8);
+  --md-size-12: var(--md-spacing-12);
+  --md-size-16: var(--md-spacing-16);
+  --md-size-20: var(--md-spacing-20);
+  --md-size-24: var(--md-spacing-24);
+  --md-size-32: var(--md-spacing-32);
+  --md-size-40: var(--md-spacing-40);
+  --md-size-48: var(--md-spacing-48);
+  --md-size-56: var(--md-spacing-56);
+  --md-size-64: var(--md-spacing-64);
+  --md-size-72: var(--md-spacing-72);
+  --md-size-80: var(--md-spacing-80);
+  --md-size-360: var(--md-spacing-360);
+
+  --md-radius-xs: var(--md-spacing-2);
+  --md-radius-sm: var(--md-spacing-4);
+  --md-radius-md: var(--md-spacing-8);
+  --md-radius-lg: var(--md-spacing-16);
+  --md-radius-xl: var(--md-spacing-360);
+  --md-radius-none: var(--md-spacing-0);
+
+  /* TYPOGRAPHY */
+  /* family */
+  --md-typoraphy-family-heading: 'SofiaPro-Regular', sans-serif;
+  --md-typoraphy-family-body: 'Open Sans', sans-serif;
+  --md-typoraphy-family-label: 'Open Sans', sans-serif;
+
+  /* weight */
+  --md-typography-weight-regular: 400;
+  --md-typography-weight-medium: 600;
+
+  /* size */
+  --md-typography-size-12: 0.75rem; /* 12px */
+  --md-typography-size-14: 0.875rem; /* 14px */
+  --md-typography-size-16: 1rem; /* 16px */
+  --md-typography-size-18: 1.125rem; /* 18px */
+  --md-typography-size-20: 1.25rem; /* 20px */
+  --md-typography-size-24: 1.5rem; /* 24px */
+  --md-typography-size-28: 1.75rem; /* 28px */
+  --md-typography-size-34: 2.125rem; /* 34px */
+}
