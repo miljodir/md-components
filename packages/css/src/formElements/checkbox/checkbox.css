@@ -1,6 +1,6 @@
 .md-checkbox {
   cursor: pointer;
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   position: relative;
 }
 
@@ -17,38 +17,38 @@
 }
 
 .md-checkbox__label::before {
-  background-color: #ffffff;
-  border: 1px solid var(--mdGreyColor60);
+  background-color: var(--md-color-surface-primary);
+  border: 1px solid var(--md-color-border-primary);
   content: '';
   cursor: pointer;
-  height: 1.25rem;
-  width: 1.25rem;
-  min-width: 1.25rem;
+  height: var(--md-size-20);
+  width: var(--md-size-20);
+  min-width: var(--md-size-20);
 }
 
 .md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox:hover .md-checkbox__label::before {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-surface-info-primary);
 }
 
 .md-checkbox__input:focus-visible + .md-checkbox__label {
-  outline: 2px solid var(--mdPrimaryColor);
-  outline-offset: 2px;
+  outline: var(--md-color-border-tertiary) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-2);
 }
 
 .md-checkbox__input:checked + .md-checkbox__label::before {
   background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZTk2NWRkN2EtN2NlNS00MTc0LThjMjEtY2UwNjIzYmFmNTJhIiBkYXRhLW5hbWU9ImNoZWNrbWFyay1ncmVlbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTMgMTAuMDIiPjx0aXRsZT5jaGVja21hcmstZ3JlZW48L3RpdGxlPjxwYXRoIGQ9Ik0xMS4xNCwwLDQuODMsNi4zMWwtMy0zTDAsNS4xOSw0LjgzLDEwLDEzLDEuODZaIiBmaWxsPSIjMDA2MTVjIiAvPjwvc3ZnPg==);
   background-repeat: no-repeat;
-  background-position-y: 0.125rem;
-  background-position-x: 0.0625rem;
+  background-position-y: var(--md-size-2);
+  background-position-x: var(--md-size-1);
   background-size: 1.125rem;
 }
 
 .md-checkbox--disabled .md-checkbox__label::before,
 .md-checkbox--disabled .md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox--disabled:hover .md-checkbox__label::before {
-  background-color: var(--mdGreyColor20);
-  border-color: var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-bg);
+  border-color: var(--md-color-disabled-default);
   cursor: default;
 }
 
@@ -62,10 +62,10 @@
 }
 
 .md-checkbox__labelText {
-  font-size: 1rem;
-  left: 0.5rem;
+  font-size: var(--md-typography-size-16);
+  left: var(--md-size-8);
   position: relative;
-  padding-right: 0.5rem;
+  padding-right: var(--md-size-8);
 }
 
 .md-checkbox:not(.md-checkbox--disabled):hover .md-checkbox__labelText {

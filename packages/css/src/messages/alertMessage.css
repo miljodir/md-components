@@ -2,12 +2,12 @@
 .md-info-box {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-family: 'Open sans';
-  font-size: 1rem;
-  padding: 1rem;
-  background-color: var(--mdSecondaryColor20);
-  border: 1px dashed var(--mdPrimaryColor);
+  gap: var(--md-size-16);
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
+  padding: var(--md-size-16);
+  background-color: var(--md-color-surface-tertiary);
+  border: var(--md-size-1) dashed var(--md-color-border-tertiary);
 }
 .md-info-box:not(.md-info-box--fullWidth) {
   max-width: 634px;
@@ -18,10 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
   width: 100%;
-  background-color: var(--mdPrimaryColor10);
+  background-color: var(--md-color-surface-secondary);
 }
 
 .md-alert-message:not(.md-alert-message--fullWidth) {
@@ -29,14 +29,14 @@
 }
 
 .md-alert-message--confirm {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-surface-info-primary);
 }
 .md-alert-message--warning {
-  background-color: var(--mdWarningLightColor);
+  background-color: var(--md-color-attention-warning-bg);
 }
 .md-alert-message--error {
-  background-color: var(--mdErrorColor);
-  color: #fff;
+  background-color: var(--md-color-attention-error-primary);
+  color: var(--md-color-text-inverted);
 }
 
 .md-alert-message__icon {
@@ -46,8 +46,8 @@
 .md-alert-message__content {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--md-size-16);
+  padding: var(--md-size-16);
 }
 
 .md-alert-message__content--start {
@@ -58,12 +58,12 @@
 }
 
 .md-alert-message__button {
-  margin-right: 0.75rem;
+  margin-right: var(--md-size-12);
 }
 
 .md-alert-message--error .md-alert-message__button:hover {
-  outline-color: #fff;
+  outline-color: var(--md-color-text-inverted);
 }
 .md-alert-message--error .md-alert-message__button {
-  color: #fff;
+  color: var(--md-color-text-inverted);
 }

@@ -1,11 +1,23 @@
 import './colors.css';
 import { Meta, DocsContainer } from '@storybook/addon-docs';
 import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+import { MdAlertMessage } from '../../packages/react/src/messages/MdAlertMessage';
+
+export const copyToClipboard = text => {
+  const element = document.getElementById('toast');
+  navigator.clipboard.writeText(text);
+  element.style.display = 'block';
+  setTimeout(() => {
+    element.style.display = 'none';
+  }, 2000);
+};
 
 export const CopyButton = ({ text, code }) => {
   return (
     <button
-      onClick={() => navigator.clipboard.writeText(text)}
+      onClick={() => {
+        copyToClipboard(text);
+      }}
       title="Copy to clipboard"
       className={`color-box__button ${code ? 'color-box__button--code' : ''}`}
     >
@@ -16,7 +28,7 @@ export const CopyButton = ({ text, code }) => {
 };
 
 <Meta
-  title="Introduction/Colors"
+  title="Introduction/Colors & tokens/Colors"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -34,6 +46,22 @@ export const CopyButton = ({ text, code }) => {
 
 />
 
+<div
+  id="toast"
+  style={{
+    display: 'none',
+    position: 'fixed',
+    top: '2rem',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '600px',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+  }}
+>
+  <MdAlertMessage label="Copied to clipboard" theme="confirm" />
+</div>
+
+<div className="color-page-wrapper">
 # Colors
 
 This is the main color pallette for the design system.
@@ -42,53 +70,53 @@ This is the main color pallette for the design system.
   <div className="color-container__colors">
     <h2 id="primary-colors">Primary colors</h2>
     <div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor160)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-160)' }}>
         <div>160%</div>
         <div className="color-box__color-code">
           <CopyButton text="#003B3A" />
-          <CopyButton text="--mdPrimaryColor160" code />
+          <CopyButton text="--md-color-primary-160" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor140)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-140)' }}>
         <div>140%</div>
         <div className="color-box__color-code">
           <CopyButton text="#004646" />
-          <CopyButton text="--mdPrimaryColor140" code />
+          <CopyButton text="--md-color-primary-140" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor120)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-120)' }}>
         <div>120%</div>
         <div className="color-box__color-code">
           <CopyButton text="#005251" />
-          <CopyButton text="--mdPrimaryColor120" code />
+          <CopyButton text="--md-color-primary-120" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-100)' }}>
         <div>100% (Primary)</div>
         <div className="color-box__color-code">
           <CopyButton text="#005E5D" />
-          <CopyButton text="--mdPrimaryColor" code />
+          <CopyButton text="--md-color-primary-100" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor90)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-90)' }}>
         <div>90%</div>
         <div className="color-box__color-code">
           <CopyButton text="#196D6C" />
-          <CopyButton text="--mdPrimaryColor90" code />
+          <CopyButton text="--md-color-primary-90" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor80)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-80)' }}>
         <div>80% (Primary variant)</div>
         <div className="color-box__color-code">
           <CopyButton text="#337E7D" />
-          <CopyButton text="--mdPrimaryColor80" code />
+          <CopyButton text="--md-color-primary-80" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdPrimaryColor70)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-primary-70)' }}>
         <div>70%</div>
         <div className="color-box__color-code">
           <CopyButton text="#4C8E8D" />
-          <CopyButton text="--mdPrimaryColor70" code />
+          <CopyButton text="--md-color-primary-70" code />
         </div>
       </div>
     </div>
@@ -96,53 +124,53 @@ This is the main color pallette for the design system.
   <div className="color-container__colors">
     <h2 id="primary-colors-2" className="hidden-sm"></h2>
     <div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor70)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-70)' }}>
         <div>70%</div>
         <div className="color-box__color-code">
           <CopyButton text="#4C8E8D" />
-          <CopyButton text="--mdPrimaryColor70" code />
+          <CopyButton text="--md-color-primary-70" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor60)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-60)' }}>
         <div>60%</div>
         <div className="color-box__color-code">
           <CopyButton text="#669E9D" />
-          <CopyButton text="--mdPrimaryColor60" code />
+          <CopyButton text="--md-color-primary-60" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor50)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-50)' }}>
         <div>50%</div>
         <div className="color-box__color-code">
           <CopyButton text="#7FAEAD" />
-          <CopyButton text="--mdPrimaryColor50" code />
+          <CopyButton text="--md-color-primary-50" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor40)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-40)' }}>
         <div>40%</div>
         <div className="color-box__color-code">
           <CopyButton text="#99BEBE" />
-          <CopyButton text="--mdPrimaryColor40" code />
+          <CopyButton text="--md-color-primary-40" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor30)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-30)' }}>
         <div>30%</div>
         <div className="color-box__color-code">
           <CopyButton text="#B2CECE" />
-          <CopyButton text="--mdPrimaryColor30" code />
+          <CopyButton text="--md-color-primary-30" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor20)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-20)' }}>
         <div>20%</div>
         <div className="color-box__color-code">
           <CopyButton text="#CCDFDE" />
-          <CopyButton text="--mdPrimaryColor20" code />
+          <CopyButton text="--md-color-primary-20" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdPrimaryColor10)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-primary-10)' }}>
         <div>10%</div>
         <div className="color-box__color-code">
           <CopyButton text="#E5EEEE" />
-          <CopyButton text="--mdPrimaryColor10" code />
+          <CopyButton text="--md-color-primary-10" code />
         </div>
       </div>
     </div>
@@ -153,39 +181,39 @@ This is the main color pallette for the design system.
   <div className="color-container__colors">
     <h2 id="secondary-colors">Secondary colors</h2>
     <div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdSecondaryColor)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-secondary-100)' }}>
         <div>100% (Secondary)</div>
         <div className="color-box__color-code">
           <CopyButton text="#ECE7D2" />
-          <CopyButton text="--mdSecondaryColor" code />
+          <CopyButton text="--md-color-secondary-100" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdSecondaryColor80)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-secondary-80)' }}>
         <div>80%</div>
         <div className="color-box__color-code">
           <CopyButton text="#EFEBDB" />
-          <CopyButton text="--mdSecondaryColor80" code />
+          <CopyButton text="--md-color-secondary-80" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdSecondaryColor60)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-secondary-60)' }}>
         <div>60% (Secondary variant)</div>
         <div className="color-box__color-code">
           <CopyButton text="#F3F0E4" />
-          <CopyButton text="--mdSecondaryColor60" code />
+          <CopyButton text="--md-color-secondary-60" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdSecondaryColor40)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-secondary-40)' }}>
         <div>40%</div>
         <div className="color-box__color-code">
           <CopyButton text="#F7F5ED" />
-          <CopyButton text="--mdSecondaryColor40" code />
+          <CopyButton text="--md-color-secondary-40" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdSecondaryColor20)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-secondary-20)' }}>
         <div>20%</div>
         <div className="color-box__color-code">
           <CopyButton text="#FBFAF6" />
-          <CopyButton text="--mdSecondaryColor20" code />
+          <CopyButton text="--md-color-secondary-20" code />
         </div>
       </div>
     </div>
@@ -196,221 +224,270 @@ This is the main color pallette for the design system.
   <div className="color-container__colors">
     <h2 id="grey-colors">Grey colors</h2>
     <div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdGreyColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-grey-100)' }}>
         <div>100%</div>
         <div className="color-box__color-code">
           <CopyButton text="#222222" />
-          <CopyButton text="--mdGreyColor" code />
+          <CopyButton text="--md-color-grey-100" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdGreyColor80)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-grey-80)' }}>
         <div>80%</div>
         <div className="color-box__color-code">
           <CopyButton text="#4E4E4E" />
-          <CopyButton text="--mdGreyColor80" code />
+          <CopyButton text="--md-color-grey-80" code />
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdGreyColor60)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-grey-60)' }}>
         <div>60%</div>
         <div className="color-box__color-code">
           <CopyButton text="#767676" />
-          <CopyButton text="--mdGreyColor60" code />
+          <CopyButton text="--md-color-grey-60" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdGreyColor40)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-grey-40)' }}>
         <div>40%</div>
         <div className="color-box__color-code">
           <CopyButton text="#A6A6A6" />
-          <CopyButton text="--mdGreyColor40" code />
+          <CopyButton text="--md-color-grey-40" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdGreyColor20)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-grey-20)' }}>
         <div>20%</div>
         <div className="color-box__color-code">
           <CopyButton text="#D2D2D2" />
-          <CopyButton text="--mdGreyColor20" code />
+          <CopyButton text="--md-color-grey-20" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdGreyColor10)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-grey-10)' }}>
         <div>10%</div>
         <div className="color-box__color-code">
           <CopyButton text="#E8E8E8" />
-          <CopyButton text="--mdGreyColor10" code />
+          <CopyButton text="--md-color-grey-10" code />
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div className="color-container" style={{ marginBottom: '2rem' }}>
-  <div className="color-container__colors">
-    <h2 id="support-colors">Support colors</h2>
-    <div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdWarningColor)' }}>
-        <div>Warning</div>
-        <div className="color-box__color-code">
-          <CopyButton text="#DE8215" />
-          <CopyButton text="--mdWarningColor" code />
+  <div className="color-container" style={{ marginBottom: '2rem' }}>
+    <div className="color-container__colors">
+      <h2 id="support-colors">Support colors</h2>
+      <div style={{ marginBottom: '1rem' }}>
+        <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-error-160)' }}>
+          <div>Warning dark</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#DE8215" />
+            <CopyButton text="--md-color-error-160" code />
+          </div>
+        </div>
+        <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-warning-light)' }}>
+          <div>Warning Background / warning light</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#FCE4CA" />
+            <CopyButton text="--md-color-warning-light" code />
+          </div>
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdWarningBackgroundColor)' }}>
-        <div>Warning background</div>
-        <div className="color-box__color-code">
-          <CopyButton text="#FCE4CA" />
-          <CopyButton text="--mdWarningBackgroundColor" code />
+      <div>
+        <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-error-160)' }}>
+          <div>Error 160%</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#830000" />
+            <CopyButton text="--md-color-error-160" code />
+          </div>
+        </div>
+        <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-error-120)' }}>
+          <div>Error 120%</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#A50000" />
+            <CopyButton text="--md-color-error-120" code />
+          </div>
+        </div>
+        <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-error-100)' }}>
+          <div>Error 100% (primary)</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#CA0000" />
+            <CopyButton text="--md-color-error-100" code />
+          </div>
+        </div>
+        <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-error-40)' }}>
+          <div>Error 40%</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#EA9999" />
+            <CopyButton text="--md-color-error-40" code />
+          </div>
+        </div>
+        <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-error-20)' }}>
+          <div>Error 20%</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#F5CCCC" />
+            <CopyButton text="--md-color-error-20" code />
+          </div>
+        </div>
+        <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-error-10)' }}>
+          <div>Error 10%</div>
+          <div className="color-box__color-code">
+            <CopyButton text="#F9E3E3" />
+            <CopyButton text="--md-color-error-10" code />
+          </div>
         </div>
       </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdErrorColor120)' }}>
-        <div>Error 120%</div>
-        <div className="color-box__color-code">
-          <CopyButton text="#B7090D" />
-          <CopyButton text="--mdErrorColor120" code />
-        </div>
-      </div>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdErrorColor)' }}>
-        <div>Error</div>
-        <div className="color-box__color-code">
-          <CopyButton text="#CA0000" />
-          <CopyButton text="--mdErrorColor" code />
-        </div>
-      </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdErrorBackgroundColor)' }}>
-        <div>Error background</div>
-        <div className="color-box__color-code">
-          <CopyButton text="#F5CCCC" />
-          <CopyButton text="--mdErrorBackgroundColor" code />
-        </div>
-      </div>
+
     </div>
+
   </div>
-</div>
 
 <div className="color-container" style={{ marginBottom: '2rem' }}>
   <div className="color-container__colors">
     <h2 id="support-colors">Tertiary colors</h2>
     <div style={{ marginBottom: '1rem' }}>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdTertiaryBlueColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-tertiary-blue-dark)' }}>
         <div>Blue dark</div>
         <div className="color-box__color-code">
-          <CopyButton text="#1472CE" />
-          <CopyButton text="--mdTertiaryBlueColor" code />
+          <CopyButton text="#0072CE" />
+          <CopyButton text="--md-color-tertiary-blue-dark" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdTertiaryBlueLightColor)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-tertiary-blue-light)' }}>
         <div>Blue light</div>
         <div className="color-box__color-code">
           <CopyButton text="#B9D9EB" />
-          <CopyButton text="--mdTertiaryBlueLightColor" code />
+          <CopyButton text="--md-color-tertiary-blue-light" code />
         </div>
       </div>
     </div>
     <div style={{ marginBottom: '1rem' }}>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdTertiaryPinkColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-tertiary-pink-dark)' }}>
         <div>Pink dark</div>
         <div className="color-box__color-code">
           <CopyButton text="#AB5C57" />
-          <CopyButton text="--mdTertiaryPinkColor" code />
+          <CopyButton text="--md-color-tertiary-pink-dark" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdTertiaryPinkLightColor)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-tertiary-pink-light)' }}>
         <div>Pink light</div>
         <div className="color-box__color-code">
           <CopyButton text="#E6BAA8" />
-          <CopyButton text="--mdTertiaryPinkLightColor" code />
+          <CopyButton text="--md-color-tertiary-pink-light" code />
         </div>
       </div>
     </div>
     <div style={{ marginBottom: '1rem' }}>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdTertiaryYellowColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-tertiary-yellow-dark)' }}>
         <div>Yellow dark</div>
         <div className="color-box__color-code">
           <CopyButton text="#D69A2D" />
-          <CopyButton text="--mdTertiaryYellowColor" code />
+          <CopyButton text="--md-color-tertiary-yellow-dark" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdTertiaryYellowLightColor)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-tertiary-yellow-light)' }}>
         <div>Yellow light</div>
         <div className="color-box__color-code">
           <CopyButton text="#ECD898" />
-          <CopyButton text="--mdTertiaryYellowLightColor" code />
+          <CopyButton text="--md-color-tertiary-yellow-light" code />
         </div>
       </div>
     </div>
     <div style={{ marginBottom: '1rem' }}>
-      <div className="color-box text-white" style={{ backgroundColor: 'var(--mdTertiaryBrownColor)' }}>
+      <div className="color-box text-white" style={{ backgroundColor: 'var(--md-color-tertiary-brown-dark)' }}>
         <div>Brown dark</div>
         <div className="color-box__color-code">
           <CopyButton text="#584446" />
-          <CopyButton text="--mdTertiaryBrownColor" code />
+          <CopyButton text="--md-color-tertiary-brown-dark" code />
         </div>
       </div>
-      <div className="color-box text-black" style={{ backgroundColor: 'var(--mdTertiaryBrownLightColor)' }}>
+      <div className="color-box text-black" style={{ backgroundColor: 'var(--md-color-tertiary-brown-light)' }}>
         <div>Brown light</div>
         <div className="color-box__color-code">
           <CopyButton text="#D6D2C4" />
-          <CopyButton text="--mdTertiaryBrownLightColor" code />
+          <CopyButton text="--md-color-tertiary-brown-light" code />
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div className='color-container'>
-  <div style={{ width: '100%' }}>
-    <h2>Exposed CSS color variables</h2>
-    <pre>
-      <code>
-        ```css
-        :root {
-          --mdPrimaryColor: #005e5d;
-          --mdPrimaryColor160: #003b3a;
-          --mdPrimaryColor140: #004646;
-          --mdPrimaryColor120: #005251;
-          --mdPrimaryColor90: #196d6c;
-          --mdPrimaryColor80: #337e7d;
-          --mdPrimaryColor70: #4c8e8d;
-          --mdPrimaryColor60: #669e9d;
-          --mdPrimaryColor50: #7faead;
-          --mdPrimaryColor40: #99bebe;
-          --mdPrimaryColor30: #b2cece;
-          --mdPrimaryColor20: #ccdfde;
-          --mdPrimaryColor10: #e5eeee;
+  <div className='color-container'>
+    <div style={{ width: '100%' }}>
+      <h2>Exposed CSS color variables</h2>
+      <pre>
+        <code>
+          ```css
+          :root {
+            /* COLORS */
+            --md-color-primary-160: #003b3a;
+            --md-color-primary-140: #004646;
+            --md-color-primary-120: #005251;
+            --md-color-primary-100: #005e5d;
+            --md-color-primary-90: #196d6c;
+            --md-color-primary-80: #337e7d;
+            --md-color-primary-70: #4c8e8d;
+            --md-color-primary-60: #669e9d;
+            --md-color-primary-50: #7faead;
+            --md-color-primary-40: #99bebe;
+            --md-color-primary-30: #b2cece;
+            --md-color-primary-20: #ccdfde;
+            --md-color-primary-10: #e5eeee;
 
-          --mdSecondaryColor: #ece7d2;
-          --mdSecondaryColor80: #efebdb;
-          --mdSecondaryColor60: #f3f0e4;
-          --mdSecondaryColor40: #f7f5ed;
-          --mdSecondaryColor20: #fbfaf6;
+            --md-color-secondary-100: #ece7d2;
+            --md-color-secondary-80: #efebdb;
+            --md-color-secondary-60: #f3f0e4;
+            --md-color-secondary-40: #f7f5ed;
+            --md-color-secondary-20: #fbfaf6;
 
-          --mdTertiaryBlueColor: #1472ce;
-          --mdTertiaryBlueLightColor: #b9d9eb;
-          --mdTertiaryPinkColor: #ab5c57;
-          --mdTertiaryPinkLightColor: #e6baa8;
-          --mdTertiaryYellowColor: #d69a2d;
-          --mdTertiaryYellowLightColor: #ecd898;
-          --mdTertiaryBrownColor: #584446;
-          --mdTertiaryBrownLightColor: #d6d2c4;
+            --md-color-tertiary-blue-dark: #0072ce;
+            --md-color-tertiary-blue-light: #b9d9eb;
+            --md-color-tertiary-pink-dark: #ab5c57;
+            --md-color-tertiary-pink-light: #e6baa8;
+            --md-color-tertiary-yellow-dark: #d69a2d;
+            --md-color-tertiary-yellow-light: #ecd898;
+            --md-color-tertiary-brown-dark: #584446;
+            --md-color-tertiary-brown-light: #d6d2c4;
 
-          --mdTextColor: #222222;
+            --md-color-grey-100: #222222;
+            --md-color-grey-80: #4e4e4e;
+            --md-color-grey-60: #767676;
+            --md-color-grey-40: #a6a6a6;
+            --md-color-grey-20: #d2d2d2;
+            --md-color-grey-10: #e8e8e8;
+            --md-color-white: #ffffff;
 
-          --mdWarningBackgroundColor: #fce4ca;
-          --mdWarningColor: #de8215;
+            --md-color-warning-light: #fce4ca;
+            --md-color-warning-dark: #de8215;
+            --md-color-error-x-light: #f5cccc;
+            --md-color-error-160: #830000;
+            --md-color-error-120: #a50000;
+            --md-color-error-100: #ca0000;
+            --md-color-error-40: #ea9999;
+            --md-color-error-20: #f5cccc;
+            --md-color-error-10: #f9e3e3;
 
-          --mdErrorColor: #ca0000;
-          --mdErrorColor120: #b7090d;
-          --mdErrorBackgroundColor: #f5cccc;
+            /* SPACINGS / SIZES */
+            --md-spacing-0: 0px;
+            --md-spacing-1: 0.0625rem;
+            --md-spacing-2: 0.125rem; /* 2px */
+            --md-spacing-4: 0.25rem; /* 4px */
+            --md-spacing-8: 0.5rem; /* 8px */
+            --md-spacing-12: 0.75rem; /* 12px */
+            --md-spacing-16: 1rem; /* 16px */
+            --md-spacing-20: 1.25rem; /* 20px */
+            --md-spacing-24: 1.5rem; /* 24px */
+            --md-spacing-32: 2rem; /* 32px */
+            --md-spacing-40: 2.5rem; /* 40px */
+            --md-spacing-48: 3rem; /* 48px */
+            --md-spacing-56: 3.5rem; /* 56px */
+            --md-spacing-64: 4rem; /* 64px */
+            --md-spacing-72: 4.5rem; /* 72px */
+            --md-spacing-80: 5rem; /* 80px */
+            --md-spacing-360: 22.5rem;
+          }
+          ```
+        </code>
 
-          --mdGreyColor: #222222;
-          --mdGreyColor10: #e8e8e8;
-          --mdGreyColor20: #d2d2d2;
-          --mdGreyColor40: #a6a6a6;
-          --mdGreyColor60: #767676;
-          --mdGreyColor80: #4e4e4e;
-        }
-        ```
-      </code>
+      </pre>
 
-    </pre>
+    </div>
 
   </div>
 </div>

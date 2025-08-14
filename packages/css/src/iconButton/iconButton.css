@@ -2,49 +2,49 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: var(--md-size-32);
+  height: var(--md-size-32);
   justify-content: center;
-  background-color: var(--mdPrimaryColor);
-  color: #ffffff;
-  font-family: 'Open sans';
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-inverted);
+  font-family: var(--md-typography-family-body);
   border-radius: 50%;
   border: none;
 }
 
 .md-icon-button__icon {
   margin-top: -1px;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: var(--md-size-20);
+  width: var(--md-size-20);
   flex-shrink: 0;
   display: flex;
   justify-content: center;
 }
 .md-icon-button__icon .md-loading-spinner {
-  width: 1rem;
-  height: 1rem;
+  width: var(--md-size-16);
+  height: var(--md-size-16);
 }
 
 .md-icon-button:focus-visible {
-  outline: 2px white solid;
-  background-color: var(--mdPrimaryColor80);
+  outline: var(--md-size-2) var(--md-color-text-inverted) solid;
+  background-color: var(--md-color-cta-primary-focus);
   outline-offset: -3px;
 }
 
 .md-icon-button:hover {
   cursor: pointer;
-  background-color: var(--mdPrimaryColor120);
-  border-color: var(--mdPrimaryColor120);
+  background-color: var(--md-color-cta-primary-hover);
+  border-color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button:active:enabled {
-  background-color: var(--mdPrimaryColor140);
+  background-color: var(--md-color-cta-primary-active);
 }
 
 .md-icon-button[disabled],
 .md-icon-button:disabled {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
   cursor: not-allowed;
 }
 .md-icon-button:not(.md-icon-button--plain)[disabled] .md-loading-spinner,
@@ -53,66 +53,66 @@
 }
 
 .md-icon-button--border {
-  background-color: #ffffff;
-  outline: 2px solid var(--mdPrimaryColor);
+  background-color: var(--md-color-surface-primary);
+  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
   outline-offset: -2px;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-text-secondary);
 }
 
 .md-icon-button--border:hover:enabled {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-icon-button--border:hover:focus-visible:enabled {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-surface-primary);
 }
 
 .md-icon-button--border:focus-visible:enabled {
-  background-color: #ffffff;
-  border: 1px solid var(--mdPrimaryColor80);
-  outline: 1px var(--mdPrimaryColor80) solid;
+  background-color: var(--md-color-surface-primary);
+  border: var(--md-size-1) solid var(--md-color-cta-primary-focus);
+  outline: 1px var(--md-color-cta-primary-focus) solid;
   outline-offset: -4px;
 }
 
 .md-icon-button--border:active:enabled {
-  background-color: var(--mdPrimaryColor30) !important;
-  color: var(--mdPrimaryColor120) !important;
-  outline-color: var(--mdPrimaryColor120);
+  background-color: var(--md-color-cta-primary-hover) !important;
+  color: var(--md-color-cta-primary-hover) !important;
+  outline-color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button--border:disabled {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
-  outline: 1px solid var(--mdGreyColor60);
+  background-color: var(--md-color-surface-primary);
+  color: var(--md-color-text-disabled);
+  outline: 1px solid var(--md-color-border-secondary);
   outline-offset: -1px;
 }
 
 .md-icon-button--plain {
   background-color: transparent;
   border: none;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-text-secondary);
 }
 
 .md-icon-button--plain:hover:enabled {
   text-decoration: underline;
-  outline: black solid 1px;
+  outline: var(--md-color-grey-100) solid var(--md-size-1);
   outline-offset: -2px;
   background-color: transparent;
 }
 
 .md-icon-button--plain:focus-visible:enabled {
-  outline: 2px var(--mdPrimaryColor80) solid;
+  outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
   outline-offset: -2px;
   background-color: transparent;
 }
 
 .md-icon-button--plain:active:enabled {
-  background-color: var(--mdPrimaryColor20);
-  color: var(--mdPrimaryColor120);
+  background-color: var(--md-color-cta-primary-hover);
+  color: var(--md-color-cta-primary-hover);
 }
 
 .md-icon-button--plain:disabled {
   background-color: transparent;
   outline: none;
-  color: var(--mdGreyColor60);
+  color: var(--md-color-text-disabled);
 }

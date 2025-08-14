@@ -30,7 +30,7 @@
 
   /* surface */
   --md-color-surface-primary: var(--md-color-white);
-  --md-color-surface-secondary: var(--md-color-grey-10);
+  --md-color-surface-secondary: var(--md-color-primary-10);
   --md-color-surface-tertiary: var(--md-color-secondary-20);
   --md-color-surface-info-primary: var(--md-color-primary-20);
   --md-color-surface-info-secondary: var(--md-color-secondary-40);
@@ -49,23 +49,23 @@
   --md-color-border-tertiary: var(--md-color-primary-100);
 
   /* SIZES */
-  --md-size-0: var(--md-spacing-0);
-  --md-size-1: var(--md-spacing-1);
-  --md-size-2: var(--md-spacing-2);
-  --md-size-4: var(--md-spacing-4);
-  --md-size-8: var(--md-spacing-8);
-  --md-size-12: var(--md-spacing-12);
-  --md-size-16: var(--md-spacing-16);
-  --md-size-20: var(--md-spacing-20);
-  --md-size-24: var(--md-spacing-24);
-  --md-size-32: var(--md-spacing-32);
-  --md-size-40: var(--md-spacing-40);
-  --md-size-48: var(--md-spacing-48);
-  --md-size-56: var(--md-spacing-56);
-  --md-size-64: var(--md-spacing-64);
-  --md-size-72: var(--md-spacing-72);
-  --md-size-80: var(--md-spacing-80);
-  --md-size-360: var(--md-spacing-360);
+  --md-size-0: var(--md-spacing-0); /* 0px, 0rem */
+  --md-size-1: var(--md-spacing-1); /* 4px, 0.25rem */
+  --md-size-2: var(--md-spacing-2); /* 2px, 0.125rem */
+  --md-size-4: var(--md-spacing-4); /* 4px, 0.25rem */
+  --md-size-8: var(--md-spacing-8); /* 8px, 0.5rem */
+  --md-size-12: var(--md-spacing-12); /* 12px, 0.75rem */
+  --md-size-16: var(--md-spacing-16); /* 16px, 1rem */
+  --md-size-20: var(--md-spacing-20); /* 20px, 1.25rem */
+  --md-size-24: var(--md-spacing-24); /* 24px, 1.5rem */
+  --md-size-32: var(--md-spacing-32); /* 32px, 2rem */
+  --md-size-40: var(--md-spacing-40); /* 40px, 2.5rem */
+  --md-size-48: var(--md-spacing-48); /* 48px, 3rem */
+  --md-size-56: var(--md-spacing-56); /* 56px, 3.5rem */
+  --md-size-64: var(--md-spacing-64); /* 64px, 4rem */
+  --md-size-72: var(--md-spacing-72); /* 72px, 4.5rem */
+  --md-size-80: var(--md-spacing-80); /* 80px, 5rem */
+  --md-size-360: var(--md-spacing-360); /* 360px, 22.5rem */
 
   --md-radius-xs: var(--md-spacing-2);
   --md-radius-sm: var(--md-spacing-4);

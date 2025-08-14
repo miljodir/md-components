@@ -1,50 +1,50 @@
 .md-chip {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  outline: 1px solid var(--mdPrimaryColor);
+  background-color: var(--md-color-surface-primary);
+  outline: var(--md-size-1) solid var(--md-color-cta-secondary-stroke);
   outline-offset: -1px;
   border: none;
-  border-radius: 10rem;
-  color: var(--mdPrimaryColor);
-  font-weight: 400;
-  font-family: 'Open sans';
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
+  border-radius: var(--md-radius-xl);
+  color: var(--md-color-text-secondary);
+  font-weight: var(--md-typography-weight-regular);
+  font-family: var(--md-typography-family-label);
+  font-size: var(--md-typography-size-16);
+  line-height: var(--md-typography-size-24);
+  padding: var(--md-size-8) var(--md-size-16);
   cursor: pointer;
   text-align: left;
 }
 
 .md-chip.md-chip--solid:not(.md-chip--disabled) {
-  background-color: var(--mdPrimaryColor80);
-  color: #fff;
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-inverted);
 }
 .md-chip.md-chip--solid:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor120);
-  color: #fff;
+  background-color: var(--md-color-cta-primary-hover);
+  color: var(--md-color-text-inverted);
 }
 .md-chip.md-chip--active:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor120);
-  color: #fff;
+  background-color: var(--md-color-cta-primary-hover);
+  color: var(--md-color-text-inverted);
 }
 .md-chip.md-chip--solid:not(.md-chip--disabled):focus-visible {
   outline-offset: 0.1875rem;
 }
 
 .md-chip:not(.md-chip--disabled):hover {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-chip:not(.md-chip--disabled):focus-visible {
-  outline: 0.1875rem solid var(--mdPrimaryColor);
+  outline: 0.1875rem solid var(--md-color-cta-primary-focus);
   outline-offset: -0.1875rem;
 }
 
 .md-chip--disabled {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor60);
-  outline: 1px solid var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
+  outline: var(--md-size-1) solid var(--md-color-disabled-default);
   cursor: default;
 }
 
@@ -53,19 +53,19 @@
 }
 
 .md-chip:not(.md-chip--disabled).md-chip--active {
-  background-color: var(--mdPrimaryColor80);
-  color: #fff;
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-inverted);
 }
 
 .md-chip:not(.md-chip--disabled).md-chip--active:focus-visible {
   outline-offset: -0.3125rem;
-  outline-color: #fff;
+  outline-color: var(--md-color-text-inverted);
 }
 
 .md-chip__left-icon {
   display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--md-size-20);
+  height: var(--md-size-20);
   margin-right: 0.66rem;
 }
 
@@ -75,7 +75,7 @@
 
 .md-chip__right-icon {
   display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--md-size-20);
+  height: var(--md-size-20);
   margin-left: 0.8rem;
 }

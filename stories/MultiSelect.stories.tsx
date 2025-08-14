@@ -25,9 +25,7 @@ export default {
         );
       },
       description: {
-        component:
-          // eslint-disable-next-line quotes
-          "A form component for multi-select.<br/><br/>`import { MdMultiSelect } from '@miljodirektoratet/md-react'`",
+        component: 'DEPRECATED! Use MdSelect with multiple selection enabled. See Form/Select/Multiselect for more.',
       },
     },
   },

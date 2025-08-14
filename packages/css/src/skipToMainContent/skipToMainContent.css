@@ -3,11 +3,11 @@
   transform: translateY(-100%);
   display: flex;
   opacity: 0;
-  height: 1px;
-  width: 1px;
-  background-color: var(--mdPrimaryColor);
+  height: var(--md-size-1);
+  width: var(--md-size-1);
+  background-color: var(--md-color-cta-primary-default);
   padding: 0;
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   overflow: hidden;
   white-space: nowrap;
 }
@@ -20,10 +20,10 @@
   width: 100%;
   opacity: 1;
   text-decoration: underline;
-  padding: 0.5rem 1rem;
+  padding: var(--md-size-8) var(--md-size-16);
   line-height: 150%;
-  font-size: 1.125rem;
-  color: #fff;
+  font-size: var(--md-typography-size-18);
+  color: var(--md-color-text-inverted);
   justify-content: center;
   white-space: initial;
   outline: 0;

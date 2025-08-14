@@ -1,7 +1,7 @@
 .md-accordion-item {
-  background-color: var(--mdPrimaryColor10);
-  border: 1px solid var(--mdGreyColor60);
-  color: var(--mdGreyColor);
+  background-color: var(--md-color-surface-secondary);
+  border: 1px solid var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
   font-family: 'Open sans';
   transition: all 0.2s linear;
 }
@@ -11,30 +11,28 @@
 }
 
 .md-accordion-item.md-accordion-item--secondary {
-  background-color: var(--mdSecondaryColor60);
+  background-color: var(--md-color-secondary-60);
 }
 
 .md-accordion-item.md-accordion-item--add {
   background-color: transparent;
-  border: 1px dashed var(--mdGreyColor80);
+  border: 1px dashed var(--md-color-grey-80);
   transition: all 0.2s linear;
 }
 .md-accordion-item[open].md-accordion-item--add {
-  /* background-color: var(--mdPrimaryColor20);
-  border: 1px solid var(--mdPrimaryColor20); */
   background-color: transparent;
-  border: 1px dashed var(--mdGreyColor80);
+  border: 1px dashed var(--md-color-grey-80);
   transition: all 0.2s linear;
 }
 
 .md-accordion-item:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-surface-info-primary);
 }
 
 .md-accordion-item.md-accordion-item--secondary:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
-  background-color: var(--mdSecondaryColor);
+  background-color: var(--md-color-secondary-100);
 }
 
 .md-accordion-item.md-accordion-item--add:not([open]):hover {
@@ -63,7 +61,7 @@
 }
 
 .md-accordion-item__header:focus-visible {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: 2px solid var(--md-color-primary-80);
 }
 
 .md-accordion-item__header-left {
@@ -72,7 +70,7 @@
 }
 
 .md-accordion-item__header-icon {
-  color: var(--mdGreyColor);
+  color: var(--md-color-text-primary);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -123,7 +121,7 @@
 }
 
 .md-accordion-item__close-button:focus-visible {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: 2px solid var(--md-color-primary-80);
   outline-offset: 2px;
 }
 
@@ -135,14 +133,14 @@
 /* DISABLED */
 .md-accordion-item--disabled,
 .md-accordion-item--secondary.md-accordion-item--disabled {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--md-color-grey-20);
 }
 .md-accordion-item--disabled .md-accordion-item__header,
 .md-accordion-item--disabled .md-accordion-item__content {
-  color: var(--mdGreyColor60);
+  color: var(--md-color-text-disabled);
   cursor: default;
 }
 .md-accordion-item--disabled .md-accordion-item__header .md-accordion-item__header-icon:before,
 .md-accordion-item--disabled .md-accordion-item__header .md-accordion-item__header-icon:after {
-  background-color: var(--mdGreyColor60);
+  background-color: var(--md-color-grey-60);
 }

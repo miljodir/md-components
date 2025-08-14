@@ -1,3 +1,8 @@
+/*
+* TODO: IMPLEMENT NEW TOKENS
+* When new alert-colors are defined, update the following styles accordingly.
+*/
+
 .md-info-tag {
   display: flex;
   justify-content: flex-start;

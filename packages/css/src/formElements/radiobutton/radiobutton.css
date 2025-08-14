@@ -1,6 +1,6 @@
 .md-radiobutton {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
   border: none;
   padding: 0;
   display: inline-flex;
@@ -9,8 +9,8 @@
 }
 
 .md-radiobutton:has(input[type='radio']:focus-visible) {
-  outline: 2px solid var(--mdPrimaryColor);
-  outline-offset: 2px;
+  outline: var(--md-size-2) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-2);
 }
 
 .md-radiobutton input[type='radio'] {
@@ -33,7 +33,7 @@
   flex-shrink: 0;
   height: 1.45rem;
   display: block;
-  background-color: #fff;
+  background-color: var(--md-color-surface-primary);
   border: 1px solid var(--mdPrimaryColor);
   border-radius: 50%;
   margin: 0 0.5rem 0 0;
@@ -43,7 +43,7 @@
 
 .md-radiobutton:has(input[type='radio']:focus-visible) .md-radiobutton__check-area,
 .md-radiobutton:not(.md-radiobutton--disabled):hover .md-radiobutton__check-area {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
   text-decoration: underline;
 }
 
@@ -51,7 +51,7 @@
   width: 0.6rem;
   height: 0.6rem;
   display: block;
-  background-color: var(--mdPrimaryColor);
+  background-color: var(--md-color-cta-primary-default);
   border-radius: 50%;
   margin: 0 auto;
   position: absolute;
@@ -69,9 +69,9 @@
   cursor: default;
 }
 .md-radiobutton--disabled .md-radiobutton__check-area {
-  background-color: var(--mdGreyColor20);
-  border-color: var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-bg);
+  border-color: var(--md-color-disabled-default);
 }
 .md-radiobutton--disabled .md-radiobutton__selected-dot {
-  background-color: var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-default);
 }
