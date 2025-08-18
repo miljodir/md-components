@@ -8,7 +8,7 @@
   background-color: var(--md-color-cta-primary-default);
   color: var(--md-color-text-inverted);
   font-family: var(--md-typography-family-body);
-  border-radius: 50%;
+  border-radius: var(--md-radius-half);
   border: none;
 }
 

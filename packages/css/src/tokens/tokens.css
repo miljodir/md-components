@@ -66,6 +66,8 @@
   --md-size-72: var(--md-spacing-72); /* 72px, 4.5rem */
   --md-size-80: var(--md-spacing-80); /* 80px, 5rem */
   --md-size-360: var(--md-spacing-360); /* 360px, 22.5rem */
+  --md-size-half: var(--md-spacing-half); /* 50% */
+  --md-size-full: var(--md-spacing-full); /* 100% */
 
   --md-radius-xs: var(--md-spacing-2);
   --md-radius-sm: var(--md-spacing-4);
@@ -73,6 +75,8 @@
   --md-radius-lg: var(--md-spacing-16);
   --md-radius-xl: var(--md-spacing-360);
   --md-radius-none: var(--md-spacing-0);
+  --md-radius-half: var(--md-spacing-half);
+  --md-radius-full: var(--md-spacing-full);
 
   /* TYPOGRAPHY */
   /* family */

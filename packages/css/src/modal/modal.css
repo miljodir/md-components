@@ -12,9 +12,9 @@
   border: var(--md-size-1) solid var(--md-color-border-secondary);
   padding: var(--md-size-16) 0;
   color: var(--md-color-text-primary);
-  box-shadow: 0px 0.75rem 1.5rem 0px rgba(0, 0, 0, 0.16), 0px 0.25rem 0.5rem 0px rgba(0, 0, 0, 0.16),
-    0px 0px 1px 0px rgba(0, 0, 0, 0.12);
-  --inset: 0.75rem;
+  box-shadow: 0px var(--md-size-12) var(--md-size-24) 0px rgba(0, 0, 0, 0.16),
+    0px var(--md-size-1) var(--md-size-8) 0px rgba(0, 0, 0, 0.16), 0px 0px 1px 0px rgba(0, 0, 0, 0.12);
+  --inset: var(--md-size-12);
   transform-origin: center;
   opacity: 0;
   transition-property: opacity, transform;
@@ -93,7 +93,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem 0.5rem 1rem;
+  padding: 0 var(--md-size-16) var(--md-size-8) var(--md-size-16);
   font-size: var(--md-typography-size-20);
   line-height: 2.125rem;
   font-family: var(--md-typography-family-heading);
@@ -123,7 +123,7 @@
   cursor: pointer;
   width: 1.875rem;
   height: 1.875rem;
-  border-radius: 50%;
+  border-radius: var(--md-radius-half);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,7 +155,7 @@
 }
 .md-modal__footer-divider {
   height: var(--md-size-1);
-  width: 100%;
+  width: var(--md-size-full);
   margin: var(--md-size-8) 0;
   background-color: var(--md-color-border-secondary);
   margin-bottom: var(--md-size-24);

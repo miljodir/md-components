@@ -65,4 +65,6 @@
   --md-spacing-72: 4.5rem; /* 72px */
   --md-spacing-80: 5rem; /* 80px */
   --md-spacing-360: 22.5rem;
+  --md-spacing-half: 50%;
+  --md-spacing-full: 100%;
 }

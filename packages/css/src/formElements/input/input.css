@@ -114,7 +114,7 @@
   height: var(--md-size-20);
   width: var(--md-size-20);
   display: flex;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-text-secondary);
 }
 
 .md-input__prefix.md-input__prefix--disabled {

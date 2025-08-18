@@ -29,7 +29,7 @@
   line-height: 150%;
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-radius-sm);
-  padding: 0.6875rem 1rem;
+  padding: 0.6875rem var(--md-size-16);
   background-color: var(--md-color-surface-primary);
   position: relative;
   outline-width: 0;
@@ -134,10 +134,10 @@
   font-style: italic;
 }
 .md-select--large .md-select__item {
-  padding: 1rem var(--md-size-12);
+  padding: var(--md-size-16) var(--md-size-12);
 }
 .md-select--small .md-select__item {
-  padding: 0.5rem var(--md-size-12);
+  padding: var(--md-size-8) var(--md-size-12);
 }
 .md-select__item[aria-selected='true'] {
   background-color: var(--md-color-cta-secondary-hover);

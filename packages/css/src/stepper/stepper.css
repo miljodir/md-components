@@ -59,7 +59,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge-outer-border.selected {
-  border-radius: 50%;
+  border-radius: var(--md-radius-half);
   border: var(--md-size-1) solid var(--md-color-cta-primary-focus);
   background-color: var(--md-color-surface-info-primary);
 }
@@ -69,7 +69,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   .md-stepper__step-title-badge {
-  border-radius: 50%;
+  border-radius: var(--md-radius-half);
   font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-16);
   font-weight: var(--md-typography-weight-semibold);
@@ -145,7 +145,7 @@
   .md-stepper__step-content-children {
   padding-left: var(--md-size-16);
   padding-top: var(--md-size-16);
-  min-height: 1.5rem;
+  min-height: var(--md-size-24);
 }
 .md-stepper__stepper-container
   .md-stepper__stepper-list
