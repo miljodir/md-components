@@ -1,20 +1,20 @@
 .md-fileupload {
-  background-color: #fff;
+  background-color: var(--md-color-surface-primary);
 }
 
 .md-fileupload__droparea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  border: 1px dashed var(--mdGreyColor80);
-  margin-bottom: 4rem;
-  background-color: #fff;
+  padding: var(--md-size-32);
+  border: var(--md-size-1) dashed var(--md-color-border-primary);
+  margin-bottom: var(--md-size-32);
+  background-color: var(--md-color-surface-primary);
   transition: background 0.2s linear;
 }
 
 .md-fileupload__droparea.md-fileupload__droparea--active {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--md-color-surface-secondary);
   transition: background 0.2s linear;
 }
 
@@ -27,19 +27,19 @@
 }
 
 .md-fileupload__droparea-icon {
-  width: 2rem;
-  height: 2rem;
-  color: #000;
-  margin-bottom: 1.5rem;
+  width: var(--md-size-32);
+  height: var(--md-size-32);
+  color: var(--md-color-text-primary);
+  margin-bottom: var(--md-size-24);
 }
 
 .md-fileupload__droparea-content {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
 }
 .md-fileupload__droparea-content--count {
   text-align: center;
-  margin: 0.5rem 0;
+  margin: var(--md-size-8) var(--md-size-0);
   font-size: 0.888rem;
   font-style: italic;
 }
@@ -47,8 +47,8 @@
 .md-fileupload__droparea-content button {
   background: none;
   border: 0;
-  font-size: 1rem;
-  color: var(--mdPrimaryColor);
+  font-size: var(--md-typography-size-16);
+  color: var(--md-color-text-secondary);
   text-decoration: underline;
   padding: 0;
   margin: 0;
@@ -61,9 +61,9 @@
 
 .md-fileupload__files-wrapper {
   width: 100%;
-  margin: 1.5rem 0 0 0;
-  padding: 1.5rem 0 0 0;
-  border-top: 1px solid #000;
+  margin: var(--md-size-24) 0 0 0;
+  padding: var(--md-size-24) 0 0 0;
+  border-top: var(--md-size-1) solid var(--md-color-border-primary);
 }
 
 .md-fileupload__actions {
@@ -72,9 +72,9 @@
 }
 
 .md-fileupload__actions > * + * {
-  margin-left: 1rem;
+  margin-left: var(--md-size-16);
 }
 
 .md-fileupload__button {
-  margin-left: 0.25rem !important;
+  margin-left: var(--md-size-4) !important;
 }

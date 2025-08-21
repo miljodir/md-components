@@ -1,8 +1,15 @@
+/*
+* THESE COLOR VARIABLES ARE DEPRECATED
+* Please use tokens from tokens/tokens.css and tokens/variables.css
+* This file will be deleted sometime in the not so distant future 🧑‍🚀
+*/
+
 :root {
-  --mdPrimaryColor: #005e5d;
+  /* COLORS */
   --mdPrimaryColor160: #003b3a;
   --mdPrimaryColor140: #004646;
   --mdPrimaryColor120: #005251;
+  --mdPrimaryColor100: #005e5d;
   --mdPrimaryColor90: #196d6c;
   --mdPrimaryColor80: #337e7d;
   --mdPrimaryColor70: #4c8e8d;
@@ -12,15 +19,14 @@
   --mdPrimaryColor30: #b2cece;
   --mdPrimaryColor20: #ccdfde;
   --mdPrimaryColor10: #e5eeee;
+  --mdPrimaryColor: #005e5d;
 
-  --mdLightPrimaryColor: #40c1ac;
-  --mdDarkPrimaryColor: #005251;
-
-  --mdSecondaryColor: #ece7d2;
+  --mdSecondaryColor100: #ece7d2;
   --mdSecondaryColor80: #efebdb;
   --mdSecondaryColor60: #f3f0e4;
   --mdSecondaryColor40: #f7f5ed;
   --mdSecondaryColor20: #fbfaf6;
+  --mdSecondaryColor: #ece7d2;
 
   --mdTertiaryBlueColor: #1472ce;
   --mdTertiaryBlueLightColor: #b9d9eb;
@@ -31,23 +37,25 @@
   --mdTertiaryBrownColor: #584446;
   --mdTertiaryBrownLightColor: #d6d2c4;
 
-  --mdTextColor: #222222;
+  --mdWarningLightColor: #fce4ca;
+  --mdWarningDarkColor: #de8215;
 
-  --mdWarningBackgroundColor: #fce4ca;
-  --mdWarningColor: #de8215;
-
+  --mdErrorColor160: #830000;
+  --mdErrorColor120: #a50000;
+  --mdErrorColor100: #ca0000;
+  --mdErrorColor40: #ea9999;
+  --mdErrorColor20: #f5cccc;
+  --mdErrorColor10: #f9e3e3;
   --mdErrorColor: #ca0000;
-  --mdErrorColor20: #f9e3e3;
-  --mdErrorColor120: #b7090d;
-  --mdErrorColor140: #830000;
-  --mdErrorBackgroundColor: #f5cccc;
 
-  --mdGreyColor: #222222;
-  --mdGreyColor10: #e8e8e8;
-  --mdGreyColor20: #d2d2d2;
-  --mdGreyColor40: #a6a6a6;
-  --mdGreyColor60: #767676;
+  --mdGreyColor100: #222222;
   --mdGreyColor80: #4e4e4e;
+  --mdGreyColor60: #767676;
+  --mdGreyColor40: #a6a6a6;
+  --mdGreyColor20: #d2d2d2;
+  --mdGreyColor10: #e8e8e8;
+  --mdGreyColor: #222222;
+  --mdWhiteColor: #ffffff;
 
   --mdGreenColor60: #b3e8c2;
 }

@@ -1,25 +1,25 @@
 .md-textarea__outer-wrapper {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
 }
 
 .md-textarea {
-  padding: 1rem 2rem 1rem 1rem;
-  font-family: 'Open sans';
+  padding: var(--md-spacing-16) var(--md-spacing-32) var(--md-spacing-16) var(--md-spacing-16);
+  font-family: var(--md-typography-family-body);
   max-width: 100%;
   width: 100%;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid var(--mdGreyColor60);
-  margin: 1px;
-  color: var(--mdGreyColor);
-  font-size: 1rem;
+  background-color: var(--md-color-surface-primary);
+  border-radius: var(--md-radius-sm);
+  border: var(--md-size-1) solid var(--md-color-border-primary);
+  margin: var(--md-size-1);
+  color: var(--md-color-text-primary);
+  font-size: var(--md-typography-size-16);
   box-sizing: border-box;
 }
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus-visible {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: 2px solid var(--md-color-cta-primary-default);
   outline-offset: -2px;
   border-color: transparent;
 }
@@ -31,7 +31,7 @@
 }
 
 .md-textarea.md-textarea--disabled {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--md-color-disabled-bg);
 }
 
 .md-textarea.md-textarea--readonly:not(.md-textarea.md-textarea--disabled) {
@@ -40,21 +40,21 @@
 }
 
 .md-textarea.md-textarea--error {
-  border-color: var(--mdErrorColor);
+  border-color: var(--md-color-attention-error-primary);
 }
 
 .md-textarea__label-wrapper {
-  margin-bottom: 0.5rem;
+  padding-right: var(--md-size-8);
 }
 
 .md-textarea__label {
   display: flex;
   align-items: flex-end;
-  font-weight: 600;
+  font-weight: var(--md-typography-font-weight-medium);
 }
 
 .md-textarea__label > * + * {
-  margin-left: 1rem;
+  margin-left: var(--md-size-16);
 }
 
 .md-textarea__help-button {
@@ -63,9 +63,9 @@
 }
 
 .md-textarea__error {
-  color: var(--mdErrorColor);
+  color: var(--md-color-attention-error-primary);
   font-size: 0.88rem;
-  margin-top: 0.5rem;
+  margin-top: var(--md-size-8);
 }
 
 .md-textarea__help-text {
@@ -75,12 +75,12 @@
 }
 
 .md-textarea__help-text--open {
-  padding-top: 0.5rem;
+  padding-top: var(--md-size-8);
   max-height: 2000px;
   transition: max-height 0.5s ease-in;
 }
 
 .md-textarea::placeholder {
-  color: var(--mdGreyColor60);
-  font-family: 'Open sans';
+  color: var(--md-color-text-disabled);
+  font-family: var(--md-typography-family-body);
 }

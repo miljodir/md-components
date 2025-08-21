@@ -1,5 +1,5 @@
 .md-tabs-container {
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
 }
 
 .md-tabs-container .md-tabs-list {
@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: var(--md-size-24);
   padding-inline-start: 0px;
-  margin: 1rem 0;
+  margin: var(--md-size-16) 0;
 }
 
 .md-tabs-container {
@@ -24,12 +24,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  font-size: 1em;
-  font-weight: 400;
-  padding: 0.8125rem 1.5rem 0.75rem 1.5rem;
+  font-size: var(--md-typography-size-16);
+  font-weight: var(--md-typography-weight-regular);
+  padding: 0.8125rem var(--md-size-24) var(--md-size-12) var(--md-size-24);
   border: 0;
   background-color: transparent;
-  border-bottom: 1px solid var(--mdGreyColor80);
+  border-bottom: var(--md-size-1) solid var(--md-color-border-primary);
 }
 .md-tabs-container .md-tabs-button::after {
   content: attr(data-text);
@@ -39,42 +39,42 @@
   overflow: hidden;
   user-select: none;
   pointer-events: none;
-  font-weight: 600;
+  font-weight: var(--md-typography-weight-semibold);
 }
 
 .md-tabs-container .md-tabs-button.md-tabs-button--disabled {
-  background-color: var(--mdGreyColor20);
-  color: var(--mdGreyColor80);
+  background-color: var(--md-color-disabled-bg);
+  color: var(--md-color-text-disabled);
   cursor: not-allowed;
 }
 
 .md-tabs-container .md-tabs-button.md-tabs-button[aria-selected='true'] {
-  font-weight: 600;
-  padding: 0.8125rem 1.5rem 0.5625rem 1.5rem;
-  border-bottom: 4px solid var(--mdPrimaryColor80);
+  font-weight: var(--md-typography-weight-semibold);
+  padding: 0.8125rem var(--md-size-24) 0.5625rem var(--md-size-24);
+  border-bottom: 4px solid var(--md-color-cta-primary-focus);
 }
 .md-tabs-container .md-tabs-button:not(.md-tabs-button--disabled):hover {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
   cursor: pointer;
 }
 
 .md-tabs-container .md-tabs-button:not(.md-tabs-button--disabled):focus-visible {
-  outline: 2px solid var(--mdPrimaryColor);
+  outline: var(--md-size-2) solid var(--md-color-cta-primary-focus);
   outline-offset: -2px;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
   cursor: pointer;
 }
 
 /* Tabs as chips */
 .md-tabs-container .md-tabs-list .md-chip[aria-selected='true'] {
-  background-color: var(--mdPrimaryColor80);
-  color: white;
-  border-color: var(--mdPrimaryColor80);
-  font-weight: 400;
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-inverted);
+  border-color: var(--md-color-cta-primary-focus);
+  font-weight: var(--md-typography-weight-regular);
 }
 .md-tabs-container .md-tabs-list .md-chip[aria-selected='true']:focus-visible {
   outline-offset: -0.3125rem;
-  outline-color: #fff;
+  outline-color: var(--md-color-text-inverted);
 }
 .md-tabs-container .md-tabs-list .md-chip .md-chip__left-icon {
   display: none;
@@ -87,38 +87,38 @@
 .md-tabs-container.md-tabs__compact .md-tabs-list {
   gap: 0;
   flex-wrap: nowrap;
-  border-radius: 0.25rem;
+  border-radius: var(--md-size-4);
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-list .md-tabs-button {
   height: 1.875rem;
-  padding: 0.25rem 1rem;
+  padding: var(--md-size-4) var(--md-size-16);
   justify-content: center;
-  border: 0.0625rem solid var(--mdGreyColor40);
+  border: 0.0625rem solid var(--md-color-border-primary);
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-list .md-tabs-button:first-child {
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: var(--md-size-4);
+  border-bottom-left-radius: var(--md-size-4);
   border-right: none;
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-list .md-tabs-button:last-child {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: var(--md-size-4);
+  border-bottom-right-radius: var(--md-radius-sm);
   border-left: none;
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-button.md-tabs-button[aria-selected='true'] {
-  background-color: var(--mdPrimaryColor80);
-  color: white;
-  border-color: var(--mdPrimaryColor80);
-  font-weight: 400;
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-inverted);
+  border-color: var(--md-color-cta-primary-focus);
+  font-weight: var(--md-typography-weight-regular);
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-button--selected:hover:not(.md-tabs-button--disabled) {
-  background-color: var(--mdPrimaryColor);
-  color: white;
+  background-color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-inverted);
   cursor: default;
 }
 

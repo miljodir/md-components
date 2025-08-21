@@ -1,32 +1,32 @@
 .md-filelist {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--md-size-8);
 }
 
 .md-filelist__file {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--mdPrimaryColor);
+  border: var(--md-size-1) solid var(--md-color-border-tertiary);
   padding: 0.8rem 1.1rem;
-  font-family: 'Open sans';
-  background-color: #fff;
+  font-family: var(--md-typography-family-body);
+  background-color: var(--md-color-surface-primary);
   transition: background 0.2s linear;
 }
 
 .md-filelist__file:hover {
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-cta-secondary-hover);
   transition: background 0.2s linear;
 }
 
 .md-filelist__file-label {
   display: flex;
-  gap: 1rem;
-  font-size: 1rem;
+  gap: var(--md-size-16);
+  font-size: var(--md-typography-size-16);
 }
 
 .md-filelist__file-icon {
-  width: 2rem;
+  width: var(--md-size-32);
 }
 
 .md-filelist__file-size {
@@ -37,5 +37,5 @@
 .md-filelist__file-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--md-size-16);
 }

@@ -1,40 +1,38 @@
 .md-accordion-item {
-  background-color: var(--mdPrimaryColor10);
-  border: 1px solid var(--mdGreyColor60);
-  color: var(--mdGreyColor);
+  background-color: var(--md-color-surface-secondary);
+  border: 1px solid var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
   font-family: 'Open sans';
   transition: all 0.2s linear;
 }
 
 .md-accordion-item.md-accordion-item--rounded {
-  border-radius: 0.25rem;
+  border-radius: var(--md-radius-sm);
 }
 
 .md-accordion-item.md-accordion-item--secondary {
-  background-color: var(--mdSecondaryColor60);
+  background-color: var(--md-color-secondary-60);
 }
 
 .md-accordion-item.md-accordion-item--add {
   background-color: transparent;
-  border: 1px dashed var(--mdGreyColor80);
+  border: 1px dashed var(--md-color-grey-80);
   transition: all 0.2s linear;
 }
 .md-accordion-item[open].md-accordion-item--add {
-  /* background-color: var(--mdPrimaryColor20);
-  border: 1px solid var(--mdPrimaryColor20); */
   background-color: transparent;
-  border: 1px dashed var(--mdGreyColor80);
+  border: 1px dashed var(--md-color-grey-80);
   transition: all 0.2s linear;
 }
 
 .md-accordion-item:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
-  background-color: var(--mdPrimaryColor20);
+  background-color: var(--md-color-surface-info-primary);
 }
 
 .md-accordion-item.md-accordion-item--secondary:not([open], .md-accordion-item--disabled):hover {
   transition: all 0.2s linear;
-  background-color: var(--mdSecondaryColor);
+  background-color: var(--md-color-secondary-100);
 }
 
 .md-accordion-item.md-accordion-item--add:not([open]):hover {
@@ -50,12 +48,12 @@
   background: none;
   border: 0;
   margin: 0;
-  color: var(--mdGreyColor);
-  padding: 1em 1.5rem;
+  color: var(--md-color-text-primary);
+  padding: var(--md-size-16) var(--md-size-24);
   cursor: pointer;
   font-family: 'SofiaPro-Regular', 'Sofia Pro';
   text-align: left;
-  line-height: 1.5rem;
+  line-height: var(--md-typography-line-height-small);
   user-select: none;
 }
 .md-accordion-item__header::-webkit-details-marker {
@@ -63,7 +61,7 @@
 }
 
 .md-accordion-item__header:focus-visible {
-  outline: 2px solid var(--mdPrimaryColor80);
+  outline: var(--md-size-2) solid var(--md-color-primary-80);
 }
 
 .md-accordion-item__header-left {
@@ -72,9 +70,9 @@
 }
 
 .md-accordion-item__header-icon {
-  color: var(--mdGreyColor);
-  width: 1.5rem;
-  height: 1.5rem;
+  color: var(--md-color-text-primary);
+  width: var(--md-size-24);
+  height: var(--md-size-24);
 }
 .md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__open {
   display: block;
@@ -90,8 +88,8 @@
 }
 
 .md-accordion-item__header-label {
-  font-size: 1.25rem;
-  margin-left: 1em;
+  font-size: var(--md-size-20);
+  margin-left: var(--md-size-16);
 }
 .md-accordion-item:not(.md-accordion-item--disabled) .md-accordion-item__header:hover .md-accordion-item__header-label {
   text-decoration: underline;
@@ -109,13 +107,13 @@
 
 .md-accordion-item__close-button {
   display: flex;
-  gap: 1rem;
+  gap: var(--md-size-16);
   padding: 0;
   background: none;
   border: 0;
   margin: 2rem 0 0 -0.2rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--md-typography-size-16);
 }
 
 .md-accordion-item__close-button:hover {
@@ -123,26 +121,26 @@
 }
 
 .md-accordion-item__close-button:focus-visible {
-  outline: 2px solid var(--mdPrimaryColor80);
-  outline-offset: 2px;
+  outline: var(--md-size-2) solid var(--md-color-primary-80);
+  outline-offset: var(--md-size-2);
 }
 
 .md-accordion-item__close-button__icon {
-  height: 1.25rem;
-  width: 1.25rem;
+  height: var(--md-size-20);
+  width: var(--md-size-20);
 }
 
 /* DISABLED */
 .md-accordion-item--disabled,
 .md-accordion-item--secondary.md-accordion-item--disabled {
-  background-color: var(--mdGreyColor20);
+  background-color: var(--md-color-disabled-bg);
 }
 .md-accordion-item--disabled .md-accordion-item__header,
 .md-accordion-item--disabled .md-accordion-item__content {
-  color: var(--mdGreyColor60);
+  color: var(--md-color-text-disabled);
   cursor: default;
 }
 .md-accordion-item--disabled .md-accordion-item__header .md-accordion-item__header-icon:before,
 .md-accordion-item--disabled .md-accordion-item__header .md-accordion-item__header-icon:after {
-  background-color: var(--mdGreyColor60);
+  background-color: var(--md-color-disabled-default);
 }

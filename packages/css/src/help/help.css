@@ -8,18 +8,18 @@
   color: inherit;
   border: none;
   cursor: pointer;
-  color: var(--mdPrimaryColor);
+  color: var(--md-color-cta-primary-default);
 }
 
 .md-helpbutton--expanded:not(.md-helpbutton--noarrow):after {
   content: '';
   position: absolute;
-  left: 0.25rem;
+  left: var(--md-size-4);
   bottom: -0.65rem;
   margin: 0 auto;
   width: 0;
   height: 0;
-  border-bottom: 6px solid var(--mdPrimaryColor);
+  border-bottom: 6px solid var(--md-color-cta-primary-default);
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
 }
@@ -29,27 +29,27 @@
 }
 
 .md-helpbutton:focus-visible .md-helpbutton__icon {
-  outline: 2px solid var(--mdPrimaryColor);
-  outline-offset: 2px;
+  outline: var(--md-size-2) solid var(--md-color-cta-primary-default);
+  outline-offset: var(--md-size-2);
 }
 
 .md-helpbutton__icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--md-size-20);
+  height: var(--md-size-20);
 }
 
 .md-helpbutton--expanded .md-helpbutton__icon,
 .md-helpbutton:hover .md-helpbutton__icon {
-  color: #fff;
-  fill: var(--mdPrimaryColor80);
+  color: var(--md-color-text-inverted);
+  fill: var(--md-color-cta-primary-focus);
 }
 
 /* HELP TEXT */
 .md-helptext {
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   font-size: 0.88rem;
-  background-color: var(--mdPrimaryColor);
-  color: #fff;
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-text-inverted);
   padding: 1.7rem;
   border-radius: 0.57rem;
   max-width: 100%;
