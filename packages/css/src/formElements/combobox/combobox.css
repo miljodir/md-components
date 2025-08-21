@@ -61,7 +61,7 @@
 
 .md-combobox__input:disabled {
   background-color: var(--md-color-surface-disabled);
-  border-color: var(--md-color-border-disabled);
+  border-color: var(--md-color-border-primary);
 }
 .md-combobox__input:disabled::placeholder {
   color: var(--md-color-text-disabled);

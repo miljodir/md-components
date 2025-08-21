@@ -251,8 +251,8 @@
 
 .md-button--danger-secondary:disabled {
   background-color: #fff;
-  color: var(--mdGreyColor60);
-  border-color: var(--mdGreyColor20);
+  color: var(--md-color-disabled-default);
+  border-color: var(--md-color-border-secondary);
 }
 
 .md-button--danger-secondary > .md-button__rightIcon {

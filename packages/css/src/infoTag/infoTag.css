@@ -10,7 +10,7 @@
   max-width: fit-content;
   z-index: 2;
   background-color: var(--md-color-surface-info-primary);
-  color: var(--mdGreyColor);
+  color: var(--md-color-text-primary);
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
   border-radius: var(--md-size-1);
   font-family: var(--md-typography-family-body);

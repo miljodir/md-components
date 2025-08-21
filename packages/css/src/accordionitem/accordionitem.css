@@ -48,7 +48,7 @@
   background: none;
   border: 0;
   margin: 0;
-  color: var(--mdGreyColor);
+  color: var(--md-color-text-primary);
   padding: var(--md-size-16) var(--md-size-24);
   cursor: pointer;
   font-family: 'SofiaPro-Regular', 'Sofia Pro';
