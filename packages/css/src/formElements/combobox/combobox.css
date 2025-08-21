@@ -24,7 +24,7 @@
   width: 100%;
   font-size: var(--md-typography-size-16);
   background-color: var(--md-color-surface-primary);
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-size-4);
   padding: 0.6875rem 6rem 0.6875rem 2.5rem;
@@ -119,7 +119,7 @@
   width: var(--md-size-20);
   height: var(--md-size-20);
   cursor: pointer;
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
 
   &:focus-visible {
     outline: var(--md-size-2) solid var(--md-color-border-tertiary);
@@ -214,7 +214,7 @@
   font-size: var(--md-typography-size-16);
   padding: var(--md-size-8) var(--md-size-12);
   color: var(--md-color-text-disabled);
-  line-height: 130%;
+  line-height: var(--md-typography-line-height-small);
 }
 .md-combobox__group-separator {
   padding: var(--md-size-8) var(--md-size-12);

@@ -13,7 +13,7 @@
   margin: var(--md-size-1);
   color: var(--md-color-text-primary);
   font-size: var(--md-typography-size-16);
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
   box-sizing: border-box;
 }
 

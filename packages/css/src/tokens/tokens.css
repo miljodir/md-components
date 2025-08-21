@@ -97,4 +97,8 @@
   --md-typography-size-24: 1.5rem; /* 24px */
   --md-typography-size-28: 1.75rem; /* 28px */
   --md-typography-size-34: 2.125rem; /* 34px */
+
+  /* line height */
+  --md-typography-line-height-small: 1.3;
+  --md-typography-line-height-medium: 1.5;
 }

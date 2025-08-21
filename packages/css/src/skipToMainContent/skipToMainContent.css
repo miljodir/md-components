@@ -21,7 +21,7 @@
   opacity: 1;
   text-decoration: underline;
   padding: var(--md-size-8) var(--md-size-16);
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
   font-size: var(--md-typography-size-18);
   color: var(--md-color-text-inverted);
   justify-content: center;

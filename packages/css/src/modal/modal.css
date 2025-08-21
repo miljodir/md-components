@@ -94,8 +94,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--md-size-16) var(--md-size-8) var(--md-size-16);
-  font-size: var(--md-typography-size-20);
-  line-height: 2.125rem;
+  font-size: var(--md-typography-size-24);
+  line-height: var(--md-typography-line-height-small);
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
 }

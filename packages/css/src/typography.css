@@ -3,32 +3,38 @@
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-14);
+  line-height: var(--md-typography-line-height-small);
 }
 .md-typography-heading-sm {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-16);
+  line-height: var(--md-typography-line-height-small);
 }
 .md-typography-heading-md,
 .md-typography-heading {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-20);
+  line-height: var(--md-typography-line-height-small);
 }
 .md-typography-heading-lg {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-medium);
   font-size: var(--md-typography-size-24);
+  line-height: var(--md-typography-line-height-small);
 }
 .md-typography-heading-xl {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-28);
+  line-height: var(--md-typography-line-height-small);
 }
 .md-typography-heading-2xl {
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   font-size: var(--md-typography-size-34);
+  line-height: var(--md-typography-line-height-small);
 }
 
 /* BODY TEXT */

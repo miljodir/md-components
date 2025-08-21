@@ -53,7 +53,7 @@
   cursor: pointer;
   font-family: 'SofiaPro-Regular', 'Sofia Pro';
   text-align: left;
-  line-height: var(--md-size-24);
+  line-height: var(--md-typography-line-height-small);
   user-select: none;
 }
 .md-accordion-item__header::-webkit-details-marker {

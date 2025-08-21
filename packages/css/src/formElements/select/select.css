@@ -26,7 +26,7 @@
   justify-content: space-between;
   width: 100%;
   font-size: var(--md-typography-size-16);
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-radius-sm);
   padding: 0.6875rem var(--md-size-16);
@@ -64,7 +64,7 @@
   background: transparent;
   border: 0;
   border-radius: 0;
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
 
   &:focus-visible {
     outline: var(--md-size-2) solid var(--md-color-border-primary);
@@ -94,7 +94,7 @@
   width: var(--md-size-24);
   height: var(--md-size-24);
   cursor: pointer;
-  line-height: 150%;
+  line-height: var(--md-typography-line-height-medium);
 
   &:focus-visible {
     outline: var(--md-size-2) solid var(--md-color-border-primary);

@@ -17,7 +17,7 @@
   font-family: var(--md-typography-family-heading) !important;
   font-size: var(--md-typography-size-20);
   font-weight: var(--md-typography-weight-regular);
-  line-height: var(--md-typography-size-24);
+  line-height: var(--md-typography-line-height-small);
   letter-spacing: 0rem;
   text-align: left;
   margin: 0;
@@ -72,8 +72,8 @@
   border-radius: var(--md-radius-half);
   font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-16);
-  font-weight: var(--md-typography-weight-semibold);
-  line-height: 1.375rem;
+  font-weight: var(--md-typography-weight-medium);
+  line-height: var(--md-typography-line-height-medium);
   letter-spacing: 0em;
   text-align: left;
   width: 1.75rem;
