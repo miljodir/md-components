@@ -1,8 +1,8 @@
-import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs/blocks';
 import React, { useEffect } from 'react';
 import Readme from '../packages/css/src/skipToMainContent/README.md';
 import { MdSkipToMainContent } from '../packages/react/src';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/SkipToMainContent',

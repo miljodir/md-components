@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdXIcon from '../../../packages/react/src/icons/MdXIcon';
 import MdXIcon64 from '../../../packages/react/src/icons/MdXIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/X',

@@ -1,4 +1,4 @@
-import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import { MdIconAdd } from '../../packages/react/src/icons-material/MdIconAdd';
@@ -47,7 +47,7 @@ import { MdIconUpload } from '../../packages/react/src/icons-material/MdIconUplo
 import { MdIconWarning } from '../../packages/react/src/icons-material/MdIconWarning';
 import { MdIconZoomIn } from '../../packages/react/src/icons-material/MdIconZoomIn';
 import { MdIconZoomOut } from '../../packages/react/src/icons-material/MdIconZoomOut';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Gallery',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdCheckIcon from '../../../packages/react/src/icons/MdCheckIcon';
 import MdCheckIcon64 from '../../../packages/react/src/icons/MdCheckIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Check',

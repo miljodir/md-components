@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdPrintIcon from '../../../packages/react/src/icons/MdPrintIcon';
 import MdPrintIcon64 from '../../../packages/react/src/icons/MdPrintIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Print',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdCloseIcon from '../../../packages/react/src/icons/MdCloseIcon';
 import MdCloseIcon64 from '../../../packages/react/src/icons/MdCloseIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Close',

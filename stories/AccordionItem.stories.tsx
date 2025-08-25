@@ -1,4 +1,4 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 
 import React from 'react';
 import Readme from '../packages/css/src/accordionitem/README.md';
@@ -6,7 +6,7 @@ import { MdAccordionItem } from '../packages/react/src/accordion/MdAccordionItem
 import MdComboBox from '../packages/react/src/formElements/MdComboBox';
 import MdIconHome from '../packages/react/src/icons-material/MdIconHome';
 import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Accordion/AccordionItem',

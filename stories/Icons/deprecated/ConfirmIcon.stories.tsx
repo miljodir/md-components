@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdConfirmIcon from '../../../packages/react/src/icons/MdConfirmIcon';
 import MdConfirmIcon64 from '../../../packages/react/src/icons/MdConfirmIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Confirm',

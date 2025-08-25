@@ -1,12 +1,12 @@
-import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/combobox/README.md';
 import MdComboBox from '../packages/react/src/formElements/MdComboBox';
 import MdIconCalendarMonth from '../packages/react/src/icons-material/MdIconCalendarMonth';
 import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Form/Combobox',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconKeyboardArrowUp } from '../../packages/react/src/icons-material/MdIconKeyboardArrowUp';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Keyboard Arrow Up',

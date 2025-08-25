@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconChevronForward } from '../../packages/react/src/icons-material/MdIconChevronForward';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Chevron Forward',

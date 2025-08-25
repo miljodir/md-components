@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconCheckCircle } from '../../packages/react/src/icons-material/MdIconCheckCircle';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Check circle',

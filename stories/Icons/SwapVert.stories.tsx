@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdIconSwapVert } from '../../packages/react/src/icons-material/MdIconSwapVert';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Swap vert',

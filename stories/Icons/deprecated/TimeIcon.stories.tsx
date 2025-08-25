@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdTimeIcon from '../../../packages/react/src/icons/MdTimeIcon';
 import MdTimeIcon64 from '../../../packages/react/src/icons/MdTimeIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Time',

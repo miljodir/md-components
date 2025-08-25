@@ -1,7 +1,7 @@
-import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/textarea/README.md';
 import { MdTextArea } from '../packages/react/src/formElements/MdTextArea';
 import type { MdTextAreaProps } from '../packages/react/src/formElements/MdTextArea';

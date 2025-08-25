@@ -1,6 +1,13 @@
-import { action } from '@storybook/addon-actions';
-import { Title, Subtitle, Markdown, Description, Controls, Primary as PrimaryStory } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Markdown,
+  Description,
+  Controls,
+  Primary as PrimaryStory,
+} from '@storybook/addon-docs/blocks';
 import React from 'react';
+import { action } from 'storybook/actions';
 import Readme from '../packages/css/src/button/README.md';
 import { MdButton } from '../packages/react/src/button/MdButton';
 import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';

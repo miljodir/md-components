@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdCancelIcon from '../../../packages/react/src/icons/MdCancelIcon';
 import MdCancelIcon64 from '../../../packages/react/src/icons/MdCancelIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Cancel',

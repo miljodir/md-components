@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconDownload } from '../../packages/react/src/icons-material/MdIconDownload';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Download',

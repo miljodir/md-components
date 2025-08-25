@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconArrowUpward } from '../../packages/react/src/icons-material/MdIconArrowUpward';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Arrow upward',

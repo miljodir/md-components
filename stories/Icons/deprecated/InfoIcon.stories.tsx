@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdInfoIcon from '../../../packages/react/src/icons/MdInfoIcon';
 import MdInfoIcon64 from '../../../packages/react/src/icons/MdInfoIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Info',

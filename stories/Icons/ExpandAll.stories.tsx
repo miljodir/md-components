@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconExpandAll } from '../../packages/react/src/icons-material/MdIconExpandAll';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Expand all',

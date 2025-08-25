@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdEnvelopeIcon from '../../../packages/react/src/icons/MdEnvelopeIcon';
 import MdEnvelopeIcon64 from '../../../packages/react/src/icons/MdEnvelopeIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Envelope',

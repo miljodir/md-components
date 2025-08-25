@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdUserIcon from '../../../packages/react/src/icons/MdUserIcon';
 import MdUserIcon64 from '../../../packages/react/src/icons/MdUserIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/User',

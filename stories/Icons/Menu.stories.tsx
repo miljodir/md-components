@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconMenu } from '../../packages/react/src/icons-material/MdIconMenu';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Menu',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdHomeIcon from '../../../packages/react/src/icons/MdHomeIcon';
 import MdHomeIcon64 from '../../../packages/react/src/icons/MdHomeIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Home',

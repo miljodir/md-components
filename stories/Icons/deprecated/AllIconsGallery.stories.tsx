@@ -1,4 +1,4 @@
-import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import MdBurgerMenuIcon from '../../../packages/react/src/icons/MdBurgerMenuIcon';
 import MdCalendarDayIcon from '../../../packages/react/src/icons/MdCalendarDayIcon';
@@ -41,7 +41,7 @@ import MdUserIcon from '../../../packages/react/src/icons/MdUserIcon';
 import MdWarningIcon from '../../../packages/react/src/icons/MdWarningIcon';
 import MdXIcon from '../../../packages/react/src/icons/MdXIcon';
 import MdZoomIcon from '../../../packages/react/src/icons/MdZoomIcon';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Gallery',

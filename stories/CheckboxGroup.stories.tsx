@@ -1,11 +1,11 @@
-import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 import { MdCheckboxGroup } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Form/Checkbox/CheckboxGroup',

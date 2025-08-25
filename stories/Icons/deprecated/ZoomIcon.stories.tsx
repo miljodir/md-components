@@ -5,7 +5,7 @@ import MdZoomIconMinus from '../../../packages/react/src/icons/MdZoomIconMinus';
 import MdZoomIconMinus64 from '../../../packages/react/src/icons/MdZoomIconMinus64';
 import MdZoomIconPlus from '../../../packages/react/src/icons/MdZoomIconPlus';
 import MdZoomIconPlus64 from '../../../packages/react/src/icons/MdZoomIconPlus64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Zoom',

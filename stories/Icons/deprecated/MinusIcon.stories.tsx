@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdMinusIcon from '../../../packages/react/src/icons/MdMinusIcon';
 import MdMinusIcon64 from '../../../packages/react/src/icons/MdMinusIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Minus',

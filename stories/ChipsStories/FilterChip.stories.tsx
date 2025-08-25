@@ -1,7 +1,7 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/chips/README.md';
 import { MdFilterChip } from '../../packages/react/src/chips/MdFilterChip';
 import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
