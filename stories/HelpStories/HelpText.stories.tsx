@@ -1,8 +1,8 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import Readme from '../../packages/css/src/help/README.md';
 import { MdHelpText } from '../../packages/react/src/help/MdHelpText';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Help',

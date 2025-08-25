@@ -1,8 +1,8 @@
 /* eslint-disable quotes */
-import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/multiautocomplete/README.md';
 import { MdMultiAutocomplete } from '../packages/react/src/formElements/MdMultiAutocomplete';
 import { MdIconSearch } from '../packages/react/src/icons-material/MdIconSearch';

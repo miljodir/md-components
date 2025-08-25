@@ -1,8 +1,8 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React, { useState, useRef } from 'react';
 import Readme from '../../packages/css/src/messages/AlertMessage.md';
 import { MdAlertMessage } from '../../packages/react/src/messages/MdAlertMessage';
-import type { Args, StoryFn } from '@storybook/react';
+import type { Args, StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Messages/AlertMessage',

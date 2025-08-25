@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdEditIcon from '../../../packages/react/src/icons/MdEditIcon';
 import MdEditIcon64 from '../../../packages/react/src/icons/MdEditIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Edit',

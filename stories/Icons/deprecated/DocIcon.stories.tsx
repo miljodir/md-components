@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdDocIcon from '../../../packages/react/src/icons/MdDocIcon';
 import MdDocIcon64 from '../../../packages/react/src/icons/MdDocIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Doc',

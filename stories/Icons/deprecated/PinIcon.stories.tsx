@@ -3,7 +3,7 @@ import MdPinAltIcon from '../../../packages/react/src/icons/MdPinAltIcon';
 import MdPinAltIcon64 from '../../../packages/react/src/icons/MdPinAltIcon64';
 import MdPinIcon from '../../../packages/react/src/icons/MdPinIcon';
 import MdPinIcon64 from '../../../packages/react/src/icons/MdPinIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Pin',

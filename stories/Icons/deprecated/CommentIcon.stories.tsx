@@ -4,7 +4,7 @@ import MdCommentFillIcon from '../../../packages/react/src/icons/MdCommentFillIc
 import MdCommentFillIcon64 from '../../../packages/react/src/icons/MdCommentFillIcon64';
 import MdCommentIcon from '../../../packages/react/src/icons/MdCommentIcon';
 import MdCommentIcon64 from '../../../packages/react/src/icons/MdCommentIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Comment',

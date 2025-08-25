@@ -34,10 +34,13 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
-    <div className="preview-wrapper">
-      <Story />
-    </div>
-  ),
+  (Story: React.FC) => {
+    return (
+      <div className="preview-wrapper">
+        <Story />
+      </div>
+    );
+  },
 ];
+
 export const tags = ['autodocs'];

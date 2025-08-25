@@ -1,12 +1,12 @@
-import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/input/README.md';
 import { MdInput } from '../packages/react/src/formElements/MdInput';
 import { MdIconAccountCircle } from '../packages/react/src/icons-material/MdIconAccountCircle';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 import type { ChangeEvent } from 'react';
 
 export default {

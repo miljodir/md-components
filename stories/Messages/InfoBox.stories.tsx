@@ -1,8 +1,8 @@
-import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import Readme from '../../packages/css/src/messages/InfoBox.md';
 import { MdInfoBox } from '../../packages/react/src/messages/MdInfoBox';
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Messages/InfoBox',
