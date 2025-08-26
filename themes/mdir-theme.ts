@@ -34,6 +34,6 @@ export default create({
 
   brandTitle: 'Miljodirektoratets komponentbibliotek',
   brandUrl: 'https://www.miljodirektoratet.no/',
-  brandImage: '../assets/logo-primary.svg',
+  brandImage: '/assets/logo-primary.svg',
   brandTarget: '_self',
 });
