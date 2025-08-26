@@ -3,7 +3,7 @@ import React from 'react';
 import MdSortingActiveIcon from '../../../packages/react/src/icons/MdSortingActiveIcon';
 import MdSortingIcon from '../../../packages/react/src/icons/MdSortingIcon';
 import MdSortingIcon64 from '../../../packages/react/src/icons/MdSortingIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Sorting',

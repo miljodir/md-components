@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
 // eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 import React from 'react';
 import Readme from '../packages/css/src/formElements/autocomplete/README.md';
 import { MdAutocomplete } from '../packages/react/src/formElements/MdAutocomplete';

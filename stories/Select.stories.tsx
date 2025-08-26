@@ -1,11 +1,11 @@
-import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/select/README.md';
 import { MdSelect } from '../packages/react/src/formElements/MdSelect';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Form/Select',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdLoadingSpinner } from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
 import type { MdLoadingSpinnerProps } from '../packages/react/src/loadingSpinner/MdLoadingSpinner';
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/LoadingSpinner',

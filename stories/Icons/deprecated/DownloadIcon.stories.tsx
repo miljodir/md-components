@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdDownloadIcon from '../../../packages/react/src/icons/MdDownloadIcon';
 import MdDownloadIcon64 from '../../../packages/react/src/icons/MdDownloadIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Download',

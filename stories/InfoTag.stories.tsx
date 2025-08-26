@@ -1,9 +1,9 @@
-import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs';
+import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import Readme from '../packages/css/src/infoTag/README.md';
 import { MdInfoTag } from '../packages/react/src/infoTag/MdInfoTag';
 import type { MdInfoTagProps } from '../packages/react/src/infoTag/MdInfoTag';
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/InfoTag',

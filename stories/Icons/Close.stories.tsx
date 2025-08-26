@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconClose } from '../../packages/react/src/icons-material/MdIconClose';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Close',

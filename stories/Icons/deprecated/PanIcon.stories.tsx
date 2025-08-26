@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdPanIcon from '../../../packages/react/src/icons/MdPanIcon';
 import MdPanIcon64 from '../../../packages/react/src/icons/MdPanIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Pan',

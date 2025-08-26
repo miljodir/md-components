@@ -1,13 +1,13 @@
-import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs';
-// eslint-disable-next-line import/named
-import { useArgs } from '@storybook/preview-api';
+import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs/blocks';
+
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/stepper/README.md';
 import { MdButton } from '../packages/react/src/button/MdButton';
 import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';
 import { MdStep } from '../packages/react/src/stepper/MdStep';
 import { MdStepper } from '../packages/react/src/stepper/MdStepper';
-import type { Args, StoryFn } from '@storybook/react';
+import type { Args, StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Stepper',

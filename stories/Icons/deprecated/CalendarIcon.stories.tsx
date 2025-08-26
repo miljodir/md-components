@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdCalendarIcon from '../../../packages/react/src/icons/MdCalendarIcon';
 import MdCalendarIcon64 from '../../../packages/react/src/icons/MdCalendarIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Calendar',

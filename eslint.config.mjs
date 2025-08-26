@@ -66,7 +66,7 @@ export default [
     },
   },
   {
-    files: ['**/*.ts?(x)'],
+    files: ['**/*.ts?(x)', '**/*.mdx'],
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react-compiler/react-compiler': 'error',
@@ -117,6 +117,7 @@ export default [
         },
       ],
       'storybook/no-renderer-packages': 'off', // Disable this rule until we update to Storybook 9
+      'import/no-unresolved': ['error', { ignore: ['storybook/*'] }],
     },
   },
 ];

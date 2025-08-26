@@ -2,7 +2,7 @@ import React from 'react';
 
 import MdWarningIcon from '../../../packages/react/src/icons/MdWarningIcon';
 import MdWarningIcon64 from '../../../packages/react/src/icons/MdWarningIcon64';
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Deprecated/Icons/Warning',

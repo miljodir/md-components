@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdIconEdit } from '../../packages/react/src/icons-material/MdIconEdit';
 
-import type { Args } from '@storybook/react';
+import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Edit',
