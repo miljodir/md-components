@@ -1,4 +1,5 @@
 import { create } from 'storybook/theming';
+import logo from '../assets/logo-primary.svg';
 
 export default create({
   base: 'light',
@@ -34,6 +35,6 @@ export default create({
 
   brandTitle: 'Miljodirektoratets komponentbibliotek',
   brandUrl: 'https://www.miljodirektoratet.no/',
-  brandImage: '/assets/logo-primary.svg',
+  brandImage: logo,
   brandTarget: '_self',
 });
