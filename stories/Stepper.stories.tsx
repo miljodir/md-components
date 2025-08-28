@@ -44,6 +44,17 @@ export default {
       },
       control: { type: 'number' },
     },
+    scrollToActiveStep: {
+      type: { name: 'boolean' },
+      description: 'Whether to scroll to the active step when it changes.',
+      table: {
+        defaultValue: { summary: false },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     children: {
       type: { name: 'ReactNode' },
       description: 'The steps in the stepper. Must be MdStep components.',
@@ -116,7 +127,7 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
 
   return (
     <>
-      <MdStepper activeStep={args.activeStep}>
+      <MdStepper activeStep={args.activeStep} scrollToActiveStep={args.scrollToActiveStep}>
         <MdStep
           style={fontStyle}
           title="Step 1"
@@ -168,4 +179,5 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
 };
 Stepper.args = {
   activeStep: 1,
+  scrollToActiveStep: false,
 };
