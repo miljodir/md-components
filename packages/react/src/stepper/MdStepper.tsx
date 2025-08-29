@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useId } from 'react';
 import MdIconCheck from '../icons-material/MdIconCheck';
-import { StepperProvider, useStepperContext } from './StepperContext';
 
 export interface MdStepperProps {
   activeStep: number;
@@ -29,22 +28,20 @@ export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
   }, [activeStep, stepperId, scrollToActiveStep]);
 
   return (
-    <StepperProvider value={{ activeStep, stepperId }}>
-      <div className="md-stepper__stepper-container">
-        <div className="md-stepper__stepper-list">
-          {React.Children.map(children, (item, index) => {
-            return (
-              <div className="md-stepper__stepper-list-item" key={index} id={`${stepperId}_${index}`}>
-                <StepTitle key={index} title={item.props.title} index={index} />
-                <StepContent index={index} completedContent={item.props.completedContent}>
-                  {item}
-                </StepContent>
-              </div>
-            );
-          })}
-        </div>
+    <div className="md-stepper__stepper-container">
+      <div className="md-stepper__stepper-list">
+        {React.Children.map(children, (item, index) => {
+          return (
+            <div className="md-stepper__stepper-list-item" key={index} id={`${stepperId}_${index}`}>
+              <StepTitle key={index} title={item.props.title} index={index} activeStep={activeStep} />
+              <StepContent index={index} activeStep={activeStep} completedContent={item.props.completedContent}>
+                {item}
+              </StepContent>
+            </div>
+          );
+        })}
       </div>
-    </StepperProvider>
+    </div>
   );
 };
 
@@ -53,11 +50,10 @@ export default MdStepper;
 interface StepTitleProps {
   title: string;
   index: number;
+  activeStep: number;
 }
 
-const StepTitle = ({ title, index }: StepTitleProps) => {
-  const { activeStep } = useStepperContext();
-
+const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
   if (index === activeStep) {
     // Step selected
     return (
@@ -95,13 +91,12 @@ const StepTitle = ({ title, index }: StepTitleProps) => {
 
 interface StepContentProps {
   index: number;
+  activeStep: number;
   completedContent?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const StepContent = ({ index, completedContent, children }: StepContentProps) => {
-  const { activeStep } = useStepperContext();
-
+const StepContent = ({ index, activeStep, completedContent, children }: StepContentProps) => {
   if (index === activeStep) {
     return (
       <div className="md-stepper__step-content-container">
