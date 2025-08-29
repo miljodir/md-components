@@ -1,20 +1,38 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useId } from 'react';
 import MdIconCheck from '../icons-material/MdIconCheck';
 
 export interface MdStepperProps {
   activeStep: number;
+  scrollToActiveStep?: boolean;
   children: React.ReactElement[];
 }
 
-export const MdStepper: React.FunctionComponent<MdStepperProps> = ({ activeStep, children }: MdStepperProps) => {
+export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
+  activeStep,
+  children,
+  scrollToActiveStep = false,
+}: MdStepperProps) => {
+  const stepperId = `stepper_${useId()}`;
+  const firstUpdate = useRef(true);
+
+  useEffect(() => {
+    if (!firstUpdate.current && scrollToActiveStep) {
+      const elem = document.getElementById(`${stepperId}_${activeStep}`);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    firstUpdate.current = false;
+  }, [activeStep, stepperId, scrollToActiveStep]);
+
   return (
     <div className="md-stepper__stepper-container">
       <div className="md-stepper__stepper-list">
-        {children.map((item, index) => {
+        {React.Children.map(children, (item, index) => {
           return (
-            <div className="md-stepper__stepper-list-item" key={index}>
+            <div className="md-stepper__stepper-list-item" key={index} id={`${stepperId}_${index}`}>
               <StepTitle key={index} title={item.props.title} index={index} activeStep={activeStep} />
               <StepContent index={index} activeStep={activeStep} completedContent={item.props.completedContent}>
                 {item}
