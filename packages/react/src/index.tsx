@@ -3,6 +3,7 @@ import MdAccordionItem, { type MdAccordionItemProps } from './accordion/MdAccord
 import MdButton, { type MdButtonProps } from './button/MdButton';
 import MdFilterChip, { type MdFilterChipProps } from './chips/MdFilterChip';
 import MdInputChip, { type MdInputChipProps } from './chips/MdInputChip';
+import MdDescriptionList, { MdDescriptionListItem } from './descriptionList/MdDescriptionList';
 import MdFileList, { type MdFileListProps } from './fileList/MdFileList';
 import MdAutocomplete, { type MdAutocompleteOption, type MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { type MdCheckboxProps } from './formElements/MdCheckbox';
@@ -194,6 +195,8 @@ export {
   MdHelpText,
   MdToggle,
   MdClickOutsideWrapper,
+  MdDescriptionList,
+  MdDescriptionListItem,
   MdInputChip,
   MdFilterChip,
   MdFileList,
