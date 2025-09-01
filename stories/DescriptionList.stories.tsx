@@ -1,5 +1,6 @@
-import { Title, Subtitle, Description, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Title, Subtitle, Description, Controls, Primary, Markdown } from '@storybook/addon-docs/blocks';
 import React from 'react';
+import Readme from '../packages/css/src/descriptionList/README.md';
 import MdDescriptionList, { MdDescriptionListItem } from '../packages/react/src/descriptionList/MdDescriptionList';
 import { MdIconSignpost } from '../packages/react/src/icons-material/MdIconSignpost';
 import { MdLink } from '../packages/react/src/link/MdLink';
@@ -9,19 +10,19 @@ const meta = {
   title: 'Components/DescriptionList/DescriptionList',
   component: MdDescriptionList,
   parameters: {
-    page: () => {
-      return (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Controls />
-          {/* <Markdown>{Readme.toString()}</Markdown> */}
-        </>
-      );
-    },
     docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
       description: {
         component:
           // eslint-disable-next-line quotes
