@@ -63,6 +63,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
     const [searchValue, setSearchValue] = useState('');
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
+    const [popoverOpen, setPopoverOpen] = useState(false);
     const store = Ariakit.useComboboxStore();
 
     useEffect(() => {
@@ -142,6 +143,10 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
       return false;
     }, [isMultiSelect]);
 
+    const getOpenState = () => {
+      return store.getState().open;
+    };
+
     return (
       <div
         className={`md-combobox md-combobox--${mode} ${
@@ -161,6 +166,9 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
             startTransition(() => {
               setSearchValue(val);
             });
+          }}
+          setOpen={() => {
+            setPopoverOpen(getOpenState());
           }}
         >
           {showLabel && (
@@ -226,10 +234,12 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                 </button>
               )}
               <button
+                key={`combobox_grouped_${comboBoxId}_toggle_button_${popoverOpen}`}
                 type="button"
                 className="md-combobox__toggle"
                 onClick={() => {
-                  store.setOpen(!store.getState().open);
+                  store.setOpen(!popoverOpen);
+                  setPopoverOpen(!popoverOpen);
                 }}
                 aria-label="Åpne/lukke liste"
               >
@@ -247,14 +257,20 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
             flip={flip}
             className="md-combobox__popover"
             aria-busy={isPending}
+            onClose={() => {
+              setSearchValue('');
+            }}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
           >
             {matches &&
               matches.map((group, index: number) => {
                 return (
-                  <>
+                  <React.Fragment key={`combobox_group_fragment_${comboBoxId}_${group.label}_${index}`}>
                     {!hideSeparatorLine && index !== 0 && (
-                      <div className="md-combobox__group-separator">
+                      <div
+                        className="md-combobox__group-separator"
+                        key={`combobox_group_separator_${comboBoxId}_${index}`}
+                      >
                         <hr className="" />
                       </div>
                     )}
@@ -267,7 +283,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                         {group.label}
                       </div>
                       {group.values &&
-                        group.values.map(option => {
+                        group.values.map((option, i) => {
                           let isChecked = false;
                           if (isMultiSelect) {
                             isChecked = selectedValues.includes(option.value);
@@ -276,7 +292,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                           }
                           return (
                             <Ariakit.ComboboxItem
-                              key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}`}
+                              key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}_${i}`}
                               value={option.value}
                               focusOnHover
                               setValueOnClick={setItemCallback}
@@ -297,7 +313,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                           );
                         })}
                     </div>
-                  </>
+                  </React.Fragment>
                 );
               })}
             {!matches.length && (

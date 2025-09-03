@@ -54,6 +54,9 @@
   outline-offset: -2px;
   border-radius: var(--md-size-4) var(--md-size-4) var(--md-size-0) var(--md-size-0);
 }
+.md-combobox__input[data-focus-visible]:not([aria-expanded='true']) {
+  border-radius: var(--md-size-4);
+}
 
 .md-combobox__input[aria-expanded='true']::placeholder {
   opacity: 0;
