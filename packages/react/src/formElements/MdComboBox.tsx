@@ -84,6 +84,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
     const [popoverOpen, setPopoverOpen] = useState(false);
+    const [pendingSearchClear, setPendingSearchClear] = useState(false);
     const store = Ariakit.useComboboxStore();
 
     useEffect(() => {
@@ -92,6 +93,22 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         setSearchValue('');
       }
     }, [value]);
+
+    useEffect(() => {
+      if (!pendingSearchClear) return;
+
+      const checkAnimationEnd = () => {
+        const state = store.getState();
+        if (!state.animating && !state.open) {
+          setSearchValue('');
+          setPendingSearchClear(false);
+        } else {
+          requestAnimationFrame(checkAnimationEnd);
+        }
+      };
+
+      requestAnimationFrame(checkAnimationEnd);
+    }, [store, pendingSearchClear]);
 
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
@@ -259,7 +276,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             aria-busy={isPending}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             onClose={() => {
-              setSearchValue('');
+              setPendingSearchClear(true);
             }}
           >
             {matches &&

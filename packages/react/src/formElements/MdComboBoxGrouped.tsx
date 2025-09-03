@@ -64,6 +64,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
     const [popoverOpen, setPopoverOpen] = useState(false);
+    const [pendingSearchClear, setPendingSearchClear] = useState(false);
     const store = Ariakit.useComboboxStore();
 
     useEffect(() => {
@@ -72,6 +73,22 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
         setSearchValue('');
       }
     }, [value]);
+
+    useEffect(() => {
+      if (!pendingSearchClear) return;
+
+      const checkAnimationEnd = () => {
+        const state = store.getState();
+        if (!state.animating && !state.open) {
+          setSearchValue('');
+          setPendingSearchClear(false);
+        } else {
+          requestAnimationFrame(checkAnimationEnd);
+        }
+      };
+
+      requestAnimationFrame(checkAnimationEnd);
+    }, [store, pendingSearchClear]);
 
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
@@ -257,10 +274,10 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
             flip={flip}
             className="md-combobox__popover"
             aria-busy={isPending}
-            onClose={() => {
-              setSearchValue('');
-            }}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
+            onClose={() => {
+              setPendingSearchClear(true);
+            }}
           >
             {matches &&
               matches.map((group, index: number) => {
