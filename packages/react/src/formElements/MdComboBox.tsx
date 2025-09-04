@@ -83,6 +83,8 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const [searchValue, setSearchValue] = useState('');
     const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
+    const [popoverOpen, setPopoverOpen] = useState(false);
+    const [pendingSearchClear, setPendingSearchClear] = useState(false);
     const store = Ariakit.useComboboxStore();
 
     useEffect(() => {
@@ -91,6 +93,22 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
         setSearchValue('');
       }
     }, [value]);
+
+    useEffect(() => {
+      if (!pendingSearchClear) return;
+
+      const checkAnimationEnd = () => {
+        const state = store.getState();
+        if (!state.animating && !state.open) {
+          setSearchValue('');
+          setPendingSearchClear(false);
+        } else {
+          requestAnimationFrame(checkAnimationEnd);
+        }
+      };
+
+      requestAnimationFrame(checkAnimationEnd);
+    }, [store, pendingSearchClear]);
 
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
@@ -140,6 +158,10 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       return false;
     }, [isMultiSelect]);
 
+    const getOpenState = () => {
+      return store.getState().open;
+    };
+
     return (
       <div
         className={`md-combobox md-combobox--${mode} ${
@@ -159,6 +181,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             startTransition(() => {
               setSearchValue(val);
             });
+          }}
+          setOpen={() => {
+            setPopoverOpen(getOpenState());
           }}
         >
           {showLabel && (
@@ -224,13 +249,16 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
                 </button>
               )}
               <button
+                key={`combobox_${comboBoxId}_toggle_button_${popoverOpen}`}
                 type="button"
                 disabled={disabled}
                 className="md-combobox__toggle"
                 onClick={() => {
-                  store.setOpen(!store.getState().open);
+                  store.setOpen(!popoverOpen);
+                  setPopoverOpen(!popoverOpen);
                 }}
                 aria-label="Åpne/lukke liste"
+                tabIndex={-1}
               >
                 <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden="true" />
               </button>
@@ -247,6 +275,9 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
             className="md-combobox__popover"
             aria-busy={isPending}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
+            onClose={() => {
+              setPendingSearchClear(true);
+            }}
           >
             {matches &&
               matches.map(option => {
