@@ -26,12 +26,10 @@
 
 .md-button--small {
   padding: var(--md-size-8) var(--md-size-12);
-  border-radius: var(--md-radius-sm);
 }
 
 .md-button--large {
   padding: var(--md-size-16) var(--md-size-20);
-  border-radius: var(--md-radius-lg);
 }
 
 .md-button__topIcon {
