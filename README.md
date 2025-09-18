@@ -52,6 +52,8 @@ Hvis du ønsker å bruke et ikon fra Material som vi ikke har i vårt komponentb
 - Grade: **0**
 - Fill: **No fill**
 
+Ikonene som er implementert i designsystemet finnes i to typer. En standard type som egner seg til vanlig små ikoner og en `large` type til når man skal ha store ikoner. Standard typen er hentet fra Material Symbols med størrelse **20px** og `large` er hentet med **48px**.
+
 ## Bruk av Ariakit
 
 Miljødirektoratets designsystem bruker [Ariakit](https://ariakit.org/) sine unstyled, React primitiver for noen komponenter. Dette er et bibliotek som gir mulighet til å lage tilgjengelige komponenter med lite kode og høy kvalitet. Ariakit håndterer mange av de komplekse tilgjengelighetskravene som:
