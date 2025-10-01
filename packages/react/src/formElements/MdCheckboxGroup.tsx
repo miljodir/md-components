@@ -13,6 +13,7 @@ import type { ChangeEvent } from 'react';
 export interface MdCheckboxGroupOption {
   value: string;
   text?: string;
+  disabled?: boolean;
 }
 
 export interface MdCheckboxGroupProps {
@@ -147,7 +148,7 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
               key={`key_${checkboxGroupId}_${option.value}`}
               id={`md-checkboxgroup_${checkboxGroupId}_${option.value}`}
               label={option.text}
-              disabled={disabled}
+              disabled={disabled ? disabled : option.disabled}
               checked={optionIsSelected(option)}
               value={option.value}
               data-value={option.value}

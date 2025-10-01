@@ -187,6 +187,11 @@ CheckboxGroup.args = {
       value: '3',
       text: 'Option 3',
     },
+    {
+      value: '4',
+      text: 'Option 4',
+      disabled: true,
+    },
   ],
   selectedOptions: [
     {
@@ -200,5 +205,5 @@ CheckboxGroup.args = {
   helpText: 'This is a help text!',
   error: false,
   errorText: '',
-  columns: 3,
+  columns: 4,
 };
