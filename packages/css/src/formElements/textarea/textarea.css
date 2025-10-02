@@ -44,7 +44,7 @@
 }
 
 .md-textarea__label-wrapper {
-  padding-right: var(--md-size-8);
+  margin-bottom: var(--md-size-8);
 }
 
 .md-textarea__label {
