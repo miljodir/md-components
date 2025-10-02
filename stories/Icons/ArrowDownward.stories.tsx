@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { MdIconArrowDownward } from '../../packages/react/src/icons-material/MdIconArrowDownward';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
-import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Arrow downward',
@@ -47,7 +48,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn<typeof MdIconArrowDownward> = (args: MdIconProps) => {
   const style = { width: '32px', height: '32px', color: args.color };
 
   if (args.large) {
