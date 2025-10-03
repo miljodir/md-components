@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
-
-import type { Args } from '@storybook/react-webpack5';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Account circle',
@@ -47,7 +47,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn<typeof MdIconAccountCircle> = (args: MdIconProps) => {
   const style = { width: '32px', height: '32px', color: args.color };
 
   if (args.large) {
