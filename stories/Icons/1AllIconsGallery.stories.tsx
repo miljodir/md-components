@@ -47,7 +47,8 @@ import { MdIconUpload } from '../../packages/react/src/icons-material/MdIconUplo
 import { MdIconWarning } from '../../packages/react/src/icons-material/MdIconWarning';
 import { MdIconZoomIn } from '../../packages/react/src/icons-material/MdIconZoomIn';
 import { MdIconZoomOut } from '../../packages/react/src/icons-material/MdIconZoomOut';
-import type { Args } from '@storybook/react-webpack5';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Gallery',
@@ -71,7 +72,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn = (args: MdIconProps) => {
   const style: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',

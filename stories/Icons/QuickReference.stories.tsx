@@ -2,7 +2,8 @@ import React from 'react';
 
 import { MdIconQuickReference } from '../../packages/react/src/icons-material/MdIconQuickReference';
 
-import type { Args } from '@storybook/react-webpack5';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Quick reference',
@@ -47,7 +48,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn<typeof MdIconQuickReference> = (args: MdIconProps) => {
   const style = { width: '32px', height: '32px', color: args.color };
 
   if (args.large) {
