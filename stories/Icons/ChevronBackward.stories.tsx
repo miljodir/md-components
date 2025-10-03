@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { MdIconChevronBackward } from '../../packages/react/src/icons-material/MdIconChevronBackward';
-
-import type { Args } from '@storybook/react-webpack5';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Chevron Backward',
@@ -47,7 +47,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn<typeof MdIconChevronBackward> = (args: MdIconProps) => {
   const style = { width: '32px', height: '32px', color: args.color };
 
   if (args.large) {

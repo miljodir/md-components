@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { MdIconArrowBackward } from '../../packages/react/src/icons-material/MdIconArrowBackward';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
-import type { Args } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Arrow backward',
@@ -47,7 +48,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn<typeof MdIconArrowBackward> = (args: MdIconProps) => {
   const style = { width: '32px', height: '32px', color: args.color };
 
   if (args.large) {

@@ -37,6 +37,7 @@ import { MdIconPerson } from '../../packages/react/src/icons-material/MdIconPers
 import { MdIconPrint } from '../../packages/react/src/icons-material/MdIconPrint';
 import { MdIconQuickReference } from '../../packages/react/src/icons-material/MdIconQuickReference';
 import { MdIconRemove } from '../../packages/react/src/icons-material/MdIconRemove';
+import { MdIconReport } from '../../packages/react/src/icons-material/MdIconReport';
 import { MdIconSchedule } from '../../packages/react/src/icons-material/MdIconSchedule';
 import { MdIconSearch } from '../../packages/react/src/icons-material/MdIconSearch';
 import { MdIconSettings } from '../../packages/react/src/icons-material/MdIconSettings';
@@ -47,7 +48,8 @@ import { MdIconUpload } from '../../packages/react/src/icons-material/MdIconUplo
 import { MdIconWarning } from '../../packages/react/src/icons-material/MdIconWarning';
 import { MdIconZoomIn } from '../../packages/react/src/icons-material/MdIconZoomIn';
 import { MdIconZoomOut } from '../../packages/react/src/icons-material/MdIconZoomOut';
-import type { Args } from '@storybook/react-webpack5';
+import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Icons/Gallery',
@@ -71,7 +73,7 @@ export default {
   },
 };
 
-const Template = (args: Args) => {
+const Template: StoryFn = (args: MdIconProps) => {
   const style: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -244,6 +246,10 @@ const Template = (args: Args) => {
       <div style={style}>
         <MdIconRemove {...props} />
         <pre style={{ marginTop: 0 }}>MdIconRemove</pre>
+      </div>
+      <div style={style}>
+        <MdIconReport {...props} />
+        <pre style={{ marginTop: 0 }}>MdIconReport</pre>
       </div>
       <div style={style}>
         <MdIconSchedule {...props} />
