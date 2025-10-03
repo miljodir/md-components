@@ -37,6 +37,7 @@ import { MdIconPerson } from '../../packages/react/src/icons-material/MdIconPers
 import { MdIconPrint } from '../../packages/react/src/icons-material/MdIconPrint';
 import { MdIconQuickReference } from '../../packages/react/src/icons-material/MdIconQuickReference';
 import { MdIconRemove } from '../../packages/react/src/icons-material/MdIconRemove';
+import { MdIconReport } from '../../packages/react/src/icons-material/MdIconReport';
 import { MdIconSchedule } from '../../packages/react/src/icons-material/MdIconSchedule';
 import { MdIconSearch } from '../../packages/react/src/icons-material/MdIconSearch';
 import { MdIconSettings } from '../../packages/react/src/icons-material/MdIconSettings';
@@ -245,6 +246,10 @@ const Template: StoryFn = (args: MdIconProps) => {
       <div style={style}>
         <MdIconRemove {...props} />
         <pre style={{ marginTop: 0 }}>MdIconRemove</pre>
+      </div>
+      <div style={style}>
+        <MdIconReport {...props} />
+        <pre style={{ marginTop: 0 }}>MdIconReport</pre>
       </div>
       <div style={style}>
         <MdIconSchedule {...props} />
