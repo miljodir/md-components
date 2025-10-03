@@ -99,7 +99,11 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
         .map(group => {
           // Filter the values within each group based on the searchValue
           const matchingValues = group.values.filter(value => {
-            return value.value.toLowerCase().includes(searchValue.toLowerCase() || '');
+            const searchTerm = (searchValue || '').toLowerCase().trim();
+            const optionValue = (value.value || '').toLowerCase().trim();
+            const optionText = (value.text || '').toLowerCase().trim();
+
+            return optionValue.includes(searchTerm) || optionText.includes(searchTerm);
           });
 
           // Return the group only if it has matching values
