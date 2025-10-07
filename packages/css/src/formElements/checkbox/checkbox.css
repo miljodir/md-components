@@ -17,7 +17,7 @@
 }
 
 .md-checkbox__label::before {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-grey-white);
   border: 1px solid var(--md-color-border-primary);
   content: '';
   cursor: pointer;
@@ -28,7 +28,7 @@
 
 .md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox:hover .md-checkbox__label::before {
-  background-color: var(--md-color-surface-info-primary);
+  background-color: var(--md-color-surface-primary-tinted);
 }
 
 .md-checkbox__input:focus-visible + .md-checkbox__label {

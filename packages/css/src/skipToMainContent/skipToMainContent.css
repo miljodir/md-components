@@ -5,7 +5,7 @@
   opacity: 0;
   height: var(--md-size-1);
   width: var(--md-size-1);
-  background-color: var(--md-color-cta-primary-default);
+  background-color: var(--md-color-cta-secondary-stroke);
   padding: 0;
   font-family: var(--md-typography-family-body);
   overflow: hidden;

@@ -44,7 +44,7 @@
 
 .md-tabs-container .md-tabs-button.md-tabs-button--disabled {
   background-color: var(--md-color-disabled-bg);
-  color: var(--md-color-text-disabled);
+  color: var(--md-color-disabled-default);
   cursor: not-allowed;
 }
 
@@ -111,13 +111,13 @@
 
 .md-tabs-container.md-tabs__compact .md-tabs-button.md-tabs-button[aria-selected='true'] {
   background-color: var(--md-color-cta-primary-focus);
-  color: var(--md-color-text-inverted);
+  color: var(--md-color-grey-white);
   border-color: var(--md-color-cta-primary-focus);
   font-weight: var(--md-typography-weight-regular);
 }
 
 .md-tabs-container.md-tabs__compact .md-tabs-button--selected:hover:not(.md-tabs-button--disabled) {
-  background-color: var(--md-color-cta-primary-focus);
+  background-color: var(--md-color-cta-secondary-hover);
   color: var(--md-color-text-inverted);
   cursor: default;
 }

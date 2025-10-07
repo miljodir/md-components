@@ -1,3 +1,8 @@
+/*
+  THE COLOR VARIABLES HERE WILL BE REMOVED IN A FUTURE RELEASE.
+  PLEASE USE THE NEW VARIABLES FROM tokens/color-variables.css INSTEAD.
+*/
+
 :root {
   /* COLORS */
   --md-color-primary-160: #003b3a;
