@@ -14,7 +14,7 @@
   justify-content: space-between;
   gap: var(--md-size-12);
   padding: var(--md-size-16);
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   border-bottom: 1px solid var(--md-color-border-primary);
 }
 

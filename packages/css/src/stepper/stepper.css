@@ -32,7 +32,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   h4.md-stepper__disabled {
-  color: var(--md-color-text-disabled);
+  color: var(--md-color-disabled-default);
 }
 
 .md-stepper__stepper-container
@@ -40,7 +40,7 @@
   .md-stepper__stepper-list-item
   .md-stepper__step-title
   h4.md-stepper__completed {
-  color: var(--md-color-disabled-dark);
+  color: var(--md-color-text-primary);
 }
 
 .md-stepper__stepper-container
@@ -61,7 +61,7 @@
   .md-stepper__step-title-badge-outer-border.selected {
   border-radius: var(--md-radius-half);
   border: var(--md-size-1) solid var(--md-color-cta-primary-focus);
-  background-color: var(--md-color-surface-info-primary);
+  background-color: var(--md-color-surface-primary-tinted);
 }
 
 .md-stepper__stepper-container

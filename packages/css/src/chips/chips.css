@@ -1,12 +1,12 @@
 .md-chip {
   display: flex;
   align-items: center;
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   outline: var(--md-size-1) solid var(--md-color-cta-secondary-stroke);
   outline-offset: -1px;
   border: none;
   border-radius: var(--md-radius-xl);
-  color: var(--md-color-text-secondary);
+  color: var(--md-color-text-primary);
   font-weight: var(--md-typography-weight-regular);
   font-family: var(--md-typography-family-label);
   font-size: var(--md-typography-size-16);
@@ -14,6 +14,7 @@
   padding: var(--md-size-8) var(--md-size-16);
   cursor: pointer;
   text-align: left;
+  transition: all 200ms ease-in-out;
 }
 
 .md-chip.md-chip--solid:not(.md-chip--disabled) {

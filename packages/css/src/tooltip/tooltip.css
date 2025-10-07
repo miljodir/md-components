@@ -1,5 +1,5 @@
 .md-tooltip {
-  background-color: white;
+  background-color: var(--md-color-background-primary);
   box-shadow: 0px var(--md-size-4) var(--md-size-8) 0px rgba(0, 0, 0, 0.12),
     0px var(--md-size-2) var(--md-size-4) 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.14);
   border: 1px solid var(--md-color-border-tertiary);

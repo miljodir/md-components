@@ -30,7 +30,7 @@
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-radius-sm);
   padding: 0.6875rem var(--md-size-16);
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   position: relative;
   outline-width: 0;
   outline-style: solid;
@@ -104,7 +104,7 @@
 
 /* popover */
 .md-select__popover {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   max-height: min(var(--popover-available-height, 300px), 300px);
   overflow: auto;
   overscroll-behavior: contain;
@@ -144,7 +144,7 @@
 }
 .md-select__item[data-focus-visible],
 .md-select__item[data-active-item] {
-  background-color: var(--md-color-primary-40);
+  background-color: var(--md-color-cta-secondary-active);
 
   .md-checkbox__label::before {
     background-color: var(--md-color-surface-primary);

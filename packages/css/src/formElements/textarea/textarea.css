@@ -8,7 +8,7 @@
   font-family: var(--md-typography-family-body);
   max-width: 100%;
   width: 100%;
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   border-radius: var(--md-radius-sm);
   border: var(--md-size-1) solid var(--md-color-border-primary);
   margin: var(--md-size-1);
@@ -19,7 +19,7 @@
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus-visible {
-  outline: 2px solid var(--md-color-cta-primary-default);
+  outline: 2px solid var(--md-color-cta-primary-focus);
   outline-offset: -2px;
   border-color: transparent;
 }

@@ -25,13 +25,14 @@
 }
 
 .md-link:focus-visible {
+  color: var(--md-color-cta-primary-focus);
   outline: var(--md-size-1) solid var(--md-color-border-tertiary);
 }
 
 .md-link:active {
-  background-color: var(--md-color-surface-secondary);
+  background-color: var(--md-color-surface-primary);
 }
 
 .md-link:visited {
-  color: var(--md-color-cta-primary-visited);
+  color: var(--md-color-text-visited);
 }

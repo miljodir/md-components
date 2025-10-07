@@ -49,7 +49,7 @@
   cursor: pointer;
   width: var(--md-size-40);
   height: var(--md-size-24);
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   border: var(--md-size-1) solid var(--md-color-border-primary);
   border-radius: 6.25rem;
   position: relative;
@@ -60,7 +60,7 @@
 }
 
 .md-toggle__label--checked {
-  background-color: var(--md-color-surface-info-primary);
+  background-color: var(--md-color-surface-primary-tinted);
 }
 
 .md-toggle__label--disabled {

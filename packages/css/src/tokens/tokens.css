@@ -2,51 +2,80 @@
   /* COLORS */
 
   /* cta */
-  --md-color-cta-primary-default: var(--md-color-primary-100);
-  --md-color-cta-primary-hover: var(--md-color-primary-120);
-  --md-color-cta-primary-focus: var(--md-color-primary-80);
-  --md-color-cta-primary-active: var(--md-color-primary-160);
-  --md-color-cta-secondary-default: var(--md-color-white);
-  --md-color-cta-secondary-stroke: var(--md-color-primary-100);
-  --md-color-cta-secondary-hover: var(--md-color-primary-20);
-  --md-color-cta-secondary-active: var(--md-color-primary-30);
+  --md-color-cta-primary-default: var(--md-color-green-10);
+  --md-color-cta-primary-hover: var(--md-color-green-11);
+  --md-color-cta-primary-focus: var(--md-color-green-8);
+  --md-color-cta-primary-active: var(--md-color-green-13);
+  --md-color-cta-secondary-default: var(--md-color-grey-white);
+  --md-color-cta-secondary-stroke: var(--md-color-green-10);
+  --md-color-cta-secondary-hover: var(--md-color-green-2);
+  --md-color-cta-secondary-active: var(--md-color-green-3);
+
+  /* background */
+  --md-color-background-primary: var(--md-color-grey-white);
+  --md-color-background-beige: var(--md-color-beige-1);
+  --md-color-background-grey: var(--md-color-grey-1);
 
   /* disabled */
-  --md-color-disabled-default: var(--md-color-grey-60);
-  --md-color-disabled-dark: var(--md-color-grey-80);
-  --md-color-disabled-bg: var(--md-color-grey-20);
+  --md-color-disabled-default: var(--md-color-grey-5);
+  --md-color-disabled-dark: var(--md-color-grey-6);
+  --md-color-disabled-bg: var(--md-color-grey-3);
 
   /* attention */
-  --md-color-attention-error-primary: var(--md-color-error-100);
-  --md-color-attention-error-primary-hover: var(--md-color-error-120);
-  --md-color-attention-error-primary-active: var(--md-color-error-160);
-  --md-color-attention-error-secondary: var(--md-color-white);
-  --md-color-attention-error-secondary-hover: var(--md-color-error-10);
-  --md-color-attention-error-secondary-active: var(--md-color-error-40);
-  --md-color-attention-error-bg: var(--md-color-error-20);
-  --md-color-attention-error-bg-hover: var(--md-color-error-40);
-  --md-color-attention-warning-primary: var(--md-color-warning-dark);
-  --md-color-attention-warning-bg: var(--md-color-warning-light);
+  --md-color-attention-error-primary: var(--md-color-attention-error-6);
+  --md-color-attention-error-primary-hover: var(--md-color-attention-error-7);
+  --md-color-attention-error-primary-active: var(--md-color-attention-error-8);
+  --md-color-attention-error-secondary: var(--md-color-attention-white);
+  --md-color-attention-error-secondary-hover: var(--md-color-attention-error-1);
+  --md-color-attention-error-secondary-active: var(--md-color-attention-error-4);
+  --md-color-attention-error-surface: var(--md-color-attention-error-1);
+  --md-color-attention-error-surface-hover: var(--md-color-attention-error-3);
+  --md-color-attention-error-border: var(--md-color-attention-error-6);
+
+  --md-color-attention-warning-primary: var(--md-color-attention-warning-6);
+  --md-color-attention-warning-primary-hover: var(--md-color-attention-warning-7);
+  --md-color-attention-warning-primary-active: var(--md-color-attention-warning-8);
+  --md-color-attention-warning-surface: var(--md-color-attention-warning-1);
+  --md-color-attention-warning-border: var(--md-color-attention-warning-5);
+
+  --md-color-attention-success-primary: var(--md-color-attention-success-6);
+  --md-color-attention-success-primary-hover: var(--md-color-attention-success-7);
+  --md-color-attention-success-primary-active: var(--md-color-attention-success-8);
+  --md-color-attention-success-surface: var(--md-color-attention-success-1);
+  --md-color-attention-success-border: var(--md-color-attention-success-6);
+
+  --md-color-attention-info-primary: var(--md-color-attention-info-6);
+  --md-color-attention-info-primary-hover: var(--md-color-attention-info-7);
+  --md-color-attention-info-primary-active: var(--md-color-attention-info-8);
+  --md-color-attention-info-surface: var(--md-color-attention-info-1);
+  --md-color-attention-info-border: var(--md-color-attention-info-6);
 
   /* surface */
-  --md-color-surface-primary: var(--md-color-white);
-  --md-color-surface-secondary: var(--md-color-primary-10);
-  --md-color-surface-tertiary: var(--md-color-secondary-20);
-  --md-color-surface-info-primary: var(--md-color-primary-20);
-  --md-color-surface-info-secondary: var(--md-color-secondary-40);
-  --md-color-surface-grey: var(--md-color-grey-10);
+  --md-color-surface-white: var(--md-color-grey-white);
+
+  --md-color-surface-primary: var(--md-color-green-1);
+  --md-color-surface-primary-tinted: var(--md-color-green-2);
+  --md-color-surface-primary-hover: var(--md-color-green-3);
+  --md-color-surface-primary-active: var(--md-color-green-4);
+
+  --md-color-surface-secondary: var(--md-color-beige-1);
+  --md-color-surface-secondary-tinted: var(--md-color-beige-2);
+  --md-color-surface-secondary-hover: var(--md-color-beige-3);
+  --md-color-surface-secondary-active: var(--md-color-beige-4);
+
+  --md-color-surface-grey: var(--md-color-grey-2);
 
   /* text */
-  --md-color-text-primary: var(--md-color-grey-100);
-  --md-color-text-secondary: var(--md-color-primary-100);
-  --md-color-text-inverted: var(--md-color-white);
-  --md-color-text-disabled: var(--md-color-grey-60);
-  --md-color-text-visited: var(--md-color-primary-160);
+  --md-color-text-primary: var(--md-color-grey-7);
+  --md-color-text-secondary: var(--md-color-green-10);
+  --md-color-text-inverted: var(--md-color-grey-white);
+  --md-color-text-disabled: var(--md-color-grey-5);
+  --md-color-text-visited: var(--md-color-green-13);
 
   /* border */
-  --md-color-border-primary: var(--md-color-grey-60);
-  --md-color-border-secondary: var(--md-color-grey-20);
-  --md-color-border-tertiary: var(--md-color-primary-100);
+  --md-color-border-primary: var(--md-color-grey-5);
+  --md-color-border-secondary: var(--md-color-grey-3);
+  --md-color-border-tertiary: var(--md-color-green-10);
 
   /* SIZES */
   --md-size-0: var(--md-spacing-0); /* 0px, 0rem */
@@ -102,3 +131,11 @@
   --md-typography-line-height-small: 1.3;
   --md-typography-line-height-medium: 1.5;
 }
+
+/* UNUSED TOKENS; FIND THESE
+
+--md-color-surface-tertiary: var(--md-color-secondary-20);
+--md-color-surface-info-primary: var(--md-color-primary-20);
+--md-color-surface-info-secondary: var(--md-color-secondary-40);
+
+*/

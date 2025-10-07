@@ -2,7 +2,7 @@
 .md-tile {
   padding: var(--md-size-24);
   border: var(--md-size-1) solid var(--md-color-border-primary);
-  background-color: var(--md-color-surface-secondary);
+  background-color: var(--md-color-surface-primary);
   color: var(--md-color-text-primary);
   display: flex;
   align-items: center;
@@ -36,12 +36,12 @@
 }
 
 .md-tile--secondary {
-  background-color: var(--md-color-surface-info-secondary);
+  background-color: var(--md-color-surface-secondary-tinted);
 }
 
 .md-tile:not(.md-tile--disabled):hover {
   border: var(--md-size-1) solid var(--md-color-border-tertiary);
-  background-color: var(--md-color-cta-secondary-active);
+  background-color: var(--md-color-surface-primary-hover);
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
@@ -49,15 +49,15 @@
 .md-tile:not(.md-tile--disabled):focus-visible {
   outline: var(--md-size-2) solid var(--md-color-border-tertiary);
   outline-offset: -2px;
-  background-color: var(--md-color-cta-secondary-active);
+  background-color: var(--md-color-surface-primary-hover);
 }
 
 .md-tile--secondary:not(.md-tile--disabled):hover {
-  background-color: var(--md-color-secondary-80);
+  background-color: var(--md-color-surface-secondary-hover);
 }
 
 .md-tile--secondary:not(.md-tile--disabled):focus-visible {
-  background-color: var(--md-color-secondary-80);
+  background-color: var(--md-color-surface-secondary-hover);
 }
 
 .md-tile--disabled {
@@ -78,6 +78,10 @@
   width: var(--md-size-64);
   margin-right: var(--md-size-16);
   color: var(--md-color-text-secondary);
+}
+.md-tile:not(.md-tile--disabled):hover .md-tile__content-icon,
+.md-tile:not(.md-tile--disabled):focus-visible .md-tile__content-icon {
+  color: var(--md-color-text-primary);
 }
 .md-tile__content-icon .md-loading-spinner__container {
   height: 100%;
@@ -123,7 +127,7 @@
   align-items: center;
   justify-content: center;
   border: var(--md-size-1) solid var(--md-color-border-primary);
-  background-color: var(--md-color-surface-secondary);
+  background-color: var(--md-color-surface-primary);
   color: var(--md-color-text-primary);
   text-decoration: none;
   font-family: var(--md-typography-family-body);
@@ -131,7 +135,7 @@
 }
 
 .md-tile-vertical--secondary {
-  background-color: var(--md-color-surface-info-secondary);
+  background-color: var(--md-color-surface-secondary-tinted);
 }
 
 .md-tile-vertical--small {
@@ -152,7 +156,7 @@
 
 .md-tile-vertical:hover {
   border: var(--md-size-1) solid var(--md-color-border-tertiary);
-  background-color: var(--md-color-cta-secondary-active);
+  background-color: var(--md-color-surface-primary-hover);
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
@@ -160,15 +164,15 @@
 .md-tile-vertical:focus-visible {
   outline: var(--md-size-2) solid var(--md-color-border-tertiary);
   outline-offset: -2px;
-  background-color: var(--md-color-cta-secondary-active);
+  background-color: var(--md-color-surface-primary-hover);
 }
 
 .md-tile-vertical--secondary:hover {
-  background-color: var(--md-color-secondary-80);
+  background-color: var(--md-color-surface-secondary-hover);
 }
 
 .md-tile-vertical--secondary:focus-visible {
-  background-color: var(--md-color-secondary-80);
+  background-color: var(--md-color-surface-secondary-hover);
 }
 
 .md-tile-vertical__content {
@@ -196,7 +200,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: var(--md-size-16);
-  color: var(--md-color-cta-primary-focus);
+  color: var(--md-color-text-secondary);
   width: 8rem;
   height: 8rem;
 }

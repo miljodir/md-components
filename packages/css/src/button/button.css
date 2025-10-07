@@ -1,7 +1,7 @@
 .md-button {
   align-items: center;
   background-color: var(--md-color-cta-primary-default);
-  color: var(--md-color-text-inverted);
+  color: var(--md-color-cta-secondary-default);
   display: flex;
   font-weight: var(--md-typography-weight-regular);
   font-family: 'Open sans';
@@ -88,7 +88,7 @@
 
 .md-button[disabled],
 .md-button:disabled {
-  background-color: var(--md-color-grey-20);
+  background-color: var(--md-color-disabled-bg);
   color: var(--md-color-text-disabled);
   cursor: not-allowed;
 }
@@ -98,9 +98,9 @@
 }
 
 .md-button--secondary {
-  background-color: var(--md-color-surface-primary);
-  border: var(--md-size-2) solid var(--md-color-border-tertiary);
-  color: var(--md-color-text-secondary);
+  background-color: var(--md-color-cta-secondary-default);
+  border: var(--md-size-2) solid var(--md-color-cta-primary-default);
+  color: var(--md-color-cta-primary-default);
   padding: calc(var(--md-size-12) - 2px) calc(var(--md-size-16) - 2px);
 }
 
@@ -117,7 +117,7 @@
 }
 
 .md-button--secondary:focus-visible:not(:disabled):not([disabled]) {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-cta-secondary-default);
   border-color: var(--md-color-cta-primary-focus);
   color: var(--md-color-cta-primary-focus);
   outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
@@ -131,9 +131,9 @@
 }
 
 .md-button--secondary:disabled {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-cta-secondary-default);
   color: var(--md-color-text-disabled);
-  border-color: var(--md-color-border-secondary);
+  border-color: var(--md-color-disabled-bg);
 }
 
 .md-button--secondary > .md-button__rightIcon {
@@ -165,14 +165,14 @@
 }
 
 .md-button--tertiary:focus-visible:not(:disabled):not([disabled]) {
-  border-color: var(--md-color-border-tertiary);
-  outline: var(--md-size-2) var(--md-color-primary-80) solid;
+  border-color: var(--md-color-cta-primary-focus);
+  outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
   background-color: transparent;
   outline-offset: 0px;
 }
 
 .md-button--tertiary:focus-visible:hover:not(:disabled):not([disabled]) {
-  background-color: var(--md-color-surface-info-primary);
+  background-color: var(--md-color-cta-secondary-hover);
 }
 
 .md-button--tertiary:active:not(:disabled):not([disabled]) {
@@ -187,11 +187,11 @@
 }
 
 .md-button--tertiary > .md-button__rightIcon {
-  color: var(--md-color-text-secondary);
+  color: var(--md-color-cta-primary-default);
 }
 
 .md-button--tertiary:disabled > .md-button__rightIcon {
-  color: var(--md-color-disabled-bg);
+  color: var(--md-color-disabled-default);
 }
 
 .md-button--danger {
@@ -214,7 +214,7 @@
 
 /* Danger secondary */
 .md-button--danger-secondary {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-attention-error-secondary);
   border: var(--md-size-2) solid var(--md-color-attention-error-primary);
   color: var(--md-color-attention-error-primary);
   padding: calc(var(--md-size-12) - 2px) calc(var(--md-size-16) - 2px);
@@ -234,7 +234,7 @@
 }
 
 .md-button--danger-secondary:focus-visible:not(:disabled):not([disabled]) {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-attention-error-secondary);
   border-color: var(--md-color-attention-error-primary);
   color: var(--md-color-attention-error-primary);
   outline: var(--md-size-2) var(--md-color-attention-error-primary) solid;
@@ -248,9 +248,9 @@
 }
 
 .md-button--danger-secondary:disabled {
-  background-color: #fff;
-  color: var(--md-color-disabled-default);
-  border-color: var(--md-color-border-secondary);
+  background-color: var(--md-color-attention-error-secondary);
+  color: var(--md-color-attention-info-primary-hover);
+  border-color: var(--md-color-attention-error-primary-hover);
 }
 
 .md-button--danger-secondary > .md-button__rightIcon {
