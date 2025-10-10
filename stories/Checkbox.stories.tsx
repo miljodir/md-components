@@ -35,7 +35,7 @@ export default {
       description: 'The checkbox label',
       table: {
         type: {
-          summary: 'text',
+          summary: 'text | ReactNode',
         },
       },
       control: 'text',
