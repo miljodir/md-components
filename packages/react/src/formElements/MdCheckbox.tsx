@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import React, { useId } from 'react';
 
 export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  label?: string | React.ReactNode;
 }
 
 export const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
@@ -34,7 +34,7 @@ export const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
         {...otherProps}
       />
       <label className="md-checkbox__label" htmlFor={checkboxId || undefined}>
-        {label && label !== '' && <span className="md-checkbox__labelText">{label}</span>}
+        {label && <span className="md-checkbox__labelText">{label}</span>}
       </label>
     </div>
   );
