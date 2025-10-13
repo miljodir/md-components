@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import React, { useId } from 'react';
 
 export interface MdCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string | React.ReactNode;
+  label?: React.ReactNode;
 }
 
 export const MdCheckbox: React.FunctionComponent<MdCheckboxProps> = ({
