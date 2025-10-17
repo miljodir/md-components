@@ -5,7 +5,6 @@ import MdFilterChip, { type MdFilterChipProps } from './chips/MdFilterChip';
 import MdInputChip, { type MdInputChipProps } from './chips/MdInputChip';
 import MdDescriptionList, { MdDescriptionListItem } from './descriptionList/MdDescriptionList';
 import MdFileList, { type MdFileListProps } from './fileList/MdFileList';
-import MdAutocomplete, { type MdAutocompleteOption, type MdAutocompleteProps } from './formElements/MdAutocomplete';
 import MdCheckbox, { type MdCheckboxProps } from './formElements/MdCheckbox';
 import MdCheckboxGroup, { type MdCheckboxGroupProps } from './formElements/MdCheckboxGroup';
 import MdComboBox, { type MdComboBoxOption } from './formElements/MdComboBox';
@@ -184,7 +183,6 @@ export {
   MdInput,
   MdSelect,
   MdMultiSelect,
-  MdAutocomplete,
   MdMultiAutocomplete,
   MdRadioGroup,
   MdRadioButton,
@@ -222,8 +220,6 @@ export {
   MdSelectOption,
   MdMultiSelectProps,
   MdMultiSelectOption,
-  MdAutocompleteProps,
-  MdAutocompleteOption,
   MdMultiAutocompleteOption,
   MdRadioGroupProps,
   MdRadioButtonProps,

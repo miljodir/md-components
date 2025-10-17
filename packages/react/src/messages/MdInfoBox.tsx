@@ -1,6 +1,5 @@
-import classnames from 'classnames';
 import React from 'react';
-import MdIconInfo from '../icons-material/MdIconInfo';
+import MdAlertMessage from './MdAlertMessage';
 
 export interface MdInfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -17,27 +16,21 @@ export const MdInfoBox: React.FC<MdInfoBoxProps> = ({
   className,
   ...otherProps
 }: MdInfoBoxProps) => {
-  const classNames = classnames(
-    'md-info-box',
-    {
-      'md-info-box--fullWidth': !!fullWidth,
-    },
-    className,
+  // eslint-disable-next-line no-console
+  console.warn(
+    'MdInfoBox is deprecated and will be removed in a future release. Use MdAlertMessage with theme="info-box" instead.',
   );
 
-  const renderIcon = () => {
-    let icon = (<MdIconInfo aria-label="Info" width="20" height="20" />) as React.ReactNode;
-    if (customIcon) {
-      icon = customIcon;
-    }
-    return icon;
-  };
-
   return (
-    <div className={classNames} {...otherProps}>
-      {!hideIcon && renderIcon()}
-      {label}
-    </div>
+    <MdAlertMessage
+      theme="info-box"
+      label={label}
+      hideIcon={hideIcon}
+      fullWidth={fullWidth}
+      customIcon={customIcon}
+      className={className}
+      {...otherProps}
+    />
   );
 };
 
