@@ -40,6 +40,17 @@ export default {
       },
       control: 'text',
     },
+    description: {
+      type: { name: 'string' },
+      description:
+        'Additional description content to display below the label in the alert message. Can be either a plain string or a html-node containing subcontents.',
+      table: {
+        type: {
+          summary: 'text | ReactNode',
+        },
+      },
+      control: 'text',
+    },
     theme: {
       description: 'Theme of alert message',
       table: {
@@ -48,7 +59,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['info', 'confirm', 'warning', 'error'],
+      options: ['info', 'success', 'warning', 'error', 'info-box'],
       control: { type: 'inline-radio' },
     },
     fullWidth: {
@@ -141,6 +152,7 @@ export const AlertMessage = Template.bind({});
 AlertMessage.args = {
   theme: 'info',
   label: 'This is an alert message.',
+  description: 'This is additional description for the alert message.',
   hideIcon: false,
   closable: true,
   fullWidth: false,
