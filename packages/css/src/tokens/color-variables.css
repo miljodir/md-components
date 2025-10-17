@@ -1,0 +1,77 @@
+:root {
+  /* Green */
+  --md-color-green-13: #003b3a;
+  --md-color-green-12: #004646;
+  --md-color-green-11: #005251;
+  --md-color-green-10: #005e5d;
+  --md-color-green-9: #196d6c;
+  --md-color-green-8: #337e7d;
+  --md-color-green-7: #4c8e8d;
+  --md-color-green-6: #669e9d;
+  --md-color-green-5: #7faead;
+  --md-color-green-4: #99bebe;
+  --md-color-green-3: #b2cece;
+  --md-color-green-2: #ccdfde;
+  --md-color-green-1: #e5eeee;
+
+  /* Beige */
+  --md-color-beige-5: #ece7d2;
+  --md-color-beige-4: #efebdb;
+  --md-color-beige-3: #f3f0e4;
+  --md-color-beige-2: #f7f5ed;
+  --md-color-beige-1: #fbfaf6;
+
+  /* Grey */
+  --md-color-grey-7: #222222;
+  --md-color-grey-6: #4e4e4e;
+  --md-color-grey-5: #767676;
+  --md-color-grey-4: #a6a6a6;
+  --md-color-grey-3: #d2d2d2;
+  --md-color-grey-2: #e8e8e8;
+  --md-color-grey-1: #f4f4f4;
+  --md-color-grey-white: #ffffff;
+  --md-color-white: #ffffff;
+
+  /* Attention colors */
+  --md-color-attention-white: #ffffff;
+
+  /* Warning */
+  --md-color-attention-warning-8: #6b3c0a;
+  --md-color-attention-warning-7: #854908;
+  --md-color-attention-warning-6: #a55c0a;
+  --md-color-attention-warning-5: #de8215;
+  --md-color-attention-warning-4: #eb9e46;
+  --md-color-attention-warning-3: #f6c084;
+  --md-color-attention-warning-2: #fad6ae;
+  --md-color-attention-warning-1: #fff1e2;
+
+  /* Error */
+  --md-color-attention-error-8: #611616;
+  --md-color-attention-error-7: #8a2120;
+  --md-color-attention-error-6: #b92e2c;
+  --md-color-attention-error-5: #ce4544;
+  --md-color-attention-error-4: #d6706f;
+  --md-color-attention-error-3: #df9a99;
+  --md-color-attention-error-2: #eac2c2;
+  --md-color-attention-error-1: #f7e9e9;
+
+  /* Success */
+  --md-color-attention-success-8: #064a33;
+  --md-color-attention-success-7: #086244;
+  --md-color-attention-success-6: #0a7b55;
+  --md-color-attention-success-5: #25a777;
+  --md-color-attention-success-4: #52c296;
+  --md-color-attention-success-3: #80d1b1;
+  --md-color-attention-success-2: #b6e2d2;
+  --md-color-attention-success-1: #e6f6f0;
+
+  /* Info */
+  --md-color-attention-info-8: #003663;
+  --md-color-attention-info-7: #00447c;
+  --md-color-attention-info-6: #005ba5;
+  --md-color-attention-info-5: #0072ce;
+  --md-color-attention-info-4: #338ed8;
+  --md-color-attention-info-3: #66aae2;
+  --md-color-attention-info-2: #a5cdee;
+  --md-color-attention-info-1: #d6e8f4;
+}

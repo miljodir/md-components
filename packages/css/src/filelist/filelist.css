@@ -7,10 +7,10 @@
 .md-filelist__file {
   display: flex;
   justify-content: space-between;
-  border: var(--md-size-1) solid var(--md-color-border-tertiary);
+  border: var(--md-size-1) solid var(--md-color-cta-secondary-stroke);
   padding: 0.8rem 1.1rem;
   font-family: var(--md-typography-family-body);
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   transition: background 0.2s linear;
 }
 

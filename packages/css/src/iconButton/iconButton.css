@@ -6,7 +6,7 @@
   height: var(--md-size-32);
   justify-content: center;
   background-color: var(--md-color-cta-primary-default);
-  color: var(--md-color-text-inverted);
+  color: var(--md-color-cta-secondary-default);
   font-family: var(--md-typography-family-body);
   border-radius: var(--md-radius-half);
   border: none;
@@ -53,10 +53,10 @@
 }
 
 .md-icon-button--border {
-  background-color: var(--md-color-surface-primary);
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
+  background-color: var(--md-color-background-primary);
+  outline: var(--md-size-2) solid var(--md-color-cta-primary-default);
   outline-offset: -2px;
-  color: var(--md-color-text-secondary);
+  color: var(--md-color-cta-primary-default);
 }
 
 .md-icon-button--border:hover:enabled {
@@ -68,14 +68,14 @@
 }
 
 .md-icon-button--border:focus-visible:enabled {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   border: var(--md-size-1) solid var(--md-color-cta-primary-focus);
   outline: 1px var(--md-color-cta-primary-focus) solid;
   outline-offset: -4px;
 }
 
 .md-icon-button--border:active:enabled {
-  background-color: var(--md-color-cta-primary-hover) !important;
+  background-color: var(--md-color-cta-secondary-active) !important;
   color: var(--md-color-cta-primary-hover) !important;
   outline-color: var(--md-color-cta-primary-hover);
 }
@@ -90,12 +90,12 @@
 .md-icon-button--plain {
   background-color: transparent;
   border: none;
-  color: var(--md-color-text-secondary);
+  color: var(--md-color-cta-primary-default);
 }
 
 .md-icon-button--plain:hover:enabled {
   text-decoration: underline;
-  outline: var(--md-color-grey-100) solid var(--md-size-1);
+  outline: var(--md-color-cta-primary-focus) solid var(--md-size-1);
   outline-offset: -2px;
   background-color: transparent;
 }

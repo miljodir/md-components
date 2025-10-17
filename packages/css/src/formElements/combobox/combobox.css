@@ -23,7 +23,7 @@
 .md-combobox__input {
   width: 100%;
   font-size: var(--md-typography-size-16);
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   line-height: var(--md-typography-line-height-medium);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-size-4);
@@ -41,7 +41,7 @@
   padding-left: var(--md-size-12);
 }
 .md-combobox__input::placeholder {
-  color: var(--md-color-text-disabled);
+  color: var(--md-color-border-primary);
   font-size: var(--md-typography-size-16);
 }
 .md-combobox--has-value .md-combobox__input[aria-expanded='false']::placeholder {
@@ -50,7 +50,7 @@
 
 .md-combobox__input[data-focus-visible],
 .md-combobox__input[aria-expanded='true'] {
-  outline: var(--md-size-2) solid var(--md-color-border-primary);
+  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
   outline-offset: -2px;
   border-radius: var(--md-size-4) var(--md-size-4) var(--md-size-0) var(--md-size-0);
 }
@@ -63,7 +63,7 @@
 }
 
 .md-combobox__input:disabled {
-  background-color: var(--md-color-surface-disabled);
+  background-color: var(--md-color-disabled-bg);
   border-color: var(--md-color-border-primary);
 }
 .md-combobox__input:disabled::placeholder {
@@ -74,7 +74,7 @@
   display: flex;
   top: 50%;
   left: var(--md-size-12);
-  color: var(--md-color-border-tertiary);
+  color: var(--md-color-cta-primary-default);
   width: var(--md-size-20);
   height: var(--md-size-20);
   transform: translateY(-50%);
@@ -89,7 +89,7 @@
   display: flex;
   align-items: center;
   gap: var(--md-size-8);
-  color: var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
   transform: translateY(-50%);
   z-index: 0;
 }
@@ -132,7 +132,7 @@
 
 /* Popover */
 .md-combobox__popover {
-  background-color: var(--md-color-surface-primary);
+  background-color: var(--md-color-background-primary);
   max-height: min(var(--popover-available-height, 300px), 300px);
   overflow: auto;
   overscroll-behavior: contain;
@@ -171,7 +171,7 @@
 }
 .md-combobox__checkbox-item[data-focus-visible],
 .md-combobox__checkbox-item[data-active-item] {
-  background-color: var(--md-color-primary-40);
+  background-color: var(--md-color-cta-secondary-active);
 
   .md-checkbox__label::before {
     background-color: var(--md-color-surface-primary);
@@ -218,6 +218,7 @@
   padding: var(--md-size-8) var(--md-size-12);
   color: var(--md-color-text-disabled);
   line-height: var(--md-typography-line-height-small);
+  font-weight: var(--md-typography-weight-medium);
 }
 .md-combobox__group-separator {
   padding: var(--md-size-8) var(--md-size-12);
