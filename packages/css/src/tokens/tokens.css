@@ -130,12 +130,10 @@
   /* line height */
   --md-typography-line-height-small: 1.3;
   --md-typography-line-height-medium: 1.5;
+
+  /* UNUSED TOKENS; REMOVE THESE LATER, AFTER MdInfoBox REWRITE */
+
+  --md-color-surface-tertiary: var(--md-color-secondary-20);
+  --md-color-surface-info-primary: var(--md-color-primary-20);
+  --md-color-surface-info-secondary: var(--md-color-secondary-40);
 }
-
-/* UNUSED TOKENS; FIND THESE
-
---md-color-surface-tertiary: var(--md-color-secondary-20);
---md-color-surface-info-primary: var(--md-color-primary-20);
---md-color-surface-info-secondary: var(--md-color-secondary-40);
-
-*/
