@@ -3,14 +3,16 @@
 import classnames from 'classnames';
 import React from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
-import MdIconCheck from '../icons-material/MdIconCheck';
+import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
 import MdIconClose from '../icons-material/MdIconClose';
 import MdIconInfo from '../icons-material/MdIconInfo';
+import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
 export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
-  theme?: 'info' | 'confirm' | 'warning' | 'error';
-  label?: string | React.ReactNode;
+  label: string | React.ReactNode;
+  theme?: 'info' | 'success' | 'warning' | 'error' | 'info-box';
+  description?: string | React.ReactNode;
   hideIcon?: boolean;
   closable?: boolean;
   fullWidth?: boolean;
@@ -23,6 +25,7 @@ export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement
 export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   theme = 'info',
   label,
+  description,
   hideIcon = false,
   closable = false,
   fullWidth = false,
@@ -36,28 +39,31 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
     'md-alert-message',
     {
       'md-alert-message--fullWidth': !!fullWidth,
-      'md-alert-message--confirm': theme === 'confirm',
+      'md-alert-message--success': theme === 'success',
       'md-alert-message--warning': theme === 'warning',
       'md-alert-message--error': theme === 'error',
+      'md-alert-message--info-box': theme === 'info-box',
     },
     className,
   );
 
   const contentClassNames = classnames('md-alert-message__content', {
-    'md-alert-message__content--start': alignContent === 'start',
+    'md-alert-message__content--center': alignContent === 'center',
     'md-alert-message__content--end': alignContent === 'end',
   });
 
   const renderIcon = () => {
     let icon = (
-      <MdIconInfo className="md-alert-message__icon" aria-label="Info" width="20" height="20" />
+      <MdIconInfo className="md-alert-message__icon" aria-label="Info" width="24" height="24" />
     ) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
-    } else if (theme === 'confirm') {
-      icon = <MdIconCheck className="md-alert-message__icon" aria-label="Bekreft" width="20" height="20" />;
-    } else if (theme === 'warning' || theme === 'error') {
-      icon = <MdIconWarning className="md-alert-message__icon" aria-label="Advarsel" width="20" height="20" />;
+    } else if (theme === 'success') {
+      icon = <MdIconCheckCircle className="md-alert-message__icon" aria-label="Bekreft" width="24" height="24" />;
+    } else if (theme === 'error') {
+      icon = <MdIconReport className="md-alert-message__icon" aria-label="Feil" width="24" height="24" />;
+    } else if (theme === 'warning') {
+      icon = <MdIconWarning className="md-alert-message__icon" aria-label="Advarsel" width="24" height="24" />;
     }
     return icon;
   };
@@ -70,23 +76,26 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 
   return (
     <div className={classNames} {...otherProps}>
+      {!hideIcon && renderIcon()}
       <div className={contentClassNames}>
-        {!hideIcon && renderIcon()}
-        {label}
+        <div className="md-alert-message__label">{label}</div>
+        {description && <div className="md-alert-message__description">{description}</div>}
       </div>
 
       {!!closable && onClose && (
-        <MdIconButton
-          className="md-alert-message__button"
-          theme="plain"
-          type="button"
-          aria-label="Lukk"
-          onClick={e => {
-            return clickHandler(e);
-          }}
-        >
-          <MdIconClose />
-        </MdIconButton>
+        <div className="md-alert-message__button-wrapper">
+          <MdIconButton
+            className="md-alert-message__button"
+            theme="plain"
+            type="button"
+            aria-label="Lukk"
+            onClick={e => {
+              return clickHandler(e);
+            }}
+          >
+            <MdIconClose />
+          </MdIconButton>
+        </div>
       )}
     </div>
   );
