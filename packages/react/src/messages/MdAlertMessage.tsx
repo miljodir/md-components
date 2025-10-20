@@ -10,8 +10,8 @@ import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
 export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
+  label: string | React.ReactNode;
   theme?: 'info' | 'success' | 'warning' | 'error' | 'info-box';
-  label?: string | React.ReactNode;
   description?: string | React.ReactNode;
   hideIcon?: boolean;
   closable?: boolean;

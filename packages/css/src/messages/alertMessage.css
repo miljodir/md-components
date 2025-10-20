@@ -51,7 +51,6 @@
   align-items: flex-start;
   gap: var(--md-size-8);
   width: 100%;
-  /* padding: var(--md-size-16); */
 }
 
 .md-alert-message__content--center {
@@ -62,7 +61,6 @@
 }
 
 .md-alert-message__button-wrapper {
-  /* margin-right: var(--md-size-12); */
   width: var(--md-size-32);
   height: var(--md-size-32);
   margin-top: -4px;
@@ -74,10 +72,3 @@
 .md-alert-message .md-alert-message__button:hover {
   outline-color: var(--md-color-text-primary);
 }
-
-/* .md-alert-message--error .md-alert-message__button:hover {
-  outline-color: var(--md-color-text-inverted);
-}
-.md-alert-message--error .md-alert-message__button {
-  color: var(--md-color-text-inverted);
-} */

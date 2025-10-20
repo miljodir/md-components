@@ -8,7 +8,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <div
-  class="md-alert-message [md-alert-message--confirm, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]"
+  class="md-alert-message [md-alert-message--success, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]"
 >
   <div class="md-alert-message__content">
     <!-- Use MdIconWarning or warning icon from Material Symbols here -->
