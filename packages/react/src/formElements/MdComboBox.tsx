@@ -173,9 +173,10 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           includesBaseElement={false}
           selectedValue={selectedValues}
           store={store}
-          setSelectedValue={values => {
-            setSelectedValues(values);
-            onSelectOption(values);
+          setSelectedValue={(values: string | readonly string[]) => {
+            const mutableValues = Array.isArray(values) ? (Array.from(values) as string[]) : (values as string);
+            setSelectedValues(mutableValues);
+            onSelectOption(mutableValues);
           }}
           setValue={val => {
             startTransition(() => {
