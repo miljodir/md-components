@@ -81,7 +81,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
     const isMultiSelect = Array.isArray(value);
     const [isPending, startTransition] = useTransition();
     const [searchValue, setSearchValue] = useState('');
-    const [selectedValues, setSelectedValues] = useState<string | string[]>(value);
+    const [selectedValues, setSelectedValues] = useState<string[] | string>(value);
     const [helpOpen, setHelpOpen] = useState(false);
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [pendingSearchClear, setPendingSearchClear] = useState(false);
@@ -174,9 +174,8 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
           selectedValue={selectedValues}
           store={store}
           setSelectedValue={values => {
-            const mutableValues = Array.isArray(values) ? (values as string[]) : values;
-            setSelectedValues(mutableValues);
-            onSelectOption(mutableValues);
+            setSelectedValues(values);
+            onSelectOption(values);
           }}
           setValue={val => {
             startTransition(() => {
