@@ -127,9 +127,10 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
           value={value}
           store={store}
           id={selectBoxId}
-          setValue={val => {
-            setSelectedValues(val);
-            onSelectOption(val);
+          setValue={(val: string | readonly string[]) => {
+            const mutableVal = Array.isArray(val) ? (Array.from(val) as string[]) : (val as string);
+            setSelectedValues(mutableVal);
+            onSelectOption(mutableVal);
           }}
         >
           {showLabel && (
