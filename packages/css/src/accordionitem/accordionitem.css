@@ -1,5 +1,5 @@
 .md-accordion-item {
-  background-color: var(--md-color-surface-secondary);
+  background-color: var(--md-color-surface-primary);
   border: 1px solid var(--md-color-border-primary);
   color: var(--md-color-text-primary);
   font-family: 'Open sans';
