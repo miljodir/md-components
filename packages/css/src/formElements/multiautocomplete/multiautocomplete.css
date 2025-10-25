@@ -62,7 +62,7 @@
 }
 
 .md-multiautocomplete__input:focus-visible,
-.md-multiautocomplete__input:focus-visible-within {
+.md-multiautocomplete__input:focus-within {
   outline: none;
 }
 
