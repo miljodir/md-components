@@ -8,7 +8,8 @@
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "eslint --ext js,ts,tsx .",
-    "pack-local": "sh -c 'cd packages/react && npm run build && npm pack --pack-destination ~ && cd ../css && npm pack --pack-destination ~'"
+    "pack-local": "sh -c 'cd packages/react && npm run build && npm pack --pack-destination ~ && cd ../css && npm pack --pack-destination ~'",
+    "extract:svgs": "node ./packages/react/tools/extract-icons.mjs"
   },
   "keywords": [],
   "author": "Miljødirektoratet",
