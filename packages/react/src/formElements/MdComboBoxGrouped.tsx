@@ -90,20 +90,29 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
       requestAnimationFrame(checkAnimationEnd);
     }, [store, pendingSearchClear]);
 
+    const normalizeString = (str: string) => {
+      return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    };
+
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
         return defaultOptions;
       }
 
+      const normalizedSearch = normalizeString(searchValue || '');
+
       const results = options
         .map(group => {
           // Filter the values within each group based on the searchValue
           const matchingValues = group.values.filter(value => {
-            const searchTerm = (searchValue || '').toLowerCase().trim();
-            const optionValue = (value.value || '').toLowerCase().trim();
-            const optionText = (value.text || '').toLowerCase().trim();
+            const normalizedValue = normalizeString(value.value || '');
+            const normalizedText = normalizeString(value.text || '');
 
-            return optionValue.includes(searchTerm) || optionText.includes(searchTerm);
+            return normalizedValue.includes(normalizedSearch) || normalizedText.includes(normalizedSearch);
           });
 
           // Return the group only if it has matching values
