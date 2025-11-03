@@ -14,7 +14,10 @@
 .md-multiselect__label {
   display: flex;
   align-items: flex-end;
-  font-weight: 600;
+}
+
+.md-multiselect__label label {
+  font-weight: var(--md-typography-weight-medium);
 }
 
 .md-multiselect__label-wrapper {
