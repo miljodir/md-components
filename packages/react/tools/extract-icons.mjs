@@ -6,7 +6,7 @@ import { join } from 'path';
 const sourceDir = './packages/react/src/icons-material';
 
 // Output folder for SVG
-const outputDir = './packages/css/src/img/scg/icons';
+const outputDir = './packages/css/src/svg/icons';
 
 // Check if output folder exists
 function ensureDirectoryExistence(dir) {
