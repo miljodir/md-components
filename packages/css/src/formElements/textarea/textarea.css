@@ -50,7 +50,10 @@
 .md-textarea__label {
   display: flex;
   align-items: flex-end;
-  font-weight: var(--md-typography-font-weight-medium);
+}
+
+.md-textarea__label label {
+  font-weight: var(--md-typography-weight-medium);
 }
 
 .md-textarea__label > * + * {

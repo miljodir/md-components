@@ -15,7 +15,7 @@ import type { MdComboBoxBaseProps, MdComboBoxOption } from './MdComboBox';
 
 export interface MdComboBoxGroupedOption {
   label: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   values: MdComboBoxOption[];
 }
 
