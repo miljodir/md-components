@@ -12,6 +12,7 @@
 
 .md-checkbox__label {
   display: inline-flex;
+  align-items: center;
   cursor: pointer;
   position: relative;
 }
