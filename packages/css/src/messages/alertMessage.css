@@ -43,6 +43,7 @@
   align-items: center;
   gap: var(--md-size-12);
   font-weight: var(--md-typography-weight-medium);
+  text-wrap: wrap;
 }
 
 .md-alert-message__content {
@@ -51,6 +52,7 @@
   align-items: flex-start;
   gap: var(--md-size-8);
   width: 100%;
+  text-wrap: wrap;
 }
 
 .md-alert-message__content--center {

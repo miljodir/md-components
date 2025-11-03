@@ -10,7 +10,7 @@ import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
 export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
-  label: string | React.ReactNode;
+  label?: string | React.ReactNode;
   theme?: 'info' | 'success' | 'warning' | 'error' | 'info-box';
   description?: string | React.ReactNode;
   hideIcon?: boolean;
@@ -78,7 +78,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
     <div className={classNames} {...otherProps}>
       {!hideIcon && renderIcon()}
       <div className={contentClassNames}>
-        <div className="md-alert-message__label">{label}</div>
+        {label && <div className="md-alert-message__label">{label}</div>}
         {description && <div className="md-alert-message__description">{description}</div>}
       </div>
 

@@ -30,7 +30,7 @@ export default {
   },
   argTypes: {
     label: {
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
       description:
         'The content to display in the alert message. Can be either a plain string or a html-node containing subcontents.',
       table: {
