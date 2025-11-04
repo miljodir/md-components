@@ -43,7 +43,7 @@ I [Storybook](https://miljodir.github.io/md-components) finnes alle tilgjengelig
 
 ## Ikoner og Material Symbols
 
-Miljødirektoratets designsystem bruker nå [Material Symbols](https://fonts.google.com/icons?icon.style=Sharp) ("sharp" versjonen). Vi har laget egne ikon komponenter som bruker svg ikoner fra Material Symbols.
+Miljødirektoratets designsystem bruker nå [Material Symbols](https://fonts.google.com/icons?icon.style=Sharp) ("sharp" versjonen). Vi har laget egne ikon komponenter som bruker svg ikoner fra Material Symbols. Disse ligger også som frittstående SVG-filer i CSS-pakka.
 
 Hvis du ønsker å bruke et ikon fra Material som vi ikke har i vårt komponentbibliotek, kan du [legge inn et issue her](https://github.com/miljodir/md-components/issues). Du må også gjerne implementere Material Symbols i ditt eget prosjekt slik du ønsker, men i så fall skal følgende regler følges:
 
