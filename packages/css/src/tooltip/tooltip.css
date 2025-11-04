@@ -6,7 +6,7 @@
   font-family: var(--md-typography-family-body);
   height: fit-content;
   width: fit-content;
-  font-weight: 400;
+  font-weight: var(--md-typography-weight-regular);
   font-size: 0.875rem;
   border-radius: var(--md-size-8);
   padding: 0.625rem;
