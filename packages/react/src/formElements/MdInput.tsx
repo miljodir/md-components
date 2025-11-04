@@ -40,7 +40,8 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       hideNumberArrows = false,
       disabled = false,
       readOnly = false,
-      mode = 'medium'
+      mode = 'medium',
+      ...otherProps
     },
     ref,
   ) => {
@@ -144,6 +145,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             ref={ref}
             disabled={!!disabled}
             readOnly={!!readOnly}
+            {...otherProps}
           />
 
           <div className="md-input__suffix">
