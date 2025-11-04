@@ -30,7 +30,7 @@
 
 .md-multiselect__button {
   font-family: var(--md-typography-family-body);
-  font-size: 1rem;
+  font-size: var(--md-typography-size-16);
   width: 100%;
   display: flex;
   align-items: center;
@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   font-family: var(--md-typography-family-body);
-  font-size: 1rem;
+  font-size: var(--md-typography-size-16);
   border: 0;
   background-color: #fff;
   text-align: left;
@@ -154,7 +154,7 @@
 
 .md-multiselect__dropdown-item .md-checkbox__labelText {
   font-family: var(--md-typography-family-label);
-  font-size: 1rem;
+  font-size: var(--md-typography-size-16);
   font-style: normal;
   font-weight: var(--md-typography-weight-regular);
   line-height: 1.375rem;

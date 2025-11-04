@@ -14,10 +14,10 @@
 }
 
 .md-tooltip--small {
-  font-size: var(--md-size-12);
+  font-size: var(--md-typography-size-12);
 }
 .md-tooltip--large {
-  font-size: var(--md-size-16);
+  font-size: var(--md-typography-size-16);
 }
 
 .md-tooltip__anchor {
