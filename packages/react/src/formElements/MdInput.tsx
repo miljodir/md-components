@@ -34,13 +34,13 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
       hideErrorIcon = false,
       helpText,
       outerWrapperClass = '',
+      className = '',
       suffix = undefined,
       prefixIcon = null,
       hideNumberArrows = false,
       disabled = false,
       readOnly = false,
-      mode = 'medium',
-      ...otherProps
+      mode = 'medium'
     },
     ref,
   ) => {
@@ -48,16 +48,19 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
 
-    const classNames = classnames('md-input', {
-      'md-input--small': mode === 'small',
-      'md-input--large': mode === 'large',
-      'md-input--disabled': !!disabled,
-      'md-input--readonly': !!readOnly,
-      'md-input--error': !!error,
-      'md-input--has-suffix': suffix && suffix !== '',
-      'md-input--has-prefix': prefixIcon !== null && prefixIcon !== '',
-      'md-input--hide-number-arrows': !!hideNumberArrows,
-    });
+    const classNames = classnames(
+      'md-input', {
+        'md-input--small': mode === 'small',
+        'md-input--large': mode === 'large',
+        'md-input--disabled': !!disabled,
+        'md-input--readonly': !!readOnly,
+        'md-input--error': !!error,
+        'md-input--has-suffix': suffix && suffix !== '',
+        'md-input--has-prefix': prefixIcon !== null && prefixIcon !== '',
+        'md-input--hide-number-arrows': !!hideNumberArrows,
+      },
+      className
+    );
 
     const wrapperClassNames = classnames('md-input__wrapper', {
       'md-input__wrapper--small': mode === 'small',
@@ -141,7 +144,6 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
             ref={ref}
             disabled={!!disabled}
             readOnly={!!readOnly}
-            {...otherProps}
           />
 
           <div className="md-input__suffix">
