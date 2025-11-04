@@ -1,5 +1,5 @@
 .md-multiautocomplete {
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   width: 100%;
 }
 
@@ -37,7 +37,7 @@
   border-radius: 0;
   color: var(--mdGreyColor);
   box-sizing: border-box;
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@
 .md-multiautocomplete__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   border: 0;
   font-size: 1rem;
   background-color: #fff;
