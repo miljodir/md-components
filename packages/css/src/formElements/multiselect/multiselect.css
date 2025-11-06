@@ -94,7 +94,7 @@
 
 .md-multiselect__button-hasmultiple {
   margin-right: 1rem;
-  font-size: 0.8rem;
+  font-size: var(--md-typography-size-14);
 }
 
 .md-multiselect__help-text {
@@ -206,7 +206,7 @@
 
 .md-multiselect__error {
   color: var(--mdErrorColor);
-  font-size: 0.88em;
+  font-size: var(--md-typography-size-14);
   margin-top: 0.5rem;
 }
 

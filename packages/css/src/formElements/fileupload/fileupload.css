@@ -43,7 +43,7 @@
 .md-fileupload__droparea-content--count {
   text-align: center;
   margin: var(--md-size-8) var(--md-size-0);
-  font-size: 0.888rem;
+  font-size: var(--md-typography-size-14);
   font-style: italic;
 }
 

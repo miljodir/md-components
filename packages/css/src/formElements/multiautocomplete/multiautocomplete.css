@@ -133,7 +133,7 @@
   right: 4.5rem;
   display: flex;
   z-index: 0;
-  font-size: 0.8rem;
+  font-size: var(--md-typography-size-14);
 }
 
 .md-multiautocomplete__help-text {
@@ -249,5 +249,5 @@
 /* Error text */
 .md-multiautocomplete__error {
   color: var(--mdErrorColor);
-  font-size: 0.88rem;
+  font-size: var(--md-typography-size-14);
 }

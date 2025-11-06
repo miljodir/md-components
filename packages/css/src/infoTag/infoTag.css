@@ -58,7 +58,7 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: var(--md-typography-size-14);
   line-height: var(--md-typography-line-height-small);
 }
 .md-info-tag:hover .md-info-tag__label {
