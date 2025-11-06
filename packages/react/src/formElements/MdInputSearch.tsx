@@ -1,0 +1,137 @@
+'use client';
+
+import classnames from 'classnames';
+import React, { useId, useState } from 'react';
+import MdButton from '../button/MdButton';
+import MdHelpButton from '../help/MdHelpButton';
+import MdHelpText from '../help/MdHelpText';
+
+
+
+export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  supportText?: string;
+  helpText?: string;
+  outerWrapperClass?: string;
+  suffix?: string | React.ReactNode;
+  button?: boolean;
+  /**
+   * v6.x.x: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead
+   */
+  mode?: 'small' | 'medium' | 'large' | 'normal';
+}
+
+export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
+  (
+    {
+      label,
+      id,
+      supportText,
+      helpText,
+      outerWrapperClass = '',
+      className = '',
+      mode = 'medium',
+      button = true,
+      ...otherProps
+    },
+    ref,
+  ) => {
+    const [helpOpen, setHelpOpen] = useState(false);
+    const uuid = useId();
+    const inputId = id && id !== '' ? id : uuid;
+
+    const classNames = classnames(
+      'md-input', {
+        'md-input--small': mode === 'small',
+        'md-input--large': mode === 'large',
+      },
+      className
+    );
+
+    const wrapperClassNames = classnames('md-input__wrapper', {
+      'md-input__wrapper--small': mode === 'small',
+      'md-input__wrapper--large': mode === 'large',
+    });
+
+    const outerWrapperClasses = classnames(
+      'md-input__outer-wrapper',
+      {
+        'md-input__outer-wrapper--small': mode === 'small',
+        'md-input__outer-wrapper--large': mode === 'large',
+      },
+      outerWrapperClass,
+    );
+
+    // Build aria-describedby in order of priority: error → support → help text
+    const ariaDescribedBy = [
+      helpText && helpText !== '' && `md-input_help-text_${inputId}`,
+      supportText && supportText !== '' && `md-input_support-text_${inputId}`,
+    ].filter(Boolean).join(' ') || undefined;
+
+    const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
+    /* Log warning if mode = 'normal' */
+    if (mode === 'normal') {
+      console.warn(
+        'MdInputSearch: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead.',
+      );
+    }
+
+    return (
+      <div className={outerWrapperClasses}>
+        {showLabel && (
+          <div className="md-input__label-wrapper">
+            <div className="md-input__label">
+              {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
+              {helpText && helpText !== '' && (
+                <div className="md-input__help-button">
+                  <MdHelpButton
+                    aria-label={`Hjelpetekst for ${label}`}
+                    id={`md-input_help-button_${inputId}`}
+                    aria-expanded={helpOpen}
+                    aria-controls={`md-input_help-text_${inputId}`}
+                    onClick={() => {
+                      return setHelpOpen(!helpOpen);
+                    }}
+                    expanded={helpOpen}
+                  />
+                </div>
+              )}
+            </div>
+
+            {helpText && helpText !== '' && (
+              <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
+                <MdHelpText
+                  id={`md-input_help-text_${inputId}`}
+                  aria-labelledby={helpText && helpText !== '' ? `md-input_help-button_${inputId}` : undefined}
+                >
+                  {helpText}
+                </MdHelpText>
+              </div>
+            )}
+          </div>
+        )}
+        <div className={wrapperClassNames}>
+          <input
+            id={inputId}
+            aria-describedby={ariaDescribedBy}
+            className={classNames}
+            ref={ref}
+            {...otherProps}
+          />
+          {button && (
+            <MdButton />
+          )}
+        </div>
+        {supportText && supportText !== '' && (
+          <div id={`md-input_support_${inputId}`} className="md-input__support-text">
+            {supportText}
+          </div>
+        )}
+      </div>
+    );
+  },
+);
+MdInputSearch.displayName = 'MdInputSearch';
+
+export default MdInputSearch;
