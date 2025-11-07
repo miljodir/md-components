@@ -41,31 +41,32 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const inputId = id && id !== '' ? id : uuid;
 
     const classNames = classnames(
-      'md-input', {
-        'md-input--small': mode === 'small',
-        'md-input--large': mode === 'large',
+      'md-inputsearch', {
+        'md-inputsearch--small': mode === 'small',
+        'md-inputsearch--large': mode === 'large',
+        'md-inputsearch--button': button === true,
       },
       className
     );
 
-    const wrapperClassNames = classnames('md-input__wrapper', {
-      'md-input__wrapper--small': mode === 'small',
-      'md-input__wrapper--large': mode === 'large',
+    const wrapperClassNames = classnames('md-inputsearch__wrapper', {
+      'md-inputsearch__wrapper--small': mode === 'small',
+      'md-inputsearch__wrapper--large': mode === 'large',
     });
 
     const outerWrapperClasses = classnames(
-      'md-input__outer-wrapper',
+      'md-inputsearch__outer-wrapper',
       {
-        'md-input__outer-wrapper--small': mode === 'small',
-        'md-input__outer-wrapper--large': mode === 'large',
+        'md-inputsearch__outer-wrapper--small': mode === 'small',
+        'md-inputsearch__outer-wrapper--large': mode === 'large',
       },
       outerWrapperClass,
     );
 
     // Build aria-describedby in order of priority: error → support → help text
     const ariaDescribedBy = [
-      helpText && helpText !== '' && `md-input_help-text_${inputId}`,
-      supportText && supportText !== '' && `md-input_support-text_${inputId}`,
+      helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
+      supportText && supportText !== '' && `md-inputsearch_support-text_${inputId}`,
     ].filter(Boolean).join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
@@ -80,16 +81,16 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     return (
       <div className={outerWrapperClasses}>
         {showLabel && (
-          <div className="md-input__label-wrapper">
-            <div className="md-input__label">
+          <div className="md-inputsearch__label-wrapper">
+            <div className="md-inputsearch__label">
               {label && label !== '' && <label htmlFor={inputId}>{label}</label>}
               {helpText && helpText !== '' && (
-                <div className="md-input__help-button">
+                <div className="md-inputsearch__help-button">
                   <MdHelpButton
                     aria-label={`Hjelpetekst for ${label}`}
-                    id={`md-input_help-button_${inputId}`}
+                    id={`md-inputsearch_help-button_${inputId}`}
                     aria-expanded={helpOpen}
-                    aria-controls={`md-input_help-text_${inputId}`}
+                    aria-controls={`md-inputsearch_help-text_${inputId}`}
                     onClick={() => {
                       return setHelpOpen(!helpOpen);
                     }}
@@ -100,10 +101,10 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             </div>
 
             {helpText && helpText !== '' && (
-              <div className={`md-input__help-text ${helpOpen ? 'md-input__help-text--open' : ''}`}>
+              <div className={`md-inputsearch__help-text ${helpOpen ? 'md-inputsearch__help-text--open' : ''}`}>
                 <MdHelpText
-                  id={`md-input_help-text_${inputId}`}
-                  aria-labelledby={helpText && helpText !== '' ? `md-input_help-button_${inputId}` : undefined}
+                  id={`md-inputsearch_help-text_${inputId}`}
+                  aria-labelledby={helpText && helpText !== '' ? `md-inputsearch_help-button_${inputId}` : undefined}
                 >
                   {helpText}
                 </MdHelpText>
