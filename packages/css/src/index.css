@@ -12,6 +12,7 @@
 @import './formElements/combobox/combobox.css';
 @import './formElements/fileupload/fileupload.css';
 @import './formElements/input/input.css';
+@import './formElements/inputsearch/inputsearch.css';
 @import './formElements/multiautocomplete/multiautocomplete.css';
 @import './formElements/multiselect/multiselect.css';
 @import './formElements/radiobutton/radiobutton.css';
