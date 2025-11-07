@@ -43,7 +43,8 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       'md-inputsearch', {
         'md-inputsearch--small': mode === 'small',
         'md-inputsearch--large': mode === 'large',
-        'md-inputsearch--button': button === true,
+        'md-inputsearch--button': button,
+        'md-inputsearch--has-prefix': !button,
       },
       className
     );
@@ -112,6 +113,14 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
           </div>
         )}
         <div className={wrapperClassNames}>
+          {!button && (
+            <div
+              aria-hidden="true"
+              className="md-inputsearch__prefix"
+            >
+              <MdIconSearch />
+            </div>
+          )}          
           <input
             id={inputId}
             aria-describedby={ariaDescribedBy}
