@@ -2,11 +2,10 @@
 
 import classnames from 'classnames';
 import React, { useId, useState } from 'react';
-import MdButton from '../button/MdButton';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
-
-
+import MdIconButton from '../iconButton/MdIconButton';
+import MdIconSearch from '../icons-material/MdIconSearch';
 
 export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -121,11 +120,17 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             {...otherProps}
           />
           {button && (
-            <MdButton />
+            <MdIconButton
+              aria-label="Søk"
+              onClick={() => {}}
+              theme="filled"
+            >
+              <MdIconSearch />
+            </MdIconButton>
           )}
         </div>
         {supportText && supportText !== '' && (
-          <div id={`md-input_support_${inputId}`} className="md-input__support-text">
+          <div id={`md-inputsearch_support_${inputId}`} className="md-inputsearch__support-text">
             {supportText}
           </div>
         )}
