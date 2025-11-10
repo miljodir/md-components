@@ -71,13 +71,6 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
-    /* Log warning if mode = 'normal' */
-    if (mode === 'normal') {
-      console.warn(
-        'MdInputSearch: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead.',
-      );
-    }
-
     return (
       <div className={outerWrapperClasses}>
         {showLabel && (
