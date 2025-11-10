@@ -2,7 +2,7 @@ import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@stor
 
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
-import Readme from '../packages/css/src/formElements/input/README.md';
+import Readme from '../packages/css/src/formElements/inputsearch/README.md';
 import { MdInputSearch } from '../packages/react/src/formElements/MdInputSearch';
 
 import type { Args } from '@storybook/react-webpack5';
