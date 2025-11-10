@@ -30,7 +30,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
     <input
       id=""
-      class="md-input [md-input--small, md-input--has-prefix]"
+      class="md-inputsearch [md-input--small, md-input--has-prefix]"
       value="{value}"
       ...
     />
