@@ -14,10 +14,7 @@ export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputE
   outerWrapperClass?: string;
   suffix?: string | React.ReactNode;
   button?: boolean;
-  /**
-   * v6.x.x: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead
-   */
-  mode?: 'small' | 'medium' | 'large' | 'normal';
+  mode?: 'small' | 'medium' | 'large';
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
@@ -115,6 +112,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             </div>
           )}          
           <input
+            type="search"
             id={inputId}
             aria-describedby={ariaDescribedBy}
             className={classNames}
