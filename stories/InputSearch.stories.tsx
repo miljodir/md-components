@@ -55,18 +55,6 @@ export default {
       },
       control: { type: 'text' },
     },
-    type: {
-      type: { name: 'string' },
-      description: 'Inputs type',
-      options: ['search', 'hidden'],
-      table: {
-        defaultValue: { summary: 'search' },
-        type: {
-          summary: 'string',
-        },
-      },
-      control: { type: 'inline-radio' },
-    },
     placeholder: {
       type: { name: 'string' },
       description: 'Inputs placeholder value when not no value is given',
@@ -165,9 +153,7 @@ export const Search = Template.bind({});
 Search.args = {
   value: '',
   label: 'Label',
-  type: 'search',
   mode: 'medium',
-  readOnly: false,
   helpText: '',
   supportText: '',
   outerWrapperClass: '',
