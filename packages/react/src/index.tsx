@@ -11,6 +11,7 @@ import MdComboBox, { type MdComboBoxOption } from './formElements/MdComboBox';
 import MdComboBoxGrouped, { type MdComboBoxGroupedProps } from './formElements/MdComboBoxGrouped';
 import MdFileUpload, { type MdFileUploadProps } from './formElements/MdFileUpload';
 import MdInput, { type MdInputProps } from './formElements/MdInput';
+import MdInputSearch from './formElements/MdInputSearch';
 import MdMultiAutocomplete, { type MdMultiAutocompleteOption } from './formElements/MdMultiAutocomplete';
 import MdMultiSelect, { type MdMultiSelectOption, type MdMultiSelectProps } from './formElements/MdMultiSelect';
 import MdRadioButton, { type MdRadioButtonProps } from './formElements/MdRadioButton';
@@ -181,6 +182,7 @@ export {
   MdCheckbox,
   MdCheckboxGroup,
   MdInput,
+  MdInputSearch,
   MdSelect,
   MdMultiSelect,
   MdMultiAutocomplete,
