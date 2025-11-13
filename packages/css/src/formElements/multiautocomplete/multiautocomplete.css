@@ -1,5 +1,5 @@
 .md-multiautocomplete {
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   width: 100%;
 }
 
@@ -37,8 +37,8 @@
   border-radius: 0;
   color: var(--mdGreyColor);
   box-sizing: border-box;
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,7 +133,7 @@
   right: 4.5rem;
   display: flex;
   z-index: 0;
-  font-size: 0.8rem;
+  font-size: var(--md-typography-size-14);
 }
 
 .md-multiautocomplete__help-text {
@@ -162,9 +162,9 @@
 .md-multiautocomplete__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   border: 0;
-  font-size: 1rem;
+  font-size: var(--md-typography-size-16);
   background-color: #fff;
   width: 100%;
   text-align: left;
@@ -249,5 +249,5 @@
 /* Error text */
 .md-multiautocomplete__error {
   color: var(--mdErrorColor);
-  font-size: 0.88rem;
+  font-size: var(--md-typography-size-14);
 }

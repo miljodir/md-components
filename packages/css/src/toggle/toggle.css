@@ -98,5 +98,5 @@
 .md-toggle__error {
   color: var(--md-color-attention-error-primary);
   font-family: var(--md-typography-family-body);
-  font-size: 0.88rem;
+  font-size: var(--md-typography-size-14);
 }

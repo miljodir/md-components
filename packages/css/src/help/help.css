@@ -47,7 +47,7 @@
 /* HELP TEXT */
 .md-helptext {
   font-family: var(--md-typography-family-body);
-  font-size: 0.88rem;
+  font-size: var(--md-typography-size-14);
   background-color: var(--md-color-cta-primary-default);
   color: var(--md-color-text-inverted);
   padding: 1.7rem;
