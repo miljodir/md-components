@@ -252,6 +252,7 @@ Input.args = {
   placeholder: 'Placeholder...',
   suffix: '',
   hideNumberArrows: false,
+  className: ''
 };
 
 export const InputWithPrefix = Template.bind({});
@@ -272,6 +273,7 @@ InputWithPrefix.args = {
   suffix: '',
   prefixIcon: <MdIconAccountCircle />,
   hideNumberArrows: false,
+  className: ''
 };
 
 export const InputWithSuffix = Template.bind({});
@@ -292,4 +294,5 @@ InputWithSuffix.args = {
   suffix: <button>Clear</button>,
   prefixIcon: <MdIconAccountCircle />,
   hideNumberArrows: false,
+  className: ''
 };

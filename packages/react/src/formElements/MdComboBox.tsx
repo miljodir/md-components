@@ -110,13 +110,25 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       requestAnimationFrame(checkAnimationEnd);
     }, [store, pendingSearchClear]);
 
+    const normalizeString = (str: string) => {
+      return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    };
+
     const matches = useMemo(() => {
       if (!searchValue && defaultOptions && defaultOptions.length > 0) {
         return defaultOptions;
       }
 
+      const normalizedSearch = normalizeString(searchValue || '');
+
       const results = options?.filter(o => {
-        return o.text?.toLowerCase().includes(searchValue.toLowerCase() || '');
+        const normalizedText = normalizeString(o.text || '');
+        const normalizedValue = normalizeString(o.value || '');
+        return normalizedText.includes(normalizedSearch) || normalizedValue.includes(normalizedSearch);
       });
       return numberOfElementsShown ? results.slice(0, numberOfElementsShown) : results;
     }, [searchValue, defaultOptions, options, numberOfElementsShown]);
