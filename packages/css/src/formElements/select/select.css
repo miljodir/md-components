@@ -165,7 +165,7 @@
 .md-select__error {
   margin-top: var(--md-size-8);
   color: var(--md-color-attention-error-primary);
-  font-size: 0.88em;
+  font-size: var(--md-typography-size-14);
 }
 .md-select--has-error .md-select__button,
 .md-select--has-error .md-select__popover {

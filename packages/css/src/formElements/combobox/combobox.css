@@ -194,7 +194,7 @@
 .md-combobox__error {
   margin-top: var(--md-size-8);
   color: var(--md-color-attention-error-primary);
-  font-size: 0.88em;
+  font-size: var(--md-typography-size-14);
 }
 .md-combobox--has-error .md-combobox__input,
 .md-combobox--has-error .md-combobox__popover {

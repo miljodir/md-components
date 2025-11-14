@@ -37,7 +37,7 @@
   align-items: center;
   font-family: var(--md-typography-family-label);
   font-size: var(--md-typography-size-16);
-  font-weight: bold;
+  font-weight: var(--md-typography-weight-medium);
   line-height: var(--md-typography-line-height-small);
 }
 

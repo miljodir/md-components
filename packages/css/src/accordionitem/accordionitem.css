@@ -2,7 +2,7 @@
   background-color: var(--md-color-surface-primary);
   border: 1px solid var(--md-color-border-primary);
   color: var(--md-color-text-primary);
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   transition: all 0.2s linear;
 }
 
@@ -51,7 +51,7 @@
   color: var(--md-color-text-primary);
   padding: var(--md-size-16) var(--md-size-24);
   cursor: pointer;
-  font-family: 'SofiaPro-Regular', 'Sofia Pro';
+  font-family: var(--md-typography-family-heading);
   text-align: left;
   line-height: var(--md-typography-line-height-small);
   user-select: none;

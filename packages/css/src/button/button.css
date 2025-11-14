@@ -4,7 +4,7 @@
   color: var(--md-color-cta-secondary-default);
   display: flex;
   font-weight: var(--md-typography-weight-regular);
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-16);
   padding: var(--md-typography-size-12) var(--md-typography-size-16);
   width: fit-content;
