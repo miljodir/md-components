@@ -15,6 +15,7 @@ export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputE
   suffix?: string | React.ReactNode;
   button?: boolean;
   mode?: 'small' | 'medium' | 'large';
+  onSearch: (term: string) => void;
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
@@ -28,6 +29,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       className = '',
       mode = 'medium',
       button = true,
+      onSearch,
       ...otherProps
     },
     ref,
@@ -35,6 +37,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const [helpOpen, setHelpOpen] = useState(false);
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
+    const [searchTerm, setSearchTerm] = useState<string>(otherProps?.value?.toString() || '');
 
     const classNames = classnames(
       'md-inputsearch', {
@@ -67,6 +70,10 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     ].filter(Boolean).join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
+
+    const handleSubmit = () => {
+      onSearch(searchTerm);
+    }
 
     return (
       <div className={outerWrapperClasses}>
@@ -117,12 +124,14 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
+            value={searchTerm}
             {...otherProps}
+            onKeyDown={(e) => {return e.key === 'Enter' ? handleSubmit() : setSearchTerm(e.target.value);}}
           />
           {button && (
             <MdIconButton
               aria-label="Søk"
-              onClick={() => {}}
+              onClick={() => { return handleSubmit(); }}
               theme="filled"
             >
               <MdIconSearch />

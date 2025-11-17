@@ -136,6 +136,12 @@ export default {
       // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
     },
+    onSearch: {
+      type: { name: 'function' },
+      description:
+        '',
+      action: 'Search',
+    },    
   },
 };
 
@@ -146,7 +152,11 @@ const Template = (args: Args) => {
     updateArgs({ ...args, value: e?.target?.value });
   };
 
-  return <MdInputSearch {...args} onChange={handleChange} />;
+  const onSearch = (searchTerm: string) => {
+    if (typeof args.onSearch === 'function') args.onSearch(searchTerm);
+  };
+
+  return <MdInputSearch {...args} onChange={handleChange} onSearch={onSearch}/>;
 };
 
 export const Search = Template.bind({});
