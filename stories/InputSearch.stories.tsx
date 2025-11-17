@@ -9,7 +9,7 @@ import type { Args } from '@storybook/react-webpack5';
 import type { ChangeEvent } from 'react';
 
 export default {
-  title: 'Form/Search',
+  title: 'Form/InputSearch',
   component: MdInputSearch,
   parameters: {
     docs: {
