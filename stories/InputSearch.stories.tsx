@@ -139,7 +139,7 @@ export default {
     onSearch: {
       type: { name: 'function' },
       description:
-        '',
+        'Callback function triggered when the user submits a search, either by pressing Enter or clicking the search button. Receives the search term as a parameter.',
       action: 'Search',
     },    
   },
