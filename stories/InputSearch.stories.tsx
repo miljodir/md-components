@@ -86,7 +86,7 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },   
+    },
     helpText: {
       type: { name: 'string' },
       description: 'Optional helper text, will also add a help icon which toggles help text box.',
@@ -141,7 +141,7 @@ export default {
       description:
         'Callback function triggered when the user submits a search, either by pressing Enter or clicking the search button. Receives the search term as a parameter.',
       action: 'Search',
-    },    
+    },
   },
 };
 
@@ -153,14 +153,15 @@ const Template = (args: Args) => {
   };
 
   const onSearch = (searchTerm: string) => {
+    // eslint-disable-next-line no-console
+    console.log('Search submitted:', searchTerm);
     if (typeof args.onSearch === 'function') args.onSearch(searchTerm);
   };
 
-  return <MdInputSearch {...args} onChange={handleChange} onSearch={onSearch}/>;
+  return <MdInputSearch {...args} onChange={handleChange} onSearch={onSearch} />;
 };
 
-export const Search = Template.bind({});
-Search.args = {
+const defaultArgs: Partial<Args> = {
   value: '',
   label: 'Label',
   mode: 'medium',
@@ -170,4 +171,8 @@ Search.args = {
   placeholder: 'Placeholder...',
   className: '',
   button: true,
+};
+
+export const Search = (args: Partial<Args> = defaultArgs) => {
+  return Template({ ...defaultArgs, ...args } as Args);
 };
