@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useId, useState } from 'react';
+import React, { useId, useState, useEffect } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconButton from '../iconButton/MdIconButton';
@@ -12,10 +12,9 @@ export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputE
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
-  suffix?: string | React.ReactNode;
   button?: boolean;
   mode?: 'small' | 'medium' | 'large';
-  onSearch: (term: string) => void;
+  onSearch?: (term: string) => void;
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
@@ -71,9 +70,22 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSubmit();
+      } else {
+        setSearchTerm(e.currentTarget.value);
+      }
+    };
+
     const handleSubmit = () => {
-      onSearch(searchTerm);
+      if (onSearch) onSearch(searchTerm);
     }
+
+    useEffect(() => {
+      setSearchTerm(otherProps?.value?.toString() || '');
+    }, [otherProps?.value]);
 
     return (
       <div className={outerWrapperClasses}>
@@ -126,12 +138,12 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             ref={ref}
             value={searchTerm}
             {...otherProps}
-            onKeyDown={(e) => {return e.key === 'Enter' ? handleSubmit() : setSearchTerm(e.target.value);}}
+            onKeyDown={(e) => { return handleKeyDown(e); }}
           />
           {button && (
             <MdIconButton
               aria-label="Søk"
-              onClick={() => { return handleSubmit(); }}
+              onClick={() => {return handleSubmit(); }}
               theme="filled"
             >
               <MdIconSearch />
