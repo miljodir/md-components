@@ -26,12 +26,11 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       helpText,
       outerWrapperClass = '',
       className = '',
-      value,
       mode = 'medium',
       button = true,
+      value,
       onSearch,
       onChange,
-      onKeyDown,
       ...otherProps
     },
     ref,
@@ -39,7 +38,6 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const [helpOpen, setHelpOpen] = useState(false);
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
-    const searchTerm = String(value || '');
 
     const classNames = classnames(
       'md-inputsearch',
@@ -77,10 +75,6 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
-    const handleSubmit = () => {
-      onSearch(searchTerm);
-    };
-
     return (
       <div className={outerWrapperClasses}>
         {showLabel && (
@@ -116,7 +110,13 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
           </div>
         )}
 
-        <div className={wrapperClassNames}>
+        <form
+          className={wrapperClassNames}
+          onSubmit={e => {
+            e.preventDefault();
+            onSearch(String(value));
+          }}
+        >
           {!button && (
             <div aria-hidden="true" className="md-inputsearch__prefix">
               <MdIconSearch />
@@ -128,22 +128,15 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
-            {...otherProps}
-            value={searchTerm}
             onChange={onChange}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                onSearch(e.currentTarget.value);
-              }
-              onKeyDown?.(e as React.KeyboardEvent<HTMLInputElement>);
-            }}
+            {...otherProps}
           />
           {button && (
-            <MdIconButton aria-label="Søk" onClick={handleSubmit} theme="filled">
+            <MdIconButton aria-label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
-        </div>
+        </form>
         {supportText && supportText !== '' && (
           <div id={`md-inputsearch_support_${inputId}`} className="md-inputsearch__support-text">
             {supportText}
