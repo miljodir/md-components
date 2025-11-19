@@ -1,7 +1,6 @@
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
 
-import React from 'react';
-import { useArgs } from 'storybook/preview-api';
+import React, { useState } from 'react';
 import Readme from '../packages/css/src/formElements/inputsearch/README.md';
 import { MdInputSearch } from '../packages/react/src/formElements/MdInputSearch';
 
@@ -146,10 +145,10 @@ export default {
 };
 
 const Template = (args: Args) => {
-  const [, updateArgs] = useArgs();
+  const [value, setValue] = useState(args.value || '');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    updateArgs({ ...args, value: e?.target?.value });
+    setValue(e?.target?.value);
   };
 
   const onSearch = (searchTerm: string) => {
@@ -158,7 +157,7 @@ const Template = (args: Args) => {
     if (typeof args.onSearch === 'function') args.onSearch(searchTerm);
   };
 
-  return <MdInputSearch {...args} onChange={handleChange} onSearch={onSearch} />;
+  return <MdInputSearch {...args} value={value} onChange={handleChange} onSearch={onSearch} />;
 };
 
 const defaultArgs: Partial<Args> = {

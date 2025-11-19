@@ -28,9 +28,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       className = '',
       mode = 'medium',
       button = true,
-      value,
       onSearch,
-      onChange,
       ...otherProps
     },
     ref,
@@ -114,7 +112,9 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
           className={wrapperClassNames}
           onSubmit={e => {
             e.preventDefault();
-            onSearch(String(value));
+            const input = e.currentTarget.querySelector('input');
+            const searchValue = input?.value || '';
+            onSearch(searchValue);
           }}
         >
           {!button && (
@@ -123,13 +123,12 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             </div>
           )}
           <input
-            type="search"
             id={inputId}
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
-            onChange={onChange}
             {...otherProps}
+            type="search"
           />
           {button && (
             <MdIconButton aria-label="Søk" type="submit" theme="filled">
