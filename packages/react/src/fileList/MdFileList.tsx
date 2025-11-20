@@ -29,6 +29,12 @@ export interface MdFileListProps {
   onDownloadFile?(_file: File | FileType): void;
   onEditFile?(_file: File | FileType): void;
   onPrintFile?(_file: File | FileType): void;
+  labels?: {
+    delete?: string;
+    download?: string;
+    edit?: string;
+    print?: string;
+  };
 }
 
 const formatBytes = (bytes: number, decimals = 2): string => {
@@ -56,6 +62,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   onDownloadFile,
   onEditFile,
   onPrintFile,
+  labels = {}
 }: MdFileListProps) => {
   const outerClass = classnames('md-filelist');
   const fileClass = classnames('md-filelist__file');
@@ -87,7 +94,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     type="button"
                     showTooltip
-                    aria-label="Last ned fil"
+                    aria-label={labels?.download || 'Last ned fil'}
                     onClick={() => {
                       onDownloadFile(file);
                     }}
@@ -101,7 +108,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     showTooltip
                     type="button"
-                    aria-label="Slett fil"
+                    aria-label={labels?.delete || 'Slett fil'}
                     onClick={() => {
                       onRemoveFile(file);
                     }}
@@ -115,7 +122,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     showTooltip
                     theme="plain"
-                    aria-label="Rediger fil"
+                    aria-label={labels?.edit || 'Rediger fil'}
                     onClick={() => {
                       onEditFile(file);
                     }}
@@ -129,7 +136,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     theme="plain"
                     showTooltip
-                    aria-label="Skriv ut fil"
+                    aria-label={labels?.print || 'Skriv ut fil'}
                     onClick={() => {
                       onPrintFile(file);
                     }}
