@@ -10,6 +10,10 @@ import MdIconChevronForward from '../icons-material/MdIconChevronForward';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 export interface MdMultiSelectOption {
   text: string;
   value: string;
@@ -17,6 +21,7 @@ export interface MdMultiSelectOption {
 
 export interface MdMultiSelectProps {
   label?: string | null;
+  labels?: Labels;
   options?: MdMultiSelectOption[];
   selectedOptions?: MdMultiSelectOption[];
   placeholder?: string;
@@ -36,6 +41,7 @@ export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectPr
   (
     {
       label,
+      labels = {},
       options = [],
       selectedOptions = [],
       placeholder = 'Vennligst velg',
@@ -64,6 +70,11 @@ export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectPr
     const [helpOpen, setHelpOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     useDropdown(dropdownRef, open, setOpen);
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
     let hasMultipleSelected = false;
 
@@ -147,7 +158,7 @@ export const MdMultiSelect = React.forwardRef<HTMLButtonElement, MdMultiSelectPr
               {helpText && helpText !== '' && (
                 <div className="md-multiselect__help-button">
                   <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
+                    aria-label={`${mergedLabels.helpTextFor} ${label}`}
                     id={`md-multiselect_help-button_${multiSelectId}`}
                     aria-expanded={helpOpen}
                     aria-controls={`md-multiselect_help-text_${multiSelectId}`}

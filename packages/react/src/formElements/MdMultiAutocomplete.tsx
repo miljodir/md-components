@@ -10,6 +10,10 @@ import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdClickOutsideWrapper from '../utils/MdClickOutsideWrapper';
 import MdCheckbox from './MdCheckbox';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 export interface MdMultiAutocompleteOption {
   text: string;
   value: string;
@@ -17,6 +21,7 @@ export interface MdMultiAutocompleteOption {
 
 export interface MdMultiAutocompleteProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | null;
+  labels?: Labels;
   options: MdMultiAutocompleteOption[];
   defaultOptions?: MdMultiAutocompleteOption[];
   mode?: 'large' | 'medium' | 'small';
@@ -37,6 +42,7 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
   (
     {
       label,
+      labels = {},
       options,
       defaultOptions,
       id,
@@ -74,6 +80,11 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
     const multiAutocompleteId = id && id !== '' ? id : uuid;
 
     let hasMultipleSelected = false;
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
 
     const classNames = classnames('md-multiautocomplete', {
       'md-multiautocomplete--open': !!open,
@@ -178,7 +189,7 @@ export const MdMultiAutocomplete = React.forwardRef<HTMLInputElement, MdMultiAut
             {helpText && helpText !== '' && (
               <div className="md-multiautocomplete__help-button">
                 <MdHelpButton
-                  aria-label={`Hjelpetekst for ${label}`}
+                  aria-label={`${mergedLabels.helpTextFor} ${label}`}
                   id={`md-multiautocomplete_help-button_${multiAutocompleteId}`}
                   aria-expanded={helpOpen}
                   aria-controls={`md-multiautocomplete_help-text_${multiAutocompleteId}`}
