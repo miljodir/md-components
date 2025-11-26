@@ -62,7 +62,7 @@
   --md-color-surface-secondary-tinted: var(--md-color-beige-3);
   --md-color-surface-secondary-hover: var(--md-color-beige-4);
   --md-color-surface-secondary-active: var(--md-color-beige-5);
-  --md-color-secondary-border: var(--md-color-brown-dark);
+  --md-color-surface-secondary-border: var(--md-color-brown-dark);
 
   --md-color-surface-secondary-light: var(--md-color-beige-1);
   --md-color-surface-secondary-dark: var(--md-color-beige-6);
