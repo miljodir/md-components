@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useId, useState, useEffect } from 'react';
+import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconButton from '../iconButton/MdIconButton';
@@ -14,7 +14,7 @@ export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputE
   outerWrapperClass?: string;
   button?: boolean;
   mode?: 'small' | 'medium' | 'large';
-  onSearch?: (term: string) => void;
+  onSearch: (term: string) => void;
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
@@ -36,16 +36,16 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const [helpOpen, setHelpOpen] = useState(false);
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
-    const [searchTerm, setSearchTerm] = useState<string>(otherProps?.value?.toString() || '');
 
     const classNames = classnames(
-      'md-inputsearch', {
+      'md-inputsearch',
+      {
         'md-inputsearch--small': mode === 'small',
         'md-inputsearch--large': mode === 'large',
         'md-inputsearch--button': button,
         'md-inputsearch--has-prefix': !button,
       },
-      className
+      className,
     );
 
     const wrapperClassNames = classnames('md-inputsearch__wrapper', {
@@ -62,30 +62,16 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       outerWrapperClass,
     );
 
-    // Build aria-describedby in order of priority: error → support → help text
-    const ariaDescribedBy = [
-      helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
-      supportText && supportText !== '' && `md-inputsearch_support-text_${inputId}`,
-    ].filter(Boolean).join(' ') || undefined;
+    // Build aria-describedby in order of priority: help → support
+    const ariaDescribedBy =
+      [
+        helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
+        supportText && supportText !== '' && `md-inputsearch_support_${inputId}`,
+      ]
+        .filter(Boolean)
+        .join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSubmit();
-      } else {
-        setSearchTerm(e.currentTarget.value);
-      }
-    };
-
-    const handleSubmit = () => {
-      if (onSearch) onSearch(searchTerm);
-    }
-
-    useEffect(() => {
-      setSearchTerm(otherProps?.value?.toString() || '');
-    }, [otherProps?.value]);
 
     return (
       <div className={outerWrapperClasses}>
@@ -101,7 +87,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
                     aria-expanded={helpOpen}
                     aria-controls={`md-inputsearch_help-text_${inputId}`}
                     onClick={() => {
-                      return setHelpOpen(!helpOpen);
+                      setHelpOpen(!helpOpen);
                     }}
                     expanded={helpOpen}
                   />
@@ -121,35 +107,35 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             )}
           </div>
         )}
-        <div className={wrapperClassNames}>
+
+        <form
+          className={wrapperClassNames}
+          onSubmit={e => {
+            e.preventDefault();
+            const input = e.currentTarget.querySelector('input');
+            const searchValue = input?.value || '';
+            onSearch(searchValue);
+          }}
+        >
           {!button && (
-            <div
-              aria-hidden="true"
-              className="md-inputsearch__prefix"
-            >
+            <div aria-hidden="true" className="md-inputsearch__prefix">
               <MdIconSearch />
             </div>
-          )}          
+          )}
           <input
-            type="search"
             id={inputId}
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
-            value={searchTerm}
             {...otherProps}
-            onKeyDown={(e) => { return handleKeyDown(e); }}
+            type="search"
           />
           {button && (
-            <MdIconButton
-              aria-label="Søk"
-              onClick={() => {return handleSubmit(); }}
-              theme="filled"
-            >
+            <MdIconButton aria-label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
-        </div>
+        </form>
         {supportText && supportText !== '' && (
           <div id={`md-inputsearch_support_${inputId}`} className="md-inputsearch__support-text">
             {supportText}

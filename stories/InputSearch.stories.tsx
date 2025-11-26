@@ -1,7 +1,6 @@
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
 
-import React from 'react';
-import { useArgs } from 'storybook/preview-api';
+import React, { useState } from 'react';
 import Readme from '../packages/css/src/formElements/inputsearch/README.md';
 import { MdInputSearch } from '../packages/react/src/formElements/MdInputSearch';
 
@@ -86,7 +85,7 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },   
+    },
     helpText: {
       type: { name: 'string' },
       description: 'Optional helper text, will also add a help icon which toggles help text box.',
@@ -141,26 +140,27 @@ export default {
       description:
         'Callback function triggered when the user submits a search, either by pressing Enter or clicking the search button. Receives the search term as a parameter.',
       action: 'Search',
-    },    
+    },
   },
 };
 
 const Template = (args: Args) => {
-  const [, updateArgs] = useArgs();
+  const [value, setValue] = useState(args.value || '');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    updateArgs({ ...args, value: e?.target?.value });
+    setValue(e?.target?.value);
   };
 
   const onSearch = (searchTerm: string) => {
+    // eslint-disable-next-line no-console
+    console.log('Search submitted:', searchTerm);
     if (typeof args.onSearch === 'function') args.onSearch(searchTerm);
   };
 
-  return <MdInputSearch {...args} onChange={handleChange} onSearch={onSearch}/>;
+  return <MdInputSearch {...args} value={value} onChange={handleChange} onSearch={onSearch} />;
 };
 
-export const Search = Template.bind({});
-Search.args = {
+const defaultArgs: Partial<Args> = {
   value: '',
   label: 'Label',
   mode: 'medium',
@@ -170,4 +170,8 @@ Search.args = {
   placeholder: 'Placeholder...',
   className: '',
   button: true,
+};
+
+export const Search = (args: Partial<Args> = defaultArgs) => {
+  return Template({ ...defaultArgs, ...args } as Args);
 };
