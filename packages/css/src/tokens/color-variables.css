@@ -34,6 +34,16 @@
   --md-color-grey-white: #ffffff;
   --md-color-white: #ffffff;
 
+  /* Tertiary */
+  --md-color-tertiary-blue-dark: #0072ce;
+  --md-color-tertiary-blue-light: #b9d9eb;
+  --md-color-tertiary-pink-dark: #ab5c57;
+  --md-color-tertiary-pink-light: #e6baa8;
+  --md-color-tertiary-yellow-dark: #d69a2d;
+  --md-color-tertiary-yellow-light: #ecd898;
+  --md-color-tertiary-brown-dark: #584446;
+  --md-color-tertiary-brown-light: #d6d2c4;
+
   /* Attention colors */
   --md-color-attention-white: #ffffff;
 
