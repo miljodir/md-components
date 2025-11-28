@@ -110,7 +110,6 @@ export default {
 const Template = (args: MdIconButtonProps) => {
   return (
     <MdIconButton
-      aria-label={args['aria-label']}
       label='Last ned filen'
       showTooltip={args.showTooltip}
       onClick={action(args.theme || '')}

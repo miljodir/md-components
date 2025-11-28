@@ -11,19 +11,17 @@ export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButton
   children?: React.ReactNode;
   disabled?: boolean;
   showTooltip?: boolean;
-  ['aria-label']?: string; // Deprecated, use label instead
   loading?: boolean;
 }
 
 export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
+  label,
   theme = 'filled',
   children,
   showTooltip = false,
   disabled,
   type = 'button',
   className,
-  label,
-  'aria-label': ariaLabel,
   loading = false,
   ...otherProps
 }: MdIconButtonProps) => {
@@ -36,9 +34,10 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
     className,
   );
 
-  if (ariaLabel == null || ariaLabel.length !== 0) {
-    console.warn('MdIconButton: The prop "aria-label" is deprecated and replaces by label. Please use the label prop instead.');
-  }
+  // Check if aria-label is in otherProps and warn
+  if ('aria-label' in otherProps) {
+    console.warn('MdIconButton: aria-label should not be passed via props. Use the "label" prop instead.');
+  }  
 
   const button = (
     <button aria-label={label} type={type} disabled={disabled} className={classNames} {...otherProps}>
