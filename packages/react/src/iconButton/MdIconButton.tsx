@@ -5,18 +5,13 @@ import React from 'react';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdTooltip from '../tooltip/MdTooltip';
 
-interface Labels {
-  button?: string;
-  toolTip?: string;
-}
-
 export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  labels?: Labels;
+  label: string;
   theme?: 'filled' | 'border' | 'plain';
   children?: React.ReactNode;
   disabled?: boolean;
   showTooltip?: boolean;
-  ['aria-label']?: string;
+  ['aria-label']?: string; // Deprecated, use label instead
   loading?: boolean;
 }
 
@@ -27,7 +22,7 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   disabled,
   type = 'button',
   className,
-  labels = {},
+  label,
   'aria-label': ariaLabel,
   loading = false,
   ...otherProps
@@ -42,18 +37,11 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   if (ariaLabel == null || ariaLabel.length !== 0) {
-    console.warn('MdIconButton: The prop "aria-label" is deprecated and replaces by labels. Please use labels.button and labels.toolTip instead.');
+    console.warn('MdIconButton: The prop "aria-label" is deprecated and replaces by label. Please use the label prop instead.');
   }
 
-  const defaultLabels: Required<Labels> = {
-    button: ariaLabel || '',
-    toolTip: ariaLabel || '',
-  };
-
-  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
-
   const button = (
-    <button aria-label={mergedLabels.button} type={type} disabled={disabled} className={classNames} {...otherProps}>
+    <button aria-label={label} type={type} disabled={disabled} className={classNames} {...otherProps}>
       {children && (
         <div aria-hidden="true" className="md-icon-button__icon">
           {loading ? <MdLoadingSpinner /> : children}
@@ -63,7 +51,7 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   return showTooltip && !disabled ? (
-    <MdTooltip unmountOnHide tooltipContent={mergedLabels.toolTip} aria-label={mergedLabels.toolTip}>
+    <MdTooltip unmountOnHide tooltipContent={label} aria-label={label}>
       {button}
     </MdTooltip>
   ) : (
