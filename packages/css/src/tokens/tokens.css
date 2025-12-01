@@ -70,7 +70,7 @@
   --md-color-surface-grey: var(--md-color-grey-2);
 
   /* error */
-  --md-color-error-surface: var(--md-color-attention-error-2);
+  --md-color-error-surface: var(--md-color-attention-error-1);
   --md-color-error-surface-active: var(--md-color-attention-error-4);
 
   /* warning */
