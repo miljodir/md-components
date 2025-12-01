@@ -53,7 +53,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['primary', 'secondary', 'tertiary', 'danger', 'danger-secondary'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'danger-secondary', 'danger-tertiary'],
       control: { type: 'inline-radio' },
       if: { arg: 'theme', exists: true },
     },
@@ -124,7 +124,7 @@ export default {
 interface ButtonArgs {
   children: string | React.ReactNode;
   disabled: boolean;
-  theme: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'danger-secondary';
+  theme: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'danger-secondary' | 'danger-tertiary';
   mode: 'small' | 'medium' | 'large';
   small: boolean;
   loading?: boolean;
@@ -218,6 +218,16 @@ export const ErrorSecondary = Template.bind({});
 ErrorSecondary.args = {
   theme: 'danger-secondary',
   children: 'Advarselsknapp sekundær',
+  disabled: false,
+  mode: 'medium',
+  small: false,
+  loading: false,
+};
+
+export const ErrorTertiary = Template.bind({});
+ErrorTertiary.args = {
+  theme: 'danger-tertiary',
+  children: 'Advarselsknapp tertier',
   disabled: false,
   mode: 'medium',
   small: false,

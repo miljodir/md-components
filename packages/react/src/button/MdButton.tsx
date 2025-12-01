@@ -5,7 +5,7 @@ import React from 'react';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'danger-secondary';
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'danger-secondary' | 'danger-tertiary';
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   topIcon?: React.ReactNode;
@@ -41,6 +41,7 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
       'md-button--tertiary': theme === 'tertiary',
       'md-button--danger': theme === 'danger',
       'md-button--danger-secondary': theme === 'danger-secondary',
+      'md-button--danger-tertiary': theme === 'danger-tertiary',
       'md-button--column': !!topIcon,
     },
     otherProps.className,
