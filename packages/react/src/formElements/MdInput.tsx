@@ -6,8 +6,13 @@ import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 export interface MdInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  labels?: Labels;
   error?: boolean;
   errorText?: string;
   supportText?: string;
@@ -27,6 +32,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
   (
     {
       label,
+      labels = {},
       id,
       error = false,
       errorText,
@@ -48,6 +54,11 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     const [helpOpen, setHelpOpen] = useState(false);
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };   
 
     const classNames = classnames(
       'md-input', {
@@ -102,7 +113,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
               {helpText && helpText !== '' && (
                 <div className="md-input__help-button">
                   <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
+                    aria-label={`${mergedLabels.helpTextFor} ${label}`}
                     id={`md-input_help-button_${inputId}`}
                     aria-expanded={helpOpen}
                     aria-controls={`md-input_help-text_${inputId}`}

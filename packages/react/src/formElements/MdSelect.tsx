@@ -9,6 +9,12 @@ import MdIconClose from '../icons-material/MdIconClose';
 import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdCheckbox from './MdCheckbox';
 
+interface Labels {
+  helpTextFor?: string;
+  reset?: string;
+  openClose?: string;
+}
+
 export interface MdSelectOption {
   text: string;
   value: string;
@@ -16,6 +22,7 @@ export interface MdSelectOption {
 
 export interface MdSelectProps {
   label?: string | null;
+  labels?: Labels;
   options?: MdSelectOption[];
   id?: string;
   /**
@@ -47,6 +54,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
   (
     {
       label,
+      labels = {},
       value,
       options,
       id,
@@ -72,6 +80,13 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
     const [selectedValues, setSelectedValues] = useState<string | string[]>(value);
     const [displayValue, setDisplayValue] = useState<string | null>(null);
     const store = Ariakit.useSelectStore();
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+      reset: 'Nullstill',
+      openClose: 'Åpne/lukke liste',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
     useEffect(() => {
       setSelectedValues(value);
@@ -140,7 +155,7 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
                 {helpText && helpText !== '' && (
                   <div className="md-select__help-button">
                     <MdHelpButton
-                      aria-label={`Hjelpetekst for ${label}`}
+                      aria-label={`${mergedLabels} ${label}`}
                       id={`md-select_help-button_${selectBoxId}`}
                       aria-expanded={helpOpen}
                       aria-controls={`md-select_help-text_${selectBoxId}`}
@@ -185,13 +200,13 @@ export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElem
                     onClick={(e: React.MouseEvent) => {
                       return onReset(e);
                     }}
-                    aria-label="Nullstill"
+                    aria-label={mergedLabels.reset}
                   >
                     <MdIconClose aria-hidden="true" />
                   </button>
                 )}
                 <button
-                  aria-label="Åpne/lukke liste"
+                  aria-label={mergedLabels.openClose}
                   type="button"
                   onClick={(e: React.MouseEvent) => {
                     toggle(e);

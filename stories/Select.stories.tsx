@@ -43,6 +43,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`, `reset` and `openClose`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for", reset: "Nullstill", openClose: "Åpne/lukke liste" }' },
+        type: {
+          summary: '{ helpTextFor?: string; reset?: string; openClose?: string;}',
+        },
+      },
+      control: { type: 'object' },
+    },     
     options: {
       type: { name: 'array', required: true },
       description: 'Array with data objects for select options',
@@ -191,6 +203,11 @@ Select.args = {
 
 MultiSelect.args = {
   label: 'Label',
+  lables: {
+    helpTextFor: 'Hjelpetekst for',
+    reset: 'Nullstill',
+    openClose: 'Åpne/lukke liste',
+  },
   options: [
     { value: 'optionA', text: 'A option' },
     { value: 'optionB', text: 'B option' },

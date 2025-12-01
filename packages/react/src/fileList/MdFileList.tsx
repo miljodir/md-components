@@ -17,6 +17,13 @@ interface FileType {
   type?: string;
 }
 
+interface Labels {
+  delete?: string;
+  download?: string;
+  edit?: string;
+  print?: string;
+}
+
 export interface MdFileListProps {
   files?: File[] | FileType[];
   hideDownload?: boolean;
@@ -29,6 +36,7 @@ export interface MdFileListProps {
   onDownloadFile?(_file: File | FileType): void;
   onEditFile?(_file: File | FileType): void;
   onPrintFile?(_file: File | FileType): void;
+  labels?: Labels;
 }
 
 const formatBytes = (bytes: number, decimals = 2): string => {
@@ -56,7 +64,17 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   onDownloadFile,
   onEditFile,
   onPrintFile,
+  labels = {}
 }: MdFileListProps) => {
+
+  const defaultLabels: Required<Labels> = {
+    delete: 'Slett fil',
+    download: 'Last ned fil',
+    edit: 'Rediger fil',
+    print: 'Skriv ut fil',
+  };
+  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
+
   const outerClass = classnames('md-filelist');
   const fileClass = classnames('md-filelist__file');
 
@@ -87,7 +105,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     type="button"
                     showTooltip
-                    aria-label="Last ned fil"
+                    aria-label={mergedLabels.download}
                     onClick={() => {
                       onDownloadFile(file);
                     }}
@@ -101,7 +119,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     showTooltip
                     type="button"
-                    aria-label="Slett fil"
+                    aria-label={mergedLabels.delete}
                     onClick={() => {
                       onRemoveFile(file);
                     }}
@@ -115,7 +133,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     showTooltip
                     theme="plain"
-                    aria-label="Rediger fil"
+                    aria-label={mergedLabels.edit}
                     onClick={() => {
                       onEditFile(file);
                     }}
@@ -129,7 +147,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     theme="plain"
                     showTooltip
-                    aria-label="Skriv ut fil"
+                    aria-label={mergedLabels.print}
                     onClick={() => {
                       onPrintFile(file);
                     }}

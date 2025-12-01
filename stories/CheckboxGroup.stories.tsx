@@ -4,6 +4,7 @@ import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
 import { MdCheckboxGroup } from '../packages/react/src/formElements/MdCheckboxGroup';
+
 import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react-webpack5';
 
@@ -43,6 +44,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for"}' },
+        type: {
+          summary: '{ Hjelpetekst for?: string; }',
+        },
+      },
+      control: { type: 'object' },
+    },    
     options: {
       type: { name: 'array', required: true },
       description: 'Array with data for radio checkboxes in group',
@@ -200,6 +213,9 @@ CheckboxGroup.args = {
     },
   ],
   label: 'Example checkbox group',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+  },
   disabled: false,
   direction: 'horizontal',
   helpText: 'This is a help text!',
