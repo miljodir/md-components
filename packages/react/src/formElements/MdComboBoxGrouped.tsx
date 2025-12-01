@@ -13,8 +13,15 @@ import MdCheckbox from './MdCheckbox';
 
 import type { MdComboBoxBaseProps, MdComboBoxOption } from './MdComboBox';
 
+interface Labels {
+  helpTextFor?: string;
+  reset?: string;
+  openClose?: string;
+}
+
 export interface MdComboBoxGroupedOption {
   label: string;
+  labels: Labels;
   icon?: React.ReactNode;
   values: MdComboBoxOption[];
 }
@@ -32,6 +39,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
     {
       id,
       label,
+      labels = {},
       options,
       defaultOptions,
       value,
@@ -66,6 +74,13 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [pendingSearchClear, setPendingSearchClear] = useState(false);
     const store = Ariakit.useComboboxStore();
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+      reset: 'Nullstill',
+      openClose: 'Åpne/lukke liste',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels }; 
 
     useEffect(() => {
       setSelectedValues(value);
@@ -209,7 +224,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                 {helpText && helpText !== '' && (
                   <div className="md-combobox__help-button">
                     <MdHelpButton
-                      aria-label={`Hjelpetekst for ${label}`}
+                      aria-label={`${mergedLabels.helpTextFor} ${label}`}
                       id={`md-combobox_help-button_${comboBoxId}`}
                       aria-expanded={helpOpen}
                       aria-controls={`md-combobox_help-text_${comboBoxId}`}
@@ -259,7 +274,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                   onClick={() => {
                     return onReset();
                   }}
-                  aria-label="Nullstill"
+                  aria-label={mergedLabels.reset}
                 >
                   <MdIconClose aria-hidden="true" />
                 </button>
@@ -272,7 +287,7 @@ const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTM
                   store.setOpen(!popoverOpen);
                   setPopoverOpen(!popoverOpen);
                 }}
-                aria-label="Åpne/lukke liste"
+                aria-label={mergedLabels.openClose}
               >
                 <MdIconKeyboardArrowDown className="md-combobox__input-arrow" aria-hidden="true" />
               </button>

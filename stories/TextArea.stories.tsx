@@ -43,6 +43,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for"}' },
+        type: {
+          summary: '{ helpTextFor?: string;}',
+        },
+      },
+      control: { type: 'object' },
+    },     
     value: {
       type: { name: 'string' },
       description: 'Inputs value',
@@ -167,6 +179,9 @@ export const TextArea = Template.bind({});
 TextArea.args = {
   value: '',
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for'
+  },
   disabled: false,
   readOnly: false,
   error: false,

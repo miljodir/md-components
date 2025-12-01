@@ -9,8 +9,17 @@ import MdIconInfo from '../icons-material/MdIconInfo';
 import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
+interface Labels {
+  info?: string;
+  confirm?: string;
+  error?: string;
+  warning?: string;
+  closeButton?: string;
+}
+
 export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: string | React.ReactNode;
+  labels?: Labels;
   theme?: 'info' | 'success' | 'warning' | 'error' | 'info-box';
   description?: string | React.ReactNode;
   hideIcon?: boolean;
@@ -25,6 +34,7 @@ export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement
 export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   theme = 'info',
   label,
+  labels = {},
   description,
   hideIcon = false,
   closable = false,
@@ -35,6 +45,16 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   alignContent,
   ...otherProps
 }: MdAlertMessageProps) => {
+
+    const defaultLabels: Required<Labels> = {
+      info: 'Info',
+      confirm: 'Bekreft',
+      error: 'Feil',
+      warning: 'Advarsel',
+      closeButton: 'Lukk',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };  
+
   const classNames = classnames(
     'md-alert-message',
     {
@@ -54,16 +74,16 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 
   const renderIcon = () => {
     let icon = (
-      <MdIconInfo className="md-alert-message__icon" aria-label="Info" width="24" height="24" />
+      <MdIconInfo className="md-alert-message__icon" aria-label={mergedLabels.info} width="24" height="24" />
     ) as React.ReactNode;
     if (customIcon) {
       icon = customIcon;
     } else if (theme === 'success') {
-      icon = <MdIconCheckCircle className="md-alert-message__icon" aria-label="Bekreft" width="24" height="24" />;
+      icon = <MdIconCheckCircle className="md-alert-message__icon" aria-label={mergedLabels.confirm} width="24" height="24" />;
     } else if (theme === 'error') {
-      icon = <MdIconReport className="md-alert-message__icon" aria-label="Feil" width="24" height="24" />;
+      icon = <MdIconReport className="md-alert-message__icon" aria-label={mergedLabels.error} width="24" height="24" />;
     } else if (theme === 'warning') {
-      icon = <MdIconWarning className="md-alert-message__icon" aria-label="Advarsel" width="24" height="24" />;
+      icon = <MdIconWarning className="md-alert-message__icon" aria-label={mergedLabels.warning} width="24" height="24" />;
     }
     return icon;
   };
@@ -88,7 +108,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
             className="md-alert-message__button"
             theme="plain"
             type="button"
-            aria-label="Lukk"
+            aria-label={mergedLabels.closeButton}
             onClick={e => {
               return clickHandler(e);
             }}

@@ -1,3 +1,4 @@
+
 import {
   Title,
   Subtitle,
@@ -58,8 +59,17 @@ export default {
         },
       },
     },
+    label: {
+      description: 'String containing custom label for button aria-label and tooltip.',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },      
+    },     
     'aria-label': {
-      description: 'The aria label for the tooltip',
+      description: '[Deprecated] The aria label for the tooltip. This prop is deprecated and replaced by `label`.',
       table: {
         type: {
           summary: 'string',
@@ -100,7 +110,7 @@ export default {
 const Template = (args: MdIconButtonProps) => {
   return (
     <MdIconButton
-      aria-label={args['aria-label']}
+      label='Last ned filen'
       showTooltip={args.showTooltip}
       onClick={action(args.theme || '')}
       disabled={args.disabled}
@@ -115,6 +125,7 @@ const Template = (args: MdIconButtonProps) => {
 export const Filled = Template.bind({});
 Filled.args = {
   theme: 'filled',
+  label: 'Last ned filen',
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
@@ -124,6 +135,7 @@ Filled.args = {
 export const Border = Template.bind({});
 Border.args = {
   theme: 'border',
+  label: 'Last ned filen',
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,
@@ -133,6 +145,7 @@ Border.args = {
 export const Plain = Template.bind({});
 Plain.args = {
   theme: 'plain',
+  label: 'Last ned filen',
   'aria-label': 'Last ned filen',
   showTooltip: true,
   disabled: false,

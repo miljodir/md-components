@@ -5,8 +5,13 @@ import React, { useId, useState } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 export interface MdTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
+  labels?: Labels;
   error?: boolean;
   errorText?: string;
   helpText?: string;
@@ -17,6 +22,7 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
   (
     {
       label,
+      labels = {},
       id,
       rows = 10,
       value = '',
@@ -34,6 +40,11 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
     const uuid = useId();
     const textAreaId = id && id !== '' ? id : uuid;
     const [helpOpen, setHelpOpen] = useState(false);
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for'
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
 
     const classNames = classnames(
       'md-textarea',
@@ -59,7 +70,7 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
               {helpText && helpText !== '' && (
                 <div className="md-textarea__help-button">
                   <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
+                    aria-label={`${mergedLabels.helpTextFor} ${label}`}
                     id={`md-textarea_help-button_${textAreaId}`}
                     aria-expanded={helpOpen}
                     aria-controls={`md-textarea_help-text_${textAreaId}`}
