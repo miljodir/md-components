@@ -160,18 +160,15 @@ const Template = (args: Args) => {
   return <MdInputSearch {...args} value={value} onChange={handleChange} onSearch={onSearch} />;
 };
 
-const defaultArgs: Partial<Args> = {
+export const Search = Template.bind({});
+Search.args = {
   value: '',
   label: 'Label',
   mode: 'medium',
   helpText: '',
   supportText: '',
   outerWrapperClass: '',
-  placeholder: 'Placeholder...',
+  placeholder: 'Placeholder ...',
   className: '',
   button: true,
-};
-
-export const Search = (args: Partial<Args> = defaultArgs) => {
-  return Template({ ...defaultArgs, ...args } as Args);
 };
