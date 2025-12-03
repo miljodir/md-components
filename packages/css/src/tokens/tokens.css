@@ -58,12 +58,30 @@
   --md-color-surface-primary-hover: var(--md-color-green-3);
   --md-color-surface-primary-active: var(--md-color-green-4);
 
-  --md-color-surface-secondary: var(--md-color-beige-1);
-  --md-color-surface-secondary-tinted: var(--md-color-beige-2);
-  --md-color-surface-secondary-hover: var(--md-color-beige-3);
-  --md-color-surface-secondary-active: var(--md-color-beige-4);
+  --md-color-surface-secondary: var(--md-color-beige-2);
+  --md-color-surface-secondary-tinted: var(--md-color-beige-3);
+  --md-color-surface-secondary-hover: var(--md-color-beige-4);
+  --md-color-surface-secondary-active: var(--md-color-beige-5);
+  --md-color-surface-secondary-border: var(--md-color-tertiary-brown-dark);
+
+  --md-color-surface-secondary-light: var(--md-color-beige-1);
+  --md-color-surface-secondary-dark: var(--md-color-beige-6);
 
   --md-color-surface-grey: var(--md-color-grey-2);
+
+  /* error */
+  --md-color-error-surface: var(--md-color-attention-error-1);
+  --md-color-error-surface-active: var(--md-color-attention-error-4);
+
+  /* warning */
+  --md-color-warning-surface-tinted: var(--md-color-attention-warning-2);
+  --md-color-warning-surface-hover: var(--md-color-attention-warning-3);
+  --md-color-warning-surface-active: var(--md-color-attention-warning-4);
+
+  /* success */
+  --md-color-success-surface-tinted: var(--md-color-attention-success-2);
+  --md-color-success-surface-hover: var(--md-color-attention-success-3);
+  --md-color-success-surface-active: var(--md-color-attention-success-4);
 
   /* text */
   --md-color-text-primary: var(--md-color-grey-7);

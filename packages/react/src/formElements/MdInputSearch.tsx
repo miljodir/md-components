@@ -7,8 +7,14 @@ import MdHelpText from '../help/MdHelpText';
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconSearch from '../icons-material/MdIconSearch';
 
+interface Labels {
+  helpTextFor?: string;
+  searchButton?: string;
+}
+
 export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  lables?: Labels;
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
@@ -21,6 +27,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
   (
     {
       label,
+      labels = {},
       id,
       supportText,
       helpText,
@@ -36,6 +43,12 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const [helpOpen, setHelpOpen] = useState(false);
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
+
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+      searchButton: 'Søk',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
 
     const classNames = classnames(
       'md-inputsearch',
@@ -82,7 +95,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
               {helpText && helpText !== '' && (
                 <div className="md-inputsearch__help-button">
                   <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
+                    aria-label={`${mergedLabels.helpTextFor} ${label}`}
                     id={`md-inputsearch_help-button_${inputId}`}
                     aria-expanded={helpOpen}
                     aria-controls={`md-inputsearch_help-text_${inputId}`}

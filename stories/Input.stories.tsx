@@ -45,6 +45,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for" }' },
+        type: {
+          summary: '{ helpTextFor?: string; }',
+        },
+      },
+      control: { type: 'object' },
+    },     
     value: {
       type: { name: 'string' },
       description: 'Inputs value',
@@ -239,6 +251,9 @@ export const Input = Template.bind({});
 Input.args = {
   value: '',
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+  },
   type: 'text',
   mode: 'medium',
   disabled: false,
@@ -259,6 +274,9 @@ export const InputWithPrefix = Template.bind({});
 InputWithPrefix.args = {
   value: '',
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+  },
   type: 'text',
   mode: 'medium',
   disabled: false,
@@ -280,6 +298,9 @@ export const InputWithSuffix = Template.bind({});
 InputWithSuffix.args = {
   value: '',
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+  },  
   type: 'text',
   mode: 'medium',
   disabled: false,
