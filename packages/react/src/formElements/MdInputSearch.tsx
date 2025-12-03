@@ -18,9 +18,9 @@ export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputE
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
-  suffix?: string | React.ReactNode;
   button?: boolean;
   mode?: 'small' | 'medium' | 'large';
+  onSearch: (term: string) => void;
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
@@ -35,6 +35,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       className = '',
       mode = 'medium',
       button = true,
+      onSearch,
       ...otherProps
     },
     ref,
@@ -50,13 +51,14 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
 
     const classNames = classnames(
-      'md-inputsearch', {
+      'md-inputsearch',
+      {
         'md-inputsearch--small': mode === 'small',
         'md-inputsearch--large': mode === 'large',
         'md-inputsearch--button': button,
         'md-inputsearch--has-prefix': !button,
       },
-      className
+      className,
     );
 
     const wrapperClassNames = classnames('md-inputsearch__wrapper', {
@@ -73,11 +75,14 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       outerWrapperClass,
     );
 
-    // Build aria-describedby in order of priority: error → support → help text
-    const ariaDescribedBy = [
-      helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
-      supportText && supportText !== '' && `md-inputsearch_support-text_${inputId}`,
-    ].filter(Boolean).join(' ') || undefined;
+    // Build aria-describedby in order of priority: help → support
+    const ariaDescribedBy =
+      [
+        helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
+        supportText && supportText !== '' && `md-inputsearch_support_${inputId}`,
+      ]
+        .filter(Boolean)
+        .join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -95,7 +100,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
                     aria-expanded={helpOpen}
                     aria-controls={`md-inputsearch_help-text_${inputId}`}
                     onClick={() => {
-                      return setHelpOpen(!helpOpen);
+                      setHelpOpen(!helpOpen);
                     }}
                     expanded={helpOpen}
                   />
@@ -115,33 +120,35 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             )}
           </div>
         )}
-        <div className={wrapperClassNames}>
+
+        <form
+          className={wrapperClassNames}
+          onSubmit={e => {
+            e.preventDefault();
+            const input = e.currentTarget.querySelector('input');
+            const searchValue = input?.value || '';
+            onSearch(searchValue);
+          }}
+        >
           {!button && (
-            <div
-              aria-hidden="true"
-              className="md-inputsearch__prefix"
-            >
+            <div aria-hidden="true" className="md-inputsearch__prefix">
               <MdIconSearch />
             </div>
-          )}          
+          )}
           <input
-            type="search"
             id={inputId}
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
             {...otherProps}
+            type="search"
           />
           {button && (
-            <MdIconButton
-              aria-label={mergedLabels.searchButton}
-              onClick={() => {}}
-              theme="filled"
-            >
+            <MdIconButton aria-label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
-        </div>
+        </form>
         {supportText && supportText !== '' && (
           <div id={`md-inputsearch_support_${inputId}`} className="md-inputsearch__support-text">
             {supportText}
