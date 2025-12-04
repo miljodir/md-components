@@ -29,25 +29,36 @@
   --md-color-attention-error-secondary-hover: var(--md-color-attention-error-1);
   --md-color-attention-error-secondary-active: var(--md-color-attention-error-2);
   --md-color-attention-error-surface: var(--md-color-attention-error-1);
+  --md-color-attention-error-surface-tinted: var(--md-color-attention-error-2);
   --md-color-attention-error-surface-hover: var(--md-color-attention-error-3);
+  --md-color-attention-error-surface-active: var(--md-color-attention-error-4);
   --md-color-attention-error-border: var(--md-color-attention-error-6);
 
   --md-color-attention-warning-primary: var(--md-color-attention-warning-6);
   --md-color-attention-warning-primary-hover: var(--md-color-attention-warning-7);
   --md-color-attention-warning-primary-active: var(--md-color-attention-warning-8);
   --md-color-attention-warning-surface: var(--md-color-attention-warning-1);
+  --md-color-attention-warning-surface-tinted: var(--md-color-attention-warning-2);
+  --md-color-attention-warning-surface-hover: var(--md-color-attention-warning-3);
+  --md-color-attention-warning-surface-active: var(--md-color-attention-warning-4);
   --md-color-attention-warning-border: var(--md-color-attention-warning-5);
 
   --md-color-attention-success-primary: var(--md-color-attention-success-6);
   --md-color-attention-success-primary-hover: var(--md-color-attention-success-7);
   --md-color-attention-success-primary-active: var(--md-color-attention-success-8);
   --md-color-attention-success-surface: var(--md-color-attention-success-1);
+  --md-color-attention-success-surface-tinted: var(--md-color-attention-success-2);
+  --md-color-attention-success-surface-hover: var(--md-color-attention-success-3);
+  --md-color-attention-success-surface-active: var(--md-color-attention-success-4);
   --md-color-attention-success-border: var(--md-color-attention-success-6);
 
   --md-color-attention-info-primary: var(--md-color-attention-info-6);
   --md-color-attention-info-primary-hover: var(--md-color-attention-info-7);
   --md-color-attention-info-primary-active: var(--md-color-attention-info-8);
   --md-color-attention-info-surface: var(--md-color-attention-info-1);
+  --md-color-attention-info-surface-tinted: var(--md-color-attention-info-2);
+  --md-color-attention-info-surface-hover: var(--md-color-attention-info-3);
+  --md-color-attention-info-surface-active: var(--md-color-attention-info-4);
   --md-color-attention-info-border: var(--md-color-attention-info-6);
 
   /* surface */
@@ -68,20 +79,6 @@
   --md-color-surface-secondary-dark: var(--md-color-beige-6);
 
   --md-color-surface-grey: var(--md-color-grey-2);
-
-  /* error */
-  --md-color-error-surface: var(--md-color-attention-error-1);
-  --md-color-error-surface-active: var(--md-color-attention-error-4);
-
-  /* warning */
-  --md-color-warning-surface-tinted: var(--md-color-attention-warning-2);
-  --md-color-warning-surface-hover: var(--md-color-attention-warning-3);
-  --md-color-warning-surface-active: var(--md-color-attention-warning-4);
-
-  /* success */
-  --md-color-success-surface-tinted: var(--md-color-attention-success-2);
-  --md-color-success-surface-hover: var(--md-color-attention-success-3);
-  --md-color-success-surface-active: var(--md-color-attention-success-4);
 
   /* text */
   --md-color-text-primary: var(--md-color-grey-7);
