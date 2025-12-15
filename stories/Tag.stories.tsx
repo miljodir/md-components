@@ -51,7 +51,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     label: {
-      description: 'The text to display on hover',
+      description: 'The text to display in tag or tooltip.',
       table: {
         type: {
           summary: 'text',
@@ -59,6 +59,27 @@ export default {
       },
       control: 'text',
     },
+    customIcon: {
+      type: { name: 'ReactNode' },
+      description: 'Provide a custom icon here.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'DomElement | image | ReactNode',
+        },
+      },
+      control: { type: 'html' },
+    }, 
+    tooltipOnly: {
+      description: '<strong>NOTE:</strong> An icon must be specified in the `customIcon`. The content of the tooltip comes from the label property.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },           
   },
 };
 
@@ -75,4 +96,6 @@ Tag.args = {
   theme: 'primary',
   type: 'base',
   label: 'Tag',
+  customIcon: null,
+  tooltipOnly: false,
 };

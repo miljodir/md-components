@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   width: auto;
   height: 32px;
   padding: 2px 8px;
@@ -15,6 +16,15 @@
   border: 1px solid var(--md-color-green-10);
   background-color: var(--md-color-green-10);
   color: var(--md-color-grey-white);
+}
+
+.md-tag * {
+  flex: 0 0 auto;  
+}
+
+.md-tag-icon {
+  width: 24px;
+  height: 24px;
 }
 
 /* Primary */
@@ -106,7 +116,7 @@
   color: var(--md-color-text-primary);
 }
 
-.md-tag.md-tag-theme--info.md-tag.md-tag-theme--primary.md-tag-type--outline {
+.md-tag.md-tag-theme--info.md-tag-type--outline {
   border-color: var(--md-color-attention-info-border);
   background-color: var(--md-color-attention-info-surface);
   color: var(--md-color-text-primary);
