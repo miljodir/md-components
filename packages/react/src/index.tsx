@@ -170,6 +170,7 @@ import MdStepper, { type MdStepperProps } from './stepper/MdStepper';
 import MdTab, { type MdTabProps } from './tabs/MdTab';
 import MdTabTitle, { type MdTabTitleProps } from './tabs/MdTabTitle';
 import MdTabs, { type MdTabsProps } from './tabs/MdTabs';
+import MdTag, { type MdTagProps } from './tag/MdTag';
 import MdTile, { type MdTileProps } from './tiles/MdTile';
 import MdTileVertical, { type MdTileVerticalProps } from './tiles/MdTileVertical';
 import MdToggle, { type MdToggleProps } from './toggle/MdToggle';
@@ -346,6 +347,8 @@ export {
   MdComboBoxGroupedProps,
   MdSkipToMainContent,
   MdSkipToMainContentProps,
+  MdTag,
+  MdTagProps,
 
   // Material icons
   MdIconAccountCircle,

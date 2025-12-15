@@ -1,0 +1,132 @@
+.md-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 32px;
+  padding: 2px 8px;
+  line-height: 1;
+
+  border-radius: var(--md-radius-sm);
+  font-family: var(--md-typography-family-label);
+  font-size: var(--md-typography-size-14);
+  font-weight: var(--md-typography-weight-regular);
+
+  border: 1px solid var(--md-color-green-10);
+  background-color: var(--md-color-green-10);
+  color: var(--md-color-grey-white);
+}
+
+/* Primary */
+.md-tag.md-tag-theme--primary {
+  border-color: var(--md-color-green-10);
+  background-color: var(--md-color-green-10);
+  color: var(--md-color-grey-white);
+}
+
+.md-tag.md-tag-theme--primary.md-tag-type--light{
+  border-color: var(--md-color-surface-primary-tinted);
+  background-color: var(--md-color-surface-primary-tinted);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--primary.md-tag-type--outline{
+  border-color: var(--md-color-border-tertiary);
+  background-color: var(--md-color-surface-primary-tinted);
+  color: var(--md-color-text-primary);
+}
+
+/* Secondary */
+.md-tag.md-tag-theme--secondary {
+  border-color: var(--md-color-surface-secondary-dark);
+  background-color: var(--md-color-surface-secondary-dark);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--secondary.md-tag-type--light {
+  border-color: var(--md-color-surface-secondary-dark);
+  background-color: var(--md-color-surface-secondary-dark);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--secondary.md-tag-type--outline {
+  border-color: var(--md-color-surface-secondary-border);
+  background-color: var(--md-color-surface-secondary-dark);
+  color: var(--md-color-text-primary);
+}
+
+/* Success */
+.md-tag.md-tag-theme--success {
+  border-color: var(--md-color-attention-success-primary);
+  background-color: var(--md-color-attention-success-primary);
+  color: var(--md-color-grey-white);
+}
+
+.md-tag.md-tag-theme--success.md-tag-type--light {
+  border-color: var(--md-color-attention-success-surface-tinted);
+  background-color: var(--md-color-attention-success-surface-tinted);
+  color: var(--md-color-text-primary);
+} 
+
+.md-tag.md-tag-theme--success.md-tag-type--outline {
+  border-color: var(--md-color-attention-success-border);
+  background-color: var(--md-color-attention-success-surface-tinted);
+  color: var(--md-color-text-primary);
+} 
+
+/* Warning */
+.md-tag.md-tag-theme--warning {
+  border-color: var(--md-color-attention-warning-primary);
+  background-color: var(--md-color-attention-warning-primary);
+  color: var(--md-color-grey-white);
+}
+
+.md-tag.md-tag-theme--warning.md-tag-type--light {
+  border-color: var(--md-color-attention-warning-surface-tinted);
+  background-color: var(--md-color-attention-warning-surface-tinted);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--warning.md-tag-type--outline {
+  border-color: var(--md-color-attention-warning-border);
+  background-color: var(--md-color-attention-warning-surface-tinted);
+  color: var(--md-color-text-primary);
+}
+  
+/* Info */
+.md-tag.md-tag-theme--info {
+  border-color: var(--md-color-attention-info-primary);
+  background-color: var(--md-color-attention-info-primary);
+  color: var(--md-color-grey-white);
+}
+
+.md-tag.md-tag-theme--info.md-tag-type--light {
+  border-color: var(--md-color-attention-info-surface);
+  background-color: var(--md-color-attention-info-surface);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--info.md-tag.md-tag-theme--primary.md-tag-type--outline {
+  border-color: var(--md-color-attention-info-border);
+  background-color: var(--md-color-attention-info-surface);
+  color: var(--md-color-text-primary);
+}
+
+/* Error */
+.md-tag.md-tag-theme--error {
+  border-color: var(--md-color-attention-error-primary);
+  background-color: var(--md-color-attention-error-primary);
+  color: var(--md-color-grey-white);
+}
+
+.md-tag.md-tag-theme--error.md-tag-type--light {
+  border-color: var(--md-color-attention-error-surface);
+  background-color: var(--md-color-attention-error-surface);
+  color: var(--md-color-text-primary);
+}
+
+.md-tag.md-tag-theme--error.md-tag-type--outline {
+  border-color: var(--md-color-attention-error-border);
+  background-color: var(--md-color-attention-error-surface);
+  color: var(--md-color-text-primary);
+}
