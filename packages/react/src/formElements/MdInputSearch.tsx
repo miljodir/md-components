@@ -14,7 +14,7 @@ interface Labels {
 
 export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  lables?: Labels;
+  labels?: Labels;
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
