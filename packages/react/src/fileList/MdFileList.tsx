@@ -105,7 +105,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     type="button"
                     showTooltip
-                    aria-label={mergedLabels.download}
+                    label={mergedLabels.download}
                     onClick={() => {
                       onDownloadFile(file);
                     }}
@@ -119,7 +119,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     theme="plain"
                     showTooltip
                     type="button"
-                    aria-label={mergedLabels.delete}
+                    label={mergedLabels.delete}
                     onClick={() => {
                       onRemoveFile(file);
                     }}
@@ -133,7 +133,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     showTooltip
                     theme="plain"
-                    aria-label={mergedLabels.edit}
+                    label={mergedLabels.edit}
                     onClick={() => {
                       onEditFile(file);
                     }}
@@ -147,7 +147,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                     type="button"
                     theme="plain"
                     showTooltip
-                    aria-label={mergedLabels.print}
+                    label={mergedLabels.print}
                     onClick={() => {
                       onPrintFile(file);
                     }}

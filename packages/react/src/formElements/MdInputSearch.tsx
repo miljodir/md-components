@@ -14,7 +14,7 @@ interface Labels {
 
 export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  lables?: Labels;
+  labels?: Labels;
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
@@ -144,7 +144,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             type="search"
           />
           {button && (
-            <MdIconButton aria-label="Søk" type="submit" theme="filled">
+            <MdIconButton label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
