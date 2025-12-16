@@ -108,7 +108,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
             className="md-alert-message__button"
             theme="plain"
             type="button"
-            aria-label={mergedLabels.closeButton}
+            label={mergedLabels.closeButton}
             onClick={e => {
               return clickHandler(e);
             }}

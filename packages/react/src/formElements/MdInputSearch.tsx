@@ -144,7 +144,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             type="search"
           />
           {button && (
-            <MdIconButton aria-label="Søk" type="submit" theme="filled">
+            <MdIconButton label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
