@@ -37,6 +37,11 @@ export const MdInfoTag: React.FC<MdInfoTagProps> = ({
   ...otherProps
 }: MdInfoTagProps) => {
 
+    // eslint-disable-next-line no-console
+    console.warn(
+      'MdInfoTag is deprecated and will be removed in a future release. Use MdTag instead.',
+    );
+
   const defaultLabels: Required<Labels> = {
     info: 'Informasjon',
     warning: 'Advarsel',
