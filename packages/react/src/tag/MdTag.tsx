@@ -64,10 +64,6 @@ export const MdTag: React.FC<MdTagProps> = ({
     return icon;
   };
 
-  if (tooltipOnly && !customIcon) {
-    console.warn('MdTag: When using tooltipOnly, a customIcon must be provided.');
-  }
-
   return (
     <div className={classNames}>
       {showIcon && !tooltipOnly && (
