@@ -2,12 +2,17 @@
 
 import classnames from 'classnames';
 import React from 'react';
+import MdIconCheck from '../icons-material/MdIconCheck';
+import MdIconInfo from '../icons-material/MdIconInfo';
+import MdIconWarning from '../icons-material/MdIconWarning';
 import { MdTooltip } from '../tooltip/MdTooltip';
+
 export interface MdTagProps extends React.HTMLAttributes<HTMLBaseElement> {
   theme?: 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'error';
   type?: 'base' | 'light' | 'outlined';
   label?: string;
   labels?: string[];
+  showIcon?: boolean;
   customIcon?: React.ReactNode;
   tooltipOnly?: boolean;
 }
@@ -16,6 +21,7 @@ export const MdTag: React.FC<MdTagProps> = ({
   theme = 'primary',
   type = 'base',
   label,
+  showIcon = false,
   customIcon,
   tooltipOnly = false,
   ...otherProps
@@ -39,7 +45,22 @@ export const MdTag: React.FC<MdTagProps> = ({
 
   const renderIcon = () => {
     let icon = (<></>) as React.ReactNode;
-    icon = customIcon;
+
+    if (theme === 'primary' || theme === 'secondary') {
+        icon = customIcon;
+        return icon;
+    }
+
+    if (theme === 'success') {
+      icon = <MdIconCheck className="md-tag__icon" width="24" height="24" />;
+    } else if (theme === 'warning') {
+      icon = <MdIconWarning className="md-tag__icon" width="24" height="24" />;      
+    } else if (theme === 'info') {
+      icon = <MdIconInfo className="md-tag__icon" width="24" height="24" />;
+    } else if (theme === 'error') {
+      icon = <MdIconWarning className="md-tag__icon" width="24" height="24" />;      
+    }
+
     return icon;
   };
 
@@ -49,13 +70,13 @@ export const MdTag: React.FC<MdTagProps> = ({
 
   return (
     <div className={classNames}>
-      {customIcon && (
+      {showIcon && !tooltipOnly && (
         <div className='md-tag-icon'>
             {renderIcon()}
         </div>        
       )}
 
-      {tooltipOnly && customIcon && (
+      {tooltipOnly && showIcon && (
         <MdTooltip
             mode="medium"
             position="bottom"

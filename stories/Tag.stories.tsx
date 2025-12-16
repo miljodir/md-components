@@ -31,7 +31,7 @@ export default {
   },
   argTypes: {
     theme: {
-      description: 'Theme of info tag',
+      description: 'Theme of tag',
       table: {
         type: {
           summary: 'text',
@@ -41,7 +41,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     type: {
-      description: 'Theme of info tag',
+      description: 'Type of tag',
       table: {
         type: {
           summary: 'text',
@@ -59,9 +59,19 @@ export default {
       },
       control: 'text',
     },
+    showIcon: {
+      description: 'Toggle icon in tag. The following themes have predefined icons: success, warning, info and error.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    }, 
     customIcon: {
       type: { name: 'ReactNode' },
-      description: 'Provide a custom icon here.',
+      description: 'Provide a custom icon for all types of tag. Will override predefined icons for success, warning, info and error themes.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
@@ -71,7 +81,7 @@ export default {
       control: { type: 'html' },
     }, 
     tooltipOnly: {
-      description: '<strong>NOTE:</strong> An icon must be specified in the `customIcon`. The content of the tooltip comes from the label property.',
+      description: 'Hide text in tag and show only tooltip. Perfered use with customIcon. The content for the tooltip comes from the label property.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -96,6 +106,7 @@ Tag.args = {
   theme: 'primary',
   type: 'base',
   label: 'Tag',
+  showIcon: false,
   customIcon: null,
   tooltipOnly: false,
 };
