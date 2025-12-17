@@ -2,8 +2,9 @@
 
 import classnames from 'classnames';
 import React from 'react';
-import MdIconCheck from '../icons-material/MdIconCheck';
+import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
 import MdIconInfo from '../icons-material/MdIconInfo';
+import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 import { MdTooltip } from '../tooltip/MdTooltip';
 
@@ -47,18 +48,25 @@ export const MdTag: React.FC<MdTagProps> = ({
     let icon = (<></>) as React.ReactNode;
 
     if (theme === 'primary' || theme === 'secondary') {
+        if (!customIcon) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              `MdTag: No customIcon provided for theme "${theme}". Please provide a customIcon.`,
+            );
+        }
+
         icon = customIcon;
         return icon;
     }
 
     if (theme === 'success') {
-      icon = <MdIconCheck className="md-tag__icon" width="24" height="24" />;
+      icon = <MdIconCheckCircle  className="md-tag__icon" width="24" height="24" />;
     } else if (theme === 'warning') {
       icon = <MdIconWarning className="md-tag__icon" width="24" height="24" />;      
     } else if (theme === 'info') {
       icon = <MdIconInfo className="md-tag__icon" width="24" height="24" />;
     } else if (theme === 'error') {
-      icon = <MdIconWarning className="md-tag__icon" width="24" height="24" />;      
+      icon = <MdIconReport className="md-tag__icon" width="24" height="24" />;      
     }
 
     return icon;
