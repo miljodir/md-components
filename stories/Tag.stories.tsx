@@ -73,11 +73,11 @@ export default {
     customIcon: {
       type: { name: 'ReactNode' },
       description:
-        'Provide a custom icon for all types of tag. Will override predefined icons for success, warning, info and error themes.',
+        'Provide a custom icon for primary and secondary themes. This property is required when theme is "primary" or "secondary" and showIcon is true.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: 'DomElement | image | ReactNode',
+          summary: 'DomElement | ReactNode',
         },
       },
       control: { type: 'html' },

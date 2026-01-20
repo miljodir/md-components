@@ -16,6 +16,7 @@ interface MdTagCommon extends React.HTMLAttributes<HTMLBaseElement> {
   label?: string;
   labels?: string[];
   showIcon?: boolean;
+  customIcon?: React.ReactNode;
   tooltipOnly?: boolean;
 }
 
@@ -53,20 +54,6 @@ export const MdTag: React.FC<MdTagProps> = ({
     let icon = (<></>) as React.ReactNode;
 
     if (theme === 'primary' || theme === 'secondary') {
-      if (!customIcon) {
-        // Don't throw here so Storybook / dev UI doesn't crash. Log an error so developers are
-        // informed and continue rendering without an icon.
-        // Use console.error in dev so it stands out during development.
-        if (process.env.NODE_ENV !== 'production') {
-          // eslint-disable-next-line no-console
-          console.error(
-            `MdTag: customIcon is required when theme is "${theme}" and showIcon is true. Provide a customIcon prop to render an icon.`,
-          );
-        }
-
-        return null;
-      }
-
       icon = customIcon;
       return icon;
     }
