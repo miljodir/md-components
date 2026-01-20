@@ -16,6 +16,16 @@ interface MdTagCommon extends React.HTMLAttributes<HTMLBaseElement> {
   label?: string;
   labels?: string[];
   showIcon?: boolean;
+  /**
+   * Let you apply your own icon component.
+   * Note: When `theme` is set to `primary` or `secondary`, this property is required.
+   *
+   * @example
+   * customIcon={<MdIconWarning />}
+   *
+   * @type {React.ReactNode}
+   * 
+   */
   customIcon?: React.ReactNode;
   tooltipOnly?: boolean;
 }
