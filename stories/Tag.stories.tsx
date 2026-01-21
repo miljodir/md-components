@@ -1,6 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import Readme from '../packages/css/src/tag/README.md';
+import MdIconInfo from '../packages/react/src/icons-material/MdIconInfo';
 import { MdTag } from '../packages/react/src/tag/MdTag';
 import type { MdTagProps } from '../packages/react/src/tag/MdTag';
 import type { StoryFn } from '@storybook/react-webpack5';
@@ -37,7 +38,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['primary', 'secondary', 'success', 'warning', 'info', 'error' ],
+      options: ['primary', 'secondary', 'success', 'warning', 'info', 'error'],
       control: { type: 'inline-radio' },
     },
     type: {
@@ -47,7 +48,7 @@ export default {
           summary: 'text',
         },
       },
-      options: ['base', 'light', 'outlined', ],
+      options: ['base', 'light', 'outlined'],
       control: { type: 'inline-radio' },
     },
     label: {
@@ -68,20 +69,22 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    }, 
+    },
     customIcon: {
       type: { name: 'ReactNode' },
-      description: 'Provide a custom icon for all types of tag. Will override predefined icons for success, warning, info and error themes.',
+      description:
+        'Provide a custom icon for primary and secondary themes. This property is required when theme is "primary" or "secondary" and showIcon is true.',
       table: {
         defaultValue: { summary: 'null' },
         type: {
-          summary: 'DomElement | image | ReactNode',
+          summary: 'DomElement | ReactNode',
         },
       },
       control: { type: 'html' },
-    }, 
+    },
     tooltipOnly: {
-      description: 'Hide text in tag and show only tooltip. Perfered use with customIcon. The content for the tooltip comes from the label property.',
+      description:
+        'Hide text in tag and show only tooltip. Perfered use with customIcon. The content for the tooltip comes from the label property.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -89,7 +92,7 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },           
+    },
   },
 };
 
@@ -109,4 +112,13 @@ Tag.args = {
   showIcon: false,
   customIcon: null,
   tooltipOnly: false,
+};
+
+export const PrimaryWithIcon = Template.bind({});
+PrimaryWithIcon.args = {
+  ...Tag.args,
+  theme: 'primary',
+  showIcon: true,
+  // Use a simple icon as example customIcon in story
+  customIcon: <MdIconInfo className="md-tag__icon" width="24" height="24" />,
 };

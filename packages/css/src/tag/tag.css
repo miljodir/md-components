@@ -111,8 +111,8 @@
 }
 
 .md-tag.md-tag-theme--info.md-tag-type--light {
-  border-color: var(--md-color-attention-info-surface);
-  background-color: var(--md-color-attention-info-surface);
+  border-color: var(--md-color-attention-info-surface-tinted);
+  background-color: var(--md-color-attention-info-surface-tinted);
   color: var(--md-color-text-primary);
 }
 
@@ -130,8 +130,8 @@
 }
 
 .md-tag.md-tag-theme--error.md-tag-type--light {
-  border-color: var(--md-color-attention-error-surface);
-  background-color: var(--md-color-attention-error-surface);
+  border-color: var(--md-color-attention-error-surface-tinted);
+  background-color: var(--md-color-attention-error-surface-tinted);
   color: var(--md-color-text-primary);
 }
 

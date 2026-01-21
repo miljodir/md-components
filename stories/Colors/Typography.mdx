@@ -1,0 +1,205 @@
+import './typography.css';
+import { Meta, DocsContainer } from '@storybook/addon-docs/blocks';
+import { MdIconContentCopy } from '../../packages/react/src/icons-material/MdIconContentCopy';
+import { MdAlertMessage } from '../../packages/react/src/messages/MdAlertMessage';
+import { Token } from './Token.tsx';
+
+export const copyToClipboard = text => {
+  const element = document.getElementById('toast');
+  navigator.clipboard.writeText(text);
+  element.style.display = 'block';
+  setTimeout(() => {
+    element.style.display = 'none';
+  }, 2000);
+};
+
+export const CopyButton = ({ text, code }) => {
+  return (
+    <button
+      onClick={() => {
+        copyToClipboard(text);
+      }}
+      title="Copy to clipboard"
+      className={`typography-box__button ${code ? 'typography-box__button--code' : ''}`}
+    >
+      {text}
+      <MdIconContentCopy className="typography-box__button-icon" />
+    </button>
+  );
+};
+
+<Meta
+  title="Introduction/Colors, typography & tokens/Typography"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    backgrounds: { disable: true },
+    docs: {
+      container: ({ children, context }) => (
+        <DocsContainer context={context}>
+          <div style={{ backgroundColor: 'red' }}>{children}</div>
+        </DocsContainer>
+      ),
+    },
+  }}
+/>
+
+<div
+  id="toast"
+  style={{
+    display: 'none',
+    position: 'fixed',
+    top: '2rem',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '600px',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+  }}
+>
+  <MdAlertMessage label="Copied to clipboard" theme="confirm" />
+</div>
+
+<div className="typography-page-wrapper">
+# Typography
+
+## Headings: Sofia Pro
+The Norwegian Environment Agency’s signature font is Sofia Pro. This is a geometric sans-serif typeface with clear letterforms and good contrast. The rounded shapes of the font contribute to a modern, friendly, and open expression.
+
+## Body text and small sizes: Open Sans
+Open Sans is a font optimized for web and mobile surfaces. It is easy to read at small sizes, has a neutral style, and ensures a good reading experience for users across different devices and platforms. It works well across digital surfaces. Open Sans meets the requirements for universal design (accessibility).
+
+Different services have different needs in terms of responsiveness, text volume, and style. Therefore, several variants are available with different text sizes. Be cautious when using the smallest sizes for body text.
+
+## Legends and labels
+Legends and labels should be set in Open Sans. These have a smaller line height (130%). They are often used as names for form components.
+
+## Line spacing
+To comply with WCAG 2.1, line spacing in body text must be at least 1.5 times (150%) the font size. The spacing between paragraphs must be at least 2 times the font size. The design system allows the line height to be set to 130%. This can be used where there are simple text lines and shorter texts. Adjust the padding between paragraphs and headings so that the overall visual expression appears consistent. 
+
+</div>
+
+
+
+<div className="typography-page-wrapper" style={{ marginBottom: '2rem' }}>
+  <h2 style={{ marginBottom: '2rem' }}>Headings</h2>
+
+  <div className="typography-sample">
+    <div className='typography-sample__heading typography-sample__heading--xl'>
+        Heading/XL
+    </div>
+    <div>
+        <Token token="--md-typography-heading-xl" variable="var(--md-typography-size-34)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__heading typography-sample__heading--l'>
+        Heading/L
+    </div>
+    <div>
+        <Token token="--md-typography-heading-l" variable="var(--md-typography-size-28)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__heading typography-sample__heading--m'>
+        Heading/M
+    </div>
+    <div>
+        <Token token="--md-typography-heading-m" variable="var(--md-typography-size-24)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__heading typography-sample__heading--s'>
+        Heading/S
+    </div>
+    <div>
+        <Token token="--md-typography-heading-s" variable="var(--md-typography-size-20)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__heading typography-sample__heading--xs'>
+        Heading/XS
+    </div>
+    <div>
+        <Token token="--md-typography-heading-xs" variable="var(--md-typography-size-18)" hidePreview />
+    </div>
+  </div>
+
+</div>
+
+<div className="typography-page-wrapper" style={{ marginBottom: '2rem' }}>
+  <h2 style={{ marginBottom: '2rem' }}>Legends and labels</h2>
+
+  <div className="typography-sample">
+    <div className='typography-sample__label typography-sample__label--l'>
+        Label/L
+    </div>
+    <div>
+        <Token token="--md-typography-label-l" variable="var(--md-typography-size-18)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__label typography-sample__label--m'>
+        Label/M
+    </div>
+    <div>
+        <Token token="--md-typography-label-m" variable="var(--md-typography-size-16)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__label typography-sample__label--s'>
+        Label/S
+    </div>
+    <div>
+        <Token token="--md-typography-label-s" variable="var(--md-typography-size-14)" hidePreview />
+    </div>
+  </div>
+</div>
+
+<div className="typography-page-wrapper" style={{ marginBottom: '2rem' }}>
+  <h2 style={{ marginBottom: '2rem' }}>Body</h2>
+
+  <div className="typography-sample">
+    <div className='typography-sample__body typography-sample__body--l'>
+        Body/L
+    </div>
+    <div>
+        <Token token="--md-typography-body-l" variable="var(--md-typography-size-18)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__body typography-sample__body--m'>
+        Body/M
+    </div>
+    <div>
+        <Token token="--md-typography-body-m" variable="var(--md-typography-size-16)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__body typography-sample__body--s'>
+        Body/S
+    </div>
+    <div>
+        <Token token="--md-typography-body-s" variable="var(--md-typography-size-14)" hidePreview />
+    </div>
+  </div>
+
+  <div className="typography-sample">
+    <div className='typography-sample__body typography-sample__body--xs'>
+        Body/XS
+    </div>
+    <div>
+        <Token token="--md-typography-body-xs" variable="var(--md-typography-size-12)" hidePreview />
+    </div>
+  </div>  
+</div>
+ 
