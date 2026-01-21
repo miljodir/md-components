@@ -142,6 +142,24 @@
   --md-typography-size-28: 1.75rem; /* 28px */
   --md-typography-size-34: 2.125rem; /* 34px */
 
+  /* t-shirt sizes - headings */
+  --md-typography-heading-xs: var(--md-typography-size-18);
+  --md-typography-heading-s: var(--md-typography-size-20);
+  --md-typography-heading-m: var(--md-typography-size-24);
+  --md-typography-heading-l: var(--md-typography-size-28);
+  --md-typography-heading-xl: var(--md-typography-size-34);
+
+  /* t-shirt sizes - labels */
+  --md-typography-label-s: var(--md-typography-size-14);
+  --md-typography-label-m: var(--md-typography-size-16);
+  --md-typography-label-l: var(--md-typography-size-18);
+
+  /* t-shirt body */
+  --md-typography-body-xs: var(--md-typography-size-12);
+  --md-typography-body-s: var(--md-typography-size-14);
+  --md-typography-body-m: var(--md-typography-size-16);
+  --md-typography-body-l: var(--md-typography-size-18);
+
   /* line height */
   --md-typography-line-height-small: 1.3;
   --md-typography-line-height-medium: 1.5;

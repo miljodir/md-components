@@ -1,0 +1,101 @@
+.typography-sample {
+    margin-bottom: 2rem;
+
+    /* Headings */
+    .typography-sample__heading,
+    .typography-sample__heading p {
+        font-family: var(--md-typography-family-heading);
+    }
+    
+    .typography-sample__heading--xl > *{
+        font-size: var(--md-typography-heading-xl);
+    }
+
+    .typography-sample__heading--l > *{
+        font-size: var(--md-typography-heading-l);
+    } 
+    
+    .typography-sample__heading--m > *{
+        font-size: var(--md-typography-heading-m);
+    }
+
+    .typography-sample__heading--s > *{
+        font-size: var(--md-typography-heading-s);
+    }     
+
+    .typography-sample__heading--xs > *{
+        font-size: var(--md-typography-heading-xs);
+    } 
+    
+    
+    /* Legends / labels */
+    .typography-sample__label,
+    .typography-sample__label p{
+        font-family: var(--md-typography-family-label) !important;
+    }
+
+    .typography-sample__label--l > *{
+        font-size: var(--md-typography-label-l);
+    } 
+    
+    .typography-sample__label--m > *{
+        font-size: var(--md-typography-label-m);
+    }
+
+    .typography-sample__label--s > *{
+        font-size: var(--md-typography-label-s);
+    }  
+
+    /* Body default */
+    .typography-sample__body,
+    .typography-sample__body p{
+        font-family: var(--md-typography-family-body) !important;
+    }
+
+    .typography-sample__body--l > *{
+        font-size: var(--md-typography-body-l);
+    } 
+    
+    .typography-sample__body--m > *{
+        font-size: var(--md-typography-body-m);
+    }
+
+    .typography-sample__body--s > *{
+        font-size: var(--md-typography-body-s);
+    }  
+
+    .typography-sample__body--xs > *{
+        font-size: var(--md-typography-body-xs);
+    }  
+
+
+
+    button.typography-box__button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        color: inherit;
+        font-size: 1rem;
+        font-family: 'Open sans', sans-serif;
+        
+        &:hover {
+            cursor: pointer;
+        }
+        
+        &.typography-box__button--code {
+            font-size: 0.8rem;
+            font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+            Courier New;
+        }
+        
+        .typography-box__button-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+}
