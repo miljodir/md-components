@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { MdIconReport } from '../../packages/react/src/icons-material/MdIconReport';
-import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import { MdIconReport } from '../../../packages/react/src/icons-material/MdIconReport';
+import type { MdIconProps } from '../../../packages/react/src/icons-material/icon.model';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 
 export default {
-  title: 'Icons/Report',
+  title: 'Deprecated/Icons/Report',
   component: MdIconReport,
   parameters: {
     docs: {
