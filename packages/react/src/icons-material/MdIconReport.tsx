@@ -6,6 +6,9 @@ export const MdIconReport: React.FunctionComponent<MdIconProps> = ({
   large = false,
   ...otherProps
 }: MdIconProps) => {
+  // eslint-disable-next-line no-console
+  console.warn('MdIconReport is deprecated and will be removed in a future release. Use MdIconDangerous instead.');
+
   if (large) {
     return (
       <svg

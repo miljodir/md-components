@@ -126,6 +126,7 @@ import MdIconChevronForward from './icons-material/MdIconChevronForward';
 import MdIconClose from './icons-material/MdIconClose';
 import MdIconCollapseAll from './icons-material/MdIconCollapseAll';
 import MdIconContentCopy from './icons-material/MdIconContentCopy';
+import MdIconDangerous from './icons-material/MdIconDangerous';
 import MdIconDelete from './icons-material/MdIconDelete';
 import MdIconDescription from './icons-material/MdIconDescription';
 import MdIconDownload from './icons-material/MdIconDownload';
@@ -271,6 +272,7 @@ export {
   MdCommentIcon64,
   MdConfirmIcon,
   MdConfirmIcon64,
+  MdIconDangerous,
   MdDeleteIcon,
   MdDeleteIcon64,
   MdDocIcon,

@@ -3,8 +3,8 @@
 import classnames from 'classnames';
 import React from 'react';
 import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
+import MdIconDangerous from '../icons-material/MdIconDangerous';
 import MdIconInfo from '../icons-material/MdIconInfo';
-import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 import { MdTooltip } from '../tooltip/MdTooltip';
 
@@ -75,7 +75,7 @@ export const MdTag: React.FC<MdTagProps> = ({
     } else if (theme === 'info') {
       icon = <MdIconInfo className="md-tag__icon" width="24" height="24" />;
     } else if (theme === 'error') {
-      icon = <MdIconReport className="md-tag__icon" width="24" height="24" />;
+      icon = <MdIconDangerous className="md-tag__icon" width="24" height="24" />;
     }
 
     return icon;

@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { MdIconReport } from '../../packages/react/src/icons-material/MdIconReport';
-import type { MdIconProps } from '../../packages/react/src/icons-material/icon.model';
+import { MdIconReport } from '../../../packages/react/src/icons-material/MdIconReport';
+import type { MdIconProps } from '../../../packages/react/src/icons-material/icon.model';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 
 export default {
-  title: 'Icons/Report',
+  title: 'Deprecated/Icons/Report',
   component: MdIconReport,
   parameters: {
     docs: {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Report icon. Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdReportIcon } from '@miljodirektoratet/md-react'`",
+          "Deprecated. Replaced by Dangerous. Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdReportIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },
