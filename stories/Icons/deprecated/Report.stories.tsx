@@ -13,7 +13,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Report icon. Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdReportIcon } from '@miljodirektoratet/md-react'`",
+          "Deprecated. Replaced by Dangerous. Color can be inherited from parent, or set directly on the component. In addition to the properties presented here, the component accepts all standard attributes of a HTML SVG element.<br/><br/>`import { MdReportIcon } from '@miljodirektoratet/md-react'`",
       },
     },
   },
