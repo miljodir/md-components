@@ -41,6 +41,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for" }' },
+        type: {
+          summary: '{ helpTextFor?: string; }',
+        },
+      },
+      control: { type: 'object' },
+    },      
     options: {
       type: { name: 'array' },
       description: 'Array with data objects for select options',
@@ -211,6 +223,9 @@ const Template = (args: Args) => {
 export const Multiselect = Template.bind({});
 Multiselect.args = {
   label: 'Label',
+  labels: {
+    helpTextForm: 'Hjelpetekst for',
+  },
   options: options,
   selectedOptions: [options[0]],
   disabled: false,

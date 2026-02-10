@@ -7,20 +7,27 @@ import MdHelpText from '../help/MdHelpText';
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconSearch from '../icons-material/MdIconSearch';
 
+interface Labels {
+  helpTextFor?: string;
+  searchButton?: string;
+}
+
 export interface MdInputSearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  labels?: Labels;
   supportText?: string;
   helpText?: string;
   outerWrapperClass?: string;
-  suffix?: string | React.ReactNode;
   button?: boolean;
   mode?: 'small' | 'medium' | 'large';
+  onSearch: (term: string) => void;
 }
 
 export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchProps>(
   (
     {
       label,
+      labels = {},
       id,
       supportText,
       helpText,
@@ -28,6 +35,7 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       className = '',
       mode = 'medium',
       button = true,
+      onSearch,
       ...otherProps
     },
     ref,
@@ -36,14 +44,21 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
     const uuid = useId();
     const inputId = id && id !== '' ? id : uuid;
 
+    const defaultLabels: Required<Labels> = {
+      helpTextFor: 'Hjelpetekst for',
+      searchButton: 'Søk',
+    };
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
+
     const classNames = classnames(
-      'md-inputsearch', {
+      'md-inputsearch',
+      {
         'md-inputsearch--small': mode === 'small',
         'md-inputsearch--large': mode === 'large',
         'md-inputsearch--button': button,
         'md-inputsearch--has-prefix': !button,
       },
-      className
+      className,
     );
 
     const wrapperClassNames = classnames('md-inputsearch__wrapper', {
@@ -60,11 +75,14 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
       outerWrapperClass,
     );
 
-    // Build aria-describedby in order of priority: error → support → help text
-    const ariaDescribedBy = [
-      helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
-      supportText && supportText !== '' && `md-inputsearch_support-text_${inputId}`,
-    ].filter(Boolean).join(' ') || undefined;
+    // Build aria-describedby in order of priority: help → support
+    const ariaDescribedBy =
+      [
+        helpText && helpText !== '' && `md-inputsearch_help-text_${inputId}`,
+        supportText && supportText !== '' && `md-inputsearch_support_${inputId}`,
+      ]
+        .filter(Boolean)
+        .join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -77,12 +95,12 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
               {helpText && helpText !== '' && (
                 <div className="md-inputsearch__help-button">
                   <MdHelpButton
-                    aria-label={`Hjelpetekst for ${label}`}
+                    aria-label={`${mergedLabels.helpTextFor} ${label}`}
                     id={`md-inputsearch_help-button_${inputId}`}
                     aria-expanded={helpOpen}
                     aria-controls={`md-inputsearch_help-text_${inputId}`}
                     onClick={() => {
-                      return setHelpOpen(!helpOpen);
+                      setHelpOpen(!helpOpen);
                     }}
                     expanded={helpOpen}
                   />
@@ -102,33 +120,35 @@ export const MdInputSearch = React.forwardRef<HTMLInputElement, MdInputSearchPro
             )}
           </div>
         )}
-        <div className={wrapperClassNames}>
+
+        <form
+          className={wrapperClassNames}
+          onSubmit={e => {
+            e.preventDefault();
+            const input = e.currentTarget.querySelector('input');
+            const searchValue = input?.value || '';
+            onSearch(searchValue);
+          }}
+        >
           {!button && (
-            <div
-              aria-hidden="true"
-              className="md-inputsearch__prefix"
-            >
+            <div aria-hidden="true" className="md-inputsearch__prefix">
               <MdIconSearch />
             </div>
-          )}          
+          )}
           <input
-            type="search"
             id={inputId}
             aria-describedby={ariaDescribedBy}
             className={classNames}
             ref={ref}
             {...otherProps}
+            type="search"
           />
           {button && (
-            <MdIconButton
-              aria-label="Søk"
-              onClick={() => {}}
-              theme="filled"
-            >
+            <MdIconButton label="Søk" type="submit" theme="filled">
               <MdIconSearch />
             </MdIconButton>
           )}
-        </div>
+        </form>
         {supportText && supportText !== '' && (
           <div id={`md-inputsearch_support_${inputId}`} className="md-inputsearch__support-text">
             {supportText}

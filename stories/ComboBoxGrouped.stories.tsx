@@ -82,6 +82,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpTextFor`, `reset` and `openClose`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpTextFor: "Hjelpetekst for", reset: "Nullstill", openclose: "Åpne/Lukke" }' },
+        type: {
+          summary: '{ helpTextForm?: string; reset: string; openClose: string;}',
+        },
+      },
+      control: { type: 'object' },
+    },      
     disabled: {
       type: { name: 'boolean' },
       description: 'Is the Combobox disabled?',
@@ -281,6 +293,11 @@ Multi.args = {
   onSelectOption: () => {},
   defaultOptions: [],
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+    reset: 'Nullstill',
+    openClose: 'Åpne/Lukke',
+  },      
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
@@ -299,6 +316,11 @@ Single.args = {
   onSelectOption: () => {},
   defaultOptions: [],
   label: 'Label',
+  labels: {
+    helpTextFor: 'Hjelpetekst for',
+    reset: 'Nullstill',
+    openClose: 'Åpne/Lukke',
+  },      
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',

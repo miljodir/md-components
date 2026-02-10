@@ -32,6 +32,7 @@
 @import './tile/tile.css';
 @import './toggle/toggle.css';
 @import './tooltip/tooltip.css';
+@import './tag/tag.css';
 
 html {
   box-sizing: border-box;

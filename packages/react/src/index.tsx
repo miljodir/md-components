@@ -126,6 +126,7 @@ import MdIconChevronForward from './icons-material/MdIconChevronForward';
 import MdIconClose from './icons-material/MdIconClose';
 import MdIconCollapseAll from './icons-material/MdIconCollapseAll';
 import MdIconContentCopy from './icons-material/MdIconContentCopy';
+import MdIconDangerous from './icons-material/MdIconDangerous';
 import MdIconDelete from './icons-material/MdIconDelete';
 import MdIconDescription from './icons-material/MdIconDescription';
 import MdIconDownload from './icons-material/MdIconDownload';
@@ -170,6 +171,7 @@ import MdStepper, { type MdStepperProps } from './stepper/MdStepper';
 import MdTab, { type MdTabProps } from './tabs/MdTab';
 import MdTabTitle, { type MdTabTitleProps } from './tabs/MdTabTitle';
 import MdTabs, { type MdTabsProps } from './tabs/MdTabs';
+import MdTag, { type MdTagProps } from './tag/MdTag';
 import MdTile, { type MdTileProps } from './tiles/MdTile';
 import MdTileVertical, { type MdTileVerticalProps } from './tiles/MdTileVertical';
 import MdToggle, { type MdToggleProps } from './toggle/MdToggle';
@@ -270,6 +272,7 @@ export {
   MdCommentIcon64,
   MdConfirmIcon,
   MdConfirmIcon64,
+  MdIconDangerous,
   MdDeleteIcon,
   MdDeleteIcon64,
   MdDocIcon,
@@ -346,6 +349,8 @@ export {
   MdComboBoxGroupedProps,
   MdSkipToMainContent,
   MdSkipToMainContentProps,
+  MdTag,
+  MdTagProps,
 
   // Material icons
   MdIconAccountCircle,

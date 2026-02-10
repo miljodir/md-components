@@ -8,7 +8,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <button
-  class="md-button [md-button--small, md-button--large, md-button--secondary, md-button--tertiary, md-button--danger, md-button--column]"
+  class="md-button [md-button--small, md-button--large, md-button--secondary, md-button--tertiary, md-button--danger, md-button--danger-secondary,  md-button--danger-tertiary, md-button--column]"
 >
   <div class="md-button__topIcon">{topIcon}</div>
   <div class="md-button__content">

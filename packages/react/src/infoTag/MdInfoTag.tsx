@@ -7,10 +7,18 @@ import MdIconCheck from '../icons-material/MdIconCheck';
 import MdIconInfo from '../icons-material/MdIconInfo';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
+interface Labels {
+  info?: string;
+  warning?: string;
+  error?: string;
+  ok?: string;
+}
+
 export interface MdInfoTagProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'primary' | 'secondary' | 'warning' | 'danger' | 'success';
   keepOpen?: boolean;
   label?: string;
+  labels?: Labels;
   icon?: 'none' | 'info' | 'warning' | 'error' | 'check' | 'custom';
   customIcon?: React.ReactNode;
   outline?: boolean;
@@ -23,10 +31,25 @@ export const MdInfoTag: React.FC<MdInfoTagProps> = ({
   icon = 'none',
   customIcon = null,
   label,
+  labels = {},
   outline = false,
   onClick = undefined,
   ...otherProps
 }: MdInfoTagProps) => {
+
+    // eslint-disable-next-line no-console
+    console.warn(
+      'MdInfoTag is deprecated and will be removed in a future release. Use MdTag instead.',
+    );
+
+  const defaultLabels: Required<Labels> = {
+    info: 'Informasjon',
+    warning: 'Advarsel',
+    error: 'Feil',
+    ok: 'Ok',
+  };
+  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
+
   const classNames = classnames(
     'md-info-tag',
     {
@@ -49,13 +72,13 @@ export const MdInfoTag: React.FC<MdInfoTagProps> = ({
       return customIcon;
     } else {
       if (icon === 'info') {
-        return <MdIconInfo aria-label="Info" />;
+        return <MdIconInfo aria-label={mergedLabels.info} />;
       } else if (icon === 'warning') {
-        return <MdIconWarning aria-label="Advarsel" />;
+        return <MdIconWarning aria-label={mergedLabels.warning} />;
       } else if (icon === 'error') {
-        return <MdIconCancel aria-label="Feil" />;
+        return <MdIconCancel aria-label={mergedLabels.error} />;
       } else if (icon === 'check') {
-        return <MdIconCheck aria-label="OK" />;
+        return <MdIconCheck aria-label={mergedLabels.ok} />;
       } else {
         return null;
       }

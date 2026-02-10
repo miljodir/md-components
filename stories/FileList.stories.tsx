@@ -122,6 +122,18 @@ export default {
         'The callback function for handling file print. Returns the file-object, to be handled as you see fit. Example use in your component: `onPrintFile={(file) => handlePrint(file)}`',
       action: 'Print',
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `delete`, `download`, `edit`, `print`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ delete: "Slett fil", download: "Last ned fil", edit: "Rediger fil", print: "Skriv ut fil" }' },
+        type: {
+          summary: '{ delete?: string; download?: string; edit?: string; print?: string; }',
+        },
+      },
+      control: { type: 'object' },
+    },  
   },
 };
 
@@ -142,4 +154,10 @@ FileList.args = {
   allowDelete: true,
   allowEdit: true,
   hideIcons: false,
+  labels: {
+    delete: 'Slett fil',
+    download: 'Last ned fil',
+    edit: 'Rediger fil',
+    print: 'Skriv ut fil',
+  },  
 };

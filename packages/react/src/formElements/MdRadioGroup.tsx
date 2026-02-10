@@ -7,6 +7,10 @@ import MdHelpText from '../help/MdHelpText';
 import MdRadioButton from './MdRadioButton';
 import type { ChangeEvent } from 'react';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 export interface MdRadioGroupOption {
   value: string;
   text?: string;
@@ -16,6 +20,7 @@ export interface MdRadioGroupProps {
   options?: MdRadioGroupOption[];
   value?: string;
   label?: string;
+  labels?: Labels;
   id?: string;
   disabled?: boolean;
   direction?: string;
@@ -36,6 +41,7 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   direction,
   className,
   label,
+  labels = {},
   helpText,
   error = false,
   errorText,
@@ -47,6 +53,11 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
   const uuid = useId();
   const radioGroupId = id || uuid;
   const [helpOpen, setHelpOpen] = useState(false);
+
+  const defaultLabels: Required<Labels> = {
+    helpTextFor: 'Hjelpetekst for',
+  };
+  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
   const classNames = classnames(
     'md-radiogroup',
@@ -97,7 +108,7 @@ export const MdRadioGroup: React.FunctionComponent<MdRadioGroupProps> = ({
 
             {helpText && helpText !== '' && (
               <MdHelpButton
-                aria-label={`Hjelpetekst for ${label}`}
+                aria-label={`${mergedLabels.helpTextFor} ${label}`}
                 id={`md-radiogroup_help-button_${radioGroupId}`}
                 aria-expanded={helpOpen}
                 aria-controls={`md-radiogroup_help-text_${radioGroupId}`}
