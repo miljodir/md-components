@@ -5,7 +5,7 @@ import { MdAlertMessage } from '../../packages/react/src/messages/MdAlertMessage
 import { Token } from './Token.tsx';
 
 <Meta
-  title="Introduction/Colors & tokens/Tokens"
+  title="Introduction/Colors, typography & tokens/Tokens"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -60,7 +60,9 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-attention-error-secondary-hover" variable="var(--md-color-attention-error-1)" />
 <Token token="--md-color-attention-error-secondary-active" variable="var(--md-color-attention-error-2)" />
 <Token token="--md-color-attention-error-surface" variable="var(--md-color-attention-error-1)" />
+<Token token="--md-color-attention-error-surface-tinted" variable="var(--md-color-attention-error-2)" />
 <Token token="--md-color-attention-error-surface-hover" variable="var(--md-color-attention-error-3)" />
+<Token token="--md-color-error-surface-active" variable="var(--md-color-error-surface-active)" />
 <Token token="--md-color-attention-error-border" variable="var(--md-color-attention-error-6)" />
 
 ##### Warning
@@ -69,6 +71,9 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-attention-warning-primary-hover" variable="var(--md-color-attention-warning-7)" />
 <Token token="--md-color-attention-warning-primary-active" variable="var(--md-color-attention-warning-8)" />
 <Token token="--md-color-attention-warning-surface" variable="var(--md-color-attention-warning-1)" />
+<Token token="--md-color-attention-warning-surface-tinted" variable="var(--md-color-attention-warning-2)" />
+<Token token="--md-color-attention-warning-surface-hover" variable="var(--md-color-attention-warning-3)" />
+<Token token="--md-color-attention-warning-surface-active" variable="var(--md-color-attention-warning-4)" />
 <Token token="--md-color-attention-warning-border" variable="var(--md-color-attention-warning-5)" />
 
 ##### Success
@@ -77,6 +82,9 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-attention-success-primary-hover" variable="var(--md-color-attention-success-7)" />
 <Token token="--md-color-attention-success-primary-active" variable="var(--md-color-attention-success-8)" />
 <Token token="--md-color-attention-success-surface" variable="var(--md-color-attention-success-1)" />
+<Token token="--md-color-attention-success-surface-tinted" variable="var(--md-color-attention-success-2)" />
+<Token token="--md-color-attention-success-surface-hover" variable="var(--md-color-attention-success-3)" />
+<Token token="--md-color-attention-success-surface-active" variable="var(--md-color-attention-success-4)" />
 <Token token="--md-color-attention-success-border" variable="var(--md-color-attention-success-6)" />
 
 ##### Info
@@ -85,6 +93,9 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-attention-info-primary-hover" variable="var(--md-color-attention-info-7)" />
 <Token token="--md-color-attention-info-primary-active" variable="var(--md-color-attention-info-8)" />
 <Token token="--md-color-attention-info-surface" variable="var(--md-color-attention-info-1)" />
+<Token token="--md-color-attention-info-surface-tinted" variable="var(--md-color-attention-info-2)" />
+<Token token="--md-color-attention-info-surface-hover" variable="var(--md-color-attention-info-3)" />
+<Token token="--md-color-attention-info-surface-active" variable="var(--md-color-attention-info-4)" />
 <Token token="--md-color-attention-info-border" variable="var(--md-color-attention-info-6)" />
 
 ### Surface
@@ -96,10 +107,14 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-surface-primary-hover" variable="var(--md-color-green-3)" />
 <Token token="--md-color-surface-primary-active" variable="var(--md-color-green-4)" />
 ##### Secondary
-<Token token="--md-color-surface-secondary" variable="var(--md-color-beige-1)" />
-<Token token="--md-color-surface-secondary-tinted" variable="var(--md-color-beige-2)" />
-<Token token="--md-color-surface-secondary-hover" variable="var(--md-color-beige-3)" />
-<Token token="--md-color-surface-secondary-active" variable="var(--md-color-beige-4)" />
+<Token token="--md-color-surface-secondary-light" variable="var(--md-color-beige-1)" />
+<Token token="--md-color-surface-secondary" variable="var(--md-color-beige-2)" />
+<Token token="--md-color-surface-secondary-tinted" variable="var(--md-color-beige-3)" />
+<Token token="--md-color-surface-secondary-hover" variable="var(--md-color-beige-4)" />
+<Token token="--md-color-surface-secondary-active" variable="var(--md-color-beige-5)" />
+<Token token="--md-color-surface-secondary-dark" variable="var(--md-color-beige-6)" />
+<Token token="--md-color-surface-secondary-border" variable="var(--md-color-tertiary-brown-dark)" />
+
 ##### Tertiary
 <Token token="--md-color-surface-tertiary" variable="var(--md-color-secondary-20)" />
 <Token token="--md-color-surface-info-primary" variable="var(--md-color-primary-20)" />
@@ -119,6 +134,16 @@ These tokens use variables defined in the [Colors section](/docs/introduction-co
 <Token token="--md-color-border-primary" variable="var(--md-color-grey-5)" />
 <Token token="--md-color-border-secondary" variable="var(--md-color-grey-3)" />
 <Token token="--md-color-border-tertiary" variable="var(--md-color-green-10)" />
+
+## Tertiary
+<Token token="--md-color-tertiary-blue-dark" variable="var(--md-color-tertiary-blue-dark)" />
+<Token token="--md-color-tertiary-blue-light" variable="var(--md-color-tertiary-blue-light)" />
+<Token token="--md-color-tertiary-pink-dark" variable="var(--md-color-tertiary-pink-dark)" />
+<Token token="--md-color-tertiary-pink-light" variable="var(--md-color-tertiary-pink-light)" />
+<Token token="--md-color-tertiary-yellow-dark" variable="var(--md-color-tertiary-yellow-dark)" />
+<Token token="--md-color-tertiary-yellow-light" variable="var(--md-color-tertiary-yellow-light)" />
+<Token token="--md-color-tertiary-brown-dark" variable="var(--md-color-tertiary-brown-dark)" />
+<Token token="--md-color-tertiary-brown-light" variable="var(--md-color-tertiary-brown-light)" />
 
 ## Sizes
 

@@ -6,18 +6,18 @@
   font-family: var(--md-typography-family-body);
   height: fit-content;
   width: fit-content;
-  font-weight: 400;
-  font-size: 0.875rem;
+  font-weight: var(--md-typography-weight-regular);
+  font-size: var(--md-typography-size-14);
   border-radius: var(--md-size-8);
   padding: 0.625rem;
   z-index: 950;
 }
 
 .md-tooltip--small {
-  font-size: var(--md-size-12);
+  font-size: var(--md-typography-size-12);
 }
 .md-tooltip--large {
-  font-size: var(--md-size-16);
+  font-size: var(--md-typography-size-16);
 }
 
 .md-tooltip__anchor {

@@ -1,7 +1,6 @@
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
 
-import React from 'react';
-import { useArgs } from 'storybook/preview-api';
+import React, { useState } from 'react';
 import Readme from '../packages/css/src/formElements/inputsearch/README.md';
 import { MdInputSearch } from '../packages/react/src/formElements/MdInputSearch';
 
@@ -9,7 +8,7 @@ import type { Args } from '@storybook/react-webpack5';
 import type { ChangeEvent } from 'react';
 
 export default {
-  title: 'Form/Search',
+  title: 'Form/InputSearch',
   component: MdInputSearch,
   parameters: {
     docs: {
@@ -86,7 +85,7 @@ export default {
         },
       },
       control: { type: 'boolean' },
-    },   
+    },
     helpText: {
       type: { name: 'string' },
       description: 'Optional helper text, will also add a help icon which toggles help text box.',
@@ -136,17 +135,29 @@ export default {
       // eslint-disable-next-line quotes
       description: "Ref to the inner input element, use for example to bring focus to the input when there's an error.",
     },
+    onSearch: {
+      type: { name: 'function' },
+      description:
+        'Callback function triggered when the user submits a search, either by pressing Enter or clicking the search button. Receives the search term as a parameter.',
+      action: 'Search',
+    },
   },
 };
 
 const Template = (args: Args) => {
-  const [, updateArgs] = useArgs();
+  const [value, setValue] = useState(args.value || '');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    updateArgs({ ...args, value: e?.target?.value });
+    setValue(e?.target?.value);
   };
 
-  return <MdInputSearch {...args} onChange={handleChange} />;
+  const onSearch = (searchTerm: string) => {
+    // eslint-disable-next-line no-console
+    console.log('Search submitted:', searchTerm);
+    if (typeof args.onSearch === 'function') args.onSearch(searchTerm);
+  };
+
+  return <MdInputSearch {...args} value={value} onChange={handleChange} onSearch={onSearch} />;
 };
 
 export const Search = Template.bind({});
@@ -157,7 +168,7 @@ Search.args = {
   helpText: '',
   supportText: '',
   outerWrapperClass: '',
-  placeholder: 'Placeholder...',
+  placeholder: 'Placeholder ...',
   className: '',
   button: true,
 };

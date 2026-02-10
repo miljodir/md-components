@@ -7,6 +7,10 @@ import MdHelpText from '../help/MdHelpText';
 import MdCheckbox from './MdCheckbox';
 import type { ChangeEvent } from 'react';
 
+interface Labels {
+  helpTextFor?: string;
+}
+
 /**
  * 3.0.0: Replaces previous type MdCheckboxGroupOptionProps.
  */
@@ -20,6 +24,7 @@ export interface MdCheckboxGroupProps {
   options?: MdCheckboxGroupOption[];
   selectedOptions?: MdCheckboxGroupOption[];
   label?: string;
+  labels?: Labels;
   id?: string;
   disabled?: boolean;
   direction?: 'horizontal' | 'vertical' | 'grid';
@@ -51,11 +56,17 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
   onChange,
   onFocus,
   onBlur,
+  labels = {},
   ...otherProps
 }: MdCheckboxGroupProps) => {
   const uuid = useId();
   const checkboxGroupId = id || uuid;
   const [helpOpen, setHelpOpen] = useState(false);
+
+  const defaultLabels: Required<Labels> = {
+    helpTextFor: 'Hjelpetekst for',
+  };
+  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
   const classNames = classnames(
     'md-checkboxgroup',
@@ -109,7 +120,7 @@ export const MdCheckboxGroup: React.FunctionComponent<MdCheckboxGroupProps> = ({
             {label && label !== '' && <div>{label}</div>}
             {helpText && helpText !== '' && (
               <MdHelpButton
-                aria-label={`Hjelpetekst for ${label}`}
+                aria-label={`${mergedLabels.helpTextFor} ${label}`}
                 id={`md-checkboxgroup_help-button_${checkboxGroupId}`}
                 aria-expanded={helpOpen}
                 aria-controls={`md-checkboxgroup_help-text_${checkboxGroupId}`}

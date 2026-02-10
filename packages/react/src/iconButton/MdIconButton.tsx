@@ -6,22 +6,22 @@ import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 import MdTooltip from '../tooltip/MdTooltip';
 
 export interface MdIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
   theme?: 'filled' | 'border' | 'plain';
   children?: React.ReactNode;
   disabled?: boolean;
   showTooltip?: boolean;
-  ['aria-label']: string;
   loading?: boolean;
 }
 
 export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
+  label,
   theme = 'filled',
   children,
   showTooltip = false,
   disabled,
   type = 'button',
   className,
-  'aria-label': ariaLabel,
   loading = false,
   ...otherProps
 }: MdIconButtonProps) => {
@@ -34,8 +34,13 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
     className,
   );
 
+  // Check if aria-label is in otherProps and warn
+  if ('aria-label' in otherProps) {
+    console.warn('MdIconButton: aria-label should not be passed via props. Use the "label" prop instead.');
+  }  
+
   const button = (
-    <button aria-label={ariaLabel} type={type} disabled={disabled} className={classNames} {...otherProps}>
+    <button aria-label={label} type={type} disabled={disabled} className={classNames} {...otherProps}>
       {children && (
         <div aria-hidden="true" className="md-icon-button__icon">
           {loading ? <MdLoadingSpinner /> : children}
@@ -45,7 +50,7 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
   );
 
   return showTooltip && !disabled ? (
-    <MdTooltip unmountOnHide tooltipContent={ariaLabel} aria-label={ariaLabel}>
+    <MdTooltip unmountOnHide tooltipContent={label}>
       {button}
     </MdTooltip>
   ) : (

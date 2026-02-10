@@ -6,7 +6,7 @@ import type { MdInfoTagProps } from '../packages/react/src/infoTag/MdInfoTag';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
-  title: 'Components/InfoTag',
+  title: 'Deprecated/Components/InfoTag',
   component: MdInfoTag,
   parameters: {
     docs: {
@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for info tag. Display icon, and hover over to display/expand info-text. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
+          "<strong>Deprecated:</strong> A component for info tag. Display icon, and hover over to display/expand info-text. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdInfoTag } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -58,6 +58,18 @@ export default {
       },
       control: { type: 'text' },
     },
+    labels: {
+      type: { name: 'object' },
+      description:
+        'Object containing custom labels for button aria-labels. Properties: `helpText`. Falls back to Norwegian defaults if not provided.',
+      table: {
+        defaultValue: { summary: '{ helpText: "Hjelpetekst"}' },
+        type: {
+          summary: '{ helpText?: string;}',
+        },
+      },
+      control: { type: 'object' },
+    },     
     onClick: {
       type: { name: 'function' },
       description: 'The onClick handler for change events',
@@ -81,6 +93,7 @@ const HelpButtonTemplate = (args: Args) => {
     <MdHelpButton
       expanded={args.expanded}
       hideArrow={args.hideArrow}
+      labels={args.labels}
       onClick={() => {
         return handleExpanded(!args.expanded);
       }}
@@ -92,4 +105,7 @@ export const HelpButton = HelpButtonTemplate.bind({});
 HelpButton.args = {
   expanded: false,
   hideArrow: false,
+  labels: {
+    helpText: 'Hjelpetekst'
+  }
 };

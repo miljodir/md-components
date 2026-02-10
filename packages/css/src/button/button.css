@@ -4,13 +4,14 @@
   color: var(--md-color-cta-secondary-default);
   display: flex;
   font-weight: var(--md-typography-weight-regular);
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-16);
   padding: var(--md-typography-size-12) var(--md-typography-size-16);
   width: fit-content;
   border-radius: var(--md-radius-md);
   border: none;
   transition: all 200ms ease-in-out;
+  line-height: 1.5;
 }
 
 .md-button--column {
@@ -242,7 +243,7 @@
 }
 
 .md-button--danger-secondary:active:not(:disabled):not([disabled]) {
-  background-color: var(--md-color-attention-error-bg);
+  background-color: var(--md-color-attention-error-secondary-active);
   color: var(--md-color-attention-error-primary-hover);
   border-color: var(--md-color-attention-error-primary-hover);
 }
@@ -259,4 +260,55 @@
 
 .md-button--danger-secondary:disabled > .md-button__rightIcon {
   color: var(--md-color-text-disabled);
+}
+
+/* Danger tertiary */
+.md-button--danger-tertiary {
+  background-color: transparent;
+  border: none;
+  color: var(--md-color-attention-error-primary);
+  padding: var(--md-size-12) var(--md-size-16);
+}
+
+.md-button--small.md-button--danger-tertiary {
+  padding: var(--md-size-8) var(--md-size-12);
+}
+
+.md-button--large.md-button--danger-tertiary {
+  padding: var(--md-size-16) var(--md-size-20);
+}
+
+.md-button--danger-tertiary:hover:not(:disabled):not([disabled]) {
+  text-decoration: underline;
+  background-color: var(--md-color-attention-error-secondary-hover);
+}
+
+.md-button--danger-tertiary:focus-visible:not(:disabled):not([disabled]) {
+  border-color: var(--md-color-attention-error-tertiary);
+  outline: var(--md-size-2) var(--md-color-attention-error-primary) solid;
+  background-color: transparent;
+  outline-offset: 0px;
+}
+
+.md-button--danger-tertiary:focus-visible:hover:not(:disabled):not([disabled]) {
+  background-color: var(--md-color-cta-secondary-hover);
+}
+
+.md-button--danger-tertiary:active:not(:disabled):not([disabled]) {
+  background-color: var(--md-color-attention-error-tertiary-active) !important;
+  color: var(--md-color-attention-error-primary-hover) !important;
+}
+
+.md-button--danger-tertiary:disabled {
+  background-color: transparent;
+  color: var(--md-color-attention-info-primary-hover);
+  border-color: transparent;
+}
+
+.md-button--danger-tertiary > .md-button__rightIcon {
+  color: var(--md-color-attention-error-primary);
+}
+
+.md-button--danger-tertiary:disabled > .md-button__rightIcon {
+  color: var(--md-color-attention-error-primary);
 }

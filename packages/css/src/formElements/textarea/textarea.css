@@ -67,7 +67,7 @@
 
 .md-textarea__error {
   color: var(--md-color-attention-error-primary);
-  font-size: 0.88rem;
+  font-size: var(--md-typography-size-14);
   margin-top: var(--md-size-8);
 }
 

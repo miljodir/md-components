@@ -1,5 +1,5 @@
 .md-multiselect {
-  font-family: 'Open sans';
+  font-family: var(--md-typography-family-body);
   width: 100%;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .md-multiselect__button {
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
   width: 100%;
   display: flex;
   align-items: center;
@@ -66,8 +66,7 @@
 }
 
 .md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-visible,
-.md-multiselect:not(.md-multiselect--disabled)
-  .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
+.md-multiselect:not(.md-multiselect--disabled) .md-multiselect__button:not(.md-multiselect__button--open):focus-within {
   padding: calc(1rem - 1px);
   border: 2px solid var(--mdPrimaryColor80);
 }
@@ -95,7 +94,7 @@
 
 .md-multiselect__button-hasmultiple {
   margin-right: 1rem;
-  font-size: 0.8rem;
+  font-size: var(--md-typography-size-14);
 }
 
 .md-multiselect__help-text {
@@ -127,8 +126,8 @@
 .md-multiselect__dropdown-item {
   display: flex;
   align-items: center;
-  font-family: 'Open sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
   border: 0;
   background-color: #fff;
   text-align: left;
@@ -154,10 +153,10 @@
 }
 
 .md-multiselect__dropdown-item .md-checkbox__labelText {
-  font-family: 'Open Sans';
-  font-size: 1rem;
+  font-family: var(--md-typography-family-label);
+  font-size: var(--md-typography-size-16);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--md-typography-weight-regular);
   line-height: 1.375rem;
   color: var(--mdGreyColor);
 }
@@ -207,7 +206,7 @@
 
 .md-multiselect__error {
   color: var(--mdErrorColor);
-  font-size: 0.88em;
+  font-size: var(--md-typography-size-14);
   margin-top: 0.5rem;
 }
 

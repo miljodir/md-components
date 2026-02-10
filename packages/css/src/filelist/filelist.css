@@ -30,7 +30,7 @@
 }
 
 .md-filelist__file-size {
-  font-size: 0.875rem;
+  font-size: var(--md-typography-size-14);
   margin-top: 0.3rem;
 }
 
