@@ -15,6 +15,8 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   small?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean;
+  asChild: boolean;
+  asChildContent?: React.ReactNode;
 }
 
 export const MdButton: React.FunctionComponent<MdButtonProps> = ({
@@ -27,6 +29,8 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
   small,
   type = 'button',
   loading = false,
+  asChild,
+  asChildContent,
   ...otherProps
 }: MdButtonProps) => {
   // Handle backward compatibility: if small prop is used, override mode
@@ -46,6 +50,10 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
     },
     otherProps.className,
   );
+
+  if (asChild && asChildContent) {
+    return React.cloneElement(asChildContent as React.ReactElement, otherProps);
+  }
 
   return (
     <button type={type} {...otherProps} className={classNames}>
