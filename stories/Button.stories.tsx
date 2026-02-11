@@ -12,6 +12,7 @@ import Readme from '../packages/css/src/button/README.md';
 import { MdButton } from '../packages/react/src/button/MdButton';
 import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';
 import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
+import { MdLink } from '../packages/react/src/link/MdLink';
 
 export default {
   title: 'Components/Button',
@@ -66,6 +67,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    asChild: {
+      description: 'Activate asChild',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },    
     mode: {
       description: 'Button size mode',
       table: {
@@ -128,6 +138,8 @@ interface ButtonArgs {
   mode: 'small' | 'medium' | 'large';
   small: boolean;
   loading?: boolean;
+  asChild?: boolean;
+  asChildContent?: string | React.ReactNode;
 }
 
 const Template = (args: ButtonArgs) => {
@@ -139,6 +151,8 @@ const Template = (args: ButtonArgs) => {
       mode={args.mode}
       small={args.small}
       loading={args.loading}
+      asChild={args.asChild}
+      asChildContent={args.asChildContent}      
     >
       {args.children}
     </MdButton>
@@ -262,4 +276,16 @@ ButtonWithTopIcon.args = {
   mode: 'medium',
   small: false,
   loading: false,
+};
+
+export const ButtonAsChild = Template.bind({});
+ButtonAsChild.args = {
+  theme: 'primary',
+  children: 'asChild Button',
+  disabled: false,
+  mode: 'medium',
+  small: false,
+  loading: false,
+  asChild: true,
+  asChildContent: <MdLink href="#">Link as child</MdLink>,
 };
