@@ -15,7 +15,7 @@ export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   small?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean;
-  asChild: boolean;
+  asChild?: boolean;
   asChildContent?: React.ReactNode;
 }
 
