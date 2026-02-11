@@ -12,6 +12,7 @@
   border: none;
   transition: all 200ms ease-in-out;
   line-height: 1.5;
+  text-decoration: none !important;
 }
 
 .md-button--column {

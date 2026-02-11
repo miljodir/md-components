@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import MdLoadingSpinner from '../loadingSpinner/MdLoadingSpinner';
 
 export interface MdButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -50,13 +50,10 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
     },
     otherProps.className,
   );
-
-  if (asChild && asChildContent) {
-    return React.cloneElement(asChildContent as React.ReactElement, otherProps);
-  }
-
-  return (
-    <button type={type} {...otherProps} className={classNames}>
+  
+  // Render the inner content (topIcon + content wrapper with left/right icons and children)
+  const renderInner = () => {return (
+    <>
       {topIcon && (
         <div aria-hidden="true" className="md-button__topIcon">
           {loading ? <MdLoadingSpinner /> : topIcon}
@@ -80,6 +77,23 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
           </div>
         )}
       </ConditionalWrapper>
+    </>
+  )};
+
+  if (asChild && asChildContent) {
+    return React.cloneElement(
+      asChildContent as React.ReactElement,
+      {
+        ...otherProps,
+        className: classNames
+      },
+      renderInner()
+    );
+  }
+
+  return (
+    <button type={type} {...otherProps} className={classNames}>
+      {renderInner()}
     </button>
   );
 };
