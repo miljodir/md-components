@@ -21,7 +21,7 @@ interface Labels {
 
 export interface MdComboBoxGroupedOption {
   label: string;
-  labels: Labels;
+  labels?: Labels;
   icon?: React.ReactNode;
   values: MdComboBoxOption[];
 }
