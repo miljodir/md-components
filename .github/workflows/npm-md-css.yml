@@ -13,6 +13,9 @@ jobs:
   bump:
     name: Bump, build & publish md-css
     if: github.event.pull_request.merged == true
+    permissions:
+      contents: read
+      id-token: write
     defaults:
       run:
         working-directory: ./packages/css
@@ -63,6 +66,4 @@ jobs:
         run: git push origin main --force
 
       - run: npm install
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: npm publish --provenance --access public
