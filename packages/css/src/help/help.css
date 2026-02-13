@@ -43,7 +43,6 @@
   fill: var(--md-color-cta-primary-focus);
 }
 
-/* HELP TEXT */
 .md-helptext {
   font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-14);
