@@ -16,6 +16,8 @@ export type MdTileProps = {
   icon?: React.ReactNode;
   preventDefault?: boolean;
   loading?: boolean;
+  asChild?: boolean;
+  asChildContent?: React.ReactNode;
   onClick?(_e: React.MouseEvent): void;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -31,6 +33,8 @@ export const MdTile: React.FC<MdTileProps> = ({
   icon = null,
   preventDefault = false,
   loading = false,
+  asChild,
+  asChildContent,
   onClick,
   ...otherProps
 }: MdTileProps) => {
@@ -73,6 +77,17 @@ export const MdTile: React.FC<MdTileProps> = ({
       </div>
     </>
   );
+
+  if (asChild && asChildContent) {
+    return React.cloneElement(
+      asChildContent as React.ReactElement,
+      {
+        ...otherProps,
+        className: classNames,
+      },
+      content,
+    );
+  }
 
   return href ? (
     <a {...otherProps} className={classNames} href={href || '#'} tabIndex={disabled ? -1 : 0}>
