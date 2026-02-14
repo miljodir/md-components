@@ -2,9 +2,8 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
 import { MdIconBarChart } from '../packages/react/src/icons-material/MdIconBarChart';
-import { MdLink } from '../packages/react/src/link/MdLink';
 import { MdTileVertical } from '../packages/react/src/tiles/MdTileVertical';
-import type { Args } from '@storybook/react-webpack5';
+import type { Args, StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Tiles/TileVertical',
@@ -133,7 +132,7 @@ interface TileVerticalArgs extends Args {
   asChildContent?: React.ReactNode;
 }
 
-const Template = (args: TileVerticalArgs) => {
+const Template: StoryFn<typeof MdTileVertical> = (args: TileVerticalArgs) => {
   return (
     <MdTileVertical
       heading="Målinger"
@@ -152,7 +151,6 @@ const Template = (args: TileVerticalArgs) => {
 
 export const TileVertical = Template.bind({});
 TileVertical.args = {
-  href: '#',
   mode: 'medium',
   theme: 'primary',
   disabled: false,
@@ -170,5 +168,5 @@ TileVerticalAsChild.args = {
   icon: true,
   loading: false,
   asChild: true,
-  asChildContent: <MdLink href="#">Link as child</MdLink>,
+  asChildContent: <a href="https://example.com">Link</a>,
 };

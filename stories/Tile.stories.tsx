@@ -2,9 +2,8 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
 import { MdIconBarChart } from '../packages/react/src/icons-material/MdIconBarChart';
-import { MdLink } from '../packages/react/src/link/MdLink';
 import { MdTile } from '../packages/react/src/tiles/MdTile';
-import type { Args } from '@storybook/react-webpack5';
+import type { Args, StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Tiles/Tile',
@@ -143,7 +142,7 @@ interface TileArgs extends Args {
   asChildContent?: React.ReactNode;
 }
 
-const Template = (args: TileArgs) => {
+const Template: StoryFn<typeof MdTile> = (args: TileArgs) => {
   return (
     <MdTile
       heading="Målinger"
@@ -184,5 +183,5 @@ TileAsChild.args = {
   icon: true,
   loading: false,
   asChild: true,
-  asChildContent: <MdLink href="#">Link as child</MdLink>,
+  asChildContent: <a href="https://example.com">Link</a>,
 };
