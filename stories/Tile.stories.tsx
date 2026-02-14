@@ -2,6 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
 import { MdIconBarChart } from '../packages/react/src/icons-material/MdIconBarChart';
+import { MdLink } from '../packages/react/src/link/MdLink';
 import { MdTile } from '../packages/react/src/tiles/MdTile';
 import type { Args } from '@storybook/react-webpack5';
 
@@ -124,10 +125,25 @@ export default {
         },
       },
     },
+    asChild: {
+      description: 'Activate asChild',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
-const Template = (args: Args) => {
+interface TileArgs extends Args {
+  asChild?: boolean;
+  asChildContent?: React.ReactNode;
+}
+
+const Template = (args: TileArgs) => {
   return (
     <MdTile
       heading="Målinger"
@@ -140,6 +156,8 @@ const Template = (args: Args) => {
       loading={args.loading}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdIconBarChart large width={64} height={64} />}
+      asChild={args.asChild}
+      asChildContent={args.asChildContent}
     />
   );
 };
@@ -154,4 +172,17 @@ Tile.args = {
   preventDefault: true,
   icon: true,
   loading: false,
+};
+
+export const TileAsChild = Template.bind({});
+TileAsChild.args = {
+  theme: 'primary',
+  fullWidth: false,
+  mode: 'large',
+  disabled: false,
+  preventDefault: false,
+  icon: true,
+  loading: false,
+  asChild: true,
+  asChildContent: <MdLink href="#">Link as child</MdLink>,
 };

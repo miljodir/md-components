@@ -2,6 +2,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import React from 'react';
 import Readme from '../packages/css/src/tile/README.md';
 import { MdIconBarChart } from '../packages/react/src/icons-material/MdIconBarChart';
+import { MdLink } from '../packages/react/src/link/MdLink';
 import { MdTileVertical } from '../packages/react/src/tiles/MdTileVertical';
 import type { Args } from '@storybook/react-webpack5';
 
@@ -114,10 +115,25 @@ export default {
         },
       },
     },
+    asChild: {
+      description: 'Activate asChild',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
-const Template = (args: Args) => {
+interface TileVerticalArgs extends Args {
+  asChild?: boolean;
+  asChildContent?: React.ReactNode;
+}
+
+const Template = (args: TileVerticalArgs) => {
   return (
     <MdTileVertical
       heading="Målinger"
@@ -128,6 +144,8 @@ const Template = (args: Args) => {
       disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdIconBarChart large width={128} height={128} />}
+      asChild={args.asChild}
+      asChildContent={args.asChildContent}
     />
   );
 };
@@ -141,4 +159,16 @@ TileVertical.args = {
   preventDefault: true,
   icon: true,
   loading: false,
+};
+
+export const TileVerticalAsChild = Template.bind({});
+TileVerticalAsChild.args = {
+  mode: 'medium',
+  theme: 'primary',
+  disabled: false,
+  preventDefault: false,
+  icon: true,
+  loading: false,
+  asChild: true,
+  asChildContent: <MdLink href="#">Link as child</MdLink>,
 };
