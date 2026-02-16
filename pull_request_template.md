@@ -10,3 +10,4 @@ _Replace this text with a detailed description of your changes_
 - [ ] If new component: Is README-file for CSS documentation created and added to the story?
 - [ ] If new component: Is tsx-file import added to `packages/react/index.tsx`?
 - [ ] If new component: Is CSS-file added to `packages/css/index.css`?
+- [ ] If new component: Are unit tests created for the component?

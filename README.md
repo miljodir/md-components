@@ -81,6 +81,8 @@ Dersom du ønsker endringer eller ønsker å bidra med nye komponenter, gjøres 
 
 For nye komponenter med tilhørende css, skal det også opprettes en README.md fil i mappen for css-fila, som beskriver HTML-strukturen til komponenten. Dette fordi man skal kunne bruke css-filen til å bygge komponenten selv, uten å inkludere React-komponenten. Se en eksisterende css-fil og README.md i `packages/css/..` for eksempler på oppbygging av README-fil.
 
+**Alle nye komponenter må ha enhetstester.** Se seksjonen [Enhetstesting](#enhetstesting) for mer informasjon.
+
 Før man lager nye komponenter skal design defineres i [Figma](https://www.figma.com/files/943790322753665785/project/42920500/Milj%C3%B8direktoratets-designsystem?fuid=1167043987031502102). For å få tilgang til Figma, send en foresørsel til [ithelp](mailto:ithjelp@miljodir.no).
 
 ### Kjøre opp utviklingsmiljø for Storybook lokalt
@@ -97,6 +99,17 @@ npm run storybook
 Tooling EsLint og Prettier er aktivert i dette prosjektet. Ved lagring av en fil blir den automatisk formatert samt at eslint utfører autofixer som fjerning av ubrukte importer. Eslint gir også andre varsler som fek.s at variabler er definert men ikke brukt.
 
 Dette er for å sikre at koden som skrives følger de samme standardene, at man unngår feil i koden, at man unngår whitespace-diffs, og at man bruker mindre tid på utvikling. Vennligst sjekk at eslint og prettier er installert og utfører formatering og autofixes ved lagring.
+
+### Enhetstesting
+
+Vi bruker [Vitest](https://vitest.dev/) med [Testing Library](https://testing-library.com/) for testing av React-komponenter. Testene kjøres automatisk i GitHub Actions ved pull requests og merge til main.
+
+```bash
+npm test              # Kjør alle tester
+npm run test:watch    # Kjør tester i watch-modus (for utvikling)
+```
+
+Testfiler plasseres i samme mappe som komponenten, f.eks. `packages/react/src/button/MdButton.test.tsx`. Se eksisterende tester for mal.
 
 ### Teste endringer i eget prosjekt
 
