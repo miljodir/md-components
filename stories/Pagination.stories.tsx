@@ -4,7 +4,7 @@ import {
   Markdown,
   Description,
   Controls,
-  Primary as PrimaryStory,
+  Primary,
 } from '@storybook/addon-docs/blocks';
 import React, { useState } from 'react';
 import { action } from 'storybook/actions';
@@ -22,7 +22,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
-            <PrimaryStory />
+            <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
           </>

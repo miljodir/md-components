@@ -7,7 +7,7 @@ Class names and elements in brackets [] are optional-/togglable-/decorator- or s
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<nav class="md-pagination [md-pagination--compact]" aria-label="Paginering">
+<div class="md-pagination [md-pagination--compact]">
   <button class="md-pagination__nav" aria-label="Forrige">
     <span class="md-pagination__nav-icon">{chevronBackwardIcon}</span>
     <span class="md-pagination__nav-label">Forrige</span>
@@ -33,5 +33,5 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <span class="md-pagination__nav-label">Neste</span>
     <span class="md-pagination__nav-icon">{chevronForwardIcon}</span>
   </button>
-</nav>
+</div>
 ```
