@@ -153,10 +153,6 @@ Når en PR merges:
 
 Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
-#### Manuell release (valgfritt)
-
-For større samlede releases (f.eks. ved store oppdateringer på tvers av begge pakker), kan du opprette en manuell release direkte fra [GitHub Releases](https://github.com/miljodir/md-components/releases). Klikk `Draft a new release`, opprett en ny tag (f.eks. `v2.1.0`), og bruk `Generate release notes` for å få en liste over endringer.
-
 ### Breaking changes
 
 Ved breaking changes (major versjon), rediger den auto-genererte releasen i [GitHub Releases](https://github.com/miljodir/md-components/releases) etter at PR-en er merget. Legg til en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen. Bruk gjerne en overskrift `## Highlighted changes` øverst for viktige endringer.
