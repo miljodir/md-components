@@ -18,8 +18,8 @@ export interface MdFileUploadProps {
   hideFileListIcons?: boolean;
   multiple?: boolean;
   imagesOnly?: boolean;
-  automaticTrigger?: boolean;
   hideButtons?: boolean;
+  automaticTrigger?: boolean;
 }
 
 export const MdFileUpload: React.FunctionComponent<MdFileUploadProps> = ({

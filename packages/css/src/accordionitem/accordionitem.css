@@ -40,7 +40,7 @@
   background-color: transparent;
 }
 
-/* HEADER */
+/* Header */
 .md-accordion-item__header {
   display: flex;
   justify-content: space-between;
@@ -56,6 +56,7 @@
   line-height: var(--md-typography-line-height-small);
   user-select: none;
 }
+
 .md-accordion-item__header::-webkit-details-marker {
   display: none;
 }
