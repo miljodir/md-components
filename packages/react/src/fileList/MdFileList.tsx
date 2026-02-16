@@ -19,8 +19,8 @@ interface FileType {
 
 interface Labels {
   delete?: string;
-  download?: string;
   edit?: string;
+  download?: string;
   print?: string;
 }
 
@@ -64,9 +64,8 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
   onDownloadFile,
   onEditFile,
   onPrintFile,
-  labels = {}
+  labels = {},
 }: MdFileListProps) => {
-
   const defaultLabels: Required<Labels> = {
     delete: 'Slett fil',
     download: 'Last ned fil',
