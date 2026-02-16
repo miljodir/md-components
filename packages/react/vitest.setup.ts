@@ -9,11 +9,15 @@ afterEach(() => {
 });
 
 // Suppress specific console warnings that come from Ariakit internal async updates
-// These are false positives and don't affect test reliability
+// These are false positives caused by Ariakit's internal state management
 const originalError = console.error;
 console.error = (...args: unknown[]) => {
   const message = args[0];
-  if (typeof message === 'string' && message.includes('inside a test was not wrapped in act')) {
+  if (
+    typeof message === 'string' &&
+    message.includes('inside a test was not wrapped in act') &&
+    message.includes('Ariakit')
+  ) {
     return;
   }
   originalError.apply(console, args);
