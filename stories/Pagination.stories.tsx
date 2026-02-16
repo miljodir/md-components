@@ -54,6 +54,14 @@ export default {
       },
       control: { type: 'number', min: 1 },
     },
+    onPageChange: {
+      description: 'Callback when page changes',
+      table: {
+        type: {
+          summary: '(page: number) => void',
+        },
+      },
+    },
     labels: {
       description: 'Custom labels for previous/next buttons',
       table: {
@@ -83,13 +91,22 @@ export default {
       },
       control: { type: 'boolean' },
     },
-    onPageChange: {
-      description: 'Callback when page changes',
+    renderLink: {
+      description: 'Render function for custom link elements (used with asChild)',
       table: {
         type: {
-          summary: '(page: number) => void',
+          summary: '(page: number, children: React.ReactNode) => React.ReactElement',
         },
       },
+    },
+    className: {
+      description: 'Additional CSS class names',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
     },
   },
 };
@@ -97,11 +114,15 @@ export default {
 interface PaginationArgs {
   totalPages: number;
   currentPage: number;
+  onPageChange?: (page: number) => void;
   labels?: {
     previous?: string;
     next?: string;
   };
   compact?: boolean;
+  asChild?: boolean;
+  renderLink?: (page: number, children: React.ReactNode) => React.ReactElement;
+  className?: string;
 }
 
 const Template = (args: PaginationArgs) => {
