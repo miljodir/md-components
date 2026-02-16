@@ -18,7 +18,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['assets', 'node_modules', 'storybook-static', 'packages/*/dist', 'packages/*/node_modules'],
+    ignores: ['assets', 'node_modules', 'storybook-static', 'packages/*/dist', 'packages/*/node_modules', '**/*.mdx'],
   },
   js.configs.recommended,
   ...fixupConfigRules(
@@ -66,7 +66,7 @@ export default [
     },
   },
   {
-    files: ['**/*.ts?(x)', '**/*.mdx'],
+    files: ['**/*.ts?(x)'],
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react-compiler/react-compiler': 'error',

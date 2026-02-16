@@ -50,6 +50,7 @@
   color: var(--md-color-text-primary);
   margin: 0;
 }
+
 .md-description-list-item-description a:hover {
   color: var(--md-color-cta-primary-hover);
   text-decoration-thickness: 0.0938rem;

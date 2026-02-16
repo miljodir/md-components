@@ -36,8 +36,9 @@ export const MdIconButton: React.FunctionComponent<MdIconButtonProps> = ({
 
   // Check if aria-label is in otherProps and warn
   if ('aria-label' in otherProps) {
+    // eslint-disable-next-line no-console
     console.warn('MdIconButton: aria-label should not be passed via props. Use the "label" prop instead.');
-  }  
+  }
 
   const button = (
     <button aria-label={label} type={type} disabled={disabled} className={classNames} {...otherProps}>
