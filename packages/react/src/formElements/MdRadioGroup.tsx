@@ -23,7 +23,7 @@ export interface MdRadioGroupProps {
   labels?: Labels;
   id?: string;
   disabled?: boolean;
-  direction?: string;
+  direction?: 'horizontal' | 'vertical';
   className?: string;
   error?: boolean;
   errorText?: string;
