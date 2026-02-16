@@ -58,10 +58,11 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     const defaultLabels: Required<Labels> = {
       helpTextFor: 'Hjelpetekst for',
     };
-    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };   
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
     const classNames = classnames(
-      'md-input', {
+      'md-input',
+      {
         'md-input--small': mode === 'small',
         'md-input--large': mode === 'large',
         'md-input--disabled': !!disabled,
@@ -71,7 +72,7 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
         'md-input--has-prefix': prefixIcon !== null && prefixIcon !== '',
         'md-input--hide-number-arrows': !!hideNumberArrows,
       },
-      className
+      className,
     );
 
     const wrapperClassNames = classnames('md-input__wrapper', {
@@ -89,16 +90,20 @@ export const MdInput = React.forwardRef<HTMLInputElement, MdInputProps>(
     );
 
     // Build aria-describedby in order of priority: error → support → help text
-    const ariaDescribedBy = [
-      helpText && helpText !== '' && `md-input_help-text_${inputId}`,
-      error && errorText && errorText !== '' && `md-input_error_${inputId}`,
-      supportText && supportText !== '' && `md-input_support-text_${inputId}`,
-    ].filter(Boolean).join(' ') || undefined;
+    const ariaDescribedBy =
+      [
+        helpText && helpText !== '' && `md-input_help-text_${inputId}`,
+        error && errorText && errorText !== '' && `md-input_error_${inputId}`,
+        supportText && supportText !== '' && `md-input_support-text_${inputId}`,
+      ]
+        .filter(Boolean)
+        .join(' ') || undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
     /* Log warning if mode = 'normal' */
     if (mode === 'normal') {
+      // eslint-disable-next-line no-console
       console.warn(
         'MdInput: The mode "normal" is deprecated and will be removed in a future version. Please use "medium" instead.',
       );
