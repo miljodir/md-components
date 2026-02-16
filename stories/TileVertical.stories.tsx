@@ -143,6 +143,7 @@ const Template: StoryFn<typeof MdTileVertical> = (args: TileVerticalArgs) => {
       disabled={args.disabled}
       preventDefault={args.preventDefault}
       icon={args.icon && <MdIconBarChart large width={128} height={128} />}
+      loading={args.loading}
       asChild={args.asChild}
       asChildContent={args.asChildContent}
     />
