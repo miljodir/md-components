@@ -70,6 +70,7 @@ jobs:
         with:
           tag_name: md-react@${{ env.PKG_VERSION }}
           name: md-react ${{ env.PKG_VERSION }}
+          make_latest: true
           body: |
             ## Changes
             PR: #${{ github.event.pull_request.number }}
