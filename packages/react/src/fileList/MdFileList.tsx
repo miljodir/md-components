@@ -19,8 +19,8 @@ interface FileType {
 
 interface Labels {
   delete?: string;
-  edit?: string;
   download?: string;
+  edit?: string;
   print?: string;
 }
 
