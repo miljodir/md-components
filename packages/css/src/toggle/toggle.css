@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 
-.md-toggle__wrapper:focus-within .md-toggle__label-wrapper {
+.md-toggle__wrapper:has(:focus-visible) .md-toggle__label-wrapper {
   outline: 2px solid var(--md-color-cta-primary-focus);
   outline-offset: var(--md-size-4);
 }
