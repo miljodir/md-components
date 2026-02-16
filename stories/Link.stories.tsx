@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdIconOpenInNew } from '../packages/react/src/icons-material/MdIconOpenInNew';
 import { MdLink } from '../packages/react/src/link/MdLink';
+import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
   title: 'Components/Link',
@@ -49,6 +50,16 @@ export default {
         },
       },
     },
+    asChild: {
+      description: 'Activate asChild',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -60,9 +71,11 @@ function clickHandler(event: React.MouseEvent) {
 interface LinkArgs {
   children: string;
   href?: string;
+  asChild?: boolean;
+  asChildContent?: React.ReactNode;
 }
 
-const Template = (args: LinkArgs) => {
+const Template: StoryFn<LinkArgs> = (args: LinkArgs) => {
   return (
     <MdLink onClick={clickHandler} href={args.href}>
       {args.children}
@@ -70,7 +83,7 @@ const Template = (args: LinkArgs) => {
   );
 };
 
-const TemplateWithIcon = (args: LinkArgs) => {
+const TemplateWithIcon: StoryFn<LinkArgs> = (args: LinkArgs) => {
   return (
     <MdLink onClick={clickHandler} href={args.href} icon={<MdIconOpenInNew />}>
       {args.children}
@@ -88,4 +101,19 @@ export const LinkWithIcon = TemplateWithIcon.bind({});
 LinkWithIcon.args = {
   children: 'This is a link',
   href: '#',
+};
+
+const TemplateAsChild: StoryFn<LinkArgs> = (args: LinkArgs) => {
+  return (
+    <MdLink asChild={args.asChild} asChildContent={args.asChildContent}>
+      {args.children}
+    </MdLink>
+  );
+};
+
+export const LinkAsChild = TemplateAsChild.bind({});
+LinkAsChild.args = {
+  children: 'This is a link',
+  asChild: true,
+  asChildContent: <a href="https://example.com">Link</a>,
 };
