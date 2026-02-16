@@ -39,6 +39,10 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
   };
   const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
+  if (!Number.isFinite(totalPages) || !Number.isFinite(currentPageProp)) {
+    return null;
+  }
+
   const currentPage = Math.max(1, Math.min(currentPageProp, totalPages));
 
   const classNames = classnames(
@@ -71,10 +75,19 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
 
     if (asChild && renderLink) {
       const linkElement = renderLink(page, content);
+      const existingOnClick = linkElement.props?.onClick;
       return React.cloneElement(linkElement, {
         key: page,
         className: classnames(pageClassName, linkElement.props?.className),
         'aria-label': `Side ${page}`,
+        onClick: (event: React.MouseEvent<HTMLElement>) => {
+          if (typeof existingOnClick === 'function') {
+            existingOnClick(event);
+          }
+          if (!event.defaultPrevented) {
+            handlePageChange(page);
+          }
+        },
       });
     }
 
@@ -101,13 +114,13 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
     const content = (
       <>
         {isPrevious && (
-          <span className="md-pagination__nav-icon">
+          <span className="md-pagination__nav-icon" aria-hidden="true">
             <Icon />
           </span>
         )}
         <span className="md-pagination__nav-label">{label}</span>
         {!isPrevious && (
-          <span className="md-pagination__nav-icon">
+          <span className="md-pagination__nav-icon" aria-hidden="true">
             <Icon />
           </span>
         )}
@@ -124,9 +137,18 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
 
     if (asChild && renderLink) {
       const linkElement = renderLink(targetPage, content);
+      const existingOnClick = linkElement.props?.onClick;
       return React.cloneElement(linkElement, {
         className: classnames('md-pagination__nav', linkElement.props?.className),
         'aria-label': label,
+        onClick: (event: React.MouseEvent<HTMLElement>) => {
+          if (typeof existingOnClick === 'function') {
+            existingOnClick(event);
+          }
+          if (!event.defaultPrevented) {
+            handlePageChange(targetPage);
+          }
+        },
       });
     }
 
@@ -159,7 +181,7 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
             {getPageNumbers(currentPage, totalPages).map((page, index) => {
               if (page === 'ellipsis') {
                 return (
-                  <span key={`ellipsis-${index}`} className="md-pagination__ellipsis">
+                  <span key={`ellipsis-${index}`} className="md-pagination__ellipsis" aria-hidden="true">
                     ...
                   </span>
                 );
