@@ -1,11 +1,4 @@
-import {
-  Title,
-  Subtitle,
-  Markdown,
-  Description,
-  Controls,
-  Primary,
-} from '@storybook/addon-docs/blocks';
+import { Title, Subtitle, Markdown, Description, Controls, Primary } from '@storybook/addon-docs/blocks';
 import React, { useState } from 'react';
 import { action } from 'storybook/actions';
 import Readme from '../packages/css/src/pagination/README.md';
