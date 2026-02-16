@@ -149,7 +149,7 @@ Når en PR merges:
 1. Pakken bumpes basert på PR-labelen (`major`, `minor`, eller `patch`)
 2. Pakken publiseres til npm
 3. En Git-tag opprettes (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`)
-4. En GitHub Release opprettes automatisk med PR-tittel, beskrivelse og auto-genererte release notes
+4. En GitHub Release opprettes automatisk med PR-detaljer og auto-genererte release notes
 
 Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
