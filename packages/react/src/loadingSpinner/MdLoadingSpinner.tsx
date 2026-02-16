@@ -7,12 +7,12 @@ import MdIconLoadingSpinner from '../icons-material/MdIconLoadingSpinner';
 
 export interface MdLoadingSpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
-  position?: string;
+  position?: 'left' | 'center' | 'right';
 }
 
 export const MdLoadingSpinner: React.FC<MdLoadingSpinnerProps> = ({
   size,
-  position = '',
+  position = 'center',
   className = '',
   ...otherProps
 }: MdLoadingSpinnerProps) => {
