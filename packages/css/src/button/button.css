@@ -214,7 +214,7 @@
   background-color: var(--md-color-attention-error-primary-active);
 }
 
-/* Danger secondary */
+/* DANGER SECONDARY */
 .md-button--danger-secondary {
   background-color: var(--md-color-attention-error-secondary);
   border: var(--md-size-2) solid var(--md-color-attention-error-primary);
@@ -263,7 +263,7 @@
   color: var(--md-color-text-disabled);
 }
 
-/* Danger tertiary */
+/* DANGER TERTIARY */
 .md-button--danger-tertiary {
   background-color: transparent;
   border: none;
