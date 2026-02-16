@@ -4,6 +4,18 @@
   color: var(--md-color-text-primary);
   font-family: var(--md-typography-family-body);
   transition: all 0.2s linear;
+  interpolate-size: allow-keywords;
+}
+
+/* Content slide animation */
+.md-accordion-item::details-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out, content-visibility 0.3s ease-in-out allow-discrete;
+}
+
+.md-accordion-item[open]::details-content {
+  height: auto;
 }
 
 .md-accordion-item.md-accordion-item--rounded {
@@ -74,6 +86,10 @@
   color: var(--md-color-text-primary);
   width: var(--md-size-24);
   height: var(--md-size-24);
+  transition: transform 0.2s ease-in-out;
+}
+.md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon {
+  transform: rotate(180deg);
 }
 .md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__open {
   display: block;
