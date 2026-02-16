@@ -163,7 +163,7 @@ const Template: StoryFn<typeof MdTile> = (args: TileArgs) => {
 
 export const Tile = Template.bind({});
 Tile.args = {
-  href: '#',
+  href: '',
   theme: 'primary',
   fullWidth: false,
   mode: 'large',
