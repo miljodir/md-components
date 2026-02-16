@@ -1,4 +1,4 @@
-name: 'Unit Tests'
+name: 'Build, Lint & Test'
 on:
   pull_request:
     branches:
@@ -8,8 +8,8 @@ on:
       - main
 
 jobs:
-  test:
-    name: 'Run Unit Tests'
+  build-lint-test:
+    name: 'Build, Lint & Test'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -27,8 +27,14 @@ jobs:
           npm ci
           npm ci --prefix packages/react
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Build React package
+        run: npm run build --prefix packages/react
+
       - name: Run tests with coverage
-        run: cd packages/react && npm run test:coverage
+        run: npm run test:coverage --prefix packages/react
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
