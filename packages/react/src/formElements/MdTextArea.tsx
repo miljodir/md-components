@@ -42,9 +42,9 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
     const [helpOpen, setHelpOpen] = useState(false);
 
     const defaultLabels: Required<Labels> = {
-      helpTextFor: 'Hjelpetekst for'
+      helpTextFor: 'Hjelpetekst for',
     };
-    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
     const classNames = classnames(
       'md-textarea',
