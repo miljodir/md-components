@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          cd packages/react && npm ci
+          cd packages/react && npm install
 
       - name: Run tests
         run: npm test
