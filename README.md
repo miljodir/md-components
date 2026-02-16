@@ -155,14 +155,7 @@ Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-componen
 
 #### Manuell release (valgfritt)
 
-For større samlede releases (f.eks. ved store oppdateringer på tvers av begge pakker), kan du fortsatt opprette en manuell release:
-
-```bash
-git tag -a v0.0.0 -m "Version 0.0.0"
-git push origin v0.0.0
-```
-
-Deretter opprett en release fra taggen i GitHub med `Generate release notes` for å få en liste over endringer.
+For større samlede releases (f.eks. ved store oppdateringer på tvers av begge pakker), kan du opprette en manuell release direkte fra [GitHub Releases](https://github.com/miljodir/md-components/releases). Klikk `Draft a new release`, opprett en ny tag (f.eks. `v2.1.0`), og bruk `Generate release notes` for å få en liste over endringer.
 
 ### Breaking changes
 
