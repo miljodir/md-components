@@ -77,7 +77,7 @@ jobs:
         run: git push origin md-css@${{ env.PKG_VERSION }}
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
         with:
           tag_name: md-css@${{ env.PKG_VERSION }}
           name: md-css ${{ env.PKG_VERSION }}
