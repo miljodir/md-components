@@ -73,7 +73,6 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
         with:
-          draft: true  # TODO: Remove after testing
           tag_name: md-css@${{ env.PKG_VERSION }}
           name: md-css ${{ env.PKG_VERSION }}
           body: |
