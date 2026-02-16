@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, @typescript-eslint/triple-slash-reference, spaced-comment */
 /// <reference types="vitest/globals" />
 /// <reference types="@testing-library/jest-dom/vitest" />
 import '@testing-library/jest-dom/vitest';
