@@ -1,7 +1,6 @@
 'use client';
 
 import * as Ariakit from '@ariakit/react';
-
 import React, { useMemo, useState, useId, useTransition, useEffect, useCallback } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
@@ -99,7 +98,7 @@ const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement,
       reset: 'Nullstill',
       openClose: 'Åpne/lukke liste',
     };
-    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };    
+    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
     useEffect(() => {
       setSelectedValues(value);

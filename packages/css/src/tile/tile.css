@@ -135,6 +135,11 @@
   color: var(--md-color-text-disabled);
 }
 
+/* When tile is rendered as a link (asChild), add underline to heading on hover */
+a.md-tile:hover .md-tile__content-heading {
+  text-decoration: underline;
+}
+
 /* VERTICAL TILES */
 .md-tile-vertical {
   display: flex;
@@ -240,6 +245,11 @@
 
 .md-tile-vertical__content-heading {
   font-size: var(--md-size-20);
+}
+
+/* When vertical tile is rendered as a link (asChild), add underline to heading on hover */
+a.md-tile-vertical:hover .md-tile-vertical__content-heading {
+  text-decoration: underline;
 }
 
 .md-tile-vertical__content-description {
