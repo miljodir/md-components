@@ -33,6 +33,7 @@
 @import './toggle/toggle.css';
 @import './tooltip/tooltip.css';
 @import './tag/tag.css';
+@import './pagination/pagination.css';
 
 html {
   box-sizing: border-box;

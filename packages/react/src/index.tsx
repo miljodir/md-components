@@ -165,6 +165,7 @@ import MdLoadingSpinner, { type MdLoadingSpinnerProps } from './loadingSpinner/M
 import MdAlertMessage, { type MdAlertMessageProps } from './messages/MdAlertMessage';
 import MdInfoBox, { type MdInfoBoxProps } from './messages/MdInfoBox';
 import MdModal, { type MdModalProps } from './modal/MdModal';
+import MdPagination, { type MdPaginationProps } from './pagination/MdPagination';
 import MdSkipToMainContent, { type MdSkipToMainContentProps } from './skipToMainContent/MdSkipToMainContent';
 import MdStep, { type MdStepProps } from './stepper/MdStep';
 import MdStepper, { type MdStepperProps } from './stepper/MdStepper';
@@ -351,6 +352,8 @@ export {
   MdSkipToMainContentProps,
   MdTag,
   MdTagProps,
+  MdPagination,
+  MdPaginationProps,
 
   // Material icons
   MdIconAccountCircle,
