@@ -7,8 +7,8 @@ import MdIconClose from '../icons-material/MdIconClose';
 export interface MdInputChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string | null;
   active?: boolean;
-  prefixIcon?: React.ReactNode;
   hideCloseIcon?: boolean;
+  prefixIcon?: React.ReactNode;
   solid?: boolean;
 }
 
