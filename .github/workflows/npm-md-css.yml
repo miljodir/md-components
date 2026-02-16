@@ -75,12 +75,6 @@ jobs:
           tag_name: md-css@${{ env.PKG_VERSION }}
           name: md-css ${{ env.PKG_VERSION }}
           make_latest: true
-          body: |
-            ## Changes
-            PR: #${{ github.event.pull_request.number }}
-            ${{ github.event.pull_request.title }}
-            
-            ${{ github.event.pull_request.body }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
