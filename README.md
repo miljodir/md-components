@@ -142,24 +142,31 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Når prosjektet har fått relevante endringer, eks. en major med breaking changes, eller nye komponenter, eller viktige endringer i eksisterende komponenter, kan det gjøres en release.
+Releases opprettes automatisk når en PR merges til main som inneholder endringer i `packages/css` eller `packages/react`.
 
-Dersom det er noen spesielt viktige eller fremtredende endringer, lag en overskrift med tittelen `Highlighted changes` øverst og list opp disse.
+Når en PR merges:
 
-I GitHub `Releases`, opprett en ny release fra `Draft a new release`. Opprett en ny tag med samme navn som siste, bumpete pakkeversjon, eks `v2.1.0` (siden vi har to pakker i dette repoet, `md-react` og `md-css`, bruker vi versjonsnummeret fra den pakken med høyest versjonsnummer), og trykk på `Generate release notes` for å få en liste over endringer som har skjedd siden forrige release.
+1. Pakken bumpes basert på PR-labelen (`major`, `minor`, eller `patch`)
+2. Pakken publiseres til npm
+3. En Git-tag opprettes (f.eks. `md-react@"1.2.3"` eller `md-css@"2.0.0"`)
+4. En GitHub Release opprettes automatisk med PR-tittel, beskrivelse og auto-genererte release notes
 
-Eventuelt kan du lage den nye taggen på i git, og pushe denne til remote slik:
+Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
+
+#### Manuell release (valgfritt)
+
+For større samlede releases (f.eks. ved store oppdateringer på tvers av begge pakker), kan du fortsatt opprette en manuell release:
 
 ```bash
 git tag -a v0.0.0 -m "Version 0.0.0"
 git push origin v0.0.0
 ```
 
-Hvis du skal tagge en gammel commit, checkout til den commiten først.
+Deretter opprett en release fra taggen i GitHub med `Generate release notes` for å få en liste over endringer.
 
 ### Breaking changes
 
-Ved breaking changes, gjør en ny release. Legg til i release-beskrivelsen en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen.
+Ved breaking changes (major versjon), rediger den auto-genererte releasen i [GitHub Releases](https://github.com/miljodir/md-components/releases) etter at PR-en er merget. Legg til en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen. Bruk gjerne en overskrift `## Highlighted changes` øverst for viktige endringer.
 
 Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v3.0.0). Kommenter også (hvis relevant) selve koden med hva som er endret, eks:
 
