@@ -17,13 +17,6 @@
   transition: all 0.15s ease-in-out;
 }
 
-@media (max-width: 27.5rem) {
-  .md-tile {
-    gap: var(--md-size-12);
-    padding: var(--md-size-16);
-  }
-}
-
 .md-tile--medium {
   width: 26.5rem;
   min-width: 26.5rem;
@@ -39,6 +32,17 @@
 .md-tile--fullWidth {
   width: 100%;
   min-width: 100%;
+}
+
+@media (max-width: 27.5rem) {
+  .md-tile,
+  .md-tile.md-tile--medium,
+  .md-tile.md-tile--small {
+    gap: var(--md-size-12);
+    padding: var(--md-size-16);
+    width: 100%;
+    min-width: 100%;
+  }
 }
 
 .md-tile--secondary {
