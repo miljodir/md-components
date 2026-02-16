@@ -110,7 +110,7 @@ npm run test:watch    # Kjør tester i watch-modus (for utvikling)
 npm run test:coverage # Kjør tester med coverage-rapport
 ```
 
-Testfiler plasseres i samme mappe som komponenten, f.eks. `packages/react/src/button/MdButton.test.tsx`. Se eksisterende tester for mal.
+Testfiler plasseres i en `tests/`-undermappe i komponentmappen, f.eks. `packages/react/src/button/tests/MdButton.test.tsx`. Se eksisterende tester for mal.
 
 ### Teste endringer i eget prosjekt
 
