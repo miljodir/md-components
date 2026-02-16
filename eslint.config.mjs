@@ -18,7 +18,15 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['assets', 'node_modules', 'storybook-static', 'packages/*/dist', 'packages/*/node_modules', '**/*.mdx'],
+    ignores: [
+      'assets',
+      'node_modules',
+      'storybook-static',
+      'packages/*/dist',
+      'packages/*/node_modules',
+      '**/coverage',
+      '**/*.mdx',
+    ],
   },
   js.configs.recommended,
   ...fixupConfigRules(

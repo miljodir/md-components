@@ -27,5 +27,12 @@ jobs:
           npm ci
           cd packages/react && npm install
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests with coverage
+        run: cd packages/react && npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: packages/react/coverage
+          retention-days: 30

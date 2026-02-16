@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react';
+// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html'],
       include: ['src/**/*.tsx'],
-      exclude: ['**/*.stories.tsx', '**/index.tsx'],
+      exclude: ['**/*.stories.tsx', '**/index.tsx', '**/icons/**', '**/icons-material/**'],
     },
   },
 });

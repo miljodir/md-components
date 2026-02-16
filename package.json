@@ -5,6 +5,7 @@
   "scripts": {
     "test": "npm run test --prefix packages/react",
     "test:watch": "npm run test:watch --prefix packages/react",
+    "test:coverage": "npm run test:coverage --prefix packages/react",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
