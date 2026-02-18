@@ -49,7 +49,7 @@ export interface MdSelectProps {
   onSelectOption(_value: string[] | string): void;
 }
 
-export const MdSelect: React.FC<MdSelectProps> = React.forwardRef<HTMLButtonElement, MdSelectProps>(
+export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
   (
     {
       label,

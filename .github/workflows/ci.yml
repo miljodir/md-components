@@ -1,0 +1,44 @@
+name: 'Build, Lint & Test'
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build-lint-test:
+    name: 'Build, Lint & Test'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd packages/react && npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build React package
+        run: npm run build --prefix packages/react
+
+      - name: Run tests with coverage
+        run: npm run test:coverage --prefix packages/react
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: packages/react/coverage
+          retention-days: 30

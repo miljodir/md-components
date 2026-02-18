@@ -33,7 +33,7 @@ export interface MdComboBoxGroupedProps extends React.InputHTMLAttributes<HTMLIn
   onSelectOption(_value: string[] | string): void;
 }
 
-const MdComboBoxGrouped: React.FC<MdComboBoxGroupedProps> = React.forwardRef<HTMLInputElement, MdComboBoxGroupedProps>(
+const MdComboBoxGrouped = React.forwardRef<HTMLInputElement, MdComboBoxGroupedProps>(
   (
     {
       id,
