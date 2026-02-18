@@ -172,12 +172,12 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
   const isNextDisabled = currentPage === totalPages;
 
   return (
-    <div className={classNames}>
+    <nav className={classNames} aria-label="Pagination">
       {renderNavButton('previous', isPreviousDisabled, currentPage - 1)}
 
       <div className="md-pagination__pages">
         {!compact && (
-          <div className="md-pagination__pages-desktop">
+          <div className="md-pagination__pages-desktop" data-testid="pages-desktop">
             {getPageNumbers(currentPage, totalPages).map((page, index) => {
               if (page === 'ellipsis') {
                 return (
@@ -200,7 +200,7 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
       </div>
 
       {renderNavButton('next', isNextDisabled, currentPage + 1)}
-    </div>
+    </nav>
   );
 };
 
