@@ -295,5 +295,12 @@ describe('MdPagination', () => {
       expect(link).toHaveClass('custom-link-class');
       expect(link).toHaveClass('md-pagination__page');
     });
+
+    it('falls back to buttons when asChild is true but renderLink is not provided', () => {
+      render(<MdPagination totalPages={5} currentPage={1} asChild />);
+      const desktopView = getDesktopView();
+      const pageButton = within(desktopView).getByRole('button', { name: 'Side 2' });
+      expect(pageButton.tagName).toBe('BUTTON');
+    });
   });
 });
