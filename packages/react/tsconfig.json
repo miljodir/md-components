@@ -11,8 +11,9 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
   },
-  "include": ["./src"],
-  "exclude": ["./src/**/tests"]
+  "include": ["./src", "./vitest.setup.ts"],
+  "exclude": ["./dist"]
 }
