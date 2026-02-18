@@ -5,8 +5,8 @@ import React from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
 import MdIconClose from '../icons-material/MdIconClose';
+import MdIconDangerous from '../icons-material/MdIconDangerous';
 import MdIconInfo from '../icons-material/MdIconInfo';
-import MdIconReport from '../icons-material/MdIconReport';
 import MdIconWarning from '../icons-material/MdIconWarning';
 
 interface Labels {
@@ -45,15 +45,14 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   alignContent,
   ...otherProps
 }: MdAlertMessageProps) => {
-
-    const defaultLabels: Required<Labels> = {
-      info: 'Info',
-      confirm: 'Bekreft',
-      error: 'Feil',
-      warning: 'Advarsel',
-      closeButton: 'Lukk',
-    };
-    const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };  
+  const defaultLabels: Required<Labels> = {
+    info: 'Info',
+    confirm: 'Bekreft',
+    error: 'Feil',
+    warning: 'Advarsel',
+    closeButton: 'Lukk',
+  };
+  const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
   const classNames = classnames(
     'md-alert-message',
@@ -79,11 +78,22 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
     if (customIcon) {
       icon = customIcon;
     } else if (theme === 'success') {
-      icon = <MdIconCheckCircle className="md-alert-message__icon" aria-label={mergedLabels.confirm} width="24" height="24" />;
+      icon = (
+        <MdIconCheckCircle
+          className="md-alert-message__icon"
+          aria-label={mergedLabels.confirm}
+          width="24"
+          height="24"
+        />
+      );
     } else if (theme === 'error') {
-      icon = <MdIconReport className="md-alert-message__icon" aria-label={mergedLabels.error} width="24" height="24" />;
+      icon = (
+        <MdIconDangerous className="md-alert-message__icon" aria-label={mergedLabels.error} width="24" height="24" />
+      );
     } else if (theme === 'warning') {
-      icon = <MdIconWarning className="md-alert-message__icon" aria-label={mergedLabels.warning} width="24" height="24" />;
+      icon = (
+        <MdIconWarning className="md-alert-message__icon" aria-label={mergedLabels.warning} width="24" height="24" />
+      );
     }
     return icon;
   };

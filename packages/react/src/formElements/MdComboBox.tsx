@@ -53,7 +53,7 @@ export interface MdComboBoxProps extends React.InputHTMLAttributes<HTMLInputElem
   onSelectOption(_value: string[] | string): void;
 }
 
-const MdComboBox: React.FC<MdComboBoxProps> = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
+const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
   (
     {
       id,

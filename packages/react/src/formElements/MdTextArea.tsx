@@ -25,7 +25,7 @@ export const MdTextArea = React.forwardRef<HTMLTextAreaElement, MdTextAreaProps>
       labels = {},
       id,
       rows = 10,
-      value = '',
+      value,
       disabled = false,
       readOnly = false,
       error = false,
