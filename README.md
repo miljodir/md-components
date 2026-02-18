@@ -112,6 +112,8 @@ npm run test:coverage # Kjør tester med coverage-rapport
 
 Testfiler plasseres i en `tests/`-undermappe i komponentmappen, f.eks. `packages/react/src/button/tests/MdButton.test.tsx`. Se eksisterende tester for mal.
 
+**Viktig:** Bruk tilgjengelige queries (`getByRole`, `getByLabelText`) fremfor test-IDer, og bruk `userEvent` for interaksjoner.
+
 ### Teste endringer i eget prosjekt
 
 Før man merger ny kode til master, kan det være lurt å teste endringene i et eget prosjekt. For eksempel, hvis endringer forsøker å fikse en bug. Dette kan gjøres ved å bygge pakkene lokalt og installere dem i prosjektet.
