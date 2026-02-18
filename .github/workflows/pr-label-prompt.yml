@@ -8,7 +8,7 @@ on:
 jobs:
   add_comment:
     name: 'Prompt for versioning label'
-    runs-on: ubuntu-latest
+    runs-on: slim
     permissions:
       pull-requests: write
     steps:
