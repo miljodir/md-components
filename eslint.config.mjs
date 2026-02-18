@@ -26,6 +26,7 @@ export default [
       'packages/*/node_modules',
       '**/coverage',
       '**/*.mdx',
+      '**/vitest.config.ts',
     ],
   },
   js.configs.recommended,
