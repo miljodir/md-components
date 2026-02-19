@@ -3,9 +3,9 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { MdMenu } from '../MdMenu';
-import type { MdMenuGroupDef } from '../MdMenu';
+import type { MdMenuGroupOption } from '../MdMenu';
 
-const singleGroup: MdMenuGroupDef[] = [
+const singleGroup: MdMenuGroupOption[] = [
   {
     id: 'group-1',
     items: [
@@ -16,7 +16,7 @@ const singleGroup: MdMenuGroupDef[] = [
   },
 ];
 
-const groupedWithHeadings: MdMenuGroupDef[] = [
+const groupedWithHeadings: MdMenuGroupOption[] = [
   {
     id: 'group-a',
     heading: 'Actions',
@@ -133,7 +133,7 @@ describe('MdMenu', () => {
   describe('icons', () => {
     it('renders icon when provided', async () => {
       const user = userEvent.setup();
-      const groups: MdMenuGroupDef[] = [
+      const groups: MdMenuGroupOption[] = [
         {
           id: 'g1',
           items: [{ id: 'i1', label: 'Edit', icon: <svg data-testid="edit-icon" /> }],
@@ -156,7 +156,7 @@ describe('MdMenu', () => {
     it('calls onClick when a menu item is clicked', async () => {
       const user = userEvent.setup();
       const onClick = vi.fn();
-      const groups: MdMenuGroupDef[] = [
+      const groups: MdMenuGroupOption[] = [
         { id: 'g1', items: [{ id: 'i1', label: 'Edit', onClick }] },
       ];
       render(<MdMenu trigger={<button>Open</button>} groups={groups} />);
@@ -168,7 +168,7 @@ describe('MdMenu', () => {
     it('does not call onClick when a disabled item is clicked', async () => {
       const user = userEvent.setup();
       const onClick = vi.fn();
-      const groups: MdMenuGroupDef[] = [
+      const groups: MdMenuGroupOption[] = [
         { id: 'g1', items: [{ id: 'i1', label: 'Delete', disabled: true, onClick }] },
       ];
       render(<MdMenu trigger={<button>Open</button>} groups={groups} />);

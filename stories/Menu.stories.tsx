@@ -10,7 +10,7 @@ import MdIconEdit from '../packages/react/src/icons-material/MdIconEdit';
 import MdIconPerson from '../packages/react/src/icons-material/MdIconPerson';
 import MdIconUpload from '../packages/react/src/icons-material/MdIconUpload';
 import { MdMenu } from '../packages/react/src/menu/MdMenu';
-import type { MdMenuGroupDef, MdMenuProps } from '../packages/react/src/menu/MdMenu';
+import type { MdMenuGroupOption, MdMenuProps } from '../packages/react/src/menu/MdMenu';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
@@ -80,7 +80,7 @@ export default {
   },
 };
 
-const defaultGroups: MdMenuGroupDef[] = [
+const defaultGroups: MdMenuGroupOption[] = [
   {
     id: 'g1',
     items: [
@@ -122,7 +122,7 @@ WithIcons.args = {
         { id: 'delete', label: 'Delete', icon: <MdIconDelete />, disabled: true },
       ],
     },
-  ] as MdMenuGroupDef[],
+  ] as MdMenuGroupOption[],
 };
 
 export const WithGroupHeadingsAndDividers = Template.bind({});
@@ -151,7 +151,7 @@ WithGroupHeadingsAndDividers.args = {
       heading: 'Danger zone',
       items: [{ id: 'delete', label: 'Delete', icon: <MdIconDelete /> }],
     },
-  ] as MdMenuGroupDef[],
+  ] as MdMenuGroupOption[],
   size: 'default',
 };
 
@@ -167,5 +167,5 @@ IconButtonTrigger.args = {
         { id: 'delete', label: 'Delete', icon: <MdIconDelete /> },
       ],
     },
-  ] as MdMenuGroupDef[],
+  ] as MdMenuGroupOption[],
 };

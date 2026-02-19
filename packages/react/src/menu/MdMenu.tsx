@@ -12,7 +12,7 @@ export interface MdMenuItemDef {
   onClick?: () => void;
 }
 
-export interface MdMenuGroupDef {
+export interface MdMenuGroupOption {
   id: string;
   heading?: string;
   items: MdMenuItemDef[];
@@ -20,7 +20,7 @@ export interface MdMenuGroupDef {
 
 export interface MdMenuProps {
   trigger: React.ReactElement;
-  groups: MdMenuGroupDef[];
+  groups: MdMenuGroupOption[];
   size?: 'small' | 'default' | 'large';
   showDividers?: boolean;
   placement?: 'top' | 'bottom' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
