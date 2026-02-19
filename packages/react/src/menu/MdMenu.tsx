@@ -19,19 +19,12 @@ export interface MdMenuGroupDef {
 }
 
 export interface MdMenuProps {
-  /** The trigger element (typically a button) that opens the menu */
   trigger: React.ReactElement;
-  /** Groups of menu items. Use a single group without a heading for a flat list. */
   groups: MdMenuGroupDef[];
-  /** Size of the menu items */
   size?: 'small' | 'default' | 'large';
-  /** Show dividers between groups */
   showDividers?: boolean;
-  /** Placement of the menu relative to the trigger */
   placement?: 'top' | 'bottom' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
-  /** Additional class name for the menu popup */
   menuClassName?: string;
-  /** Gutter between trigger and menu popup in pixels */
   gutter?: number;
 }
 
