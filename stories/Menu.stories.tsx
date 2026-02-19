@@ -100,7 +100,6 @@ const Template: StoryFn<MdMenuProps> = (args) => {
   );
 };
 
-/** Default menu with a flat list of items */
 export const Default = Template.bind({});
 Default.args = {
   trigger: <MdButton>{'Actions'}</MdButton>,
@@ -110,7 +109,6 @@ Default.args = {
   placement: 'bottom-start',
 };
 
-/** Items with icons */
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   trigger: <MdButton>Actions</MdButton>,
@@ -127,7 +125,6 @@ WithIcons.args = {
   ] as MdMenuGroupDef[],
 };
 
-/** Grouped items with headings and dividers */
 export const WithGroupHeadingsAndDividers = Template.bind({});
 WithGroupHeadingsAndDividers.args = {
   trigger: <MdButton>Options</MdButton>,
@@ -158,23 +155,6 @@ WithGroupHeadingsAndDividers.args = {
   size: 'default',
 };
 
-/** Small size */
-export const Small = Template.bind({});
-Small.args = {
-  trigger: <MdButton>Actions</MdButton>,
-  size: 'small',
-  groups: defaultGroups,
-};
-
-/** Large size */
-export const Large = Template.bind({});
-Large.args = {
-  trigger: <MdButton>Actions</MdButton>,
-  size: 'large',
-  groups: defaultGroups,
-};
-
-/** Icon-only trigger (e.g. a profile button) */
 export const IconButtonTrigger = Template.bind({});
 IconButtonTrigger.args = {
   trigger: <MdIconButton label="Profile"><MdIconPerson /></MdIconButton>,
