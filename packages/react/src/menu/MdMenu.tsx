@@ -26,6 +26,7 @@ export interface MdMenuProps {
   placement?: 'top' | 'bottom' | 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
   menuClassName?: string;
   gutter?: number;
+  unmountOnHide?: boolean;
 }
 
 export const MdMenu: React.FC<MdMenuProps> = ({
@@ -36,6 +37,7 @@ export const MdMenu: React.FC<MdMenuProps> = ({
   placement = 'bottom-start',
   menuClassName = '',
   gutter = 4,
+  unmountOnHide,
 }: MdMenuProps) => {
   const menuClassNames = classnames(
     'md-menu',
@@ -49,7 +51,7 @@ export const MdMenu: React.FC<MdMenuProps> = ({
   return (
     <Ariakit.MenuProvider placement={placement}>
       <Ariakit.MenuButton render={trigger} />
-      <Ariakit.Menu gutter={gutter} className={menuClassNames}>
+      <Ariakit.Menu gutter={gutter} unmountOnHide={unmountOnHide} className={menuClassNames}>
         {groups.map((group, groupIndex) => {
           return (
             <React.Fragment key={group.id}>
