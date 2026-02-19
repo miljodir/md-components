@@ -160,7 +160,7 @@ WithGroupHeadingsAndDividers.args = {
 /** Small size */
 export const Small = Template.bind({});
 Small.args = {
-  trigger: <MdButton mode="small">Actions</MdButton>,
+  trigger: <MdButton>Actions</MdButton>,
   size: 'small',
   groups: defaultGroups,
 };
@@ -168,7 +168,7 @@ Small.args = {
 /** Large size */
 export const Large = Template.bind({});
 Large.args = {
-  trigger: <MdButton mode="large">Actions</MdButton>,
+  trigger: <MdButton>Actions</MdButton>,
   size: 'large',
   groups: defaultGroups,
 };
