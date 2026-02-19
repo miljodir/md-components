@@ -6,7 +6,7 @@ A dropdown menu component for accessing commands and actions. Built on [Ariakit 
 
 ```html
 <!-- Trigger (rendered as-is, Ariakit adds aria-haspopup / aria-expanded) -->
-<button class="md-menu__trigger">Open menu</button>
+<button>Open menu</button>
 
 <!-- Menu popup -->
 <div class="md-menu" role="menu">
