@@ -58,114 +58,6 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
     onPageChange?.(page);
   };
 
-  const renderPageButton = (page: number, isActive: boolean) => {
-    const pageClassName = classnames('md-pagination__page', {
-      'md-pagination__page--active': isActive,
-    });
-
-    const content = page;
-
-    if (isActive) {
-      return (
-        <span key={page} className={pageClassName} aria-current="page">
-          {content}
-        </span>
-      );
-    }
-
-    if (asChild && renderLink) {
-      const linkElement = renderLink(page, content);
-      const existingOnClick = linkElement.props?.onClick;
-      return React.cloneElement(linkElement, {
-        key: page,
-        className: classnames(pageClassName, linkElement.props?.className),
-        'aria-label': `Side ${page}`,
-        onClick: (event: React.MouseEvent<HTMLElement>) => {
-          if (typeof existingOnClick === 'function') {
-            existingOnClick(event);
-          }
-          if (!event.defaultPrevented) {
-            handlePageChange(page);
-          }
-        },
-      });
-    }
-
-    return (
-      <button
-        key={page}
-        type="button"
-        className={pageClassName}
-        onClick={() => {
-          return handlePageChange(page);
-        }}
-        aria-label={`Side ${page}`}
-      >
-        {content}
-      </button>
-    );
-  };
-
-  const renderNavButton = (direction: 'previous' | 'next', disabled: boolean, targetPage: number) => {
-    const isPrevious = direction === 'previous';
-    const label = isPrevious ? mergedLabels.previous : mergedLabels.next;
-    const Icon = isPrevious ? MdIconChevronBackward : MdIconChevronForward;
-
-    const content = (
-      <>
-        {isPrevious && (
-          <span className="md-pagination__nav-icon" aria-hidden="true">
-            <Icon />
-          </span>
-        )}
-        <span className="md-pagination__nav-label">{label}</span>
-        {!isPrevious && (
-          <span className="md-pagination__nav-icon" aria-hidden="true">
-            <Icon />
-          </span>
-        )}
-      </>
-    );
-
-    if (disabled) {
-      return (
-        <span className="md-pagination__nav" aria-disabled="true" aria-label={label}>
-          {content}
-        </span>
-      );
-    }
-
-    if (asChild && renderLink) {
-      const linkElement = renderLink(targetPage, content);
-      const existingOnClick = linkElement.props?.onClick;
-      return React.cloneElement(linkElement, {
-        className: classnames('md-pagination__nav', linkElement.props?.className),
-        'aria-label': label,
-        onClick: (event: React.MouseEvent<HTMLElement>) => {
-          if (typeof existingOnClick === 'function') {
-            existingOnClick(event);
-          }
-          if (!event.defaultPrevented) {
-            handlePageChange(targetPage);
-          }
-        },
-      });
-    }
-
-    return (
-      <button
-        type="button"
-        className="md-pagination__nav"
-        onClick={() => {
-          return handlePageChange(targetPage);
-        }}
-        aria-label={label}
-      >
-        {content}
-      </button>
-    );
-  };
-
   if (totalPages <= 1) return null;
 
   const isPreviousDisabled = currentPage === 1;
@@ -173,7 +65,15 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
 
   return (
     <nav className={classNames} aria-label="Pagination">
-      {renderNavButton('previous', isPreviousDisabled, currentPage - 1)}
+      <NavButton
+        direction="previous"
+        disabled={isPreviousDisabled}
+        targetPage={currentPage - 1}
+        label={mergedLabels.previous}
+        asChild={asChild}
+        renderLink={renderLink}
+        onPageChange={handlePageChange}
+      />
 
       <div className="md-pagination__pages">
         {!compact && (
@@ -187,24 +87,173 @@ export const MdPagination: React.FunctionComponent<MdPaginationProps> = ({
                 );
               }
 
-              return renderPageButton(page, page === currentPage);
+              return (
+                <PageButton
+                  key={page}
+                  page={page}
+                  isActive={page === currentPage}
+                  asChild={asChild}
+                  renderLink={renderLink}
+                  onPageChange={handlePageChange}
+                />
+              );
             })}
           </div>
         )}
 
         <div className={classnames('md-pagination__pages-compact', { 'md-pagination__pages-compact--force': compact })}>
           {getCompactPageNumbers(currentPage, totalPages).map(page => {
-            return renderPageButton(page, page === currentPage);
+            return (
+              <PageButton
+                key={page}
+                page={page}
+                isActive={page === currentPage}
+                asChild={asChild}
+                renderLink={renderLink}
+                onPageChange={handlePageChange}
+              />
+            );
           })}
         </div>
       </div>
 
-      {renderNavButton('next', isNextDisabled, currentPage + 1)}
+      <NavButton
+        direction="next"
+        disabled={isNextDisabled}
+        targetPage={currentPage + 1}
+        label={mergedLabels.next}
+        asChild={asChild}
+        renderLink={renderLink}
+        onPageChange={handlePageChange}
+      />
     </nav>
   );
 };
 
 export default MdPagination;
+
+interface PageButtonProps {
+  page: number;
+  isActive: boolean;
+  asChild: boolean;
+  renderLink?: (page: number, children: React.ReactNode) => React.ReactElement;
+  onPageChange: (page: number) => void;
+}
+
+const PageButton = ({ page, isActive, asChild, renderLink, onPageChange }: PageButtonProps) => {
+  const pageClassName = classnames('md-pagination__page', {
+    'md-pagination__page--active': isActive,
+  });
+
+  const content = page;
+
+  if (isActive) {
+    return (
+      <span className={pageClassName} aria-current="page">
+        {content}
+      </span>
+    );
+  }
+
+  if (asChild && renderLink) {
+    const linkElement = renderLink(page, content);
+    const existingOnClick = linkElement.props?.onClick;
+    return React.cloneElement(linkElement, {
+      className: classnames(pageClassName, linkElement.props?.className),
+      'aria-label': `Side ${page}`,
+      onClick: (event: React.MouseEvent<HTMLElement>) => {
+        if (typeof existingOnClick === 'function') {
+          existingOnClick(event);
+        }
+        if (!event.defaultPrevented) {
+          onPageChange(page);
+        }
+      },
+    });
+  }
+
+  return (
+    <button
+      type="button"
+      className={pageClassName}
+      onClick={() => {
+        return onPageChange(page);
+      }}
+      aria-label={`Side ${page}`}
+    >
+      {content}
+    </button>
+  );
+};
+
+interface NavButtonProps {
+  direction: 'previous' | 'next';
+  disabled: boolean;
+  targetPage: number;
+  label: string;
+  asChild: boolean;
+  renderLink?: (page: number, children: React.ReactNode) => React.ReactElement;
+  onPageChange: (page: number) => void;
+}
+
+const NavButton = ({ direction, disabled, targetPage, label, asChild, renderLink, onPageChange }: NavButtonProps) => {
+  const isPrevious = direction === 'previous';
+  const Icon = isPrevious ? MdIconChevronBackward : MdIconChevronForward;
+
+  const content = (
+    <>
+      {isPrevious && (
+        <span className="md-pagination__nav-icon" aria-hidden="true">
+          <Icon />
+        </span>
+      )}
+      <span className="md-pagination__nav-label">{label}</span>
+      {!isPrevious && (
+        <span className="md-pagination__nav-icon" aria-hidden="true">
+          <Icon />
+        </span>
+      )}
+    </>
+  );
+
+  if (disabled) {
+    return (
+      <span className="md-pagination__nav" aria-disabled="true" aria-label={label}>
+        {content}
+      </span>
+    );
+  }
+
+  if (asChild && renderLink) {
+    const linkElement = renderLink(targetPage, content);
+    const existingOnClick = linkElement.props?.onClick;
+    return React.cloneElement(linkElement, {
+      className: classnames('md-pagination__nav', linkElement.props?.className),
+      'aria-label': label,
+      onClick: (event: React.MouseEvent<HTMLElement>) => {
+        if (typeof existingOnClick === 'function') {
+          existingOnClick(event);
+        }
+        if (!event.defaultPrevented) {
+          onPageChange(targetPage);
+        }
+      },
+    });
+  }
+
+  return (
+    <button
+      type="button"
+      className="md-pagination__nav"
+      onClick={() => {
+        return onPageChange(targetPage);
+      }}
+      aria-label={label}
+    >
+      {content}
+    </button>
+  );
+};
 
 const getPageNumbers = (currentPage: number, totalPages: number): (number | 'ellipsis')[] => {
   const pages: (number | 'ellipsis')[] = [];
