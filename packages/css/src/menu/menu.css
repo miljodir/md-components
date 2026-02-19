@@ -1,0 +1,31 @@
+.md-menu {
+    border-radius: var(--md-radius-sm);
+    background: var(--md-color-background-primary);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.14);
+    padding: var(--md-size-4) var(--md-size-8);
+    min-width: 250px;
+}
+
+.md-menu__header {
+    color: var(--md-color-text-disabled);
+    font-size: var(--md-typography-label-m);
+    font-weight: var(--md-typography-weight-medium);
+    line-height: var(--md-typography-line-height-small);
+    font-style: normal;
+    padding: var(--md-size-4) var(--md-size-6);
+}
+
+.md-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.md-menu__item {
+    display: flex;
+    padding: var(--md-size-12) var(--md-size-16);
+    align-items: center;
+    gap: var(--md-size-8);
+    align-self: stretch;
+}
+

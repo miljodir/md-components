@@ -24,6 +24,7 @@
 @import './infoTag/infoTag.css';
 @import './link/link.css';
 @import './loadingSpinner/loadingSpinner.css';
+@import './menu/menu.css';
 @import './messages/alertMessage.css';
 @import './modal/modal.css';
 @import './skipToMainContent/skipToMainContent.css';
