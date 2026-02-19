@@ -2,11 +2,12 @@ import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@stor
 import React from 'react';
 import Readme from '../packages/css/src/menu/README.md';
 import { MdButton } from '../packages/react/src/button/MdButton';
+import { MdIconButton } from '../packages/react/src/iconButton/MdIconButton';
 import MdIconContentCopy from '../packages/react/src/icons-material/MdIconContentCopy';
 import MdIconDelete from '../packages/react/src/icons-material/MdIconDelete';
 import MdIconDownload from '../packages/react/src/icons-material/MdIconDownload';
 import MdIconEdit from '../packages/react/src/icons-material/MdIconEdit';
-import MdIconMore from '../packages/react/src/icons-material/MdIconMore';
+import MdIconPerson from '../packages/react/src/icons-material/MdIconPerson';
 import MdIconUpload from '../packages/react/src/icons-material/MdIconUpload';
 import { MdMenu } from '../packages/react/src/menu/MdMenu';
 import type { MdMenuGroupDef, MdMenuProps } from '../packages/react/src/menu/MdMenu';
@@ -173,26 +174,10 @@ Large.args = {
   groups: defaultGroups,
 };
 
-/** Icon-only trigger (e.g. a "more" button) */
+/** Icon-only trigger (e.g. a profile button) */
 export const IconButtonTrigger = Template.bind({});
 IconButtonTrigger.args = {
-  trigger: (
-    <button
-      aria-label="More options"
-      style={{
-        padding: '0.5rem',
-        border: '1px solid #ccc',
-        borderRadius: '50%',
-        background: 'transparent',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <MdIconMore />
-    </button>
-  ),
+  trigger: <MdIconButton label="Profile"><MdIconPerson /></MdIconButton>,
   groups: [
     {
       id: 'g1',
