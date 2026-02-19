@@ -20,7 +20,7 @@ export interface MdMenuGroupDef {
 
 export interface MdMenuProps {
   /** The trigger element (typically a button) that opens the menu */
-  trigger: React.ReactNode;
+  trigger: React.ReactElement;
   /** Groups of menu items. Use a single group without a heading for a flat list. */
   groups: MdMenuGroupDef[];
   /** Size of the menu items */
@@ -55,7 +55,7 @@ export const MdMenu: React.FC<MdMenuProps> = ({
 
   return (
     <Ariakit.MenuProvider placement={placement}>
-      <Ariakit.MenuButton render={trigger as React.ReactElement} />
+      <Ariakit.MenuButton render={trigger} />
       <Ariakit.Menu gutter={gutter} className={menuClassNames}>
         {groups.map((group, groupIndex) => {
           return (
