@@ -219,10 +219,8 @@ describe('MdRadioGroup', () => {
     });
 
     it('forwards other props to fieldset', () => {
-      const { container } = render(
-        <MdRadioGroup options={mockOptions} data-testid="radio-group" onChange={() => {}} />,
-      );
-      expect(container.querySelector('[data-testid="radio-group"]')).toBeInTheDocument();
+      render(<MdRadioGroup options={mockOptions} data-testid="radio-group" onChange={() => {}} />);
+      expect(screen.getByTestId('radio-group')).toBeInTheDocument();
     });
   });
 });

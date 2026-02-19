@@ -211,8 +211,8 @@ describe('MdCheckboxGroup', () => {
     });
 
     it('forwards other props to fieldset', () => {
-      const { container } = render(<MdCheckboxGroup options={mockOptions} data-testid="checkbox-group" />);
-      expect(container.querySelector('[data-testid="checkbox-group"]')).toBeInTheDocument();
+      render(<MdCheckboxGroup options={mockOptions} data-testid="checkbox-group" />);
+      expect(screen.getByTestId('checkbox-group')).toBeInTheDocument();
     });
   });
 });

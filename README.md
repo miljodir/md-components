@@ -112,6 +112,8 @@ npm run test:coverage # Kjør tester med coverage-rapport
 
 Testfiler plasseres i en `tests/`-undermappe i komponentmappen, f.eks. `packages/react/src/button/tests/MdButton.test.tsx`. Se eksisterende tester for mal.
 
+**Viktig:** Bruk tilgjengelige queries (`getByRole`, `getByLabelText`) fremfor test-IDer, og bruk `userEvent` for interaksjoner.
+
 ### Teste endringer i eget prosjekt
 
 Før man merger ny kode til master, kan det være lurt å teste endringene i et eget prosjekt. For eksempel, hvis endringer forsøker å fikse en bug. Dette kan gjøres ved å bygge pakkene lokalt og installere dem i prosjektet.
@@ -192,6 +194,17 @@ export interface MdAutocompleteProps extends React.InputHTMLAttributes<HTMLInput
 ```
 
 NB! Husk å bruke docstrings, ellers vil ikke kommentarene være synlige i pakket versjon.
+
+## AI-verktøy
+
+Vi har lagt til instruksjoner for AI-agenter i dette prosjektet. Claude (og andre AI-assistenter) vil følge retningslinjene i `AGENTS.md` når de hjelper med:
+
+- **Enhetstester:** Generere tester som følger beste praksis med tilgjengelige queries og `userEvent`
+- **CSS-dokumentasjon:** Opprette README.md-filer for CSS-komponenter med HTML-struktur
+- **Nye komponenter:** Følge mappestruktur, navnekonvensjoner og eksportere riktig
+- **Kodegjennomgang:** Sjekke at tester og komponenter følger prosjektets retningslinjer
+
+Bruk gjerne Claude i VS Code (Copilot) eller GitHub PR-reviews for å få hjelp med disse oppgavene.
 
 ## DISCLAIMER
 

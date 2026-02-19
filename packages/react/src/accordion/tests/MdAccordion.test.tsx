@@ -88,12 +88,12 @@ describe('MdAccordion', () => {
     });
 
     it('forwards data-* attributes', () => {
-      const { container } = render(
+      render(
         <MdAccordion name="test-accordion" data-testid="accordion-test">
           <MdAccordionItem label="Item 1">Content 1</MdAccordionItem>
         </MdAccordion>,
       );
-      expect(container.querySelector('[data-testid="accordion-test"]')).toBeInTheDocument();
+      expect(screen.getByTestId('accordion-test')).toBeInTheDocument();
     });
   });
 });

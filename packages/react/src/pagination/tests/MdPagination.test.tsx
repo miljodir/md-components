@@ -19,15 +19,15 @@ describe('MdPagination', () => {
 
     it('renders navigation buttons', () => {
       render(<MdPagination totalPages={5} currentPage={3} />);
-      expect(screen.getByLabelText('Forrige')).toBeInTheDocument();
-      expect(screen.getByLabelText('Neste')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Forrige' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Neste' })).toBeInTheDocument();
     });
 
     it('renders page buttons', () => {
       render(<MdPagination totalPages={5} currentPage={1} />);
       const desktopView = getDesktopView();
-      expect(within(desktopView).getByLabelText('Side 2')).toBeInTheDocument();
-      expect(within(desktopView).getByLabelText('Side 3')).toBeInTheDocument();
+      expect(within(desktopView).getByRole('button', { name: 'Side 2' })).toBeInTheDocument();
+      expect(within(desktopView).getByRole('button', { name: 'Side 3' })).toBeInTheDocument();
     });
 
     it('marks current page with aria-current', () => {
@@ -70,20 +70,20 @@ describe('MdPagination', () => {
   describe('labels', () => {
     it('uses default labels', () => {
       render(<MdPagination totalPages={5} currentPage={3} />);
-      expect(screen.getByText('Forrige')).toBeInTheDocument();
-      expect(screen.getByText('Neste')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Forrige' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Neste' })).toBeInTheDocument();
     });
 
     it('uses custom labels', () => {
       render(<MdPagination totalPages={5} currentPage={3} labels={{ previous: 'Previous', next: 'Next' }} />);
-      expect(screen.getByText('Previous')).toBeInTheDocument();
-      expect(screen.getByText('Next')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Previous' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument();
     });
 
     it('partially overrides labels', () => {
       render(<MdPagination totalPages={5} currentPage={3} labels={{ previous: 'Back' }} />);
-      expect(screen.getByText('Back')).toBeInTheDocument();
-      expect(screen.getByText('Neste')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Back' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Neste' })).toBeInTheDocument();
     });
   });
 
@@ -94,7 +94,8 @@ describe('MdPagination', () => {
       render(<MdPagination totalPages={5} currentPage={1} onPageChange={onPageChange} />);
       const desktopView = getDesktopView();
 
-      await user.click(within(desktopView).getByLabelText('Side 2'));
+      await user.click(within(desktopView).getByRole('button', { name: 'Side 2' }));
+      expect(onPageChange).toHaveBeenCalledTimes(1);
       expect(onPageChange).toHaveBeenCalledWith(2);
     });
 
@@ -103,7 +104,8 @@ describe('MdPagination', () => {
       const onPageChange = vi.fn();
       render(<MdPagination totalPages={5} currentPage={2} onPageChange={onPageChange} />);
 
-      await user.click(screen.getByLabelText('Neste'));
+      await user.click(screen.getByRole('button', { name: 'Neste' }));
+      expect(onPageChange).toHaveBeenCalledTimes(1);
       expect(onPageChange).toHaveBeenCalledWith(3);
     });
 
@@ -112,40 +114,40 @@ describe('MdPagination', () => {
       const onPageChange = vi.fn();
       render(<MdPagination totalPages={5} currentPage={3} onPageChange={onPageChange} />);
 
-      await user.click(screen.getByLabelText('Forrige'));
+      await user.click(screen.getByRole('button', { name: 'Forrige' }));
+      expect(onPageChange).toHaveBeenCalledTimes(1);
       expect(onPageChange).toHaveBeenCalledWith(2);
     });
 
-    it('does not call onPageChange when clicking current page', async () => {
-      const onPageChange = vi.fn();
-      render(<MdPagination totalPages={5} currentPage={3} onPageChange={onPageChange} />);
+    it('renders current page as non-interactive element', () => {
+      render(<MdPagination totalPages={5} currentPage={3} />);
       const desktopView = getDesktopView();
 
-      // Current page is rendered as span, not button, so it's not clickable
-      const currentPage = within(desktopView).getByText('3').closest('[aria-current="page"]');
-      expect(currentPage?.tagName).toBe('SPAN');
+      const currentPage = within(desktopView).getByText('3');
+      expect(currentPage).toHaveAttribute('aria-current', 'page');
+      expect(currentPage.tagName).toBe('SPAN');
     });
   });
 
   describe('disabled states', () => {
-    it('disables previous button on first page', () => {
+    it('disables previous navigation on first page', () => {
       render(<MdPagination totalPages={5} currentPage={1} />);
-      const prevButton = screen.getByLabelText('Forrige');
-      expect(prevButton).toHaveAttribute('aria-disabled', 'true');
+      const prevElement = screen.getByLabelText('Forrige');
+      expect(prevElement).toHaveAttribute('aria-disabled', 'true');
+      expect(prevElement.tagName).toBe('SPAN');
     });
 
-    it('disables next button on last page', () => {
+    it('disables next navigation on last page', () => {
       render(<MdPagination totalPages={5} currentPage={5} />);
-      const nextButton = screen.getByLabelText('Neste');
-      expect(nextButton).toHaveAttribute('aria-disabled', 'true');
+      const nextElement = screen.getByLabelText('Neste');
+      expect(nextElement).toHaveAttribute('aria-disabled', 'true');
+      expect(nextElement.tagName).toBe('SPAN');
     });
 
-    it('enables both buttons on middle pages', () => {
+    it('enables both navigation buttons on middle pages', () => {
       render(<MdPagination totalPages={5} currentPage={3} />);
-      const prevButton = screen.getByLabelText('Forrige');
-      const nextButton = screen.getByLabelText('Neste');
-      expect(prevButton).not.toHaveAttribute('aria-disabled');
-      expect(nextButton).not.toHaveAttribute('aria-disabled');
+      expect(screen.getByRole('button', { name: 'Forrige' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Neste' })).toBeInTheDocument();
     });
   });
 
@@ -155,32 +157,31 @@ describe('MdPagination', () => {
       const desktopView = getDesktopView();
       for (let i = 1; i <= 7; i++) {
         if (i === 4) {
-          expect(within(desktopView).getByText('4').closest('[aria-current="page"]')).toBeInTheDocument();
+          const currentPage = within(desktopView).getByText('4');
+          expect(currentPage).toHaveAttribute('aria-current', 'page');
         } else {
-          expect(within(desktopView).getByLabelText(`Side ${i}`)).toBeInTheDocument();
+          expect(within(desktopView).getByRole('button', { name: `Side ${i}` })).toBeInTheDocument();
         }
       }
     });
 
     it('shows ellipsis when currentPage is near start', () => {
       render(<MdPagination totalPages={10} currentPage={2} />);
-      const nav = screen.getByRole('navigation', { name: 'Pagination' });
-      const ellipses = nav.querySelectorAll('.md-pagination__ellipsis');
-      expect(ellipses.length).toBeGreaterThan(0);
+      const desktopView = getDesktopView();
+      expect(within(desktopView).getByText('...')).toBeInTheDocument();
     });
 
     it('shows ellipsis when currentPage is near end', () => {
       render(<MdPagination totalPages={10} currentPage={9} />);
-      const nav = screen.getByRole('navigation', { name: 'Pagination' });
-      const ellipses = nav.querySelectorAll('.md-pagination__ellipsis');
-      expect(ellipses.length).toBeGreaterThan(0);
+      const desktopView = getDesktopView();
+      expect(within(desktopView).getByText('...')).toBeInTheDocument();
     });
 
     it('shows ellipsis on both sides when currentPage is in middle', () => {
       render(<MdPagination totalPages={10} currentPage={5} />);
-      const nav = screen.getByRole('navigation', { name: 'Pagination' });
-      const ellipses = nav.querySelectorAll('.md-pagination__ellipsis');
-      expect(ellipses.length).toBe(2);
+      const desktopView = getDesktopView();
+      const ellipses = within(desktopView).getAllByText('...');
+      expect(ellipses).toHaveLength(2);
     });
   });
 
@@ -191,35 +192,33 @@ describe('MdPagination', () => {
       expect(pagination).toHaveClass('md-pagination--compact');
     });
 
-    it('shows only 3 pages in compact mode', () => {
+    it('hides desktop view in compact mode', () => {
       render(<MdPagination totalPages={10} currentPage={5} compact />);
-      const nav = screen.getByRole('navigation', { name: 'Pagination' });
-      const compactPages = nav.querySelector('.md-pagination__pages-compact--force');
-      expect(compactPages).toBeInTheDocument();
+      expect(screen.queryByTestId('pages-desktop')).not.toBeInTheDocument();
     });
   });
 
   describe('edge cases', () => {
     it('clamps currentPage to valid range (too low)', () => {
       render(<MdPagination totalPages={5} currentPage={0} />);
-      // Should treat as page 1
       expect(screen.getByRole('navigation', { name: 'Pagination' })).toBeInTheDocument();
-      const prevButton = screen.getByLabelText('Forrige');
-      expect(prevButton).toHaveAttribute('aria-disabled', 'true');
+      // Previous should be disabled when clamped to page 1
+      const prevElement = screen.getByLabelText('Forrige');
+      expect(prevElement).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('clamps currentPage to valid range (too high)', () => {
       render(<MdPagination totalPages={5} currentPage={10} />);
-      // Should treat as page 5
       expect(screen.getByRole('navigation', { name: 'Pagination' })).toBeInTheDocument();
-      const nextButton = screen.getByLabelText('Neste');
-      expect(nextButton).toHaveAttribute('aria-disabled', 'true');
+      // Next should be disabled when clamped to last page
+      const nextElement = screen.getByLabelText('Neste');
+      expect(nextElement).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('handles two pages', () => {
       render(<MdPagination totalPages={2} currentPage={1} />);
       const desktopView = getDesktopView();
-      expect(within(desktopView).getByLabelText('Side 2')).toBeInTheDocument();
+      expect(within(desktopView).getByRole('button', { name: 'Side 2' })).toBeInTheDocument();
     });
   });
 
@@ -235,8 +234,7 @@ describe('MdPagination', () => {
 
       render(<MdPagination totalPages={5} currentPage={1} asChild renderLink={renderLink} />);
       const desktopView = getDesktopView();
-      const link = within(desktopView).getByTestId('link-2');
-      expect(link).toBeInTheDocument();
+      const link = within(desktopView).getByRole('link', { name: 'Side 2' });
       expect(link).toHaveAttribute('href', '/page/2');
     });
 
@@ -250,11 +248,9 @@ describe('MdPagination', () => {
       };
 
       render(<MdPagination totalPages={5} currentPage={3} asChild renderLink={renderLink} />);
-      // Nav buttons use unique testids - previous (page 2) and next (page 4)
-      const links = screen.getAllByTestId('nav-link-2');
-      expect(links.length).toBeGreaterThan(0);
-      const nextLinks = screen.getAllByTestId('nav-link-4');
-      expect(nextLinks.length).toBeGreaterThan(0);
+      // Previous links to page 2, Next links to page 4
+      expect(screen.getByRole('link', { name: /Forrige/i })).toHaveAttribute('href', '/page/2');
+      expect(screen.getByRole('link', { name: /Neste/i })).toHaveAttribute('href', '/page/4');
     });
 
     it('calls existing onClick on custom link and onPageChange', async () => {
@@ -275,8 +271,9 @@ describe('MdPagination', () => {
       );
 
       const desktopView = getDesktopView();
-      await user.click(within(desktopView).getByTestId('link-2'));
-      expect(customOnClick).toHaveBeenCalled();
+      await user.click(within(desktopView).getByRole('link', { name: 'Side 2' }));
+      expect(customOnClick).toHaveBeenCalledTimes(1);
+      expect(onPageChange).toHaveBeenCalledTimes(1);
       expect(onPageChange).toHaveBeenCalledWith(2);
     });
 
@@ -291,7 +288,7 @@ describe('MdPagination', () => {
 
       render(<MdPagination totalPages={5} currentPage={1} asChild renderLink={renderLink} />);
       const desktopView = getDesktopView();
-      const link = within(desktopView).getByTestId('link-2');
+      const link = within(desktopView).getByRole('link', { name: 'Side 2' });
       expect(link).toHaveClass('custom-link-class');
       expect(link).toHaveClass('md-pagination__page');
     });
