@@ -26,6 +26,7 @@
 @import './loadingSpinner/loadingSpinner.css';
 @import './messages/alertMessage.css';
 @import './modal/modal.css';
+@import './pagination/pagination.css';
 @import './skipToMainContent/skipToMainContent.css';
 @import './stepper/stepper.css';
 @import './tabs/tabs.css';
