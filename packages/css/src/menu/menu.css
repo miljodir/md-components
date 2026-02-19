@@ -34,15 +34,15 @@
 }
 
 .md-menu__item:hover {
-  background: var(--color-cta-secondary-hover, #ccdfde);
+  background: var(--md-color-cta-secondary-hover, #ccdfde);
 }
 
 .md-menu__item:active {
-  background: var(--color-cta-secondary-active, #b2cece);
+  background: var(--md-color-cta-secondary-active, #b2cece);
 }
 
 .md-menu__item[data-active-item] {
-  background: var(--color-cta-secondary-hover, #ccdfde);
+  background: var(--md-color-cta-secondary-hover, #ccdfde);
 }
 
 .md-menu__item[aria-disabled='true'] {
