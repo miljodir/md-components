@@ -1,10 +1,11 @@
 /* Menu popup */
 .md-menu {
-  background-color: var(--md-color-background-primary);
-  box-shadow: 0px var(--md-size-4) var(--md-size-8) 0px rgba(0, 0, 0, 0.12),
-    0px var(--md-size-2) var(--md-size-4) 0px rgba(0, 0, 0, 0.12), 0px 0px 1px 0px rgba(0, 0, 0, 0.14);
-  border: 1px solid var(--md-color-border-secondary);
-  border-radius: var(--md-radius-md);
+  background: var(--md-color-background-primary);
+  box-shadow: 0 var(--md-size-4) var(--md-size-8) 0 rgba(0, 0, 0, 0.12),
+    0 var(--md-size-2) var(--md-size-4) 0 rgba(0, 0, 0, 0.12),
+    0 0 1px 0 rgba(0, 0, 0, 0.14);
+  border-radius: var(--md-radius-sm);
+  border: none;
   padding: var(--md-size-4) 0;
   min-width: 180px;
   z-index: 950;
@@ -15,9 +16,10 @@
 /* Menu item */
 .md-menu__item {
   display: flex;
+  padding: var(--md-size-12) var(--md-size-16);
   align-items: center;
   gap: var(--md-size-8);
-  padding: var(--md-size-8) var(--md-size-16);
+  align-self: stretch;
   font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-14);
   font-weight: var(--md-typography-weight-regular);
@@ -91,7 +93,10 @@
 /* ── Small size ─────────────────────────────────── */
 .md-menu--small .md-menu__item {
   font-size: var(--md-typography-size-12);
-  padding: var(--md-size-4) var(--md-size-12);
+  padding: var(--md-size-8) var(--md-size-12);
+  gap: var(--md-size-4);
+  align-items: center;
+  align-self: stretch;
 }
 
 .md-menu--small .md-menu__item-icon {
@@ -107,7 +112,10 @@
 /* ── Large size ─────────────────────────────────── */
 .md-menu--large .md-menu__item {
   font-size: var(--md-typography-size-16);
-  padding: var(--md-size-12) var(--md-size-20);
+  padding: var(--md-size-16) var(--md-size-20);
+  gap: var(--md-size-12);
+  align-items: center;
+  align-self: stretch;
 }
 
 .md-menu--large .md-menu__item-icon {
