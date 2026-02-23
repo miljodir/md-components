@@ -4,7 +4,7 @@ import * as Ariakit from '@ariakit/react';
 import classnames from 'classnames';
 import React from 'react';
 
-export interface MdMenuItemDef {
+export interface MdMenuItemOption {
   id: string;
   label: string;
   icon?: React.ReactNode;
@@ -15,7 +15,7 @@ export interface MdMenuItemDef {
 export interface MdMenuGroupOption {
   id: string;
   heading?: string;
-  items: MdMenuItemDef[];
+  items: MdMenuItemOption[];
 }
 
 export interface MdMenuProps {
