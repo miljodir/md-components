@@ -71,6 +71,7 @@ stories/                  # Storybook stories
 5. Export from `packages/react/src/index.tsx`
 6. Register CSS import in `packages/css/index.css`
 7. **Write unit tests** (required for all new components)
+8. **Document accessibility features** in component README
 
 ### Ariakit Usage
 
@@ -107,6 +108,11 @@ describe('MdComponent', () => {
 
   describe('disabled states', () => {
     it('disables correctly', () => { ... });
+  });
+
+  describe('accessibility', () => {
+    it('has correct ARIA roles', () => { ... });
+    it('supports keyboard navigation', async () => { ... });
   });
 });
 ```
@@ -182,16 +188,81 @@ expect(onPageChange).toHaveBeenCalledWith(2);
 3. **Interactions** - Click, keyboard (Enter, Space), focus
 4. **Disabled states** - Visual and functional disabled behavior
 5. **Edge cases** - Boundary values, invalid inputs
-6. **Accessibility** - aria-current, aria-disabled, roles
+6. **Accessibility** - aria-current, aria-disabled, roles, keyboard navigation, screen reader support
+
+## Accessibility Testing
+
+### Automatic Tests (Unit Tests)
+
+Write automated tests in `.test.tsx` files to verify:
+
+- **ARIA attributes**: Correct roles, labels, and live regions
+- **Keyboard navigation**: Enter, Space, Arrow keys, Tab order
+- **Semantic HTML**: Using `<button>`, `<nav>`, `<form>` etc.
+- **Focus management**: Focus visibility and proper focus traps
+
+Example:
+
+```typescript
+describe('accessibility', () => {
+  it('has correct ARIA role', () => {
+    render(<MdButton>Click me</MdButton>);
+    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
+  });
+
+  it('supports Enter key', async () => {
+    const user = userEvent.setup();
+    const onClick = vi.fn();
+    render(<MdButton onClick={onClick}>Submit</MdButton>);
+    
+    const button = screen.getByRole('button');
+    button.focus();
+    await user.keyboard('{Enter}');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('has aria-disabled when disabled', () => {
+    render(<MdButton disabled>Click me</MdButton>);
+    expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+  });
+});
+```
+
+### Manual Testing
+
+Before merging, manually test in Storybook:
+
+1. **Keyboard Navigation**
+   - Tab through all interactive elements
+   - Verify Tab order is logical
+   - Test Escape, Enter, Space, Arrow keys
+
+2. **Screen Reader Testing**
+   - Test with VoiceOver (macOS), NVDA (Windows), or JAWS
+   - Verify all elements are announced correctly
+   - Check form labels and descriptions are read
+   - Verify dynamic content updates are announced
+
+3. **Visual Accessibility**
+   - Zoom to 200% - content remains usable
+   - Test with color blindness filters (Chrome DevTools)
+   - Ensure focus indicators are visible
+   - Check contrast ratio meets WCAG AA (4.5:1 for text)
+
+4. **Mobile Accessibility**
+   - Test touch targets are at least 44x44px
+   - Verify gesture-based interactions work correctly
 
 ## Accessibility Requirements
 
 All components must:
 
 - Have proper ARIA roles and labels
-- Support keyboard navigation
-- Work with screen readers
+- Support keyboard navigation (Tab, Enter, Space, Arrow keys)
+- Work with screen readers (VoiceOver, NVDA, JAWS)
 - Follow [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/) guidelines
+- Have visible focus indicators
+- Have sufficient color contrast (4.5:1 for normal text)
 
 Use semantic HTML elements:
 
@@ -202,10 +273,25 @@ Use semantic HTML elements:
 
 ## Pull Request Guidelines
 
+### Required Checks
+
 1. Add label: `major`, `minor`, or `patch` (required)
 2. Run `npm run lint` and `npm test` - all must pass
 3. For new components: include tests, story, and CSS README
-4. For breaking changes: document migration path
+
+### Accessibility Checklist
+
+- [ ] **Automatic a11y tests**: Unit tests cover ARIA attributes, keyboard navigation, semantic HTML
+- [ ] **Manual a11y testing**: Tested in Storybook with keyboard, screen reader, zoom, and color contrast
+- [ ] **WCAG 2.1 AA compliance**: Component meets WCAG AA standards
+- [ ] **Keyboard support**: All interactive elements are keyboard accessible
+- [ ] **Screen reader friendly**: All content is accessible to screen readers
+- [ ] **Focus management**: Focus indicators visible, logical Tab order
+- [ ] **Documentation**: Accessibility features documented in component README
+
+### Breaking Changes
+
+For breaking changes: document migration path
 
 ## Important Files
 
