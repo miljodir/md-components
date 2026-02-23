@@ -33,11 +33,11 @@
   transition: background-color 100ms ease-in-out;
 }
 
-.md-menu__item:hover {
+.md-menu__item:hover:not([aria-disabled='true']) {
   background: var(--md-color-cta-secondary-hover, #ccdfde);
 }
 
-.md-menu__item:active {
+.md-menu__item:active:not([aria-disabled='true']) {
   background: var(--md-color-cta-secondary-active, #b2cece);
 }
 
