@@ -47,7 +47,7 @@ export default {
     groups: {
       description: 'Groups of menu items',
       table: {
-        type: { summary: 'MdMenuGroupDef[]' },
+        type: { summary: 'MdMenuGroupOption[]' },
       },
       control: false,
     },
