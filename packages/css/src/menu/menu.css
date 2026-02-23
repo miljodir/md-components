@@ -92,7 +92,6 @@
 
 /* ── Small size ─────────────────────────────────── */
 .md-menu--small .md-menu__item {
-  font-size: var(--md-typography-size-12);
   padding: var(--md-size-8) var(--md-size-12);
   gap: var(--md-size-4);
   align-items: center;
@@ -105,13 +104,11 @@
 }
 
 .md-menu--small .md-menu__group-heading {
-  font-size: var(--md-typography-size-14);
   padding: var(--md-size-4) var(--md-size-12) var(--md-size-4);
 }
 
 /* ── Large size ─────────────────────────────────── */
 .md-menu--large .md-menu__item {
-  font-size: var(--md-typography-size-16);
   padding: var(--md-size-16) var(--md-size-20);
   gap: var(--md-size-12);
   align-items: center;
@@ -124,6 +121,5 @@
 }
 
 .md-menu--large .md-menu__group-heading {
-  font-size: var(--md-typography-size-18);
   padding: var(--md-size-12) var(--md-size-20) var(--md-size-4);
 }
