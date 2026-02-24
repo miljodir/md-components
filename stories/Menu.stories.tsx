@@ -1,5 +1,6 @@
 import { Controls, Description, Markdown, Primary, Subtitle, Title } from '@storybook/addon-docs/blocks';
 import React from 'react';
+import { action } from 'storybook/actions';
 import Readme from '../packages/css/src/menu/README.md';
 import { MdButton } from '../packages/react/src/button/MdButton';
 import { MdIconButton } from '../packages/react/src/iconButton/MdIconButton';
@@ -84,9 +85,9 @@ const defaultGroups: MdMenuGroupOption[] = [
   {
     id: 'g1',
     items: [
-      { id: 'edit', label: 'Edit' },
-      { id: 'copy', label: 'Copy' },
-      { id: 'share', label: 'Share' },
+      { id: 'edit', label: 'Edit', onClick: action('Edit') },
+      { id: 'copy', label: 'Copy', onClick: action('Copy') },
+      { id: 'share', label: 'Share', onClick: action('Share') },
       { id: 'delete', label: 'Delete', disabled: true },
     ],
   },
@@ -116,9 +117,9 @@ WithIcons.args = {
     {
       id: 'g1',
       items: [
-        { id: 'edit', label: 'Edit', icon: <MdIconEdit /> },
-        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy /> },
-        { id: 'download', label: 'Download', icon: <MdIconDownload /> },
+        { id: 'edit', label: 'Edit', icon: <MdIconEdit />, onClick: action('Edit') },
+        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy />, onClick: action('Copy') },
+        { id: 'download', label: 'Download', icon: <MdIconDownload />, onClick: action('Download') },
         { id: 'delete', label: 'Delete', icon: <MdIconDelete />, disabled: true },
       ],
     },
@@ -134,22 +135,22 @@ WithGroupHeadingsAndDividers.args = {
       id: 'file',
       heading: 'File',
       items: [
-        { id: 'download', label: 'Download', icon: <MdIconDownload /> },
-        { id: 'upload', label: 'Upload', icon: <MdIconUpload /> },
+        { id: 'download', label: 'Download', icon: <MdIconDownload />, onClick: action('Download') },
+        { id: 'upload', label: 'Upload', icon: <MdIconUpload />, onClick: action('Upload') },
       ],
     },
     {
       id: 'edit',
       heading: 'Edit',
       items: [
-        { id: 'edit-item', label: 'Edit', icon: <MdIconEdit /> },
-        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy /> },
+        { id: 'edit-item', label: 'Edit', icon: <MdIconEdit />, onClick: action('Edit') },
+        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy />, onClick: action('Copy') },
       ],
     },
     {
       id: 'danger',
       heading: 'Danger zone',
-      items: [{ id: 'delete', label: 'Delete', icon: <MdIconDelete /> }],
+      items: [{ id: 'delete', label: 'Delete', icon: <MdIconDelete />, onClick: action('Delete') }],
     },
   ] as MdMenuGroupOption[],
   size: 'default',
@@ -162,9 +163,9 @@ IconButtonTrigger.args = {
     {
       id: 'g1',
       items: [
-        { id: 'edit', label: 'Edit', icon: <MdIconEdit /> },
-        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy /> },
-        { id: 'delete', label: 'Delete', icon: <MdIconDelete /> },
+        { id: 'edit', label: 'Edit', icon: <MdIconEdit />, onClick: action('Edit') },
+        { id: 'copy', label: 'Copy', icon: <MdIconContentCopy />, onClick: action('Copy') },
+        { id: 'delete', label: 'Delete', icon: <MdIconDelete />, onClick: action('Delete') },
       ],
     },
   ] as MdMenuGroupOption[],
