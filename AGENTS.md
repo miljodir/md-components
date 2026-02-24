@@ -282,7 +282,6 @@ Use semantic HTML elements:
 ### Accessibility Checklist
 
 - [ ] **Automatic a11y tests**: Unit tests cover ARIA attributes, keyboard navigation, semantic HTML
-- [ ] **Manual a11y testing**: Tested in Storybook with keyboard, screen reader, zoom, and color contrast
 - [ ] **WCAG 2.1 AA compliance**: Component meets WCAG AA standards
 - [ ] **Keyboard support**: All interactive elements are keyboard accessible
 - [ ] **Screen reader friendly**: All content is accessible to screen readers
