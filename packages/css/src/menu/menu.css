@@ -6,7 +6,7 @@
     0 0 1px 0 rgba(0, 0, 0, 0.14);
   border-radius: var(--md-radius-sm);
   border: none;
-  padding: var(--md-size-4) 0;
+  padding: var(--md-size-8);
   min-width: 180px;
   z-index: 950;
   outline: none;
@@ -30,6 +30,7 @@
   text-align: left;
   cursor: pointer;
   line-height: var(--md-typography-line-height-medium);
+  border-radius: var(--md-radius-sm);
   transition: background-color 100ms ease-in-out;
 }
 
