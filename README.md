@@ -112,9 +112,11 @@ npm run test:coverage # Kjør tester med coverage-rapport
 
 Testfiler plasseres i en `tests/`-undermappe i komponentmappen, f.eks. `packages/react/src/button/tests/MdButton.test.tsx`. Se eksisterende tester for mal.
 
+**Viktig:** Bruk tilgjengelige queries (`getByRole`, `getByLabelText`) fremfor test-IDer, og bruk `userEvent` for interaksjoner.
+
+#### Manuell testing
 I tillegg til automatisk testing så bør man også gjøre en manuell testing i nettleser med de viktigste funksjonene som er forventet i en nettleser. Anbefalt lesning og utgangspunkt er [paragraf 2 i regelsettet til UUtilsynet](https://www.uutilsynet.no/regelverk/oversikt-over-testregler-nettsteder/709). 
 
-**Viktig:** Bruk tilgjengelige queries (`getByRole`, `getByLabelText`) fremfor test-IDer, og bruk `userEvent` for interaksjoner.
 
 ### Teste endringer i eget prosjekt
 
