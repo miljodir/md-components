@@ -162,6 +162,7 @@ import MdIconZoomOut from './icons-material/MdIconZoomOut';
 import MdInfoTag, { type MdInfoTagProps } from './infoTag/MdInfoTag';
 import MdLink, { type MdLinkProps } from './link/MdLink';
 import MdLoadingSpinner, { type MdLoadingSpinnerProps } from './loadingSpinner/MdLoadingSpinner';
+import MdMenu, { type MdMenuProps, type MdMenuGroupOption, type MdMenuItemOption } from './menu/MdMenu';
 import MdAlertMessage, { type MdAlertMessageProps } from './messages/MdAlertMessage';
 import MdInfoBox, { type MdInfoBoxProps } from './messages/MdInfoBox';
 import MdModal, { type MdModalProps } from './modal/MdModal';
@@ -215,6 +216,10 @@ export {
   MdInfoTag,
   MdInfoBox,
   MdTooltip,
+  MdMenu,
+  MdMenuProps,
+  MdMenuGroupOption,
+  MdMenuItemOption,
   MdAlertMessage,
   MdButtonProps,
   MdIconButtonProps,
