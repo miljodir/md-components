@@ -1,7 +1,7 @@
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import autofix from 'eslint-plugin-autofix';
+import unusedImports from 'eslint-plugin-unused-imports';
 import reactCompiler from 'eslint-plugin-react-compiler';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
@@ -44,7 +44,7 @@ export default [
   ),
   {
     plugins: {
-      autofix,
+      'unused-imports': unusedImports,
       'react-hooks': fixupPluginRules(reactHooks),
       'react-compiler': reactCompiler,
     },
@@ -95,38 +95,28 @@ export default [
           html: true,
         },
       ],
-      'autofix/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          ignoreRestSiblings: true,
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
       '@typescript-eslint/consistent-type-imports': [
         'warn',
         {
           prefer: 'type-imports',
         },
       ],
-      'import/order': [
+      // Autofix: fjerner ubrukte imports ved --fix
+      'unused-imports/no-unused-imports': 'warn',      
+      'unused-imports/no-unused-vars': [
         'warn',
         {
-          groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
-          pathGroups: [
-            {
-              pattern: '@/**/**',
-              group: 'parent',
-              position: 'before',
-            },
-          ],
-          alphabetize: {
-            order: 'asc',
-          },
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
         },
       ],
       'storybook/no-renderer-packages': 'off', // Disable this rule until we update to Storybook 9
       'import/no-unresolved': ['error', { ignore: ['storybook/*'] }],
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
 ];
