@@ -10,12 +10,10 @@
 .logo-grid .grid {
     display: grid;
     grid-template-columns:
-    var(--col-1)
-    var(--col-2)
     var(--col-3)
     minmax(200px, 1fr)
     minmax(200px, 1fr);
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(3, auto);
     gap: var(--gap);
     background: #fff;
     width: 100%;
