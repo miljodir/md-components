@@ -80,7 +80,7 @@
 }
 
 .md-input__label > * + * {
-  margin-left: var(--md-size-16);
+  margin-left: var(--md-size-8);
 }
 
 .md-input__help-button {
