@@ -34,18 +34,23 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
   ...otherProps
 }: MdTooltipProps) => {
   const classNames = `md-tooltip md-tooltip--${mode} ${tooltipClassName}`;
+  const isSingleElement = React.isValidElement(children);
 
-  return (
-    <TooltipProvider placement={position} timeout={timeout}>
-      <TooltipAnchor className={`md-tooltip__anchor ${anchorClassName}`} {...otherProps}>
-        <VisuallyHidden>{tooltipContent}</VisuallyHidden>
-        {children}
-      </TooltipAnchor>
-      <Tooltip unmountOnHide={unmountOnHide} className={classNames}>
-        {tooltipContent}
-      </Tooltip>
-    </TooltipProvider>
-  );
+return (
+  <TooltipProvider placement={position} timeout={timeout}>
+    <TooltipAnchor
+      {...otherProps}
+      className={`md-tooltip__anchor ${anchorClassName}`}
+      render={isSingleElement ? children : undefined}
+    >
+      {!isSingleElement && children}
+    </TooltipAnchor>
+
+    <Tooltip unmountOnHide={unmountOnHide} className={classNames}>
+      {tooltipContent}
+    </Tooltip>
+  </TooltipProvider>
+);
 };
 
 export default MdTooltip;
