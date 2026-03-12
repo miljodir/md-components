@@ -307,12 +307,7 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
           >
             {matches &&
               matches.map(option => {
-                let isChecked = false;
-                if (isMultiSelect) {
-                  isChecked = selectedValues.includes(option.value);
-                } else {
-                  isChecked = selectedValues === option.value;
-                }
+                const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
 
                 return (
                   <Ariakit.ComboboxItem

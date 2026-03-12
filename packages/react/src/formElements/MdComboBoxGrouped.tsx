@@ -329,12 +329,8 @@ const MdComboBoxGrouped = React.forwardRef<HTMLInputElement, MdComboBoxGroupedPr
                       </div>
                       {group.values &&
                         group.values.map((option, i) => {
-                          let isChecked = false;
-                          if (isMultiSelect) {
-                            isChecked = selectedValues.includes(option.value);
-                          } else {
-                            isChecked = selectedValues === option.value;
-                          }
+                          const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
+ 
                           return (
                             <Ariakit.ComboboxItem
                               key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}_${i}`}

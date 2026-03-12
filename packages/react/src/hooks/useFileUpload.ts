@@ -32,9 +32,7 @@ const formatBytes = (bytes: number, decimals = 2): string => {
 };
 
 const getTotalSizeInBytes = (files: File[]): number => {
-  return files.reduce((acc, file: File) => {
-    return (acc += file.size);
-  }, 0);
+  return files.reduce((acc, file: File) => {return acc + file.size}, 0);
 };
 
 const handleDragDropEvent = (e: DragEvent<HTMLDivElement>) => {
@@ -57,21 +55,17 @@ export const useFileUpload = (): useFileUploadHook => {
       setTotalSize(prettySize);
     };
 
-    setFileNames(
-      files.map((file: File) => {
-        return file.name;
-      }),
-    );
-    setFileTypes(
-      files.map((file: File) => {
-        return file.type;
-      }),
-    );
+    setFileNames(files.map((file) => {return file.name}));
+    setFileTypes(files.map((file) => {return file.type}));
     handleSizes(files);
   }, [files]);
 
   const setFiles = useCallback(
-    (e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>, mode = 'w', imagesOnly = false): void => {
+    (
+      e: ChangeEvent<HTMLElement> | DragEvent<HTMLDivElement>,
+      mode = 'w',
+      imagesOnly = false,
+    ): void => {
       let filesArr: File[] = [];
 
       const dataTransfer = (e as React.DragEvent<HTMLDivElement>).dataTransfer;
@@ -83,14 +77,14 @@ export const useFileUpload = (): useFileUploadHook => {
         filesArr = Array.from(dataTransfer.files);
       } else {
         // eslint-disable-next-line no-console
-        console.error('Argument not recognized. Are you sure your passing setFiles an event object?');
+        console.error(
+          'Argument not recognized. Are you sure your passing setFiles an event object?',
+        );
       }
 
-      let newFiles: File[] = [];
+      let newFiles: File[];
       if (imagesOnly) {
-        newFiles = filesArr.filter((file: File) => {
-          return file && file['type'].split('/')[0] === 'image';
-        });
+        newFiles = filesArr.filter((file: File) => {return file['type'].split('/')[0] === 'image'});
       } else {
         newFiles = filesArr;
       }
@@ -114,15 +108,11 @@ export const useFileUpload = (): useFileUploadHook => {
 
       if (typeof file === 'string') {
         setFilesState(
-          files.filter((_file: File) => {
-            return _file.name !== file;
-          }),
+          files.filter((_file: File) => {return _file.name !== file}),
         );
       } else {
         setFilesState(
-          files.filter((_file: File, i) => {
-            return i !== file;
-          }),
+          files.filter((_file: File, i) => {return i !== file}),
         );
       }
     },
@@ -135,11 +125,7 @@ export const useFileUpload = (): useFileUploadHook => {
 
   const createFormData = useCallback((): FormData => {
     const formData = new FormData();
-
-    files.map((file: File) => {
-      return formData.append(file.name, file);
-    });
-
+    files.forEach((file: File) => {return formData.append(file.name, file)});
     return formData;
   }, [files]);
 
