@@ -119,7 +119,7 @@ describe('MdTag', () => {
   describe('tooltipOnly mode', () => {
     it('hides label when tooltipOnly is true', () => {
       render(<MdTag theme="success" label="Hidden Label" tooltipOnly showIcon />);
-      // With tooltipOnly, the label appears in multiple places (visually hidden + tooltip)
+      // With tooltipOnly, the label appears in the tooltip
       // The text IS in the document but not visible
       const elements = screen.getAllByText('Hidden Label');
       expect(elements.length).toBeGreaterThan(0);
@@ -135,6 +135,16 @@ describe('MdTag', () => {
     it('merges custom className', () => {
       const { container } = render(<MdTag theme="success" label="Test" className="custom-class" />);
       expect(container.querySelector('.md-tag')).toHaveClass('custom-class');
+    });
+
+    it('forwards id attribute', () => {
+      const { container } = render(<MdTag theme="success" label="Test" id="test-id" />);
+      expect(container.querySelector('.md-tag')).toHaveAttribute('id', 'test-id');
+    });
+
+    it('forwards data-* attributes', () => {
+      render(<MdTag theme="success" label="Test" data-testid="tag" />);
+      expect(screen.getByTestId('tag')).toBeInTheDocument();
     });
   });
 });

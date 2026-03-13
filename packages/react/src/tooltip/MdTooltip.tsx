@@ -1,6 +1,6 @@
 'use client';
 
-import { Tooltip, TooltipAnchor, TooltipProvider, VisuallyHidden } from '@ariakit/react';
+import { Tooltip, TooltipAnchor, TooltipProvider } from '@ariakit/react';
 import React from 'react';
 
 export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
