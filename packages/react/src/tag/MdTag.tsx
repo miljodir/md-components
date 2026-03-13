@@ -44,6 +44,7 @@ export const MdTag: React.FC<MdTagProps> = ({
   tooltipOnly = false,
   ...otherProps
 }: MdTagProps) => {
+  const { className, ...rest } = otherProps;
   const classNames = classnames(
     'md-tag',
     {
@@ -57,7 +58,7 @@ export const MdTag: React.FC<MdTagProps> = ({
       'md-tag-type--light': type === 'light',
       'md-tag--nolabel': !label,
     },
-    otherProps.className,
+    className,
   );
 
   const renderIcon = () => {
@@ -82,7 +83,7 @@ export const MdTag: React.FC<MdTagProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} {...rest}>
       {showIcon && !tooltipOnly && <div className="md-tag-icon">{renderIcon()}</div>}
 
       {tooltipOnly && showIcon && (
