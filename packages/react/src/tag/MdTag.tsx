@@ -11,7 +11,7 @@ import { MdTooltip } from '../tooltip/MdTooltip';
 export type MdTagThemePrimary = 'primary' | 'secondary';
 export type MdTagThemeOther = 'success' | 'warning' | 'info' | 'error';
 
-interface MdTagCommon extends React.HTMLAttributes<HTMLBaseElement> {
+interface MdTagCommon extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'base' | 'light' | 'outlined';
   label?: string;
   labels?: string[];
@@ -44,6 +44,7 @@ export const MdTag: React.FC<MdTagProps> = ({
   tooltipOnly = false,
   ...otherProps
 }: MdTagProps) => {
+  const { className, ...rest } = otherProps as React.HTMLAttributes<HTMLDivElement>;
   const classNames = classnames(
     'md-tag',
     {
@@ -57,7 +58,7 @@ export const MdTag: React.FC<MdTagProps> = ({
       'md-tag-type--light': type === 'light',
       'md-tag--nolabel': !label,
     },
-    otherProps.className,
+    className,
   );
 
   const renderIcon = () => {
@@ -82,7 +83,7 @@ export const MdTag: React.FC<MdTagProps> = ({
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} {...rest}>
       {showIcon && !tooltipOnly && <div className="md-tag-icon">{renderIcon()}</div>}
 
       {tooltipOnly && showIcon && (
