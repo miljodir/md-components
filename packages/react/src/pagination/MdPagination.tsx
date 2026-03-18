@@ -156,7 +156,7 @@ const PageButton = ({ page, isActive, asChild, renderLink, onPageChange }: PageB
   }
 
   if (asChild && renderLink) {
-    const linkElement = renderLink(page, content) as React.ReactElement<any>;
+    const linkElement = renderLink(page, content) as React.ReactElement<Record<string, unknown> & { className?: string }>;
     const existingOnClick = linkElement.props?.onClick;
     return React.cloneElement(linkElement, {
       className: classnames(pageClassName, linkElement.props?.className),
@@ -225,7 +225,7 @@ const NavButton = ({ direction, disabled, targetPage, label, asChild, renderLink
   }
 
   if (asChild && renderLink) {
-    const linkElement = renderLink(targetPage, content) as React.ReactElement<any>;
+    const linkElement = renderLink(targetPage, content) as React.ReactElement<Record<string, unknown> & { className?: string }>;
     const existingOnClick = linkElement.props?.onClick;
     return React.cloneElement(linkElement, {
       className: classnames('md-pagination__nav', linkElement.props?.className),

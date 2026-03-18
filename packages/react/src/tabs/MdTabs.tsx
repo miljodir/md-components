@@ -4,7 +4,7 @@ import * as Ariakit from '@ariakit/react';
 import React from 'react';
 import MdTabTitle from './MdTabTitle';
 import type { MdTabProps } from './MdTab';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface MdTabsProps {
   children: React.ReactNode;

@@ -82,7 +82,7 @@ export const MdButton: React.FunctionComponent<MdButtonProps> = ({
 
   if (asChild && asChildContent) {
     return React.cloneElement(
-      asChildContent as React.ReactElement<any>,
+      asChildContent as React.ReactElement<Record<string, unknown> & { className?: string }>,
       {
         ...otherProps,
         className: classNames
