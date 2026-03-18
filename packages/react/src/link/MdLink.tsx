@@ -25,7 +25,7 @@ export const MdLink = forwardRef<HTMLAnchorElement | HTMLButtonElement, MdLinkPr
     );
 
     if (asChild && asChildContent) {
-      const childElement = asChildContent as React.ReactElement;
+      const childElement = asChildContent as React.ReactElement<any>;
       const childClassName = childElement.props?.className || '';
       return React.cloneElement(
         childElement,

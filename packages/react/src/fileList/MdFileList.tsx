@@ -141,7 +141,7 @@ export const MdFileList: React.FunctionComponent<MdFileListProps> = ({
                   </MdIconButton>
                 )}
 
-                {!hidePrint && onPrintFile && fileEnding && printableFileTypes.includes(fileEnding) && (
+                {!hidePrint && onPrintFile && fileEnding && printableFileTypes.indexOf(fileEnding) !== -1 && (
                   <MdIconButton
                     type="button"
                     theme="plain"

@@ -72,7 +72,7 @@ export const MdTileVertical: React.FC<MdTileVerticalProps> = ({
   );
 
   if (asChild && asChildContent) {
-    const childElement = asChildContent as React.ReactElement;
+    const childElement = asChildContent as React.ReactElement<any>;
     const childClassName = childElement.props?.className || '';
     return React.cloneElement(
       childElement,
