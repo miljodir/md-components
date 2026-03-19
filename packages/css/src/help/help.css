@@ -8,6 +8,7 @@
   border: none;
   cursor: pointer;
   color: var(--md-color-cta-primary-default);
+  border-radius: 100%;
 }
 
 .md-helpbutton--expanded:not(.md-helpbutton--noarrow):after {
@@ -24,12 +25,14 @@
 }
 
 .md-helpbutton:focus-visible {
-  outline: none;
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-default);
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
+
 }
 
 .md-helpbutton:focus-visible .md-helpbutton__icon {
-  outline: var(--md-size-2) solid var(--md-color-cta-primary-default);
-  outline-offset: var(--md-size-2);
+  outline: none;
 }
 
 .md-helpbutton__icon {
