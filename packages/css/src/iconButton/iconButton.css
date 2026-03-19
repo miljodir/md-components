@@ -1,15 +1,20 @@
 .md-icon-button {
+  background-color: var(--md-color-cta-primary-default);
+  color: var(--md-color-cta-secondary-default);
+  font-family: var(--md-typography-family-body);
+  border-radius: var(--md-radius-half);
+  border: none;
+}
+
+/* Fix size if IconButton and Tooltip are used together */
+.md-icon-button,
+.md-tooltip__anchor.md-icon-button {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   width: var(--md-size-32);
   height: var(--md-size-32);
   justify-content: center;
-  background-color: var(--md-color-cta-primary-default);
-  color: var(--md-color-cta-secondary-default);
-  font-family: var(--md-typography-family-body);
-  border-radius: var(--md-radius-half);
-  border: none;
 }
 
 .md-icon-button__icon {
@@ -26,9 +31,10 @@
 }
 
 .md-icon-button:focus-visible {
-  outline: var(--md-size-2) var(--md-color-text-inverted) solid;
   background-color: var(--md-color-cta-primary-focus);
-  outline-offset: -3px;
+  outline: var(--md-size-3) var(--md-color-text-visited) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
 }
 
 .md-icon-button:hover {
@@ -54,8 +60,7 @@
 
 .md-icon-button--border {
   background-color: var(--md-color-background-primary);
-  outline: var(--md-size-2) solid var(--md-color-cta-primary-default);
-  outline-offset: -2px;
+  border: var(--md-size-2) solid var(--md-color-cta-primary-default);
   color: var(--md-color-cta-primary-default);
 }
 
@@ -69,9 +74,9 @@
 
 .md-icon-button--border:focus-visible:enabled {
   background-color: var(--md-color-background-primary);
-  border: var(--md-size-1) solid var(--md-color-cta-primary-focus);
-  outline: 1px var(--md-color-cta-primary-focus) solid;
-  outline-offset: -4px;
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
 }
 
 .md-icon-button--border:active:enabled {
@@ -101,9 +106,10 @@
 }
 
 .md-icon-button--plain:focus-visible:enabled {
-  outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
-  outline-offset: -2px;
   background-color: transparent;
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
 }
 
 .md-icon-button--plain:active:enabled {
