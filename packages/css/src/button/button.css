@@ -74,8 +74,9 @@
 
 .md-button:focus-visible {
   background-color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-2) white solid;
-  outline-offset: -4px;
+  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out; 
 }
 
 .md-button:hover {
@@ -122,8 +123,9 @@
   background-color: var(--md-color-cta-secondary-default);
   border-color: var(--md-color-cta-primary-focus);
   color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
-  outline-offset: -6px;
+  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;  
 }
 
 .md-button--secondary:active:not(:disabled):not([disabled]) {
@@ -168,9 +170,10 @@
 
 .md-button--tertiary:focus-visible:not(:disabled):not([disabled]) {
   border-color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-2) var(--md-color-cta-primary-focus) solid;
   background-color: transparent;
-  outline-offset: 0px;
+  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;  
 }
 
 .md-button--tertiary:focus-visible:hover:not(:disabled):not([disabled]) {
@@ -202,8 +205,9 @@
 
 .md-button--danger:focus-visible:not(:disabled):not([disabled]) {
   background-color: var(--md-color-attention-error-primary);
-  outline: var(--md-size-2) var(--md-color-text-inverted) solid;
-  outline-offset: -4px;
+  outline: var(--md-size-3) var(--md-color-attention-error-primary) solid;
+  outline-offset: var(--md-size-3);  
+  transition: outline 100ms ease-in-out;
 }
 
 .md-button--danger:hover:not(:disabled):not([disabled]) {
@@ -239,8 +243,9 @@
   background-color: var(--md-color-attention-error-secondary);
   border-color: var(--md-color-attention-error-primary);
   color: var(--md-color-attention-error-primary);
-  outline: var(--md-size-2) var(--md-color-attention-error-primary) solid;
-  outline-offset: -6px;
+  outline: var(--md-size-3) var(--md-color-attention-error-primary) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
 }
 
 .md-button--danger-secondary:active:not(:disabled):not([disabled]) {
@@ -286,9 +291,11 @@
 
 .md-button--danger-tertiary:focus-visible:not(:disabled):not([disabled]) {
   border-color: var(--md-color-attention-error-tertiary);
-  outline: var(--md-size-2) var(--md-color-attention-error-primary) solid;
   background-color: transparent;
-  outline-offset: 0px;
+  outline: var(--md-size-3) var(--md-color-attention-error-primary) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 100ms ease-in-out;
+
 }
 
 .md-button--danger-tertiary:focus-visible:hover:not(:disabled):not([disabled]) {

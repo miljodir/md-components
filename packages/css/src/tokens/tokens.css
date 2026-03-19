@@ -96,6 +96,7 @@
   --md-size-0: var(--md-spacing-0); /* 0px, 0rem */
   --md-size-1: var(--md-spacing-1); /* 4px, 0.25rem */
   --md-size-2: var(--md-spacing-2); /* 2px, 0.125rem */
+  --md-size-3: var(--md-spacing-3); /* 3px, 0.1875rem */
   --md-size-4: var(--md-spacing-4); /* 4px, 0.25rem */
   --md-size-8: var(--md-spacing-8); /* 8px, 0.5rem */
   --md-size-12: var(--md-spacing-12); /* 12px, 0.75rem */
