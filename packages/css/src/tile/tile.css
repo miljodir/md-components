@@ -196,8 +196,8 @@ a.md-tile:hover .md-tile__content-heading {
 }
 
 .md-tile-vertical:focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
-  outline-offset: -2px;
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
   background-color: var(--md-color-surface-primary-hover);
 }
 
