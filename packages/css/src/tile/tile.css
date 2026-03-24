@@ -14,7 +14,7 @@
   text-align: start;
   width: 27.5rem;
   max-width: 100%;
-  transition: all 0.15s ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .md-tile--medium {
@@ -57,8 +57,8 @@
 }
 
 .md-tile:not(.md-tile--disabled):focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
-  outline-offset: -2px;
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
   background-color: var(--md-color-surface-primary-hover);
 }
 
@@ -109,13 +109,16 @@
 .md-tile:not(.md-tile--disabled):focus-visible .md-tile__content-icon {
   color: var(--md-color-text-primary);
 }
+
 .md-tile__content-icon .md-loading-spinner__container {
   height: 100%;
 }
+
 .md-tile__content-icon .md-loading-spinner {
   height: var(--md-size-32);
   width: var(--md-size-32);
 }
+
 .md-tile--disabled .md-loading-spinner {
   filter: invert(0.3);
 }
