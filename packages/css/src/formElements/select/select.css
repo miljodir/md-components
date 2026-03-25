@@ -71,7 +71,7 @@
   margin: 0;
   background: transparent;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--md-radius-sm);
   line-height: var(--md-typography-line-height-medium);
 
   &:focus-visible {
@@ -97,7 +97,7 @@
   margin: 0;
   background: transparent;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--md-radius-sm);
   margin-right: 0.3rem;
   width: var(--md-size-24);
   height: var(--md-size-24);
