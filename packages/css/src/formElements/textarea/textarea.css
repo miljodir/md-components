@@ -15,13 +15,14 @@
   color: var(--md-color-text-primary);
   font-size: var(--md-typography-size-16);
   box-sizing: border-box;
+  transition: outline 150ms ease-in-out;
 }
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus-visible {
-  outline: 2px solid var(--md-color-cta-primary-focus);
-  outline-offset: -2px;
-  border-color: transparent;
+  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline-offset: var(--md-size-3);
+  transition: outline 150ms ease-in-out; 
 }
 
 .md-textarea.md-textarea--disabled:focus-visible,
