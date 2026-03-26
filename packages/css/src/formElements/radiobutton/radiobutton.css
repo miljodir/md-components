@@ -11,7 +11,7 @@
 .md-radiobutton:has(input[type='radio']:focus-visible) {
   outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
   outline-offset: var(--md-size-3);
-  border-radius: var(--md-radius-md);
+  border-radius: var(--md-radius-sm);
 }
 
 .md-radiobutton input[type='radio'] {

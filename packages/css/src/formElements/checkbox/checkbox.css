@@ -1,7 +1,17 @@
 .md-checkbox {
-  cursor: pointer;
   font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
   position: relative;
+}
+
+.md-checkbox:has(input[type='checkbox']:focus-visible) {
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  border-radius: var(--md-radius-sm);
 }
 
 .md-checkbox__input {
@@ -20,6 +30,7 @@
 .md-checkbox__label::before {
   background-color: var(--md-color-grey-white);
   border: 1px solid var(--md-color-border-primary);
+  border-radius: var(--md-size-2);
   content: '';
   cursor: pointer;
   height: var(--md-size-20);
@@ -27,7 +38,10 @@
   min-width: var(--md-size-20);
 }
 
-.md-checkbox__input:focus-visible + .md-checkbox__label::before,
+.md-checkbox__input:focus-visible + .md-checkbox__label::before{
+  background-color: var(--md-color-cta-secondary-default);
+}
+
 .md-checkbox:hover .md-checkbox__label::before {
   background-color: var(--md-color-surface-primary-tinted);
 }
@@ -40,9 +54,9 @@
 .md-checkbox__input:checked + .md-checkbox__label::before {
   background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZTk2NWRkN2EtN2NlNS00MTc0LThjMjEtY2UwNjIzYmFmNTJhIiBkYXRhLW5hbWU9ImNoZWNrbWFyay1ncmVlbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTMgMTAuMDIiPjx0aXRsZT5jaGVja21hcmstZ3JlZW48L3RpdGxlPjxwYXRoIGQ9Ik0xMS4xNCwwLDQuODMsNi4zMWwtMy0zTDAsNS4xOSw0LjgzLDEwLDEzLDEuODZaIiBmaWxsPSIjMDA2MTVjIiAvPjwvc3ZnPg==);
   background-repeat: no-repeat;
-  background-position-y: var(--md-size-2);
+  background-position-y: var(--md-size-3);
   background-position-x: var(--md-size-1);
-  background-size: 1.125rem;
+  background-size: 1rem;
 }
 
 .md-checkbox--disabled .md-checkbox__label::before,
