@@ -136,7 +136,7 @@
   outline: var(--md-size-1) solid var(--md-color-border-tertiary);
 }
 .md-modal__close-button:focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
 }
 
 /* FOOTER */

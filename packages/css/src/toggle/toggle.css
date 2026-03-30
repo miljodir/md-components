@@ -26,8 +26,9 @@
 }
 
 .md-toggle__wrapper:has(:focus-visible) .md-toggle__label-wrapper {
-  outline: 2px solid var(--md-color-cta-primary-focus);
-  outline-offset: var(--md-size-4);
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  border-radius: var(--md-radius-sm);
 }
 
 .md-toggle__label-wrapper--disabled {
