@@ -26,7 +26,7 @@
 }
 
 .md-toggle__wrapper:has(:focus-visible) .md-toggle__label-wrapper {
-  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
   outline-offset: var(--md-size-3);
   border-radius: var(--md-radius-sm);
 }

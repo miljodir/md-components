@@ -50,7 +50,7 @@
 .md-combobox__input[data-focus-visible],
 .md-combobox__input[aria-expanded='true'] {
   border-radius: var(--md-size-4) var(--md-size-4) var(--md-size-0) var(--md-size-0);
-  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
   outline-offset: var(--md-size-3);
   transition: outline 150ms ease-in-out;  
 }

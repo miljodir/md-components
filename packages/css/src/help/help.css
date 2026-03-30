@@ -25,7 +25,7 @@
 }
 
 .md-helpbutton:focus-visible {
-  outline: var(--md-size-3) solid var(--md-color-cta-primary-default);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
   outline-offset: var(--md-size-3);
   transition: outline 100ms ease-in-out;
 

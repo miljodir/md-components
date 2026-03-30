@@ -26,7 +26,9 @@
 
 .md-link:not(.md-button):focus-visible {
   color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-1) solid var(--md-color-border-tertiary);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
+  border-radius: var(--md-radius-sm);
 }
 
 .md-link:not(.md-button):active {

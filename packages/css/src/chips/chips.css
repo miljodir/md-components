@@ -32,7 +32,7 @@
 }
 
 .md-chip:not(.md-chip--disabled):focus-visible {
-    outline: var(--md-size-3) solid var(--md-color-text-visited);
+    outline: var(--md-size-3) solid var(--md-color-border-tertiary);
     outline-offset: var(--md-size-3);
 }
 

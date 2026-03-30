@@ -29,8 +29,8 @@
 }
 
 .md-pagination__nav:focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-cta-primary-focus);
-  outline-offset: var(--md-size-2);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
 }
 
 .md-pagination__nav:disabled,
@@ -81,8 +81,8 @@
 }
 
 .md-pagination__page:focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-cta-primary-focus);
-  outline-offset: var(--md-size-2);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
 }
 
 .md-pagination__page--active {
@@ -92,8 +92,8 @@
 }
 
 .md-pagination__page--active:focus-visible {
-  outline: var(--md-size-2) solid var(--md-color-text-inverted);
-  outline-offset: -4px;
+  outline: var(--md-size-3) solid var(--md-color-text-inverted);
+  outline-offset: var(--md-size-3);
 }
 
 .md-pagination__ellipsis {

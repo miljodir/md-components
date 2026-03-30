@@ -133,10 +133,12 @@
   width: var(--md-size-20);
 }
 .md-modal__close-button:hover {
-  outline: var(--md-size-1) solid var(--md-color-border-tertiary);
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
 }
 .md-modal__close-button:focus-visible {
   outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
 }
 
 /* FOOTER */

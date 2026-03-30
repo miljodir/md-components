@@ -20,7 +20,7 @@
 
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):active,
 .md-textarea:not(.md-textarea.md-textarea--readonly):not(.md-textarea.md-textarea--disabled):focus-visible {
-  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline: var(--md-size-3) var(--md-color-border-tertiary) solid;
   outline-offset: var(--md-size-3);
   transition: outline 150ms ease-in-out; 
 }
