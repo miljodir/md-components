@@ -117,7 +117,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   border: var(--md-size-3) solid var(--md-color-border-tertiary);
-  border-radius: 0 0 var(--md-radius-sm) var(--md-radius-sm);
+  border-radius: var(--md-size-0) var(--md-size-0) var(--md-size-4) var(--md-size-4);
   border-top: 0;
   opacity: 0;
   transition-duration: 150ms;

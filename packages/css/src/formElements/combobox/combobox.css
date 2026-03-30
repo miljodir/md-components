@@ -49,9 +49,10 @@
 
 .md-combobox__input[data-focus-visible],
 .md-combobox__input[aria-expanded='true'] {
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
-  outline-offset: -2px;
   border-radius: var(--md-size-4) var(--md-size-4) var(--md-size-0) var(--md-size-0);
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  transition: outline 150ms ease-in-out;  
 }
 .md-combobox__input[data-focus-visible]:not([aria-expanded='true']) {
   border-radius: var(--md-size-4);
@@ -116,7 +117,7 @@
   margin: 0;
   background: transparent;
   border: 0;
-  border-radius: 0;
+  border-radius: var(--md-radius-sm);
   margin-right: 0.3rem;
   width: var(--md-size-20);
   height: var(--md-size-20);
@@ -124,8 +125,8 @@
   line-height: var(--md-typography-line-height-medium);
 
   &:focus-visible {
-    outline: var(--md-size-2) solid var(--md-color-border-tertiary);
-    outline-offset: -2px;
+    outline: var(--md-size-3) solid var(--md-color-border-primary);
+    outline-offset: var(--md-side-3);
   }
 }
 
@@ -135,26 +136,35 @@
   max-height: min(var(--popover-available-height, 300px), 300px);
   overflow: auto;
   overscroll-behavior: contain;
-  border: var(--md-size-2) solid var(--md-color-border-tertiary);
+  border: var(--md-size-3) solid var(--md-color-border-tertiary);
   border-radius: var(--md-size-0) var(--md-size-0) var(--md-size-4) var(--md-size-4);
   border-top: 0;
   opacity: 0;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-duration: 200ms;
+  animation-duration: 150ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(-5%);
   z-index: 3;
+  width: calc(100% + 12px);
+  margin-left: -6px;
+  padding: 0 3px 3px 3px;  
 }
 .md-combobox__popover[data-enter] {
   opacity: 1;
   transform: translateY(0%);
+  outline: 0;
 }
 
 /* Combobox item */
 .md-combobox__checkbox-item {
   padding: var(--md-size-12);
   cursor: pointer;
+  border-left: 1px solid var(--md-color-border-primary);
+  border-right: 1px solid var(--md-color-border-primary);
+}
+.md-combobox__checkbox-item:last-of-type {
+  border-bottom: 1px solid var(--md-color-border-primary);
 }
 .md-combobox__checkbox-item--no-result {
   font-style: italic;
