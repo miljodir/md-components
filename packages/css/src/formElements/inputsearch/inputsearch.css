@@ -32,9 +32,9 @@
 
 .md-inputsearch:not(.md-inputsearch.md-inputsearch--readonly):not(.md-inputsearch.md-inputsearch--disabled):active,
 .md-inputsearch:not(.md-inputsearch.md-inputsearch--readonly):not(.md-inputsearch.md-inputsearch--disabled):focus-visible {
-  outline: 2px solid var(--md-color-cta-primary-focus);
-  outline-offset: -2px;
-  border-color: transparent;
+  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+  outline-offset: var(--md-size-3);
+  transition: outline 150ms ease-in-out;
 }
 
 .md-inputsearch.md-inputsearch--disabled:focus-visible,
