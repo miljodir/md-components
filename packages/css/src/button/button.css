@@ -73,8 +73,8 @@
 }
 
 .md-button:focus-visible {
-  background-color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  background-color: var(--md-color-cta-primary-default);
+  outline: var(--md-size-3) var(--md-color-border-tertiary) solid;
   outline-offset: var(--md-size-3);
   transition: outline 100ms ease-in-out; 
 }
@@ -123,7 +123,7 @@
   background-color: var(--md-color-cta-secondary-default);
   border-color: var(--md-color-cta-primary-focus);
   color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline: var(--md-size-3) var(--md-color-border-tertiary) solid;
   outline-offset: var(--md-size-3);
   transition: outline 100ms ease-in-out;  
 }
@@ -171,9 +171,9 @@
 .md-button--tertiary:focus-visible:not(:disabled):not([disabled]) {
   border-color: var(--md-color-cta-primary-focus);
   background-color: transparent;
-  outline: var(--md-size-3) var(--md-color-cta-primary-focus) solid;
+  outline: var(--md-size-3) var(--md-color-border-tertiary) solid;
   outline-offset: var(--md-size-3);
-  transition: outline 100ms ease-in-out;  
+  transition: outline 150ms ease-in-out;  
 }
 
 .md-button--tertiary:focus-visible:hover:not(:disabled):not([disabled]) {
