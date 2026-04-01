@@ -92,6 +92,10 @@
   --md-color-border-secondary: var(--md-color-grey-3);
   --md-color-border-tertiary: var(--md-color-green-10);
 
+  /* focus */
+  --md-color-focus-outer: var(--md-color-green-12);
+  --md-color-focus-inner: var(--md-color-grey-white);
+
   /* SIZES */
   --md-size-0: var(--md-spacing-0); /* 0px, 0rem */
   --md-size-1: var(--md-spacing-1); /* 4px, 0.25rem */

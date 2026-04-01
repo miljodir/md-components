@@ -32,9 +32,11 @@
 
 .md-icon-button:focus-visible {
   background-color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-3) var(--md-color-border-tertiary) solid;
+
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
   outline-offset: var(--md-size-3);
-  transition: outline 150ms ease-in-out;
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
 }
 
 .md-icon-button:hover {
@@ -74,9 +76,11 @@
 
 .md-icon-button--border:focus-visible:enabled {
   background-color: var(--md-color-background-primary);
-  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
   outline-offset: var(--md-size-3);
-  transition: outline 150ms ease-in-out;
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
 }
 
 .md-icon-button--border:active:enabled {
@@ -107,9 +111,11 @@
 
 .md-icon-button--plain:focus-visible:enabled {
   background-color: transparent;
-  outline: var(--md-size-3) solid var(--md-color-cta-primary-focus);
+
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
   outline-offset: var(--md-size-3);
-  transition: outline 100ms ease-in-out;
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
 }
 
 .md-icon-button--plain:active:enabled {
