@@ -17,6 +17,13 @@
   box-sizing: border-box;
 }
 
+.md-inputsearch[type='search']::-webkit-search-cancel-button:focus-visible {
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+}
+
 .md-inputsearch.md-inputsearch--button {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;

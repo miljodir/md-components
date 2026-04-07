@@ -230,6 +230,10 @@
   color: var(--md-color-text-disabled);
   line-height: var(--md-typography-line-height-small);
   font-weight: var(--md-typography-weight-medium);
+
+  border-left: 1px solid var(--md-color-border-primary);
+  border-right: 1px solid var(--md-color-border-primary);
+  border-top: 1px solid var(--md-color-border-primary);
 }
 .md-combobox__group-separator {
   padding: var(--md-size-8) var(--md-size-12);
