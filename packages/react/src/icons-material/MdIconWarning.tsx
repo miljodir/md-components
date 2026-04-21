@@ -1,14 +1,15 @@
 import React from 'react';
 import type MdIconProps from './icon.model';
 
-export const MdIconWarning: React.FunctionComponent<MdIconProps> = ({
+export const MdIconWarning = React.forwardRef<SVGSVGElement, MdIconProps>(({
   className,
   large = false,
   ...otherProps
-}: MdIconProps) => {
+}, ref) => {
   if (large) {
     return (
       <svg
+        ref={ref}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 -960 960 960"
         fill="currentColor"
@@ -22,6 +23,7 @@ export const MdIconWarning: React.FunctionComponent<MdIconProps> = ({
 
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 -960 960 960"
       fill="currentColor"
@@ -31,6 +33,8 @@ export const MdIconWarning: React.FunctionComponent<MdIconProps> = ({
       <path d="M82.62-164 480-824l397.38 660H82.62ZM175-216h610L480-724 175-216Zm304.79-55.69q11.94 0 20.23-8.08 8.29-8.08 8.29-20.02t-8.08-20.23q-8.08-8.29-20.02-8.29t-20.23 8.08q-8.29 8.08-8.29 20.02t8.08 20.23q8.08 8.29 20.02 8.29ZM454-376.31h52v-192h-52v192ZM480-470Z" />
     </svg>
   );
-};
+});
+
+MdIconWarning.displayName = 'MdIconWarning';
 
 export default MdIconWarning;

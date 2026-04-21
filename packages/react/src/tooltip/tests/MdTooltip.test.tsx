@@ -20,7 +20,7 @@ describe('MdTooltip', () => {
           <button>Button</button>
         </MdTooltip>,
       );
-      // Tooltip content appears in multiple places (visually hidden + portal)
+      // Tooltip content appears in the portal
       const elements = screen.getAllByText('Helpful information');
       expect(elements.length).toBeGreaterThan(0);
     });
@@ -91,13 +91,13 @@ describe('MdTooltip', () => {
   });
 
   describe('accessibility', () => {
-    it('provides visually hidden content for screen readers', () => {
+    it('provides tooltip content for screen readers', () => {
       render(
         <MdTooltip tooltipContent="Screen reader text">
           <button>Button</button>
         </MdTooltip>,
       );
-      // The tooltip content appears in multiple places for accessibility
+      // The tooltip content appears in the portal
       const elements = screen.getAllByText('Screen reader text');
       expect(elements.length).toBeGreaterThan(0);
     });

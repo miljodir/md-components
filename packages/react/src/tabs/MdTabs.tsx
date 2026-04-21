@@ -4,10 +4,10 @@ import * as Ariakit from '@ariakit/react';
 import React from 'react';
 import MdTabTitle from './MdTabTitle';
 import type { MdTabProps } from './MdTab';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface MdTabsProps {
-  children: ReactElement[];
+  children: React.ReactNode;
   initialTab?: number;
   chips?: boolean;
   chipsPrefixIcon?: ReactNode;
@@ -21,7 +21,7 @@ export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
   chipsPrefixIcon = false,
   compact = false,
 }: MdTabsProps) => {
-  const tabs: ReactElement<MdTabProps>[] = children instanceof Array ? children : [children];
+  const tabs = React.Children.toArray(children).filter(React.isValidElement) as React.ReactElement<MdTabProps>[];
   const selectedTab = initialTab > tabs.length - 1 || initialTab < 0 ? 0 : initialTab;
 
   return (
