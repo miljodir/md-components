@@ -319,40 +319,42 @@ const MdComboBoxGrouped = React.forwardRef<HTMLInputElement, MdComboBoxGroupedPr
                         <hr className="" />
                       </div>
                     )}
-                    <div
-                      className={`md-combobox__group ${hideSeparatorLine ? 'md-combobox__group--no-separator' : ''}`}
-                      key={`combobox_group_${comboBoxId}_${group.label}`}
-                    >
-                      <div className="md-combobox__group-label">
-                        {group.icon && <div className="md-combobox__group-icon">{group.icon}</div>}
-                        {group.label}
+                    <div className="md-combobox__popover-groupedwrapper">
+                      <div
+                        className={`md-combobox__group ${hideSeparatorLine ? 'md-combobox__group--no-separator' : ''}`}
+                        key={`combobox_group_${comboBoxId}_${group.label}`}
+                      >
+                        <div className="md-combobox__group-label">
+                          {group.icon && <div className="md-combobox__group-icon">{group.icon}</div>}
+                          {group.label}
+                        </div>
+                        {group.values &&
+                          group.values.map((option, i) => {
+                            const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
+  
+                            return (
+                              <Ariakit.ComboboxItem
+                                key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}_${i}`}
+                                value={option.value}
+                                focusOnHover
+                                setValueOnClick={setItemCallback}
+                                className="md-combobox__checkbox-item"
+                                aria-selected={isChecked}
+                              >
+                                {isMultiSelect ? (
+                                  <MdCheckbox
+                                    key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                                    defaultChecked={isChecked}
+                                    label={option.text}
+                                    tabIndex={-1}
+                                  />
+                                ) : (
+                                  option.text
+                                )}
+                              </Ariakit.ComboboxItem>
+                            );
+                          })}
                       </div>
-                      {group.values &&
-                        group.values.map((option, i) => {
-                          const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
- 
-                          return (
-                            <Ariakit.ComboboxItem
-                              key={`combobox_group_item_${comboBoxId}_${group.label}_${option.value}_${i}`}
-                              value={option.value}
-                              focusOnHover
-                              setValueOnClick={setItemCallback}
-                              className="md-combobox__checkbox-item"
-                              aria-selected={isChecked}
-                            >
-                              {isMultiSelect ? (
-                                <MdCheckbox
-                                  key={`checkbox_${option.value}_${selectedValues.toString()}`}
-                                  defaultChecked={isChecked}
-                                  label={option.text}
-                                  tabIndex={-1}
-                                />
-                              ) : (
-                                option.text
-                              )}
-                            </Ariakit.ComboboxItem>
-                          );
-                        })}
                     </div>
                   </React.Fragment>
                 );

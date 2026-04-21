@@ -305,35 +305,37 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
               setPendingSearchClear(true);
             }}
           >
-            {matches &&
-              matches.map(option => {
-                const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
+            <div className='md-combobox__popover-wrapper'>
+              {matches &&
+                matches.map(option => {
+                  const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
 
-                return (
-                  <Ariakit.ComboboxItem
-                    key={`combobox_item_${option.value}`}
-                    value={option.value}
-                    focusOnHover
-                    setValueOnClick={setItemCallback}
-                    className="md-combobox__checkbox-item"
-                    aria-selected={isChecked}
-                  >
-                    {isMultiSelect ? (
-                      <MdCheckbox
-                        key={`checkbox_${option.value}_${selectedValues.toString()}`}
-                        defaultChecked={isChecked}
-                        label={option.text}
-                        tabIndex={-1}
-                      />
-                    ) : (
-                      option.text
-                    )}
-                  </Ariakit.ComboboxItem>
-                );
-              })}
-            {!matches.length && (
-              <div className="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">{noResultsText}</div>
-            )}
+                  return (
+                    <Ariakit.ComboboxItem
+                      key={`combobox_item_${option.value}`}
+                      value={option.value}
+                      focusOnHover
+                      setValueOnClick={setItemCallback}
+                      className="md-combobox__checkbox-item"
+                      aria-selected={isChecked}
+                    >
+                      {isMultiSelect ? (
+                        <MdCheckbox
+                          key={`checkbox_${option.value}_${selectedValues.toString()}`}
+                          defaultChecked={isChecked}
+                          label={option.text}
+                          tabIndex={-1}
+                        />
+                      ) : (
+                        option.text
+                      )}
+                    </Ariakit.ComboboxItem>
+                  );
+                })}
+              {!matches.length && (
+                <div className="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">{noResultsText}</div>
+              )}
+            </div>
           </Ariakit.ComboboxPopover>
         </Ariakit.ComboboxProvider>
 
