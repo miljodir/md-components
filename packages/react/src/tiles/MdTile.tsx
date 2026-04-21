@@ -79,7 +79,7 @@ export const MdTile: React.FC<MdTileProps> = ({
   );
 
   if (asChild && asChildContent) {
-    const childElement = asChildContent as React.ReactElement;
+    const childElement = asChildContent as React.ReactElement<Record<string, unknown>>;
     const childClassName = childElement.props?.className || '';
     return React.cloneElement(
       childElement,

@@ -7,7 +7,7 @@ const focusableHtmlElements = 'button, input, [tabindex]';
  * It is only being used for deprecated components.
  */
 export default function useDropdown(
-  ref: React.RefObject<HTMLDivElement>,
+  ref: React.RefObject<HTMLDivElement | null>,
   open: boolean,
   setOpen: (_open: boolean) => void,
   elementType?: 'autocomplete' | 'select',

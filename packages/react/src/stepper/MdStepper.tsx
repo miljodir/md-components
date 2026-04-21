@@ -6,7 +6,7 @@ import MdIconCheck from '../icons-material/MdIconCheck';
 export interface MdStepperProps {
   activeStep: number;
   scrollToActiveStep?: boolean;
-  children: React.ReactElement[];
+  children: React.ReactNode;
 }
 
 export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
@@ -31,6 +31,10 @@ export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
     <div className="md-stepper__stepper-container">
       <div className="md-stepper__stepper-list">
         {React.Children.map(children, (item, index) => {
+          if (!React.isValidElement<{ title: string; completedContent?: React.ReactNode }>(item)) {
+            return null;
+          }
+
           return (
             <div className="md-stepper__stepper-list-item" key={index} id={`${stepperId}_${index}`}>
               <StepTitle key={index} title={item.props.title} index={index} activeStep={activeStep} />
