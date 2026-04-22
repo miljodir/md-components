@@ -229,7 +229,7 @@ export const MdSelect = React.forwardRef<HTMLButtonElement, MdSelectProps>(
           >
             {options &&
               options.map(option => {
-                const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
+                const isChecked = isMultiSelect ? (selectedValues as string[]).includes(option.value): selectedValues === option.value;
 
                 return (
                   <Ariakit.SelectItem
