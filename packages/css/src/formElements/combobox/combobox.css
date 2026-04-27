@@ -26,7 +26,7 @@
   line-height: var(--md-typography-line-height-medium);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-size-4);
-  padding: 0.6875rem 6rem 0.6875rem 2.5rem;
+  padding: 0.6875rem 5rem 0.6875rem 2.5rem;
 }
 
 .md-combobox--large .md-combobox__input {
@@ -41,6 +41,12 @@
 .md-combobox--large .md-combobox__input--no-prefix-icon,
 .md-combobox--small .md-combobox__input--no-prefix-icon {
   padding-left: var(--md-size-12);
+}
+
+.md-combobox__input--no-reset-button,
+.md-combobox--large .md-combobox__input--no-reset-button,
+.md-combobox--small .md-combobox__input--no-reset-button {
+  padding-right: 3rem;
 }
 
 .md-combobox__input::placeholder {

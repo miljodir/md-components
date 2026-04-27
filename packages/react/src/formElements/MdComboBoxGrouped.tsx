@@ -258,7 +258,7 @@ const MdComboBoxGrouped = React.forwardRef<HTMLInputElement, MdComboBoxGroupedPr
             <Ariakit.Combobox
               ref={ref}
               placeholder={displayValue}
-              className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'}`}
+              className={`md-combobox__input ${hidePrefixIcon && 'md-combobox__input--no-prefix-icon'} ${!allowReset && 'md-combobox__input--no-reset-button'}`}
               disabled={disabled}
               aria-describedby={ariaDescribedBy}
               value={searchValue}
