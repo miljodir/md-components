@@ -305,7 +305,7 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
               setPendingSearchClear(true);
             }}
           >
-            <div className='md-combobox__popover-wrapper'>
+            <div className="md-combobox__popover-wrapper">
               {matches &&
                 matches.map(option => {
                   const isChecked = isMultiSelect ? selectedValues.toString().includes(option.value) : selectedValues === option.value;
