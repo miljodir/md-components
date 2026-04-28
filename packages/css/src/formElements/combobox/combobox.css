@@ -162,10 +162,10 @@
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(-5%);
   z-index: 3;
-  width: calc(100% + 12px);
-  margin-left: -6px;
-  padding: 0 3px 3px 3px;
-  top: 1px;
+  width: calc(100% + var(--md-size-12));
+  margin-left: calc(var(--md-size-12) / -2);
+  padding: 0 var(--md-size-3) var(--md-size-3) var(--md-size-3);
+  top: var(--md-size-1);
 }
 
 .md-combobox__popover > .md-combobox__popover-wrapper {
