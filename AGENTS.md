@@ -22,7 +22,7 @@ npm run test:coverage # Run tests with coverage report
 
 ## Tech Stack
 
-- React 18 with TypeScript strict mode
+- React 19 with TypeScript strict mode
 - [Ariakit](https://ariakit.org/) for accessible primitives (ComboBox, etc.)
 - Vitest + Testing Library for unit tests
 - Storybook for component documentation
