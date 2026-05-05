@@ -48,10 +48,14 @@
 }
 
 .md-info-tag--outline {
+  /*
   outline: var(--md-size-3) var(--md-color-focus-outer) solid;
   outline-offset: var(--md-size-3);
   box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
   transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+  */
+  border: var(--md-size-1) solid var(--md-color-focus-outer);
+  transition: border 150ms ease-in-out;
 }
 
 .md-info-tag__label {
