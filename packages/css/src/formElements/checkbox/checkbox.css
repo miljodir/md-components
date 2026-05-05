@@ -65,6 +65,13 @@
   background-size: 1rem;
 }
 
+.md-checkbox__input:indeterminate + .md-checkbox__label::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 3'%3E%3Crect x='1' y='0.5' width='11' height='2' rx='0.5' fill='%2300615c'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.75rem;
+}
+
 .md-checkbox--disabled .md-checkbox__label::before,
 .md-checkbox--disabled .md-checkbox__input:focus-visible + .md-checkbox__label::before,
 .md-checkbox--disabled:hover .md-checkbox__label::before {

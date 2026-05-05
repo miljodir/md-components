@@ -42,6 +42,24 @@ describe('MdCheckbox', () => {
       const { container } = render(<MdCheckbox disabled />);
       expect(container.querySelector('.md-checkbox--disabled')).toBeInTheDocument();
     });
+
+    it('sets indeterminate state on the input element', () => {
+      render(<MdCheckbox indeterminate />);
+      const checkbox = screen.getByRole('checkbox');
+      expect((checkbox as HTMLInputElement).indeterminate).toBe(true);
+    });
+
+    it('has aria-checked mixed when indeterminate', () => {
+      render(<MdCheckbox indeterminate />);
+      expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'mixed');
+    });
+
+    it('is not indeterminate when checked', () => {
+      render(<MdCheckbox indeterminate checked onChange={() => {}} />);
+      const checkbox = screen.getByRole('checkbox');
+      expect((checkbox as HTMLInputElement).indeterminate).toBe(false);
+      expect(checkbox).toHaveAttribute('aria-checked', 'true');
+    });
   });
 
   describe('interactions', () => {
