@@ -2,9 +2,7 @@
   display: flex;
   align-items: center;
   background-color: var(--md-color-background-primary);
-  outline: var(--md-size-1) solid var(--md-color-cta-secondary-stroke);
-  outline-offset: -1px;
-  border: none;
+  border: var(--md-size-1) solid var(--md-color-cta-secondary-stroke);
   border-radius: var(--md-radius-xl);
   color: var(--md-color-text-primary);
   font-weight: var(--md-typography-weight-regular);
@@ -14,7 +12,7 @@
   padding: var(--md-size-8) var(--md-size-16);
   cursor: pointer;
   text-align: left;
-  transition: all 200ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 .md-chip.md-chip--solid:not(.md-chip--disabled) {
@@ -29,23 +27,22 @@
   background-color: var(--md-color-cta-primary-hover);
   color: var(--md-color-text-inverted);
 }
-.md-chip.md-chip--solid:not(.md-chip--disabled):focus-visible {
-  outline-offset: 0.1875rem;
-}
-
 .md-chip:not(.md-chip--disabled):hover {
   background-color: var(--md-color-cta-secondary-hover);
 }
 
-.md-chip:not(.md-chip--disabled):focus-visible {
-  outline: 0.1875rem solid var(--md-color-cta-primary-focus);
-  outline-offset: -0.1875rem;
+.md-chip:not(.md-chip--disabled):focus-visible,
+.md-chip:not(.md-chip--disabled).md-chip--active:focus-visible {
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
 }
 
 .md-chip--disabled {
   background-color: var(--md-color-disabled-bg);
   color: var(--md-color-text-disabled);
-  outline: var(--md-size-1) solid var(--md-color-disabled-default);
+  border-color: var(--md-color-disabled-default);
   cursor: default;
 }
 
@@ -56,11 +53,6 @@
 .md-chip:not(.md-chip--disabled).md-chip--active {
   background-color: var(--md-color-cta-primary-focus);
   color: var(--md-color-text-inverted);
-}
-
-.md-chip:not(.md-chip--disabled).md-chip--active:focus-visible {
-  outline-offset: -0.3125rem;
-  outline-color: var(--md-color-text-inverted);
 }
 
 .md-chip__left-icon {

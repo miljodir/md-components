@@ -26,7 +26,11 @@
 
 .md-link:not(.md-button):focus-visible {
   color: var(--md-color-cta-primary-focus);
-  outline: var(--md-size-1) solid var(--md-color-border-tertiary);
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+  border-radius: var(--md-radius-sm);
 }
 
 .md-link:not(.md-button):active {
