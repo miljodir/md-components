@@ -31,6 +31,7 @@
   --md-color-attention-error-surface: var(--md-color-attention-error-1);
   --md-color-attention-error-surface-tinted: var(--md-color-attention-error-2);
   --md-color-attention-error-surface-hover: var(--md-color-attention-error-3);
+  --md-color-error-surface-active: var(--md-color-attention-error-4); /* This token was renamed from --md-color-attention-error-surface-active to --md-color-error-surface-active, but the old token is still available for backwards compatibility. It should be removed in a future major release. */
   --md-color-attention-error-surface-active: var(--md-color-attention-error-4);
   --md-color-attention-error-border: var(--md-color-attention-error-6);
 
