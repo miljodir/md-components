@@ -58,8 +58,10 @@
   cursor: pointer;
 }
 .md-fileupload__droparea-content button:focus-visible {
-  outline: 1px solid var(--md-color-border-tertiary);
-  outline-offset: 2px;
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
 }
 
 .md-fileupload__input {

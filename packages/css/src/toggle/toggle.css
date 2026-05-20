@@ -26,8 +26,12 @@
 }
 
 .md-toggle__wrapper:has(:focus-visible) .md-toggle__label-wrapper {
-  outline: 2px solid var(--md-color-cta-primary-focus);
-  outline-offset: var(--md-size-4);
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+  
+  border-radius: var(--md-radius-sm);
 }
 
 .md-toggle__label-wrapper--disabled {

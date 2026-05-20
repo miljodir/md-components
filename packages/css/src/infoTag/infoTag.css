@@ -22,8 +22,8 @@
 }
 
 .md-info-tag--button:hover {
-  outline: var(--md-size-2) solid var(--md-color-border-tertiary);
-  outline-offset: -2px;
+  outline: var(--md-size-3) solid var(--md-color-border-tertiary);
+  outline-offset: var(--md-size-3);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -35,8 +35,8 @@
   background-color: transparent;
 }
 .md-info-tag--warning.md-info-tag--button:hover {
-  outline: var(--md-size-2) solid var(--md-color-attention-warning-primary);
-  outline-offset: -2px;
+  outline: var(--md-size-3) solid var(--md-color-attention-warning-primary);
+  outline-offset: var(--md-size-3);
 }
 
 .md-info-tag--danger {
@@ -48,8 +48,14 @@
 }
 
 .md-info-tag--outline {
-  outline: 1px solid var(--md-color-disabled-dark);
-  outline-offset: -1px;
+  /*
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+  */
+  border: var(--md-size-1) solid var(--md-color-focus-outer);
+  transition: border 150ms ease-in-out;
 }
 
 .md-info-tag__label {

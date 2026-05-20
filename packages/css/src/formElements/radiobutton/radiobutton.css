@@ -9,8 +9,11 @@
 }
 
 .md-radiobutton:has(input[type='radio']:focus-visible) {
-  outline: var(--md-size-2) solid var(--md-color-cta-primary-focus);
-  outline-offset: var(--md-size-2);
+  outline: var(--md-size-3) var(--md-color-focus-outer) solid;
+  outline-offset: var(--md-size-3);
+  box-shadow: 0 0 0 var(--md-size-3) var(--md-color-focus-inner);   
+  transition: box-shadow 150ms ease-in-out, outline 150ms ease-in-out;
+  border-radius: var(--md-radius-sm);
 }
 
 .md-radiobutton input[type='radio'] {
@@ -41,7 +44,11 @@
   position: relative;
 }
 
-.md-radiobutton:has(input[type='radio']:focus-visible) .md-radiobutton__check-area,
+.md-radiobutton:has(input[type='radio']:focus-visible) .md-radiobutton__check-area {
+  background-color: var(--md-color-cta-secondary-default);
+  text-decoration: underline;
+}
+
 .md-radiobutton:not(.md-radiobutton--disabled):hover .md-radiobutton__check-area {
   background-color: var(--md-color-cta-secondary-hover);
   text-decoration: underline;

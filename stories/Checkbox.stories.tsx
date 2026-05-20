@@ -70,6 +70,16 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    indeterminate: {
+      description: 'Set the checkbox to an indeterminate state',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
     onChange: {
       description: 'Callback for controlling checked state',
       table: {

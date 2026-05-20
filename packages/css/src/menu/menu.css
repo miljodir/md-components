@@ -44,6 +44,7 @@
 
 .md-menu__item[data-active-item] {
   background: var(--md-color-cta-secondary-hover, #ccdfde);
+  outline: none;
 }
 
 .md-menu__item[aria-disabled='true'] {
