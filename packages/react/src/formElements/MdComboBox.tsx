@@ -29,6 +29,7 @@ export interface MdComboBoxBaseProps {
   errorText?: string;
   placeholder?: string;
   helpText?: string;
+  supportText?: string;
   numberOfElementsShown?: number;
   isSearching?: boolean;
   mode?: 'large' | 'medium' | 'small';
@@ -67,6 +68,7 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
       numberOfElementsShown,
       mode = 'medium',
       helpText,
+      supportText,
       error = false,
       errorText,
       noResultsText = 'Ingen treff',
@@ -338,6 +340,12 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
             </div>
           </Ariakit.ComboboxPopover>
         </Ariakit.ComboboxProvider>
+
+        {supportText && supportText !== '' && (
+          <div id={`md-combobox_support_${comboBoxId}`} className="md-combobox__support">
+            {supportText}
+          </div>
+        )}
 
         {error && errorText && errorText !== '' && (
           <div id={`md-combobox_error_${comboBoxId}`} className="md-combobox__error">

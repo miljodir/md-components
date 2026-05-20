@@ -229,6 +229,13 @@
   transition: max-height 0.5s ease-in;
 }
 
+/* Support text */
+.md-combobox__support {
+  margin-top: var(--md-size-8);
+  color: var(--md-color-text-primary);
+  font-size: var(--md-typography-size-14);
+}
+
 /* Error */
 .md-combobox__error {
   margin-top: var(--md-size-8);
