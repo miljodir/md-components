@@ -107,6 +107,16 @@ describe('MdTabs', () => {
       expect(container.querySelector('.md-tabs__vertical')).not.toBeInTheDocument();
     });
 
+    it('sets aria-orientation to vertical on tablist when vertical prop is passed', () => {
+      render(
+        <MdTabs vertical>
+          <MdTab title="Tab 1">Content</MdTab>
+          <MdTab title="Tab 2">Content 2</MdTab>
+        </MdTabs>,
+      );
+      expect(screen.getByRole('tablist')).toHaveAttribute('aria-orientation', 'vertical');
+    });
+
     it('still renders tabs and content in vertical mode', async () => {
       const user = userEvent.setup();
       render(
