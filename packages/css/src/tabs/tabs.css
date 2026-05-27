@@ -166,3 +166,38 @@
   flex: 1;
   padding: var(--md-size-12) var(--md-size-24);
 }
+
+/* VERTICAL + COMPACT combined */
+.md-tabs-container.md-tabs__vertical.md-tabs__compact .md-tabs-list .md-tabs-button {
+  /* Restore full border (undo vertical's border-only-right approach) */
+  border: 0.0625rem solid var(--md-color-border-primary);
+  border-radius: 0;
+}
+
+/* Collapse borders between stacked buttons */
+.md-tabs-container.md-tabs__vertical.md-tabs__compact .md-tabs-list .md-tabs-button:not(:first-child) {
+  border-top: none;
+}
+
+/* First button: top corners rounded; undo compact's horizontal border-right:none */
+.md-tabs-container.md-tabs__vertical.md-tabs__compact .md-tabs-list .md-tabs-button:first-child {
+  border-top-left-radius: var(--md-size-4);
+  border-top-right-radius: var(--md-size-4);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0.0625rem solid var(--md-color-border-primary);
+}
+
+/* Last button: bottom corners rounded; undo compact's horizontal border-left:none */
+.md-tabs-container.md-tabs__vertical.md-tabs__compact .md-tabs-list .md-tabs-button:last-child {
+  border-bottom-left-radius: var(--md-size-4);
+  border-bottom-right-radius: var(--md-size-4);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-left: 0.0625rem solid var(--md-color-border-primary);
+}
+
+/* Active state: use compact's blue-bg, not vertical's thick right border */
+.md-tabs-container.md-tabs__vertical.md-tabs__compact .md-tabs-button.md-tabs-button[aria-selected='true'] {
+  border-right: 0.0625rem solid var(--md-color-cta-primary-focus);
+}
