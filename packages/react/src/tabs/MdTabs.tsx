@@ -36,7 +36,7 @@ export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
 
   return (
     <div className={containerClass}>
-      <Ariakit.TabProvider defaultSelectedId={`md-tab-${selectedTab}`} selectOnMove={false}>
+      <Ariakit.TabProvider defaultSelectedId={`md-tab-${selectedTab}`} selectOnMove={false} orientation={vertical ? 'vertical' : 'horizontal'}>
         <Ariakit.TabList className="md-tabs-list">
           {tabs.map((item, index) => {
             return (
