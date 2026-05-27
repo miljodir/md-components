@@ -86,6 +86,45 @@ describe('MdTabs', () => {
     });
   });
 
+  describe('vertical mode', () => {
+    it('applies vertical class when vertical is true', () => {
+      const { container } = render(
+        <MdTabs vertical>
+          <MdTab title="Tab 1">Content</MdTab>
+          <MdTab title="Tab 2">Content 2</MdTab>
+        </MdTabs>,
+      );
+      expect(container.querySelector('.md-tabs__vertical')).toBeInTheDocument();
+    });
+
+    it('does not apply vertical class by default', () => {
+      const { container } = render(
+        <MdTabs>
+          <MdTab title="Tab 1">Content</MdTab>
+          <MdTab title="Tab 2">Content 2</MdTab>
+        </MdTabs>,
+      );
+      expect(container.querySelector('.md-tabs__vertical')).not.toBeInTheDocument();
+    });
+
+    it('still renders tabs and content in vertical mode', async () => {
+      const user = userEvent.setup();
+      render(
+        <MdTabs vertical>
+          <MdTab title="Tab 1">First content</MdTab>
+          <MdTab title="Tab 2">Second content</MdTab>
+        </MdTabs>,
+      );
+
+      expect(screen.getByRole('tablist')).toBeInTheDocument();
+      expect(screen.getAllByRole('tab')).toHaveLength(2);
+
+      const secondTab = screen.getByRole('tab', { name: /Tab 2/i });
+      await user.click(secondTab);
+      expect(secondTab).toHaveAttribute('aria-selected', 'true');
+    });
+  });
+
   describe('interactions', () => {
     it('switches content when clicking different tab', async () => {
       const user = userEvent.setup();

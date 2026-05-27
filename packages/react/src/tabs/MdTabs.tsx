@@ -12,6 +12,7 @@ export interface MdTabsProps {
   chips?: boolean;
   chipsPrefixIcon?: ReactNode;
   compact?: boolean;
+  vertical?: boolean;
 }
 
 export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
@@ -20,12 +21,21 @@ export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
   chips = false,
   chipsPrefixIcon = false,
   compact = false,
+  vertical = false,
 }: MdTabsProps) => {
   const tabs = React.Children.toArray(children).filter(React.isValidElement) as React.ReactElement<MdTabProps>[];
   const selectedTab = initialTab > tabs.length - 1 || initialTab < 0 ? 0 : initialTab;
 
+  const containerClass = [
+    'md-tabs-container',
+    compact ? 'md-tabs__compact' : '',
+    vertical ? 'md-tabs__vertical' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <div className={`md-tabs-container${compact ? ' md-tabs__compact' : ''}`}>
+    <div className={containerClass}>
       <Ariakit.TabProvider defaultSelectedId={`md-tab-${selectedTab}`} selectOnMove={false}>
         <Ariakit.TabList className="md-tabs-list">
           {tabs.map((item, index) => {

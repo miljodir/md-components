@@ -125,3 +125,44 @@
 .md-tabs-container.md-tabs__compact .md-tabs-button::after {
   display: none;
 }
+
+/* VERTICAL TABS */
+.md-tabs-container.md-tabs__vertical {
+  flex-direction: row;
+  align-items: flex-start;
+  height: auto;
+}
+
+.md-tabs-container.md-tabs__vertical .md-tabs-list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.md-tabs-container.md-tabs__vertical .md-tabs-button {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--md-size-12) var(--md-size-24);
+  border-bottom: none;
+  border-right: var(--md-size-1) solid var(--md-color-border-primary);
+  width: 100%;
+  text-align: left;
+}
+
+.md-tabs-container.md-tabs__vertical .md-tabs-button::after {
+  display: none;
+}
+
+.md-tabs-container.md-tabs__vertical .md-tabs-button.md-tabs-button[aria-selected='true'] {
+  padding: var(--md-size-12) var(--md-size-24);
+  border-bottom: none;
+  border-right: 4px solid var(--md-color-cta-primary-focus);
+}
+
+.md-tabs-container.md-tabs__vertical .md-tabs-panels {
+  flex: 1;
+  padding: var(--md-size-12) var(--md-size-24);
+}

@@ -96,6 +96,17 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    vertical: {
+      type: { name: 'boolean' },
+      description: 'Render tabs vertically, with the tab list on the left and content to the right.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -106,6 +117,7 @@ const Template = (args: Args) => {
       chips={args.chips}
       chipsPrefixIcon={args.chipsPrefixIcon ? <MdIconCheck /> : null}
       compact={args.compact}
+      vertical={args.vertical}
     >
       <MdTab title="Tab 1">
         <div style={{ fontSize: '20px', marginBottom: '.5em' }}>This is the first tab</div>
@@ -134,4 +146,5 @@ Tabs.args = {
   chips: false,
   chipsPrefixIcon: false,
   compact: false,
+  vertical: false,
 };

@@ -7,7 +7,7 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div class="md-tabs-container [md-tabs__compact]">
+<div class="md-tabs-container [md-tabs__compact] [md-tabs__vertical]">
   <ul>
     <li>
       <button
