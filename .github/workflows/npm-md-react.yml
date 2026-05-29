@@ -1,6 +1,7 @@
 name: Bump and publish md-react to npm
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: 
       - main
@@ -12,7 +13,7 @@ on:
 jobs:
   bump:
     name: Bump, build & publish md-react
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     permissions:
       contents: write
       id-token: write
@@ -22,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -32,30 +35,44 @@ jobs:
           git config --global user.name "${{vars.GH_NAME}}"
           git config pull.rebase false
 
-      - name: Apply version bump (major)
-        if: contains(github.event.pull_request.labels.*.name, 'major')
-        run: npm version major
-      - name: Apply version bump (minor)
-        if: contains(github.event.pull_request.labels.*.name, 'minor')
-        run: npm version minor
-      - name: Apply version bump (patch)
-        if: contains(github.event.pull_request.labels.*.name, 'patch')
-        run: npm version patch
+      - name: Determine version bump
+        id: bump
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "type=skip" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"major"'; then
+            echo "type=major" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"minor"'; then
+            echo "type=minor" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"patch"'; then
+            echo "type=patch" >> $GITHUB_OUTPUT
+          else
+            echo "No version label found, skipping publish"
+            echo "type=skip" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Apply version bump
+        if: steps.bump.outputs.type != 'skip'
+        run: npm version ${{ steps.bump.outputs.type }}
 
       - id: set-version
         name: Output version change
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
 
       - name: Git add
+        if: steps.bump.outputs.type != 'skip'
         run: git add .
 
       - name: Git commit
+        if: steps.bump.outputs.type != 'skip'
         run: git commit -m "Bump md-react version to ${{ env.PKG_VERSION }}"
 
       - name: Git pull
+        if: steps.bump.outputs.type != 'skip'
         run: git pull origin main
 
       - name: Git push version bump
+        if: steps.bump.outputs.type != 'skip'
         run: git push origin main --force
         
       - run: npm install
