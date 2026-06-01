@@ -1,4 +1,4 @@
-name: Bump and publish md-react to npm
+name: Bump and publish md-css to npm
 
 on:
   workflow_dispatch:
@@ -6,20 +6,20 @@ on:
     branches: 
       - main
     paths:
-      - 'packages/react/**'
+      - 'packages/css/**'
     types:
       - closed
 
 jobs:
   bump:
-    name: Bump, build & publish md-react
+    name: Bump, build & publish md-css
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     permissions:
       contents: write
       id-token: write
     defaults:
       run:
-        working-directory: ./packages/react
+        working-directory: ./packages/css
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -66,7 +66,7 @@ jobs:
 
       - name: Git commit
         if: steps.bump.outputs.type != 'skip'
-        run: git commit -m "Bump md-react version to ${{ env.PKG_VERSION }}"
+        run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
 
       - name: Git pull
         if: steps.bump.outputs.type != 'skip'
@@ -87,8 +87,8 @@ jobs:
         if: steps.bump.outputs.type != 'skip'
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
         with:
-          tag_name: md-react@${{ env.PKG_VERSION }}
-          name: md-react ${{ env.PKG_VERSION }}
+          tag_name: md-css@${{ env.PKG_VERSION }}
+          name: md-css ${{ env.PKG_VERSION }}
           make_latest: true
           generate_release_notes: true
         env:
