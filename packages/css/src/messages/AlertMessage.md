@@ -16,7 +16,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     [md-alert-message--fullWidth]"
 >
   <!-- Theme icon, e.g. from Material Symbols. Omit to hide icon. -->
-  <div class="md-alert-message__icon" width="24" height="24">
+  <div class="md-alert-message__icon">
     {icon}
   </div>
 
@@ -35,6 +35,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
       type="button"
       class="md-alert-message__expand-button"
       aria-expanded="false"
+      aria-controled="description-id"
     >
       <span class="md-alert-message__expand-icon" aria-hidden="true">
         <!-- Up arrow icon (shown when expanded) -->

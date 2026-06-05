@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames';
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
 import MdIconClose from '../icons-material/MdIconClose';
@@ -53,6 +53,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   defaultExpanded = false,
   ...otherProps
 }: MdAlertMessageProps) => {
+  const descriptionId = useId();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   const defaultLabels: Required<Labels> = {
@@ -126,6 +127,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
             className={classnames('md-alert-message__description', {
               'md-alert-message__description--collapsed': expandable && !isExpanded,
             })}
+            id={descriptionId}
           >
             {description}
           </div>
@@ -136,11 +138,10 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
             className="md-alert-message__expand-button"
             onClick={() => setIsExpanded(prev => !prev)}
             aria-expanded={isExpanded}
-            
-          >
+            aria-controls={descriptionId}>
             <span className="md-alert-message__expand-icon" aria-hidden="true">
               <MdIconKeyboardArrowUp className="md-alert-message__expand-icon__open" />
-              <MdIconKeyboardArrowDown className="md-alert-message__expand-icon__close" /> 
+              <MdIconKeyboardArrowDown className="md-alert-message__expand-icon__close" />
             </span>
             
             {isExpanded ? mergedLabels.showLess : mergedLabels.showMore}
