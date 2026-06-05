@@ -8,17 +8,49 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
 
 ```html
 <div
-  class="md-alert-message [md-alert-message--success, md-alert-message--warning, md-alert-message--error, md-alert-message--fullWidth]"
+  class="md-alert-message
+    [md-alert-message--success]
+    [md-alert-message--warning]
+    [md-alert-message--error]
+    [md-alert-message--info-box]
+    [md-alert-message--fullWidth]"
 >
-  <div class="md-alert-message__content">
-    <!-- Use MdIconWarning or warning icon from Material Symbols here -->
-    <Icon class="md-alert-message__icon" width="20" height="20" />
-    {label}
+  <!-- Theme icon, e.g. from Material Symbols. Omit to hide icon. -->
+  <svg class="md-alert-message__icon" width="24" height="24" aria-label="Info">...</svg>
+
+  <div class="md-alert-message__content [md-alert-message__content--center] [md-alert-message__content--end]">
+
+    <!-- Optional label -->
+    <div class="md-alert-message__label">Label text</div>
+
+    <!-- Optional description -->
+    <div class="md-alert-message__description [md-alert-message__description--collapsed]" id="description-id">
+      Description text
+    </div>
+
+    <!-- Expand/collapse button — only when expandable -->
+    <button
+      type="button"
+      class="md-alert-message__expand-button"
+      aria-expanded="false"
+      aria-controls="description-id"
+    >
+      <span class="md-alert-message__expand-icon" aria-hidden="true">
+        <!-- Up arrow icon (shown when expanded) -->
+        <svg class="md-alert-message__expand-icon__open">...</svg>
+        <!-- Down arrow icon (shown when collapsed) -->
+        <svg class="md-alert-message__expand-icon__close">...</svg>
+      </span>
+      Vis mer
+    </button>
+
   </div>
 
-  <!-- Use html/css from MdIconButton for this button -->
-  <MdIconButton class="md-alert-message__button md-icon-button md-icon-button--plain" onClick="{handleClick}">
-    {icon}
-  </MdIconButton>
+  <!-- Close button — only when closable. Use md-icon-button html/css. -->
+  <div class="md-alert-message__button-wrapper">
+    <button class="md-alert-message__button md-icon-button md-icon-button--plain" aria-label="Lukk">
+      <!-- Close icon -->
+    </button>
+  </div>
 </div>
 ```

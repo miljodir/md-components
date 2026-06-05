@@ -131,6 +131,26 @@ export default {
       options: ['start', 'center', 'end'],
       control: { type: 'inline-radio' },
     },
+    expandable: {
+      description: 'Make alert message expandable. Only applies if description is provided.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    defaultExpanded: {
+      description: 'Initial expanded state for uncontrolled expandable message.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    }
   },
 };
 
@@ -156,4 +176,5 @@ AlertMessage.args = {
   hideIcon: false,
   closable: true,
   fullWidth: false,
+  expandable: false,
 };
