@@ -41,12 +41,6 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org/
 
-      - name: Git config
-        run: |
-          git config --global user.email "${{vars.GH_EMAIL}}"
-          git config --global user.name "${{vars.GH_NAME}}"
-          git config pull.rebase false
-
       - name: Determine version bump
         id: bump
         run: |
@@ -65,27 +59,10 @@ jobs:
 
       - name: Apply version bump
         if: steps.bump.outputs.type != 'skip'
-        run: npm version ${{ steps.bump.outputs.type }}
+        run: npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
 
       - name: Output version
-        id: set-version
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
-
-      - name: Git add
-        if: steps.bump.outputs.type != 'skip'
-        run: git add .
-
-      - name: Git commit
-        if: steps.bump.outputs.type != 'skip'
-        run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
-
-      - name: Git pull
-        if: steps.bump.outputs.type != 'skip'
-        run: git pull origin main
-
-      - name: Git push version bump
-        if: steps.bump.outputs.type != 'skip'
-        run: git push origin main
 
       - name: Install dependencies
         if: steps.bump.outputs.type != 'skip'
