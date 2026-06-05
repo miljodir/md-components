@@ -16,7 +16,9 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     [md-alert-message--fullWidth]"
 >
   <!-- Theme icon, e.g. from Material Symbols. Omit to hide icon. -->
-  <svg class="md-alert-message__icon" width="24" height="24" aria-label="Info">...</svg>
+  <div class="md-alert-message__icon" width="24" height="24">
+    {icon}
+  </div>
 
   <div class="md-alert-message__content [md-alert-message__content--center] [md-alert-message__content--end]">
 
@@ -33,20 +35,19 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
       type="button"
       class="md-alert-message__expand-button"
       aria-expanded="false"
-      aria-controls="description-id"
     >
       <span class="md-alert-message__expand-icon" aria-hidden="true">
         <!-- Up arrow icon (shown when expanded) -->
-        <svg class="md-alert-message__expand-icon__open">...</svg>
+        <div class="md-alert-message__expand-icon__open"><!-- KeyboardArrowUpIcon --></div>
         <!-- Down arrow icon (shown when collapsed) -->
-        <svg class="md-alert-message__expand-icon__close">...</svg>
+        <div class="md-alert-message__expand-icon__close"><!-- KeyboardArrowDownIcon --></div>
       </span>
       Vis mer
     </button>
 
   </div>
 
-  <!-- Close button — only when closable. Use md-icon-button html/css. -->
+  <!-- Close button — only when closable. Use html/css from MdIconButton for this button -->
   <div class="md-alert-message__button-wrapper">
     <button class="md-alert-message__button md-icon-button md-icon-button--plain" aria-label="Lukk">
       <!-- Close icon -->
