@@ -22,13 +22,14 @@ jobs:
         working-directory: ./packages/react
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
+
       - name: Git config
         run: |
           git config --global user.email "${{vars.GH_EMAIL}}"
@@ -55,8 +56,8 @@ jobs:
         if: steps.bump.outputs.type != 'skip'
         run: npm version ${{ steps.bump.outputs.type }}
 
-      - id: set-version
-        name: Output version change
+      - name: Output version
+        id: set-version
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
 
       - name: Git add
@@ -74,13 +75,23 @@ jobs:
       - name: Git push version bump
         if: steps.bump.outputs.type != 'skip'
         run: git push origin main --force
-        
-      - run: npm install
-      - run: npm run build
-      - run: npm publish --access public
+
+      - name: Install dependencies
+        if: steps.bump.outputs.type != 'skip'
+        run: npm install
+
+      - name: Build
+        if: steps.bump.outputs.type != 'skip'
+        run: npm run build
+
+      - name: Publish to npm
+        if: steps.bump.outputs.type != 'skip'
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create GitHub Release
+        if: steps.bump.outputs.type != 'skip'
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
         with:
           tag_name: md-react@${{ env.PKG_VERSION }}
