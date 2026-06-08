@@ -2,6 +2,17 @@ name: Bump and publish md-css to npm
 
 on:
   workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Version bump type'
+        required: false
+        default: 'skip'
+        type: choice
+        options:
+          - skip
+          - patch
+          - minor
+          - major
   pull_request:
     branches: 
       - main
@@ -22,24 +33,19 @@ jobs:
         working-directory: ./packages/css
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - name: Git config
-        run: |
-          git config --global user.email "${{vars.GH_EMAIL}}"
-          git config --global user.name "${{vars.GH_NAME}}"
-          git config pull.rebase false
 
       - name: Determine version bump
         id: bump
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "type=skip" >> $GITHUB_OUTPUT
+            echo "type=${{ inputs.version_bump }}" >> $GITHUB_OUTPUT
           elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"major"'; then
             echo "type=major" >> $GITHUB_OUTPUT
           elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"minor"'; then
@@ -53,34 +59,21 @@ jobs:
 
       - name: Apply version bump
         if: steps.bump.outputs.type != 'skip'
-        run: npm version ${{ steps.bump.outputs.type }}
+        run: npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
 
-      - id: set-version
-        name: Output version change
+      - name: Output version
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
 
-      - name: Git add
+      - name: Install dependencies
         if: steps.bump.outputs.type != 'skip'
-        run: git add .
+        run: npm install
 
-      - name: Git commit
-        if: steps.bump.outputs.type != 'skip'
-        run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
-
-      - name: Git pull
-        if: steps.bump.outputs.type != 'skip'
-        run: git pull origin main
-
-      - name: Git push version bump
-        if: steps.bump.outputs.type != 'skip'
-        run: git push origin main
-        
-      - run: npm install
       - name: Publish to npm
         if: steps.bump.outputs.type != 'skip'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create GitHub Release
         if: steps.bump.outputs.type != 'skip'
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
