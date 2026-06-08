@@ -59,7 +59,10 @@ jobs:
 
       - name: Apply version bump
         if: steps.bump.outputs.type != 'skip'
-        run: npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
+        run: |
+          LATEST=$(npm view @miljodirektoratet/md-css version 2>/dev/null || echo "0.0.0")
+          npm version $LATEST --no-git-tag-version --allow-same-version
+          npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
 
       - name: Output version
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
