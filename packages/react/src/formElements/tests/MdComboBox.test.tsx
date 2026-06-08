@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import MdComboBox from '../MdComboBox';
 
 const mockOptions = [
@@ -261,6 +261,65 @@ describe('MdComboBox', () => {
         <MdComboBox id="custom-combobox" options={mockOptions} value="" onSelectOption={() => {}} />,
       );
       expect(container.querySelector('[id^="custom-combobox"]')).toBeInTheDocument();
+    });
+  });
+
+  describe('dynamic padding (ResizeObserver)', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it('attaches ResizeObserver to the after section on mount', () => {
+      const observeMock = vi.fn();
+      vi.stubGlobal(
+        'ResizeObserver',
+        vi.fn().mockImplementation(() => ({ observe: observeMock, disconnect: vi.fn() })),
+      );
+
+      const { container } = render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
+      const afterDiv = container.querySelector('.md-combobox__input--after');
+      expect(observeMock).toHaveBeenCalledWith(afterDiv);
+    });
+
+    it('sets input padding-right to afterWidth + 12px when ResizeObserver fires', async () => {
+      vi.stubGlobal(
+        'ResizeObserver',
+        vi.fn().mockImplementation((cb: ResizeObserverCallback) => ({
+          observe: vi.fn().mockImplementation((el: Element) => {
+            Object.defineProperty(el, 'offsetWidth', { value: 68, configurable: true });
+            cb([], {} as ResizeObserver);
+          }),
+          disconnect: vi.fn(),
+        })),
+      );
+
+      render(<MdComboBox options={mockOptions} value="opt1" onSelectOption={() => {}} allowReset />);
+
+      await waitFor(() => {
+        expect(screen.getByRole('combobox')).toHaveStyle('padding-right: 80px');
+      });
+    });
+
+    it('does not apply inline padding-right before ResizeObserver fires', () => {
+      vi.stubGlobal(
+        'ResizeObserver',
+        vi.fn().mockImplementation(() => ({ observe: vi.fn(), disconnect: vi.fn() })),
+      );
+
+      render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
+      expect((screen.getByRole('combobox') as HTMLElement).style.paddingRight).toBe('');
+    });
+
+    it('disconnects ResizeObserver on unmount', () => {
+      const disconnectMock = vi.fn();
+      vi.stubGlobal(
+        'ResizeObserver',
+        vi.fn().mockImplementation(() => ({ observe: vi.fn(), disconnect: disconnectMock })),
+      );
+
+      const { unmount } = render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
+      unmount();
+      expect(disconnectMock).toHaveBeenCalled();
     });
   });
 });
