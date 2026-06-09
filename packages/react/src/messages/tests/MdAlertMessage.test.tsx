@@ -152,4 +152,89 @@ describe('MdAlertMessage', () => {
       expect(container.querySelector('.md-alert-message__icon')).toHaveAttribute('aria-label');
     });
   });
+
+  describe('expandable', () => {
+    it('does not render expand button when expandable is false', () => {
+      render(<MdAlertMessage label="Title" description="Some description" />);
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('renders expand button when expandable is true', () => {
+      render(<MdAlertMessage label="Title" description="Some description" expandable />);
+      expect(screen.getByRole('button', { name: 'Vis mer' })).toBeInTheDocument();
+    });
+
+    it('description is collapsed by default when expandable', () => {
+      const { container } = render(<MdAlertMessage label="Title" description="Some description" expandable />);
+      expect(container.querySelector('.md-alert-message__description--collapsed')).toBeInTheDocument();
+    });
+
+    it('description is not collapsed when defaultExpanded is true', () => {
+      const { container } = render(
+        <MdAlertMessage label="Title" description="Some description" expandable defaultExpanded />,
+      );
+      expect(container.querySelector('.md-alert-message__description--collapsed')).not.toBeInTheDocument();
+    });
+
+    it('button has aria-expanded="false" when collapsed', () => {
+      render(<MdAlertMessage label="Title" description="Some description" expandable />);
+      expect(screen.getByRole('button', { name: 'Vis mer' })).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('button has aria-expanded="true" when expanded', () => {
+      render(<MdAlertMessage label="Title" description="Some description" expandable defaultExpanded />);
+      expect(screen.getByRole('button', { name: 'Vis mindre' })).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('toggles expanded state on click', async () => {
+      const user = userEvent.setup();
+      const { container } = render(<MdAlertMessage label="Title" description="Some description" expandable />);
+
+      expect(container.querySelector('.md-alert-message__description--collapsed')).toBeInTheDocument();
+
+      await user.click(screen.getByRole('button', { name: 'Vis mer' }));
+
+      expect(container.querySelector('.md-alert-message__description--collapsed')).not.toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Vis mindre' })).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('collapses again on second click', async () => {
+      const user = userEvent.setup();
+      const { container } = render(<MdAlertMessage label="Title" description="Some description" expandable />);
+
+      await user.click(screen.getByRole('button', { name: 'Vis mer' }));
+      await user.click(screen.getByRole('button', { name: 'Vis mindre' }));
+
+      expect(container.querySelector('.md-alert-message__description--collapsed')).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Vis mer' })).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('button aria-controls references the description id', () => {
+      const { container } = render(<MdAlertMessage label="Title" description="Some description" expandable />);
+      const button = screen.getByRole('button', { name: 'Vis mer' });
+      const description = container.querySelector('.md-alert-message__description');
+      expect(button).toHaveAttribute('aria-controls', description?.id);
+    });
+
+    it('uses custom showMore and showLess labels', async () => {
+      const user = userEvent.setup();
+      render(
+        <MdAlertMessage
+          label="Title"
+          description="Some description"
+          expandable
+          labels={{ showMore: 'Les mer', showLess: 'Les mindre' }}
+        />,
+      );
+
+      expect(screen.getByRole('button', { name: 'Les mer' })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Les mer' }));
+      expect(screen.getByRole('button', { name: 'Les mindre' })).toBeInTheDocument();
+    });
+
+    it('does not render expand button when description is absent', () => {
+      render(<MdAlertMessage label="Title" expandable />);
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+  });
 });

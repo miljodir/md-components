@@ -9,6 +9,13 @@ afterEach(() => {
   cleanup();
 });
 
+// ResizeObserver is not available in jsdom
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
 // Suppress specific console warnings that come from Ariakit internal async updates
 // These are false positives caused by Ariakit's internal state management
 const originalError = console.error;

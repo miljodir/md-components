@@ -87,7 +87,7 @@ export default {
     },
     rounded: {
       type: { name: 'boolean' },
-      description: 'Add rounded corners to accordion item',
+      description: 'Deprecated: Rounded corners are now the default for all components, and the prop will be removed in a future release.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -105,7 +105,6 @@ const Template: StoryFn<typeof MdAccordion> = (args: MdAccordionProps) => {
       name={args.name || 'example-accordion'}
       theme={args.theme}
       hideCloseButton={args.hideCloseButton}
-      rounded={args.rounded}
       disabled={args.disabled}
       style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
     >
