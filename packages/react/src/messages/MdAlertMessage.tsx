@@ -1,13 +1,15 @@
 'use client';
 
 import classnames from 'classnames';
-import React from 'react';
+import React, { useId, useState } from 'react';
 import MdIconButton from '../iconButton/MdIconButton';
 import MdIconCheckCircle from '../icons-material/MdIconCheckCircle';
 import MdIconClose from '../icons-material/MdIconClose';
 import MdIconDangerous from '../icons-material/MdIconDangerous';
 import MdIconInfo from '../icons-material/MdIconInfo';
 import MdIconWarning from '../icons-material/MdIconWarning';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
+import MdIconKeyboardArrowUp from '../icons-material/MdIconKeyboardArrowUp';
 
 interface Labels {
   info?: string;
@@ -15,6 +17,8 @@ interface Labels {
   error?: string;
   warning?: string;
   closeButton?: string;
+  showMore?: string;
+  showLess?: string;
 }
 
 export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,6 +33,8 @@ export interface MdAlertMessageProps extends React.HTMLAttributes<HTMLDivElement
   customIcon?: React.ReactNode | string;
   className?: string;
   alignContent?: 'start' | 'center' | 'end';
+  expandable?: boolean;
+  defaultExpanded?: boolean;
 }
 
 export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
@@ -39,18 +45,25 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
   hideIcon = false,
   closable = false,
   fullWidth = false,
+  expandable = false,
   onClose,
   customIcon,
   className,
   alignContent,
+  defaultExpanded = false,
   ...otherProps
 }: MdAlertMessageProps) => {
+  const descriptionId = useId();
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
   const defaultLabels: Required<Labels> = {
     info: 'Info',
     confirm: 'Bekreft',
     error: 'Feil',
     warning: 'Advarsel',
     closeButton: 'Lukk',
+    showMore: 'Vis mer',
+    showLess: 'Vis mindre',
   };
   const mergedLabels: Required<Labels> = { ...defaultLabels, ...labels };
 
@@ -109,7 +122,31 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
       {!hideIcon && renderIcon()}
       <div className={contentClassNames}>
         {label && <div className="md-alert-message__label">{label}</div>}
-        {description && <div className="md-alert-message__description">{description}</div>}
+        {description && (
+          <div
+            className={classnames('md-alert-message__description', {
+              'md-alert-message__description--collapsed': expandable && !isExpanded,
+            })}
+            id={descriptionId}
+          >
+            {description}
+          </div>
+        )}
+        {expandable && description && (
+          <button
+            type="button"
+            className="md-alert-message__expand-button"
+            onClick={() => setIsExpanded(prev => !prev)}
+            aria-expanded={isExpanded}
+            aria-controls={descriptionId}>
+            <span className="md-alert-message__expand-icon" aria-hidden="true">
+              <MdIconKeyboardArrowUp className="md-alert-message__expand-icon__open" />
+              <MdIconKeyboardArrowDown className="md-alert-message__expand-icon__close" />
+            </span>
+            
+            {isExpanded ? mergedLabels.showLess : mergedLabels.showMore}
+          </button>
+        )}
       </div>
 
       {!!closable && onClose && (
