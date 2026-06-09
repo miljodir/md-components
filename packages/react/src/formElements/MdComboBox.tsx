@@ -1,7 +1,7 @@
 'use client';
 
 import * as Ariakit from '@ariakit/react';
-import React, { useMemo, useState, useId, useTransition, useEffect, useCallback } from 'react';
+import React, { useMemo, useState, useId, useTransition, useEffect, useCallback, useRef } from 'react';
 import MdHelpButton from '../help/MdHelpButton';
 import MdHelpText from '../help/MdHelpText';
 import MdIconClose from '../icons-material/MdIconClose';
@@ -93,6 +93,8 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
     const [helpOpen, setHelpOpen] = useState(false);
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [pendingSearchClear, setPendingSearchClear] = useState(false);
+    const [afterWidth, setAfterWidth] = useState(0);
+    const afterRef = useRef<HTMLDivElement>(null);
     const store = Ariakit.useComboboxStore();
 
     const defaultLabels: Required<Labels> = {
@@ -108,6 +110,16 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
         setSearchValue('');
       }
     }, [value]);
+
+    useEffect(() => {
+      const el = afterRef.current;
+      if (!el) return;
+      const observer = new ResizeObserver(() => {
+        setAfterWidth(el.offsetWidth);
+      });
+      observer.observe(el);
+      return () => { observer.disconnect(); };
+    }, []);
 
     useEffect(() => {
       if (!pendingSearchClear) return;
@@ -260,9 +272,10 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
               disabled={disabled}
               aria-describedby={ariaDescribedBy}
               value={searchValue}
+              style={{ paddingRight: afterWidth > 0 ? `${afterWidth + 12}px` : undefined }}
               {...otherProps}
             />
-            <div className="md-combobox__input--after">
+            <div ref={afterRef} className="md-combobox__input--after">
               <div>{isMultiSelect && selectedValues.length > 0 && `+${selectedValues.length}`}</div>
               {allowReset && (selectedValues.length > 0 || searchValue !== '') && (
                 <button

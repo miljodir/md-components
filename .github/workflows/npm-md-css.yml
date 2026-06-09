@@ -1,6 +1,18 @@
 name: Bump and publish md-css to npm
 
 on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Version bump type'
+        required: false
+        default: 'skip'
+        type: choice
+        options:
+          - skip
+          - patch
+          - minor
+          - major
   pull_request:
     branches: 
       - main
@@ -12,62 +24,61 @@ on:
 jobs:
   bump:
     name: Bump, build & publish md-css
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     permissions:
       contents: write
       id-token: write
     defaults:
       run:
         working-directory: ./packages/css
-    runs-on: ubuntu-latest        
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
 
-      - name: Git config
+      - name: Determine version bump
+        id: bump
         run: |
-          git config --global user.email "${{vars.GH_EMAIL}}"
-          git config --global user.name "${{vars.GH_NAME}}"
-          git config pull.rebase false
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "type=${{ inputs.version_bump }}" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"major"'; then
+            echo "type=major" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"minor"'; then
+            echo "type=minor" >> $GITHUB_OUTPUT
+          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"patch"'; then
+            echo "type=patch" >> $GITHUB_OUTPUT
+          else
+            echo "No version label found, skipping publish"
+            echo "type=skip" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Apply version bump (major)
-        if: contains(github.event.pull_request.labels.*.name, 'major')
-        run: npm version major
-        working-directory: ./packages/css
-      - name: Apply version bump (minor)
-        if: contains(github.event.pull_request.labels.*.name, 'minor')
-        run: npm version minor
-        working-directory: ./packages/css
-      - name: Apply version bump (patch)
-        if: contains(github.event.pull_request.labels.*.name, 'patch')
-        run: npm version patch
-        working-directory: ./packages/css
+      - name: Apply version bump
+        if: steps.bump.outputs.type != 'skip'
+        run: |
+          LATEST=$(npm view @miljodirektoratet/md-css version 2>/dev/null || echo "0.0.0")
+          npm version $LATEST --no-git-tag-version --allow-same-version
+          npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
 
-      - id: set-version
-        name: Output version change
+      - name: Output version
         run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
-        working-directory: ./packages/css
 
-      - name: Git add
-        run: git add .
+      - name: Install dependencies
+        if: steps.bump.outputs.type != 'skip'
+        run: npm install
 
-      - name: Git commit
-        run: git commit -m "Bump md-css version to ${{ env.PKG_VERSION }}"
-
-      - name: Git pull
-        run: git pull origin main
-
-      - name: Git push version bump
-        run: git push origin main --force
-
-      - run: npm install
-      - run: npm publish --access public
+      - name: Publish to npm
+        if: steps.bump.outputs.type != 'skip'
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create GitHub Release
+        if: steps.bump.outputs.type != 'skip'
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.2.1
         with:
           tag_name: md-css@${{ env.PKG_VERSION }}

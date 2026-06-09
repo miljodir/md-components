@@ -1,6 +1,7 @@
 .md-accordion-item {
   background-color: var(--md-color-surface-primary);
   border: 1px solid var(--md-color-border-primary);
+  border-radius: var(--md-radius-md);
   color: var(--md-color-text-primary);
   font-family: var(--md-typography-family-body);
   transition: all 0.2s linear;
@@ -30,13 +31,21 @@
 
 .md-accordion-item.md-accordion-item--add {
   background-color: transparent;
-  border: 1px dashed var(--md-color-grey-80);
+  border: 0 none;
+  border-radius: 0;
+  border-top: 1px solid var(--md-color-border-primary);
   transition: all 0.2s linear;
 }
 .md-accordion-item[open].md-accordion-item--add {
   background-color: transparent;
-  border: 1px dashed var(--md-color-grey-80);
+  border: 0 none;
+  border-radius: 0;
+  border-top: 1px solid var(--md-color-border-primary);
   transition: all 0.2s linear;
+}
+
+.md-accordion-item.md-accordion-item--add .md-accordion-item__header-icon{
+  color: var(--md-color-text-secondary);
 }
 
 .md-accordion-item:not([open], .md-accordion-item--disabled):hover {
@@ -93,19 +102,6 @@
 .md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon {
   transform: rotate(180deg);
 }
-.md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__open {
-  display: block;
-}
-.md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon__open {
-  display: none;
-}
-.md-accordion-item > .md-accordion-item__header .md-accordion-item__header-icon__close {
-  display: none;
-}
-.md-accordion-item[open] > .md-accordion-item__header .md-accordion-item__header-icon__close {
-  display: block;
-}
-
 .md-accordion-item__header-label {
   font-size: var(--md-size-20);
   margin-left: var(--md-size-16);
