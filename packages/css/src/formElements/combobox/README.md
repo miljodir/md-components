@@ -57,7 +57,7 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <div class="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">No results found</div>
   </Ariakit.ComboboxPopover>
 
-  <!-- Support text (optional, rendered below the input when supportText prop is provided) -->
+  <!-- Support text (optional, rendered below the input when supplementary descriptive text is needed) -->
   <div class="md-combobox__support">{supportText}</div>
 
   <!-- Error text (rendered below support text when the component has an error) -->
