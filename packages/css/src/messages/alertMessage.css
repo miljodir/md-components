@@ -17,7 +17,7 @@
 }
 
 .md-alert-message--info-box {
-  background-color: var(--md-color-surface-secondary-tinted);
+  background-color: var(--md-color-surface-secondary);
   border-color: var(--md-color-border-tertiary);
   border-style: dashed;
 }
@@ -73,4 +73,64 @@
 }
 .md-alert-message .md-alert-message__button:hover {
   outline-color: var(--md-color-text-primary);
+}
+
+.md-alert-message__description--collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+.md-alert-message__expand-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-14);
+  font-weight: var(--md-typography-weight-regular);
+  color: var(--md-color-text-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--md-size-8);
+  width: 100%;
+}
+
+.md-alert-message__expand-button:hover {
+  color: var(--md-color-text-link-hover);
+}
+
+.md-alert-message__expand-button:focus-visible {
+  outline: 2px solid var(--md-color-text-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-radius-xs);
+}
+
+.md-alert-message__expand-icon {
+  display: flex;
+  align-items: center;
+  width: var(--md-size-20);
+  height: var(--md-size-20);
+  flex-shrink: 0;
+}
+
+/* Show down arrow (close icon) by default — collapsed state */
+.md-alert-message__expand-icon__open {
+  display: none;
+}
+
+.md-alert-message__expand-icon__close {
+  display: block;
+}
+
+/* Show up arrow (open icon) when expanded */
+.md-alert-message__expand-button[aria-expanded='true'] .md-alert-message__expand-icon__open {
+  display: block;
+}
+
+.md-alert-message__expand-button[aria-expanded='true'] .md-alert-message__expand-icon__close {
+  display: none;
 }
