@@ -26,7 +26,7 @@
   line-height: var(--md-typography-line-height-medium);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-size-4);
-  padding: 0.6875rem 5rem 0.6875rem 2.5rem;
+  padding: 0.6875rem 6.2rem 0.6875rem 2.5rem;
 }
 
 .md-combobox--large .md-combobox__input {
