@@ -31,9 +31,8 @@
   --md-color-attention-error-surface: var(--md-color-attention-error-1);
   --md-color-attention-error-surface-tinted: var(--md-color-attention-error-2);
   --md-color-attention-error-surface-hover: var(--md-color-attention-error-3);
-  /* Alias: --md-color-attention-error-surface-active (deprecated; remove in a future major release) */
   --md-color-error-surface-active: var(--md-color-attention-error-4);
-  --md-color-attention-error-surface-active: var(--md-color-error-surface-active);
+  --md-color-attention-error-surface-active: var(--md-color-error-surface-active); /* @deprecated: use --md-color-error-surface-active instead */
   --md-color-attention-error-border: var(--md-color-attention-error-6);
 
   --md-color-attention-warning-primary: var(--md-color-attention-warning-6);
