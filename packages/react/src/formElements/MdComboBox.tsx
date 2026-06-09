@@ -185,8 +185,17 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
       displayValue = getValueById(selectedValues as string);
     }
 
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
-    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
+    const ariaDescribedByIds: string[] = [];
+    if (helpText && helpText !== '') {
+      ariaDescribedByIds.push(`md-combobox_help-text_${comboBoxId}`);
+    }
+    if (supportText && supportText !== '') {
+      ariaDescribedByIds.push(`md-combobox_support_${comboBoxId}`);
+    }
+    if (error && errorText && errorText !== '') {
+      ariaDescribedByIds.push(`md-combobox_error_${comboBoxId}`);
+    }
+    const ariaDescribedBy = ariaDescribedByIds.length > 0 ? ariaDescribedByIds.join(' ') : undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
