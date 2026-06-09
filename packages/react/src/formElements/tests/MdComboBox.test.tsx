@@ -152,7 +152,7 @@ describe('MdComboBox', () => {
       expect(input).toHaveAttribute('aria-describedby', supportText.getAttribute('id'));
     });
 
-    it('includes help, support and error ids in aria-describedby', () => {
+    it('includes help, support, and error ids in aria-describedby', () => {
       render(
         <MdComboBox
           options={mockOptions}
