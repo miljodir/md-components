@@ -122,7 +122,7 @@ export default {
     },
     rounded: {
       type: { name: 'boolean' },
-      description: 'Add rounded corners to accordion item',
+      description: 'Deprecated: Rounded corners are now the default for all components, and the prop will be removed in a future release.',
       table: {
         defaultValue: { summary: 'false' },
         type: {
@@ -186,6 +186,5 @@ AccordionItem.args = {
   headerContent: false,
   hideCloseButton: false,
   closeButtonText: 'Lukk',
-  rounded: false,
   id: undefined,
 };
