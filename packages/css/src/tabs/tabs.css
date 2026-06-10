@@ -19,6 +19,10 @@
   height: 100%;
 }
 
+.md-tab-panel {
+  color: var(--md-color-text-primary);
+}
+
 .md-tabs-container .md-tabs-button {
   display: inline-flex;
   flex-direction: column;
@@ -30,6 +34,7 @@
   border: 0;
   background-color: transparent;
   border-bottom: var(--md-size-1) solid var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
 }
 .md-tabs-container .md-tabs-button::after {
   content: attr(data-text);

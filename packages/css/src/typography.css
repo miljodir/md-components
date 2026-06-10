@@ -8,6 +8,7 @@
   font-family: var(--md-typography-family-heading);
   font-weight: var(--md-typography-weight-regular);
   line-height: var(--md-typography-line-height-small);
+  color: var(--md-color-text-primary);
 }
 
 .md-typography-heading-xl {
@@ -40,6 +41,7 @@
   font-family: var(--md-typography-family-label);
   font-weight: var(--md-typography-weight-semibold);
   line-height: var(--md-typography-line-height-small);
+  color: var(--md-color-text-primary);
 }
 
 .md-typography-label-l {
@@ -63,6 +65,7 @@
   font-family: var(--md-typography-family-body);
   font-weight: var(--md-typography-weight-regular);
   line-height: var(--md-typography-line-height-medium);
+  color: var(--md-color-text-primary);
 }
 
 .md-typography-body-xs{

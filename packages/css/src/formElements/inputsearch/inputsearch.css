@@ -90,6 +90,7 @@
 .md-inputsearch__label {
   display: flex;
   align-items: flex-end;
+  color: var(--md-color-text-primary);
 }
 
 .md-inputsearch__label label {
