@@ -105,6 +105,7 @@
 .md-accordion-item__header-label {
   font-size: var(--md-size-20);
   margin-left: var(--md-size-16);
+  color: var(--md-color-text-primary);
 }
 .md-accordion-item:not(.md-accordion-item--disabled) .md-accordion-item__header:hover .md-accordion-item__header-label {
   text-decoration: underline;
@@ -129,6 +130,7 @@
   margin: 2rem 0 0 -0.2rem;
   cursor: pointer;
   font-size: var(--md-typography-size-16);
+  color: var(--md-color-text-primary);
 }
 
 .md-accordion-item__close-button:hover {

@@ -20,6 +20,7 @@
   line-height: var(--md-typography-line-height-small);
   letter-spacing: 0rem;
   text-align: left;
+  color: var(--md-color-text-primary);
   margin: 0;
 
   height: var(--md-size-40);
@@ -146,6 +147,7 @@
   padding-left: var(--md-size-16);
   padding-top: var(--md-size-16);
   min-height: var(--md-size-24);
+  color: var(--md-color-text-primary);
 }
 .md-stepper__stepper-container
   .md-stepper__stepper-list

@@ -66,6 +66,7 @@
   align-items: center;
   font-size: var(--md-typography-size-14);
   line-height: var(--md-typography-line-height-small);
+  color: var(--md-color-text-primary);
 }
 .md-info-tag:hover .md-info-tag__label {
   max-width: 100%;
