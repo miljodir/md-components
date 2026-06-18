@@ -1,88 +1,88 @@
 .md-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: var(--md-size-4) var(--md-size-8);
-    min-width: var(--md-size-32);
-    min-height: var(--md-size-32);
+  padding: var(--md-size-4) var(--md-size-8);
+  min-width: var(--md-size-32);
+  min-height: var(--md-size-32);
 
-    border-radius: var(--md-radius-xl);
+  border-radius: var(--md-radius-xl);
 
-    font-family: var(--md-typography-family-body);
-    font-size: var(--md-typography-size-16);
+  font-family: var(--md-typography-family-body);
+  font-size: var(--md-typography-size-16);
 }
 
 /* Sizes */
 .md-badge--small {
-    padding: var(--md-size-3) var(--md-size-4);
-    min-width: var(--md-size-24);
-    min-height: var(--md-size-24);
+  padding: var(--md-size-3) var(--md-size-4);
+  min-width: var(--md-size-24);
+  min-height: var(--md-size-24);
 
-    font-size: var(--md-typography-size-14);
+  font-size: var(--md-typography-size-14);
 }
 
 .md-badge--large {
-    padding: var(--md-size-8) var(--md-size-12);
-    min-width: var(--md-size-40);
-    min-height: var(--md-size-40);
+  padding: var(--md-size-8) var(--md-size-12);
+  min-width: var(--md-size-40);
+  min-height: var(--md-size-40);
 
-    font-size: var(--md-typography-size-18);
+  font-size: var(--md-typography-size-18);
 }
 
 /* Dot */
 .md-badge--dot {
-    display: inline-block;
-    width: var(--md-size-16);
-    height: var(--md-size-16);
-    min-width: var(--md-size-16);
-    min-height: var(--md-size-16);
-    padding: 0;
-    border-radius: var(--md-radius-full);
+  display: inline-block;
+  width: var(--md-size-16);
+  height: var(--md-size-16);
+  min-width: var(--md-size-16);
+  min-height: var(--md-size-16);
+  padding: 0;
+  border-radius: var(--md-radius-full);
 }
 
 .md-badge--dot.md-badge--small {
-    width: var(--md-size-12);
-    height: var(--md-size-12);
-    min-width: var(--md-size-12);
-    min-height: var(--md-size-12);
+  width: var(--md-size-12);
+  height: var(--md-size-12);
+  min-width: var(--md-size-12);
+  min-height: var(--md-size-12);
 }
 
 .md-badge--dot.md-badge--large {
-    width: var(--md-size-18);
-    height: var(--md-size-18);
-    min-width: var(--md-size-18);
-    min-height: var(--md-size-18);
+  width: var(--md-size-18);
+  height: var(--md-size-18);
+  min-width: var(--md-size-18);
+  min-height: var(--md-size-18);
 }
 
 /* Themes */
 .md-badge--primary {
-    background-color: var(--md-color-surface-primary-tinted);
-    color: var(--md-color-text-primary);
+  background-color: var(--md-color-surface-primary-tinted);
+  color: var(--md-color-text-primary);
 }
 
 .md-badge--secondary {
-    background-color: var(--md-color-surface-secondary-dark);
-    color: var(--md-color-text-primary);
+  background-color: var(--md-color-surface-secondary-dark);
+  color: var(--md-color-text-primary);
 }
 
 .md-badge--error {
-    background-color: var(--md-color-attention-error-primary);
-    color: var(--md-color-text-inverted);
+  background-color: var(--md-color-attention-error-primary);
+  color: var(--md-color-text-inverted);
 }
 
 .md-badge--warning {
-    background-color: var(--md-color-attention-warning-primary);
-    color: var(--md-color-text-inverted);
+  background-color: var(--md-color-attention-warning-primary);
+  color: var(--md-color-text-inverted);
 }
 
 .md-badge--success {
-    background-color: var(--md-color-attention-success-primary);
-    color: var(--md-color-text-inverted);
+  background-color: var(--md-color-attention-success-primary);
+  color: var(--md-color-text-inverted);
 }
 
 .md-badge--info {
-    background-color: var(--md-color-attention-info-primary);
-    color: var(--md-color-text-inverted);
+  background-color: var(--md-color-attention-info-primary);
+  color: var(--md-color-text-inverted);
 }
 
