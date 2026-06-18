@@ -6,10 +6,9 @@ import {
   Controls,
   Primary as PrimaryStory,
 } from '@storybook/addon-docs/blocks';
-import React from 'react';
 import Readme from '../packages/css/src/badge/README.md';
 import MdBadge from '../packages/react/src/badge/MdBadge';
-
+import React from 'react';
 
 export default {
   title: 'Components/Badge',
@@ -35,14 +34,24 @@ export default {
     },
   },
   argTypes: {
-    children: {
-      description: 'Content of the badge, can be text or ReactNode',
+    count: {
+      description: 'Number to display inside the badge. If not provided, the badge will render as a dot.',
       table: {
         type: {
-          summary: 'text | ReactNode',
+          summary: 'number',
         },
       },
-      control: { type: 'text' },
+      control: { type: 'number' },
+    },
+    maxCount: {
+      description: 'Maximum number to display. If the count exceeds this number, it will display as "maxCount+" (e.g., "9+").',
+      table: {
+        type: {
+          summary: 'number',
+        },
+      },
+      control: { type: 'number' },
+      if: { arg: 'count', exists: true },
     },
     theme: {
       description: 'Selected theme for badge',
@@ -69,7 +78,8 @@ export default {
 };
 
 interface BadgeArgs {
-  children: string | React.ReactNode;
+  count: number;
+  maxCount?: number;
   theme: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
   mode: 'small' | 'medium' | 'large';
 }
@@ -79,17 +89,23 @@ const Template = (args: BadgeArgs) => {
     <MdBadge
       theme={args.theme}
       size={args.mode}
-    >
-      {args.children}
-    </MdBadge>
+      count={args.count}
+      maxCount={args.maxCount}
+    />
   );
 };
 
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Count = Template.bind({});
+Count.args = {
   theme: 'primary',
-  children: '8',
+  count: null,
+  maxCount: null,
   mode: 'medium',
 };
 
+export const Dot = Template.bind({});
+Dot.args = {
+  theme: 'primary',
+  mode: 'medium',
+};

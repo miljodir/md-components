@@ -4,14 +4,16 @@ import classnames from 'classnames';
 import React from 'react';
 
 export interface MdBadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  children?: string | React.ReactNode | null;
+  count?: number | null;
+  maxCount?: number | null;
   className?: string;
   theme?: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
   size: 'small' | 'medium' | 'large';
 }
 
 export const MdBadge: React.FunctionComponent<MdBadgeProps> = ({
-  children,
+  count,
+  maxCount,
   className = '',
   theme,
   size,
@@ -21,7 +23,7 @@ export const MdBadge: React.FunctionComponent<MdBadgeProps> = ({
   const badgeClassNames = classnames('md-badge', className, {
     [`md-badge--${theme}`]: !!theme,
     [`md-badge--${size}`]: !!size,
-    'md-badge--dot': children == null || children === '', // if empty or missing children, render as dot badge
+    'md-badge--dot': count == null, // if empty or missing count, render as dot badge
   });
 
   return (
@@ -29,7 +31,7 @@ export const MdBadge: React.FunctionComponent<MdBadgeProps> = ({
         className={badgeClassNames}
         {...otherProps}
     >
-        {children}
+        {count != null && (maxCount != null && count > maxCount ? `${maxCount}+` : count)}
     </span>
   );
 };
