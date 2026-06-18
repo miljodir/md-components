@@ -96,16 +96,8 @@ const Template = (args: BadgeArgs) => {
 };
 
 
-export const Count = Template.bind({});
-Count.args = {
-  theme: 'primary',
-  count: null,
-  maxCount: null,
-  mode: 'medium',
-};
-
-export const Dot = Template.bind({});
-Dot.args = {
+export const Badge = Template.bind({});
+Badge.args = {
   theme: 'primary',
   mode: 'medium',
 };
