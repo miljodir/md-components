@@ -7,7 +7,7 @@ Class names and elements in brackets [] are optional-/togglable-/decorator- or s
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<span class="md-badge [md-badge--primary, md-badge--secondary, md-badge--error, md-badge--warning, md-badge--success, md-badge--info, md-badge--small, md-badge--large, md-badge--pill]">
+<span class="md-badge [md-badge--primary, md-badge--secondary, md-badge--error, md-badge--warning, md-badge--success, md-badge--info, md-badge--small, md-badge--large, md-badge--dot]">
     8
 </span>
 ```
