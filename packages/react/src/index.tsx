@@ -181,6 +181,8 @@ import MdToggle, { type MdToggleProps } from './toggle/MdToggle';
 import MdTooltip, { type MdTooltipProps } from './tooltip/MdTooltip';
 import MdClickOutsideWrapper, { type MdClickOutsideWrapperProps } from './utils/MdClickOutsideWrapper';
 
+export type { MdBadgeProps } from './badge/MdBadge';
+
 export {
   MdBadge,
   MdButton,
