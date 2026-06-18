@@ -78,10 +78,10 @@ export default {
 };
 
 interface BadgeArgs {
-  count: number;
-  maxCount?: number;
-  theme: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
-  mode: 'small' | 'medium' | 'large';
+  count?: number | null;
+  maxCount?: number | null;
+  theme?: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
+  mode?: 'small' | 'medium' | 'large';
 }
 
 const Template = (args: BadgeArgs) => {
