@@ -2,7 +2,7 @@
 
 To use the `Badge` css in `@miljodirektoratet/md-css` as a standalone, without the accompanying React component, please use the following HTML structure.
 
-Class names and elements in brackets [] are optional-/togglable-/decorator- or state dependant classes. As a pill, remove content and add class `md-badge--pill`.
+Class names and elements in brackets [] are optional-/togglable-/decorator- or state dependant classes. As a dot badge, remove content and add class `md-badge--dot`.
 
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
