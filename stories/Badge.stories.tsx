@@ -95,9 +95,18 @@ const Template = (args: BadgeArgs) => {
   );
 };
 
-
 export const Badge = Template.bind({});
 Badge.args = {
   theme: 'primary',
   mode: 'medium',
+  count: 1,
+  maxCount: 9,
 };
+
+export const Dot = Template.bind({});
+Dot.args = {
+  theme: 'primary',
+  mode: 'medium',
+};
+
+
