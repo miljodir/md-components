@@ -86,12 +86,7 @@ interface BadgeArgs {
 
 const Template = (args: BadgeArgs) => {
   return (
-    <MdBadge
-      theme={args.theme}
-      size={args.mode}
-      count={args.count}
-      maxCount={args.maxCount}
-    />
+    <MdBadge theme={args.theme} size={args.mode ?? 'medium'} count={args.count} maxCount={args.maxCount} />
   );
 };
 
