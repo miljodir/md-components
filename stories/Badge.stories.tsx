@@ -78,20 +78,15 @@ export default {
 };
 
 interface BadgeArgs {
-  count: number;
-  maxCount?: number;
-  theme: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
-  mode: 'small' | 'medium' | 'large';
+  count?: number | null;
+  maxCount?: number | null;
+  theme?: 'primary' | 'secondary' | 'error' | 'warning' | 'success' | 'info';
+  mode?: 'small' | 'medium' | 'large';
 }
 
 const Template = (args: BadgeArgs) => {
   return (
-    <MdBadge
-      theme={args.theme}
-      size={args.mode}
-      count={args.count}
-      maxCount={args.maxCount}
-    />
+    <MdBadge theme={args.theme} size={args.mode ?? 'medium'} count={args.count} maxCount={args.maxCount} />
   );
 };
 
