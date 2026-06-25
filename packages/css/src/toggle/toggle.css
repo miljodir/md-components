@@ -23,7 +23,17 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  gap: var(--md-size-8);
 }
+
+.md-toggle__label-wrapper--reverse {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--md-size-8);
+  flex-direction: row-reverse;
+}
+
 
 .md-toggle__wrapper:has(:focus-visible) .md-toggle__label-wrapper {
   outline: var(--md-size-3) var(--md-color-focus-outer) solid;
@@ -70,10 +80,6 @@
 .md-toggle__label--disabled {
   background-color: var(--md-color-surface-grey);
   cursor: default;
-}
-
-.md-toggle__label-text {
-  margin-right: var(--md-size-8);
 }
 
 .md-toggle__label .md-toggle__button {
