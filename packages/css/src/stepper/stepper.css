@@ -154,3 +154,14 @@
   .md-stepper__step-content-children.completed {
   color: var(--md-color-disabled-dark);
 }
+
+/* Ref. https://github.com/miljodir/md-components/issues/511 */
+.md-stepper__stepper-list,
+.md-stepper__stepper-list-item,
+.md-stepper__step-content-children {
+  min-width: 0;
+}
+
+.md-stepper__step-content-children {
+  width: 100%;
+}
