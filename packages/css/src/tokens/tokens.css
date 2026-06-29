@@ -104,7 +104,9 @@
   --md-size-4: var(--md-spacing-4); /* 4px, 0.25rem */
   --md-size-8: var(--md-spacing-8); /* 8px, 0.5rem */
   --md-size-12: var(--md-spacing-12); /* 12px, 0.75rem */
+  --md-size-14: var(--md-spacing-14); /* 14px, 0.875rem */
   --md-size-16: var(--md-spacing-16); /* 16px, 1rem */
+  --md-size-18: var(--md-spacing-18); /* 18px, 1.125rem */
   --md-size-20: var(--md-spacing-20); /* 20px, 1.25rem */
   --md-size-24: var(--md-spacing-24); /* 24px, 1.5rem */
   --md-size-32: var(--md-spacing-32); /* 32px, 2rem */
@@ -146,6 +148,7 @@
   --md-typography-size-24: 1.5rem; /* 24px */
   --md-typography-size-28: 1.75rem; /* 28px */
   --md-typography-size-34: 2.125rem; /* 34px */
+  --md-typography-size-40: 2.5rem; /* 40px */
 
   /* t-shirt sizes - headings */
   --md-typography-heading-xs: var(--md-typography-size-18);
