@@ -4,11 +4,11 @@ import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 import Readme from '../packages/css/src/formElements/combobox/README_NESTED.md';
 import MdComboBoxNested from '../packages/react/src/formElements/MdComboBoxNested';
-import MdIconCalendarMonth from '../packages/react/src/icons-material/MdIconCalendarMonth';
 import MdIconSearch from '../packages/react/src/icons-material/MdIconSearch';
 import type { Args } from '@storybook/react-webpack5';
 
 export default {
+  tags: ['!dev', '!autodocs'],
   title: 'Form/ComboBoxNested',
   component: MdComboBoxNested,
   parameters: {
