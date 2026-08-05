@@ -57,7 +57,10 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <div class="md-combobox__checkbox-item md-combobox__checkbox-item--no-result">No results found</div>
   </Ariakit.ComboboxPopover>
 
-  <!-- Error text -->
+  <!-- Support text (optional, rendered below the input when supplementary descriptive text is needed) -->
+  <div class="md-combobox__support">{supportText}</div>
+
+  <!-- Error text (rendered below support text when the component has an error) -->
   <div class="md-combobox__error">{errorText}</div>
 </div>
 ```
@@ -72,3 +75,5 @@ The MdComboBox component uses Ariakit's ComboBox component which handles numerou
 - Screen reader announcements
 
 When implementing this outside of React, you'll need to handle these accessibility concerns manually. The library automatically manages attributes like `aria-activedescendant`, `aria-controls`, `aria-expanded`, etc.
+
+The `.md-combobox__support` element provides supplementary descriptive text below the input. When used alongside `.md-combobox__error`, the support text appears above the error message. Ensure the support text element is associated with the input using `aria-describedby` so screen readers can announce it.
