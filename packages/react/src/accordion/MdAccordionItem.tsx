@@ -2,9 +2,8 @@
 
 import classnames from 'classnames';
 import React, { useEffect, useId } from 'react';
-import MdIconAdd from '../icons-material/MdIconAdd';
+import MdIconKeyboardArrowDown from '../icons-material/MdIconKeyboardArrowDown';
 import MdIconRemove from '../icons-material/MdIconRemove';
-
 export interface MdAccordionItemProps {
   label?: string;
   headerContent?: React.ReactNode | string;
@@ -108,8 +107,7 @@ export const MdAccordionItem: React.FunctionComponent<MdAccordionItemProps> = ({
       <summary className="md-accordion-item__header" tabIndex={disabled ? -1 : undefined} aria-disabled={disabled}>
         <div className="md-accordion-item__header-left">
           <div className="md-accordion-item__header-icon" aria-hidden="true">
-            <MdIconAdd className="md-accordion-item__header-icon__open" />
-            <MdIconRemove className="md-accordion-item__header-icon__close" />
+            <MdIconKeyboardArrowDown />
           </div>
           {label && label !== '' && <div className="md-accordion-item__header-label">{label}</div>}
         </div>

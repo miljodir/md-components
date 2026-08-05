@@ -19,6 +19,9 @@ export const MdAccordion: React.FunctionComponent<MdAccordionProps> = ({
   className = '',
   theme,
   hideCloseButton,
+  /**
+   * v6.30.1 Rounded corners are now the default for all components, and the prop is deprecated. This prop will be removed in a future release.
+   */  
   rounded,
   disabled = false,
   ...otherProps
