@@ -143,6 +143,37 @@ describe('MdComboBox', () => {
     });
   });
 
+  describe('accessibility', () => {
+    it('includes support text id in aria-describedby', () => {
+      render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} supportText="Helpful context" />);
+
+      const input = screen.getByRole('combobox');
+      const supportText = screen.getByText('Helpful context');
+      expect(input).toHaveAttribute('aria-describedby', supportText.getAttribute('id'));
+    });
+
+    it('includes help, support, and error ids in aria-describedby', () => {
+      render(
+        <MdComboBox
+          options={mockOptions}
+          value=""
+          onSelectOption={() => {}}
+          helpText="Help text"
+          supportText="Support text"
+          error
+          errorText="Error text"
+        />,
+      );
+
+      const input = screen.getByRole('combobox');
+      const describedBy = input.getAttribute('aria-describedby');
+
+      expect(describedBy).toContain('md-combobox_help-text_');
+      expect(describedBy).toContain('md-combobox_support_');
+      expect(describedBy).toContain('md-combobox_error_');
+    });
+  });
+
   describe('reset functionality', () => {
     it('shows reset button when allowReset is true and value is selected', () => {
       const { container } = render(
