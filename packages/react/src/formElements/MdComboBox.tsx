@@ -29,6 +29,7 @@ export interface MdComboBoxBaseProps {
   errorText?: string;
   placeholder?: string;
   helpText?: string;
+  supportText?: string;
   numberOfElementsShown?: number;
   isSearching?: boolean;
   mode?: 'large' | 'medium' | 'small';
@@ -67,6 +68,7 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
       numberOfElementsShown,
       mode = 'medium',
       helpText,
+      supportText,
       error = false,
       errorText,
       noResultsText = 'Ingen treff',
@@ -183,8 +185,17 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
       displayValue = getValueById(selectedValues as string);
     }
 
-    let ariaDescribedBy = helpText && helpText !== '' ? `md-combobox_help-text_${comboBoxId}` : undefined;
-    ariaDescribedBy = error && errorText && errorText !== '' ? `md-combobox_error_${comboBoxId}` : ariaDescribedBy;
+    const ariaDescribedByIds: string[] = [];
+    if (helpText && helpText !== '') {
+      ariaDescribedByIds.push(`md-combobox_help-text_${comboBoxId}`);
+    }
+    if (supportText && supportText !== '') {
+      ariaDescribedByIds.push(`md-combobox_support_${comboBoxId}`);
+    }
+    if (error && errorText && errorText !== '') {
+      ariaDescribedByIds.push(`md-combobox_error_${comboBoxId}`);
+    }
+    const ariaDescribedBy = ariaDescribedByIds.length > 0 ? ariaDescribedByIds.join(' ') : undefined;
 
     const showLabel = (label && label !== '') || (helpText && helpText !== '');
 
@@ -351,6 +362,12 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
             </div>
           </Ariakit.ComboboxPopover>
         </Ariakit.ComboboxProvider>
+
+        {supportText && supportText !== '' && (
+          <div id={`md-combobox_support_${comboBoxId}`} className="md-combobox__support">
+            {supportText}
+          </div>
+        )}
 
         {error && errorText && errorText !== '' && (
           <div id={`md-combobox_error_${comboBoxId}`} className="md-combobox__error">
