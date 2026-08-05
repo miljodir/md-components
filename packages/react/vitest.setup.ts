@@ -16,6 +16,27 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
+// CSS.supports may be missing/non-function in jsdom + Node 24.
+// Provide a stable fallback to prevent runtime errors in components/tests.
+if (!(globalThis as typeof globalThis & { CSS?: { supports?: (...args: string[]) => boolean } }).CSS) {
+  Object.defineProperty(globalThis, 'CSS', {
+    value: {},
+    writable: true,
+    configurable: true,
+  });
+}
+
+if (
+  typeof (globalThis as typeof globalThis & { CSS?: { supports?: (...args: string[]) => boolean } }).CSS?.supports !==
+  'function'
+) {
+  Object.defineProperty(globalThis.CSS, 'supports', {
+    value: () => false,
+    writable: true,
+    configurable: true,
+  });
+}
+
 // Suppress specific console warnings that come from Ariakit internal async updates
 // These are false positives caused by Ariakit's internal state management
 const originalError = console.error;
