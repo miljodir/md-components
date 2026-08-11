@@ -1,0 +1,18 @@
+.md-divider {
+    margin-top: var(--md-spacing-2);
+    margin-bottom: var(--md-spacing-2);
+    border: none;
+    border-top: 1px solid var(--md-color-border-secondary);
+}
+
+.md-divider--primary {
+  border-color: var(--md-color-border-primary);
+}
+
+.md-divider--secondary {
+  border-color: var(--md-color-border-secondary);
+}
+
+.md-divider--tertiary {
+  border-color: var(--md-color-border-tertiary);
+}
