@@ -127,6 +127,17 @@ export default {
       },
       control: { type: 'text' },
     },
+    supportText: {
+      type: { name: 'string' },
+      description: 'Support text for the combobox',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
     error: {
       type: { name: 'boolean' },
       description: 'Whether the combobox is in an error state',
@@ -251,6 +262,7 @@ Multi.args = {
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
+  supportText: 'This is a support text',
   prefixIcon: <MdIconSearch />,
   errorText: '',
   error: false,
@@ -276,6 +288,7 @@ Single.args = {
   disabled: false,
   mode: 'medium',
   helpText: 'This is a help text',
+  supportText: 'This is a support text',
   prefixIcon: <MdIconCalendarMonth />,
   errorText: 'This is an example of an error text',
   error: true,
