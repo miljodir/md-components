@@ -13,6 +13,7 @@
   align-items: center;
   gap: var(--md-size-8);
   font-weight: var(--md-typography-weight-medium);
+  color: var(--md-color-text-primary);
 }
 
 .md-select__button-wrapper:focus-within {
@@ -30,6 +31,7 @@
   border-radius: var(--md-radius-sm);
   padding: 0.6875rem var(--md-size-16);
   background-color: var(--md-color-background-primary);
+  color: var(--md-color-text-primary);
   position: relative;
   outline-width: 0;
   outline-style: solid;
@@ -146,6 +148,7 @@
   cursor: pointer;
   border-left: 1px solid var(--md-color-border-primary);
   border-right: 1px solid var(--md-color-border-primary);
+  color: var(--md-color-text-primary);
 }
 
 .md-select__item:last-of-type {
@@ -153,6 +156,7 @@
 }
 .md-select__item--no-result {
   font-style: italic;
+  color: var(--md-color-text-primary);
 }
 .md-select--large .md-select__item {
   padding: var(--md-size-16) var(--md-size-12);
