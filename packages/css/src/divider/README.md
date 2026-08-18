@@ -6,7 +6,7 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
-## HelpButton
+## Divider
 
 ```html
 <hr class="md-divider [md-divder--primary, md-divder--secondary, md-divder--tertiary]" />

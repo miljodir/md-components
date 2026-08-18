@@ -1,6 +1,7 @@
 .md-divider {
-    margin-top: var(--md-spacing-2);
-    margin-bottom: var(--md-spacing-2);
+    /* Set to 0 to remove default margin. Send in custom margin if needed */
+    margin-top: 0;
+    margin-bottom: 0;
     border: none;
     border-top: 1px solid var(--md-color-border-secondary);
 }
