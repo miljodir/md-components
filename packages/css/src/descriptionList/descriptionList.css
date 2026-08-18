@@ -39,6 +39,7 @@
   font-size: var(--md-typography-size-16);
   font-weight: var(--md-typography-weight-medium);
   line-height: var(--md-typography-line-height-small);
+  color: var(--md-color-text-primary);
 }
 
 .md-description-list-item-description {

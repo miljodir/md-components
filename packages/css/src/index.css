@@ -3,6 +3,7 @@
 @import './utils.css';
 
 @import './accordionitem/accordionitem.css';
+@import './badge/badge.css';
 @import './button/button.css';
 @import './chips/chips.css';
 @import './descriptionList/descriptionList.css';

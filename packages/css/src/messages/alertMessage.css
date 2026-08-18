@@ -10,6 +10,7 @@
   background-color: var(--md-color-attention-info-surface);
   border: 1px solid var(--md-color-attention-info-border);
   border-radius: var(--md-radius-sm);
+  color: var(--md-color-text-primary);
 }
 
 .md-alert-message:not(.md-alert-message--fullWidth) {
@@ -44,6 +45,7 @@
   gap: var(--md-size-12);
   font-weight: var(--md-typography-weight-medium);
   text-wrap: wrap;
+  color: var(--md-color-text-primary);
 }
 
 .md-alert-message__content {

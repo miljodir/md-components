@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.md-radiobutton__label {
+  color: var(--md-color-text-primary);
+}
+
 .md-radiobutton__label:hover {
   text-decoration: underline;
   cursor: pointer;

@@ -74,6 +74,7 @@
 
 .md-toggle__label-text {
   margin-right: var(--md-size-8);
+  color: var(--md-color-text-primary);
 }
 
 .md-toggle__label .md-toggle__button {
