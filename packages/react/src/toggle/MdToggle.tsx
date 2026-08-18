@@ -7,6 +7,7 @@ export interface MdToggleProps extends React.InputHTMLAttributes<HTMLInputElemen
   error?: boolean;
   errorText?: string | undefined;
   wrapperClass?: string;
+  textLeft?: boolean;
 }
 
 export const MdToggle: React.FunctionComponent<MdToggleProps> = ({
@@ -16,6 +17,7 @@ export const MdToggle: React.FunctionComponent<MdToggleProps> = ({
   disabled = false,
   error = false,
   errorText = undefined,
+  textLeft = true,
   wrapperClass = '',
   ...otherProps
 }: MdToggleProps) => {
@@ -30,6 +32,7 @@ export const MdToggle: React.FunctionComponent<MdToggleProps> = ({
 
   const labelWrapperClassNames = classnames('md-toggle__label-wrapper', {
     'md-toggle__label-wrapper--disabled': !!disabled,
+    'md-toggle__label-wrapper--reverse': !textLeft,
   });
 
   const outerWrapperClassNames = classnames('md-toggle__wrapper', wrapperClass);

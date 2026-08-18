@@ -1,5 +1,6 @@
 import MdAccordion, { type MdAccordionProps } from './accordion/MdAccordion';
 import MdAccordionItem, { type MdAccordionItemProps } from './accordion/MdAccordionItem';
+import MdBadge from './badge/MdBadge';
 import MdButton, { type MdButtonProps } from './button/MdButton';
 import MdFilterChip, { type MdFilterChipProps } from './chips/MdFilterChip';
 import MdInputChip, { type MdInputChipProps } from './chips/MdInputChip';
@@ -180,7 +181,10 @@ import MdToggle, { type MdToggleProps } from './toggle/MdToggle';
 import MdTooltip, { type MdTooltipProps } from './tooltip/MdTooltip';
 import MdClickOutsideWrapper, { type MdClickOutsideWrapperProps } from './utils/MdClickOutsideWrapper';
 
+export type { MdBadgeProps } from './badge/MdBadge';
+
 export {
+  MdBadge,
   MdButton,
   MdIconButton,
   MdCheckbox,
