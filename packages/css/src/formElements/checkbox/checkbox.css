@@ -94,6 +94,7 @@
   left: var(--md-size-8);
   position: relative;
   padding-right: var(--md-size-8);
+  color: var(--md-color-text-primary);
 }
 
 .md-checkbox:not(.md-checkbox--disabled):hover .md-checkbox__labelText {

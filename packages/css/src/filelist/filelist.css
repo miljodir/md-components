@@ -23,6 +23,7 @@
   display: flex;
   gap: var(--md-size-16);
   font-size: var(--md-typography-size-16);
+  color: var(--md-color-text-primary);
 }
 
 .md-filelist__file-icon {
@@ -32,6 +33,7 @@
 .md-filelist__file-size {
   font-size: var(--md-typography-size-14);
   margin-top: 0.3rem;
+  color: var(--md-color-text-primary);
 }
 
 .md-filelist__file-actions {
