@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   gap: var(--md-size-8);
+  color: var(--md-color-text-primary);
 }
 .md-combobox__label label {
   font-weight: var(--md-typography-weight-medium);
@@ -27,6 +28,7 @@
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-size-4);
   padding: 0.6875rem 6.2rem 0.6875rem 2.5rem;
+  color: var(--md-color-text-primary);
 }
 
 .md-combobox--large .md-combobox__input {

@@ -39,6 +39,7 @@
 .md-fileupload__droparea-content {
   font-family: var(--md-typography-family-body);
   font-size: var(--md-typography-size-16);
+  color: var(--md-color-text-primary);
 }
 .md-fileupload__droparea-content--count {
   text-align: center;
