@@ -1,0 +1,19 @@
+.md-divider {
+    /* Set to 0 to remove default margin. Send in custom margin if needed */
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    border-top: 1px solid var(--md-color-border-secondary);
+}
+
+.md-divider--primary {
+  border-color: var(--md-color-border-primary);
+}
+
+.md-divider--secondary {
+  border-color: var(--md-color-border-secondary);
+}
+
+.md-divider--tertiary {
+  border-color: var(--md-color-border-tertiary);
+}
