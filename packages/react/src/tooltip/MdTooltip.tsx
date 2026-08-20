@@ -7,7 +7,7 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * v5.1.x Removed support for ReactNode for tooltipContent, only string is supported.
    */
-  tooltipContent: string;
+  tooltipContent: string | React.ReactNode;
   children: React.ReactNode;
   position?: 'top' | 'bottom' | 'right' | 'left';
   timeout?: number;
