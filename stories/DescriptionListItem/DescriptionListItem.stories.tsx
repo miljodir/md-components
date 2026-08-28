@@ -1,5 +1,7 @@
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import MdDescriptionList, { MdDescriptionListItem } from '../../packages/react/src/descriptionList/MdDescriptionList';
+import Editorial from './docs/DescriptionListItem.mdx';
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 const meta = {
@@ -7,6 +9,18 @@ const meta = {
   component: MdDescriptionListItem,
   parameters: {
     docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Editorial />
+            <Primary />
+            <Controls />
+          </>
+        );
+      },
       description: {
         component:
           // eslint-disable-next-line quotes

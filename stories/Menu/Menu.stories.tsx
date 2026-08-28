@@ -13,6 +13,7 @@ import MdIconUpload from '../../packages/react/src/icons-material/MdIconUpload';
 import { MdMenu } from '../../packages/react/src/menu/MdMenu';
 import type { MdMenuGroupOption, MdMenuProps } from '../../packages/react/src/menu/MdMenu';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Menu.mdx';
 
 export default {
   title: 'Components/Menu',
@@ -25,6 +26,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

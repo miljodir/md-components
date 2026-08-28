@@ -1,6 +1,8 @@
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import { MdLoadingSpinner } from '../../packages/react/src/loadingSpinner/MdLoadingSpinner';
 import type { MdLoadingSpinnerProps } from '../../packages/react/src/loadingSpinner/MdLoadingSpinner';
+import Editorial from './docs/LoadingSpinner.mdx';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
@@ -8,6 +10,18 @@ export default {
   component: MdLoadingSpinner,
   parameters: {
     docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Editorial />
+            <Primary />
+            <Controls />
+          </>
+        );
+      },
       description: {
         component:
           // eslint-disable-next-line quotes

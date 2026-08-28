@@ -3,6 +3,7 @@ import React from 'react';
 import Readme from '../../packages/css/src/formElements/fileupload/README.md';
 import { MdFileUpload } from '../../packages/react/src/formElements/MdFileUpload';
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/FileUpload.mdx';
 
 export default {
   title: 'Form/FileUpload',
@@ -15,6 +16,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

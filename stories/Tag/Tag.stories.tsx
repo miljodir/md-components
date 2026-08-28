@@ -5,6 +5,7 @@ import MdIconInfo from '../../packages/react/src/icons-material/MdIconInfo';
 import { MdTag } from '../../packages/react/src/tag/MdTag';
 import type { MdTagProps } from '../../packages/react/src/tag/MdTag';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Tag.mdx';
 
 export default {
   title: 'Components/Tag',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

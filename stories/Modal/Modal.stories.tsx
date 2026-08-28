@@ -7,6 +7,7 @@ import { MdButton } from '../../packages/react/src/button/MdButton';
 import { MdIconWarning } from '../../packages/react/src/icons-material/MdIconWarning';
 import { MdModal } from '../../packages/react/src/modal/MdModal';
 import type { Args, StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Modal.mdx';
 
 export default {
   title: 'Components/Modal',
@@ -19,6 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

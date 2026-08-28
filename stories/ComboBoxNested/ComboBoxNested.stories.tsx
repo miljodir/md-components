@@ -6,6 +6,7 @@ import Readme from '../../packages/css/src/formElements/combobox/README_NESTED.m
 import MdComboBoxNested from '../../packages/react/src/formElements/MdComboBoxNested';
 import MdIconSearch from '../../packages/react/src/icons-material/MdIconSearch';
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/ComboBoxNested.mdx';
 
 export default {
   tags: ['!dev', '!autodocs'],
@@ -19,6 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

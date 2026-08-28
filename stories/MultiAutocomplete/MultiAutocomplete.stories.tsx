@@ -6,6 +6,7 @@ import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/formElements/multiautocomplete/README.md';
 import { MdMultiAutocomplete } from '../../packages/react/src/formElements/MdMultiAutocomplete';
 import { MdIconSearch } from '../../packages/react/src/icons-material/MdIconSearch';
+import Editorial from './docs/MultiAutocomplete.mdx';
 import type {
   MdMultiAutocompleteOption,
   MdMultiAutocompleteProps,
@@ -22,6 +23,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

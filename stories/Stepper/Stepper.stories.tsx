@@ -8,6 +8,7 @@ import { MdIconChevronForward } from '../../packages/react/src/icons-material/Md
 import { MdStep } from '../../packages/react/src/stepper/MdStep';
 import { MdStepper } from '../../packages/react/src/stepper/MdStepper';
 import type { Args, StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Stepper.mdx';
 
 export default {
   title: 'Components/Stepper',
@@ -20,6 +21,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

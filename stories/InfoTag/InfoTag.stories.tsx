@@ -4,6 +4,7 @@ import Readme from '../../packages/css/src/infoTag/README.md';
 import { MdInfoTag } from '../../packages/react/src/infoTag/MdInfoTag';
 import type { MdInfoTagProps } from '../../packages/react/src/infoTag/MdInfoTag';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/InfoTag.mdx';
 
 export default {
   title: 'Deprecated/Components/InfoTag',
@@ -16,6 +17,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

@@ -4,6 +4,7 @@ import Readme from '../../packages/css/src/tile/README.md';
 import { MdIconBarChart } from '../../packages/react/src/icons-material/MdIconBarChart';
 import { MdTile } from '../../packages/react/src/tiles/MdTile';
 import type { Args, StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Tile.mdx';
 
 export default {
   title: 'Components/Tiles/Tile',
@@ -16,6 +17,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

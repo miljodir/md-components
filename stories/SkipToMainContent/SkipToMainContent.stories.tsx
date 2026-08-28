@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Readme from '../../packages/css/src/skipToMainContent/README.md';
 import { MdSkipToMainContent } from '../../packages/react/src';
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/SkipToMainContent.mdx';
 
 export default {
   title: 'Components/SkipToMainContent',
@@ -15,6 +16,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

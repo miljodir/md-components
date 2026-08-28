@@ -5,6 +5,7 @@ import { MdIconCheck } from '../../packages/react/src/icons-material/MdIconCheck
 import { MdTab } from '../../packages/react/src/tabs/MdTab';
 import { MdTabs } from '../../packages/react/src/tabs/MdTabs';
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/Tabs.mdx';
 
 export default {
   title: 'Components/Tabs',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

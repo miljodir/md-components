@@ -1,6 +1,8 @@
+import { Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import { MdIconOpenInNew } from '../../packages/react/src/icons-material/MdIconOpenInNew';
 import { MdLink } from '../../packages/react/src/link/MdLink';
+import Editorial from './docs/Link.mdx';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
@@ -8,6 +10,18 @@ export default {
   component: MdLink,
   parameters: {
     docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Editorial />
+            <Primary />
+            <Controls />
+          </>
+        );
+      },
       description: {
         // eslint-disable-next-line quotes
         component: "Inline link component.<br/><br/>`import { MdLink } from '@miljodirektoratet/md-react'`",

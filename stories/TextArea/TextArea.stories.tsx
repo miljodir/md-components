@@ -6,6 +6,7 @@ import Readme from '../../packages/css/src/formElements/textarea/README.md';
 import { MdTextArea } from '../../packages/react/src/formElements/MdTextArea';
 import type { MdTextAreaProps } from '../../packages/react/src/formElements/MdTextArea';
 import type { ChangeEvent } from 'react';
+import Editorial from './docs/TextArea.mdx';
 
 export default {
   title: 'Form/TextArea',
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

@@ -6,6 +6,7 @@ import Readme from '../../packages/css/src/formElements/select/README.md';
 import { MdSelect } from '../../packages/react/src/formElements/MdSelect';
 
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/Select.mdx';
 
 export default {
   title: 'Form/Select',
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

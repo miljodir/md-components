@@ -5,6 +5,7 @@ import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/toggle/README.md';
 import { MdToggle } from '../../packages/react/src/toggle/MdToggle';
 import type { MdToggleProps } from '../../packages/react/src/toggle/MdToggle';
+import Editorial from './docs/Toggle.mdx';
 
 export default {
   title: 'Components/Toggle',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

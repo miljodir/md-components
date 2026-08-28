@@ -5,6 +5,7 @@ import MdDescriptionList, { MdDescriptionListItem } from '../../packages/react/s
 import { MdIconSignpost } from '../../packages/react/src/icons-material/MdIconSignpost';
 import { MdLink } from '../../packages/react/src/link/MdLink';
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/DescriptionList.mdx';
 
 const meta = {
   title: 'Components/DescriptionList/DescriptionList',
@@ -17,6 +18,7 @@ const meta = {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

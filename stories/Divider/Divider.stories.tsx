@@ -5,6 +5,7 @@ import Readme from '../../packages/css/src/divider/README.md';
 import type { MdDividerProps } from '../../packages/react/src/divider/MdDivider';
 import { MdDivider } from '../../packages/react/src/divider/MdDivider';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Divider.mdx';
 
 export default {
   title: 'Components/Divider',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

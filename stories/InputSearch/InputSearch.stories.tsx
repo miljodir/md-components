@@ -6,6 +6,7 @@ import { MdInputSearch } from '../../packages/react/src/formElements/MdInputSear
 
 import type { Args } from '@storybook/react-webpack5';
 import type { ChangeEvent } from 'react';
+import Editorial from './docs/InputSearch.mdx';
 
 export default {
   title: 'Form/InputSearch',
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

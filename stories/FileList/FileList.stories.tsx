@@ -4,6 +4,7 @@ import Readme from '../../packages/css/src/filelist/README.md';
 import { MdFileList } from '../../packages/react/src/fileList/MdFileList';
 import type { MdFileListProps } from '../../packages/react/src/fileList/MdFileList';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/FileList.mdx';
 
 export default {
   title: 'Components/FileList',
@@ -16,6 +17,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

@@ -5,6 +5,7 @@ import { MdIconClose } from '../../packages/react/src/icons-material/MdIconClose
 import { MdTooltip } from '../../packages/react/src/tooltip/MdTooltip';
 import type { MdTooltipProps } from '../../packages/react/src/tooltip/MdTooltip';
 import type { StoryFn } from '@storybook/react-webpack5';
+import Editorial from './docs/Tooltip.mdx';
 
 export default {
   title: 'Components/Tooltip',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

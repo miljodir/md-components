@@ -8,6 +8,7 @@ import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdI
 
 import type { Args } from '@storybook/react-webpack5';
 import type { ChangeEvent } from 'react';
+import Editorial from './docs/Input.mdx';
 
 export default {
   title: 'Form/Input',
@@ -20,6 +21,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

@@ -7,6 +7,7 @@ import MdComboBox from '../../packages/react/src/formElements/MdComboBox';
 import MdIconCalendarMonth from '../../packages/react/src/icons-material/MdIconCalendarMonth';
 import MdIconSearch from '../../packages/react/src/icons-material/MdIconSearch';
 import type { Args } from '@storybook/react-webpack5';
+import Editorial from './docs/ComboBox.mdx';
 
 export default {
   title: 'Form/Combobox',
@@ -19,6 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

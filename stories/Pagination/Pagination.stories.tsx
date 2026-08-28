@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { action } from 'storybook/actions';
 import Readme from '../../packages/css/src/pagination/README.md';
 import { MdPagination } from '../../packages/react/src/pagination/MdPagination';
+import Editorial from './docs/Pagination.mdx';
 
 export default {
   title: 'Components/Pagination',
@@ -15,6 +16,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

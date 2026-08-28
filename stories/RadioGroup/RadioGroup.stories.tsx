@@ -5,6 +5,7 @@ import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/formElements/radiogroup/README.md';
 import { MdRadioGroup } from '../../packages/react/src/formElements/MdRadioGroup';
 import type { MdRadioGroupProps } from '../../packages/react/src/formElements/MdRadioGroup';
+import Editorial from './docs/RadioGroup.mdx';
 
 export default {
   title: 'Form/Radio/RadioGroup',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

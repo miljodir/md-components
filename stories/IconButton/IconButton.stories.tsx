@@ -13,6 +13,7 @@ import Readme from '../../packages/css/src/iconButton/README.md';
 import { MdIconButton } from '../../packages/react/src/iconButton/MdIconButton';
 import { MdIconDownload } from '../../packages/react/src/icons-material/MdIconDownload';
 import type { MdIconButtonProps } from '../../packages/react/src/iconButton/MdIconButton';
+import Editorial from './docs/IconButton.mdx';
 
 export default {
   title: 'Components/IconButton',
@@ -25,6 +26,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <PrimaryStory />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>

@@ -5,6 +5,7 @@ import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/formElements/radiobutton/README.md';
 import { MdRadioButton } from '../../packages/react/src/formElements/MdRadioButton';
 import type { MdRadioButtonProps } from '../../packages/react/src/formElements/MdRadioButton';
+import Editorial from './docs/RadioButton.mdx';
 
 export default {
   title: 'Form/Radio/RadioButton',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
