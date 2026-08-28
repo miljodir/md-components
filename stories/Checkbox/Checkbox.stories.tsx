@@ -2,9 +2,10 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
-import Readme from '../packages/css/src/formElements/checkbox/README.md';
-import { MdCheckbox } from '../packages/react/src/formElements/MdCheckbox';
-import type { MdCheckboxProps } from '../packages/react/src/formElements/MdCheckbox';
+import Readme from '../../packages/css/src/formElements/checkbox/README.md';
+import Editorial from './docs/Checkbox.mdx'
+import { MdCheckbox } from '../../packages/react/src/formElements/MdCheckbox';
+import type { MdCheckboxProps } from '../../packages/react/src/formElements/MdCheckbox';
 
 export default {
   title: 'Form/Checkbox',
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -26,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A checkbox component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
+          "`import { MdCheckbox } from '@miljodirektoratet/md-react'`",
       },
     },
   },

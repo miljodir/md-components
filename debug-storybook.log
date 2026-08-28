@@ -1,0 +1,24 @@
+[13:01:14.207] [INFO] storybook v10.2.12
+[13:01:14.748] [DEBUG] Getting package.json info for /Users/helgejohnsen/www/mdir/md-components/package.json...
+[13:01:19.731] [DEBUG] Serving static files from [36massets[39m at [36m/assets[39m
+[13:01:19.734] [INFO] Starting...
+[13:01:20.444] [DEBUG] Starting preview..
+[13:01:20.504] [INFO] Addon-docs: using MDX3
+[13:01:20.658] [INFO] Using implicit CSS loaders
+[13:01:21.346] [INFO] Using default Webpack5 setup
+[13:01:33.801] [ERROR] Failed to build the preview
+[13:01:33.806] [WARN] Force closed preview build
+[13:01:33.806] [ERROR] [38;2;241;97;97mSB_BUILDER-WEBPACK5_0003 (WebpackCompilationError): There were problems when compiling your code with Webpack.
+Run Storybook with --debug-webpack for more information.[39m
+    at starter (file://./node_modules/@storybook/builder-webpack5/dist/index.js:799:11)
+    at starter.next (<anonymous>)
+    at Module.start (file://./node_modules/@storybook/builder-webpack5/dist/index.js:857:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async storybookDevServer (file://./node_modules/storybook/dist/core-server/index.js:7241:83)
+    at async buildOrThrow (file://./node_modules/storybook/dist/core-server/index.js:4504:12)
+    at async buildDevStandalone (file://./node_modules/storybook/dist/core-server/index.js:7611:66)
+    at async withTelemetry (file://./node_modules/storybook/dist/_node-chunks/chunk-6JM2KRWM.js:218:12)
+    at async dev (file://./node_modules/storybook/dist/bin/core.js:2734:3)
+    at async _Command.<anonymous> (file://./node_modules/storybook/dist/bin/core.js:2803:92)
+[13:01:33.807] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.

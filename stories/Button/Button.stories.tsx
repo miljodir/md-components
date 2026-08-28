@@ -8,11 +8,12 @@ import {
 } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import { action } from 'storybook/actions';
-import Readme from '../packages/css/src/button/README.md';
-import { MdButton } from '../packages/react/src/button/MdButton';
-import { MdIconChevronForward } from '../packages/react/src/icons-material/MdIconChevronForward';
-import { MdIconClose } from '../packages/react/src/icons-material/MdIconClose';
-import { MdLink } from '../packages/react/src/link/MdLink';
+import Readme from '../../packages/css/src/button/README.md';
+import Editorial from './docs/Button.mdx'; 
+import { MdButton } from '../../packages/react/src/button/MdButton';
+import { MdIconChevronForward } from '../../packages/react/src/icons-material/MdIconChevronForward';
+import { MdIconClose } from '../../packages/react/src/icons-material/MdIconClose';
+import { MdLink } from '../../packages/react/src/link/MdLink';
 
 export default {
   title: 'Components/Button',
@@ -25,6 +26,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <PrimaryStory />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -33,7 +35,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "A button component.<br/><br/>`import { MdButton } from '@miljodirektoratet/md-react'`",
+        component: "`import { MdButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },

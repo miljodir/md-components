@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {
+  DocsContext, Title, Subtitle, Markdown, Primary, Controls, Stories,
+} from '@storybook/addon-docs/blocks';
 import './../packages/css/src/index.css';
 import './../assets/fonts.css';
 import './../assets/preview.css';
+
+const docsContext = require.context('../stories', true, /docs\/.*\.md$/);
+const docsFiles: Record<string, string> = {};
+docsContext.keys().forEach((key) => {
+  docsFiles[key] = docsContext(key) as unknown as string;
+});
+
+function CustomDocsPage() {
+  const { title } = useContext(DocsContext);
+  const componentName = title.split('/').pop();
+  const match = Object.entries(docsFiles).find(([path]) =>
+    {return path.includes(`/${componentName}/docs/`)}
+  );
+
+  return (
+    <>
+      <Title />
+      <Subtitle />
+      {match && <Markdown>{match[1]}</Markdown>}
+      <Primary />
+      <Controls />
+      <Stories />
+    </>
+  );
+}
 
 export const parameters = {
   controls: {
@@ -30,6 +58,9 @@ export const parameters = {
         'Deprecated',
       ],
     },
+  },
+  docs: {
+    page: CustomDocsPage,
   },
 };
 

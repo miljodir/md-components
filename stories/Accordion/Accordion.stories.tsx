@@ -1,9 +1,10 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 
 import React from 'react';
-import Readme from '../packages/css/src/accordion/README.md';
-import MdAccordion, { type MdAccordionProps } from '../packages/react/src/accordion/MdAccordion';
-import MdAccordionItem from '../packages/react/src/accordion/MdAccordionItem';
+import Readme from '../../packages/css/src/accordion/README.md';
+import MdAccordion, { type MdAccordionProps } from '../../packages/react/src/accordion/MdAccordion';
+import MdAccordionItem from '../../packages/react/src/accordion/MdAccordionItem';
+import Editorial from './docs/Accordion.mdx';
 
 import type { StoryFn } from '@storybook/react-webpack5';
 
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -27,7 +29,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A wrapper component for accordion item components.<br/>This can be used to group accordion items together so only one is expanded at a time, and set props that are shared between items.<br/><br/>`import { MdAccordion, MdAccordionItem } from '@miljodirektoratet/md-react'`",
+          "`import { MdAccordion, MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
   },

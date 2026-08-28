@@ -2,10 +2,11 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
-import Readme from '../packages/css/src/formElements/checkboxgroup/README.md';
-import { MdCheckboxGroup } from '../packages/react/src/formElements/MdCheckboxGroup';
+import Readme from '../../packages/css/src/formElements/checkboxgroup/README.md';
+import Editorial from './docs/CheckboxGroup.mdx';
+import { MdCheckboxGroup } from '../../packages/react/src/formElements/MdCheckboxGroup';
 
-import type { MdCheckboxGroupOption } from '../packages/react/src/formElements/MdCheckboxGroup';
+import type { MdCheckboxGroupOption } from '../../packages/react/src/formElements/MdCheckboxGroup';
 import type { Args } from '@storybook/react-webpack5';
 
 export default {
@@ -19,6 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -28,7 +30,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for grouped checkboxes.<br/><br/>`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`",
+          "`import { MdCheckboxGroup } from '@miljodirektoratet/md-react'`",
       },
     },
   },

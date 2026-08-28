@@ -1,11 +1,12 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 
 import React from 'react';
-import Readme from '../packages/css/src/accordionitem/README.md';
-import { MdAccordionItem } from '../packages/react/src/accordion/MdAccordionItem';
-import MdComboBox from '../packages/react/src/formElements/MdComboBox';
-import MdIconHome from '../packages/react/src/icons-material/MdIconHome';
-import type { MdAccordionItemProps } from '../packages/react/src/accordion/MdAccordionItem';
+import Readme from '../../packages/css/src/accordionitem/README.md';
+import Editorial from './docs/AccordionItem.mdx';
+import { MdAccordionItem } from '../../packages/react/src/accordion/MdAccordionItem';
+import MdComboBox from '../../packages/react/src/formElements/MdComboBox';
+import MdIconHome from '../../packages/react/src/icons-material/MdIconHome';
+import type { MdAccordionItemProps } from '../../packages/react/src/accordion/MdAccordionItem';
 import type { StoryFn } from '@storybook/react-webpack5';
 
 export default {
@@ -19,6 +20,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -28,7 +30,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for expand/collapse content in an accordion.<br/><br/>`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
+          "`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
       },
     },
   },

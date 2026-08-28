@@ -3,6 +3,7 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/chips/README.md';
+import Editorial from './docs/FilterChip.mdx';
 import { MdFilterChip } from '../../packages/react/src/chips/MdFilterChip';
 import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import type { MdFilterChipProps } from '../../packages/react/src/chips/MdFilterChip';
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -27,7 +29,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A chip component used for filters. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdFilterChip } from '@miljodirektoratet/md-react'`",
+          "`import { MdFilterChip } from '@miljodirektoratet/md-react'`",
       },
     },
   },
