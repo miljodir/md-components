@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for handling file upload with drag and drop. Returns an array of files, to do with as you please.<br/><br/>`import { MdFileUpload } from '@miljodirektoratet/md-react'`",
+          "`import { MdFileUpload } from '@miljodirektoratet/md-react'`",
       },
     },
   },

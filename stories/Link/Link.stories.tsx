@@ -24,7 +24,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "Inline link component.<br/><br/>`import { MdLink } from '@miljodirektoratet/md-react'`",
+        component: "`import { MdLink } from '@miljodirektoratet/md-react'`",
       },
     },
   },

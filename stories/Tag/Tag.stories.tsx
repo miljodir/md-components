@@ -28,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for info tag. <br/><br/>`import { MdTag } from '@miljodirektoratet/md-react'`",
+          "`import { MdTag } from '@miljodirektoratet/md-react'`",
       },
     },
   },

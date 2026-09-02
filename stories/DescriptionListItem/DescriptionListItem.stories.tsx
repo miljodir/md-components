@@ -24,7 +24,7 @@ const meta = {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Description list component. Should only be used as child in `MdDescriptionList`!<br/><br/>`import { MdDescriptionList } from '@miljodirektoratet/md-react'`",
+          "`import { MdDescriptionList } from '@miljodirektoratet/md-react'`",
       },
     },
   },

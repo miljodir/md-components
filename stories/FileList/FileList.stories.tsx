@@ -27,7 +27,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for listing files, with buttons for delete and download.<br/><br/>`import { MdFileList } from '@miljodirektoratet/md-react'`",
+          "`import { MdFileList } from '@miljodirektoratet/md-react'`",
       },
     },
   },

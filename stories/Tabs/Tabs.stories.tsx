@@ -27,7 +27,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "A component for tabs.<br/><br/>`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
+        component: "`import { MdTabs, MdTab } from '@miljodirektoratet/md-react'`",
       },
     },
   },

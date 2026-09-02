@@ -32,7 +32,7 @@ export default {
       },
       description: {
         component:
-          "A form component for multi-autocomplete. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdMultiAutocomplete } from '@miljodirektoratet/md-react'`",
+          "`import { MdMultiAutocomplete } from '@miljodirektoratet/md-react'`",
       },
     },
   },

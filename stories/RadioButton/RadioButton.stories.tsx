@@ -28,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A radio button component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdRadioButton } from '@miljodirektoratet/md-react'`",
+          "`import { MdRadioButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },

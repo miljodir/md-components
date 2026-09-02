@@ -36,7 +36,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "An icon button component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdIconButton } from '@miljodirektoratet/md-react'`",
+          "`import { MdIconButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },

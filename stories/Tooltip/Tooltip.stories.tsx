@@ -28,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for tooltip. Hover over to display/expand text. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdTooltip } from '@miljodirektoratet/md-react'`",
+          "`import { MdTooltip } from '@miljodirektoratet/md-react'`",
       },
     },
   },

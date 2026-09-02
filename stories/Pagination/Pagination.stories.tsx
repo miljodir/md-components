@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A pagination component for navigating between pages.<br/><br/>`import { MdPagination } from '@miljodirektoratet/md-react'`",
+          "`import { MdPagination } from '@miljodirektoratet/md-react'`",
       },
     },
   },

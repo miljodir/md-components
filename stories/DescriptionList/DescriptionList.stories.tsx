@@ -28,7 +28,7 @@ const meta = {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Description list component.<br/><br/>`import { MdDescriptionList } from '@miljodirektoratet/md-react'`",
+          "`import { MdDescriptionList } from '@miljodirektoratet/md-react'`",
       },
     },
   },

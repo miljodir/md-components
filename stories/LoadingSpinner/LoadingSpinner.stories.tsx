@@ -25,7 +25,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Loading spinner component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdLoadingSpinner } from '@miljodirektoratet/md-react'`",
+          "`import { MdLoadingSpinner } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -26,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for skip to main content.<br/>To be used as the first focusable element on a page, so users can skip to the main content of the page. Should only be used as the very first element on a page.<br/><br/>`import { MdSkipToMainContent } from '@miljodirektoratet/md-react'`",
+          "`import { MdSkipToMainContent } from '@miljodirektoratet/md-react'`",
       },
     },
   },

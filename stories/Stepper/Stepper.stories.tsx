@@ -30,7 +30,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "Stepper component.<br/><br/>`import { MdStepper, MdStep } from '@miljodirektoratet/md-react'`",
+        component: "`import { MdStepper, MdStep } from '@miljodirektoratet/md-react'`",
       },
     },
   },

@@ -29,7 +29,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Text area used in forms. In addition to the properties presented here, the component accepts all standard attributes of a HTML Textarea element.<br/><br/>`import { MdTextArea } from '@miljodirektoratet/md-react'`",
+          "`import { MdTextArea } from '@miljodirektoratet/md-react'`",
       },
     },
   },

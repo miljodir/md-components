@@ -28,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Toggle switch. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdToggle } from '@miljodirektoratet/md-react'`",
+          "`import { MdToggle } from '@miljodirektoratet/md-react'`",
       },
     },
   },

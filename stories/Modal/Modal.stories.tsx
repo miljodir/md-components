@@ -30,7 +30,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "An overlay modal component. Extends HTMLDivElement<br/><br/>`import { MdModal } from '@miljodirektoratet/md-react'`",
+          "`import { MdModal } from '@miljodirektoratet/md-react'`",
       },
     },
   },

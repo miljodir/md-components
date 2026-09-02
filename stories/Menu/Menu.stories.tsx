@@ -35,7 +35,7 @@ export default {
       },
       description: {
         // eslint-disable-next-line quotes
-        component: "A dropdown menu component for accessing a set of commands, actions, or settings.<br/><br/>`import { MdMenu } from '@miljodirektoratet/md-react'`",
+        component: "`import { MdMenu } from '@miljodirektoratet/md-react'`",
       },
     },
   },

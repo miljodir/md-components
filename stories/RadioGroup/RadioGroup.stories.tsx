@@ -28,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A form component for a group of radio buttons. Can also be used outside of a form.<br/><br/>`import { MdRadioGroup } from '@miljodirektoratet/md-react'`",
+          "`import { MdRadioGroup } from '@miljodirektoratet/md-react'`",
       },
     },
   },

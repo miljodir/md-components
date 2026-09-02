@@ -31,7 +31,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Input field used in forms. In addition to the properties presented here, the component accepts all standard attributes of a HTML Input element.<br/><br/>`import { MdInput } from '@miljodirektoratet/md-react'`",
+          "`import { MdInput } from '@miljodirektoratet/md-react'`",
       },
     },
   },
