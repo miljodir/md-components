@@ -1,7 +1,12 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'], // mdx-glob fjernet
+  stories: [
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+    '../stories/Introduction/*.mdx',
+    '../stories/Colors/*.mdx',
+    '../stories/Logos/*.mdx',
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-webpack5-compiler-babel',

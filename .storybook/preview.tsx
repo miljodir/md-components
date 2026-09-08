@@ -13,11 +13,13 @@ docsContext.keys().forEach((key) => {
 });
 
 function CustomDocsPage() {
-  const { title } = useContext(DocsContext);
-  const componentName = title.split('/').pop();
-  const match = Object.entries(docsFiles).find(([path]) =>
-    {return path.includes(`/${componentName}/docs/`)}
-  );
+  const { title } = useContext(DocsContext) as { title?: string };
+  const componentName = title?.split('/').pop();
+  const match = componentName
+    ? Object.entries(docsFiles).find(([path]) =>
+      { return path.includes(`/${componentName}/docs/`); },
+    )
+    : undefined;
 
   return (
     <>
