@@ -1,6 +1,7 @@
 import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
 import React from 'react';
 import Readme from '../../packages/css/src/messages/InfoBox.md';
+import Editorial from './docs/Infobox.mdx';
 import { MdInfoBox } from '../../packages/react/src/messages/MdInfoBox';
 import type { StoryFn } from '@storybook/react-webpack5';
 
@@ -15,6 +16,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -24,7 +26,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A component for info box. In addition to the properties presented here, the component accepts all standard attributes of a HTML Div element.<br/><br/>`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
+          "`import { MdInfoBox } from '@miljodirektoratet/md-react'`",
       },
     },
   },
