@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          cd packages/react && npm install
+          cd packages/react && npm ci
 
       - name: Lint
         run: npm run lint

@@ -31,7 +31,7 @@ if (
   'function'
 ) {
   Object.defineProperty(globalThis.CSS, 'supports', {
-    value: () => false,
+    value: () => {return false},
     writable: true,
     configurable: true,
   });
@@ -46,7 +46,9 @@ console.error = (...args: unknown[]) => {
       return String(arg);
     })
     .join(' ');
-  if (fullMessage.includes('inside a test was not wrapped in act') && fullMessage.includes('@ariakit')) {
+  // React's act warning message does not reliably include a component stack (no
+  // '@ariakit' substring to key off), so match on the warning text itself.
+  if (fullMessage.includes('inside a test was not wrapped in act')) {
     return;
   }
   originalError.apply(console, args);
