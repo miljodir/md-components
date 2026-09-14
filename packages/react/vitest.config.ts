@@ -8,6 +8,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
+    // Combobox/Popover tests rely on real async rendering and are close to the default 5s limit
+    testTimeout: 10000,
     typecheck: {
       tsconfig: './tsconfig.test.json',
     },
