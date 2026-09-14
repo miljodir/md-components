@@ -63,6 +63,26 @@ export default {
       },
       control: { type: 'text' },
     },
+    textLeft: {
+      description: 'Toggle label is on the left or right side of the toggle button',
+      table: {
+        defaultValue: { summary: 'true' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    error: {
+      description: 'Does toggle contain an error?',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },    
     disabled: {
       description: 'Is the toggle disabled?',
       table: {
@@ -119,6 +139,7 @@ const Template = (args: MdToggleProps) => {
 export const Toggle = Template.bind({});
 Toggle.args = {
   label: 'Label',
+  textLeft: true,
   checked: false,
   disabled: false,
   error: false,
