@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
@@ -83,6 +83,55 @@ describe('MdTabs', () => {
         </MdTabs>,
       );
       expect(container.querySelector('.md-tabs__compact')).toBeInTheDocument();
+    });
+  });
+
+  describe('tab decorations', () => {
+    it('renders a left icon and right icon', () => {
+      render(
+        <MdTabs>
+          <MdTab
+            title="Inbox"
+            leftIcon={<span data-testid="left-icon" />}
+            rightIcon={<span data-testid="right-icon" />}
+          >
+            Content
+          </MdTab>
+        </MdTabs>,
+      );
+
+      const tab = screen.getByRole('tab', { name: 'Inbox' });
+      expect(within(tab).getByTestId('left-icon')).toBeInTheDocument();
+      expect(within(tab).getByTestId('right-icon')).toBeInTheDocument();
+    });
+
+    it('renders a badge instead of a right icon when both are provided', () => {
+      render(
+        <MdTabs>
+          <MdTab title="Inbox" rightIcon={<span data-testid="right-icon" />} badge={<span data-testid="badge">3</span>}>
+            Content
+          </MdTab>
+        </MdTabs>,
+      );
+
+      const tab = screen.getByRole('tab', { name: 'Inbox' });
+      expect(within(tab).getByTestId('badge')).toBeInTheDocument();
+      expect(within(tab).queryByTestId('right-icon')).not.toBeInTheDocument();
+    });
+
+    it('renders an icon-only tab without a badge', () => {
+      render(
+        <MdTabs>
+          <MdTab title="Notifications" iconOnly leftIcon={<span data-testid="icon" />} badge={<span>3</span>}>
+            Content
+          </MdTab>
+        </MdTabs>,
+      );
+
+      const tab = screen.getByRole('tab', { name: 'Notifications' });
+      expect(within(tab).getByTestId('icon')).toBeInTheDocument();
+      expect(within(tab).queryByText('Notifications')).not.toBeInTheDocument();
+      expect(within(tab).queryByText('3')).not.toBeInTheDocument();
     });
   });
 
