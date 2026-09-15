@@ -32,21 +32,21 @@ export default {
   },
   argTypes: {
     tooltipContent: {
-      type: { name: 'string', required: true },
+      type: { name: 'string | ReactNode', required: true },
       description: 'The content to display on hover',
       table: {
         type: {
-          summary: 'string',
+          summary: 'string | ReactNode',
         },
       },
       control: { type: 'text' },
     },
     children: {
-      type: { name: 'string | ReactNode', required: true },
+      type: { name: 'ReactNode', required: true },
       description: 'Tooltip trigger element',
       table: {
         type: {
-          summary: 'text | ReactNode',
+          summary: 'ReactNode',
         },
       },
       control: false,
