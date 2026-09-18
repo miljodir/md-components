@@ -120,6 +120,47 @@ const defaultArgs = {
   compact: false,
 };
 
+export const MixedVariants: StoryFn<Args> = (args: Args) => {
+  return (
+    <MdTabs
+      initialTab={args.initialTab}
+      chips={args.chips}
+      chipsPrefixIcon={args.chipsPrefixIcon ? <MdIconCheck /> : null}
+      compact={args.compact}
+    >
+      <MdTab title="Text only" disabled={args.disabledTabs?.includes('Tab 1')}>
+        {panelContent('Text only', 'This tab uses a plain text label without an icon or badge.')}
+      </MdTab>
+      <MdTab
+        title="With icon"
+        disabled={args.disabledTabs?.includes('Tab 2')}
+        leftIcon={<MdIconHome aria-hidden="true" width="20" height="20" />}
+      >
+        {panelContent('Icon and text', 'This tab combines a left icon with a text label.')}
+      </MdTab>
+      <MdTab
+        title="With badge"
+        disabled={args.disabledTabs?.includes('Tab 3')}
+        badge={<MdBadge count={3} size="small" theme="info" />}
+      >
+        {panelContent('Badge', 'This tab combines a text label with a badge on the right.')}
+      </MdTab>
+      <MdTab
+        title="Only icon"
+        iconOnly
+        disabled={args.disabledTabs?.includes('Tab 4')}
+        leftIcon={<MdIconInfo aria-hidden="true" width="20" height="20" />}
+      >
+        {panelContent(
+          'Icon only',
+          'This tab is only icon. Use a meaningful title for screen readers when displaying icons only.',
+        )}
+      </MdTab>
+    </MdTabs>
+  );
+};
+MixedVariants.args = defaultArgs;
+
 export const PlainText: StoryFn<Args> = (args: Args) => {
   return (
     <MdTabs
@@ -246,33 +287,3 @@ export const Badges: StoryFn<Args> = (args: Args) => {
   );
 };
 Badges.args = defaultArgs;
-
-export const MixedVariants: StoryFn<Args> = (args: Args) => {
-  return (
-    <MdTabs
-      initialTab={args.initialTab}
-      chips={args.chips}
-      chipsPrefixIcon={args.chipsPrefixIcon ? <MdIconCheck /> : null}
-      compact={args.compact}
-    >
-      <MdTab title="Text only" disabled={args.disabledTabs?.includes('Tab 1')}>
-        {panelContent('Text only', 'This tab uses a plain text label without an icon or badge.')}
-      </MdTab>
-      <MdTab
-        title="With icon"
-        disabled={args.disabledTabs?.includes('Tab 2')}
-        leftIcon={<MdIconHome aria-hidden="true" width="20" height="20" />}
-      >
-        {panelContent('Icon and text', 'This tab combines a left icon with a text label.')}
-      </MdTab>
-      <MdTab
-        title="With badge"
-        disabled={args.disabledTabs?.includes('Tab 3')}
-        badge={<MdBadge count={3} size="small" theme="info" />}
-      >
-        {panelContent('Badge', 'This tab combines a text label with a badge on the right.')}
-      </MdTab>
-    </MdTabs>
-  );
-};
-MixedVariants.args = defaultArgs;

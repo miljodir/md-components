@@ -114,7 +114,7 @@ describe('MdTabs', () => {
         </MdTabs>,
       );
 
-      const tab = screen.getByRole('tab', { name: 'Inbox' });
+      const tab = screen.getByRole('tab', { name: 'Inbox3' });
       expect(within(tab).getByTestId('badge')).toBeInTheDocument();
       expect(within(tab).queryByTestId('right-icon')).not.toBeInTheDocument();
     });

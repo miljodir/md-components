@@ -36,7 +36,7 @@ export const MdTabTitle: React.FunctionComponent<MdTabTitleProps> = ({
   });
 
   return (
-    <Tab aria-label={title || undefined} className={classNames} disabled={disabled} id={`md-tab-${index}`}>
+    <Tab aria-label={iconOnly ? title || undefined : undefined} className={classNames} disabled={disabled} id={`md-tab-${index}`}>
       {chips && chipsPrefixIcon ? <div className="md-chip__left-icon">{chipsPrefixIcon}</div> : null}
       {leftIcon ? (
         <span aria-hidden="true" className="md-tabs-button__left-icon">

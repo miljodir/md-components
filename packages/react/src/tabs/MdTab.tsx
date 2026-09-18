@@ -3,7 +3,7 @@
 import React from 'react';
 
 export interface MdTabProps {
-  title?: string;
+  title: string;
   iconOnly?: boolean;
   disabled?: boolean;
   leftIcon?: React.ReactNode;
