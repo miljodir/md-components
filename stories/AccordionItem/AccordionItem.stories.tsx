@@ -1,0 +1,192 @@
+import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@storybook/addon-docs/blocks';
+
+import React from 'react';
+import Readme from '../../packages/css/src/accordionitem/README.md';
+import Editorial from './docs/AccordionItem.mdx';
+import { MdAccordionItem } from '../../packages/react/src/accordion/MdAccordionItem';
+import MdComboBox from '../../packages/react/src/formElements/MdComboBox';
+import MdIconHome from '../../packages/react/src/icons-material/MdIconHome';
+import type { MdAccordionItemProps } from '../../packages/react/src/accordion/MdAccordionItem';
+import type { StoryFn } from '@storybook/react-webpack5';
+
+export default {
+  title: 'Components/Accordion/AccordionItem',
+  component: MdAccordionItem,
+  parameters: {
+    docs: {
+      page: () => {
+        return (
+          <>
+            <Title />
+            <Subtitle />
+            <Description />
+            <Editorial />
+            <Primary />
+            <Controls />
+            <Markdown>{Readme.toString()}</Markdown>
+          </>
+        );
+      },
+      description: {
+        component:
+          // eslint-disable-next-line quotes
+          "`import { MdAccordionItem } from '@miljodirektoratet/md-react'`",
+      },
+    },
+  },
+  argTypes: {
+    label: {
+      type: { name: 'string' },
+      description: 'The label for the accordion item.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    id: {
+      type: { name: 'string' },
+      description: 'Id for the accordion item. If not set, uses a random uuid',
+      table: {
+        defaultValue: { summary: 'useId()' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    children: {
+      description: 'Accordion content',
+      table: {
+        type: {
+          summary: 'text | ReactNode',
+        },
+      },
+      control: false,
+    },
+    expanded: {
+      type: { name: 'boolean' },
+      description: 'Determines if the accordion item should be initially expanded.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    theme: {
+      type: { name: 'string' },
+      description: 'Color theme for accordion.',
+      options: ['primary', 'secondary', 'add'],
+      table: {
+        defaultValue: { summary: 'primary' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'inline-radio' },
+    },
+    disabled: {
+      type: { name: 'boolean' },
+      description: 'Enable/disabled accordion.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    hideCloseButton: {
+      type: { name: 'boolean' },
+      description: 'Hide close button inside accordion content',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    closeButtonText: {
+      type: { name: 'string' },
+      description: 'The text for the close button inside accordion content.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'string',
+        },
+      },
+      control: { type: 'text' },
+    },
+    rounded: {
+      type: { name: 'boolean' },
+      description: 'Deprecated: Rounded corners are now the default for all components, and the prop will be removed in a future release.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+    headerContent: {
+      type: { name: 'ReactNode' },
+      description: 'Content to display on the right side in the header. Can be HTML.',
+      table: {
+        defaultValue: { summary: 'null' },
+        type: {
+          summary: 'DomElement | ReactNode | string',
+        },
+      },
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+const Template: StoryFn<typeof MdAccordionItem> = (args: MdAccordionItemProps) => {
+  return (
+    <div style={{ minHeight: '300px' }}>
+      <MdAccordionItem
+        {...args}
+        headerContent={
+          args.headerContent ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
+              Example content
+              <MdIconHome style={{ height: '1.15rem' }} />
+            </div>
+          ) : undefined
+        }
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <MdAccordionItem label="Accordion item nested inside another accordion item">
+            <div>Accordion item content bonanza</div>
+          </MdAccordionItem>
+          <MdComboBox
+            name="example-combobox"
+            label="Example combobox"
+            placeholder="Select an option"
+            options={[]}
+            value={''}
+            onSelectOption={function (): void {}}
+            disabled={args.disabled}
+          />
+        </div>
+      </MdAccordionItem>
+    </div>
+  );
+};
+
+export const AccordionItem = Template.bind({});
+AccordionItem.args = {
+  label: 'Click to toggle accordion item',
+  theme: 'primary',
+  disabled: false,
+  headerContent: false,
+  hideCloseButton: false,
+  closeButtonText: 'Lukk',
+  id: undefined,
+};
