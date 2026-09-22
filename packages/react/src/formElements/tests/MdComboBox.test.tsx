@@ -304,7 +304,9 @@ describe('MdComboBox', () => {
       const observeMock = vi.fn();
       vi.stubGlobal(
         'ResizeObserver',
-        vi.fn().mockImplementation(() => ({ observe: observeMock, disconnect: vi.fn() })),
+        vi.fn().mockImplementation(function () {
+          return { observe: observeMock, disconnect: vi.fn() };
+        }),
       );
 
       const { container } = render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
@@ -315,13 +317,15 @@ describe('MdComboBox', () => {
     it('sets input padding-right to afterWidth + 12px when ResizeObserver fires', async () => {
       vi.stubGlobal(
         'ResizeObserver',
-        vi.fn().mockImplementation((cb: ResizeObserverCallback) => ({
-          observe: vi.fn().mockImplementation((el: Element) => {
-            Object.defineProperty(el, 'offsetWidth', { value: 68, configurable: true });
-            cb([], {} as ResizeObserver);
-          }),
-          disconnect: vi.fn(),
-        })),
+        vi.fn().mockImplementation(function (cb: ResizeObserverCallback) {
+          return {
+            observe: vi.fn().mockImplementation((el: Element) => {
+              Object.defineProperty(el, 'offsetWidth', { value: 68, configurable: true });
+              cb([], {} as ResizeObserver);
+            }),
+            disconnect: vi.fn(),
+          };
+        }),
       );
 
       render(<MdComboBox options={mockOptions} value="opt1" onSelectOption={() => {}} allowReset />);
@@ -334,7 +338,9 @@ describe('MdComboBox', () => {
     it('does not apply inline padding-right before ResizeObserver fires', () => {
       vi.stubGlobal(
         'ResizeObserver',
-        vi.fn().mockImplementation(() => ({ observe: vi.fn(), disconnect: vi.fn() })),
+        vi.fn().mockImplementation(function () {
+          return { observe: vi.fn(), disconnect: vi.fn() };
+        }),
       );
 
       render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
@@ -345,7 +351,9 @@ describe('MdComboBox', () => {
       const disconnectMock = vi.fn();
       vi.stubGlobal(
         'ResizeObserver',
-        vi.fn().mockImplementation(() => ({ observe: vi.fn(), disconnect: disconnectMock })),
+        vi.fn().mockImplementation(function () {
+          return { observe: vi.fn(), disconnect: disconnectMock };
+        }),
       );
 
       const { unmount } = render(<MdComboBox options={mockOptions} value="" onSelectOption={() => {}} />);
