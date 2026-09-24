@@ -179,7 +179,7 @@ expect(onPageChange).toHaveBeenCalledWith(2);
 ### Test Categories to Cover
 
 1. **Rendering** - Default props, conditional rendering, null cases
-2. **Props forwarding** - id, className, aria-_, data-_ attributes
+2. **Props forwarding** - id, className, `aria-*`, `data-*` attributes
 3. **Interactions** - Click, keyboard (Enter, Space), focus
 4. **Disabled states** - Visual and functional disabled behavior
 5. **Edge cases** - Boundary values, invalid inputs
