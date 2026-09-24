@@ -5,41 +5,79 @@ on:
       - main
     types: [opened, labeled, unlabeled, synchronize]
 
+permissions: {}
+
+# Several events fire when a PR is opened. Running them one at a time makes the last run, which sees
+# the final labels, the one that sets the check status.
+concurrency:
+  group: pr-label-checker-${{ github.event.pull_request.number }}
+
 jobs:
+  # Chooses the release label for Dependabot PRs. It only reacts to events Dependabot itself caused,
+  # so labels set by a human are never touched.
+  #
   # Labels added with GITHUB_TOKEN do not trigger new workflow runs, so labelling happens here,
   # before the check, instead of in a separate workflow.
   label_dependabot:
     name: 'Label Dependabot PR'
     if: >-
-      github.event.pull_request.user.login == 'dependabot[bot]' &&
-      !contains(github.event.pull_request.labels.*.name, 'major') &&
-      !contains(github.event.pull_request.labels.*.name, 'minor') &&
-      !contains(github.event.pull_request.labels.*.name, 'patch') &&
-      !contains(github.event.pull_request.labels.*.name, 'skip-release')
+      github.event.sender.login == 'dependabot[bot]' && (
+        github.event.action == 'opened' || (
+          github.event.action == 'labeled' &&
+          contains(fromJSON('["major", "minor", "patch"]'), github.event.label.name)
+        )
+      )
     runs-on: ubuntu-slim
     permissions:
       pull-requests: write
+    env:
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      # Dependabot adds a semver label matching the size of the dependency bump whenever the repo has
+      # major/minor/patch labels, which the publish workflows would read as a release label. It stops
+      # doing so while a `skip-release` label exists in the repo, see `label_update_type?` in
+      # https://github.com/dependabot/dependabot-core/blob/main/common/lib/dependabot/pull_request_creator/labeler.rb.
+      # This step keeps that from publishing a release if the label is ever deleted or renamed.
+      - name: Remove semver label added by Dependabot
+        if: github.event.action == 'labeled'
+        run: gh pr edit "$PR_URL" --remove-label "$LABEL"
+        env:
+          LABEL: ${{ github.event.label.name }}
+
       - id: metadata
         uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
-      # Only development and lockfile-only (indirect) updates are safe to skip. A production
-      # dependency reaches consumers, so a human has to choose the release label.
-      - name: Add skip-release for non-production updates
+
+      # Development, lockfile-only (indirect) and GitHub Actions updates never reach package consumers.
+      # A production dependency does, so a human has to choose the release label.
+      #
+      # Dependabot also rewrites peerDependencies that match the updated requirement exactly, while
+      # classifying the update by devDependencies. Keep peer ranges different from the dev ranges so a
+      # peer change never gets skip-release.
+      - name: Add skip-release for updates that do not reach consumers
         if: >-
           steps.metadata.outputs.dependency-type == 'direct:development' ||
-          steps.metadata.outputs.dependency-type == 'indirect'
-        run: gh pr edit "$PR_URL" --add-label 'skip-release'
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          steps.metadata.outputs.dependency-type == 'indirect' ||
+          steps.metadata.outputs.package-ecosystem == 'github_actions'
+        run: |
+          labels=$(gh pr view "$PR_URL" --json labels --jq '[.labels[].name] | join(",")')
+          if echo ",$labels," | grep -qE ',(major|minor|patch|skip-release),'; then
+            echo "Release label already set: $labels"
+          else
+            gh pr edit "$PR_URL" --add-label 'skip-release'
+          fi
 
   check_labels:
     name: 'Check PR Labels'
     needs: label_dependabot
-    if: ${{ !cancelled() }}
+    # always() so a cancelled or failed labelling job never skips this required check.
+    if: always()
     runs-on: ubuntu-slim
+    permissions:
+      issues: read
+      pull-requests: read
     steps:
-      # Reads labels from the API, so it sees labels added by label_dependabot.
+      # Reads labels from the API, so it sees labels changed by label_dependabot.
       - uses: mheap/github-action-required-labels@23e10fde7e062233401931a0eece796cd9bf3177 # v5.6.0
         with:
           mode: exactly

@@ -43,14 +43,17 @@ jobs:
 
       - name: Determine version bump
         id: bump
+        env:
+          VERSION_BUMP: ${{ inputs.version_bump }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "type=${{ inputs.version_bump }}" >> $GITHUB_OUTPUT
-          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"major"'; then
+            echo "type=$VERSION_BUMP" >> $GITHUB_OUTPUT
+          elif echo "$PR_LABELS" | grep -q '"major"'; then
             echo "type=major" >> $GITHUB_OUTPUT
-          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"minor"'; then
+          elif echo "$PR_LABELS" | grep -q '"minor"'; then
             echo "type=minor" >> $GITHUB_OUTPUT
-          elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"patch"'; then
+          elif echo "$PR_LABELS" | grep -q '"patch"'; then
             echo "type=patch" >> $GITHUB_OUTPUT
           else
             echo "No major, minor or patch label (e.g. skip-release), skipping publish"

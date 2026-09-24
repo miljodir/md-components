@@ -203,7 +203,10 @@ Use semantic HTML elements:
 
 ## Pull Request Guidelines
 
-1. Add exactly one release label: `major`, `minor`, `patch`, or `skip-release` (required). Choose it by the impact on package consumers, not by the size of a dependency bump; see "Labels på pull-requests" in `README.md`. Use `skip-release` for changes that do not reach consumers, such as devDependencies, tests, and stories.
+1. Add exactly one release label: `major`, `minor`, `patch`, or `skip-release` (required).
+   Choose it by the impact on package consumers, not by the size of a dependency bump; see "Labels på pull-requests" in `README.md`.
+   Use `skip-release` for changes that do not reach consumers, such as devDependencies, tests, and stories.
+   If the PR changes both packages, both get the same bump.
 2. Run `npm run lint` and `npm test` - all must pass
 3. For new components: include tests, story, and CSS README
 4. For breaking changes: document migration path

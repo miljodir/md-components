@@ -1,14 +1,12 @@
+# Release labels for Dependabot PRs are set by .github/workflows/pr-label-checker.yml.
+# Do not delete the `skip-release` label: while it exists, Dependabot does not add its own
+# major/minor/patch labels, which the publish workflows would read as release labels.
 version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'weekly'
-    # Setting labels explicitly stops Dependabot from adding its own semver labels (major/minor/patch),
-    # which would otherwise be read as release labels. The release label is set by pr-label-checker.yml.
-    labels:
-      - 'dependencies'
-      - 'javascript'
     groups:
       dev-dependencies:
         dependency-type: 'development'
@@ -20,3 +18,12 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      github-actions:
+        patterns:
+          - '*'

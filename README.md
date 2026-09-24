@@ -153,26 +153,36 @@ Eventuelt, bruk kommandoen `pack-local` fra rotmappen for å bygge og pakke begg
 
 ### Labels på pull-requests
 
-Alle pull requests krever nøyaktig én release-label: `major`, `minor`, `patch` eller `skip-release`.
+Alle PR-er krever nøyaktig én release-label: `major`, `minor`, `patch` eller `skip-release`.
 Labelen bestemmer hvordan pakkene bumpes før de publiseres til npm, og `skip-release` gjør at ingenting publiseres.
-Pakkene publiseres bare når PR-en endrer `packages/css` eller `packages/react`, så PR-er som bare endrer f.eks. Storybook gir aldri en release.
+Hver pakke publiseres bare når PR-en endrer den pakken (`packages/css` eller `packages/react`), så PR-er som bare endrer f.eks. Storybook gir aldri en release.
+Endrer PR-en begge pakkene, bumpes begge med samme label, så velg labelen etter den mest alvorlige endringen, eller del PR-en i to.
 
 Velg label ut fra hva endringen betyr for dem som bruker pakkene, ikke hvor stor oppdateringen av en avhengighet er:
 
-| Endring                                                                                                           | Label          |
-| ----------------------------------------------------------------------------------------------------------------- | -------------- |
-| devDependencies (vitest, eslint, Storybook, typer, testing-library)                                               | `skip-release` |
-| Bare tester, stories eller dokumentasjon                                                                          | `skip-release` |
-| Runtime-avhengighet (`dependencies`) uten synlig effekt for brukerne                                              | `patch`        |
-| Ny funksjonalitet, eller runtime-avhengighet/peer-range som gir noe nytt eller støtter flere versjoner            | `minor`        |
-| Endret oppførsel, props, markup, CSS-klasser eller ikoner som brukerne er avhengige av, eller strengere peer-krav | `major`        |
+| Endring                                                                                                                                                           | Label          |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| devDependencies (vitest, eslint, Storybook, testing-library, typedefinisjoner `@types/*`)                                                                         | `skip-release` |
+| Bare tester, stories eller dokumentasjon                                                                                                                          | `skip-release` |
+| Feilretting i komponent eller CSS som ikke endrer API, markup eller klassenavn                                                                                    | `patch`        |
+| Runtime-avhengighet (`dependencies`) uten synlig effekt for brukerne                                                                                              | `patch`        |
+| Ny komponent, prop, CSS-klasse, CSS-variabel eller ikon                                                                                                           | `minor`        |
+| Utvidet peer-range (f.eks. `19.2.5` -> `^19.2.5`)                                                                                                                 | `minor`        |
+| Fjernet eller endret oppførsel, props, eksporterte typer, markup, CSS-klasser, CSS-variabler eller ikoner som brukerne er avhengige av, eller snevrere peer-range | `major`        |
+
+Byggverktøy som `typescript` og endringer i `tsconfig` er devDependencies, men påvirker publisert `dist`.
+Bruk `patch` hvis byggeoutputen endres, ellers `skip-release`.
+
+For avhengigheter med versjon 0.x (f.eks. `@ariakit/react` og `material-symbols`) kan en minor-oppdatering være en breaking change.
+Les changelogen for disse også når de kommer i en gruppert PR.
 
 #### Dependabot
 
 Dependabot grupperer minor- og patch-oppdateringer i én PR for devDependencies og én for runtime-avhengigheter.
 Major-oppdateringer kommer som egne PR-er, og changelogen må leses før de merges.
-PR-er som bare oppdaterer devDependencies eller lockfila får `skip-release` automatisk.
+PR-er som bare oppdaterer devDependencies (også major), bare lockfila (sikkerhetsoppdateringer av indirekte avhengigheter) eller GitHub Actions får `skip-release` automatisk.
 PR-er som oppdaterer runtime-avhengigheter får ingen release-label, så label-sjekken feiler til noen har vurdert endringen og valgt label etter tabellen over.
+Labelen `skip-release` må ikke slettes, for så lenge den finnes, setter ikke Dependabot sine egne `major`-, `minor`- og `patch`-labels.
 
 ### Støtte for rammeverk som bruker React Server Components
 
@@ -184,7 +194,7 @@ Releases opprettes automatisk når en PR merges til main som inneholder endringe
 
 Når en PR merges:
 
-1. Pakken bumpes basert på PR-labelen (`major`, `minor`, eller `patch`)
+1. Pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`)
 2. Pakken publiseres til npm
 3. En Git-tag opprettes (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`)
 4. En GitHub Release opprettes automatisk med PR-detaljer og auto-genererte release notes
