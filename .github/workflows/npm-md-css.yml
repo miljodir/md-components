@@ -53,7 +53,7 @@ jobs:
           elif echo '${{ toJSON(github.event.pull_request.labels.*.name) }}' | grep -q '"patch"'; then
             echo "type=patch" >> $GITHUB_OUTPUT
           else
-            echo "No version label found, skipping publish"
+            echo "No major, minor or patch label (e.g. skip-release), skipping publish"
             echo "type=skip" >> $GITHUB_OUTPUT
           fi
 

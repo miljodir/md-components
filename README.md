@@ -180,7 +180,7 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Releases opprettes automatisk når en PR merges til main som inneholder endringer i `packages/css` eller `packages/react`.
+Releases opprettes automatisk når en PR merges til main som inneholder endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
 
 Når en PR merges:
 
