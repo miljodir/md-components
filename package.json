@@ -19,6 +19,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/miljodir/component-library"
@@ -49,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.11",
     "babel-loader": "^10.0.0",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
@@ -72,7 +75,7 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.3.0",
     "classnames": "^2.5.1",
     "material-symbols": "^0.40.2"
   },
