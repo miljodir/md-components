@@ -115,8 +115,8 @@ Testfiler plasseres i en `tests/`-undermappe i komponentmappen, f.eks. `packages
 **Viktig:** Bruk tilgjengelige queries (`getByRole`, `getByLabelText`) fremfor test-IDer, og bruk `userEvent` for interaksjoner.
 
 #### Manuell testing
-I tillegg til automatisk testing så bør man også gjøre en manuell testing i nettleser med de viktigste funksjonene som er forventet i en nettleser. Anbefalt lesning og utgangspunkt er [paragraf 2 i regelsettet til UUtilsynet](https://www.uutilsynet.no/regelverk/oversikt-over-testregler-nettsteder/709). 
 
+I tillegg til automatisk testing så bør man også gjøre en manuell testing i nettleser med de viktigste funksjonene som er forventet i en nettleser. Anbefalt lesning og utgangspunkt er [paragraf 2 i regelsettet til UUtilsynet](https://www.uutilsynet.no/regelverk/oversikt-over-testregler-nettsteder/709).
 
 ### Teste endringer i eget prosjekt
 
@@ -153,8 +153,26 @@ Eventuelt, bruk kommandoen `pack-local` fra rotmappen for å bygge og pakke begg
 
 ### Labels på pull-requests
 
-Alle pull requests krever nå at de legges på en label (`major`, `minor` eller `patch`). Disse vil brukes for å automatisk bumpe pakke versjonene før de publiseres til npm.
-Labels er fortsatt påkrevd selv om pakkene ikke berøres (f.eks. bare storybook endringer), men dette vil heller ikke kjøre workflowene som bumper pakker og dytter til npm.
+Alle pull requests krever nøyaktig én release-label: `major`, `minor`, `patch` eller `skip-release`.
+Labelen bestemmer hvordan pakkene bumpes før de publiseres til npm, og `skip-release` gjør at ingenting publiseres.
+Pakkene publiseres bare når PR-en endrer `packages/css` eller `packages/react`, så PR-er som bare endrer f.eks. Storybook gir aldri en release.
+
+Velg label ut fra hva endringen betyr for dem som bruker pakkene, ikke hvor stor oppdateringen av en avhengighet er:
+
+| Endring                                                                                                           | Label          |
+| ----------------------------------------------------------------------------------------------------------------- | -------------- |
+| devDependencies (vitest, eslint, Storybook, typer, testing-library)                                               | `skip-release` |
+| Bare tester, stories eller dokumentasjon                                                                          | `skip-release` |
+| Runtime-avhengighet (`dependencies`) uten synlig effekt for brukerne                                              | `patch`        |
+| Ny funksjonalitet, eller runtime-avhengighet/peer-range som gir noe nytt eller støtter flere versjoner            | `minor`        |
+| Endret oppførsel, props, markup, CSS-klasser eller ikoner som brukerne er avhengige av, eller strengere peer-krav | `major`        |
+
+#### Dependabot
+
+Dependabot grupperer minor- og patch-oppdateringer i én PR for devDependencies og én for runtime-avhengigheter.
+Major-oppdateringer kommer som egne PR-er, og changelogen må leses før de merges.
+PR-er som bare oppdaterer devDependencies eller lockfila får `skip-release` automatisk.
+PR-er som oppdaterer runtime-avhengigheter får ingen release-label, så label-sjekken feiler til noen har vurdert endringen og valgt label etter tabellen over.
 
 ### Støtte for rammeverk som bruker React Server Components
 

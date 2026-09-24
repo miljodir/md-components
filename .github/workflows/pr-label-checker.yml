@@ -6,12 +6,42 @@ on:
     types: [opened, labeled, unlabeled, synchronize]
 
 jobs:
+  # Labels added with GITHUB_TOKEN do not trigger new workflow runs, so labelling happens here,
+  # before the check, instead of in a separate workflow.
+  label_dependabot:
+    name: 'Label Dependabot PR'
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      !contains(github.event.pull_request.labels.*.name, 'major') &&
+      !contains(github.event.pull_request.labels.*.name, 'minor') &&
+      !contains(github.event.pull_request.labels.*.name, 'patch') &&
+      !contains(github.event.pull_request.labels.*.name, 'skip-release')
+    runs-on: ubuntu-slim
+    permissions:
+      pull-requests: write
+    steps:
+      - id: metadata
+        uses: dependabot/fetch-metadata@v3
+      # Only development and lockfile-only (indirect) updates are safe to skip. A production
+      # dependency reaches consumers, so a human has to choose the release label.
+      - name: Add skip-release for non-production updates
+        if: >-
+          steps.metadata.outputs.dependency-type == 'direct:development' ||
+          steps.metadata.outputs.dependency-type == 'indirect'
+        run: gh pr edit "$PR_URL" --add-label 'skip-release'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   check_labels:
     name: 'Check PR Labels'
+    needs: label_dependabot
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-slim
     steps:
+      # Reads labels from the API, so it sees labels added by label_dependabot.
       - uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
           count: 1
-          labels: 'major, minor, patch'
+          labels: 'major, minor, patch, skip-release'

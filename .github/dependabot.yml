@@ -4,8 +4,19 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    # Setting labels explicitly stops Dependabot from adding its own semver labels (major/minor/patch),
+    # which would otherwise be read as release labels. The release label is set by pr-label-checker.yml.
+    labels:
+      - 'dependencies'
+      - 'javascript'
     groups:
-      minor-and-patch:
+      dev-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
+      production-dependencies:
+        dependency-type: 'production'
         update-types:
           - 'minor'
           - 'patch'
