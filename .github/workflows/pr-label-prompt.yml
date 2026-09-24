@@ -7,11 +7,18 @@ on:
     types: [opened]
 jobs:
   add_comment:
-    name: 'Prompt for versioning label'
-    runs-on: slim
+    name: 'Prompt for release label'
+    # Dependabot PRs are labelled by pr-label-checker.yml.
+    if: >-
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      !contains(github.event.pull_request.labels.*.name, 'major') &&
+      !contains(github.event.pull_request.labels.*.name, 'minor') &&
+      !contains(github.event.pull_request.labels.*.name, 'patch') &&
+      !contains(github.event.pull_request.labels.*.name, 'skip-release')
+    runs-on: ubuntu-slim
     permissions:
       pull-requests: write
     steps:
-      - uses: mshick/add-pr-comment@v2
+      - uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc # v2.8.2
         with:
-          message: Please set a versioning label of either `major`, `minor`, or `patch` to the pull request.
+          message: Add exactly one release label to this pull request - `major`, `minor`, `patch` or `skip-release`. See [Labels på pull-requests](https://github.com/miljodir/md-components#labels-på-pull-requests) for how to choose.
