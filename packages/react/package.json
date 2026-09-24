@@ -20,23 +20,23 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "@ariakit/react": "^0.4.21",
+    "@ariakit/react": "^0.4.40",
     "classnames": "^2.5.1",
-    "material-symbols": "^0.40.2"
+    "material-symbols": "^0.47.4"
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.4.1",
+    "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^25.3.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.1.11",
     "jsdom": "^28.1.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.11"
   },
