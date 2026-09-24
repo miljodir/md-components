@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     steps:
       - id: metadata
-        uses: dependabot/fetch-metadata@v3
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
       # Only development and lockfile-only (indirect) updates are safe to skip. A production
       # dependency reaches consumers, so a human has to choose the release label.
       - name: Add skip-release for non-production updates
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       # Reads labels from the API, so it sees labels added by label_dependabot.
-      - uses: mheap/github-action-required-labels@v5
+      - uses: mheap/github-action-required-labels@23e10fde7e062233401931a0eece796cd9bf3177 # v5.6.0
         with:
           mode: exactly
           count: 1
