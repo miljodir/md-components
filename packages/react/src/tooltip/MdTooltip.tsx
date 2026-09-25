@@ -16,7 +16,7 @@ export interface MdTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   tooltipClassName?: string;
   /**
    * When `true`, the tooltip will be unmounted when it is hidden. This can be useful for performance reasons, but it may cause issues with animations or transitions.
-   * @default false
+    * @default true
    * @see https://ariakit.org/reference/tooltip#unmountonhide
    */
   unmountOnHide?: boolean;
@@ -29,7 +29,7 @@ export const MdTooltip: React.FC<MdTooltipProps> = ({
   timeout = 250,
   mode = 'medium',
   anchorClassName = '',
-  unmountOnHide,
+  unmountOnHide = true,
   tooltipClassName = '',
   ...otherProps
 }: MdTooltipProps) => {
