@@ -64,7 +64,7 @@ const Template: StoryFn<typeof MdIconZoomIn> = (args: MdIconProps) => {
 
 export const ZoomIn = Template.bind({});
 ZoomIn.args = {
-  large: false,
+  larrge: false,
   className: '',
   color: '#005e5d',
 };
