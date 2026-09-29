@@ -1,0 +1,89 @@
+name: Sync GitHub Issues to Jira
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-jira-task:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Create Jira task
+        id: jira
+        env:
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          set -euo pipefail
+
+          payload="$(jq -n \
+            --arg project "DESIGN" \
+            --arg summary "$ISSUE_TITLE" \
+            --arg body "${ISSUE_BODY:-No description provided}" \
+            --arg url "$ISSUE_URL" \
+            '{
+              fields: {
+                project: { key: $project },
+                summary: $summary,
+                issuetype: { name: "Task" },
+                labels: ["UX"],
+                assignee: { accountId: "712020:1c31baab-b58b-4919-8cc0-3fcb92a189e0" },
+                description: {
+                  type: "doc",
+                  version: 1,
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [{ type: "text", text: $body }]
+                    },
+                    {
+                      type: "paragraph",
+                      content: [
+                        { type: "text", text: "GitHub issue: " },
+                        { type: "text", text: $url, marks: [{ type: "link", attrs: { href: $url } }] }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }')"
+
+          response="$(curl --fail-with-body --silent --show-error \
+            --request POST \
+            --user "$JIRA_EMAIL:$JIRA_API_TOKEN" \
+            --header "Accept: application/json" \
+            --header "Content-Type: application/json" \
+            --data "$payload" \
+            "https://miljodir.atlassian.net/rest/api/3/issue")"
+
+          jira_key="$(jq -r '.key' <<< "$response")"
+
+          if [[ -z "$jira_key" || "$jira_key" == "null" ]]; then
+            echo "Jira did not return an issue key:"
+            echo "$response"
+            exit 1
+          fi
+
+          echo "key=$jira_key" >> "$GITHUB_OUTPUT"
+          echo "Created Jira task: $jira_key"
+
+      - name: Comment on GitHub issue
+        uses: actions/github-script@v7
+        env:
+          JIRA_KEY: ${{ steps.jira.outputs.key }}
+        with:
+          script: |
+            const jiraUrl = `https://miljodir.atlassian.net/browse/${process.env.JIRA_KEY}`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🔗 Synced to Jira: [${process.env.JIRA_KEY}](${jiraUrl})`
+            });
