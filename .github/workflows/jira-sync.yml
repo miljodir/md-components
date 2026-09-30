@@ -24,7 +24,7 @@ jobs:
 
           payload="$(jq -n \
             --arg project "DESIGN" \
-            --arg summary "$ISSUE_TITLE" \
+            --arg summary "${ISSUE_TITLE:0:255}" \
             --arg body "${ISSUE_BODY:-No description provided}" \
             --arg url "$ISSUE_URL" \
             '{
