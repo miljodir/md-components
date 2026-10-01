@@ -34,7 +34,11 @@ export const MdTabs: React.FunctionComponent<MdTabsProps> = ({
                 key={`md-tab-${index}`}
                 title={item.props.title}
                 index={index}
+                iconOnly={item.props.iconOnly}
                 disabled={item.props.disabled}
+                leftIcon={item.props.leftIcon}
+                rightIcon={item.props.rightIcon}
+                badge={item.props.badge}
                 chips={chips}
                 chipsPrefixIcon={chipsPrefixIcon}
               />

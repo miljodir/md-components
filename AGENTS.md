@@ -75,6 +75,7 @@ stories/                  # Storybook stories
 ### Ariakit Usage
 
 Use Ariakit primitives for complex accessible components. Ariakit handles:
+
 - ARIA roles and attributes
 - Keyboard navigation
 - Focus management
@@ -117,18 +118,18 @@ Use queries that reflect how users interact with your UI:
 
 ```typescript
 // ✅ BEST: Role-based queries (most accessible)
-screen.getByRole('button', { name: 'Submit' })
-screen.getByRole('navigation', { name: 'Pagination' })
-screen.getByRole('link', { name: 'Read more' })
+screen.getByRole('button', { name: 'Submit' });
+screen.getByRole('navigation', { name: 'Pagination' });
+screen.getByRole('link', { name: 'Read more' });
 
 // ✅ GOOD: Label-based queries
-screen.getByLabelText('Email address')
+screen.getByLabelText('Email address');
 
 // ⚠️ OK: Text content (when role isn't available)
-screen.getByText('Loading...')
+screen.getByText('Loading...');
 
 // ⚠️ LAST RESORT: Test IDs (only when no accessible alternative)
-screen.getByTestId('custom-element')
+screen.getByTestId('custom-element');
 ```
 
 ### Scoped Queries with `within()`
@@ -178,7 +179,7 @@ expect(onPageChange).toHaveBeenCalledWith(2);
 ### Test Categories to Cover
 
 1. **Rendering** - Default props, conditional rendering, null cases
-2. **Props forwarding** - id, className, aria-*, data-* attributes
+2. **Props forwarding** - id, className, `aria-*`, `data-*` attributes
 3. **Interactions** - Click, keyboard (Enter, Space), focus
 4. **Disabled states** - Visual and functional disabled behavior
 5. **Edge cases** - Boundary values, invalid inputs
@@ -202,7 +203,10 @@ Use semantic HTML elements:
 
 ## Pull Request Guidelines
 
-1. Add label: `major`, `minor`, or `patch` (required)
+1. Add exactly one release label: `major`, `minor`, `patch`, or `skip-release` (required).
+   Choose it by the impact on package consumers, not by the size of a dependency bump; see "Labels på pull-requests" in `README.md`.
+   Use `skip-release` for changes that do not reach consumers, such as devDependencies, tests, and stories.
+   If the PR changes both packages, both get the same bump.
 2. Run `npm run lint` and `npm test` - all must pass
 3. For new components: include tests, story, and CSS README
 4. For breaking changes: document migration path

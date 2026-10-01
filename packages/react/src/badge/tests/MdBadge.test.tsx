@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-/// <reference types="@testing-library/jest-dom/vitest" />
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
@@ -57,7 +55,7 @@ describe('MdBadge', () => {
   });
 
   describe('size', () => {
-    it.each(['small', 'medium', 'large'] as const)('applies %s size class', (size) => {
+    it.each(['small', 'medium', 'large'] as const)('applies %s size class', size => {
       const { container } = render(<MdBadge size={size} />);
       expect(container.querySelector(`.md-badge--${size}`)).toBeInTheDocument();
     });
@@ -66,7 +64,7 @@ describe('MdBadge', () => {
   describe('theme', () => {
     it.each(['primary', 'secondary', 'error', 'warning', 'success', 'info'] as const)(
       'applies %s theme class',
-      (theme) => {
+      theme => {
         const { container } = render(<MdBadge size="medium" theme={theme} />);
         expect(container.querySelector(`.md-badge--${theme}`)).toBeInTheDocument();
       },
@@ -75,9 +73,7 @@ describe('MdBadge', () => {
     it('applies no theme class when theme is not provided', () => {
       const { container } = render(<MdBadge size="medium" />);
       const badge = container.querySelector('.md-badge');
-      expect(badge?.className).not.toMatch(
-        /md-badge--(primary|secondary|error|warning|success|info)/,
-      );
+      expect(badge?.className).not.toMatch(/md-badge--(primary|secondary|error|warning|success|info)/);
     });
   });
 

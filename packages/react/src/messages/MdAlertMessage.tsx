@@ -136,14 +136,19 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
           <button
             type="button"
             className="md-alert-message__expand-button"
-            onClick={() => setIsExpanded(prev => !prev)}
+            onClick={() => {
+              setIsExpanded(prev => {
+                return !prev;
+              });
+            }}
             aria-expanded={isExpanded}
-            aria-controls={descriptionId}>
+            aria-controls={descriptionId}
+          >
             <span className="md-alert-message__expand-icon" aria-hidden="true">
               <MdIconKeyboardArrowUp className="md-alert-message__expand-icon__open" />
               <MdIconKeyboardArrowDown className="md-alert-message__expand-icon__close" />
             </span>
-            
+
             {isExpanded ? mergedLabels.showLess : mergedLabels.showMore}
           </button>
         )}
