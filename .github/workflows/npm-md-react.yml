@@ -68,7 +68,8 @@ jobs:
           npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
 
       - name: Output version
-        run: echo "PKG_VERSION=$(npm pkg get version | tr -d '"')" >> $GITHUB_ENV
+        if: steps.bump.outputs.type != 'skip'
+        run: echo "PKG_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
       - name: Install dependencies
         if: steps.bump.outputs.type != 'skip'
