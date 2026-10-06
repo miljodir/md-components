@@ -22,9 +22,6 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: Prepare coverage directory
-        run: mkdir -p packages/react/coverage
-
       - name: Install dependencies
         run: npm ci
 
