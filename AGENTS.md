@@ -215,6 +215,6 @@ Use semantic HTML elements:
 
 - `packages/react/src/index.tsx` - Component exports
 - `packages/css/index.css` - CSS imports
-- `packages/react/vitest.config.ts` - Test configuration
+- `packages/react/vitest.config.mts` - Test configuration
 - `packages/react/vitest.setup.ts` - Test setup (jest-dom matchers)
 - `eslint.config.mjs` - ESLint configuration
