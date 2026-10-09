@@ -29,6 +29,8 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     <div class="md-alert-message__description [md-alert-message__description--collapsed]" id="description-id">
       Description text
     </div>
+    <!-- Rich content (e.g. <p>, <strong>, links) is supported. -->
+    <!-- In collapsed state, first text line is shown and ends with ... -->
 
     <!-- Expand/collapse button — only when expandable -->
     <button

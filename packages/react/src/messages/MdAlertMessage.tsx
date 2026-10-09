@@ -55,6 +55,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 }: MdAlertMessageProps) => {
   const descriptionId = useId();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const hasRichDescription = typeof description !== 'string' && typeof description !== 'number';
 
   const defaultLabels: Required<Labels> = {
     info: 'Info',
@@ -126,6 +127,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
           <div
             className={classnames('md-alert-message__description', {
               'md-alert-message__description--collapsed': expandable && !isExpanded,
+              'md-alert-message__description--rich': hasRichDescription,
             })}
             id={descriptionId}
           >
