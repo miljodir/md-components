@@ -118,11 +118,10 @@ describe('MdTag', () => {
 
   describe('tooltipOnly mode', () => {
     it('hides label when tooltipOnly is true', () => {
-      render(<MdTag theme="success" label="Hidden Label" tooltipOnly showIcon />);
-      // With tooltipOnly, the label appears in the tooltip
-      // The text IS in the document but not visible
-      const elements = screen.getAllByText('Hidden Label');
-      expect(elements.length).toBeGreaterThan(0);
+      const { container } = render(<MdTag theme="success" label="Hidden Label" tooltipOnly showIcon />);
+      // The label is only rendered as tooltip content, not as visible text
+      expect(screen.queryByText('Hidden Label')).not.toBeInTheDocument();
+      expect(container.querySelector('.md-tooltip__anchor')).toBeInTheDocument();
     });
 
     it('shows tooltip instead of label', () => {
