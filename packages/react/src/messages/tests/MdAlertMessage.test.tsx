@@ -26,6 +26,21 @@ describe('MdAlertMessage', () => {
       expect(screen.getByTestId('custom-desc')).toBeInTheDocument();
     });
 
+    it('marks rich description content with rich-description class', () => {
+      const { container } = render(
+        <MdAlertMessage
+          label="Title"
+          description={
+            <>
+              <p>First</p>
+              <p>Second</p>
+            </>
+          }
+        />,
+      );
+      expect(container.querySelector('.md-alert-message__description--rich')).toBeInTheDocument();
+    });
+
     it('renders icon by default', () => {
       const { container } = render(<MdAlertMessage label="Info" />);
       expect(container.querySelector('.md-alert-message__icon')).toBeInTheDocument();
@@ -230,6 +245,30 @@ describe('MdAlertMessage', () => {
       expect(screen.getByRole('button', { name: 'Les mer' })).toBeInTheDocument();
       await user.click(screen.getByRole('button', { name: 'Les mer' }));
       expect(screen.getByRole('button', { name: 'Les mindre' })).toBeInTheDocument();
+    });
+
+    it('supports rich description content in collapsed and expanded states', async () => {
+      const user = userEvent.setup();
+      const { container } = render(
+        <MdAlertMessage
+          label="Title"
+          description={
+            <>
+              <p>Første avsnitt</p>
+              <p>Andre avsnitt</p>
+            </>
+          }
+          expandable
+        />,
+      );
+
+      expect(container.querySelector('.md-alert-message__description--collapsed')).toBeInTheDocument();
+      expect(screen.getByText('Første avsnitt')).toBeInTheDocument();
+      expect(screen.getByText('Andre avsnitt')).toBeInTheDocument();
+
+      await user.click(screen.getByRole('button', { name: 'Vis mer' }));
+
+      expect(container.querySelector('.md-alert-message__description--collapsed')).not.toBeInTheDocument();
     });
 
     it('does not render expand button when description is absent', () => {
