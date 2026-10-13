@@ -79,7 +79,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.bump.outputs.type != 'skip'
-        run: npm publish --access public
+        run: npm publish --access public --loglevel verbose
 
       - name: Create GitHub Release
         if: steps.bump.outputs.type != 'skip'
