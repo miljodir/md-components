@@ -207,6 +207,8 @@ Publisering bruker [npm Trusted Publishing](https://docs.npmjs.com/trusted-publi
 
 `actions/setup-node` brukes uten `registry-url` for å unngå generert tokenkonfigurasjon i `.npmrc`. npm bruker standardregisteret `https://registry.npmjs.org/`.
 
+Steget **Log npm OIDC identity** viser kun utvalgte identitetsfelter fra GitHub-tokenet før publisering, slik at repository, workflow og environment kan sammenlignes med npm-konfigurasjonen ved autentiseringsfeil. Selve tokenet og autentiseringshemmeligheter logges ikke. Dette er diagnostikk, ikke validering av tokenets signatur eller npm-tilgang.
+
 En administrator med tilgang til pakkeinnstillingene på npm må konfigurere en GitHub Actions trusted publisher for hver pakke:
 
 | npm-pakke | Organization/user | Repository | Workflow filename |
