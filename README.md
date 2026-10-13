@@ -205,6 +205,8 @@ Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-componen
 
 Publisering bruker [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) via GitHub Actions (OIDC), uten `NPM_TOKEN`. Workflowene bruker Node.js 24 og npm 11, med `id-token: write`.
 
+`actions/setup-node` brukes uten `registry-url` for å unngå generert tokenkonfigurasjon i `.npmrc`. npm bruker standardregisteret `https://registry.npmjs.org/`.
+
 En administrator med tilgang til pakkeinnstillingene på npm må konfigurere en GitHub Actions trusted publisher for hver pakke:
 
 | npm-pakke | Organization/user | Repository | Workflow filename |
