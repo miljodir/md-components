@@ -201,6 +201,21 @@ Når en PR merges:
 
 Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
+#### Trusted Publishing
+
+Publisering bruker [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) via GitHub Actions (OIDC), uten `NPM_TOKEN`. Workflowene bruker Node.js 24 og npm 11, med `id-token: write`.
+
+En administrator med tilgang til pakkeinnstillingene på npm må konfigurere en GitHub Actions trusted publisher for hver pakke:
+
+| npm-pakke | Organization/user | Repository | Workflow filename |
+| --- | --- | --- | --- |
+| `@miljodirektoratet/md-react` | `miljodir` | `md-components` | `npm-md-react.yml` |
+| `@miljodirektoratet/md-css` | `miljodir` | `md-components` | `npm-md-css.yml` |
+
+La Environment name stå tomt, og tillat direkte publisering. Workflow filename skal kun inneholde filnavnet, ikke `.github/workflows/`.
+
+Etter at workflowendringer er merget til `main`, kan en manglende release publiseres fra GitHub Actions ved å velge riktig publiseringsworkflow, **Run workflow**, branch `main` og ønsket `version_bump` (f.eks. `patch`). `skip` publiserer ikke. Start en ny kjøring etter workflowendringer; en omkjøring av en gammel kjøring bruker den gamle workflowdefinisjonen.
+
 ### Breaking changes
 
 Ved breaking changes (major versjon), rediger den auto-genererte releasen i [GitHub Releases](https://github.com/miljodir/md-components/releases) etter at PR-en er merget. Legg til en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen. Bruk gjerne en overskrift `## Highlighted changes` øverst for viktige endringer.
