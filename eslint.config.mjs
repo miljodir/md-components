@@ -26,7 +26,7 @@ export default [
       'packages/*/node_modules',
       '**/coverage',
       '**/*.mdx',
-      '**/vitest.config.ts',
+      '**/vitest.config.mts',
     ],
   },
   js.configs.recommended,
@@ -102,7 +102,7 @@ export default [
         },
       ],
       // Autofix: fjerner ubrukte imports ved --fix
-      'unused-imports/no-unused-imports': 'warn',      
+      'unused-imports/no-unused-imports': 'warn',
       'unused-imports/no-unused-vars': [
         'warn',
         {

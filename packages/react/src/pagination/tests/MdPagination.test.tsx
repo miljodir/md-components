@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, onTestFinished, vi } from 'vitest';
 import { MdPagination } from '../MdPagination';
 
 // Helper to get the desktop view container
@@ -256,6 +256,14 @@ describe('MdPagination', () => {
     it('calls existing onClick on custom link and onPageChange', async () => {
       const user = userEvent.setup();
       const onPageChange = vi.fn();
+      // jsdom does not implement navigation; cancel it after React handlers have run.
+      const preventNavigation = (event: MouseEvent) => {
+        event.preventDefault();
+      };
+      document.addEventListener('click', preventNavigation);
+      onTestFinished(() => {
+        document.removeEventListener('click', preventNavigation);
+      });
       const customOnClick = vi.fn();
 
       const renderLink = (page: number, children: React.ReactNode) => {
