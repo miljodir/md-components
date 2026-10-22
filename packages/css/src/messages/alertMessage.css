@@ -85,6 +85,24 @@
   overflow: hidden;
 }
 
+.md-alert-message__description--collapsed.md-alert-message__description--rich > * {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.md-alert-message__description--collapsed.md-alert-message__description--rich > * + *::before {
+  content: ' ';
+}
+
+.md-alert-message__description--collapsed.md-alert-message__description--rich br {
+  display: none;
+}
+
+.md-alert-message__description--collapsed.md-alert-message__description--rich > *:not(:first-child) {
+  display: none;
+}
+
 .md-alert-message__expand-button {
   background: none;
   border: none;
