@@ -39,7 +39,9 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org/
+
+      - name: Set up npm for trusted publishing
+        run: npm install --global npm@11
 
       - name: Determine version bump
         id: bump
@@ -81,9 +83,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.bump.outputs.type != 'skip'
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --loglevel verbose
 
       - name: Create GitHub Release
         if: steps.bump.outputs.type != 'skip'
