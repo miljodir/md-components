@@ -8,3 +8,4 @@ packages/**/package-lock.json
 storybook-static
 coverage
 .DS_store
+debug-storybook.log
