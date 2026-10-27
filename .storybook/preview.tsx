@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  DocsContext, Title, Subtitle, Markdown, Primary, Controls, Stories,
+  DocsContext, Title, Subtitle, Description, Markdown, Primary, Controls, Stories,
 } from '@storybook/addon-docs/blocks';
 import './../packages/css/src/index.css';
 import './../assets/fonts.css';
@@ -25,6 +25,7 @@ function CustomDocsPage() {
     <>
       <Title />
       <Subtitle />
+      <Description />
       {match && <Markdown>{match[1]}</Markdown>}
       <Primary />
       <Controls />
