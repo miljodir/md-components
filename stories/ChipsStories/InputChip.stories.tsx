@@ -3,6 +3,7 @@ import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@stor
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/chips/README.md';
+import Editorial from './docs/InputChip.mdx';
 import { MdInputChip } from '../../packages/react/src/chips/MdInputChip';
 import { MdIconAccountCircle } from '../../packages/react/src/icons-material/MdIconAccountCircle';
 import type { MdInputChipProps } from '../../packages/react/src/chips/MdInputChip';
@@ -18,6 +19,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -27,7 +29,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "A chip component. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element. In this example clicks toggle active state.<br/><br/>`import { MdInputChip } from '@miljodirektoratet/md-react'`",
+          "`import { MdInputChip } from '@miljodirektoratet/md-react'`",
       },
     },
   },

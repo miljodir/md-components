@@ -3,6 +3,7 @@ import { Title, Subtitle, Description, Markdown, Primary, Controls } from '@stor
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 import Readme from '../../packages/css/src/help/README.md';
+import Editorial from './docs/HelpButton.mdx';
 import { MdHelpButton } from '../../packages/react/src/help/MdHelpButton';
 import type { Args } from '@storybook/react-webpack5';
 
@@ -17,6 +18,7 @@ export default {
             <Title />
             <Subtitle />
             <Description />
+            <Editorial />
             <Primary />
             <Controls />
             <Markdown>{Readme.toString()}</Markdown>
@@ -26,7 +28,7 @@ export default {
       description: {
         component:
           // eslint-disable-next-line quotes
-          "Button for help text. Mainly used in conjunction with MdHelpText. In addition to the properties presented here, the component accepts all standard attributes of a HTML Button element.<br/><br/>`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
+          "`import { MdHelpButton } from '@miljodirektoratet/md-react'`",
       },
     },
   },
