@@ -13,37 +13,47 @@ concurrency:
   group: pr-label-checker-${{ github.event.pull_request.number }}
 
 jobs:
-  # Chooses the release label for Dependabot PRs. It only reacts to events Dependabot itself caused,
+  # Chooses the release label for Dependabot PRs. Opening a PR fires several events at once, and the
+  # concurrency group cancels all but the last queued run, so every run triggered by Dependabot does
+  # the whole job instead of reacting to the event that triggered it.
+  #
+  # It only runs for events Dependabot itself caused and only removes semver labels Dependabot added,
   # so labels set by a human are never touched.
   #
   # Labels added with GITHUB_TOKEN do not trigger new workflow runs, so labelling happens here,
   # before the check, instead of in a separate workflow.
   label_dependabot:
     name: 'Label Dependabot PR'
-    if: >-
-      github.event.sender.login == 'dependabot[bot]' && (
-        github.event.action == 'opened' || (
-          github.event.action == 'labeled' &&
-          contains(fromJSON('["major", "minor", "patch"]'), github.event.label.name)
-        )
-      )
+    if: github.event.sender.login == 'dependabot[bot]'
     runs-on: ubuntu-slim
     permissions:
+      issues: read
       pull-requests: write
     env:
       PR_URL: ${{ github.event.pull_request.html_url }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      GH_REPO: ${{ github.repository }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       # Dependabot adds a semver label matching the size of the dependency bump whenever the repo has
-      # major/minor/patch labels, which the publish workflows would read as a release label. It stops
-      # doing so while a `skip-release` label exists in the repo, see `label_update_type?` in
-      # https://github.com/dependabot/dependabot-core/blob/main/common/lib/dependabot/pull_request_creator/labeler.rb.
-      # This step keeps that from publishing a release if the label is ever deleted or renamed.
-      - name: Remove semver label added by Dependabot
-        if: github.event.action == 'labeled'
-        run: gh pr edit "$PR_URL" --remove-label "$LABEL"
-        env:
-          LABEL: ${{ github.event.label.name }}
+      # major/minor/patch labels, which the publish workflows would read as a release label. It should
+      # stop doing so while a `skip-release` label exists in the repo, see `label_update_type?` in
+      # https://github.com/dependabot/dependabot-core/blob/main/common/lib/dependabot/pull_request_creator/labeler.rb,
+      # but it has still been seen adding them, so they are removed here regardless.
+      - name: Remove semver labels added by Dependabot
+        run: |
+          set -euo pipefail
+          labels=$(gh pr view "$PR_URL" --json labels --jq '.labels[].name')
+          for label in major minor patch; do
+            grep -qx "$label" <<< "$labels" || continue
+            added_by=$(gh api --paginate "repos/$GH_REPO/issues/$PR_NUMBER/events" \
+              --jq ".[] | select(.event == \"labeled\" and .label.name == \"$label\") | .actor.login" | tail -n 1)
+            if [ "$added_by" = 'dependabot[bot]' ]; then
+              gh pr edit "$PR_URL" --remove-label "$label"
+            else
+              echo "Keeping $label, added by $added_by"
+            fi
+          done
 
       - id: metadata
         uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
