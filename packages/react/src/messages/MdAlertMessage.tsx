@@ -55,6 +55,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
 }: MdAlertMessageProps) => {
   const descriptionId = useId();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const hasRichDescription = typeof description !== 'string' && typeof description !== 'number';
 
   const defaultLabels: Required<Labels> = {
     info: 'Info',
@@ -126,6 +127,7 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
           <div
             className={classnames('md-alert-message__description', {
               'md-alert-message__description--collapsed': expandable && !isExpanded,
+              'md-alert-message__description--rich': hasRichDescription,
             })}
             id={descriptionId}
           >
@@ -136,14 +138,19 @@ export const MdAlertMessage: React.FC<MdAlertMessageProps> = ({
           <button
             type="button"
             className="md-alert-message__expand-button"
-            onClick={() => setIsExpanded(prev => !prev)}
+            onClick={() => {
+              setIsExpanded(prev => {
+                return !prev;
+              });
+            }}
             aria-expanded={isExpanded}
-            aria-controls={descriptionId}>
+            aria-controls={descriptionId}
+          >
             <span className="md-alert-message__expand-icon" aria-hidden="true">
               <MdIconKeyboardArrowUp className="md-alert-message__expand-icon__open" />
               <MdIconKeyboardArrowDown className="md-alert-message__expand-icon__close" />
             </span>
-            
+
             {isExpanded ? mergedLabels.showLess : mergedLabels.showMore}
           </button>
         )}
