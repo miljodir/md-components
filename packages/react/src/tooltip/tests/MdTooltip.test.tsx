@@ -14,22 +14,37 @@ describe('MdTooltip', () => {
       expect(screen.getByRole('button', { name: /Hover me/i })).toBeInTheDocument();
     });
 
-    it('renders tooltip content (visible to screen readers)', () => {
+    it('does not mount hidden tooltips for large collections', () => {
+      const { baseElement } = render(
+        <>
+          {Array.from({ length: 100 }, (_, index) => {
+            return (
+              <MdTooltip key={index} tooltipContent={`Tooltip ${index}`}>
+                <button>Button {index}</button>
+              </MdTooltip>
+            );
+          })}
+        </>,
+      );
+
+      expect(baseElement.querySelectorAll('.md-tooltip')).toHaveLength(0);
+    });
+
+    it('supports keeping hidden tooltip content mounted', () => {
       render(
-        <MdTooltip tooltipContent="Helpful information">
+        <MdTooltip tooltipContent="Always mounted" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
-      // Tooltip content appears in the portal
-      const elements = screen.getAllByText('Helpful information');
-      expect(elements.length).toBeGreaterThan(0);
+
+      expect(screen.getByRole('tooltip', { hidden: true })).toHaveTextContent('Always mounted');
     });
   });
 
   describe('modes', () => {
     it('applies medium mode by default', () => {
       const { baseElement } = render(
-        <MdTooltip tooltipContent="Test">
+        <MdTooltip tooltipContent="Test" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
@@ -40,7 +55,7 @@ describe('MdTooltip', () => {
 
     it('applies small mode', () => {
       const { baseElement } = render(
-        <MdTooltip tooltipContent="Test" mode="small">
+        <MdTooltip tooltipContent="Test" mode="small" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
@@ -50,7 +65,7 @@ describe('MdTooltip', () => {
 
     it('applies large mode', () => {
       const { baseElement } = render(
-        <MdTooltip tooltipContent="Test" mode="large">
+        <MdTooltip tooltipContent="Test" mode="large" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
@@ -71,7 +86,7 @@ describe('MdTooltip', () => {
 
     it('applies tooltipClassName', () => {
       const { baseElement } = render(
-        <MdTooltip tooltipContent="Test" tooltipClassName="custom-tooltip">
+        <MdTooltip tooltipContent="Test" tooltipClassName="custom-tooltip" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
@@ -93,7 +108,7 @@ describe('MdTooltip', () => {
   describe('accessibility', () => {
     it('provides tooltip content for screen readers', () => {
       render(
-        <MdTooltip tooltipContent="Screen reader text">
+        <MdTooltip tooltipContent="Screen reader text" unmountOnHide={false}>
           <button>Button</button>
         </MdTooltip>,
       );
