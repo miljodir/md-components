@@ -1,32 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
-  DocsContext, Title, Subtitle, Description, Markdown, Primary, Controls, Stories,
+  Title, Subtitle, Description, Primary, Controls, Stories,
 } from '@storybook/addon-docs/blocks';
 import './../packages/css/src/index.css';
 import './../assets/fonts.css';
 import './../assets/preview.css';
 
-const docsContext = require.context('../stories', true, /docs\/.*\.md$/);
-const docsFiles: Record<string, string> = {};
-docsContext.keys().forEach((key) => {
-  docsFiles[key] = docsContext(key) as unknown as string;
-});
-
 function CustomDocsPage() {
-  const { title } = useContext(DocsContext) as { title?: string };
-  const componentName = title?.split('/').pop();
-  const match = componentName
-    ? Object.entries(docsFiles).find(([path]) =>
-      { return path.includes(`/${componentName}/docs/`); },
-    )
-    : undefined;
-
   return (
     <>
       <Title />
       <Subtitle />
       <Description />
-      {match && <Markdown>{match[1]}</Markdown>}
       <Primary />
       <Controls />
       <Stories />
