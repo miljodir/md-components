@@ -1,14 +1,14 @@
 import { Title, Subtitle, Description, Markdown, Controls, Primary } from '@storybook/addon-docs/blocks';
 import React from 'react';
-import Readme from '../packages/css/src/tabs/README.md';
-import { MdIconCheck } from '../packages/react/src/icons-material/MdIconCheck';
-import { MdIconHome } from '../packages/react/src/icons-material/MdIconHome';
-import { MdIconInfo } from '../packages/react/src/icons-material/MdIconInfo';
-import { MdBadge } from '../packages/react/src/badge/MdBadge';
-import { MdTab } from '../packages/react/src/tabs/MdTab';
-import { MdTabs } from '../packages/react/src/tabs/MdTabs';
+import Readme from '../../packages/css/src/tabs/README.md';
+import { MdIconCheck } from '../../packages/react/src/icons-material/MdIconCheck';
+import { MdIconHome } from '../../packages/react/src/icons-material/MdIconHome';
+import { MdIconInfo } from '../../packages/react/src/icons-material/MdIconInfo';
+import { MdBadge } from '../../packages/react/src/badge/MdBadge';
+import { MdTab } from '../../packages/react/src/tabs/MdTab';
+import { MdTabs } from '../../packages/react/src/tabs/MdTabs';
 import type { Args, StoryFn } from '@storybook/react-webpack5';
-import MdIconWarning from '../packages/react/src/icons-material/MdIconWarning';
+import MdIconWarning from '../../packages/react/src/icons-material/MdIconWarning';
 import Editorial from './docs/Tabs.mdx';
 
 export default {
