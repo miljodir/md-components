@@ -1,7 +1,23 @@
 import React from 'react';
+import {
+  Title, Subtitle, Description, Primary, Controls, Stories,
+} from '@storybook/addon-docs/blocks';
 import './../packages/css/src/index.css';
 import './../assets/fonts.css';
 import './../assets/preview.css';
+
+function CustomDocsPage() {
+  return (
+    <>
+      <Title />
+      <Subtitle />
+      <Description />
+      <Primary />
+      <Controls />
+      <Stories />
+    </>
+  );
+}
 
 export const parameters = {
   controls: {
@@ -30,6 +46,9 @@ export const parameters = {
         'Deprecated',
       ],
     },
+  },
+  docs: {
+    page: CustomDocsPage,
   },
 };
 
