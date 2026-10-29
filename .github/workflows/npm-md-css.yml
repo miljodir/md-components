@@ -77,6 +77,10 @@ jobs:
         if: steps.bump.outputs.type != 'skip'
         run: npm install
 
+      - name: Log npm OIDC identity
+        if: steps.bump.outputs.type != 'skip'
+        run: node ../../.github/scripts/npm-oidc-identity.mjs
+
       - name: Publish to npm
         if: steps.bump.outputs.type != 'skip'
         run: npm publish --access public --loglevel verbose
