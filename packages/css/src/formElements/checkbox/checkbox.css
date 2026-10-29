@@ -63,6 +63,7 @@
   background-position-y: var(--md-size-3);
   background-position-x: var(--md-size-1);
   background-size: 1rem;
+  border-color: var(--md-color-border-tertiary);
 }
 
 .md-checkbox__input:indeterminate + .md-checkbox__label::before {
