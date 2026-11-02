@@ -190,9 +190,18 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, publiseres den tilhørende pakken automatisk på npm. Versjonen bumpes etter PR-labelen (`major`, `minor` eller `patch`), med mindre PR-en har labelen `skip-release`.
+Releases opprettes automatisk når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
 
-Når npm-publiseringen lykkes, opprettes GitHub Release og tag automatisk (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`). Det er ingen staging eller manuell npm-godkjenning i denne flyten.
+Når en PR merges:
+
+1. Den berørte pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`).
+2. React-pakken bygges hvis den er berørt, og pakken publiseres direkte til npm med `NPM_TOKEN`.
+3. Når npm-publiseringen lykkes, opprettes en Git-tag (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`).
+4. En GitHub Release opprettes automatisk med auto-genererte release notes.
+
+Hvis begge pakkene er berørt, kjøres flyten separat for hver pakke. Det er ingen staging eller manuell npm-godkjenning i denne flyten.
+
+Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
 #### Midlertidig tokenbasert publisering
 
