@@ -190,31 +190,17 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Releases opprettes automatisk når en PR merges til main som inneholder endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
+Når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, stages den tilhørende pakken automatisk for publisering på npm. Versjonen bumpes etter PR-labelen (`major`, `minor` eller `patch`), med mindre PR-en har labelen `skip-release`.
 
-Når en PR merges:
+Staging publiserer ikke pakken offentlig. En npm-maintainer må kontrollere og godkjenne den med 2FA før versjonen blir tilgjengelig:
 
-1. Pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`)
-2. Pakken publiseres til npm
-3. En Git-tag opprettes (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`)
-4. En GitHub Release opprettes automatisk med PR-detaljer og auto-genererte release notes
+1. Åpne npm-kontoens **Staged Packages** og kontroller pakken og versjonen.
+2. Godkjenn stagingen med 2FA på npmjs.com, eller bruk `npm stage approve <stage-id>`.
+3. Opprett GitHub Release og tag etter at npm-versjonen er godkjent. Workflowen oppretter ikke release eller tag automatisk, fordi det ville skjedd før npm-godkjenningen.
 
-Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
+Workflowene bruker `npm stage publish` med `NPM_TOKEN` fra GitHub Actions secrets. Secreten må inneholde en granular npm access token med **Read and write (stage only)** for de aktuelle pakkene; ikke bruk en token med direkte publiseringstillatelse eller 2FA-bypass. Tokenverdien skal aldri legges i repoet. Se [npm staged publishing](https://docs.npmjs.com/staged-publishing/) og [oppretting av granular tokens](https://docs.npmjs.com/creating-and-viewing-access-tokens/#creating-granular-access-tokens-on-the-website).
 
-#### Trusted Publishing
-
-Publisering bruker [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) via GitHub Actions (OIDC), uten `NPM_TOKEN`. Workflowene bruker Node.js 24 og npm 11, med `id-token: write`.
-
-`actions/setup-node` brukes uten `registry-url` for å unngå generert tokenkonfigurasjon i `.npmrc`. npm bruker standardregisteret `https://registry.npmjs.org/`.
-
-En administrator med tilgang til pakkeinnstillingene på npm må konfigurere en GitHub Actions trusted publisher for hver pakke:
-
-| npm-pakke | Organization/user | Repository | Workflow filename |
-| --- | --- | --- | --- |
-| `@miljodirektoratet/md-react` | `miljodir` | `md-components` | `npm-md-react.yml` |
-| `@miljodirektoratet/md-css` | `miljodir` | `md-components` | `npm-md-css.yml` |
-
-La Environment name stå tomt, og tillat direkte publisering. Workflow filename skal kun inneholde filnavnet, ikke `.github/workflows/`.
+`npm stage` krever npm CLI 11.15.0 eller nyere og Node.js 22.14.0 eller nyere. Workflowene bruker Node.js 24 og npm 11.
 
 Etter at workflowendringer er merget til `main`, kan en manglende release publiseres fra GitHub Actions ved å velge riktig publiseringsworkflow, **Run workflow**, branch `main` og ønsket `version_bump` (f.eks. `patch`). `skip` publiserer ikke. Start en ny kjøring etter workflowendringer; en omkjøring av en gammel kjøring bruker den gamle workflowdefinisjonen.
 
