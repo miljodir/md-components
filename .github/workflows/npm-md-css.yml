@@ -27,20 +27,18 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     permissions:
       contents: write
-      id-token: write
     defaults:
       run:
         working-directory: ./packages/css
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+          registry-url: https://registry.npmjs.org/
 
-      - name: Set up npm for trusted publishing
+      - name: Set up npm
         run: npm install --global npm@11
 
       - name: Determine version bump
@@ -79,7 +77,9 @@ jobs:
 
       - name: Publish to npm
         if: steps.bump.outputs.type != 'skip'
-        run: npm publish --access public --loglevel verbose
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         if: steps.bump.outputs.type != 'skip'
