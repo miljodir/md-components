@@ -193,6 +193,14 @@
   outline: 0;
 }
 
+.md-combobox__popover.md-combobox__popover--flip.md-combobox__popover--flipped {
+  border-bottom: 0 none;
+  border-top: var(--md-size-3) solid var(--md-color-border-tertiary);
+  padding-top: var(--md-size-3);
+  padding-bottom: 0;
+  border-radius: var(--md-size-4) var(--md-size-4) var(--md-size-0) var(--md-size-0);
+}
+
 /* Combobox item */
 .md-combobox__checkbox-item {
   padding: var(--md-size-12);
