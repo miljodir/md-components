@@ -65,7 +65,7 @@ const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
         <div className="md-stepper__step-title-badge-outer-border selected">
           <div className="md-stepper__step-title-badge selected">{index + 1}</div>
         </div>
-        <h4 className="md-stepper__selected">{title}</h4>
+        <div className="md-stepper__selected">{title}</div>
       </div>
     );
   } else if (index < activeStep) {
@@ -77,7 +77,7 @@ const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
             <MdIconCheck width={20} />
           </div>
         </div>
-        <h4 className="md-stepper__completed">{title}</h4>
+        <div className="md-stepper__completed">{title}</div>
       </div>
     );
   } else {
@@ -87,7 +87,7 @@ const StepTitle = ({ title, index, activeStep }: StepTitleProps) => {
         <div className="md-stepper__step-title-badge-outer-border">
           <div className="md-stepper__step-title-badge disabled">{index + 1}</div>{' '}
         </div>
-        <h4 className="md-stepper__disabled">{title}</h4>
+        <div className="md-stepper__disabled">{title}</div>
       </div>
     );
   }

@@ -13,7 +13,7 @@
   flex-direction: row;
   gap: var(--md-size-16);
 }
-.md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title h4 {
+.md-stepper__stepper-container .md-stepper__stepper-list .md-stepper__stepper-list-item .md-stepper__step-title > div {
   font-family: var(--md-typography-family-heading) !important;
   font-size: var(--md-typography-size-20);
   font-weight: var(--md-typography-weight-regular);
