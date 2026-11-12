@@ -20,9 +20,9 @@
     "url": "git+https://github.com/miljodir/md-components"
   },
   "dependencies": {
-    "@ariakit/react": "^0.4.41",
+    "@ariakit/react": "^0.4.43",
     "classnames": "^2.5.1",
-    "material-symbols": "^0.47.6"
+    "material-symbols": "^0.48.3"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.2",
