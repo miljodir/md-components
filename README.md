@@ -190,31 +190,24 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Releases opprettes automatisk når en PR merges til main som inneholder endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
+Releases opprettes automatisk når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
 
 Når en PR merges:
 
-1. Pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`)
-2. Pakken publiseres til npm
-3. En Git-tag opprettes (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`)
-4. En GitHub Release opprettes automatisk med PR-detaljer og auto-genererte release notes
+1. Den berørte pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`).
+2. React-pakken bygges hvis den er berørt, og pakken publiseres direkte til npm med `NPM_TOKEN`.
+3. Når npm-publiseringen lykkes, opprettes en Git-tag (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`).
+4. En GitHub Release opprettes automatisk med auto-genererte release notes.
+
+Hvis begge pakkene er berørt, kjøres flyten separat for hver pakke. Det er ingen staging eller manuell npm-godkjenning i denne flyten.
 
 Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
-#### Trusted Publishing
+#### Midlertidig tokenbasert publisering
 
-Publisering bruker [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) via GitHub Actions (OIDC), uten `NPM_TOKEN`. Workflowene bruker Node.js 24 og npm 11, med `id-token: write`.
+Workflowene bruker `npm publish` med `NPM_TOKEN` fra GitHub Actions secrets. Secreten må inneholde en gyldig granular npm access token med **Read and write (publish and stage)** for begge pakkene og **Bypass two-factor authentication** aktivert. Pakkenes **Publishing access** må tillate granular tokens med 2FA-bypass. At secreten finnes, bekrefter ikke at tokenet har disse rettighetene eller fortsatt er gyldig. Begrens tokenet til disse pakkene, velg kort utløpstid og roter det ved behov. Tokenverdien skal aldri legges i repoet.
 
-`actions/setup-node` brukes uten `registry-url` for å unngå generert tokenkonfigurasjon i `.npmrc`. npm bruker standardregisteret `https://registry.npmjs.org/`.
-
-En administrator med tilgang til pakkeinnstillingene på npm må konfigurere en GitHub Actions trusted publisher for hver pakke:
-
-| npm-pakke | Organization/user | Repository | Workflow filename |
-| --- | --- | --- | --- |
-| `@miljodirektoratet/md-react` | `miljodir` | `md-components` | `npm-md-react.yml` |
-| `@miljodirektoratet/md-css` | `miljodir` | `md-components` | `npm-md-css.yml` |
-
-La Environment name stå tomt, og tillat direkte publisering. Workflow filename skal kun inneholde filnavnet, ikke `.github/workflows/`.
+Dette er en midlertidig løsning fordi npm foreløpig ikke støtter enterprise-issueren vår for Trusted Publishing. npm har varslet at direkte publisering med 2FA-bypass tokens skal fjernes rundt januar 2027. Migrer før dette til støttet Trusted Publishing eller tokenbasert staging med manuell 2FA-godkjenning. Ingen automatisk overgang er konfigurert. Se [npm sin kunngjøring](https://github.blog/changelog/2026-07-08-npm-install-time-security-and-gat-bypass2fa-deprecation/) og [oppretting av granular tokens](https://docs.npmjs.com/creating-and-viewing-access-tokens/#creating-granular-access-tokens-on-the-website).
 
 Etter at workflowendringer er merget til `main`, kan en manglende release publiseres fra GitHub Actions ved å velge riktig publiseringsworkflow, **Run workflow**, branch `main` og ønsket `version_bump` (f.eks. `patch`). `skip` publiserer ikke. Start en ny kjøring etter workflowendringer; en omkjøring av en gammel kjøring bruker den gamle workflowdefinisjonen.
 
