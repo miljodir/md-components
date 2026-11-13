@@ -39,6 +39,18 @@
     },
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
     "cSpell.language": "en,no",
-    "cSpell.words": ["Hjelpetekst"]
+    "cSpell.words": [
+      "Hjelpetekst"
+    ],
+    "chat.tools.terminal.autoApprove": {
+      "/^git status --short && node --version && npm --version$/": {
+        "approve": true,
+        "matchCommandLine": true
+      },
+      "/^node -e 'const fs=require\\(\"fs\"\\),cp=require\\(\"child_process\"\\); const pkgs=\\[\"package\\.json\",\"packages/react/package\\.json\"\\]; const deps=\\[\\.\\.\\.new Set\\(pkgs\\.flatMap\\(p=>\\{const x=JSON\\.parse\\(fs\\.readFileSync\\(p\\)\\); return Object\\.keys\\(\\{\\.\\.\\.x\\.dependencies,\\.\\.\\.x\\.devDependencies,\\.\\.\\.x\\.peerDependencies\\}\\)\\}\\)\\)\\]; for\\(const dep of deps\\)\\{const r=cp\\.spawnSync\\(\"rg\",\\[\"--fixed-strings\",\"--files-with-matches\",\"--hidden\",\"--glob\",\"!\\*\\*/node_modules/\\*\\*\",\"--glob\",\"!storybook-static/\\*\\*\",\"--glob\",\"!\\*\\*/dist/\\*\\*\",\"--glob\",\"!package-lock\\.json\",\"--glob\",\"!\\*\\*/package\\.json\",\"--glob\",\"!\\.git/\\*\\*\",\"--\",dep,\"\\.\"\\],\\{encoding:\"utf8\"\\}\\); console\\.log\\(`\\$\\{dep\\}: \\$\\{r\\.stdout\\.trim\\(\\)\\.split\\(\"\\\\n\"\\)\\.filter\\(Boolean\\)\\.join\\(\", \"\\) \\|\\| \"\\(no literal matches\\)\"\\}`\\)\\}'$/": {
+        "approve": true,
+        "matchCommandLine": true
+      }
+    }
   }
 }
