@@ -27,10 +27,6 @@
     "url": "git+https://github.com/miljodir/component-library"
   },
   "devDependencies": {
-<<<<<<< HEAD
-=======
-    "@ariakit/react": "^0.4.41",
->>>>>>> origin/main
     "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.29.0",
     "@babel/preset-flow": "^7.27.1",
@@ -59,11 +55,6 @@
     "eslint-plugin-storybook": "^10.6.3",
     "eslint-plugin-unused-imports": "^4.4.1",
     "globals": "^17.13.0",
-<<<<<<< HEAD
-=======
-    "jsdom": "^30.1.3",
-    "material-symbols": "^0.47.6",
->>>>>>> origin/main
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "storybook": "^10.6.3",
