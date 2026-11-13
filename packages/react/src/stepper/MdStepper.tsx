@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useId } from 'react';
 import MdIconCheck from '../icons-material/MdIconCheck';
 
-export interface MdStepperProps {
+export interface MdStepperProps extends React.HTMLAttributes<HTMLDivElement> {
   activeStep: number;
   scrollToActiveStep?: boolean;
   children: React.ReactNode;
@@ -13,6 +13,8 @@ export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
   activeStep,
   children,
   scrollToActiveStep = false,
+  className = '',
+  ...otherProps
 }: MdStepperProps) => {
   const stepperId = `stepper_${useId()}`;
   const firstUpdate = useRef(true);
@@ -28,7 +30,7 @@ export const MdStepper: React.FunctionComponent<MdStepperProps> = ({
   }, [activeStep, stepperId, scrollToActiveStep]);
 
   return (
-    <div className="md-stepper__stepper-container">
+    <div className={`md-stepper__stepper-container ${className}`} {...otherProps}>
       <div className="md-stepper__stepper-list">
         {React.Children.map(children, (item, index) => {
           if (!React.isValidElement<{ title: string; completedContent?: React.ReactNode }>(item)) {
