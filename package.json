@@ -32,7 +32,7 @@
     "@babel/plugin-syntax-flow": "^7.28.6",
     "@babel/preset-env": "^7.29.0",
     "@babel/preset-flow": "^7.27.1",
-    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-react": "^8.0.1",
     "@babel/preset-typescript": "^7.28.5",
     "@chromatic-com/storybook": "^5.6.0",
     "@eslint/compat": "^2.1.1",
