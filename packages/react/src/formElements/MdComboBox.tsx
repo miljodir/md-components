@@ -96,6 +96,7 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
     const [afterWidth, setAfterWidth] = useState(0);
     const afterRef = useRef<HTMLDivElement>(null);
     const store = Ariakit.useComboboxStore();
+    const currentPlacement = Ariakit.useStoreState(store, 'currentPlacement');
 
     const defaultLabels: Required<Labels> = {
       helpTextFor: 'Hjelpetekst for',
@@ -322,7 +323,9 @@ const MdComboBox = React.forwardRef<HTMLInputElement, MdComboBoxProps>(
             slide={false}
             gutter={-1}
             flip={flip}
-            className="md-combobox__popover"
+            className={`md-combobox__popover ${flip ? 'md-combobox__popover--flip' : ''} ${
+              flip && currentPlacement.startsWith('top') ? 'md-combobox__popover--flipped' : ''
+            }`}
             aria-busy={isPending}
             style={{ maxHeight: dropdownHeight && `${dropdownHeight}px` }}
             onClose={() => {
