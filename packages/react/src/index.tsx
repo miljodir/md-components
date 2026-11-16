@@ -171,6 +171,18 @@ import MdPagination, { type MdPaginationProps } from './pagination/MdPagination'
 import MdSkipToMainContent, { type MdSkipToMainContentProps } from './skipToMainContent/MdSkipToMainContent';
 import MdStep, { type MdStepProps } from './stepper/MdStep';
 import MdStepper, { type MdStepperProps } from './stepper/MdStepper';
+import MdTable, { type MdTableProps } from './table/MdTable';
+import MdTableBody, { type MdTableBodyProps } from './table/MdTableBody';
+import MdTableCaption, { type MdTableCaptionProps } from './table/MdTableCaption';
+import MdTableCell, { type MdTableCellProps } from './table/MdTableCell';
+import MdTableContainer, { type MdTableContainerProps } from './table/MdTableContainer';
+import MdTableHead, { type MdTableHeadProps } from './table/MdTableHead';
+import MdTableHeaderCell, {
+  type MdTableHeaderCellProps,
+  type MdTableHeaderCellSorting,
+  type MdTableSortDirection,
+} from './table/MdTableHeaderCell';
+import MdTableRow, { type MdTableRowProps } from './table/MdTableRow';
 import MdTab, { type MdTabProps } from './tabs/MdTab';
 import MdTabTitle, { type MdTabTitleProps } from './tabs/MdTabTitle';
 import MdTabs, { type MdTabsProps } from './tabs/MdTabs';
@@ -363,6 +375,24 @@ export {
   MdTagProps,
   MdPagination,
   MdPaginationProps,
+  MdTable,
+  MdTableProps,
+  MdTableCaption,
+  MdTableCaptionProps,
+  MdTableHead,
+  MdTableHeadProps,
+  MdTableBody,
+  MdTableBodyProps,
+  MdTableRow,
+  MdTableRowProps,
+  MdTableHeaderCell,
+  MdTableHeaderCellProps,
+  MdTableHeaderCellSorting,
+  MdTableSortDirection,
+  MdTableCell,
+  MdTableCellProps,
+  MdTableContainer,
+  MdTableContainerProps,
 
   // Material icons
   MdIconAccountCircle,

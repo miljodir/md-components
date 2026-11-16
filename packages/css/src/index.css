@@ -32,6 +32,7 @@
 @import './pagination/pagination.css';
 @import './skipToMainContent/skipToMainContent.css';
 @import './stepper/stepper.css';
+@import './table/table.css';
 @import './tabs/tabs.css';
 @import './tile/tile.css';
 @import './toggle/toggle.css';
