@@ -32,7 +32,7 @@
   .md-stepper__stepper-list
   .md-stepper__stepper-list-item
   .md-stepper__step-title
-  h4.md-stepper__disabled {
+  .md-stepper__disabled {
   color: var(--md-color-disabled-default);
 }
 
