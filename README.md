@@ -173,7 +173,7 @@ Velg label ut fra hva endringen betyr for dem som bruker pakkene, ikke hvor stor
 Byggverktøy som `typescript` og endringer i `tsconfig` er devDependencies, men påvirker publisert `dist`.
 Bruk `patch` hvis byggeoutputen endres, ellers `skip-release`.
 
-For avhengigheter med versjon 0.x (f.eks. `@ariakit/react` og `material-symbols`) kan en minor-oppdatering være en breaking change.
+For avhengigheter med versjon 0.x (f.eks. `@ariakit/react`) kan en minor-oppdatering være en breaking change.
 Les changelogen for disse også når de kommer i en gruppert PR.
 
 #### Dependabot
