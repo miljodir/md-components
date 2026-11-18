@@ -21,8 +21,7 @@
   },
   "dependencies": {
     "@ariakit/react": "^0.4.41",
-    "classnames": "^2.5.1",
-    "material-symbols": "^0.47.6"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.2",
