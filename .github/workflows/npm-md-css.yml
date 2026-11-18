@@ -1,4 +1,4 @@
-name: Bump and publish md-css to npm
+name: Bump and stage md-css on npm
 
 on:
   workflow_dispatch:
@@ -23,10 +23,13 @@ on:
 
 jobs:
   bump:
-    name: Bump, build & publish md-css
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    name: Bump & stage md-css
+    if: (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') || github.event.pull_request.merged == true
+    concurrency:
+      group: npm-stage-md-css
+      cancel-in-progress: false
     permissions:
-      contents: write
+      contents: read
     defaults:
       run:
         working-directory: ./packages/css
@@ -56,38 +59,44 @@ jobs:
           elif echo "$PR_LABELS" | grep -q '"patch"'; then
             echo "type=patch" >> $GITHUB_OUTPUT
           else
-            echo "No major, minor or patch label (e.g. skip-release), skipping publish"
+            echo "No major, minor or patch label (e.g. skip-release), skipping staging"
             echo "type=skip" >> $GITHUB_OUTPUT
           fi
 
       - name: Apply version bump
         if: steps.bump.outputs.type != 'skip'
         run: |
-          LATEST=$(npm view @miljodirektoratet/md-css version 2>/dev/null || echo "0.0.0")
-          npm version $LATEST --no-git-tag-version --allow-same-version
-          npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
-
-      - name: Output version
-        if: steps.bump.outputs.type != 'skip'
-        run: echo "PKG_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo "::error::Inspect existing npm staging, then use Run workflow on main instead of Re-run jobs."
+            exit 1
+          fi
+          npm stage list @miljodirektoratet/md-css --json --workspaces=false > "$RUNNER_TEMP/npm-stages.json"
+          node -e 'const stages = require(process.env.RUNNER_TEMP + "/npm-stages.json"); if (!Array.isArray(stages) || stages.length) { console.error("Approve or reject pending staging before starting a new run:", stages); process.exit(1); }'
+          LATEST=$(npm view @miljodirektoratet/md-css version)
+          npm version "$LATEST" --no-git-tag-version --allow-same-version
+          npm version "$VERSION_BUMP" --no-git-tag-version
+          echo "PKG_VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
+        env:
+          VERSION_BUMP: ${{ steps.bump.outputs.type }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_STAGE_TOKEN }}
 
       - name: Install dependencies
         if: steps.bump.outputs.type != 'skip'
         run: npm install
 
-      - name: Publish to npm
+      - name: Stage package on npm
         if: steps.bump.outputs.type != 'skip'
-        run: npm publish --access public
+        run: |
+          npm stage publish --access public --workspaces=false > "$RUNNER_TEMP/npm-stage.txt"
+          cat "$RUNNER_TEMP/npm-stage.txt"
+          {
+            echo "## Awaiting npm approval"
+            echo "Package: md-css@$PKG_VERSION"
+            echo "Source commit: $(git rev-parse HEAD)"
+            echo '```text'
+            cat "$RUNNER_TEMP/npm-stage.txt"
+            echo '```'
+            echo "Approve on npm with 2FA, then run Finalize approved npm release with this package, version and source commit."
+          } >> "$GITHUB_STEP_SUMMARY"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create GitHub Release
-        if: steps.bump.outputs.type != 'skip'
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v2.2.1
-        with:
-          tag_name: md-css@${{ env.PKG_VERSION }}
-          name: md-css ${{ env.PKG_VERSION }}
-          make_latest: true
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_STAGE_TOKEN }}
