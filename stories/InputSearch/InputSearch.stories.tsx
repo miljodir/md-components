@@ -170,7 +170,7 @@ Search.args = {
   helpText: '',
   supportText: '',
   outerWrapperClass: '',
-  placeholder: 'Placeholder ...',
+  placeholder: '',
   className: '',
   button: true,
 };

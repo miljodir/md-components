@@ -190,6 +190,6 @@ TextArea.args = {
   errorText: '',
   helpText: '',
   outerWrapperClass: '',
-  placeholder: 'Placeholder...',
+  placeholder: '',
   rows: 10,
 };
