@@ -57,6 +57,11 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    className: {
+      type: { name: 'string' },
+      description: 'Additional CSS class names applied to the stepper container.',
+      control: { type: 'text' },
+    },
     children: {
       type: { name: 'ReactNode' },
       description: 'The steps in the stepper. Must be MdStep components.',
@@ -129,7 +134,11 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
 
   return (
     <>
-      <MdStepper activeStep={args.activeStep} scrollToActiveStep={args.scrollToActiveStep}>
+      <MdStepper
+        activeStep={args.activeStep}
+        scrollToActiveStep={args.scrollToActiveStep}
+        className={args.className}
+      >
         <MdStep
           style={fontStyle}
           title="Step 1"
@@ -182,4 +191,5 @@ export const Stepper: StoryFn<typeof MdStepper> = (args: Args) => {
 Stepper.args = {
   activeStep: 1,
   scrollToActiveStep: false,
+  className: '',
 };

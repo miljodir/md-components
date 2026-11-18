@@ -39,6 +39,18 @@ describe('MdStepper', () => {
       );
       expect(screen.getByText('First step content')).toBeInTheDocument();
     });
+
+    it('forwards custom attributes and merges custom class names on the container', () => {
+      const { container } = render(
+        <MdStepper activeStep={0} className="foo bar" data-testid="custom-stepper">
+          <MdStep title="Step 1">Content 1</MdStep>
+        </MdStepper>,
+      );
+
+      const stepper = screen.getByTestId('custom-stepper');
+      expect(stepper).toHaveClass('md-stepper__stepper-container', 'foo', 'bar');
+      expect(container.querySelector('.md-stepper__stepper-list')).toBeInTheDocument();
+    });
   });
 
   describe('active step', () => {
