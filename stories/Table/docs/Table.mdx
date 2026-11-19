@@ -1,0 +1,65 @@
+Table is a set of atomic components for displaying structured data in rows and columns. The components render native HTML table elements with Miljødirektoratet styling, so they can be composed freely and keep the built-in semantics and accessibility of a regular HTML table.
+
+The set consists of `MdTableContainer`, `MdTable`, `MdTableCaption`, `MdTableHead`, `MdTableBody`, `MdTableRow`, `MdTableHeaderCell` and `MdTableCell`. All components forward native HTML attributes, such as `className`, `colSpan`, `rowSpan` and `scope`.
+
+## Borders
+
+- `bordered` on `MdTable` (default `true`) adds a border around the table
+- `bordered` on `MdTableRow` (default `true`) adds a bottom border to that row
+- `bordered` on `MdTableCell` or `MdTableHeaderCell` (default `false`) adds borders to that cell
+
+## Alignment
+
+Use `alignment` on `MdTableCell` or `MdTableHeaderCell` to set text alignment to `left` (default), `center` or `right`. Right align numeric columns, including their header, so numbers line up.
+
+## Sorting
+
+Pass `sorting={{ direction, onSort }}` to a column header (`MdTableHeaderCell` with `scope="col"`) to make it sortable. Sorting is controlled: the header renders a button and an icon, sets `aria-sort` and calls `onSort` when activated. The parent is responsible for sorting the data and updating `direction` (`ascending`, `descending` or `none` for sortable columns that are not currently sorted).
+
+## Horizontal scrolling
+
+Wrap `MdTable` in `MdTableContainer` with `horizontalScroll` to make it scroll horizontally when the table is wider than the available space. The container then becomes a keyboard focusable region so it can be scrolled with the arrow keys. Always give it an accessible name, for example `aria-labelledby` pointing to the `id` of `MdTableCaption`.
+
+```tsx
+<MdTableContainer horizontalScroll aria-labelledby="caption-id">
+  <MdTable>
+    <MdTableCaption id="caption-id">Fylker</MdTableCaption>
+    ...
+  </MdTable>
+</MdTableContainer>
+```
+
+## Use Table to:
+
+- present data that the user needs to compare across rows and columns
+- display structured information with a consistent set of attributes per row
+
+**Avoid Table when:**
+
+- the content is used for layout purposes
+- you only need to display label/value pairs – use DescriptionList instead
+
+## Accessibility
+
+- Add an `MdTableCaption` as the first child of `MdTable` describing the content of the table
+- Use `MdTableHeaderCell` with `scope="col"` for column headers and `scope="row"` for row headers
+
+<p style={{ textAlign: 'right', marginTop: '0.75rem', marginBottom: 0 }}>
+  <a
+    href="https://github.com/miljodir/md-components/edit/main/stories/Table/docs/Table.mdx"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Edit this documentation on GitHub"
+    style={{ display: 'inline-flex', alignItems: 'center', opacity: 0.55, textDecoration: 'none' }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -960 960 960"
+      fill="currentColor"
+      color="#005e5d"
+      style={{ width: '16px', height: '16px' }}
+    >
+      <path d="M216-216h44.46l393.46-393.46-44.46-44.46L216-260.46V-216Zm-52 52v-118.38l534-535.54 120.31 118.77L282.38-164H164Zm580-534.77L698.77-744 744-698.77ZM631.3-631.3l-21.84-22.62 44.46 44.46-22.62-21.84Z"></path>
+    </svg>
+  </a>
+</p>
