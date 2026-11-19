@@ -1,0 +1,61 @@
+name: Finalize approved npm release
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Approved package'
+        type: choice
+        options:
+          - md-react
+          - md-css
+        required: true
+      version:
+        description: 'Approved npm version from the staging summary'
+        type: string
+        required: true
+      source_commit:
+        description: 'Full source commit SHA from the staging summary'
+        type: string
+        required: true
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: npm-finalize-${{ inputs.package }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Verify npm publication and create GitHub Release
+        env:
+          PACKAGE: ${{ inputs.package }}
+          VERSION: ${{ inputs.version }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [[ "$PACKAGE" =~ ^md-(react|css)$ ]] || { echo "::error::Invalid package"; exit 1; }
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Invalid version"; exit 1; }
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]] || { echo "::error::Invalid source commit"; exit 1; }
+          git merge-base --is-ancestor "$SOURCE_COMMIT" origin/main
+          PUBLISHED=$(npm view "@miljodirektoratet/$PACKAGE@$VERSION" version --registry=https://registry.npmjs.org/)
+          [ "$PUBLISHED" = "$VERSION" ] || { echo "::error::Version is not published on npm"; exit 1; }
+          TAG="$PACKAGE@$VERSION"
+          if git show-ref --verify --quiet "refs/tags/$TAG"; then
+            [ "$(git rev-parse "$TAG^{commit}")" = "$SOURCE_COMMIT" ] || { echo "::error::Existing tag points to another commit"; exit 1; }
+          fi
+          if gh release view "$TAG" --json isDraft --jq '.isDraft' > "$RUNNER_TEMP/release-draft.txt"; then
+            [ "$(cat "$RUNNER_TEMP/release-draft.txt")" = "false" ] || { echo "::error::Existing release is a draft; inspect it manually"; exit 1; }
+            echo "Release already exists: $TAG"
+          else
+            gh release create "$TAG" --target "$SOURCE_COMMIT" --title "$PACKAGE $VERSION" --generate-notes
+          fi
