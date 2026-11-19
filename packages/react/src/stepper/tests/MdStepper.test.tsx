@@ -39,6 +39,18 @@ describe('MdStepper', () => {
       );
       expect(screen.getByText('First step content')).toBeInTheDocument();
     });
+
+    it('forwards custom attributes and merges custom class names on the container', () => {
+      const { container } = render(
+        <MdStepper activeStep={0} className="foo bar" data-testid="custom-stepper">
+          <MdStep title="Step 1">Content 1</MdStep>
+        </MdStepper>,
+      );
+
+      const stepper = screen.getByTestId('custom-stepper');
+      expect(stepper).toHaveClass('md-stepper__stepper-container', 'foo', 'bar');
+      expect(container.querySelector('.md-stepper__stepper-list')).toBeInTheDocument();
+    });
   });
 
   describe('active step', () => {
@@ -50,7 +62,7 @@ describe('MdStepper', () => {
         </MdStepper>,
       );
       expect(container.querySelector('.md-stepper__selected')).toBeInTheDocument();
-      expect(screen.getByText('Step 1').closest('h4')).toHaveClass('md-stepper__selected');
+      expect(screen.getByText('Step 1')).toHaveClass('md-stepper__selected');
     });
 
     it('marks second step as active when activeStep is 1', () => {
@@ -60,7 +72,7 @@ describe('MdStepper', () => {
           <MdStep title="Step 2">Content 2</MdStep>
         </MdStepper>,
       );
-      expect(screen.getByText('Step 2').closest('h4')).toHaveClass('md-stepper__selected');
+      expect(screen.getByText('Step 2')).toHaveClass('md-stepper__selected');
     });
   });
 
@@ -73,9 +85,9 @@ describe('MdStepper', () => {
           <MdStep title="Step 3">Content 3</MdStep>
         </MdStepper>,
       );
-      expect(screen.getByText('Step 1').closest('h4')).toHaveClass('md-stepper__completed');
-      expect(screen.getByText('Step 2').closest('h4')).toHaveClass('md-stepper__completed');
-      expect(screen.getByText('Step 3').closest('h4')).toHaveClass('md-stepper__selected');
+      expect(screen.getByText('Step 1')).toHaveClass('md-stepper__completed');
+      expect(screen.getByText('Step 2')).toHaveClass('md-stepper__completed');
+      expect(screen.getByText('Step 3')).toHaveClass('md-stepper__selected');
     });
 
     it('shows check icon for completed steps', () => {
@@ -110,8 +122,8 @@ describe('MdStepper', () => {
           <MdStep title="Step 3">Content 3</MdStep>
         </MdStepper>,
       );
-      expect(screen.getByText('Step 2').closest('h4')).toHaveClass('md-stepper__disabled');
-      expect(screen.getByText('Step 3').closest('h4')).toHaveClass('md-stepper__disabled');
+      expect(screen.getByText('Step 2')).toHaveClass('md-stepper__disabled');
+      expect(screen.getByText('Step 3')).toHaveClass('md-stepper__disabled');
     });
 
     it('shows step number for disabled steps', () => {

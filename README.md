@@ -190,30 +190,24 @@ For å støtte rammeverk som bruker Server Components, som f.eks. Next.js, legge
 
 ### Releases
 
-Releases opprettes automatisk når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`.
+Pakker stages automatisk for npm når en PR merges til `main` med endringer i `packages/css` eller `packages/react`, med mindre PR-en har labelen `skip-release`. En maintainer må godkjenne hver staged pakke med 2FA før den publiseres.
 
 Når en PR merges:
 
-1. Den berørte pakken bumpes basert på PR-labelen (`major`, `minor` eller `patch`).
-2. React-pakken bygges hvis den er berørt, og pakken publiseres direkte til npm med `NPM_TOKEN`.
-3. Når npm-publiseringen lykkes, opprettes en Git-tag (f.eks. `md-react@1.2.3` eller `md-css@2.0.0`).
-4. En GitHub Release opprettes automatisk med auto-genererte release notes.
+1. Workflowen kontrollerer at pakken ikke har en ventende staging. Pakken bumpes fra siste publiserte npm-versjon basert på PR-labelen (`major`, `minor` eller `patch`).
+2. React-pakken bygges hvis den er berørt. `npm stage publish` laster opp pakken med `NPM_STAGE_TOKEN`, uten å gjøre den offentlig.
+3. En npm-maintainer kontrollerer pakken under **Staged Packages** på npmjs.com og velger **Approve** med interaktiv 2FA. Godkjenningen publiserer den ferdigbygde pakken, uten ny bygging eller opplasting.
+4. Start **Finalize approved npm release** fra GitHub Actions på `main`. Oppgi pakke, versjon og full kildecommit fra staging-kjøringens oppsummering. Kontroller at disse gjelder pakken du godkjente. Workflowen sjekker at versjonen finnes på npm og oppretter Git-tag og GitHub Release med auto-genererte release notes på den oppgitte kildecommiten.
 
-Hvis begge pakkene er berørt, kjøres flyten separat for hver pakke. Det er ingen staging eller manuell npm-godkjenning i denne flyten.
+Hvis begge pakkene er berørt, stages, godkjennes og sluttføres de separat. Oppsummeringen fra staging-kjøringen viser pakkenavn, versjon, stage-ID og kildecommit.
 
 Alle releases finnes i [GitHub Releases](https://github.com/miljodir/md-components/releases).
 
-#### Midlertidig tokenbasert publisering
-
-Workflowene bruker `npm publish` med `NPM_TOKEN` fra GitHub Actions secrets. Secreten må inneholde en gyldig granular npm access token med **Read and write (publish and stage)** for begge pakkene og **Bypass two-factor authentication** aktivert. Pakkenes **Publishing access** må tillate granular tokens med 2FA-bypass. At secreten finnes, bekrefter ikke at tokenet har disse rettighetene eller fortsatt er gyldig. Begrens tokenet til disse pakkene, velg kort utløpstid og roter det ved behov. Tokenverdien skal aldri legges i repoet.
-
-Dette er en midlertidig løsning fordi npm foreløpig ikke støtter enterprise-issueren vår for Trusted Publishing. npm har varslet at direkte publisering med 2FA-bypass tokens skal fjernes rundt januar 2027. Migrer før dette til støttet Trusted Publishing eller tokenbasert staging med manuell 2FA-godkjenning. Ingen automatisk overgang er konfigurert. Se [npm sin kunngjøring](https://github.blog/changelog/2026-07-08-npm-install-time-security-and-gat-bypass2fa-deprecation/) og [oppretting av granular tokens](https://docs.npmjs.com/creating-and-viewing-access-tokens/#creating-granular-access-tokens-on-the-website).
-
-Etter at workflowendringer er merget til `main`, kan en manglende release publiseres fra GitHub Actions ved å velge riktig publiseringsworkflow, **Run workflow**, branch `main` og ønsket `version_bump` (f.eks. `patch`). `skip` publiserer ikke. Start en ny kjøring etter workflowendringer; en omkjøring av en gammel kjøring bruker den gamle workflowdefinisjonen.
+En ventende staging må godkjennes eller avvises før neste versjon kan stages. For et nytt forsøk eller merges som ble blokkert mens staging ventet, bruk **Run workflow** på `main` med en bump som dekker endringene, ikke **Re-run jobs**. `skip` stages ikke. Se [npm staged publishing](https://docs.npmjs.com/staged-publishing/) for godkjenning og avvisning.
 
 ### Breaking changes
 
-Ved breaking changes (major versjon), rediger den auto-genererte releasen i [GitHub Releases](https://github.com/miljodir/md-components/releases) etter at PR-en er merget. Legg til en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen. Bruk gjerne en overskrift `## Highlighted changes` øverst for viktige endringer.
+Ved breaking changes (major versjon), rediger den auto-genererte releasen i [GitHub Releases](https://github.com/miljodir/md-components/releases) etter at npm-publiseringen er godkjent og releasen er sluttført. Legg til en god forklaring av hva som er endret, og hva som er nødvendig å endre i eksisterende kode for å oppgradere til versjonen. Bruk gjerne en overskrift `## Highlighted changes` øverst for viktige endringer.
 
 Eksempel [her](https://github.com/miljodir/md-components/releases/tag/v3.0.0). Kommenter også (hvis relevant) selve koden med hva som er endret, eks:
 
