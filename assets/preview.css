@@ -1,0 +1,21 @@
+.preview-wrapper {
+  max-width: 960px;
+  margin: 30px;
+}
+
+@media (max-width: 768px) {
+  .preview-wrapper {
+    max-width: 100%;
+    margin: 15px;
+  }
+}
+
+/* Global style overrides */
+h1, h2, h3, h4 {
+  font-family: 'SofiaPro-Bold' !important;
+}
+
+/* Getting started page */
+.gs-wrapper {
+  font-family: 'SofiaPro-Medium' !important;
+}
