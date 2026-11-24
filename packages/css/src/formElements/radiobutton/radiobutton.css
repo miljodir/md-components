@@ -42,13 +42,13 @@
   width: 1.45rem;
   flex-shrink: 0;
   height: 1.45rem;
-  display: block;
+  display: grid;
+  place-items: center;
   background-color: var(--md-color-background-primary);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-radius-half);
   margin: 0;
   box-sizing: border-box;
-  position: relative;
   cursor: pointer;
 }
 
@@ -72,12 +72,6 @@
   display: block;
   background-color: var(--md-color-cta-primary-default);
   border-radius: var(--md-radius-half);
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   opacity: 0;
   animation: fadeIn 0.3s ease-out 1 forwards;
 }
