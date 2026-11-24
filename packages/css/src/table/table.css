@@ -37,7 +37,7 @@
 }
 
 .md-table__head .md-table__row--bordered {
-  border-bottom: 2px solid var(--md-color-border-tertiary);
+  border-bottom: 1px solid var(--md-color-border-primary);
 }
 
 .md-table--striped .md-table__body .md-table__row:nth-child(even) {
@@ -54,7 +54,7 @@
 }
 
 .md-table__head .md-table__header-cell--bordered {
-  border-color: var(--md-color-border-tertiary);
+  border-color: var(--md-color-border-primary);
 }
 
 .md-table__header-cell,
@@ -83,6 +83,10 @@
 
 .md-table__head .md-table__header-cell {
   background-color: var(--md-color-surface-primary-tinted);
+
+  &:hover {
+    background-color: var(--md-color-surface-primary-hover);
+  }
 }
 
 .md-table__body .md-table__header-cell {
