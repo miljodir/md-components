@@ -18,6 +18,7 @@
 
 .md-radiobutton input[type='radio'] {
   position: absolute;
+  top: 0;
   left: 0;
   margin: 0;
   width: 100%;
@@ -28,8 +29,10 @@
 
 .md-radiobutton__label {
   color: var(--md-color-text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--md-size-8);
 }
-
 .md-radiobutton__label:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -43,9 +46,10 @@
   background-color: var(--md-color-background-primary);
   border: 1px solid var(--md-color-border-primary);
   border-radius: var(--md-radius-half);
-  margin: 0 var(--md-size-8) 0 0;
+  margin: 0;
   box-sizing: border-box;
   position: relative;
+  cursor: pointer;
 }
 
 .md-radiobutton__check-area:has(> .md-radiobutton__selected-dot) {

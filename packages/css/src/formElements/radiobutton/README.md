@@ -7,10 +7,7 @@ Class names in brackets [] are optional-/togglable-/decorator- or state dependan
 See [Storybook](https://miljodir.github.io/md-components) for examples and more info.
 
 ```html
-<div class="md-radiobutton [md-checkbox--disabled]">
-  <span class="md-radiobutton__check-area">
-    <span class="md-radiobutton__selected-dot" />
-  </span>
+<div class="md-radiobutton [md-radiobutton--disabled]">
   <input
     id="{radioGroupId}"
     type="radio"
@@ -19,6 +16,11 @@ See [Storybook](https://miljodir.github.io/md-components) for examples and more 
     disabled="{disabled}"
     {...otherProps}
   />
-  <label>{label}</label>
+  <label class="md-radiobutton__label" for="{radioGroupId}">
+    <span class="md-radiobutton__check-area">
+      <span class="md-radiobutton__selected-dot" />
+    </span>
+    {label}
+  </label>
 </div>
 ```

@@ -59,6 +59,16 @@ describe('MdRadioButton', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     });
 
+    it('checks the radio when clicking the check area', async () => {
+      const user = userEvent.setup();
+      const onChange = vi.fn();
+      const { container } = render(<MdRadioButton label="Option 1" onChange={onChange} />);
+
+      await user.click(container.querySelector('.md-radiobutton__check-area')!);
+
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
     it('does not fire change when disabled', async () => {
       const user = userEvent.setup();
       const onChange = vi.fn();

@@ -28,7 +28,6 @@ export const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
 
   return (
     <div className={classNames}>
-      <span className="md-radiobutton__check-area">{checked && <span className="md-radiobutton__selected-dot" />}</span>
       <input
         id={radioGroupId}
         type="radio"
@@ -38,6 +37,9 @@ export const MdRadioButton: React.FunctionComponent<MdRadioButtonProps> = ({
         {...otherProps}
       />
       <label className="md-radiobutton__label" htmlFor={radioGroupId}>
+        <span className="md-radiobutton__check-area">
+          {checked && <span className="md-radiobutton__selected-dot" />}
+        </span>
         {label && label !== '' && label}
       </label>
     </div>
