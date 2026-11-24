@@ -72,7 +72,7 @@ A sortable column header wraps its content in a button with an icon. Set `aria-s
 <th class="md-table__header-cell" scope="col" [aria-sort="ascending|descending"]>
   <button type="button" class="md-table__sort-button">
     Header
-    <svg class="md-table__sort-icon" aria-hidden="true">...</svg>
+    <svg class="md-table__sort-icon [md-table__sort-icon--unsorted]" aria-hidden="true">...</svg>
   </button>
 </th>
 ```

@@ -60,7 +60,12 @@ export const MdTableHeaderCell: React.FC<MdTableHeaderCellProps> = ({
     <th className={classNames} {...otherProps} aria-sort={sorting.direction === 'none' ? undefined : sorting.direction}>
       <button type="button" className="md-table__sort-button" onClick={sorting.onSort}>
         {children}
-        <SortIcon className="md-table__sort-icon" aria-hidden="true" />
+        <SortIcon
+          className={classnames('md-table__sort-icon', {
+            'md-table__sort-icon--unsorted': sorting.direction === 'none',
+          })}
+          aria-hidden="true"
+        />
       </button>
     </th>
   );

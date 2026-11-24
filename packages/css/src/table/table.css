@@ -139,6 +139,14 @@
   height: var(--md-size-20);
 }
 
+.md-table__sort-icon--unsorted {
+  color: var(--md-color-text-secondary);
+}
+
+.md-table--secondary .md-table__sort-icon--unsorted {
+  color: inherit;
+}
+
 .md-table__cell {
   vertical-align: top;
 }
