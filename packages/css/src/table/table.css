@@ -94,7 +94,7 @@
 }
 
 .md-table--secondary .md-table__head .md-table__header-cell {
-  background-color: var(--md-color-surface-grey);
+  background-color: var(--md-color-surface-white);
 }
 
 .md-table--secondary .md-table__head .md-table__row--bordered {
